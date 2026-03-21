@@ -1,1931 +1,2949 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="km">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YOB Digital — AI & Digital Skills for Cambodia</title>
-  <meta name="description" content="YOB Digital — AI Tools, Digital Marketing, E-commerce training for Cambodian entrepreneurs and SMEs." />
-  <meta property="og:title"       content="YOB Digital — AI &amp; Digital Skills for Cambodia" />
-  <meta property="og:description" content="YOB Digital បង្រៀន AI Tools, Digital Marketing, E-commerce ជួយ MSMEs ខ្មែរ!" />
-  <meta property="og:image"       content="https://yobdigital.netlify.app/images/og-cover.jpg" />
-  <meta property="og:url"         content="https://yobdigital.netlify.app" />
-  <meta property="og:type"        content="website" />
-  <meta name="twitter:card"       content="summary_large_image" />
-  <link rel="canonical"           href="https://yobdigital.netlify.app" />
-  <link rel="icon"                type="image/png" href="images/favicon.png" />
-  <link rel="apple-touch-icon"    href="images/favicon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOB Digital — AI & Digital Skills for Cambodia</title>
+    <meta
+      name="description"
+      content="YOB Digital — AI Tools, Digital Marketing, E-commerce training for Cambodian entrepreneurs and SMEs."
+    />
+    <meta
+      property="og:title"
+      content="YOB Digital — AI &amp; Digital Skills for Cambodia"
+    />
+    <meta
+      property="og:description"
+      content="YOB Digital បង្រៀន AI Tools, Digital Marketing, E-commerce ជួយ MSMEs ខ្មែរ!"
+    />
+    <meta
+      property="og:image"
+      content="https://yobdigital.netlify.app/images/og-cover.jpg"
+    />
+    <meta property="og:url" content="https://yobdigital.netlify.app" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://yobdigital.netlify.app" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-  <style>
-    /* ═══════════════════════════
+    <style>
+      /* ═══════════════════════════
        VARIABLES & TOKENS
     ═══════════════════════════ */
-    :root {
-      --black:   #000000;
-      --dark:    #0A0A0A;
-      --dark2:   #151515;
-      --dark3:   #1f1f1f;
-      --border:  rgba(255, 255, 255, 0.1);
-      --gray:    #a0a0a0;
-      --white:   #FFFFFF;
-      --gold:    #e52c67;
-      --gold-glow: rgba(229, 44, 103, 0.2);
-      
-      --fh: 'Bebas Neue', 'Hanuman', serif;
-      --fk: 'Hanuman', serif;
-      --fb: 'DM Sans', sans-serif;
+      :root {
+        --black: #000000;
+        --dark: #0a0a0a;
+        --dark2: #151515;
+        --dark3: #1f1f1f;
+        --border: rgba(255, 255, 255, 0.1);
+        --gray: #a0a0a0;
+        --white: #ffffff;
+        --gold: #e52c67;
+        --gold-glow: rgba(229, 44, 103, 0.2);
 
-      --max: 1200px;
-      --t: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      --smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* Smoother interaction curve */
-      --radius: 20px;
-      --radius-btn: 50px;
-    }
+        --fh: "Bebas Neue", "Hanuman", serif;
+        --fk: "Hanuman", serif;
+        --fb: "DM Sans", sans-serif;
 
-    /* ═══════════════════════════
+        --max: 1200px;
+        --t: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1); /* Smoother interaction curve */
+        --radius: 20px;
+        --radius-btn: 50px;
+      }
+
+      /* ═══════════════════════════
        RESET & BASE
     ═══════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; cursor: none; }
-    html { scroll-behavior: smooth; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        cursor: none;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
 
-    body {
-      background: var(--dark);
-      color: var(--white);
-      font-family: var(--fb);
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+      body {
+        background: var(--dark);
+        color: var(--white);
+        font-family: var(--fb);
+        font-size: 16px;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
 
-    a, button, input, textarea { cursor: none; }
+      a,
+      button,
+      input,
+      textarea {
+        cursor: none;
+      }
 
-    img { max-width: 100%; display: block; border-radius: var(--radius); }
+      img {
+        max-width: 100%;
+        display: block;
+        border-radius: var(--radius);
+      }
 
-    /* Custom Cursor (The Futur Style) */
-    .cursor-dot,
-    .cursor-outline {
-      position: fixed;
-      top: 0;
-      left: 0;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      z-index: 9999;
-      pointer-events: none;
-    }
-    .cursor-dot {
-      width: 8px;
-      height: 8px;
-      background-color: var(--gold);
-    }
-    .cursor-outline {
-      width: 40px;
-      height: 40px;
-      border: 2px solid rgba(229, 44, 103, 0.5);
-      transition: width 0.2s ease-out, height 0.2s ease-out, background-color 0.2s ease-out;
-    }
-    @media (max-width: 768px) {
-      .cursor-dot, .cursor-outline { display: none !important; }
-      *, *::before, *::after, a, button, input, textarea { cursor: auto !important; }
-    }
+      /* Custom Cursor (The Futur Style) */
+      .cursor-dot,
+      .cursor-outline {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 9999;
+        pointer-events: none;
+      }
+      .cursor-dot {
+        width: 8px;
+        height: 8px;
+        background-color: var(--gold);
+      }
+      .cursor-outline {
+        width: 40px;
+        height: 40px;
+        border: 2px solid rgba(229, 44, 103, 0.5);
+        transition:
+          width 0.2s ease-out,
+          height 0.2s ease-out,
+          background-color 0.2s ease-out;
+      }
+      @media (max-width: 768px) {
+        .cursor-dot,
+        .cursor-outline {
+          display: none !important;
+        }
+        *,
+        *::before,
+        *::after,
+        a,
+        button,
+        input,
+        textarea {
+          cursor: auto !important;
+        }
+      }
 
-    /* Creative Background Blobs */
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      z-index: -1;
-      opacity: 0.5;
-      animation: float 10s ease-in-out infinite alternate;
-    }
-    .blob-1 { top: -10%; left: -10%; width: 400px; height: 400px; background: var(--gold-glow); }
-    .blob-2 { top: 40%; right: -10%; width: 500px; height: 500px; background: rgba(229, 44, 103, 0.1); animation-delay: -5s; }
+      /* Creative Background Blobs */
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        z-index: -1;
+        opacity: 0.5;
+        animation: float 10s ease-in-out infinite alternate;
+      }
+      .blob-1 {
+        top: -10%;
+        left: -10%;
+        width: 400px;
+        height: 400px;
+        background: var(--gold-glow);
+      }
+      .blob-2 {
+        top: 40%;
+        right: -10%;
+        width: 500px;
+        height: 500px;
+        background: rgba(229, 44, 103, 0.1);
+        animation-delay: -5s;
+      }
 
-    @keyframes float {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(50px, 50px) scale(1.1); }
-    }
+      @keyframes float {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        100% {
+          transform: translate(50px, 50px) scale(1.1);
+        }
+      }
 
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 5%; position: relative; }
-    
-    .gold { color: var(--gold); }
-    .gradient-text {
-      background: linear-gradient(135deg, #ff6b9d, var(--gold));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+      .container {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 5%;
+        position: relative;
+      }
 
-    /* ═══════════════════════════
+      .gold {
+        color: var(--gold);
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #ff6b9d, var(--gold));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* ═══════════════════════════
        NAVBAR (FLOATING PILL CONCEPT)
     ═══════════════════════════ */
-    nav {
-      position: fixed;
-      top: 25px; /* ទម្លាក់ចុះពីលើបន្តិចឱ្យវាអណ្ដែត */
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 100;
-      background: rgba(20, 20, 20, 0.5); /* ផ្ទៃកញ្ចក់ថ្លាៗ */
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 50px; /* រាងគ្រាប់ថ្នាំ (Pill Shape) */
-      padding: 8px 12px 8px 24px;
-      display: flex;
-      align-items: center;
-      transition: all var(--smooth);
-      width: 90%;
-      max-width: 900px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    }
+      nav {
+        position: fixed;
+        top: 25px; /* ទម្លាក់ចុះពីលើបន្តិចឱ្យវាអណ្ដែត */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        background: rgba(20, 20, 20, 0.5); /* ផ្ទៃកញ្ចក់ថ្លាៗ */
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 50px; /* រាងគ្រាប់ថ្នាំ (Pill Shape) */
+        padding: 8px 12px 8px 24px;
+        display: flex;
+        align-items: center;
+        transition: all var(--smooth);
+        width: 90%;
+        max-width: 900px;
+        box-shadow:
+          0 10px 30px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
 
-    .nav-inner {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+      .nav-inner {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
 
-    .nav-logo {
-      font-family: var(--fh);
-      font-size: 24px;
-      letter-spacing: 1px;
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .nav-logo span { color: var(--gold); font-size: 30px; line-height: 0; }
+      .nav-logo {
+        font-family: var(--fh);
+        font-size: 24px;
+        letter-spacing: 1px;
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .nav-logo span {
+        color: var(--gold);
+        font-size: 30px;
+        line-height: 0;
+      }
 
-    .nav-links { display: flex; gap: 8px; list-style: none; align-items: center; }
-    
-    /* Clean Minimalist Hover (គ្មានបន្ទាត់ គ្មានអីញ៉េញ៉ៃ) */
-    .nav-links a { 
-      font-size: 14px; 
-      font-weight: 600; 
-      color: var(--gray); 
-      transition: color var(--smooth); 
-      padding: 8px 16px;
-    }
-    .nav-links a:hover { 
-      color: var(--gold); 
-    }
+      .nav-links {
+        display: flex;
+        gap: 8px;
+        list-style: none;
+        align-items: center;
+      }
 
-    .nav-cta {
-      background: var(--gold) !important;
-      color: var(--white) !important;
-      padding: 10px 24px !important;
-      border-radius: var(--radius-btn) !important;
-      font-weight: 700 !important;
-      box-shadow: 0 4px 15px var(--gold-glow);
-      margin-left: 10px;
-    }
-    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(229, 44, 103, 0.4); background: #ff4a85 !important; }
+      /* Modern Hover Effect with Underline Animation */
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--gray);
+        transition: all var(--smooth);
+        padding: 8px 16px;
+        position: relative;
+        display: inline-block;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          var(--gold),
+          rgba(229, 44, 103, 0.5)
+        );
+        background-clip: border-box;
+        -webkit-background-clip: border-box;
+        transition: width var(--smooth);
+      }
+      .nav-links a:hover {
+        color: var(--gold);
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
 
-    /* ═══════════════════════════
+      .nav-cta {
+        background: var(--gold) !important;
+        color: var(--white) !important;
+        padding: 10px 24px !important;
+        border-radius: var(--radius-btn) !important;
+        font-weight: 700 !important;
+        box-shadow: 0 4px 15px var(--gold-glow);
+        margin-left: 10px;
+      }
+      .nav-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(229, 44, 103, 0.4);
+        background: #ff4a85 !important;
+      }
+
+      /* ═══════════════════════════
        HERO
     ═══════════════════════════ */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      padding-top: 100px; /* បន្ថែម Space ខាងលើកុំឱ្យទើស Nav ថ្មី */
-    }
+      #hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding-top: 100px; /* បន្ថែម Space ខាងលើកុំឱ្យទើស Nav ថ្មី */
+      }
 
-    .hero-inner { text-align: center; max-width: 800px; margin: 0 auto; padding: 60px 0; }
+      .hero-inner {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 60px 0;
+      }
 
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      padding: 8px 20px;
-      border-radius: var(--radius-btn);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 30px;
-      backdrop-filter: blur(10px);
-    }
-    .hero-badge span { color: var(--gold); }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border);
+        padding: 8px 20px;
+        border-radius: var(--radius-btn);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 30px;
+        backdrop-filter: blur(10px);
+      }
+      .hero-badge span {
+        color: var(--gold);
+      }
 
-    .hero-headline {
-      font-family: var(--fh);
-      font-size: clamp(50px, 8vw, 110px);
-      line-height: 0.95;
-      margin-bottom: 24px;
-      letter-spacing: 1px;
-    }
+      .hero-headline {
+        font-family: var(--fh);
+        font-size: clamp(50px, 8vw, 110px);
+        line-height: 0.95;
+        margin-bottom: 24px;
+        letter-spacing: 1px;
+      }
 
-    .hero-sub {
-      font-family: var(--fk);
-      font-size: 18px;
-      color: var(--gray);
-      max-width: 600px;
-      margin: 0 auto 40px;
-    }
+      .hero-sub {
+        font-family: var(--fk);
+        font-size: 18px;
+        color: var(--gray);
+        max-width: 600px;
+        margin: 0 auto 40px;
+      }
 
-    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
 
-    .btn-primary, .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 15px;
-      font-weight: 700;
-      padding: 16px 36px;
-      border-radius: var(--radius-btn);
-      transition: all var(--t);
-      border: none;
-      position: relative;
-      overflow: hidden;
-    }
+      .btn-primary,
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        font-weight: 700;
+        padding: 16px 36px;
+        border-radius: var(--radius-btn);
+        transition: all var(--t);
+        border: none;
+        position: relative;
+        overflow: hidden;
+      }
 
-    .btn-primary {
-      background: var(--gold);
-      color: var(--white);
-      box-shadow: 0 10px 30px var(--gold-glow);
-    }
-    /* Button Glow Hover Effect */
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%; width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s ease;
-    }
-    .btn-primary:hover::before { left: 100%; }
-    .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 40px rgba(229, 44, 103, 0.4); }
+      .btn-primary {
+        background: var(--gold);
+        color: var(--white);
+        box-shadow: 0 10px 30px var(--gold-glow);
+      }
+      /* Button Glow Hover Effect */
+      .btn-primary::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+      .btn-primary:hover::before {
+        left: 100%;
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(229, 44, 103, 0.4);
+      }
 
-    .btn-outline {
-      background: rgba(255,255,255,0.05);
-      color: var(--white);
-      border: 1px solid var(--border);
-    }
-    .btn-outline:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+      .btn-outline {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--white);
+        border: 1px solid var(--border);
+      }
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
 
-    /* Stats */
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      margin-top: 60px;
-      flex-wrap: wrap;
-    }
-    .stat-item { text-align: center; }
-    .stat-num { font-family: var(--fh); font-size: 40px; color: var(--white); }
-    .stat-lbl { font-size: 13px; color: var(--gray); font-weight: 500; }
+      /* Stats */
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin-top: 60px;
+        flex-wrap: wrap;
+      }
+      .stat-item {
+        text-align: center;
+      }
+      .stat-num {
+        font-family: var(--fh);
+        font-size: 40px;
+        color: var(--white);
+      }
+      .stat-lbl {
+        font-size: 13px;
+        color: var(--gray);
+        font-weight: 500;
+      }
 
-    /* ═══════════════════════════
+      /* ═══════════════════════════
        MARQUEE
     ═══════════════════════════ */
-    .marquee-wrap {
-      background: var(--dark2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 20px 0;
-      overflow: hidden;
-      white-space: nowrap;
-      transform: rotate(-1deg) scale(1.02);
-      margin: 40px 0;
-    }
+      .marquee-wrap {
+        background: var(--dark2);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 20px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        transform: rotate(-1deg) scale(1.02);
+        margin: 40px 0;
+      }
 
-    .marquee-track { 
-      display: inline-block; 
-      animation: marquee 20s linear infinite; 
-    }
-    /* Pause animation on hover so users can read */
-    .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
-    
-    .marquee-item {
-      display: inline-flex; align-items: center; gap: 15px;
-      font-family: var(--fh); font-size: 20px; letter-spacing: 2px;
-      color: var(--white); margin: 0 20px; opacity: 0.7;
-      transition: opacity var(--t), color var(--t);
-    }
-    .marquee-item:hover { opacity: 1; color: var(--gold); }
-    .marquee-item i { color: var(--gold); font-size: 14px; }
+      .marquee-track {
+        display: inline-block;
+        animation: marquee 20s linear infinite;
+      }
+      /* Pause animation on hover so users can read */
+      .marquee-wrap:hover .marquee-track {
+        animation-play-state: paused;
+      }
 
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
+      .marquee-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        font-family: var(--fh);
+        font-size: 20px;
+        letter-spacing: 2px;
+        color: var(--white);
+        margin: 0 20px;
+        opacity: 0.7;
+        transition:
+          opacity var(--t),
+          color var(--t);
+      }
+      .marquee-item:hover {
+        opacity: 1;
+        color: var(--gold);
+      }
+      .marquee-item i {
+        color: var(--gold);
+        font-size: 14px;
+      }
 
-    /* ═══════════════════════════
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ═══════════════════════════
        SERVICES CARDS
     ═══════════════════════════ */
-    #tracks { padding: 100px 0; }
-    
-    .section-header { text-align: center; margin-bottom: 60px; }
-    .section-tag { color: var(--gold); font-weight: 700; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; display: block; }
-    .section-title { font-family: var(--fh); font-size: clamp(40px, 5vw, 60px); letter-spacing: 1px; }
+      #tracks {
+        padding: 100px 0;
+      }
 
-    .tracks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      .section-tag {
+        color: var(--gold);
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        display: block;
+      }
+      .section-title {
+        font-family: var(--fh);
+        font-size: clamp(40px, 5vw, 60px);
+        letter-spacing: 1px;
+      }
 
-    .track-card {
-      background: var(--dark2);
-      border: 1px solid var(--border);
-      padding: 40px 30px;
-      border-radius: var(--radius);
-      transition: all var(--smooth);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .track-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--gold);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    }
+      .tracks-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
 
-    /* Sublet background glow on card hover */
-    .track-card::before {
-      content: ''; position: absolute; top: -50px; right: -50px;
-      width: 150px; height: 150px; background: var(--gold-glow);
-      border-radius: 50%; filter: blur(40px); opacity: 0; transition: opacity var(--smooth);
-    }
-    .track-card:hover::before { opacity: 1; }
+      .track-card {
+        background: var(--dark2);
+        border: 1px solid var(--border);
+        padding: 40px 30px;
+        border-radius: var(--radius);
+        transition: all var(--smooth);
+        position: relative;
+        overflow: hidden;
+      }
 
-    .track-icon-wrap {
-      width: 60px; height: 60px;
-      background: rgba(229, 44, 103, 0.1);
-      border-radius: 15px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px; color: var(--gold);
-      margin-bottom: 25px;
-      transition: transform var(--smooth);
-    }
-    .track-card:hover .track-icon-wrap { transform: scale(1.1) rotate(5deg); }
+      .track-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--gold);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      }
 
-    .track-title { font-family: var(--fh); font-size: 26px; margin-bottom: 15px; letter-spacing: 1px; }
-    .track-desc { color: var(--gray); font-size: 15px; line-height: 1.7; margin-bottom: 25px; font-family: var(--fk); position: relative; z-index: 1;}
-    
-    .track-link {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-weight: 700; color: var(--white); font-size: 14px;
-      position: relative; z-index: 1;
-      transition: color var(--t), gap var(--smooth);
-    }
-    .track-card:hover .track-link { color: var(--gold); gap: 12px; }
+      /* Sublet background glow on card hover */
+      .track-card::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 150px;
+        height: 150px;
+        background: var(--gold-glow);
+        border-radius: 50%;
+        filter: blur(40px);
+        opacity: 0;
+        transition: opacity var(--smooth);
+      }
+      .track-card:hover::before {
+        opacity: 1;
+      }
 
-    /* ═══════════════════════════
+      .track-icon-wrap {
+        width: 60px;
+        height: 60px;
+        background: rgba(229, 44, 103, 0.1);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: var(--gold);
+        margin-bottom: 25px;
+        transition: transform var(--smooth);
+      }
+      .track-card:hover .track-icon-wrap {
+        transform: scale(1.1) rotate(5deg);
+      }
+
+      .track-title {
+        font-family: var(--fh);
+        font-size: 26px;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+      }
+      .track-desc {
+        color: var(--gray);
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 25px;
+        font-family: var(--fk);
+        position: relative;
+        z-index: 1;
+      }
+
+      .track-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+        color: var(--white);
+        font-size: 14px;
+        position: relative;
+        z-index: 1;
+        transition:
+          color var(--t),
+          gap var(--smooth);
+      }
+      .track-card:hover .track-link {
+        color: var(--gold);
+        gap: 12px;
+      }
+
+      /* ═══════════════════════════
        TYPOGRAPHY STORE (FULL GRID SHOP)
     ═══════════════════════════ */
-    #typography {
-      padding: 120px 0;
-      background: var(--dark);
-      border-top: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-    .type-banner {
-      background: radial-gradient(circle at 80% 50%, var(--dark3) 0%, var(--dark) 100%);
-      border: 1px solid rgba(229, 44, 103, 0.15);
-      border-radius: var(--radius);
-      padding: 60px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    }
-    .type-banner::before {
-      content: 'ក';
-      position: absolute;
-      right: -2%;
-      bottom: -35%;
-      font-family: var(--fk);
-      font-size: 600px;
-      line-height: 1;
-      color: var(--white);
-      opacity: 0.02;
-      z-index: 0;
-      pointer-events: none;
-      transform: rotate(-10deg);
-    }
-    .type-content { position: relative; z-index: 1; }
-    .type-content h3 { font-family: var(--fh); font-size: 55px; margin-bottom: 20px; line-height: 1; letter-spacing: 1px;}
-    .type-content p { color: var(--gray); font-family: var(--fk); font-size: 16px; margin-bottom: 40px; line-height: 1.8; }
-    
-    .font-preview-box {
-      background: rgba(20, 20, 20, 0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      padding: 40px;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(229, 44, 103, 0.1);
-    }
-    .font-sample { 
-      border-bottom: 1px solid rgba(255,255,255,0.05); 
-      padding-bottom: 25px; 
-      margin-bottom: 25px; 
-      transition: all var(--t);
-    }
-    .font-sample:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-    .font-sample:hover { transform: translateX(8px); }
-    
-    .font-name { 
-      font-size: 11px; 
-      color: var(--gold); 
-      font-weight: 700; 
-      letter-spacing: 2px; 
-      margin-bottom: 12px; 
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .font-badge {
-      background: var(--gold);
-      color: var(--white);
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 9px;
-      letter-spacing: 1px;
-    }
-    .font-badge.outline {
-      background: transparent;
-      border: 1px solid var(--gray);
-      color: var(--gray);
-    }
-    
-    .free-download-btn {
-      background: rgba(255,255,255,0.1);
-      color: var(--white);
-      padding: 6px 14px;
-      border-radius: 50px;
-      font-size: 10px;
-      letter-spacing: 1px;
-      text-decoration: none;
-      transition: all var(--t);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .free-download-btn:hover {
-      background: #4ade80;
-      color: var(--dark);
-      transform: translateY(-2px);
-    }
-    
-    .font-text { font-family: var(--fk); font-size: 26px; color: var(--white); line-height: 1.4; transition: color var(--t);}
-    .font-sample:hover .font-text { color: var(--gold); }
-    .font-text.display { font-family: var(--fh); font-size: 38px; letter-spacing: 1px; font-weight: 900;}
+      #typography {
+        padding: 120px 0;
+        background: var(--dark);
+        border-top: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+      }
+      .type-banner {
+        background: radial-gradient(
+          circle at 80% 50%,
+          var(--dark3) 0%,
+          var(--dark) 100%
+        );
+        border: 1px solid rgba(229, 44, 103, 0.15);
+        border-radius: var(--radius);
+        padding: 60px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+      }
+      .type-banner::before {
+        content: "ក";
+        position: absolute;
+        right: -2%;
+        bottom: -35%;
+        font-family: var(--fk);
+        font-size: 600px;
+        line-height: 1;
+        color: var(--white);
+        opacity: 0.02;
+        z-index: 0;
+        pointer-events: none;
+        transform: rotate(-10deg);
+      }
+      .type-content {
+        position: relative;
+        z-index: 1;
+      }
+      .type-content h3 {
+        font-family: var(--fh);
+        font-size: 55px;
+        margin-bottom: 20px;
+        line-height: 1;
+        letter-spacing: 1px;
+      }
+      .type-content p {
+        color: var(--gray);
+        font-family: var(--fk);
+        font-size: 16px;
+        margin-bottom: 40px;
+        line-height: 1.8;
+      }
 
-    /* FONT SHOP GRID */
-    .font-shop-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      margin-top: 50px;
-    }
-    
-    .f-card {
-      background: rgba(20, 20, 20, 0.6);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-      transition: all var(--smooth);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .f-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--gold);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(229, 44, 103, 0.1);
-    }
-    
-    .f-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 20px;
-    }
-    
-    .f-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: 1px;
-    }
-    
-    .f-preview {
-      font-family: var(--fh); 
-      font-size: 36px;
-      color: var(--white);
-      padding: 30px 0;
-      text-align: center;
-      border-top: 1px dashed var(--border);
-      border-bottom: 1px dashed var(--border);
-      margin-bottom: 20px;
-      transition: color var(--smooth);
-      white-space: nowrap;
-      overflow: hidden;
-    }
-    
-    .f-card:hover .f-preview { color: var(--gold); }
-    
-    .f-preview.sans { font-family: var(--fk); font-weight: 400; font-size: 26px; }
-    .f-preview.italic { font-family: var(--fk); font-style: italic; font-weight: 300; font-size: 28px; }
-    .f-preview.heavy { font-family: var(--fh); font-weight: 900; font-size: 42px; text-transform: uppercase; }
-    
-    .f-footer {
-      margin-top: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .f-price {
-      font-family: var(--fb);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--white);
-    }
-    .f-price.free { color: #4ade80; }
-    
-    .f-btn {
-      padding: 8px 16px;
-      border-radius: 50px;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all var(--smooth);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    
-    .f-btn.premium { background: var(--gold); color: var(--white); }
-    .f-btn.premium:hover { background: #ff4a85; transform: scale(1.05); }
-    
-    .f-btn.free { background: rgba(74, 222, 128, 0.1); color: #4ade80; border: 1px solid #4ade80; }
-    .f-btn.free:hover { background: #4ade80; color: var(--dark); transform: scale(1.05); }
+      .font-preview-box {
+        background: rgba(20, 20, 20, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 40px;
+        position: relative;
+        z-index: 1;
+        box-shadow:
+          0 20px 40px rgba(0, 0, 0, 0.5),
+          inset 0 0 0 1px rgba(229, 44, 103, 0.1);
+      }
+      .font-sample {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+        transition: all var(--t);
+      }
+      .font-sample:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+      .font-sample:hover {
+        transform: translateX(8px);
+      }
 
-    /* ═══════════════════════════
+      .font-name {
+        font-size: 11px;
+        color: var(--gold);
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .font-badge {
+        background: var(--gold);
+        color: var(--white);
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 9px;
+        letter-spacing: 1px;
+      }
+      .font-badge.outline {
+        background: transparent;
+        border: 1px solid var(--gray);
+        color: var(--gray);
+      }
+
+      .free-download-btn {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--white);
+        padding: 6px 14px;
+        border-radius: 50px;
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        transition: all var(--t);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .free-download-btn:hover {
+        background: #4ade80;
+        color: var(--dark);
+        transform: translateY(-2px);
+      }
+
+      .font-text {
+        font-family: var(--fk);
+        font-size: 26px;
+        color: var(--white);
+        line-height: 1.4;
+        transition: color var(--t);
+      }
+      .font-sample:hover .font-text {
+        color: var(--gold);
+      }
+      .font-text.display {
+        font-family: var(--fh);
+        font-size: 38px;
+        letter-spacing: 1px;
+        font-weight: 900;
+      }
+
+      /* FONT SHOP GRID */
+      .font-shop-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .f-card {
+        background: rgba(20, 20, 20, 0.6);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        transition: all var(--smooth);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .f-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--gold);
+        box-shadow:
+          0 15px 30px rgba(0, 0, 0, 0.5),
+          inset 0 0 0 1px rgba(229, 44, 103, 0.1);
+      }
+
+      .f-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+
+      .f-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--white);
+        letter-spacing: 1px;
+      }
+
+      .f-preview {
+        font-family: var(--fh);
+        font-size: 36px;
+        color: var(--white);
+        padding: 30px 0;
+        text-align: center;
+        border-top: 1px dashed var(--border);
+        border-bottom: 1px dashed var(--border);
+        margin-bottom: 20px;
+        transition: color var(--smooth);
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      .f-card:hover .f-preview {
+        color: var(--gold);
+      }
+
+      .f-preview.sans {
+        font-family: var(--fk);
+        font-weight: 400;
+        font-size: 26px;
+      }
+      .f-preview.italic {
+        font-family: var(--fk);
+        font-style: italic;
+        font-weight: 300;
+        font-size: 28px;
+      }
+      .f-preview.heavy {
+        font-family: var(--fh);
+        font-weight: 900;
+        font-size: 42px;
+        text-transform: uppercase;
+      }
+
+      .f-footer {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .f-price {
+        font-family: var(--fb);
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--white);
+      }
+      .f-price.free {
+        color: #4ade80;
+      }
+
+      .f-btn {
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all var(--smooth);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .f-btn.premium {
+        background: var(--gold);
+        color: var(--white);
+      }
+      .f-btn.premium:hover {
+        background: #ff4a85;
+        transform: scale(1.05);
+      }
+
+      .f-btn.free {
+        background: rgba(74, 222, 128, 0.1);
+        color: #4ade80;
+        border: 1px solid #4ade80;
+      }
+      .f-btn.free:hover {
+        background: #4ade80;
+        color: var(--dark);
+        transform: scale(1.05);
+      }
+
+      /* ═══════════════════════════
        PORTFOLIO / CASE STUDIES
     ═══════════════════════════ */
-    #portfolio {
-      padding: 100px 0;
-      background: var(--dark2);
-      border-top: 1px solid var(--border);
-    }
+      #portfolio {
+        padding: 100px 0;
+        background: var(--dark2);
+        border-top: 1px solid var(--border);
+      }
 
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
-    }
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 40px;
+      }
 
-    .portfolio-card {
-      background: var(--dark);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: all var(--smooth);
-    }
+      .portfolio-card {
+        background: var(--dark);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: all var(--smooth);
+      }
 
-    .portfolio-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--gold);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    }
+      .portfolio-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--gold);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      }
 
-    .portfolio-img-wrap {
-      position: relative;
-      aspect-ratio: 16/10;
-      overflow: hidden;
-    }
+      .portfolio-img-wrap {
+        position: relative;
+        aspect-ratio: 16/10;
+        overflow: hidden;
+      }
 
-    .portfolio-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+      .portfolio-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
 
-    .portfolio-card:hover .portfolio-img-wrap img {
-      transform: scale(1.1);
-    }
+      .portfolio-card:hover .portfolio-img-wrap img {
+        transform: scale(1.1);
+      }
 
-    .portfolio-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      opacity: 0.6;
-    }
+      .portfolio-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        opacity: 0.6;
+      }
 
-    .portfolio-content {
-      padding: 30px;
-    }
+      .portfolio-content {
+        padding: 30px;
+      }
 
-    .portfolio-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
+      .portfolio-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
 
-    .p-tag {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--gold);
-      background: rgba(229, 44, 103, 0.1);
-      padding: 5px 12px;
-      border-radius: 20px;
-    }
+      .p-tag {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--gold);
+        background: rgba(229, 44, 103, 0.1);
+        padding: 5px 12px;
+        border-radius: 20px;
+      }
 
-    .portfolio-title {
-      font-family: var(--fh);
-      font-size: 28px;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-    }
+      .portfolio-title {
+        font-family: var(--fh);
+        font-size: 28px;
+        margin-bottom: 12px;
+        letter-spacing: 1px;
+      }
 
-    .portfolio-desc {
-      color: var(--gray);
-      font-family: var(--fk);
-      font-size: 15px;
-      margin-bottom: 25px;
-      line-height: 1.6;
-    }
+      .portfolio-desc {
+        color: var(--gray);
+        font-family: var(--fk);
+        font-size: 15px;
+        margin-bottom: 25px;
+        line-height: 1.6;
+      }
 
-    .portfolio-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 700;
-      font-size: 14px;
-      color: var(--white);
-      transition: all var(--smooth);
-    }
+      .portfolio-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--white);
+        transition: all var(--smooth);
+      }
 
-    .portfolio-card:hover .portfolio-link {
-      color: var(--gold);
-      gap: 12px;
-    }
+      .portfolio-card:hover .portfolio-link {
+        color: var(--gold);
+        gap: 12px;
+      }
 
-    /* ═══════════════════════════
+      /* ═══════════════════════════
        VIDEO TUTORIALS
     ═══════════════════════════ */
-    #videos {
-      padding: 100px 0;
-      background: var(--dark);
-      border-top: 1px solid var(--border);
-    }
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      margin-top: 40px;
-    }
-    .video-card {
-      background: var(--dark2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: all var(--smooth);
-      display: flex;
-      flex-direction: column;
-    }
-    .video-card:hover {
-      transform: translateY(-10px);
-      border-color: var(--gold);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    }
-    .video-thumb {
-      position: relative;
-      aspect-ratio: 16/9;
-      overflow: hidden;
-      background: var(--dark3);
-    }
-    .video-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-      opacity: 0.8;
-    }
-    .video-card:hover .video-thumb img {
-      transform: scale(1.08);
-      opacity: 1;
-    }
-    .play-btn-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: var(--white);
-      font-size: 55px;
-      opacity: 0.8;
-      transition: all var(--smooth);
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
-    }
-    .video-card:hover .play-btn-overlay {
-      color: var(--gold);
-      transform: translate(-50%, -50%) scale(1.15);
-      opacity: 1;
-    }
-    .video-duration {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      background: rgba(0,0,0,0.8);
-      color: var(--white);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 4px 8px;
-      border-radius: 6px;
-    }
-    .video-info {
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .video-title {
-      font-family: var(--fh);
-      font-size: 22px;
-      color: var(--white);
-      margin-bottom: 12px;
-      line-height: 1.3;
-      letter-spacing: 0.5px;
-      transition: color var(--smooth);
-    }
-    .video-card:hover .video-title {
-      color: var(--gold);
-    }
-    .video-meta {
-      color: var(--gray);
-      font-size: 13px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 15px;
-    }
-    .video-tags {
-      margin-top: auto;
-      display: flex;
-      gap: 10px;
-    }
-    .v-badge {
-      background: rgba(255,255,255,0.05);
-      color: var(--gray);
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
+      #videos {
+        padding: 100px 0;
+        background: var(--dark);
+        border-top: 1px solid var(--border);
+      }
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-top: 40px;
+      }
+      .video-card {
+        background: var(--dark2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: all var(--smooth);
+        display: flex;
+        flex-direction: column;
+      }
+      .video-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--gold);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      }
+      .video-thumb {
+        position: relative;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        background: var(--dark3);
+      }
+      .video-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        opacity: 0.8;
+      }
+      .video-card:hover .video-thumb img {
+        transform: scale(1.08);
+        opacity: 1;
+      }
+      .play-btn-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--white);
+        font-size: 55px;
+        opacity: 0.8;
+        transition: all var(--smooth);
+        filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+      }
+      .video-card:hover .play-btn-overlay {
+        color: var(--gold);
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 1;
+      }
+      .video-duration {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background: rgba(0, 0, 0, 0.8);
+        color: var(--white);
+        font-size: 12px;
+        font-weight: 700;
+        padding: 4px 8px;
+        border-radius: 6px;
+      }
+      .video-info {
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+      .video-title {
+        font-family: var(--fh);
+        font-size: 22px;
+        color: var(--white);
+        margin-bottom: 12px;
+        line-height: 1.3;
+        letter-spacing: 0.5px;
+        transition: color var(--smooth);
+      }
+      .video-card:hover .video-title {
+        color: var(--gold);
+      }
+      .video-meta {
+        color: var(--gray);
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+      .video-tags {
+        margin-top: auto;
+        display: flex;
+        gap: 10px;
+      }
+      .v-badge {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--gray);
+        font-size: 11px;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
 
-    /* ═══════════════════════════
+      /* ═══════════════════════════
        FREE RESOURCES (LEAD MAGNET)
     ═══════════════════════════ */
-    #resources {
-      padding: 100px 0;
-      background: linear-gradient(180deg, var(--dark2) 0%, var(--dark) 100%);
-      position: relative;
-    }
+      #resources {
+        padding: 100px 0;
+        background: linear-gradient(180deg, var(--dark2) 0%, var(--dark) 100%);
+        position: relative;
+      }
 
-    .resource-box {
-      background: var(--dark3);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-      transition: border-color var(--smooth);
-    }
-    .resource-box:hover { border-color: var(--gold); }
+      .resource-box {
+        background: var(--dark3);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        transition: border-color var(--smooth);
+      }
+      .resource-box:hover {
+        border-color: var(--gold);
+      }
 
-    .resource-visual {
-      background: var(--dark);
-      padding: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
+      .resource-visual {
+        background: var(--dark);
+        padding: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
 
-    /* Abstract Graphic representing a Toolkit/Book */
-    .mockup-book {
-      width: 250px;
-      height: 320px;
-      background: linear-gradient(135deg, var(--gold) 0%, #ff6b9d 100%);
-      border-radius: 10px 20px 20px 10px;
-      box-shadow: -10px 20px 40px rgba(229, 44, 103, 0.3), inset 5px 0 15px rgba(255,255,255,0.2);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      padding: 30px;
-      color: var(--white);
-      transform: perspective(800px) rotateY(-15deg);
-      transition: transform var(--smooth);
-    }
+      /* Abstract Graphic representing a Toolkit/Book */
+      .mockup-book {
+        width: 250px;
+        height: 320px;
+        background: linear-gradient(135deg, var(--gold) 0%, #ff6b9d 100%);
+        border-radius: 10px 20px 20px 10px;
+        box-shadow:
+          -10px 20px 40px rgba(229, 44, 103, 0.3),
+          inset 5px 0 15px rgba(255, 255, 255, 0.2);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        color: var(--white);
+        transform: perspective(800px) rotateY(-15deg);
+        transition: transform var(--smooth);
+      }
 
-    .resource-box:hover .mockup-book {
-      transform: perspective(800px) rotateY(0deg) translateY(-10px);
-    }
+      .resource-box:hover .mockup-book {
+        transform: perspective(800px) rotateY(0deg) translateY(-10px);
+      }
 
-    .mockup-book::before {
-      content: '';
-      position: absolute;
-      left: 10px; top: 0; bottom: 0; width: 2px;
-      background: rgba(255,255,255,0.3);
-    }
+      .mockup-book::before {
+        content: "";
+        position: absolute;
+        left: 10px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: rgba(255, 255, 255, 0.3);
+      }
 
-    .mockup-tag {
-      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
-      background: var(--dark); padding: 4px 10px; border-radius: 20px; align-self: flex-start; margin-bottom: 20px;
-    }
+      .mockup-tag {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        background: var(--dark);
+        padding: 4px 10px;
+        border-radius: 20px;
+        align-self: flex-start;
+        margin-bottom: 20px;
+      }
 
-    .mockup-book h4 { font-family: var(--fh); font-size: 36px; line-height: 1; margin-bottom: 10px; }
-    .mockup-book p { font-family: var(--fk); font-size: 13px; opacity: 0.9; }
-    
-    .mockup-icon { margin-top: auto; align-self: flex-end; font-size: 40px; opacity: 0.5; }
+      .mockup-book h4 {
+        font-family: var(--fh);
+        font-size: 36px;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+      .mockup-book p {
+        font-family: var(--fk);
+        font-size: 13px;
+        opacity: 0.9;
+      }
 
-    .resource-content {
-      padding: 60px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+      .mockup-icon {
+        margin-top: auto;
+        align-self: flex-end;
+        font-size: 40px;
+        opacity: 0.5;
+      }
 
-    .resource-content h3 { font-family: var(--fh); font-size: 40px; margin-bottom: 15px; color: var(--white); }
-    .resource-content p { color: var(--gray); font-family: var(--fk); font-size: 16px; margin-bottom: 30px; line-height: 1.6; }
-    
-    .checklist { list-style: none; margin-bottom: 30px; }
-    .checklist li {
-      display: flex; align-items: flex-start; gap: 10px;
-      color: var(--white); font-family: var(--fk); font-size: 15px; margin-bottom: 12px;
-    }
-    .checklist li i { color: #4ade80; margin-top: 4px; }
+      .resource-content {
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
 
-    .lead-form { display: flex; flex-direction: column; gap: 15px; }
-    .lead-form-row { display: flex; gap: 15px; }
-    .lead-input {
-      flex: 1; background: var(--dark); border: 1px solid var(--border);
-      padding: 14px 20px; border-radius: 12px; color: var(--white); font-family: var(--fk);
-      transition: all var(--t);
-    }
-    .lead-input:focus { outline: none; border-color: var(--gold); background: var(--dark2); }
-    .lead-btn {
-      background: var(--white); color: var(--dark); font-weight: 700; font-family: var(--fk);
-      padding: 14px 24px; border-radius: 12px; border: none; transition: all var(--t);
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-    }
-    .lead-btn:hover { background: var(--gold); color: var(--white); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(229, 44, 103, 0.4); }
+      .resource-content h3 {
+        font-family: var(--fh);
+        font-size: 40px;
+        margin-bottom: 15px;
+        color: var(--white);
+      }
+      .resource-content p {
+        color: var(--gray);
+        font-family: var(--fk);
+        font-size: 16px;
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
 
-    /* ═══════════════════════════
+      .checklist {
+        list-style: none;
+        margin-bottom: 30px;
+      }
+      .checklist li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        color: var(--white);
+        font-family: var(--fk);
+        font-size: 15px;
+        margin-bottom: 12px;
+      }
+      .checklist li i {
+        color: #4ade80;
+        margin-top: 4px;
+      }
+
+      .lead-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .lead-form-row {
+        display: flex;
+        gap: 15px;
+      }
+      .lead-input {
+        flex: 1;
+        background: var(--dark);
+        border: 1px solid var(--border);
+        padding: 14px 20px;
+        border-radius: 12px;
+        color: var(--white);
+        font-family: var(--fk);
+        transition: all var(--t);
+      }
+      .lead-input:focus {
+        outline: none;
+        border-color: var(--gold);
+        background: var(--dark2);
+      }
+      .lead-btn {
+        background: var(--white);
+        color: var(--dark);
+        font-weight: 700;
+        font-family: var(--fk);
+        padding: 14px 24px;
+        border-radius: 12px;
+        border: none;
+        transition: all var(--t);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .lead-btn:hover {
+        background: var(--gold);
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(229, 44, 103, 0.4);
+      }
+
+      /* ═══════════════════════════
        ABOUT
     ═══════════════════════════ */
-    #about { padding: 100px 0; background: var(--dark2); position: relative;}
-    
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    
-    .about-image { position: relative; }
-    .about-image img { border-radius: var(--radius); width: 100%; aspect-ratio: 4/4; object-fit: cover; transition: transform var(--smooth); }
-    .about-image:hover img { transform: scale(1.02); }
-    .about-image::after {
-      content: ''; position: absolute; inset: -20px;
-      border: 2px dashed var(--gold); border-radius: 30px; z-index: -1;
-      transition: inset var(--smooth);
-    }
-    .about-image:hover::after { inset: -10px; border-style: solid; }
+      #about {
+        padding: 100px 0;
+        background: var(--dark2);
+        position: relative;
+      }
 
-    .about-content h2 { font-family: var(--fh); font-size: 50px; line-height: 1; margin-bottom: 20px; }
-    .about-content p { color: var(--gray); font-family: var(--fk); font-size: 16px; margin-bottom: 30px; }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
 
-    .value-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-    .v-tag { background: var(--dark); border: 1px solid var(--border); padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: all var(--t);}
-    .v-tag:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
-    .v-tag i { color: var(--gold); }
+      .about-image {
+        position: relative;
+      }
+      .about-image img {
+        border-radius: var(--radius);
+        width: 100%;
+        aspect-ratio: 4/4;
+        object-fit: cover;
+        transition: transform var(--smooth);
+      }
+      .about-image:hover img {
+        transform: scale(1.02);
+      }
+      .about-image::after {
+        content: "";
+        position: absolute;
+        inset: -20px;
+        border: 2px dashed var(--gold);
+        border-radius: 30px;
+        z-index: -1;
+        transition: inset var(--smooth);
+      }
+      .about-image:hover::after {
+        inset: -10px;
+        border-style: solid;
+      }
 
-    /* ═══════════════════════════
+      .about-content h2 {
+        font-family: var(--fh);
+        font-size: 50px;
+        line-height: 1;
+        margin-bottom: 20px;
+      }
+      .about-content p {
+        color: var(--gray);
+        font-family: var(--fk);
+        font-size: 16px;
+        margin-bottom: 30px;
+      }
+
+      .value-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .v-tag {
+        background: var(--dark);
+        border: 1px solid var(--border);
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 13px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all var(--t);
+      }
+      .v-tag:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        transform: translateY(-3px);
+      }
+      .v-tag i {
+        color: var(--gold);
+      }
+
+      /* ═══════════════════════════
        CONTACT FORM
     ═══════════════════════════ */
-    #contact { padding: 100px 0; }
-    .contact-wrapper {
-      background: var(--dark2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 60px;
-      display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px;
-      transition: border-color var(--smooth);
-    }
-    .contact-wrapper:hover { border-color: rgba(229, 44, 103, 0.3); }
+      #contact {
+        padding: 100px 0;
+      }
+      .contact-wrapper {
+        background: var(--dark2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 60px;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 60px;
+        transition: border-color var(--smooth);
+      }
+      .contact-wrapper:hover {
+        border-color: rgba(229, 44, 103, 0.3);
+      }
 
-    .contact-info h2 { font-family: var(--fh); font-size: 40px; margin-bottom: 15px; }
-    .contact-info p { color: var(--gray); font-family: var(--fk); margin-bottom: 30px; }
-    
-    .social-bubbles { display: flex; gap: 15px; }
-    .social-bubbles a {
-      width: 50px; height: 50px; border-radius: 50%;
-      background: var(--dark); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; color: var(--white); transition: all var(--smooth);
-    }
-    .social-bubbles a:hover { background: var(--gold); border-color: var(--gold); transform: translateY(-5px) scale(1.1); box-shadow: 0 10px 20px rgba(229, 44, 103, 0.4); }
+      .contact-info h2 {
+        font-family: var(--fh);
+        font-size: 40px;
+        margin-bottom: 15px;
+      }
+      .contact-info p {
+        color: var(--gray);
+        font-family: var(--fk);
+        margin-bottom: 30px;
+      }
 
-    .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; font-family: var(--fk); color: var(--gray); margin-bottom: 8px; font-size: 14px; }
-    .form-control {
-      width: 100%; background: var(--dark); border: 1px solid var(--border);
-      padding: 15px 20px; border-radius: 12px; color: var(--white); font-family: var(--fk); font-size: 15px;
-      transition: all var(--t);
-    }
-    .form-control:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 4px var(--gold-glow); background: var(--dark2); }
-    textarea.form-control { min-height: 120px; resize: vertical; }
+      .social-bubbles {
+        display: flex;
+        gap: 15px;
+      }
+      .social-bubbles a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--dark);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: var(--white);
+        transition: all var(--smooth);
+      }
+      .social-bubbles a:hover {
+        background: var(--gold);
+        border-color: var(--gold);
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 20px rgba(229, 44, 103, 0.4);
+      }
 
-    /* ═══════════════════════════
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .form-group label {
+        display: block;
+        font-family: var(--fk);
+        color: var(--gray);
+        margin-bottom: 8px;
+        font-size: 14px;
+      }
+      .form-control {
+        width: 100%;
+        background: var(--dark);
+        border: 1px solid var(--border);
+        padding: 15px 20px;
+        border-radius: 12px;
+        color: var(--white);
+        font-family: var(--fk);
+        font-size: 15px;
+        transition: all var(--t);
+      }
+      .form-control:focus {
+        outline: none;
+        border-color: var(--gold);
+        box-shadow: 0 0 0 4px var(--gold-glow);
+        background: var(--dark2);
+      }
+      textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      /* ═══════════════════════════
        FOOTER
     ═══════════════════════════ */
-    footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--border); background: var(--dark2); }
-    .footer-text { color: var(--gray); font-size: 14px; font-weight: 500; }
-    .footer-text span { color: var(--gold); font-family: var(--fh); letter-spacing: 1px; font-size: 16px;}
+      footer {
+        padding: 40px 0;
+        text-align: center;
+        border-top: 1px solid var(--border);
+        background: var(--dark2);
+      }
+      .footer-text {
+        color: var(--gray);
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .footer-text span {
+        color: var(--gold);
+        font-family: var(--fh);
+        letter-spacing: 1px;
+        font-size: 16px;
+      }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hero-headline { font-size: 60px; }
-      .about-grid, .contact-wrapper, .resource-box { grid-template-columns: 1fr; gap: 40px; }
-      .contact-wrapper, .resource-content { padding: 30px; }
-      .resource-visual { padding: 40px 20px; }
-      .type-banner { grid-template-columns: 1fr; gap: 30px; padding: 30px; }
-      .type-banner::before { font-size: 200px; right: -10%; bottom: -10%; }
-      .tracks-grid, .portfolio-grid { grid-template-columns: 1fr; }
-      .lead-form-row { flex-direction: column; }
-    }
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .hero-headline {
+          font-size: 60px;
+        }
+        .about-grid,
+        .contact-wrapper,
+        .resource-box {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .contact-wrapper,
+        .resource-content {
+          padding: 30px;
+        }
+        .resource-visual {
+          padding: 40px 20px;
+        }
+        .type-banner {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          padding: 30px;
+        }
+        .type-banner::before {
+          font-size: 200px;
+          right: -10%;
+          bottom: -10%;
+        }
+        .tracks-grid,
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+        .lead-form-row {
+          flex-direction: column;
+        }
+      }
 
-    /* ANIMATIONS (Smoother standard reveal) */
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+      /* ANIMATIONS (Smoother standard reveal) */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+          transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-    /* ✅ HAMBURGER MENU */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      padding: 8px;
-      border-radius: 10px;
-      cursor: none;
-      transition: background var(--t);
-    }
-    .hamburger:hover { background: rgba(255,255,255,0.08); }
-    .hamburger span {
-      width: 24px; height: 2px;
-      background: var(--white);
-      border-radius: 2px;
-      display: block;
-      transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      /* ✅ HAMBURGER MENU */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        padding: 8px;
+        border-radius: 10px;
+        cursor: none;
+        transition: background var(--t);
+      }
+      .hamburger:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .hamburger span {
+        width: 24px;
+        height: 2px;
+        background: var(--white);
+        border-radius: 2px;
+        display: block;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
 
-    .mobile-drawer {
-      display: none;
-      position: fixed;
-      inset: 0; z-index: 99;
-      background: rgba(0,0,0,0.93);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .mobile-drawer.open { display: flex; opacity: 1; }
-    .mobile-drawer a {
-      font-family: var(--fh);
-      font-size: clamp(32px, 8vw, 48px);
-      font-weight: 700;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 10px 24px;
-      transition: color var(--t);
-    }
-    .mobile-drawer a:hover { color: var(--gold); }
-    .mobile-drawer .d-cta {
-      margin-top: 20px;
-      background: var(--gold) !important;
-      color: #fff !important;
-      font-size: clamp(18px,4vw,22px) !important;
-      padding: 14px 40px;
-      border-radius: 50px;
-      box-shadow: 0 8px 28px rgba(229,44,103,0.45);
-    }
-    .drawer-close {
-      position: absolute;
-      top: 28px; right: 28px;
-      font-size: 26px;
-      color: var(--gray);
-      background: none; border: none;
-      cursor: none;
-      transition: color var(--t);
-    }
-    .drawer-close:hover { color: var(--white); }
+      .mobile-drawer {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 99;
+        background: rgba(0, 0, 0, 0.93);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .mobile-drawer.open {
+        display: flex;
+        opacity: 1;
+      }
+      .mobile-drawer a {
+        font-family: var(--fh);
+        font-size: clamp(32px, 8vw, 48px);
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.7);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding: 10px 24px;
+        transition: color var(--t);
+      }
+      .mobile-drawer a:hover {
+        color: var(--gold);
+      }
+      .mobile-drawer .d-cta {
+        margin-top: 20px;
+        background: var(--gold) !important;
+        color: #fff !important;
+        font-size: clamp(18px, 4vw, 22px) !important;
+        padding: 14px 40px;
+        border-radius: 50px;
+        box-shadow: 0 8px 28px rgba(229, 44, 103, 0.45);
+      }
+      .drawer-close {
+        position: absolute;
+        top: 28px;
+        right: 28px;
+        font-size: 26px;
+        color: var(--gray);
+        background: none;
+        border: none;
+        cursor: none;
+        transition: color var(--t);
+      }
+      .drawer-close:hover {
+        color: var(--white);
+      }
 
-    @media (max-width: 768px) {
-      .hamburger { display: flex; }
-    }
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+      }
 
-    /* ✅ FLOAT CONTACT BUTTONS */
-    .float-contact {
-      position: fixed;
-      bottom: 30px; right: 24px;
-      z-index: 98;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px;
-    }
-    .fl-btn {
-      width: 54px; height: 54px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 22px; color: #fff;
-      text-decoration: none;
-      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
-      position: relative;
-    }
-    .fl-btn.tg { background: #2AABEE; box-shadow: 0 6px 20px rgba(42,171,238,0.4); }
-    .fl-btn.wa { background: #25D366; box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
-    .fl-btn:hover { transform: scale(1.12) translateY(-3px); }
-    .fl-btn::before {
-      content: attr(data-tip);
-      position: absolute;
-      right: 66px;
-      background: rgba(15,15,15,0.92);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: #fff;
-      font-size: 12px; font-weight: 600;
-      padding: 6px 12px;
-      border-radius: 8px;
-      white-space: nowrap;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.2s;
-    }
-    .fl-btn:hover::before { opacity: 1; }
+      /* ✅ FLOAT CONTACT BUTTONS */
+      .float-contact {
+        position: fixed;
+        bottom: 30px;
+        right: 24px;
+        z-index: 98;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+      }
+      .fl-btn {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+        position: relative;
+      }
+      .fl-btn.tg {
+        background: #2aabee;
+        box-shadow: 0 6px 20px rgba(42, 171, 238, 0.4);
+      }
+      .fl-btn.wa {
+        background: #25d366;
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      }
+      .fl-btn:hover {
+        transform: scale(1.12) translateY(-3px);
+      }
+      .fl-btn::before {
+        content: attr(data-tip);
+        position: absolute;
+        right: 66px;
+        background: rgba(15, 15, 15, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 8px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s;
+      }
+      .fl-btn:hover::before {
+        opacity: 1;
+      }
 
-    /* ✅ BACK TO TOP */
-    .back-top {
-      position: fixed;
-      bottom: 30px; left: 24px;
-      width: 46px; height: 46px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.07);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--white);
-      font-size: 15px;
-      display: flex; align-items: center; justify-content: center;
-      cursor: none;
-      opacity: 0; pointer-events: none;
-      transition: all 0.3s ease;
-      z-index: 97;
-    }
-    .back-top.show { opacity: 1; pointer-events: auto; }
-    .back-top:hover { background: var(--gold); border-color: var(--gold); transform: translateY(-3px); }
+      /* ✅ BACK TO TOP */
+      .back-top {
+        position: fixed;
+        bottom: 30px;
+        left: 24px;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--white);
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        z-index: 97;
+      }
+      .back-top.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .back-top:hover {
+        background: var(--gold);
+        border-color: var(--gold);
+        transform: translateY(-3px);
+      }
 
+      /* ✅ NIGHT SKY BACKGROUND */
+      #hero {
+        position: relative;
+        overflow: hidden;
+        background: #000 !important;
+      }
+      #night-canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+      }
+      #hero .container {
+        position: relative;
+        z-index: 1;
+      }
+      /* Override hero blobs — hidden under night sky */
+      #hero .blob-1,
+      #hero .blob-2 {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Custom Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 
-    /* ✅ NIGHT SKY BACKGROUND */
-    #hero { position: relative; overflow: hidden; background: #000 !important; }
-    #night-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-    #hero .container { position: relative; z-index: 1; }
-    /* Override hero blobs — hidden under night sky */
-    #hero .blob-1, #hero .blob-2 { display: none; }
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
 
-  </style>
-</head>
-<body>
+    <!-- ══ NAV ══ -->
+    <nav>
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">YOB<span>.</span>DIGITAL</a>
+        <ul class="nav-links">
+          <li><a href="#tracks">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#videos">Videos</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#about">About</a></li>
+          <li>
+            <a href="#contact" class="nav-cta"
+              >ទំនាក់ទំនង
+              <i class="fas fa-paper-plane" style="margin-left: 5px"></i
+            ></a>
+          </li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
 
-  <!-- Custom Cursor Elements -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
-
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-
-  <!-- ══ NAV ══ -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">YOB<span>.</span>DIGITAL</a>
-      <ul class="nav-links">
-        <li><a href="#tracks">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#videos">Videos</a></li>
-        <li><a href="#resources">Resources</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact" class="nav-cta">ទំនាក់ទំនង <i class="fas fa-paper-plane" style="margin-left:5px;"></i></a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button class="drawer-close" id="drawerClose">
+        <i class="fas fa-times"></i>
       </button>
+      <a href="#tracks" onclick="closeDrawer()">Services</a>
+      <a href="#portfolio" onclick="closeDrawer()">Portfolio</a>
+      <a href="#videos" onclick="closeDrawer()">Videos</a>
+      <a href="#resources" onclick="closeDrawer()">Resources</a>
+      <a href="#about" onclick="closeDrawer()">About</a>
+      <a href="#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
     </div>
-  </nav>
 
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer" id="mobileDrawer">
-    <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
-    <a href="#tracks"    onclick="closeDrawer()">Services</a>
-    <a href="#portfolio" onclick="closeDrawer()">Portfolio</a>
-    <a href="#videos"    onclick="closeDrawer()">Videos</a>
-    <a href="#resources" onclick="closeDrawer()">Resources</a>
-    <a href="#about"     onclick="closeDrawer()">About</a>
-    <a href="#contact"   onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
-  </div>
-
-  <!-- ══ HERO ══ -->
-  <section id="hero">
-    <canvas id="night-canvas"></canvas>
-    <div class="container hero-inner">
-      <div class="hero-badge reveal">
-        <span><i class="fas fa-bolt"></i></span> AI & Digital Skills for Cambodia
-      </div>
-
-      <h1 class="hero-headline reveal">
-        BUILD YOUR <br>
-        <span class="gradient-text">DIGITAL FUTURE.</span>
-      </h1>
-
-      <p class="hero-sub reveal">
-        ឈប់ប្រើវិធីសាស្រ្តចាស់ៗ! YOB Digital បង្រៀន AI Tools និងប្រព័ន្ធ Digital ទំនើបៗ ជួយឱ្យ MSMEs និងសហគ្រិនខ្មែរ លក់ដាច់ និងចំណេញពេល។
-      </p>
-
-      <div class="hero-actions reveal">
-        <a href="#resources" class="btn-primary">🎁 ទាញយកឯកសារ Free</a>
-        <a href="#about" class="btn-outline">ប្រវត្តិ YOB Digital</a>
-      </div>
-
-      <div class="hero-stats reveal">
-        <div class="stat-item">
-          <div class="stat-num">500<span class="gold">+</span></div>
-          <div class="stat-lbl">Learners Trained</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">10<span class="gold">+</span></div>
-          <div class="stat-lbl">Practical Courses</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">100<span class="gold">%</span></div>
-          <div class="stat-lbl">Khmer Context</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ MARQUEE ══ -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span class="marquee-item"><i class="fas fa-star"></i> AI TOOLS</span>
-      <span class="marquee-item"><i class="fas fa-star"></i> DIGITAL MARKETING</span>
-      <span class="marquee-item"><i class="fas fa-star"></i> KHMER TYPOGRAPHY</span>
-      <span class="marquee-item"><i class="fas fa-star"></i> E-COMMERCE</span>
-      <span class="marquee-item"><i class="fas fa-star"></i> PROMPT ENGINEERING</span>
-      <span class="marquee-item"><i class="fas fa-star"></i> WEB STRATEGY</span>
-      
-      <!-- Repeat for seamless loop -->
-      <span class="marquee-item"><i class="fas fa-star"></i> AI TOOLS</span>
-      <span class="marquee-item"><i class="fas fa-star"></i> DIGITAL MARKETING</span>
-      <span class="marquee-item"><i class="fas fa-star"></i> KHMER TYPOGRAPHY</span>
-      <span class="marquee-item"><i class="fas fa-star"></i> E-COMMERCE</span>
-      <span class="marquee-item"><i class="fas fa-star"></i> PROMPT ENGINEERING</span>
-      <span class="marquee-item"><i class="fas fa-star"></i> WEB STRATEGY</span>
-    </div>
-  </div>
-
-  <!-- ══ SERVICES ══ -->
-  <section id="tracks">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Our Expertise</span>
-        <h2 class="section-title">CHOOSE YOUR PATH</h2>
-      </div>
-
-      <div class="tracks-grid">
-        <div class="track-card reveal">
-          <div class="track-icon-wrap"><i class="fas fa-robot"></i></div>
-          <h3 class="track-title">AI Tools Mastery</h3>
-          <p class="track-desc">
-            រៀនបញ្ជា AI ដូចជា Gemini, ChatGPT ដើម្បីជួយគិត Content, សរសេរ Caption និងដោះស្រាយបញ្ហាការងារប្រចាំថ្ងៃលឿនជាងមុន ១០ ដង។
-          </p>
-          <a href="#contact" class="track-link">ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i></a>
+    <!-- ══ HERO ══ -->
+    <section id="hero">
+      <canvas id="night-canvas"></canvas>
+      <div class="container hero-inner">
+        <div class="hero-badge reveal">
+          <span><i class="fas fa-bolt"></i></span> AI & Digital Skills for
+          Cambodia
         </div>
 
-        <div class="track-card reveal">
-          <div class="track-icon-wrap"><i class="fas fa-bullhorn"></i></div>
-          <h3 class="track-title">Digital Strategy</h3>
-          <p class="track-desc">
-            ឈប់ត្រឹមតែ Boost Post! រៀបចំយុទ្ធសាស្ត្រទីផ្សារពេញលេញ ចាប់តាំងពីការទាញចំណាប់អារម្មណ៍ រហូតដល់ការប្រមូល Data អតិថិជន។
-          </p>
-          <a href="#contact" class="track-link">ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i></a>
-        </div>
+        <h1 class="hero-headline reveal">
+          BUILD YOUR <br />
+          <span class="gradient-text">DIGITAL FUTURE.</span>
+        </h1>
 
-        <div class="track-card reveal">
-          <div class="track-icon-wrap"><i class="fas fa-laptop-code"></i></div>
-          <h3 class="track-title">Web & System Setup</h3>
-          <p class="track-desc">
-            លុបបំបាត់ការធ្វើការងារដោយដៃ! ជួយរៀបចំ Website ទំនើប (No WordPress) និងប្រព័ន្ធ LMS សម្រាប់ស្ថាប័ន ឬអាជីវកម្មរបស់អ្នក។
-          </p>
-          <a href="#contact" class="track-link">ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ TYPOGRAPHY STORE (FULL GRID SHOP) ══ -->
-  <section id="typography">
-    <div class="container">
-      <div class="section-header reveal" style="text-align: center; margin-bottom: 20px;">
-        <span class="section-tag"><i class="fas fa-pen-nib"></i> KHMER FONT SHOP</span>
-        <h2 class="section-title">YOB <span class="gradient-text">TYPOGRAPHY</span></h2>
-        <p style="color: var(--gray); font-family: var(--fk); margin-top: 15px; font-size: 16px; max-width: 650px; margin-inline: auto;">
-          យីហោ (Branding) មិនអាចមើលទៅ Professional បានទេ ប្រសិនបើនៅតែប្រើ Font ធម្មតាៗ។ 
-          លើកកម្ពស់គម្រោង Design របស់អ្នកជាមួយពុម្ពអក្សរខ្មែរយូនីកូដប្រណិតៗ ទាំង Free និង Premium ពី YOB Digital។
+        <p class="hero-sub reveal">
+          ឈប់ប្រើវិធីសាស្រ្តចាស់ៗ! YOB Digital បង្រៀន AI Tools និងប្រព័ន្ធ
+          Digital ទំនើបៗ ជួយឱ្យ MSMEs និងសហគ្រិនខ្មែរ លក់ដាច់ និងចំណេញពេល។
         </p>
+
+        <div class="hero-actions reveal">
+          <a href="#resources" class="btn-primary">🎁 ទាញយកឯកសារ Free</a>
+          <a href="#about" class="btn-outline">ប្រវត្តិ YOB Digital</a>
+        </div>
+
+        <div class="hero-stats reveal">
+          <div class="stat-item">
+            <div class="stat-num">500<span class="gold">+</span></div>
+            <div class="stat-lbl">Learners Trained</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">10<span class="gold">+</span></div>
+            <div class="stat-lbl">Practical Courses</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">100<span class="gold">%</span></div>
+            <div class="stat-lbl">Khmer Context</div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- 8 Fonts Grid -->
-      <div class="font-shop-grid reveal">
-        
-        <!-- Font 1: Premium -->
-        <div class="f-card">
-          <div class="f-header">
-            <span class="f-title">YOB Heading Pro</span>
-            <span class="font-badge">BEST SELLER</span>
-          </div>
-          <div class="f-preview heavy">សិល្បៈឌីជីថល</div>
-          <div class="f-footer">
-            <span class="f-price">$15.00</span>
-            <a href="#" class="f-btn premium"><i class="fas fa-shopping-cart"></i> Buy</a>
-          </div>
-        </div>
+    <!-- ══ MARQUEE ══ -->
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span class="marquee-item"><i class="fas fa-star"></i> AI TOOLS</span>
+        <span class="marquee-item"
+          ><i class="fas fa-star"></i> DIGITAL MARKETING</span
+        >
+        <span class="marquee-item"
+          ><i class="fas fa-star"></i> KHMER TYPOGRAPHY</span
+        >
+        <span class="marquee-item"><i class="fas fa-star"></i> E-COMMERCE</span>
+        <span class="marquee-item"
+          ><i class="fas fa-star"></i> PROMPT ENGINEERING</span
+        >
+        <span class="marquee-item"
+          ><i class="fas fa-star"></i> WEB STRATEGY</span
+        >
 
-        <!-- Font 2: Free -->
-        <div class="f-card">
-          <div class="f-header">
-            <span class="f-title">YOB Content Sans</span>
-            <span class="font-badge outline">BASIC</span>
-          </div>
-          <div class="f-preview sans">អានងាយស្រួលយល់</div>
-          <div class="f-footer">
-            <span class="f-price free">Free</span>
-            <a href="#" class="f-btn free"><i class="fas fa-download"></i> Get</a>
-          </div>
-        </div>
-
-        <!-- Font 3: Premium -->
-        <div class="f-card">
-          <div class="f-header">
-            <span class="f-title">YOB Signature</span>
-            <span class="font-badge">ELEGANT</span>
-          </div>
-          <div class="f-preview italic">ហត្ថលេខាប្រណិត</div>
-          <div class="f-footer">
-            <span class="f-price">$20.00</span>
-            <a href="#" class="f-btn premium"><i class="fas fa-shopping-cart"></i> Buy</a>
-          </div>
-        </div>
-
-        <!-- Font 4: Free -->
-        <div class="f-card">
-          <div class="f-header">
-            <span class="f-title">YOB Tech Mono</span>
-            <span class="font-badge outline">CODING</span>
-          </div>
-          <div class="f-preview sans" style="letter-spacing: 2px;">បច្ចេកវិទ្យា AI</div>
-          <div class="f-footer">
-            <span class="f-price free">Free</span>
-            <a href="#" class="f-btn free"><i class="fas fa-download"></i> Get</a>
-          </div>
-        </div>
-
-        <!-- Font 5: Premium -->
-        <div class="f-card">
-          <div class="f-header">
-            <span class="f-title">YOB Modern Serif</span>
-            <span class="font-badge">LUXURY</span>
-          </div>
-          <div class="f-preview">ភាពស៊ីវីល័យ</div>
-          <div class="f-footer">
-            <span class="f-price">$18.00</span>
-            <a href="#" class="f-btn premium"><i class="fas fa-shopping-cart"></i> Buy</a>
-          </div>
-        </div>
-
-        <!-- Font 6: Premium -->
-        <div class="f-card">
-          <div class="f-header">
-            <span class="f-title">YOB Poster Black</span>
-            <span class="font-badge">BOLD</span>
-          </div>
-          <div class="f-preview heavy" style="font-size: 38px;">បញ្ចុះតម្លៃ ៥០%</div>
-          <div class="f-footer">
-            <span class="f-price">$12.00</span>
-            <a href="#" class="f-btn premium"><i class="fas fa-shopping-cart"></i> Buy</a>
-          </div>
-        </div>
-
-        <!-- Font 7: Premium -->
-        <div class="f-card">
-          <div class="f-header">
-            <span class="f-title">YOB Kbach Retro</span>
-            <span class="font-badge">CLASSIC</span>
-          </div>
-          <div class="f-preview">ក្បាច់ខ្មែរបុរាណ</div>
-          <div class="f-footer">
-            <span class="f-price">$25.00</span>
-            <a href="#" class="f-btn premium"><i class="fas fa-shopping-cart"></i> Buy</a>
-          </div>
-        </div>
-
-        <!-- Font 8: Free -->
-        <div class="f-card">
-          <div class="f-header">
-            <span class="f-title">YOB Minimal UI</span>
-            <span class="font-badge outline">WEB DESIGN</span>
-          </div>
-          <div class="f-preview sans">រចនាបថសាមញ្ញ</div>
-          <div class="f-footer">
-            <span class="f-price free">Free</span>
-            <a href="#" class="f-btn free"><i class="fas fa-download"></i> Get</a>
-          </div>
-        </div>
-
-      </div>
-      
-      <div class="reveal" style="text-align: center; margin-top: 40px;">
-        <a href="#contact" class="btn-outline">
-           <i class="fas fa-cubes"></i> មើលកញ្ចប់ Font ទាំងអស់ (Bundle)
-        </a>
+        <!-- Repeat for seamless loop -->
+        <span class="marquee-item"><i class="fas fa-star"></i> AI TOOLS</span>
+        <span class="marquee-item"
+          ><i class="fas fa-star"></i> DIGITAL MARKETING</span
+        >
+        <span class="marquee-item"
+          ><i class="fas fa-star"></i> KHMER TYPOGRAPHY</span
+        >
+        <span class="marquee-item"><i class="fas fa-star"></i> E-COMMERCE</span>
+        <span class="marquee-item"
+          ><i class="fas fa-star"></i> PROMPT ENGINEERING</span
+        >
+        <span class="marquee-item"
+          ><i class="fas fa-star"></i> WEB STRATEGY</span
+        >
       </div>
     </div>
-  </section>
 
-  <!-- ══ PORTFOLIO / CASE STUDIES (NEW SECTION) ══ -->
-  <section id="portfolio">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Our Work</span>
-        <h2 class="section-title">CASE <span class="gradient-text">STUDIES</span></h2>
-        <p style="color: var(--gray); font-family: var(--fk); margin-top: 15px; font-size: 16px; max-width: 600px; margin-inline: auto;">
-          កុំជឿតែលើអ្វីដែលយើងនិយាយ! មើលពីរបៀបដែល YOB Digital យកបច្ចេកវិទ្យាទៅដោះស្រាយបញ្ហាពិតប្រាកដជូនអតិថិជន និងគម្រោងធំៗ។
-        </p>
-      </div>
+    <!-- ══ SERVICES ══ -->
+    <section id="tracks">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Our Expertise</span>
+          <h2 class="section-title">CHOOSE YOUR PATH</h2>
+        </div>
 
-      <div class="portfolio-grid">
-        <!-- Case Study 2 -->
-        <div class="portfolio-card reveal">
-          <div class="portfolio-img-wrap">
-            <img src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=80&w=1974&auto=format&fit=crop" alt="CHAMPION GIZ Event">
-            <div class="portfolio-overlay"></div>
-          </div>
-          <div class="portfolio-content">
-            <div class="portfolio-tags">
-              <span class="p-tag">Event Promotion</span>
-              <span class="p-tag">Storytelling</span>
-            </div>
-            <h3 class="portfolio-title">CHAMPION (GIZ ASEAN)</h3>
-            <p class="portfolio-desc">
-              យុទ្ធសាស្ត្រទាញចំណាប់អារម្មណ៍យុវជន និងសហគ្រិន តាមរយៈការធ្វើ Content ក្ដៅគគុក និងរៀបចំ Workshop ដែលមានអ្នកចូលរួមលើសការរំពឹងទុក។
+        <div class="tracks-grid">
+          <div class="track-card reveal">
+            <div class="track-icon-wrap"><i class="fas fa-robot"></i></div>
+            <h3 class="track-title">AI Tools Mastery</h3>
+            <p class="track-desc">
+              រៀនបញ្ជា AI ដូចជា Gemini, ChatGPT ដើម្បីជួយគិត Content, សរសេរ
+              Caption និងដោះស្រាយបញ្ហាការងារប្រចាំថ្ងៃលឿនជាងមុន ១០ ដង។
             </p>
-            <a href="#contact" class="portfolio-link">អាន Case Study <i class="fas fa-arrow-right"></i></a>
+            <a href="#contact" class="track-link"
+              >ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i
+            ></a>
           </div>
-        </div>
 
-        <!-- Case Study 3 -->
-        <div class="portfolio-card reveal">
-          <div class="portfolio-img-wrap">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1974&auto=format&fit=crop" alt="Local MSME Transformation">
-            <div class="portfolio-overlay"></div>
-          </div>
-          <div class="portfolio-content">
-            <div class="portfolio-tags">
-              <span class="p-tag">AI Tools</span>
-              <span class="p-tag">Automation</span>
-            </div>
-            <h3 class="portfolio-title">Local MSMEs Transformation</h3>
-            <p class="portfolio-desc">
-              ជួយហាងកាហ្វេ និងអ្នកលក់រាយក្នុងស្រុក លុបបំបាត់ការកត់សៀវភៅដៃ ដោយរៀបចំប្រព័ន្ធ POS និងបង្រៀនប្រើ AI ដើម្បីគិត Content លក់រាល់ថ្ងៃ។
+          <div class="track-card reveal">
+            <div class="track-icon-wrap"><i class="fas fa-bullhorn"></i></div>
+            <h3 class="track-title">Digital Strategy</h3>
+            <p class="track-desc">
+              ឈប់ត្រឹមតែ Boost Post! រៀបចំយុទ្ធសាស្ត្រទីផ្សារពេញលេញ
+              ចាប់តាំងពីការទាញចំណាប់អារម្មណ៍ រហូតដល់ការប្រមូល Data អតិថិជន។
             </p>
-            <a href="#contact" class="portfolio-link">អាន Case Study <i class="fas fa-arrow-right"></i></a>
+            <a href="#contact" class="track-link"
+              >ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="track-card reveal">
+            <div class="track-icon-wrap">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3 class="track-title">Web & System Setup</h3>
+            <p class="track-desc">
+              លុបបំបាត់ការធ្វើការងារដោយដៃ! ជួយរៀបចំ Website ទំនើប (No WordPress)
+              និងប្រព័ន្ធ LMS សម្រាប់ស្ថាប័ន ឬអាជីវកម្មរបស់អ្នក។
+            </p>
+            <a href="#contact" class="track-link"
+              >ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i
+            ></a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ══ VIDEO MASTERCLASS (YOUTUBE SECTION) ══ -->
-  <section id="videos">
-    <div class="container">
-      <div class="section-header reveal" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
-        <div>
-          <span class="section-tag"><i class="fab fa-youtube" style="color: #ff0000;"></i> Free Masterclass</span>
-          <h2 class="section-title">YOB <span class="gradient-text">TUTORIALS</span></h2>
-          <p style="color: var(--gray); font-family: var(--fk); margin-top: 15px; font-size: 16px; max-width: 500px;">
-            រៀនពីក្បួន Digital Marketing, របៀបប្រើប្រាស់ AI, និងគន្លឹះរចនា (Design) តាមរយៈវីដេអូបង្រៀនឥតគិតថ្លៃរបស់យើង។
+    <!-- ══ TYPOGRAPHY STORE (FULL GRID SHOP) ══ -->
+    <section id="typography">
+      <div class="container">
+        <div
+          class="section-header reveal"
+          style="text-align: center; margin-bottom: 20px"
+        >
+          <span class="section-tag"
+            ><i class="fas fa-pen-nib"></i> KHMER FONT SHOP</span
+          >
+          <h2 class="section-title">
+            YOB <span class="gradient-text">TYPOGRAPHY</span>
+          </h2>
+          <p
+            style="
+              color: var(--gray);
+              font-family: var(--fk);
+              margin-top: 15px;
+              font-size: 16px;
+              max-width: 650px;
+              margin-inline: auto;
+            "
+          >
+            យីហោ (Branding) មិនអាចមើលទៅ Professional បានទេ ប្រសិនបើនៅតែប្រើ Font
+            ធម្មតាៗ។ លើកកម្ពស់គម្រោង Design
+            របស់អ្នកជាមួយពុម្ពអក្សរខ្មែរយូនីកូដប្រណិតៗ ទាំង Free និង Premium ពី
+            YOB Digital។
           </p>
         </div>
-        <!-- ដាក់ Link ឆានែល YouTube ពិតរបស់ Oppa នៅទីនេះ -->
-        <a href="https://youtube.com/@yobdigital" target="_blank" class="btn-outline" style="border-color: rgba(255,0,0,0.3); color: #ff4a4a; background: rgba(255,0,0,0.05);">
-          <i class="fab fa-youtube" style="color: #ff0000;"></i> Subscribe លើ YouTube
-        </a>
-      </div>
 
-      <div class="video-grid reveal">
-        <!-- Video 1 -->
-        <a href="#" class="video-card">
-          <div class="video-thumb">
-            <!-- ដូររូបភាព Cover YouTube ទីនេះ -->
-            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop" alt="YouTube Thumbnail">
-            <i class="fas fa-play-circle play-btn-overlay"></i>
-            <span class="video-duration">12:45</span>
-          </div>
-          <div class="video-info">
-            <h3 class="video-title">របៀបប្រើប្រាស់ AI សរសេរ Content លក់ដាច់ ១០ ដង</h3>
-            <div class="video-meta">
-              <span><i class="fas fa-eye"></i> 1.2K Views</span>
-              <span><i class="fas fa-clock"></i> 2 weeks ago</span>
+        <!-- 8 Fonts Grid -->
+        <div class="font-shop-grid reveal">
+          <!-- Font 1: Premium -->
+          <div class="f-card">
+            <div class="f-header">
+              <span class="f-title">YOB Heading Pro</span>
+              <span class="font-badge">BEST SELLER</span>
             </div>
-            <div class="video-tags">
-              <span class="v-badge">AI TOOLS</span>
-              <span class="v-badge">MARKETING</span>
+            <div class="f-preview heavy">សិល្បៈឌីជីថល</div>
+            <div class="f-footer">
+              <span class="f-price">$15.00</span>
+              <a href="#" class="f-btn premium"
+                ><i class="fas fa-shopping-cart"></i> Buy</a
+              >
             </div>
           </div>
-        </a>
 
-        <!-- Video 2 -->
-        <a href="#" class="video-card">
-          <div class="video-thumb">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop" alt="YouTube Thumbnail">
-            <i class="fas fa-play-circle play-btn-overlay"></i>
-            <span class="video-duration">08:20</span>
-          </div>
-          <div class="video-info">
-            <h3 class="video-title">គន្លឹះរៀបចំ Website សម្រាប់អាជីវកម្មខ្នាតតូច (MSMEs)</h3>
-            <div class="video-meta">
-              <span><i class="fas fa-eye"></i> 850 Views</span>
-              <span><i class="fas fa-clock"></i> 1 month ago</span>
+          <!-- Font 2: Free -->
+          <div class="f-card">
+            <div class="f-header">
+              <span class="f-title">YOB Content Sans</span>
+              <span class="font-badge outline">BASIC</span>
             </div>
-            <div class="video-tags">
-              <span class="v-badge">WEB DESIGN</span>
-              <span class="v-badge">BUSINESS</span>
+            <div class="f-preview sans">អានងាយស្រួលយល់</div>
+            <div class="f-footer">
+              <span class="f-price free">Free</span>
+              <a href="#" class="f-btn free"
+                ><i class="fas fa-download"></i> Get</a
+              >
             </div>
           </div>
-        </a>
 
-        <!-- Video 3 -->
-        <a href="#" class="video-card">
-          <div class="video-thumb">
-            <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=2000&auto=format&fit=crop" alt="YouTube Thumbnail">
-            <i class="fas fa-play-circle play-btn-overlay"></i>
-            <span class="video-duration">15:10</span>
-          </div>
-          <div class="video-info">
-            <h3 class="video-title">អាថ៌កំបាំងទាញចំណាប់អារម្មណ៍ភ្ញៀវ ៣ វិនាទីដំបូង</h3>
-            <div class="video-meta">
-              <span><i class="fas fa-eye"></i> 2.5K Views</span>
-              <span><i class="fas fa-clock"></i> 2 months ago</span>
+          <!-- Font 3: Premium -->
+          <div class="f-card">
+            <div class="f-header">
+              <span class="f-title">YOB Signature</span>
+              <span class="font-badge">ELEGANT</span>
             </div>
-            <div class="video-tags">
-              <span class="v-badge">CONTENT</span>
-              <span class="v-badge">TIKTOK</span>
+            <div class="f-preview italic">ហត្ថលេខាប្រណិត</div>
+            <div class="f-footer">
+              <span class="f-price">$20.00</span>
+              <a href="#" class="f-btn premium"
+                ><i class="fas fa-shopping-cart"></i> Buy</a
+              >
             </div>
           </div>
-        </a>
-      </div>
-    </div>
-  </section>
 
-  <!-- ══ FREE RESOURCES (LEAD MAGNET) ══ -->
-  <section id="resources">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Free Knowledge</span>
-        <h2 class="section-title">YOB <span class="gradient-text">CONTENT HUB</span></h2>
-        <p style="color: var(--gray); font-family: var(--fk); margin-top: 15px; font-size: 16px; max-width: 600px; margin-inline: auto;">
-          កុំលាក់ចំណេះដឹង! នៅ YOB យើងចែករំលែកក្បួននិង Template ដែលយើងប្រើប្រាស់ផ្ទាល់ ឱ្យបងប្អូនសហគ្រិនយកទៅអនុវត្តបានភ្លាមៗ ដោយមិនគិតថ្លៃ។
-        </p>
-      </div>
+          <!-- Font 4: Free -->
+          <div class="f-card">
+            <div class="f-header">
+              <span class="f-title">YOB Tech Mono</span>
+              <span class="font-badge outline">CODING</span>
+            </div>
+            <div class="f-preview sans" style="letter-spacing: 2px">
+              បច្ចេកវិទ្យា AI
+            </div>
+            <div class="f-footer">
+              <span class="f-price free">Free</span>
+              <a href="#" class="f-btn free"
+                ><i class="fas fa-download"></i> Get</a
+              >
+            </div>
+          </div>
 
-      <div class="resource-box reveal">
-        <!-- Visual Side -->
-        <div class="resource-visual">
-          <div class="mockup-book">
-            <span class="mockup-tag">Free Toolkit</span>
-            <h4>THE AI <br> CONTENT <br> BIBLE</h4>
-            <p>30-Day Calendar & Prompts for MSMEs</p>
-            <i class="fas fa-book-open mockup-icon"></i>
+          <!-- Font 5: Premium -->
+          <div class="f-card">
+            <div class="f-header">
+              <span class="f-title">YOB Modern Serif</span>
+              <span class="font-badge">LUXURY</span>
+            </div>
+            <div class="f-preview">ភាពស៊ីវីល័យ</div>
+            <div class="f-footer">
+              <span class="f-price">$18.00</span>
+              <a href="#" class="f-btn premium"
+                ><i class="fas fa-shopping-cart"></i> Buy</a
+              >
+            </div>
+          </div>
+
+          <!-- Font 6: Premium -->
+          <div class="f-card">
+            <div class="f-header">
+              <span class="f-title">YOB Poster Black</span>
+              <span class="font-badge">BOLD</span>
+            </div>
+            <div class="f-preview heavy" style="font-size: 38px">
+              បញ្ចុះតម្លៃ ៥០%
+            </div>
+            <div class="f-footer">
+              <span class="f-price">$12.00</span>
+              <a href="#" class="f-btn premium"
+                ><i class="fas fa-shopping-cart"></i> Buy</a
+              >
+            </div>
+          </div>
+
+          <!-- Font 7: Premium -->
+          <div class="f-card">
+            <div class="f-header">
+              <span class="f-title">YOB Kbach Retro</span>
+              <span class="font-badge">CLASSIC</span>
+            </div>
+            <div class="f-preview">ក្បាច់ខ្មែរបុរាណ</div>
+            <div class="f-footer">
+              <span class="f-price">$25.00</span>
+              <a href="#" class="f-btn premium"
+                ><i class="fas fa-shopping-cart"></i> Buy</a
+              >
+            </div>
+          </div>
+
+          <!-- Font 8: Free -->
+          <div class="f-card">
+            <div class="f-header">
+              <span class="f-title">YOB Minimal UI</span>
+              <span class="font-badge outline">WEB DESIGN</span>
+            </div>
+            <div class="f-preview sans">រចនាបថសាមញ្ញ</div>
+            <div class="f-footer">
+              <span class="f-price free">Free</span>
+              <a href="#" class="f-btn free"
+                ><i class="fas fa-download"></i> Get</a
+              >
+            </div>
           </div>
         </div>
-        
-        <!-- Content & Form Side -->
-        <div class="resource-content">
-          <h3>កញ្ចប់សៀវភៅ "AI Content Bible"</h3>
-          <p>លែងឈឺក្បាលរឿងគិត Content ផុសលក់អីវ៉ាន់រាល់ថ្ងៃ! ទាញយកសៀវភៅនិង Template នេះពី YOB Content Hub ដើម្បីជួយអ្នកចំណេញពេល ១០ ដង។</p>
-          
-          <ul class="checklist">
-            <li><i class="fas fa-check-circle"></i> រូបមន្តបញ្ជា AI សរសេរ Caption អោយត្រូវចិត្តភ្ញៀវខ្មែរ។</li>
-            <li><i class="fas fa-check-circle"></i> តារាង Content Plan រួចជាស្រេចសម្រាប់រយៈពេល ៣០ ថ្ងៃ។</li>
-            <li><i class="fas fa-check-circle"></i> ក្បួនទាញចំណាប់អារម្មណ៍ ៣ វិនាទីដំបូង (Hook Secrets)។</li>
-          </ul>
 
-          <!-- Form to get the data (Lead Gen) -->
-          <form class="lead-form" onsubmit="event.preventDefault(); alert('អរគុណ! ឯកសារត្រូវបានផ្ញើទៅកាន់ Telegram របស់អ្នកហើយ។ (នេះជាការសាកល្បង)');">
-            <div class="lead-form-row">
-              <input type="text" class="lead-input" placeholder="ឈ្មោះរបស់អ្នក" required>
-              <input type="text" class="lead-input" placeholder="លេខ Telegram" required>
+        <div class="reveal" style="text-align: center; margin-top: 40px">
+          <a href="#contact" class="btn-outline">
+            <i class="fas fa-cubes"></i> មើលកញ្ចប់ Font ទាំងអស់ (Bundle)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PORTFOLIO / CASE STUDIES (NEW SECTION) ══ -->
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Our Work</span>
+          <h2 class="section-title">
+            CASE <span class="gradient-text">STUDIES</span>
+          </h2>
+          <p
+            style="
+              color: var(--gray);
+              font-family: var(--fk);
+              margin-top: 15px;
+              font-size: 16px;
+              max-width: 600px;
+              margin-inline: auto;
+            "
+          >
+            កុំជឿតែលើអ្វីដែលយើងនិយាយ! មើលពីរបៀបដែល YOB Digital
+            យកបច្ចេកវិទ្យាទៅដោះស្រាយបញ្ហាពិតប្រាកដជូនអតិថិជន និងគម្រោងធំៗ។
+          </p>
+        </div>
+
+        <div class="portfolio-grid">
+          <!-- Case Study 2 -->
+          <div class="portfolio-card reveal">
+            <div class="portfolio-img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=80&w=1974&auto=format&fit=crop"
+                alt="CHAMPION GIZ Event"
+              />
+              <div class="portfolio-overlay"></div>
             </div>
-            <button type="submit" class="lead-btn">
-              <i class="fas fa-download"></i> ទាញយកឥឡូវនេះ (100% Free)
+            <div class="portfolio-content">
+              <div class="portfolio-tags">
+                <span class="p-tag">Event Promotion</span>
+                <span class="p-tag">Storytelling</span>
+              </div>
+              <h3 class="portfolio-title">CHAMPION (GIZ ASEAN)</h3>
+              <p class="portfolio-desc">
+                យុទ្ធសាស្ត្រទាញចំណាប់អារម្មណ៍យុវជន និងសហគ្រិន តាមរយៈការធ្វើ
+                Content ក្ដៅគគុក និងរៀបចំ Workshop
+                ដែលមានអ្នកចូលរួមលើសការរំពឹងទុក។
+              </p>
+              <a href="#contact" class="portfolio-link"
+                >អាន Case Study <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Case Study 3 -->
+          <div class="portfolio-card reveal">
+            <div class="portfolio-img-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1974&auto=format&fit=crop"
+                alt="Local MSME Transformation"
+              />
+              <div class="portfolio-overlay"></div>
+            </div>
+            <div class="portfolio-content">
+              <div class="portfolio-tags">
+                <span class="p-tag">AI Tools</span>
+                <span class="p-tag">Automation</span>
+              </div>
+              <h3 class="portfolio-title">Local MSMEs Transformation</h3>
+              <p class="portfolio-desc">
+                ជួយហាងកាហ្វេ និងអ្នកលក់រាយក្នុងស្រុក លុបបំបាត់ការកត់សៀវភៅដៃ
+                ដោយរៀបចំប្រព័ន្ធ POS និងបង្រៀនប្រើ AI ដើម្បីគិត Content
+                លក់រាល់ថ្ងៃ។
+              </p>
+              <a href="#contact" class="portfolio-link"
+                >អាន Case Study <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ VIDEO MASTERCLASS (YOUTUBE SECTION) ══ -->
+    <section id="videos">
+      <div class="container">
+        <div
+          class="section-header reveal"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 20px;
+          "
+        >
+          <div>
+            <span class="section-tag"
+              ><i class="fab fa-youtube" style="color: #ff0000"></i> Free
+              Masterclass</span
+            >
+            <h2 class="section-title">
+              YOB <span class="gradient-text">TUTORIALS</span>
+            </h2>
+            <p
+              style="
+                color: var(--gray);
+                font-family: var(--fk);
+                margin-top: 15px;
+                font-size: 16px;
+                max-width: 500px;
+              "
+            >
+              រៀនពីក្បួន Digital Marketing, របៀបប្រើប្រាស់ AI, និងគន្លឹះរចនា
+              (Design) តាមរយៈវីដេអូបង្រៀនឥតគិតថ្លៃរបស់យើង។
+            </p>
+          </div>
+          <!-- ដាក់ Link ឆានែល YouTube ពិតរបស់ Oppa នៅទីនេះ -->
+          <a
+            href="https://youtube.com/@yobdigital"
+            target="_blank"
+            class="btn-outline"
+            style="
+              border-color: rgba(255, 0, 0, 0.3);
+              color: #ff4a4a;
+              background: rgba(255, 0, 0, 0.05);
+            "
+          >
+            <i class="fab fa-youtube" style="color: #ff0000"></i> Subscribe លើ
+            YouTube
+          </a>
+        </div>
+
+        <div class="video-grid reveal">
+          <!-- Video 1 -->
+          <a href="#" class="video-card">
+            <div class="video-thumb">
+              <!-- ដូររូបភាព Cover YouTube ទីនេះ -->
+              <img
+                src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop"
+                alt="YouTube Thumbnail"
+              />
+              <i class="fas fa-play-circle play-btn-overlay"></i>
+              <span class="video-duration">12:45</span>
+            </div>
+            <div class="video-info">
+              <h3 class="video-title">
+                របៀបប្រើប្រាស់ AI សរសេរ Content លក់ដាច់ ១០ ដង
+              </h3>
+              <div class="video-meta">
+                <span><i class="fas fa-eye"></i> 1.2K Views</span>
+                <span><i class="fas fa-clock"></i> 2 weeks ago</span>
+              </div>
+              <div class="video-tags">
+                <span class="v-badge">AI TOOLS</span>
+                <span class="v-badge">MARKETING</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Video 2 -->
+          <a href="#" class="video-card">
+            <div class="video-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop"
+                alt="YouTube Thumbnail"
+              />
+              <i class="fas fa-play-circle play-btn-overlay"></i>
+              <span class="video-duration">08:20</span>
+            </div>
+            <div class="video-info">
+              <h3 class="video-title">
+                គន្លឹះរៀបចំ Website សម្រាប់អាជីវកម្មខ្នាតតូច (MSMEs)
+              </h3>
+              <div class="video-meta">
+                <span><i class="fas fa-eye"></i> 850 Views</span>
+                <span><i class="fas fa-clock"></i> 1 month ago</span>
+              </div>
+              <div class="video-tags">
+                <span class="v-badge">WEB DESIGN</span>
+                <span class="v-badge">BUSINESS</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Video 3 -->
+          <a href="#" class="video-card">
+            <div class="video-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=2000&auto=format&fit=crop"
+                alt="YouTube Thumbnail"
+              />
+              <i class="fas fa-play-circle play-btn-overlay"></i>
+              <span class="video-duration">15:10</span>
+            </div>
+            <div class="video-info">
+              <h3 class="video-title">
+                អាថ៌កំបាំងទាញចំណាប់អារម្មណ៍ភ្ញៀវ ៣ វិនាទីដំបូង
+              </h3>
+              <div class="video-meta">
+                <span><i class="fas fa-eye"></i> 2.5K Views</span>
+                <span><i class="fas fa-clock"></i> 2 months ago</span>
+              </div>
+              <div class="video-tags">
+                <span class="v-badge">CONTENT</span>
+                <span class="v-badge">TIKTOK</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FREE RESOURCES (LEAD MAGNET) ══ -->
+    <section id="resources">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Free Knowledge</span>
+          <h2 class="section-title">
+            YOB <span class="gradient-text">CONTENT HUB</span>
+          </h2>
+          <p
+            style="
+              color: var(--gray);
+              font-family: var(--fk);
+              margin-top: 15px;
+              font-size: 16px;
+              max-width: 600px;
+              margin-inline: auto;
+            "
+          >
+            កុំលាក់ចំណេះដឹង! នៅ YOB យើងចែករំលែកក្បួននិង Template
+            ដែលយើងប្រើប្រាស់ផ្ទាល់ ឱ្យបងប្អូនសហគ្រិនយកទៅអនុវត្តបានភ្លាមៗ
+            ដោយមិនគិតថ្លៃ។
+          </p>
+        </div>
+
+        <div class="resource-box reveal">
+          <!-- Visual Side -->
+          <div class="resource-visual">
+            <div class="mockup-book">
+              <span class="mockup-tag">Free Toolkit</span>
+              <h4>
+                THE AI <br />
+                CONTENT <br />
+                BIBLE
+              </h4>
+              <p>30-Day Calendar & Prompts for MSMEs</p>
+              <i class="fas fa-book-open mockup-icon"></i>
+            </div>
+          </div>
+
+          <!-- Content & Form Side -->
+          <div class="resource-content">
+            <h3>កញ្ចប់សៀវភៅ "AI Content Bible"</h3>
+            <p>
+              លែងឈឺក្បាលរឿងគិត Content ផុសលក់អីវ៉ាន់រាល់ថ្ងៃ! ទាញយកសៀវភៅនិង
+              Template នេះពី YOB Content Hub ដើម្បីជួយអ្នកចំណេញពេល ១០ ដង។
+            </p>
+
+            <ul class="checklist">
+              <li>
+                <i class="fas fa-check-circle"></i> រូបមន្តបញ្ជា AI សរសេរ
+                Caption អោយត្រូវចិត្តភ្ញៀវខ្មែរ។
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> តារាង Content Plan
+                រួចជាស្រេចសម្រាប់រយៈពេល ៣០ ថ្ងៃ។
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i> ក្បួនទាញចំណាប់អារម្មណ៍ ៣
+                វិនាទីដំបូង (Hook Secrets)។
+              </li>
+            </ul>
+
+            <!-- Form to get the data (Lead Gen) -->
+            <form
+              class="lead-form"
+              onsubmit="
+                event.preventDefault();
+                alert(
+                  'អរគុណ! ឯកសារត្រូវបានផ្ញើទៅកាន់ Telegram របស់អ្នកហើយ។ (នេះជាការសាកល្បង)',
+                );
+              "
+            >
+              <div class="lead-form-row">
+                <input
+                  type="text"
+                  class="lead-input"
+                  placeholder="ឈ្មោះរបស់អ្នក"
+                  required
+                />
+                <input
+                  type="text"
+                  class="lead-input"
+                  placeholder="លេខ Telegram"
+                  required
+                />
+              </div>
+              <button type="submit" class="lead-btn">
+                <i class="fas fa-download"></i> ទាញយកឥឡូវនេះ (100% Free)
+              </button>
+              <span
+                style="
+                  font-size: 12px;
+                  color: var(--gray);
+                  font-family: var(--fk);
+                  text-align: center;
+                  margin-top: 5px;
+                "
+              >
+                <i class="fas fa-lock" style="font-size: 10px"></i>
+                ព័ត៌មានរបស់អ្នកត្រូវបានរក្សាទុកជាសម្ងាត់។
+              </span>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ ABOUT ══ -->
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-image reveal">
+          <!-- Add your real image here -->
+          <img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+            alt="YOB Digital Team"
+          />
+        </div>
+        <div class="about-content reveal">
+          <span class="section-tag">About YOB</span>
+          <h2
+            style="
+              font-family: var(--fk);
+              font-size: clamp(32px, 4vw, 45px);
+              line-height: 1.4;
+              margin-bottom: 20px;
+            "
+          >
+            <span class="gradient-text">"យប់ មានតម្លៃ ដូចពន្លឺ"</span>
+          </h2>
+          <p>
+            YOB Digital គឺជា Digital Marketing Agency ផ្ដោតលើ SMEs, Startups,
+            NGOs និង Corporate Teams នៅ Cambodia ដែលត្រូវបានបង្កើតឡើងដោយខ្ញុំបាទ
+            <strong>យឺន សាវុទ្ធិ</strong>។ ពួកយើងមិនមែនជា Agency ធម្មតាទេ តែជា
+            "ដៃគូ" ដែលជួយប្រែក្លាយអាជីវកម្មរបស់អ្នកឱ្យដើរទាន់សម័យ Digital & AI។
+          </p>
+          <div class="value-tags">
+            <div class="v-tag">
+              <i class="fas fa-check-circle"></i> Practical Learning
+            </div>
+            <div class="v-tag">
+              <i class="fas fa-check-circle"></i> Khmer Context
+            </div>
+            <div class="v-tag">
+              <i class="fas fa-check-circle"></i> Actionable Output
+            </div>
+            <div class="v-tag">
+              <i class="fas fa-check-circle"></i> Tech Driven
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT ══ -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-wrapper reveal">
+          <div class="contact-info">
+            <h2>LET'S <span class="gold">CONNECT</span></h2>
+            <p>
+              មានបញ្ហាស្មុគស្មាញរឿង Digital មែនទេ? ឬចង់រៀបចំ Workshop?
+              ផ្ញើសារមកពួកយើងឥឡូវនេះ!
+            </p>
+
+            <div class="social-bubbles">
+              <a href="https://facebook.com/yobdigital"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="https://t.me/yobdigital"
+                ><i class="fab fa-telegram-plane"></i
+              ></a>
+              <a href="https://linkedin.com/in/yobdigital"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+
+          <form
+            class="contact-form"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+          >
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px"
+            >
+              <div class="form-group">
+                <label>ឈ្មោះរបស់អ្នក</label>
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  placeholder="ឧទាហរណ៍៖ Oppa Babu"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>លេខទូរស័ព្ទ ឬ Telegram</label>
+                <input
+                  type="text"
+                  name="phone"
+                  class="form-control"
+                  placeholder="012 345 678"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>ប្រធានបទ</label>
+              <input
+                type="text"
+                name="subject"
+                class="form-control"
+                placeholder="ចង់រៀន AI / ចង់ធ្វើ Website / ប្រឹក្សាយោបល់"
+              />
+            </div>
+            <div class="form-group">
+              <label>សាររបស់អ្នក</label>
+              <textarea
+                name="message"
+                class="form-control"
+                placeholder="សូមរៀបរាប់ពីបញ្ហាអាជីវកម្មរបស់អ្នក..."
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn-primary"
+              style="
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                justify-content: center;
+              "
+            >
+              បញ្ជូនសារ <i class="fas fa-paper-plane"></i>
             </button>
-            <span style="font-size: 12px; color: var(--gray); font-family: var(--fk); text-align: center; margin-top: 5px;">
-              <i class="fas fa-lock" style="font-size: 10px;"></i> ព័ត៌មានរបស់អ្នកត្រូវបានរក្សាទុកជាសម្ងាត់។
-            </span>
           </form>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ══ ABOUT ══ -->
-  <section id="about">
-    <div class="container about-grid">
-      <div class="about-image reveal">
-        <!-- Add your real image here -->
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="YOB Digital Team">
-      </div>
-      <div class="about-content reveal">
-        <span class="section-tag">About YOB</span>
-        <h2 style="font-family: var(--fk); font-size: clamp(32px, 4vw, 45px); line-height: 1.4; margin-bottom: 20px;">
-          <span class="gradient-text">"យប់ មានតម្លៃ ដូចពន្លឺ"</span>
-        </h2>
-        <p>
-          YOB Digital គឺជា Digital Marketing Agency ផ្ដោតលើ SMEs, Startups, NGOs និង Corporate Teams នៅ Cambodia ដែលត្រូវបានបង្កើតឡើងដោយខ្ញុំបាទ <strong>យឺន សាវុទ្ធិ</strong>។ ពួកយើងមិនមែនជា Agency ធម្មតាទេ តែជា "ដៃគូ" ដែលជួយប្រែក្លាយអាជីវកម្មរបស់អ្នកឱ្យដើរទាន់សម័យ Digital & AI។
-        </p>
-        <div class="value-tags">
-          <div class="v-tag"><i class="fas fa-check-circle"></i> Practical Learning</div>
-          <div class="v-tag"><i class="fas fa-check-circle"></i> Khmer Context</div>
-          <div class="v-tag"><i class="fas fa-check-circle"></i> Actionable Output</div>
-          <div class="v-tag"><i class="fas fa-check-circle"></i> Tech Driven</div>
+    <!-- ══ FOOTER ══ -->
+    <footer>
+      <div class="container">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+          "
+        >
+          <p class="footer-text">
+            © 2026 <span>YOB.DIGITAL</span>
+            <span style="margin: 0 10px; opacity: 0.5">|</span>
+            យប់មានតម្លៃដូចពន្លឺ ✨
+          </p>
+          <p
+            style="
+              font-size: 12px;
+              color: var(--gray);
+              font-family: var(--fk);
+              letter-spacing: 0.5px;
+            "
+          >
+            Crafted with passion & purpose for Cambodian Brands 🇰🇭
+          </p>
         </div>
       </div>
+    </footer>
+
+    <!-- Float Contact Buttons -->
+    <div class="float-contact">
+      <a
+        href="https://t.me/yobdigital"
+        class="fl-btn tg"
+        data-tip="Telegram YOB"
+        target="_blank"
+        rel="noopener"
+        ><i class="fab fa-telegram-plane"></i
+      ></a>
+      <a
+        href="https://wa.me/855XXXXXXXXX"
+        class="fl-btn wa"
+        data-tip="WhatsApp YOB"
+        target="_blank"
+        rel="noopener"
+        ><i class="fab fa-whatsapp"></i
+      ></a>
     </div>
-  </section>
 
-  <!-- ══ CONTACT ══ -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-wrapper reveal">
-        <div class="contact-info">
-          <h2>LET'S <span class="gold">CONNECT</span></h2>
-          <p>មានបញ្ហាស្មុគស្មាញរឿង Digital មែនទេ? ឬចង់រៀបចំ Workshop? ផ្ញើសារមកពួកយើងឥឡូវនេះ!</p>
-          
-          <div class="social-bubbles">
-            <a href="https://facebook.com/yobdigital"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://t.me/yobdigital"><i class="fab fa-telegram-plane"></i></a>
-            <a href="https://linkedin.com/in/yobdigital"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-        </div>
+    <!-- Back to Top -->
+    <button
+      class="back-top"
+      id="backTop"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      aria-label="Back to top"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
 
-        <form class="contact-form" name="contact" method="POST" data-netlify="true">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div class="form-group">
-              <label>ឈ្មោះរបស់អ្នក</label>
-              <input type="text" name="name" class="form-control" placeholder="ឧទាហរណ៍៖ Oppa Babu" required>
-            </div>
-            <div class="form-group">
-              <label>លេខទូរស័ព្ទ ឬ Telegram</label>
-              <input type="text" name="phone" class="form-control" placeholder="012 345 678" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>ប្រធានបទ</label>
-            <input type="text" name="subject" class="form-control" placeholder="ចង់រៀន AI / ចង់ធ្វើ Website / ប្រឹក្សាយោបល់">
-          </div>
-          <div class="form-group">
-            <label>សាររបស់អ្នក</label>
-            <textarea name="message" class="form-control" placeholder="សូមរៀបរាប់ពីបញ្ហាអាជីវកម្មរបស់អ្នក..."></textarea>
-          </div>
-          <button type="submit" class="btn-primary" style="border: none; cursor: pointer; width: 100%; justify-content: center;">
-            បញ្ជូនសារ <i class="fas fa-paper-plane"></i>
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ FOOTER ══ -->
-  <footer>
-    <div class="container">
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <p class="footer-text">© 2026 <span>YOB.DIGITAL</span> <span style="margin: 0 10px; opacity: 0.5;">|</span> យប់មានតម្លៃដូចពន្លឺ ✨</p>
-        <p style="font-size: 12px; color: var(--gray); font-family: var(--fk); letter-spacing: 0.5px;">Crafted with passion & purpose for Cambodian Brands 🇰🇭</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Float Contact Buttons -->
-  <div class="float-contact">
-    <a href="https://t.me/yobdigital"    class="fl-btn tg" data-tip="Telegram YOB"  target="_blank" rel="noopener"><i class="fab fa-telegram-plane"></i></a>
-    <a href="https://wa.me/855XXXXXXXXX" class="fl-btn wa" data-tip="WhatsApp YOB"  target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-  </div>
-
-  <!-- Back to Top -->
-  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <script>
-    // ✅ Hamburger Menu
-    const hamburger    = document.getElementById('hamburger');
-    const mobileDrawer = document.getElementById('mobileDrawer');
-    const drawerClose  = document.getElementById('drawerClose');
-    function openDrawer()  { hamburger.classList.add('open');    mobileDrawer.classList.add('open');    document.body.style.overflow='hidden'; }
-    function closeDrawer() { hamburger.classList.remove('open'); mobileDrawer.classList.remove('open'); document.body.style.overflow=''; }
-    hamburger.addEventListener('click', () => hamburger.classList.contains('open') ? closeDrawer() : openDrawer());
-    drawerClose.addEventListener('click', closeDrawer);
-    mobileDrawer.addEventListener('click', e => { if (e.target === mobileDrawer) closeDrawer(); });
-
-    // ✅ Back to Top
-    const backTop = document.getElementById('backTop');
-    window.addEventListener('scroll', () => backTop.classList.toggle('show', window.scrollY > 400));
-
-    // --- Custom Cursor Logic (Pro Interaction) ---
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-outline');
-    
-    // Only run on non-touch devices
-    if(window.matchMedia("(pointer: fine)").matches) {
-      window.addEventListener('mousemove', function(e) {
-        const posX = e.clientX;
-        const posY = e.clientY;
-        
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
-        
-        // Use animation for a smoother dragging effect on the outline
-        cursorOutline.animate({
-          left: `${posX}px`,
-          top: `${posY}px`
-        }, { duration: 500, fill: "forwards" });
-      });
-
-      // Expand cursor when hovering over interactive elements
-      const interactives = document.querySelectorAll('a, button, input, textarea, .track-card, .f-card, .portfolio-card, .video-card');
-      interactives.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          cursorOutline.style.width = '60px';
-          cursorOutline.style.height = '60px';
-          cursorOutline.style.backgroundColor = 'rgba(229, 44, 103, 0.1)';
-        });
-        el.addEventListener('mouseleave', () => {
-          cursorOutline.style.width = '40px';
-          cursorOutline.style.height = '40px';
-          cursorOutline.style.backgroundColor = 'transparent';
-        });
-      });
-    }
-
-    // --- Scroll Reveal Animation ---
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
-  </script>
-
-
-  <script>
-    // ═══════════════════════════════════════════════
-    // NIGHT SKY — YOB Digital Hero
-    // យប់ ពន្លឺព្រះច័ន្ទ #e52c67
-    // ═══════════════════════════════════════════════
-    (function() {
-      const canvas = document.getElementById('night-canvas');
-      if (!canvas) return;
-      const ctx  = canvas.getContext('2d');
-      const hero = document.getElementById('hero');
-
-      let W, H, stars = [];
-      let moon = { x: 0, y: 0, r: 0 };
-      let mouse = { x: -9999, y: -9999 };
-
-      // ── RESIZE ──
-      function resize() {
-        const rect = hero.getBoundingClientRect();
-        W = canvas.width  = rect.width;
-        H = canvas.height = rect.height;
-        moon.r = Math.min(W, H) * 0.11;
-        moon.x = W * 0.82;
-        moon.y = H * 0.22;
-        buildStars();
+    <script>
+      // ✅ Hamburger Menu
+      const hamburger = document.getElementById("hamburger");
+      const mobileDrawer = document.getElementById("mobileDrawer");
+      const drawerClose = document.getElementById("drawerClose");
+      function openDrawer() {
+        hamburger.classList.add("open");
+        mobileDrawer.classList.add("open");
+        document.body.style.overflow = "hidden";
       }
-
-      // ── BUILD STARS ──
-      function buildStars() {
-        stars = [];
-        const n = Math.floor(W * H / 1600);
-        for (let i = 0; i < n; i++) {
-          const x = Math.random() * W;
-          const y = Math.random() * H;
-          const dx = x - moon.x, dy = y - moon.y;
-          if (Math.sqrt(dx*dx + dy*dy) < moon.r * 1.5) continue;
-          stars.push({
-            x, y,
-            r:     Math.random() * 1.3 + 0.2,
-            a:     Math.random() * 0.75 + 0.15,
-            speed: Math.random() * 0.7 + 0.2,
-            phase: Math.random() * Math.PI * 2,
-            pink:  Math.random() < 0.12,
-          });
-        }
+      function closeDrawer() {
+        hamburger.classList.remove("open");
+        mobileDrawer.classList.remove("open");
+        document.body.style.overflow = "";
       }
+      hamburger.addEventListener("click", () =>
+        hamburger.classList.contains("open") ? closeDrawer() : openDrawer(),
+      );
+      drawerClose.addEventListener("click", closeDrawer);
+      mobileDrawer.addEventListener("click", (e) => {
+        if (e.target === mobileDrawer) closeDrawer();
+      });
 
-      // ── DRAW LOOP ──
-      function draw(ts) {
-        const t = ts * 0.001;
-        ctx.clearRect(0, 0, W, H);
+      // ✅ Back to Top
+      const backTop = document.getElementById("backTop");
+      window.addEventListener("scroll", () =>
+        backTop.classList.toggle("show", window.scrollY > 400),
+      );
 
-        // Deep night sky
-        const sky = ctx.createLinearGradient(0, 0, 0, H);
-        sky.addColorStop(0,   '#000000');
-        sky.addColorStop(0.45,'#050108');
-        sky.addColorStop(1,   '#0a020e');
-        ctx.fillStyle = sky;
-        ctx.fillRect(0, 0, W, H);
+      // --- Custom Cursor Logic (Pro Interaction) ---
+      const cursorDot = document.querySelector(".cursor-dot");
+      const cursorOutline = document.querySelector(".cursor-outline");
 
-        // Pink nebula atmosphere
-        const neb = ctx.createRadialGradient(moon.x, moon.y, 0, moon.x, moon.y, W * 0.5);
-        neb.addColorStop(0,   'rgba(229,44,103,0.10)');
-        neb.addColorStop(0.45,'rgba(140,15,65,0.04)');
-        neb.addColorStop(1,   'transparent');
-        ctx.fillStyle = neb; ctx.fillRect(0, 0, W, H);
+      // Only run on non-touch devices
+      if (window.matchMedia("(pointer: fine)").matches) {
+        window.addEventListener("mousemove", function (e) {
+          const posX = e.clientX;
+          const posY = e.clientY;
 
-        // Secondary nebula bottom-left
-        const neb2 = ctx.createRadialGradient(W*0.1, H*0.8, 0, W*0.1, H*0.8, W*0.3);
-        neb2.addColorStop(0, 'rgba(80,5,50,0.07)');
-        neb2.addColorStop(1, 'transparent');
-        ctx.fillStyle = neb2; ctx.fillRect(0, 0, W, H);
+          cursorDot.style.left = `${posX}px`;
+          cursorDot.style.top = `${posY}px`;
 
-        // ── MOON GLOW LAYERS ──
-        for (let i = 4; i > 0; i--) {
-          const gr = ctx.createRadialGradient(moon.x, moon.y, 0, moon.x, moon.y, moon.r*(1+i*0.45));
-          gr.addColorStop(0,   `rgba(229,44,103,${0.08/i})`);
-          gr.addColorStop(0.5, `rgba(180,20,75,${0.03/i})`);
-          gr.addColorStop(1,   'transparent');
-          ctx.fillStyle = gr;
-          ctx.beginPath(); ctx.arc(moon.x, moon.y, moon.r*(1+i*0.45), 0, Math.PI*2); ctx.fill();
-        }
-
-        // ── MOON BODY ──
-        const mg = ctx.createRadialGradient(
-          moon.x - moon.r*0.28, moon.y - moon.r*0.22, moon.r*0.04,
-          moon.x, moon.y, moon.r
-        );
-        mg.addColorStop(0,    '#fff5f8');
-        mg.addColorStop(0.28, '#ffd0df');
-        mg.addColorStop(0.6,  '#e52c67');
-        mg.addColorStop(0.82, '#8b1040');
-        mg.addColorStop(1,    '#2e0416');
-        ctx.beginPath(); ctx.arc(moon.x, moon.y, moon.r, 0, Math.PI*2);
-        ctx.fillStyle = mg; ctx.fill();
-
-        // Moon craters
-        [[-.3,-.25,.11],[.22,.1,.07],[-.1,.32,.09],[.33,-.18,.05]].forEach(([cx,cy,cr])=>{
-          const cg = ctx.createRadialGradient(
-            moon.x+cx*moon.r, moon.y+cy*moon.r, 0,
-            moon.x+cx*moon.r, moon.y+cy*moon.r, cr*moon.r
+          // Use animation for a smoother dragging effect on the outline
+          cursorOutline.animate(
+            {
+              left: `${posX}px`,
+              top: `${posY}px`,
+            },
+            { duration: 500, fill: "forwards" },
           );
-          cg.addColorStop(0, 'rgba(100,5,40,0.4)');
-          cg.addColorStop(1, 'transparent');
-          ctx.beginPath(); ctx.arc(moon.x+cx*moon.r, moon.y+cy*moon.r, cr*moon.r, 0, Math.PI*2);
-          ctx.fillStyle = cg; ctx.fill();
         });
 
-        // Moon rim shimmer
-        ctx.beginPath(); ctx.arc(moon.x, moon.y, moon.r, 0, Math.PI*2);
-        const rim = ctx.createLinearGradient(moon.x-moon.r, moon.y-moon.r, moon.x+moon.r, moon.y+moon.r);
-        rim.addColorStop(0, 'rgba(255,210,225,0.5)');
-        rim.addColorStop(0.5, 'transparent');
-        rim.addColorStop(1, 'rgba(229,44,103,0.2)');
-        ctx.strokeStyle = rim; ctx.lineWidth = 1.5; ctx.stroke();
-
-        // Moonlight beam to ground
-        const ray = ctx.createLinearGradient(moon.x, moon.y+moon.r, moon.x, H);
-        ray.addColorStop(0, 'rgba(229,44,103,0.07)');
-        ray.addColorStop(1, 'transparent');
-        ctx.beginPath();
-        ctx.moveTo(moon.x - moon.r*1.8, H);
-        ctx.lineTo(moon.x, moon.y + moon.r);
-        ctx.lineTo(moon.x + moon.r*1.8, H);
-        ctx.closePath();
-        ctx.fillStyle = ray; ctx.fill();
-
-        // ── STARS ──
-        stars.forEach(s => {
-          const twinkle = Math.sin(t * s.speed + s.phase) * 0.4 + 0.6;
-          const dx = mouse.x - s.x, dy = mouse.y - s.y;
-          const di = Math.sqrt(dx*dx + dy*dy);
-          const prox = 110;
-          let alpha = s.a * twinkle;
-          let r = s.r;
-
-          if (di < prox) {
-            const f = 1 - di / prox;
-            alpha = Math.min(1, alpha + f * 0.85);
-            r = s.r * (1 + f * 1.8);
-          }
-
-          if (s.pink) {
-            ctx.beginPath(); ctx.arc(s.x, s.y, r*1.1, 0, Math.PI*2);
-            ctx.fillStyle = `rgba(229,44,103,${alpha*0.9})`; ctx.fill();
-            if (alpha > 0.5) {
-              const sg = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, r*5);
-              sg.addColorStop(0, `rgba(229,44,103,${alpha*0.25})`);
-              sg.addColorStop(1, 'transparent');
-              ctx.beginPath(); ctx.arc(s.x, s.y, r*5, 0, Math.PI*2);
-              ctx.fillStyle = sg; ctx.fill();
-            }
-          } else {
-            ctx.beginPath(); ctx.arc(s.x, s.y, r, 0, Math.PI*2);
-            ctx.fillStyle = `rgba(255,240,248,${alpha})`; ctx.fill();
-          }
+        // Expand cursor when hovering over interactive elements
+        const interactives = document.querySelectorAll(
+          "a, button, input, textarea, .track-card, .f-card, .portfolio-card, .video-card",
+        );
+        interactives.forEach((el) => {
+          el.addEventListener("mouseenter", () => {
+            cursorOutline.style.width = "60px";
+            cursorOutline.style.height = "60px";
+            cursorOutline.style.backgroundColor = "rgba(229, 44, 103, 0.1)";
+          });
+          el.addEventListener("mouseleave", () => {
+            cursorOutline.style.width = "40px";
+            cursorOutline.style.height = "40px";
+            cursorOutline.style.backgroundColor = "transparent";
+          });
         });
-
-        // ── SHOOTING STAR ──
-        const cycle = (t * 0.12) % 1;
-        if (cycle < 0.07) {
-          const p = cycle / 0.07;
-          const sx = W*0.55 + p*W*0.3;
-          const sy = H*0.04 + p*H*0.18;
-          const tail = ctx.createLinearGradient(sx-100*p, sy-50*p, sx, sy);
-          tail.addColorStop(0, 'transparent');
-          tail.addColorStop(1, `rgba(229,44,103,${0.9*(1-p*0.3)})`);
-          ctx.beginPath(); ctx.moveTo(sx-100, sy-50); ctx.lineTo(sx, sy);
-          ctx.strokeStyle = tail; ctx.lineWidth = 1.5; ctx.stroke();
-          const hg = ctx.createRadialGradient(sx, sy, 0, sx, sy, 6);
-          hg.addColorStop(0, 'rgba(255,190,215,0.95)');
-          hg.addColorStop(1, 'transparent');
-          ctx.beginPath(); ctx.arc(sx, sy, 6, 0, Math.PI*2);
-          ctx.fillStyle = hg; ctx.fill();
-        }
-
-        requestAnimationFrame(draw);
       }
 
-      // Mouse tracking
-      document.addEventListener('mousemove', e => {
-        const rect = hero.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-      });
+      // --- Scroll Reveal Animation ---
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      reveals.forEach((el) => observer.observe(el));
+    </script>
 
-      let rTimer;
-      window.addEventListener('resize', () => {
-        clearTimeout(rTimer);
-        rTimer = setTimeout(resize, 150);
-      });
+    <script>
+      // ═══════════════════════════════════════════════
+      // NIGHT SKY — YOB Digital Hero
+      // យប់ ពន្លឺព្រះច័ន្ទ #e52c67
+      // ═══════════════════════════════════════════════
+      (function () {
+        const canvas = document.getElementById("night-canvas");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        const hero = document.getElementById("hero");
 
-      resize();
-      requestAnimationFrame(draw);
-    })();
-  </script>
+        let W,
+          H,
+          stars = [];
+        let moon = { x: 0, y: 0, r: 0 };
+        let mouse = { x: -9999, y: -9999 };
 
-</body>
+        // ── RESIZE ──
+        function resize() {
+          const rect = hero.getBoundingClientRect();
+          W = canvas.width = rect.width;
+          H = canvas.height = rect.height;
+          moon.r = Math.min(W, H) * 0.11;
+          moon.x = W * 0.82;
+          moon.y = H * 0.22;
+          buildStars();
+        }
+
+        // ── BUILD STARS ──
+        function buildStars() {
+          stars = [];
+          const n = Math.floor((W * H) / 1600);
+          for (let i = 0; i < n; i++) {
+            const x = Math.random() * W;
+            const y = Math.random() * H;
+            const dx = x - moon.x,
+              dy = y - moon.y;
+            if (Math.sqrt(dx * dx + dy * dy) < moon.r * 1.5) continue;
+            stars.push({
+              x,
+              y,
+              r: Math.random() * 1.3 + 0.2,
+              a: Math.random() * 0.75 + 0.15,
+              speed: Math.random() * 0.7 + 0.2,
+              phase: Math.random() * Math.PI * 2,
+              pink: Math.random() < 0.12,
+            });
+          }
+        }
+
+        // ── DRAW LOOP ──
+        function draw(ts) {
+          const t = ts * 0.001;
+          ctx.clearRect(0, 0, W, H);
+
+          // Deep night sky
+          const sky = ctx.createLinearGradient(0, 0, 0, H);
+          sky.addColorStop(0, "#000000");
+          sky.addColorStop(0.45, "#050108");
+          sky.addColorStop(1, "#0a020e");
+          ctx.fillStyle = sky;
+          ctx.fillRect(0, 0, W, H);
+
+          // Pink nebula atmosphere
+          const neb = ctx.createRadialGradient(
+            moon.x,
+            moon.y,
+            0,
+            moon.x,
+            moon.y,
+            W * 0.5,
+          );
+          neb.addColorStop(0, "rgba(229,44,103,0.10)");
+          neb.addColorStop(0.45, "rgba(140,15,65,0.04)");
+          neb.addColorStop(1, "transparent");
+          ctx.fillStyle = neb;
+          ctx.fillRect(0, 0, W, H);
+
+          // Secondary nebula bottom-left
+          const neb2 = ctx.createRadialGradient(
+            W * 0.1,
+            H * 0.8,
+            0,
+            W * 0.1,
+            H * 0.8,
+            W * 0.3,
+          );
+          neb2.addColorStop(0, "rgba(80,5,50,0.07)");
+          neb2.addColorStop(1, "transparent");
+          ctx.fillStyle = neb2;
+          ctx.fillRect(0, 0, W, H);
+
+          // ── MOON GLOW LAYERS ──
+          for (let i = 4; i > 0; i--) {
+            const gr = ctx.createRadialGradient(
+              moon.x,
+              moon.y,
+              0,
+              moon.x,
+              moon.y,
+              moon.r * (1 + i * 0.45),
+            );
+            gr.addColorStop(0, `rgba(229,44,103,${0.08 / i})`);
+            gr.addColorStop(0.5, `rgba(180,20,75,${0.03 / i})`);
+            gr.addColorStop(1, "transparent");
+            ctx.fillStyle = gr;
+            ctx.beginPath();
+            ctx.arc(moon.x, moon.y, moon.r * (1 + i * 0.45), 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          // ── MOON BODY ──
+          const mg = ctx.createRadialGradient(
+            moon.x - moon.r * 0.28,
+            moon.y - moon.r * 0.22,
+            moon.r * 0.04,
+            moon.x,
+            moon.y,
+            moon.r,
+          );
+          mg.addColorStop(0, "#fff5f8");
+          mg.addColorStop(0.28, "#ffd0df");
+          mg.addColorStop(0.6, "#e52c67");
+          mg.addColorStop(0.82, "#8b1040");
+          mg.addColorStop(1, "#2e0416");
+          ctx.beginPath();
+          ctx.arc(moon.x, moon.y, moon.r, 0, Math.PI * 2);
+          ctx.fillStyle = mg;
+          ctx.fill();
+
+          // Moon craters
+          [
+            [-0.3, -0.25, 0.11],
+            [0.22, 0.1, 0.07],
+            [-0.1, 0.32, 0.09],
+            [0.33, -0.18, 0.05],
+          ].forEach(([cx, cy, cr]) => {
+            const cg = ctx.createRadialGradient(
+              moon.x + cx * moon.r,
+              moon.y + cy * moon.r,
+              0,
+              moon.x + cx * moon.r,
+              moon.y + cy * moon.r,
+              cr * moon.r,
+            );
+            cg.addColorStop(0, "rgba(100,5,40,0.4)");
+            cg.addColorStop(1, "transparent");
+            ctx.beginPath();
+            ctx.arc(
+              moon.x + cx * moon.r,
+              moon.y + cy * moon.r,
+              cr * moon.r,
+              0,
+              Math.PI * 2,
+            );
+            ctx.fillStyle = cg;
+            ctx.fill();
+          });
+
+          // Moon rim shimmer
+          ctx.beginPath();
+          ctx.arc(moon.x, moon.y, moon.r, 0, Math.PI * 2);
+          const rim = ctx.createLinearGradient(
+            moon.x - moon.r,
+            moon.y - moon.r,
+            moon.x + moon.r,
+            moon.y + moon.r,
+          );
+          rim.addColorStop(0, "rgba(255,210,225,0.5)");
+          rim.addColorStop(0.5, "transparent");
+          rim.addColorStop(1, "rgba(229,44,103,0.2)");
+          ctx.strokeStyle = rim;
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+
+          // Moonlight beam to ground
+          const ray = ctx.createLinearGradient(
+            moon.x,
+            moon.y + moon.r,
+            moon.x,
+            H,
+          );
+          ray.addColorStop(0, "rgba(229,44,103,0.07)");
+          ray.addColorStop(1, "transparent");
+          ctx.beginPath();
+          ctx.moveTo(moon.x - moon.r * 1.8, H);
+          ctx.lineTo(moon.x, moon.y + moon.r);
+          ctx.lineTo(moon.x + moon.r * 1.8, H);
+          ctx.closePath();
+          ctx.fillStyle = ray;
+          ctx.fill();
+
+          // ── STARS ──
+          stars.forEach((s) => {
+            const twinkle = Math.sin(t * s.speed + s.phase) * 0.4 + 0.6;
+            const dx = mouse.x - s.x,
+              dy = mouse.y - s.y;
+            const di = Math.sqrt(dx * dx + dy * dy);
+            const prox = 110;
+            let alpha = s.a * twinkle;
+            let r = s.r;
+
+            if (di < prox) {
+              const f = 1 - di / prox;
+              alpha = Math.min(1, alpha + f * 0.85);
+              r = s.r * (1 + f * 1.8);
+            }
+
+            if (s.pink) {
+              ctx.beginPath();
+              ctx.arc(s.x, s.y, r * 1.1, 0, Math.PI * 2);
+              ctx.fillStyle = `rgba(229,44,103,${alpha * 0.9})`;
+              ctx.fill();
+              if (alpha > 0.5) {
+                const sg = ctx.createRadialGradient(
+                  s.x,
+                  s.y,
+                  0,
+                  s.x,
+                  s.y,
+                  r * 5,
+                );
+                sg.addColorStop(0, `rgba(229,44,103,${alpha * 0.25})`);
+                sg.addColorStop(1, "transparent");
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, r * 5, 0, Math.PI * 2);
+                ctx.fillStyle = sg;
+                ctx.fill();
+              }
+            } else {
+              ctx.beginPath();
+              ctx.arc(s.x, s.y, r, 0, Math.PI * 2);
+              ctx.fillStyle = `rgba(255,240,248,${alpha})`;
+              ctx.fill();
+            }
+          });
+
+          // ── SHOOTING STAR ──
+          const cycle = (t * 0.12) % 1;
+          if (cycle < 0.07) {
+            const p = cycle / 0.07;
+            const sx = W * 0.55 + p * W * 0.3;
+            const sy = H * 0.04 + p * H * 0.18;
+            const tail = ctx.createLinearGradient(
+              sx - 100 * p,
+              sy - 50 * p,
+              sx,
+              sy,
+            );
+            tail.addColorStop(0, "transparent");
+            tail.addColorStop(1, `rgba(229,44,103,${0.9 * (1 - p * 0.3)})`);
+            ctx.beginPath();
+            ctx.moveTo(sx - 100, sy - 50);
+            ctx.lineTo(sx, sy);
+            ctx.strokeStyle = tail;
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            const hg = ctx.createRadialGradient(sx, sy, 0, sx, sy, 6);
+            hg.addColorStop(0, "rgba(255,190,215,0.95)");
+            hg.addColorStop(1, "transparent");
+            ctx.beginPath();
+            ctx.arc(sx, sy, 6, 0, Math.PI * 2);
+            ctx.fillStyle = hg;
+            ctx.fill();
+          }
+
+          requestAnimationFrame(draw);
+        }
+
+        // Mouse tracking
+        document.addEventListener("mousemove", (e) => {
+          const rect = hero.getBoundingClientRect();
+          mouse.x = e.clientX - rect.left;
+          mouse.y = e.clientY - rect.top;
+        });
+
+        let rTimer;
+        window.addEventListener("resize", () => {
+          clearTimeout(rTimer);
+          rTimer = setTimeout(resize, 150);
+        });
+
+        resize();
+        requestAnimationFrame(draw);
+      })();
+    </script>
+  </body>
 </html>
