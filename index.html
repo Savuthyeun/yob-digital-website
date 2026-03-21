@@ -28,10 +28,10 @@
     <link rel="apple-touch-icon" href="images/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- ✅ FIX 1: Font Preload — prevent FOUT text flash -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" /></noscript>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -1853,9 +1853,80 @@
         backdrop-filter: blur(20px) !important;
         border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
       }
-    </style>
+  
+    /* ✅ FIX 3: PAGE LOAD ANIMATION */
+    #yob-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #080B10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #yob-loader.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .loader-logo {
+      font-family: var(--fh);
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      background: linear-gradient(135deg, #ffffff 0%, #ff8ab0 40%, #e52c67 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: logoGlow 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes logoGlow {
+      from { opacity: 0.6; transform: scale(0.97); }
+      to   { opacity: 1;   transform: scale(1.02); }
+    }
+    .loader-bar-wrap {
+      width: 160px;
+      height: 2px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .loader-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #e52c67, #ff8ab0);
+      border-radius: 2px;
+      animation: loadBar 1.2s cubic-bezier(0.4,0,0.2,1) forwards;
+    }
+    @keyframes loadBar {
+      0%   { width: 0%; }
+      60%  { width: 75%; }
+      100% { width: 100%; }
+    }
+    .loader-tagline {
+      font-family: var(--fk);
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 2px;
+    }
+    /* Prevent body scroll during load */
+    body.loading { overflow: hidden; }
+
+  </style>
   </head>
   <body>
+  <!-- ✅ FIX 3: PAGE LOAD SPLASH SCREEN -->
+  <div id="yob-loader">
+    <div class="loader-logo">YOB.DIGITAL</div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"></div>
+    </div>
+    <div class="loader-tagline">យប់​មាន​តម្លៃ​ដូច​ពន្លឺ ✦</div>
+  </div>
+
     <!-- Custom Cursor Elements -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
@@ -2218,7 +2289,7 @@
           <!-- Case Study 2 -->
           <div class="portfolio-card reveal">
             <div class="portfolio-img-wrap">
-              <img
+              <img loading="lazy"
                 src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=80&w=1974&auto=format&fit=crop"
                 alt="CHAMPION GIZ Event"
               />
@@ -2244,7 +2315,7 @@
           <!-- Case Study 3 -->
           <div class="portfolio-card reveal">
             <div class="portfolio-img-wrap">
-              <img
+              <img loading="lazy"
                 src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1974&auto=format&fit=crop"
                 alt="Local MSME Transformation"
               />
@@ -2325,7 +2396,7 @@
           <a href="#" class="video-card">
             <div class="video-thumb">
               <!-- ដូររូបភាព Cover YouTube ទីនេះ -->
-              <img
+              <img loading="lazy"
                 src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop"
                 alt="YouTube Thumbnail"
               />
@@ -2350,7 +2421,7 @@
           <!-- Video 2 -->
           <a href="#" class="video-card">
             <div class="video-thumb">
-              <img
+              <img loading="lazy"
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop"
                 alt="YouTube Thumbnail"
               />
@@ -2375,7 +2446,7 @@
           <!-- Video 3 -->
           <a href="#" class="video-card">
             <div class="video-thumb">
-              <img
+              <img loading="lazy"
                 src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=2000&auto=format&fit=crop"
                 alt="YouTube Thumbnail"
               />
@@ -2512,7 +2583,7 @@
       <div class="container about-grid">
         <div class="about-image reveal">
           <!-- Add your real image here -->
-          <img
+          <img loading="lazy"
             src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
             alt="YOB Digital Team"
           />
@@ -2722,7 +2793,24 @@
         backTop.classList.toggle("show", window.scrollY > 400),
       );
 
-      // --- Custom Cursor Logic (Pro Interaction) ---
+  
+    // ✅ FIX 3: Page Load Animation
+    (function() {
+      document.body.classList.add('loading');
+      const loader = document.getElementById('yob-loader');
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          loader.classList.add('hide');
+          document.body.classList.remove('loading');
+          // Remove from DOM after transition
+          setTimeout(function() {
+            if (loader.parentNode) loader.parentNode.removeChild(loader);
+          }, 650);
+        }, 1200); // show for 1.2s
+      });
+    })();
+
+    // --- Custom Cursor Logic (Pro Interaction) ---
       const cursorDot = document.querySelector(".cursor-dot");
       const cursorOutline = document.querySelector(".cursor-outline");
 
