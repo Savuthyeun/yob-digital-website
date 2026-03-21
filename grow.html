@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grow with YOB — Your Digital Growth Roadmap</title>
+  <meta name="description" content="YOB Digital Roadmap — ជំហានច្បាស់លាស់ transform business ជាមួយ AI, Digital Strategy, Web & Typography។ ចាប់ផ្ដើមពី FREE!"/>
+  <meta property="og:title"       content="Grow with YOB — Your Digital Growth Roadmap"/>
+  <meta property="og:description" content="Step-by-step roadmap to 10X your Cambodian business with YOB Digital."/>
+  <meta property="og:image"       content="https://yobdigital.netlify.app/images/og-cover.jpg"/>
+  <meta property="og:url"         content="https://yobdigital.netlify.app/grow.html"/>
+  <link rel="canonical"           href="https://yobdigital.netlify.app/grow.html"/>
+  <link rel="icon"                type="image/png" href="images/favicon.png"/>
+
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ═══════════════════════════════════════
+       GROW WITH YOB — Trust + Roadmap Page
+       Concept: "Night Journey" — dark sky,
+       stars as milestones, moon as destination
+    ═══════════════════════════════════════ */
+
+    /* Background mesh */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: -1;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 10%, rgba(229,44,103,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 80% 70%, rgba(168,85,247,0.06) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 60% at 50% 50%, rgba(229,44,103,0.04) 0%, transparent 60%);
+    }
+
+    /* ── HERO ── */
+    .grow-hero {
+      padding: 140px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .grow-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 90% 70% at 50% 0%, rgba(229,44,103,0.13) 0%, transparent 60%);
+    }
+    .grow-hero > * { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(229,44,103,0.08);
+      border: 1px solid rgba(229,44,103,0.2);
+      padding: 6px 20px; border-radius: 50px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px;
+    }
+    .grow-hero h1 {
+      font-family: var(--fh);
+      font-size: clamp(52px, 8vw, 108px);
+      line-height: 0.92; letter-spacing: 1px;
+      margin-bottom: 24px;
+    }
+    .grow-hero h1 .line2 {
+      display: block;
+      background: linear-gradient(135deg, #fff 0%, #ff8ab0 45%, #e52c67 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .grow-hero .lead {
+      font-family: var(--fk); font-size: 18px;
+      color: var(--gray); max-width: 600px;
+      margin: 0 auto 40px; line-height: 1.9;
+    }
+    .grow-hero .lead strong { color: var(--white); }
+
+    /* Who is this for */
+    .for-whom {
+      display: flex; gap: 12px;
+      justify-content: center; flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .for-pill {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 10px 20px; border-radius: 50px;
+      font-family: var(--fk); font-size: 14px;
+      color: var(--white); transition: all var(--t);
+    }
+    .for-pill:hover {
+      border-color: rgba(229,44,103,0.3);
+      background: rgba(229,44,103,0.08);
+    }
+    .for-pill i { color: var(--gold); font-size: 13px; }
+
+    /* Trust numbers */
+    .trust-bar {
+      display: flex; justify-content: center;
+      gap: 0; flex-wrap: wrap;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px; overflow: hidden;
+      max-width: 800px; margin: 0 auto;
+    }
+    .trust-item {
+      flex: 1; min-width: 150px;
+      padding: 24px 20px; text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      transition: background var(--t);
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-item:hover { background: rgba(229,44,103,0.06); }
+    .trust-item .tn {
+      font-family: var(--fh); font-size: 36px;
+      font-weight: 800; color: var(--white);
+      line-height: 1;
+    }
+    .trust-item .tn span { color: var(--gold); }
+    .trust-item .tl {
+      font-size: 12px; color: var(--gray);
+      margin-top: 6px; font-weight: 500;
+    }
+
+    /* ── PROMISE SECTION ── */
+    .promise-section {
+      padding: 100px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .promise-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+    }
+    .promise-content h2 {
+      font-family: var(--fh);
+      font-size: clamp(36px, 4.5vw, 60px);
+      line-height: 1; margin-bottom: 20px;
+    }
+    .promise-content p {
+      font-family: var(--fk); font-size: 16px;
+      color: var(--gray); line-height: 1.9;
+      margin-bottom: 16px;
+    }
+    .promise-list { list-style: none; margin-top: 24px; }
+    .promise-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-family: var(--fk); font-size: 15px;
+      color: var(--white); margin-bottom: 14px;
+      line-height: 1.7;
+    }
+    .promise-list li .pi {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #ff8ab0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: #fff; flex-shrink: 0;
+      margin-top: 2px;
+      box-shadow: 0 4px 12px rgba(229,44,103,0.35);
+    }
+
+    /* Babu card */
+    .babu-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px; padding: 40px;
+      position: relative; overflow: hidden;
+    }
+    .babu-card::before {
+      content: '';
+      position: absolute; top: -30%; right: -10%;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(229,44,103,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .babu-avatar {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #ff8ab0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px; margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(229,44,103,0.35);
+    }
+    .babu-card h3 {
+      font-family: var(--fh); font-size: 28px;
+      margin-bottom: 6px;
+    }
+    .babu-card .role {
+      font-size: 13px; color: var(--gold);
+      font-weight: 700; letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+    .babu-card p {
+      font-family: var(--fk); font-size: 14px;
+      color: var(--gray); line-height: 1.9;
+      font-style: italic;
+    }
+    .babu-card .quote-mark {
+      font-family: var(--fh); font-size: 80px;
+      color: rgba(229,44,103,0.15);
+      line-height: 0.5; margin-bottom: 12px;
+      display: block;
+    }
+
+    /* ── ROADMAP ── */
+    .roadmap-section {
+      padding: 100px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .roadmap-header { text-align: center; margin-bottom: 72px; }
+
+    /* Phase cards */
+    .phases {
+      display: flex; flex-direction: column;
+      gap: 0; position: relative;
+    }
+    /* Vertical line */
+    .phases::before {
+      content: '';
+      position: absolute; left: 39px; top: 40px; bottom: 40px;
+      width: 2px;
+      background: linear-gradient(to bottom,
+        rgba(229,44,103,0.6) 0%,
+        rgba(229,44,103,0.3) 50%,
+        rgba(229,44,103,0.1) 100%);
+    }
+
+    .phase-item {
+      display: flex; gap: 32px;
+      align-items: flex-start;
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    /* Phase number circle */
+    .phase-num {
+      width: 80px; height: 80px;
+      border-radius: 50%; flex-shrink: 0;
+      background: var(--dark2);
+      border: 2px solid rgba(229,44,103,0.3);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      position: relative; z-index: 1;
+      transition: all 0.4s ease;
+    }
+    .phase-num .pn-label {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 2px;
+    }
+    .phase-num .pn-num {
+      font-family: var(--fh); font-size: 28px;
+      font-weight: 800; color: var(--white);
+      line-height: 1;
+    }
+    .phase-item:hover .phase-num {
+      background: linear-gradient(135deg, var(--gold), #ff8ab0);
+      border-color: transparent;
+      box-shadow: 0 8px 28px rgba(229,44,103,0.4);
+    }
+    .phase-item:hover .phase-num .pn-label,
+    .phase-item:hover .phase-num .pn-num { color: #fff; }
+
+    /* Phase card */
+    .phase-card {
+      flex: 1;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px; padding: 32px 36px;
+      transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+      position: relative; overflow: hidden;
+    }
+    .phase-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(229,44,103,0.05) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .phase-item:hover .phase-card {
+      border-color: rgba(229,44,103,0.25);
+      transform: translateX(8px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+    }
+    .phase-item:hover .phase-card::before { opacity: 1; }
+
+    .phase-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .phase-badge {
+      font-size: 9px; padding: 2px 8px;
+      border-radius: 20px; font-weight: 700;
+      background: rgba(229,44,103,0.1);
+      border: 1px solid rgba(229,44,103,0.2);
+      color: var(--gold); margin-left: 8px;
+    }
+    .phase-badge.free {
+      background: rgba(74,222,128,0.1);
+      border-color: rgba(74,222,128,0.2);
+      color: #4ade80;
+    }
+    .phase-title {
+      font-family: var(--fh); font-size: 28px;
+      margin-bottom: 12px; position: relative; z-index: 1;
+    }
+    .phase-desc {
+      font-family: var(--fk); font-size: 14px;
+      color: var(--gray); line-height: 1.9;
+      margin-bottom: 20px; position: relative; z-index: 1;
+    }
+    .phase-items {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 20px; position: relative; z-index: 1;
+    }
+    .phase-pill {
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 6px 14px; border-radius: 50px;
+      font-size: 12px; font-weight: 600; color: var(--white);
+      transition: all var(--t);
+    }
+    .phase-pill:hover {
+      border-color: rgba(229,44,103,0.3);
+      color: var(--gold);
+    }
+    .phase-pill i { color: var(--gold); font-size: 10px; }
+    .phase-outcome {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 16px;
+      background: rgba(229,44,103,0.08);
+      border: 1px solid rgba(229,44,103,0.15);
+      border-radius: 12px;
+      font-family: var(--fk); font-size: 13px;
+      color: var(--white); position: relative; z-index: 1;
+    }
+    .phase-outcome i { color: var(--gold); font-size: 14px; }
+
+    /* ── HOW IT WORKS ── */
+    .how-section {
+      padding: 100px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px; margin-top: 56px;
+      position: relative;
+    }
+    .how-grid::before {
+      content: '';
+      position: absolute; top: 40px; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent, rgba(229,44,103,0.3) 20%,
+        rgba(229,44,103,0.3) 80%, transparent);
+    }
+    .how-step {
+      text-align: center; padding: 0 12px;
+      position: relative; z-index: 1;
+    }
+    .how-icon {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; margin: 0 auto 20px;
+      transition: all 0.4s ease;
+    }
+    .how-step:hover .how-icon {
+      background: linear-gradient(135deg, var(--gold), #ff8ab0);
+      border-color: transparent;
+      box-shadow: 0 8px 24px rgba(229,44,103,0.4);
+      transform: translateY(-4px);
+    }
+    .how-step h3 {
+      font-family: var(--fh); font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .how-step p {
+      font-family: var(--fk); font-size: 13px;
+      color: var(--gray); line-height: 1.8;
+    }
+
+    /* ── TRUST SIGNALS ── */
+    .trust-section {
+      padding: 100px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 56px;
+    }
+    .trust-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px; padding: 32px 28px;
+      text-align: center; transition: all var(--t);
+    }
+    .trust-card:hover {
+      border-color: rgba(229,44,103,0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .trust-icon {
+      font-size: 36px; margin-bottom: 16px;
+      display: block;
+    }
+    .trust-card h3 {
+      font-family: var(--fh); font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .trust-card p {
+      font-family: var(--fk); font-size: 13px;
+      color: var(--gray); line-height: 1.8;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testi-section {
+      padding: 100px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; margin-top: 56px;
+    }
+    .testi-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 18px; padding: 28px 24px;
+      transition: all var(--t);
+    }
+    .testi-card:hover {
+      border-color: rgba(229,44,103,0.25);
+      transform: translateY(-4px);
+    }
+    .testi-stars { display: flex; gap: 3px; margin-bottom: 14px; }
+    .testi-stars i { color: #F5A623; font-size: 13px; }
+    .testi-text {
+      font-family: var(--fk); font-size: 14px;
+      color: var(--gray); line-height: 1.9;
+      font-style: italic; margin-bottom: 20px;
+    }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-av {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(229,44,103,0.2), rgba(229,44,103,0.05));
+      border: 1px solid rgba(229,44,103,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .testi-name { font-weight: 700; font-size: 13px; }
+    .testi-role { font-size: 11px; color: var(--gray); margin-top: 2px; }
+
+    /* ── FAQ ── */
+    .faq-section {
+      padding: 80px 0 100px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .faq-wrap { max-width: 760px; margin: 48px auto 0; }
+    .faq-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px; margin-bottom: 10px;
+      overflow: hidden; transition: border-color var(--t);
+    }
+    .faq-item:hover { border-color: rgba(229,44,103,0.2); }
+    .faq-q {
+      padding: 20px 24px; cursor: pointer;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      font-family: var(--fk); font-size: 15px;
+      color: var(--white); user-select: none;
+    }
+    .faq-q i { color: var(--gold); transition: transform 0.3s; flex-shrink: 0; margin-left: 12px; }
+    .faq-a {
+      padding: 0 24px 20px;
+      font-family: var(--fk); font-size: 14px;
+      color: var(--gray); line-height: 1.9;
+      display: none;
+    }
+    .faq-item.open .faq-q i { transform: rotate(45deg); }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      padding: 100px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(229,44,103,0.12) 0%, rgba(229,44,103,0.04) 60%, transparent 100%);
+      border: 1px solid rgba(229,44,103,0.2);
+      border-radius: 28px; padding: 80px 60px;
+      text-align: center; position: relative; overflow: hidden;
+      backdrop-filter: blur(20px);
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute; top: -50%; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse, rgba(229,44,103,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-box > * { position: relative; z-index: 1; }
+    .cta-box h2 {
+      font-family: var(--fh);
+      font-size: clamp(38px, 5vw, 72px);
+      line-height: 1; margin-bottom: 18px;
+    }
+    .cta-box p {
+      font-family: var(--fk); font-size: 17px;
+      color: var(--gray); max-width: 560px;
+      margin: 0 auto 40px; line-height: 1.9;
+    }
+    .cta-actions {
+      display: flex; gap: 14px;
+      justify-content: center; flex-wrap: wrap;
+    }
+    .cta-note {
+      margin-top: 20px;
+      font-family: var(--fk); font-size: 13px;
+      color: rgba(255,255,255,0.35);
+    }
+    .cta-note i { color: #4ade80; margin-right: 4px; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .promise-grid { grid-template-columns: 1fr; gap: 40px; }
+      .how-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .how-grid::before { display: none; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .phases::before { left: 31px; }
+      .phase-num { width: 64px; height: 64px; }
+      .phase-num .pn-num { font-size: 22px; }
+    }
+    @media (max-width: 600px) {
+      .how-grid { grid-template-columns: 1fr; }
+      .trust-bar { flex-direction: column; }
+      .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+      .cta-box { padding: 48px 24px; }
+      .phase-item { gap: 16px; }
+      .phase-card { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <!-- ══ NAV ══ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">YOB<span>.</span>DIGITAL</a>
+      <ul class="nav-links">
+        <li><a href="grow.html" style="color:var(--gold)">Grow with Yob</a></li>
+        <li class="nav-has-dropdown">
+          <a href="#">Learn <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px"></i></a>
+          <ul class="nav-dropdown">
+            <li><a href="index.html#videos"><i class="fas fa-play-circle"></i> Tutorial</a></li>
+            <li><a href="docs.html"><i class="fas fa-book"></i> Documentation</a></li>
+            <li><a href="case-studies.html"><i class="fas fa-trophy"></i> Case Studies</a></li>
+          </ul>
+        </li>
+        <li class="nav-has-dropdown">
+          <a href="#">Products <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px"></i></a>
+          <ul class="nav-dropdown">
+            <li><a href="fonts.html"><i class="fas fa-font"></i> Yob Fonts</a></li>
+            <li><a href="index.html#resources"><i class="fas fa-gift"></i> Free Toolkit</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="index.html#contact" class="nav-cta">
+            ទំនាក់ទំនង <i class="fas fa-paper-plane" style="margin-left:5px"></i>
+          </a>
+        </li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+    <a href="grow.html"          onclick="closeDrawer()">Grow with Yob</a>
+    <a href="index.html#videos"  onclick="closeDrawer()">Tutorial</a>
+    <a href="docs.html"          onclick="closeDrawer()">Documentation</a>
+    <a href="case-studies.html"  onclick="closeDrawer()">Case Studies</a>
+    <a href="fonts.html"         onclick="closeDrawer()">Yob Fonts</a>
+    <a href="index.html#resources" onclick="closeDrawer()">Free Toolkit</a>
+    <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section class="grow-hero">
+    <div class="container">
+      <div class="hero-eyebrow reveal"><i class="fas fa-seedling"></i> Your Growth Starts Here</div>
+      <h1 class="reveal">
+        GROW WITH<br>
+        <span class="line2">YOB DIGITAL</span>
+      </h1>
+      <p class="lead reveal">
+        មិនថា Bong Savuth ជា <strong>SME Owner, Creator, Marketer, ឬ Student</strong> ទេ —
+        YOB Digital មាន roadmap ច្បាស់ ជួយ transform business ជាមួយ AI & Digital
+        <strong>step-by-step ជាភាសាខ្មែរ</strong>!
+      </p>
+
+      <!-- Who is this for -->
+      <div class="for-whom reveal">
+        <div class="for-pill"><i class="fas fa-store"></i> SME Owners</div>
+        <div class="for-pill"><i class="fas fa-paint-brush"></i> Creators & Designers</div>
+        <div class="for-pill"><i class="fas fa-bullhorn"></i> Marketers</div>
+        <div class="for-pill"><i class="fas fa-graduation-cap"></i> Students & Graduates</div>
+        <div class="for-pill"><i class="fas fa-briefcase"></i> Entrepreneurs</div>
+      </div>
+
+      <!-- Trust numbers -->
+      <div class="trust-bar reveal">
+        <div class="trust-item">
+          <div class="tn">500<span>+</span></div>
+          <div class="tl">Businesses Grown</div>
+        </div>
+        <div class="trust-item">
+          <div class="tn">80<span>%</span></div>
+          <div class="tl">Report Revenue Growth</div>
+        </div>
+        <div class="trust-item">
+          <div class="tn">4<span>wks</span></div>
+          <div class="tl">Avg. Time to Results</div>
+        </div>
+        <div class="trust-item">
+          <div class="tn">100<span>%</span></div>
+          <div class="tl">In Khmer Language</div>
+        </div>
+        <div class="trust-item">
+          <div class="tn">FREE</div>
+          <div class="tl">To Start</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROMISE ══ -->
+  <section class="promise-section">
+    <div class="container">
+      <div class="promise-grid">
+        <div class="promise-content reveal">
+          <span class="section-tag">Our Promise</span>
+          <h2>YOB គឺជា <span class="gradient-text">ដៃគូ</span> មិនមែន Vendor</h2>
+          <p>ភាគច្រើន Agency លក់ service ហើយបាត់ — YOB Digital work <strong>ជាមួយ</strong> Bong Savuth រហូតឃើញ result!</p>
+          <ul class="promise-list">
+            <li>
+              <span class="pi"><i class="fas fa-check"></i></span>
+              <span><strong>Practical only</strong> — គ្មាន theory ហួស! គ្រប់ lesson apply ភ្លាម</span>
+            </li>
+            <li>
+              <span class="pi"><i class="fas fa-check"></i></span>
+              <span><strong>100% Khmer</strong> — រៀន ស្ដាប់ យល់ ជាភាសាខ្មែរ</span>
+            </li>
+            <li>
+              <span class="pi"><i class="fas fa-check"></i></span>
+              <span><strong>Real case studies</strong> — Cambodian businesses ពិតៗ</span>
+            </li>
+            <li>
+              <span class="pi"><i class="fas fa-check"></i></span>
+              <span><strong>Free to start</strong> — ចាប់ផ្ដើម FREE ពេលចង់ upgrade</span>
+            </li>
+            <li>
+              <span class="pi"><i class="fas fa-check"></i></span>
+              <span><strong>Fast results</strong> — average 4 weeks ឃើញ change</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="babu-card reveal">
+          <span class="quote-mark">"</span>
+          <div class="babu-avatar">👨‍💻</div>
+          <h3>Yeun Savuth (Babu)</h3>
+          <div class="role">Founder · YOB Digital</div>
+          <p>ខ្ញុំបង្កើត YOB Digital ព្រោះខ្ញុំឃើញ SMEs ខ្មែរ struggle ជាមួយ Digital Tools ដែល English-only ហើយ expensive ។ YOB = Youth Of Business — mission របស់យើងគឺ democratize digital knowledge
+          ជូន Cambodian businesses ទាំងអស់ ដោយ FREE first policy!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ROADMAP ══ -->
+  <section class="roadmap-section">
+    <div class="container">
+      <div class="roadmap-header reveal">
+        <span class="section-tag">Your Roadmap</span>
+        <h2 class="section-title">GROWTH <span class="gradient-text">ROADMAP</span></h2>
+        <p style="font-family:var(--fk);font-size:16px;color:var(--gray);max-width:560px;margin:14px auto 0;line-height:1.9">ជំហាន ៤ ច្បាស់លាស់ — ចាប់ពី Free ទៅ Full transformation!</p>
+      </div>
+
+      <div class="phases">
+
+        <!-- Phase 0: FREE Start -->
+        <div class="phase-item reveal">
+          <div class="phase-num">
+            <span class="pn-label">Phase</span>
+            <span class="pn-num">0</span>
+          </div>
+          <div class="phase-card">
+            <div class="phase-tag">
+              <i class="fas fa-gift"></i> Free Resources
+              <span class="phase-badge free">100% FREE</span>
+            </div>
+            <div class="phase-title">ចាប់ផ្ដើម — គ្មាន Risk</div>
+            <div class="phase-desc">មុន Bong Savuth invest ច្រើន — ទាញយក Free Toolkit + ចូល Community ជូនស្គាល់ YOB Digital ជាមុន!</div>
+            <div class="phase-items">
+              <div class="phase-pill"><i class="fas fa-download"></i> AI Content Bible (50+ Prompts)</div>
+              <div class="phase-pill"><i class="fas fa-calendar"></i> 30-Day Content Calendar</div>
+              <div class="phase-pill"><i class="fas fa-users"></i> YOB Telegram Community</div>
+              <div class="phase-pill"><i class="fas fa-play"></i> Free YouTube Tutorials</div>
+            </div>
+            <div class="phase-outcome">
+              <i class="fas fa-trophy"></i>
+              <span><strong>Result:</strong> ទទួលបាន free tools + ស្គាល់ YOB approach — zero risk!</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 1: AI Tools -->
+        <div class="phase-item reveal">
+          <div class="phase-num">
+            <span class="pn-label">Phase</span>
+            <span class="pn-num">1</span>
+          </div>
+          <div class="phase-card">
+            <div class="phase-tag">
+              <i class="fas fa-robot"></i> AI Tools Mastery
+              <span class="phase-badge">Week 1-4</span>
+            </div>
+            <div class="phase-title">Master AI — 10x Productivity</div>
+            <div class="phase-desc">រៀន ChatGPT, Gemini, Claude, Canva AI ដើម្បី automate content, replies, reports — save ១០+ ម៉ោង/សប្ដាហ៍!</div>
+            <div class="phase-items">
+              <div class="phase-pill"><i class="fas fa-terminal"></i> Prompt Engineering (RTFT)</div>
+              <div class="phase-pill"><i class="fas fa-pen"></i> AI Content Creation</div>
+              <div class="phase-pill"><i class="fas fa-image"></i> AI Design (Canva AI)</div>
+              <div class="phase-pill"><i class="fas fa-cogs"></i> Workflow Automation</div>
+              <div class="phase-pill"><i class="fas fa-chart-line"></i> AI Analytics</div>
+            </div>
+            <div class="phase-outcome">
+              <i class="fas fa-trophy"></i>
+              <span><strong>Result:</strong> Save $250/month agency costs + 10x content output!</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 2: Digital Strategy -->
+        <div class="phase-item reveal">
+          <div class="phase-num">
+            <span class="pn-label">Phase</span>
+            <span class="pn-num">2</span>
+          </div>
+          <div class="phase-card">
+            <div class="phase-tag">
+              <i class="fas fa-chess"></i> Digital Strategy
+              <span class="phase-badge">Week 4-8</span>
+            </div>
+            <div class="phase-title">Full-Funnel Strategy → 3x ROAS</div>
+            <div class="phase-desc">ពី Boost Post ទៅ Full-Funnel Marketing — SEO, Facebook/Google Ads, Email, Social — average client 3x ROAS!</div>
+            <div class="phase-items">
+              <div class="phase-pill"><i class="fas fa-funnel-dollar"></i> Funnel Strategy</div>
+              <div class="phase-pill"><i class="fas fa-ad"></i> Facebook/Google Ads</div>
+              <div class="phase-pill"><i class="fas fa-search"></i> SEO Basics</div>
+              <div class="phase-pill"><i class="fas fa-envelope"></i> Email Marketing</div>
+              <div class="phase-pill"><i class="fas fa-chart-bar"></i> Data & Analytics</div>
+            </div>
+            <div class="phase-outcome">
+              <i class="fas fa-trophy"></i>
+              <span><strong>Result:</strong> ROAS 3x+ · Cost per lead -60% · Structured growth!</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 3: Web & Systems -->
+        <div class="phase-item reveal">
+          <div class="phase-num">
+            <span class="pn-label">Phase</span>
+            <span class="pn-num">3</span>
+          </div>
+          <div class="phase-card">
+            <div class="phase-tag">
+              <i class="fas fa-globe"></i> Web & Systems
+              <span class="phase-badge">Week 8-10</span>
+            </div>
+            <div class="phase-title">Professional Website + Automation</div>
+            <div class="phase-desc">Website ដូច international standard + booking/CRM/LMS systems ដែល run auto 24/7 — no more manual work!</div>
+            <div class="phase-items">
+              <div class="phase-pill"><i class="fas fa-code"></i> Professional Website</div>
+              <div class="phase-pill"><i class="fas fa-calendar-check"></i> Booking System</div>
+              <div class="phase-pill"><i class="fas fa-robot"></i> AI Chatbot</div>
+              <div class="phase-pill"><i class="fas fa-graduation-cap"></i> LMS Setup</div>
+              <div class="phase-pill"><i class="fas fa-plug"></i> CRM Integration</div>
+            </div>
+            <div class="phase-outcome">
+              <i class="fas fa-trophy"></i>
+              <span><strong>Result:</strong> 15+ leads/day automatic · Business runs 24/7!</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phase 4: Brand & Typography -->
+        <div class="phase-item reveal">
+          <div class="phase-num">
+            <span class="pn-label">Phase</span>
+            <span class="pn-num">4</span>
+          </div>
+          <div class="phase-card">
+            <div class="phase-tag">
+              <i class="fas fa-crown"></i> Brand Identity
+              <span class="phase-badge">Ongoing</span>
+            </div>
+            <div class="phase-title">Premium Brand → Market Leader</div>
+            <div class="phase-desc">Premium Khmer Typography + consistent brand identity — ដើម្បី stand out ក្នុង Cambodia market ជា leader!</div>
+            <div class="phase-items">
+              <div class="phase-pill"><i class="fas fa-font"></i> Premium Khmer Fonts</div>
+              <div class="phase-pill"><i class="fas fa-palette"></i> Brand Guidelines</div>
+              <div class="phase-pill"><i class="fas fa-print"></i> Print Materials</div>
+              <div class="phase-pill"><i class="fas fa-mobile-alt"></i> Digital Assets</div>
+            </div>
+            <div class="phase-outcome">
+              <i class="fas fa-trophy"></i>
+              <span><strong>Result:</strong> 40% more brand trust · Premium positioning · Market leader!</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end phases -->
+    </div>
+  </section>
+
+  <!-- ══ HOW IT WORKS ══ -->
+  <section class="how-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Process</span>
+        <h2 class="section-title">HOW IT <span class="gradient-text">WORKS</span></h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-step reveal">
+          <div class="how-icon">📞</div>
+          <h3>Free Call</h3>
+          <p>Book free 30-min strategy call — Babu analyze business ហើយ recommend phase ត្រង់!</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-icon">🗺️</div>
+          <h3>Custom Roadmap</h3>
+          <p>YOB Digital build roadmap customized ជូន Bong Savuth based on goals + budget!</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-icon">🚀</div>
+          <h3>Execute Together</h3>
+          <p>YOB Digital ជា partner — implement, train, monitor ជាមួយ Bong Savuth ជំហានម្ដងៗ!</p>
+        </div>
+        <div class="how-step reveal">
+          <div class="how-icon">📈</div>
+          <h3>See Results</h3>
+          <p>Average 4 weeks ឃើញ measurable results — revenue, leads, time saved!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TRUST SIGNALS ══ -->
+  <section class="trust-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Why Trust YOB</span>
+        <h2 class="section-title">WHY <span class="gradient-text">1,200+ CHOSE US</span></h2>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-card reveal">
+          <span class="trust-icon">🇰🇭</span>
+          <h3>Built for Cambodia</h3>
+          <p>YOB Digital ស្គាល់ Cambodian market — ABA Pay, Wing, Khmer audience behaviors, local platforms — not copy-paste from US!</p>
+        </div>
+        <div class="trust-card reveal">
+          <span class="trust-icon">🎯</span>
+          <h3>Practical, Not Theory</h3>
+          <p>គ្រប់ lesson មាន template + example ពី Cambodian businesses ពិតៗ — apply ភ្លាម, result ភ្លាម!</p>
+        </div>
+        <div class="trust-card reveal">
+          <span class="trust-icon">💰</span>
+          <h3>Free First Policy</h3>
+          <p>ចាប់ផ្ដើម FREE — Free Toolkit + Community + YouTube — prove value ជូន Bong Savuth ជាមុនទើប ask ប្រាក់!</p>
+        </div>
+        <div class="trust-card reveal">
+          <span class="trust-icon">⚡</span>
+          <h3>Fast Results</h3>
+          <p>Average client ឃើញ revenue change ក្នុង 4 weeks — not 6 months like traditional agencies!</p>
+        </div>
+        <div class="trust-card reveal">
+          <span class="trust-icon">🤝</span>
+          <h3>Partner, Not Vendor</h3>
+          <p>Babu ជា digital partner — accessible via Telegram 24/7 — not just a course platform ឬ agency!</p>
+        </div>
+        <div class="trust-card reveal">
+          <span class="trust-icon">📊</span>
+          <h3>Transparent Results</h3>
+          <p>Real case studies ជាមួយ real numbers — DC Fashion 3.8x ROAS, CR Academy 15 leads/day — no fake testimonials!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TESTIMONIALS ══ -->
+  <section class="testi-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Success Stories</span>
+        <h2 class="section-title">THEY <span class="gradient-text">TRUSTED US</span></h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testi-text">"ក្រោយ AI Course ១ ខែ ខ្ញុំ save ១២+ ម៉ោង/សប្ដាហ៍ — Sales ឡើង ៣២%! Content ដែល Babu បង្រៀន apply ភ្លាម គ្មាន theory ហួស!"</p>
+          <div class="testi-author"><div class="testi-av">👩</div><div><div class="testi-name">Sokha Lim</div><div class="testi-role">Owner, Café — Phnom Penh</div></div></div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testi-text">"YOB Strategy ជួយ ROAS ពី 1.2x ទៅ 3.8x ក្នុង ២ ខែ! Babu ជាប់ contact ជាមួយខ្ញុំ រហូតដល់ result — not just sell and disappear!"</p>
+          <div class="testi-author"><div class="testi-av">👨</div><div><div class="testi-name">Dara Chan</div><div class="testi-role">Founder, DC Fashion</div></div></div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testi-text">"ខ្ញុំ skeptical ណាស់ពេលដំបូង — ប៉ុន្តែ Free Toolkit YOB ផ្ញើជូន ជួយខ្ញុំ save ២+ ម៉ោង/ថ្ងៃ ភ្លាម! បន្ទាប់ upgrade full service!"</p>
+          <div class="testi-author"><div class="testi-av">👩</div><div><div class="testi-name">Chanthy Ros</div><div class="testi-role">Director, CR Academy</div></div></div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testi-text">"ពី 2 leads/ថ្ងៃ ទៅ 15 leads/ថ្ងៃ ក្នុង 2 សប្ដាហ៍! YOB setup website + AI system — business run auto ខ្ញុំ focus on teaching!"</p>
+          <div class="testi-author"><div class="testi-av">👨</div><div><div class="testi-name">Piseth Ky</div><div class="testi-role">Marketing Manager, FMCG</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">FAQ</span>
+        <h2 class="section-title">COMMON <span class="gradient-text">QUESTIONS</span></h2>
+      </div>
+      <div class="faq-wrap">
+        <div class="faq-item reveal">
+          <div class="faq-q">តើ YOB Digital ចាប់ផ្ដើម FREE មែនទេ? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">បាទ! Phase 0 ទាំងស្រុង FREE — AI Content Bible Toolkit, Telegram Community, YouTube Tutorials ទាំងអស់ free! YOB ចង់ prove value ជូន Bong Savuth ជាមុន ទើប offer paid services!</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">ខ្ញុំ non-tech ហើយ មិនចេះ digital — YOB ជួយបានទេ? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">បាន ១០០%! YOB Digital design roadmap ជូន complete beginners — ចាប់ពី "ប្រើ smartphone" level! ២០% clients YOB គឺ complete beginners ដែល ឥឡូវ run digital business ខ្លួនឯង!</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">ใช้เวลานานប៉ុណ្ណាទើប ឃើញ result? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">Average 4 weeks ឃើញ measurable change (more leads, saved time, better content)! Phase 1 AI Tools — ១ month! Phase 2 Strategy — 2-3 months! Full transformation — 6 months!</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">YOB Digital ខុសពី Agency ធម្មតា ដូចម្ដេច? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">Agency ធ្វើជំនួស Bong Savuth — YOB Digital បង្រៀន + ធ្វើជាមួយ Bong Savuth! ដូច្នេះ Bong Savuth own the skills, own the results — មិន dependent on us forever! ហើយ Babu accessible via Telegram 24/7!</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">តើ pricing YOB Digital ជាបែបណា? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">Phase 0 = FREE! Phase 1-4 pricing depends on scope — ប្រឹក្សាក្នុង free 30-min call ជាមុន! YOB ប្រើ flexible pricing — per session, monthly retainer, ឬ project-based — based on Bong Savuth budget!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FINAL CTA ══ -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>ចាប់ផ្ដើម <span class="gradient-text">GROW</span> ថ្ងៃនេះ!</h2>
+        <p>Free 30-min Strategy Call ជាមួយ Babu — YOB Digital analyze business Bong Savuth ហើយ recommend phase ត្រង់! Zero pressure, zero cost!</p>
+        <div class="cta-actions">
+          <a href="index.html#contact" class="btn-primary">
+            <i class="fas fa-calendar-check"></i> Book Free Strategy Call
+          </a>
+          <a href="index.html#resources" class="btn-outline">
+            <i class="fas fa-gift"></i> ទាញយក Free Toolkit
+          </a>
+        </div>
+        <p class="cta-note">
+          <i class="fas fa-check-circle"></i> Free · No commitment · Reply within 2 hours via Telegram
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="f-logo">YOB.DIGITAL</div>
+          <p>AI Tools · Digital Strategy · Khmer Typography — ដៃគូ Digital ដ៏ទុកចិត្តបំផុតសម្រាប់ MSMEs ខ្មែរ។</p>
+          <div class="footer-socials">
+            <a href="https://facebook.com/yobdigital"    aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://t.me/yobdigital"            aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://youtube.com/@yobdigital"    aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://linkedin.com/in/yobdigital" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Roadmap</h4>
+          <ul>
+            <li><a href="grow.html">Grow with Yob</a></li>
+            <li><a href="index.html#resources">Free Toolkit</a></li>
+            <li><a href="index.html#tracks">Services</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="docs.html">Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="fonts.html">Khmer Font Shop</a></li>
+            <li><a href="index.html#resources">AI Content Bible</a></li>
+            <li><a href="index.html#videos">Tutorials</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#about">About Babu</a></li>
+            <li><a href="index.html#contact">Free Consultation</a></li>
+            <li><a href="https://t.me/yobdigital">Telegram</a></li>
+            <li><a href="https://youtube.com/@yobdigital">YouTube</a></li>
+            <li><a href="index.html">← Back to Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 <span>YOB.DIGITAL</span> — All rights reserved.</div>
+        <div class="footer-tagline">យប់​មាន​តម្លៃ​ដូច​ពន្លឺ ✦ Built for Cambodia 🇰🇭</div>
+        <div class="footer-badge"><i class="fas fa-heart"></i> Made with passion in Phnom Penh</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Float + Back to top -->
+  <div class="float-contact">
+    <a href="https://t.me/yobdigital" class="fl-btn tg" data-tip="Telegram YOB" target="_blank" rel="noopener">
+      <i class="fab fa-telegram-plane"></i>
+    </a>
+  </div>
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="js/main.js"></script>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+    // Back to top
+    const bt = document.getElementById('backTop');
+    window.addEventListener('scroll', () => bt.classList.toggle('show', window.scrollY > 400));
+  </script>
+</body>
+</html>
