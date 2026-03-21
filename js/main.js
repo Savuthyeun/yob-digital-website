@@ -108,267 +108,143 @@
       reveals.forEach((el) => observer.observe(el));
 
 // ═══════════════════════════════════════════════
-      // NIGHT SKY — YOB Digital Hero
-      // យប់ ពន្លឺព្រះច័ន្ទ #e52c67
+      // CONSTELLATION — YOB Digital Hero
+      // Connected star network · Pink #e52c67
       // ═══════════════════════════════════════════════
       (function () {
         const canvas = document.getElementById("night-canvas");
         if (!canvas) return;
-        const ctx = canvas.getContext("2d");
+        const ctx  = canvas.getContext("2d");
         const hero = document.getElementById("hero");
 
-        let W,
-          H,
-          stars = [];
-        let moon = { x: 0, y: 0, r: 0 };
+        let W, H, nodes = [];
         let mouse = { x: -9999, y: -9999 };
 
-        // ── RESIZE ──
-        function resize() {
+        // ── BUILD NODES ──
+        function build() {
           const rect = hero.getBoundingClientRect();
-          W = canvas.width = rect.width;
+          W = canvas.width  = rect.width;
           H = canvas.height = rect.height;
-          moon.r = Math.min(W, H) * 0.11;
-          moon.x = W * 0.82;
-          moon.y = H * 0.22;
-          buildStars();
-        }
-
-        // ── BUILD STARS ──
-        function buildStars() {
-          stars = [];
-          const n = Math.floor((W * H) / 1600);
+          nodes = [];
+          const n = Math.min(90, Math.floor(W * H / 9000));
           for (let i = 0; i < n; i++) {
-            const x = Math.random() * W;
-            const y = Math.random() * H;
-            const dx = x - moon.x,
-              dy = y - moon.y;
-            if (Math.sqrt(dx * dx + dy * dy) < moon.r * 1.5) continue;
-            stars.push({
-              x,
-              y,
-              r: Math.random() * 1.3 + 0.2,
-              a: Math.random() * 0.75 + 0.15,
-              speed: Math.random() * 0.7 + 0.2,
-              phase: Math.random() * Math.PI * 2,
-              pink: Math.random() < 0.12,
+            nodes.push({
+              x:    Math.random() * W,
+              y:    Math.random() * H,
+              vx:   (Math.random() - .5) * .35,
+              vy:   (Math.random() - .5) * .28,
+              r:    Math.random() * 2 + .5,
+              a:    Math.random() * .65 + .2,
+              pink: Math.random() < .28,
+              pulse: Math.random() * Math.PI * 2,
             });
           }
         }
 
         // ── DRAW LOOP ──
         function draw(ts) {
-          const t = ts * 0.001;
+          const t = ts * .001;
           ctx.clearRect(0, 0, W, H);
 
-          // Deep night sky
-          const sky = ctx.createLinearGradient(0, 0, 0, H);
-          sky.addColorStop(0, "#000000");
-          sky.addColorStop(0.45, "#050108");
-          sky.addColorStop(1, "#0a020e");
-          ctx.fillStyle = sky;
+          // Deep background
+          const bg = ctx.createLinearGradient(0, 0, 0, H);
+          bg.addColorStop(0,   "#000000");
+          bg.addColorStop(.45, "#050108");
+          bg.addColorStop(1,   "#0a020e");
+          ctx.fillStyle = bg;
           ctx.fillRect(0, 0, W, H);
 
-          // Pink nebula atmosphere
-          const neb = ctx.createRadialGradient(
-            moon.x,
-            moon.y,
-            0,
-            moon.x,
-            moon.y,
-            W * 0.5,
-          );
-          neb.addColorStop(0, "rgba(229,44,103,0.10)");
-          neb.addColorStop(0.45, "rgba(140,15,65,0.04)");
-          neb.addColorStop(1, "transparent");
-          ctx.fillStyle = neb;
+          // Subtle pink center glow
+          const cg = ctx.createRadialGradient(W * .5, H * .45, 0, W * .5, H * .45, W * .55);
+          cg.addColorStop(0,   "rgba(229,44,103,.07)");
+          cg.addColorStop(.5,  "rgba(140,15,65,.03)");
+          cg.addColorStop(1,   "transparent");
+          ctx.fillStyle = cg;
           ctx.fillRect(0, 0, W, H);
 
-          // Secondary nebula bottom-left
-          const neb2 = ctx.createRadialGradient(
-            W * 0.1,
-            H * 0.8,
-            0,
-            W * 0.1,
-            H * 0.8,
-            W * 0.3,
-          );
-          neb2.addColorStop(0, "rgba(80,5,50,0.07)");
-          neb2.addColorStop(1, "transparent");
-          ctx.fillStyle = neb2;
-          ctx.fillRect(0, 0, W, H);
+          // Update positions
+          nodes.forEach(n => {
+            n.x += n.vx;
+            n.y += n.vy;
+            if (n.x < 0 || n.x > W) n.vx *= -1;
+            if (n.y < 0 || n.y > H) n.vy *= -1;
 
-          // ── MOON GLOW LAYERS ──
-          for (let i = 4; i > 0; i--) {
-            const gr = ctx.createRadialGradient(
-              moon.x,
-              moon.y,
-              0,
-              moon.x,
-              moon.y,
-              moon.r * (1 + i * 0.45),
-            );
-            gr.addColorStop(0, `rgba(229,44,103,${0.08 / i})`);
-            gr.addColorStop(0.5, `rgba(180,20,75,${0.03 / i})`);
-            gr.addColorStop(1, "transparent");
-            ctx.fillStyle = gr;
-            ctx.beginPath();
-            ctx.arc(moon.x, moon.y, moon.r * (1 + i * 0.45), 0, Math.PI * 2);
-            ctx.fill();
+            // Cursor soft attract
+            const di = Math.hypot(mouse.x - n.x, mouse.y - n.y);
+            if (di < 160) {
+              const f = (1 - di / 160) * .45;
+              n.x += (mouse.x - n.x) * f * .025;
+              n.y += (mouse.y - n.y) * f * .025;
+            }
+          });
+
+          // Draw edges between close nodes
+          for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+              const d = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
+              if (d < 115) {
+                const a = (1 - d / 115) * .3;
+                const isPink = nodes[i].pink || nodes[j].pink;
+                ctx.beginPath();
+                ctx.moveTo(nodes[i].x, nodes[i].y);
+                ctx.lineTo(nodes[j].x, nodes[j].y);
+                ctx.strokeStyle = isPink
+                  ? `rgba(229,44,103,${a * 1.2})`
+                  : `rgba(200,180,220,${a * .7})`;
+                ctx.lineWidth = isPink ? 1 : .6;
+                ctx.stroke();
+              }
+            }
           }
 
-          // ── MOON BODY ──
-          const mg = ctx.createRadialGradient(
-            moon.x - moon.r * 0.28,
-            moon.y - moon.r * 0.22,
-            moon.r * 0.04,
-            moon.x,
-            moon.y,
-            moon.r,
-          );
-          mg.addColorStop(0, "#fff5f8");
-          mg.addColorStop(0.28, "#ffd0df");
-          mg.addColorStop(0.6, "#e52c67");
-          mg.addColorStop(0.82, "#8b1040");
-          mg.addColorStop(1, "#2e0416");
-          ctx.beginPath();
-          ctx.arc(moon.x, moon.y, moon.r, 0, Math.PI * 2);
-          ctx.fillStyle = mg;
-          ctx.fill();
+          // Draw edges from cursor to nearby nodes
+          nodes.forEach(n => {
+            const d = Math.hypot(mouse.x - n.x, mouse.y - n.y);
+            if (d < 170) {
+              ctx.beginPath();
+              ctx.moveTo(mouse.x, mouse.y);
+              ctx.lineTo(n.x, n.y);
+              ctx.strokeStyle = `rgba(229,44,103,${(1 - d / 170) * .55})`;
+              ctx.lineWidth = .9;
+              ctx.stroke();
+            }
+          });
 
-          // Moon craters
-          [
-            [-0.3, -0.25, 0.11],
-            [0.22, 0.1, 0.07],
-            [-0.1, 0.32, 0.09],
-            [0.33, -0.18, 0.05],
-          ].forEach(([cx, cy, cr]) => {
-            const cg = ctx.createRadialGradient(
-              moon.x + cx * moon.r,
-              moon.y + cy * moon.r,
-              0,
-              moon.x + cx * moon.r,
-              moon.y + cy * moon.r,
-              cr * moon.r,
-            );
-            cg.addColorStop(0, "rgba(100,5,40,0.4)");
-            cg.addColorStop(1, "transparent");
+          // Draw nodes
+          nodes.forEach(n => {
+            const di  = Math.hypot(mouse.x - n.x, mouse.y - n.y);
+            const prox = di < 170 ? (1 - di / 170) : 0;
+            const pulse = Math.sin(t * 1.2 + n.pulse) * .15 + .85;
+            const alpha = Math.min(1, n.a * pulse + prox * .5);
+            const radius = n.r * (1 + prox * 1.6);
+
+            // Glow for pink nodes
+            if (n.pink) {
+              const glow = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, radius * 5);
+              glow.addColorStop(0, `rgba(229,44,103,${alpha * .3})`);
+              glow.addColorStop(1, "transparent");
+              ctx.beginPath();
+              ctx.arc(n.x, n.y, radius * 5, 0, Math.PI * 2);
+              ctx.fillStyle = glow;
+              ctx.fill();
+            }
+
             ctx.beginPath();
-            ctx.arc(
-              moon.x + cx * moon.r,
-              moon.y + cy * moon.r,
-              cr * moon.r,
-              0,
-              Math.PI * 2,
-            );
-            ctx.fillStyle = cg;
+            ctx.arc(n.x, n.y, radius, 0, Math.PI * 2);
+            ctx.fillStyle = n.pink
+              ? `rgba(229,44,103,${alpha})`
+              : `rgba(220,200,240,${alpha * .85})`;
             ctx.fill();
           });
 
-          // Moon rim shimmer
-          ctx.beginPath();
-          ctx.arc(moon.x, moon.y, moon.r, 0, Math.PI * 2);
-          const rim = ctx.createLinearGradient(
-            moon.x - moon.r,
-            moon.y - moon.r,
-            moon.x + moon.r,
-            moon.y + moon.r,
-          );
-          rim.addColorStop(0, "rgba(255,210,225,0.5)");
-          rim.addColorStop(0.5, "transparent");
-          rim.addColorStop(1, "rgba(229,44,103,0.2)");
-          ctx.strokeStyle = rim;
-          ctx.lineWidth = 1.5;
-          ctx.stroke();
-
-          // Moonlight beam to ground
-          const ray = ctx.createLinearGradient(
-            moon.x,
-            moon.y + moon.r,
-            moon.x,
-            H,
-          );
-          ray.addColorStop(0, "rgba(229,44,103,0.07)");
-          ray.addColorStop(1, "transparent");
-          ctx.beginPath();
-          ctx.moveTo(moon.x - moon.r * 1.8, H);
-          ctx.lineTo(moon.x, moon.y + moon.r);
-          ctx.lineTo(moon.x + moon.r * 1.8, H);
-          ctx.closePath();
-          ctx.fillStyle = ray;
-          ctx.fill();
-
-          // ── STARS ──
-          stars.forEach((s) => {
-            const twinkle = Math.sin(t * s.speed + s.phase) * 0.4 + 0.6;
-            const dx = mouse.x - s.x,
-              dy = mouse.y - s.y;
-            const di = Math.sqrt(dx * dx + dy * dy);
-            const prox = 110;
-            let alpha = s.a * twinkle;
-            let r = s.r;
-
-            if (di < prox) {
-              const f = 1 - di / prox;
-              alpha = Math.min(1, alpha + f * 0.85);
-              r = s.r * (1 + f * 1.8);
-            }
-
-            if (s.pink) {
-              ctx.beginPath();
-              ctx.arc(s.x, s.y, r * 1.1, 0, Math.PI * 2);
-              ctx.fillStyle = `rgba(229,44,103,${alpha * 0.9})`;
-              ctx.fill();
-              if (alpha > 0.5) {
-                const sg = ctx.createRadialGradient(
-                  s.x,
-                  s.y,
-                  0,
-                  s.x,
-                  s.y,
-                  r * 5,
-                );
-                sg.addColorStop(0, `rgba(229,44,103,${alpha * 0.25})`);
-                sg.addColorStop(1, "transparent");
-                ctx.beginPath();
-                ctx.arc(s.x, s.y, r * 5, 0, Math.PI * 2);
-                ctx.fillStyle = sg;
-                ctx.fill();
-              }
-            } else {
-              ctx.beginPath();
-              ctx.arc(s.x, s.y, r, 0, Math.PI * 2);
-              ctx.fillStyle = `rgba(255,240,248,${alpha})`;
-              ctx.fill();
-            }
-          });
-
-          // ── SHOOTING STAR ──
-          const cycle = (t * 0.12) % 1;
-          if (cycle < 0.07) {
-            const p = cycle / 0.07;
-            const sx = W * 0.55 + p * W * 0.3;
-            const sy = H * 0.04 + p * H * 0.18;
-            const tail = ctx.createLinearGradient(
-              sx - 100 * p,
-              sy - 50 * p,
-              sx,
-              sy,
-            );
-            tail.addColorStop(0, "transparent");
-            tail.addColorStop(1, `rgba(229,44,103,${0.9 * (1 - p * 0.3)})`);
+          // Cursor glow dot
+          if (mouse.x > 0 && mouse.x < W) {
+            const curGlow = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 40);
+            curGlow.addColorStop(0, "rgba(229,44,103,.35)");
+            curGlow.addColorStop(1, "transparent");
             ctx.beginPath();
-            ctx.moveTo(sx - 100, sy - 50);
-            ctx.lineTo(sx, sy);
-            ctx.strokeStyle = tail;
-            ctx.lineWidth = 1.5;
-            ctx.stroke();
-            const hg = ctx.createRadialGradient(sx, sy, 0, sx, sy, 6);
-            hg.addColorStop(0, "rgba(255,190,215,0.95)");
-            hg.addColorStop(1, "transparent");
-            ctx.beginPath();
-            ctx.arc(sx, sy, 6, 0, Math.PI * 2);
-            ctx.fillStyle = hg;
+            ctx.arc(mouse.x, mouse.y, 40, 0, Math.PI * 2);
+            ctx.fillStyle = curGlow;
             ctx.fill();
           }
 
@@ -376,18 +252,35 @@
         }
 
         // Mouse tracking
-        document.addEventListener("mousemove", (e) => {
+        document.addEventListener("mousemove", e => {
           const rect = hero.getBoundingClientRect();
           mouse.x = e.clientX - rect.left;
           mouse.y = e.clientY - rect.top;
         });
 
+        // Click — shockwave repel nodes
+        hero.addEventListener("click", e => {
+          const rect = hero.getBoundingClientRect();
+          const cx = e.clientX - rect.left;
+          const cy = e.clientY - rect.top;
+          nodes.forEach(n => {
+            const d = Math.hypot(cx - n.x, cy - n.y);
+            if (d < 220) {
+              const f = (1 - d / 220) * 3.5;
+              const a = Math.atan2(n.y - cy, n.x - cx);
+              n.vx += Math.cos(a) * f;
+              n.vy += Math.sin(a) * f;
+            }
+          });
+        });
+
+        // Resize
         let rTimer;
         window.addEventListener("resize", () => {
           clearTimeout(rTimer);
-          rTimer = setTimeout(resize, 150);
+          rTimer = setTimeout(build, 150);
         });
 
-        resize();
+        build();
         requestAnimationFrame(draw);
       })();
