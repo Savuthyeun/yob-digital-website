@@ -28,10 +28,10 @@
     <link rel="apple-touch-icon" href="images/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- ✅ FIX 1: Font Preload — prevent FOUT text flash -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" /></noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -1485,14 +1485,182 @@
       }
 
       /* ═══════════════════════════
-       FOOTER
+       MEGA FOOTER — Astro Style
     ═══════════════════════════ */
-      footer {
-        padding: 40px 0;
-        text-align: center;
-        border-top: 1px solid var(--border);
-        background: var(--dark2);
+      /* Pre-footer CTA */
+      .prefooter {
+        padding: 80px 0;
+        position: relative;
+        overflow: hidden;
       }
+      .prefooter-box {
+        background: linear-gradient(135deg, rgba(229,44,103,0.12) 0%, rgba(229,44,103,0.04) 60%, transparent 100%);
+        border: 1px solid rgba(229,44,103,0.25);
+        border-radius: 24px;
+        padding: 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(16px);
+      }
+      .prefooter-box::before {
+        content: '';
+        position: absolute; top: -60%; left: 50%; transform: translateX(-50%);
+        width: 500px; height: 300px;
+        background: radial-gradient(ellipse, rgba(229,44,103,0.15) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .prefooter-box h2 {
+        font-family: var(--fh);
+        font-size: clamp(32px,4vw,56px);
+        font-weight: 800;
+        margin-bottom: 16px;
+        position: relative; z-index: 1;
+      }
+      .prefooter-box p {
+        font-family: var(--fk);
+        font-size: 16px;
+        color: var(--gray);
+        max-width: 500px;
+        margin: 0 auto 36px;
+        line-height: 1.9;
+        position: relative; z-index: 1;
+      }
+      .prefooter-actions {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative; z-index: 1;
+      }
+
+      /* Mega Footer */
+      footer {
+        background: rgba(5,7,11,0.97);
+        backdrop-filter: blur(24px);
+        border-top: 1px solid rgba(255,255,255,0.06);
+        padding: 64px 0 0;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.8fr 1fr 1fr 1fr;
+        gap: 48px;
+        padding-bottom: 56px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+      .footer-brand .f-logo {
+        font-family: var(--fh);
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        background: linear-gradient(135deg,#fff 30%,#e52c67);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 16px;
+        display: inline-block;
+      }
+      .footer-brand p {
+        font-family: var(--fk);
+        font-size: 14px;
+        color: var(--gray);
+        line-height: 1.9;
+        margin-bottom: 24px;
+        max-width: 280px;
+      }
+      .footer-socials {
+        display: flex;
+        gap: 10px;
+      }
+      .footer-socials a {
+        width: 38px; height: 38px;
+        border-radius: 10px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 15px; color: var(--gray);
+        transition: all var(--t);
+        text-decoration: none !important;
+      }
+      .footer-socials a:hover {
+        background: rgba(229,44,103,0.12);
+        border-color: rgba(229,44,103,0.3);
+        color: var(--gold);
+        transform: translateY(-3px);
+      }
+      .footer-col h4 {
+        font-family: var(--fb);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.5);
+        margin-bottom: 20px;
+      }
+      .footer-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+      }
+      .footer-col ul li a {
+        font-family: var(--fk);
+        font-size: 14px;
+        color: var(--gray);
+        text-decoration: none !important;
+        transition: color var(--t);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .footer-col ul li a:hover { color: var(--white); }
+      .footer-col ul li a::before {
+        content: '';
+        width: 4px; height: 4px;
+        border-radius: 50%;
+        background: var(--gold);
+        opacity: 0;
+        transition: opacity var(--t);
+        flex-shrink: 0;
+      }
+      .footer-col ul li a:hover::before { opacity: 1; }
+
+      /* Footer Bottom Bar */
+      .footer-bottom {
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .footer-copy {
+        font-size: 13px;
+        color: rgba(255,255,255,0.25);
+        font-family: var(--fb);
+      }
+      .footer-copy span { color: var(--gold); }
+      .footer-tagline {
+        font-family: var(--fk);
+        font-size: 13px;
+        color: rgba(255,255,255,0.2);
+      }
+      .footer-badge {
+        display: flex; align-items: center; gap: 6px;
+        font-size: 11px; color: rgba(255,255,255,0.2);
+        font-family: var(--fb);
+      }
+      .footer-badge i { color: var(--gold); font-size: 10px; }
+
+      /* Responsive footer */
+      @media (max-width: 900px) {
+        .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+        .prefooter-box { padding: 40px 24px; }
+      }
+      @media (max-width: 540px) {
+        .footer-grid { grid-template-columns: 1fr; }
+        .footer-bottom { flex-direction: column; align-items: center; text-align: center; }
+      }
+
       .footer-text {
         color: var(--gray);
         font-size: 14px;
@@ -1847,86 +2015,10 @@
         border: 1px solid rgba(229, 44, 103, 0.15) !important;
       }
 
-      /* Astro-style: footer */
-      footer {
-        background: rgba(8, 11, 16, 0.9) !important;
-        backdrop-filter: blur(20px) !important;
-        border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
-      }
-  
-    /* ✅ FIX 3: PAGE LOAD ANIMATION */
-    #yob-loader {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      background: #080B10;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
-    }
-    #yob-loader.hide {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-    .loader-logo {
-      font-family: var(--fh);
-      font-size: 48px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      background: linear-gradient(135deg, #ffffff 0%, #ff8ab0 40%, #e52c67 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: logoGlow 1.5s ease-in-out infinite alternate;
-    }
-    @keyframes logoGlow {
-      from { opacity: 0.6; transform: scale(0.97); }
-      to   { opacity: 1;   transform: scale(1.02); }
-    }
-    .loader-bar-wrap {
-      width: 160px;
-      height: 2px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .loader-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #e52c67, #ff8ab0);
-      border-radius: 2px;
-      animation: loadBar 1.2s cubic-bezier(0.4,0,0.2,1) forwards;
-    }
-    @keyframes loadBar {
-      0%   { width: 0%; }
-      60%  { width: 75%; }
-      100% { width: 100%; }
-    }
-    .loader-tagline {
-      font-family: var(--fk);
-      font-size: 13px;
-      color: rgba(255,255,255,0.35);
-      letter-spacing: 2px;
-    }
-    /* Prevent body scroll during load */
-    body.loading { overflow: hidden; }
-
-  </style>
+      /* Footer: handled by Mega Footer CSS above */
+    </style>
   </head>
   <body>
-  <!-- ✅ FIX 3: PAGE LOAD SPLASH SCREEN -->
-  <div id="yob-loader">
-    <div class="loader-logo">YOB.DIGITAL</div>
-    <div class="loader-bar-wrap">
-      <div class="loader-bar"></div>
-    </div>
-    <div class="loader-tagline">យប់​មាន​តម្លៃ​ដូច​ពន្លឺ ✦</div>
-  </div>
-
     <!-- Custom Cursor Elements -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
@@ -2289,7 +2381,7 @@
           <!-- Case Study 2 -->
           <div class="portfolio-card reveal">
             <div class="portfolio-img-wrap">
-              <img loading="lazy"
+              <img
                 src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=80&w=1974&auto=format&fit=crop"
                 alt="CHAMPION GIZ Event"
               />
@@ -2315,7 +2407,7 @@
           <!-- Case Study 3 -->
           <div class="portfolio-card reveal">
             <div class="portfolio-img-wrap">
-              <img loading="lazy"
+              <img
                 src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1974&auto=format&fit=crop"
                 alt="Local MSME Transformation"
               />
@@ -2396,7 +2488,7 @@
           <a href="#" class="video-card">
             <div class="video-thumb">
               <!-- ដូររូបភាព Cover YouTube ទីនេះ -->
-              <img loading="lazy"
+              <img
                 src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop"
                 alt="YouTube Thumbnail"
               />
@@ -2421,7 +2513,7 @@
           <!-- Video 2 -->
           <a href="#" class="video-card">
             <div class="video-thumb">
-              <img loading="lazy"
+              <img
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop"
                 alt="YouTube Thumbnail"
               />
@@ -2446,7 +2538,7 @@
           <!-- Video 3 -->
           <a href="#" class="video-card">
             <div class="video-thumb">
-              <img loading="lazy"
+              <img
                 src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=2000&auto=format&fit=crop"
                 alt="YouTube Thumbnail"
               />
@@ -2583,7 +2675,7 @@
       <div class="container about-grid">
         <div class="about-image reveal">
           <!-- Add your real image here -->
-          <img loading="lazy"
+          <img
             src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
             alt="YOB Digital Team"
           />
@@ -2712,32 +2804,80 @@
       </div>
     </section>
 
-    <!-- ══ FOOTER ══ -->
+    <!-- ══ PRE-FOOTER CTA ══ -->
+    <section class="prefooter">
+      <div class="container">
+        <div class="prefooter-box reveal">
+          <h2>រួមគ្នា <span style="background:linear-gradient(135deg,#fff 0%,#ff8ab0 40%,#e52c67 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">BUILD</span> Cambodia Digital!</h2>
+          <p>មាន Project ចង់ discuss? ចង់រៀន AI? ចង់ buy Khmer Font? — YOB Digital ready ជួយ Bong Savuth ២៤/៧!</p>
+          <div class="prefooter-actions">
+            <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> ទំនាក់ទំនងឥឡូវ</a>
+            <a href="#resources" class="btn-outline"><i class="fas fa-gift"></i> ទាញយក Free</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ MEGA FOOTER ══ -->
     <footer>
       <div class="container">
-        <div
-          style="
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-          "
-        >
-          <p class="footer-text">
-            © 2026 <span>YOB.DIGITAL</span>
-            <span style="margin: 0 10px; opacity: 0.5">|</span>
-            យប់មានតម្លៃដូចពន្លឺ ✨
-          </p>
-          <p
-            style="
-              font-size: 12px;
-              color: var(--gray);
-              font-family: var(--fk);
-              letter-spacing: 0.5px;
-            "
-          >
-            Crafted with passion & purpose for Cambodian Brands 🇰🇭
-          </p>
+        <div class="footer-grid">
+
+          <!-- Brand Column -->
+          <div class="footer-brand">
+            <div class="f-logo">YOB.DIGITAL</div>
+            <p>AI Tools · Digital Marketing · Khmer Typography — ដៃគូ Digital ដ៏ទុកចិត្តបំផុតសម្រាប់ MSMEs ខ្មែរ។</p>
+            <div class="footer-socials">
+              <a href="https://facebook.com/yobdigital"  aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://t.me/yobdigital"          aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+              <a href="https://youtube.com/@yobdigital"  aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+              <a href="https://linkedin.com/in/yobdigital" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+          <!-- Services Column -->
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#tracks">AI Tools Mastery</a></li>
+              <li><a href="#tracks">Digital Strategy</a></li>
+              <li><a href="#tracks">Web & System Setup</a></li>
+              <li><a href="#portfolio">Case Studies</a></li>
+              <li><a href="#videos">Free Tutorials</a></li>
+            </ul>
+          </div>
+
+          <!-- Products Column -->
+          <div class="footer-col">
+            <h4>Products</h4>
+            <ul>
+              <li><a href="#typography">Khmer Font Shop</a></li>
+              <li><a href="#resources">AI Content Bible</a></li>
+              <li><a href="#typography">YOB Bold Pro</a></li>
+              <li><a href="#typography">YOB Sans Light</a></li>
+              <li><a href="#typography">YOB Starter (Free)</a></li>
+            </ul>
+          </div>
+
+          <!-- Company Column -->
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About YOB</a></li>
+              <li><a href="#about">Our Mission</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+              <li><a href="https://t.me/yobdigital">Telegram</a></li>
+              <li><a href="https://youtube.com/@yobdigital">YouTube</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+          <div class="footer-copy">© 2026 <span>YOB.DIGITAL</span> — All rights reserved.</div>
+          <div class="footer-tagline">យប់​មាន​តម្លៃ​ដូច​ពន្លឺ ✦ Built for Cambodia 🇰🇭</div>
+          <div class="footer-badge"><i class="fas fa-heart"></i> Made with passion in Phnom Penh</div>
         </div>
       </div>
     </footer>
@@ -2793,24 +2933,7 @@
         backTop.classList.toggle("show", window.scrollY > 400),
       );
 
-  
-    // ✅ FIX 3: Page Load Animation
-    (function() {
-      document.body.classList.add('loading');
-      const loader = document.getElementById('yob-loader');
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          loader.classList.add('hide');
-          document.body.classList.remove('loading');
-          // Remove from DOM after transition
-          setTimeout(function() {
-            if (loader.parentNode) loader.parentNode.removeChild(loader);
-          }, 650);
-        }, 1200); // show for 1.2s
-      });
-    })();
-
-    // --- Custom Cursor Logic (Pro Interaction) ---
+      // --- Custom Cursor Logic (Pro Interaction) ---
       const cursorDot = document.querySelector(".cursor-dot");
       const cursorOutline = document.querySelector(".cursor-outline");
 
