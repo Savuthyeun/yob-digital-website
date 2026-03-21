@@ -779,7 +779,7 @@
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
   <script>
     // Filter functionality
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -806,10 +806,6 @@
         if (!wasOpen) item.classList.add('open');
       });
     });
-
-    // Back to top
-    const bt = document.getElementById('backTop');
-    window.addEventListener('scroll', () => bt.classList.toggle('show', window.scrollY > 400));
   </script>
 </body>
 </html>
