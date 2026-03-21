@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khmer Font Shop — YOB Digital</title>
+  <meta name="description" content="Premium Khmer Unicode Fonts ដោយ YOB Digital — Bold, Serif, Script, Display fonts for branding, web, and print." />
+  <meta property="og:title"       content="Khmer Font Shop — YOB Digital" />
+  <meta property="og:description" content="Premium Khmer Unicode Fonts — from $12. Free version included!" />
+  <meta property="og:image"       content="https://yobdigital.netlify.app/images/og-cover.jpg" />
+  <meta property="og:url"         content="https://yobdigital.netlify.app/fonts.html" />
+  <meta property="og:type"        content="website" />
+  <link rel="canonical"           href="https://yobdigital.netlify.app/fonts.html" />
+  <link rel="icon"                type="image/png" href="images/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Shared styles from main site -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ═══════════════════════════════════
+       FONTS PAGE — Extra Styles
+    ═══════════════════════════════════ */
+
+    /* Page hero */
+    .fonts-hero {
+      padding: 140px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .fonts-hero::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(229,44,103,0.14) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 20% 80%, rgba(168,85,247,0.07) 0%, transparent 55%);
+    }
+    .fonts-hero > * { position: relative; z-index: 1; }
+    .fonts-hero .page-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(229,44,103,0.08);
+      border: 1px solid rgba(229,44,103,0.2);
+      padding: 6px 18px; border-radius: 50px;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .fonts-hero h1 {
+      font-family: var(--fh);
+      font-size: clamp(48px, 7vw, 96px);
+      line-height: 0.95; letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    .fonts-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #fff 0%, #ff8ab0 40%, #e52c67 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .fonts-hero p {
+      font-family: var(--fk); font-size: 17px; color: var(--gray);
+      max-width: 560px; margin: 0 auto 36px; line-height: 1.9;
+    }
+    .hero-badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .hero-badge-item {
+      display: flex; align-items: center; gap: 7px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 16px; border-radius: 50px;
+      font-size: 12px; font-weight: 600; color: var(--gray);
+    }
+    .hero-badge-item i { color: var(--gold); font-size: 11px; }
+
+    /* Filter tabs */
+    .filter-bar {
+      display: flex; gap: 8px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 48px;
+    }
+    .filter-btn {
+      padding: 9px 20px; border-radius: 50px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--gray); font-family: var(--fb);
+      font-size: 13px; font-weight: 600;
+      cursor: pointer; transition: all var(--t);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: rgba(229,44,103,0.12);
+      border-color: rgba(229,44,103,0.3);
+      color: var(--white);
+    }
+    .filter-btn.active { color: var(--gold); }
+
+    /* Font cards grid */
+    .fonts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+    .font-card {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px; overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+      position: relative;
+    }
+    .font-card:hover {
+      border-color: rgba(229,44,103,0.3);
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(229,44,103,0.1);
+    }
+    .font-card.featured {
+      border-color: rgba(229,44,103,0.25);
+      background: rgba(229,44,103,0.05);
+    }
+    .font-card.featured::before {
+      content: '⭐ BEST SELLER';
+      position: absolute; top: 16px; right: 16px;
+      background: var(--gold); color: #fff;
+      font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+      padding: 4px 10px; border-radius: 20px;
+    }
+
+    /* Font preview area */
+    .font-preview-area {
+      padding: 40px 28px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      min-height: 140px; display: flex;
+      align-items: center; justify-content: center;
+      background: linear-gradient(135deg, rgba(229,44,103,0.04), transparent);
+      position: relative; overflow: hidden;
+    }
+    .font-preview-area::after {
+      content: attr(data-letter);
+      position: absolute; right: -10px; bottom: -20px;
+      font-family: var(--fk); font-size: 120px;
+      color: rgba(229,44,103,0.05);
+      pointer-events: none; line-height: 1;
+      font-weight: 900;
+    }
+    .preview-text {
+      font-family: var(--fk);
+      color: var(--white);
+      text-align: center; line-height: 1.3;
+      transition: color 0.3s ease;
+      position: relative; z-index: 1;
+    }
+    .font-card:hover .preview-text { color: #ffd0df; }
+    .preview-text.style-bold    { font-size: 38px; font-weight: 900; }
+    .preview-text.style-display { font-family: var(--fh); font-size: 44px; font-weight: 700; letter-spacing: 2px; }
+    .preview-text.style-sans    { font-size: 28px; font-weight: 400; letter-spacing: 0.5px; }
+    .preview-text.style-italic  { font-size: 32px; font-style: italic; font-weight: 300; }
+    .preview-text.style-mono    { font-size: 24px; letter-spacing: 3px; font-weight: 500; }
+    .preview-text.style-heavy   { font-family: var(--fh); font-size: 50px; font-weight: 900; }
+
+    /* Font card info */
+    .font-info { padding: 22px 24px; }
+    .font-info-top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; margin-bottom: 10px;
+    }
+    .font-name { font-family: var(--fh); font-size: 22px; letter-spacing: 1px; color: var(--white); }
+    .font-cat {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--gold);
+      background: rgba(229,44,103,0.1);
+      border: 1px solid rgba(229,44,103,0.2);
+      padding: 3px 9px; border-radius: 20px;
+    }
+    .font-meta {
+      font-family: var(--fk); font-size: 13px; color: var(--gray);
+      margin-bottom: 16px; line-height: 1.7;
+    }
+    .font-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+    .font-tag {
+      font-size: 10px; font-weight: 600; padding: 3px 10px;
+      border-radius: 20px; background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08); color: var(--gray);
+    }
+    .font-footer {
+      display: flex; align-items: center;
+      justify-content: space-between;
+    }
+    .font-price { font-family: var(--fh); font-size: 26px; font-weight: 700; color: var(--white); }
+    .font-price.free-price { color: #4ade80; }
+    .font-price .orig { font-size: 14px; color: var(--gray); text-decoration: line-through; margin-right: 6px; font-family: var(--fb); }
+    .btn-buy {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: 50px;
+      background: linear-gradient(135deg, var(--gold), #ff6b9d);
+      color: #fff; font-family: var(--fb); font-size: 13px; font-weight: 700;
+      border: none; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(229,44,103,0.35);
+      transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+      text-decoration: none !important;
+    }
+    .btn-buy:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(229,44,103,0.5); }
+    .btn-free {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: 50px;
+      background: rgba(74,222,128,0.1);
+      color: #4ade80; font-family: var(--fb); font-size: 13px; font-weight: 700;
+      border: 1px solid rgba(74,222,128,0.3); cursor: pointer;
+      transition: all 0.3s ease; text-decoration: none !important;
+    }
+    .btn-free:hover { background: #4ade80; color: var(--dark); transform: translateY(-2px); }
+
+    /* Bundle section */
+    .bundle-section { padding: 80px 0; }
+    .bundle-card {
+      background: linear-gradient(135deg, rgba(229,44,103,0.1) 0%, rgba(229,44,103,0.03) 60%, transparent 100%);
+      border: 1px solid rgba(229,44,103,0.25);
+      border-radius: 24px; padding: 60px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+      backdrop-filter: blur(20px);
+      position: relative; overflow: hidden;
+    }
+    .bundle-card::before {
+      content: '';
+      position: absolute; top: -40%; right: -10%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(229,44,103,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .bundle-content { position: relative; z-index: 1; }
+    .bundle-tag {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
+      background: rgba(229,44,103,0.1); border: 1px solid rgba(229,44,103,0.2);
+      padding: 4px 14px; border-radius: 20px; margin-bottom: 18px;
+    }
+    .bundle-content h2 { font-family: var(--fh); font-size: clamp(36px,4vw,56px); margin-bottom: 14px; line-height: 1; }
+    .bundle-content p { font-family: var(--fk); font-size: 15px; color: var(--gray); line-height: 1.9; margin-bottom: 24px; }
+    .bundle-list { list-style: none; margin-bottom: 32px; }
+    .bundle-list li {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--fk); font-size: 14px; color: var(--white);
+      margin-bottom: 10px;
+    }
+    .bundle-list li i { color: var(--gold); font-size: 12px; }
+    .bundle-pricing { position: relative; z-index: 1; text-align: center; }
+    .bundle-price-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 36px 28px; margin-bottom: 16px;
+    }
+    .bundle-was { font-size: 14px; color: var(--gray); text-decoration: line-through; margin-bottom: 6px; }
+    .bundle-now { font-family: var(--fh); font-size: 64px; color: var(--white); line-height: 1; }
+    .bundle-now span { font-size: 28px; color: var(--gold); vertical-align: super; }
+    .bundle-save {
+      display: inline-block; background: rgba(74,222,128,0.15);
+      color: #4ade80; font-size: 13px; font-weight: 700;
+      padding: 4px 14px; border-radius: 20px;
+      border: 1px solid rgba(74,222,128,0.3); margin-bottom: 22px;
+    }
+
+    /* License table */
+    .license-section { padding: 60px 0 80px; }
+    .license-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .license-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px; padding: 32px 24px;
+      transition: all 0.3s ease;
+    }
+    .license-card:hover { border-color: rgba(229,44,103,0.25); transform: translateY(-4px); }
+    .license-card.popular {
+      border-color: rgba(229,44,103,0.3);
+      background: rgba(229,44,103,0.06);
+    }
+    .license-name { font-family: var(--fh); font-size: 28px; margin-bottom: 6px; }
+    .license-price { font-family: var(--fh); font-size: 40px; color: var(--gold); margin-bottom: 16px; }
+    .license-price small { font-size: 18px; color: var(--gray); font-family: var(--fb); }
+    .license-features { list-style: none; }
+    .license-features li {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-family: var(--fk); font-size: 13px; color: var(--gray);
+      margin-bottom: 10px; line-height: 1.6;
+    }
+    .license-features li i { color: var(--gold); font-size: 11px; margin-top: 3px; flex-shrink: 0; }
+    .license-features li.no i { color: var(--gray); }
+    .license-features li.no { opacity: 0.5; }
+
+    /* FAQ */
+    .faq-section { padding: 60px 0 80px; }
+    .faq-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px; margin-bottom: 12px;
+      overflow: hidden; transition: all 0.3s ease;
+    }
+    .faq-item:hover { border-color: rgba(229,44,103,0.2); }
+    .faq-q {
+      padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; font-family: var(--fk); font-size: 15px; color: var(--white);
+    }
+    .faq-q i { color: var(--gold); transition: transform 0.3s; }
+    .faq-a {
+      padding: 0 24px 20px;
+      font-family: var(--fk); font-size: 14px; color: var(--gray);
+      line-height: 1.9; display: none;
+    }
+    .faq-item.open .faq-q i { transform: rotate(45deg); }
+    .faq-item.open .faq-a { display: block; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .bundle-card { grid-template-columns: 1fr; gap: 36px; }
+      .license-grid { grid-template-columns: 1fr; }
+      .fonts-grid { grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); }
+    }
+    @media (max-width: 600px) {
+      .fonts-grid { grid-template-columns: 1fr; }
+      .bundle-card { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <!-- ══ NAV ══ -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">YOB<span>.</span>DIGITAL</a>
+      <ul class="nav-links">
+        <li><a href="index.html#tracks">Services</a></li>
+        <li><a href="fonts.html" style="color:var(--gold)">Font Shop</a></li>
+        <li><a href="index.html#videos">Videos</a></li>
+        <li><a href="index.html#resources">Resources</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li>
+          <a href="index.html#contact" class="nav-cta">
+            ទំនាក់ទំនង <i class="fas fa-paper-plane" style="margin-left:5px"></i>
+          </a>
+        </li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+    <a href="index.html" onclick="closeDrawer()">Home</a>
+    <a href="index.html#tracks" onclick="closeDrawer()">Services</a>
+    <a href="fonts.html" onclick="closeDrawer()">Font Shop</a>
+    <a href="index.html#resources" onclick="closeDrawer()">Resources</a>
+    <a href="index.html#about" onclick="closeDrawer()">About</a>
+    <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
+  </div>
+
+  <!-- ══ PAGE HERO ══ -->
+  <section class="fonts-hero">
+    <div class="container">
+      <div class="page-tag"><i class="fas fa-pen-nib"></i> YOB Typography Store</div>
+      <h1>KHMER <em>FONT</em><br>SHOP</h1>
+      <p>Premium Khmer Unicode Fonts ដែលរចនាដោយ YOB Digital — Brand ដែលប្រើ Premium Font = <strong>40% more trust</strong> ពី customers!</p>
+      <div class="hero-badges">
+        <div class="hero-badge-item"><i class="fas fa-check-circle"></i> Unicode Ready</div>
+        <div class="hero-badge-item"><i class="fas fa-check-circle"></i> Web + Print</div>
+        <div class="hero-badge-item"><i class="fas fa-check-circle"></i> Free Version</div>
+        <div class="hero-badge-item"><i class="fas fa-check-circle"></i> Commercial License</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FONT SHOP ══ -->
+  <section style="padding: 20px 0 80px;">
+    <div class="container">
+
+      <!-- Filter -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All Fonts</button>
+        <button class="filter-btn" data-filter="display">Display</button>
+        <button class="filter-btn" data-filter="sans">Sans Serif</button>
+        <button class="filter-btn" data-filter="script">Script</button>
+        <button class="filter-btn" data-filter="free">Free</button>
+      </div>
+
+      <!-- Fonts Grid -->
+      <div class="fonts-grid">
+
+        <!-- 1. YOB Heading Pro -->
+        <div class="font-card featured reveal" data-category="display">
+          <div class="font-preview-area" data-letter="ស">
+            <div class="preview-text style-heavy">សិល្បៈ<br>ឌីជីថល</div>
+          </div>
+          <div class="font-info">
+            <div class="font-info-top">
+              <div class="font-name">YOB Heading Pro</div>
+              <span class="font-cat">Display</span>
+            </div>
+            <div class="font-meta">Bold display font — perfect for headlines, posters, brand identity</div>
+            <div class="font-tags">
+              <span class="font-tag">Heading</span>
+              <span class="font-tag">Poster</span>
+              <span class="font-tag">Branding</span>
+              <span class="font-tag">Unicode</span>
+            </div>
+            <div class="font-footer">
+              <div class="font-price">$15.00</div>
+              <a href="index.html#contact" class="btn-buy"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. YOB Modern Serif -->
+        <div class="font-card reveal" data-category="display">
+          <div class="font-preview-area" data-letter="ភ">
+            <div class="preview-text style-display">ភាព​ស្រស់ស្អាត</div>
+          </div>
+          <div class="font-info">
+            <div class="font-info-top">
+              <div class="font-name">YOB Modern Serif</div>
+              <span class="font-cat">Luxury</span>
+            </div>
+            <div class="font-meta">Elegant serif — ideal for luxury brands, editorial, magazines</div>
+            <div class="font-tags">
+              <span class="font-tag">Serif</span>
+              <span class="font-tag">Luxury</span>
+              <span class="font-tag">Editorial</span>
+            </div>
+            <div class="font-footer">
+              <div class="font-price">$18.00</div>
+              <a href="index.html#contact" class="btn-buy"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. YOB Signature -->
+        <div class="font-card reveal" data-category="script">
+          <div class="font-preview-area" data-letter="ហ">
+            <div class="preview-text style-italic">ហត្ថលេខា​ប្រណិត</div>
+          </div>
+          <div class="font-info">
+            <div class="font-info-top">
+              <div class="font-name">YOB Signature</div>
+              <span class="font-cat">Script</span>
+            </div>
+            <div class="font-meta">Elegant script — perfect for wedding cards, invitations, personal branding</div>
+            <div class="font-tags">
+              <span class="font-tag">Script</span>
+              <span class="font-tag">Wedding</span>
+              <span class="font-tag">Invitation</span>
+            </div>
+            <div class="font-footer">
+              <div class="font-price">$20.00</div>
+              <a href="index.html#contact" class="btn-buy"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. YOB Poster Black -->
+        <div class="font-card reveal" data-category="display">
+          <div class="font-preview-area" data-letter="ប">
+            <div class="preview-text style-bold">បញ្ចុះ​តម្លៃ ៥០%</div>
+          </div>
+          <div class="font-info">
+            <div class="font-info-top">
+              <div class="font-name">YOB Poster Black</div>
+              <span class="font-cat">Bold</span>
+            </div>
+            <div class="font-meta">Ultra-bold display — designed for promotions, ads, social media</div>
+            <div class="font-tags">
+              <span class="font-tag">Bold</span>
+              <span class="font-tag">Poster</span>
+              <span class="font-tag">Social Media</span>
+            </div>
+            <div class="font-footer">
+              <div class="font-price">$12.00</div>
+              <a href="index.html#contact" class="btn-buy"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. YOB Kbach Retro -->
+        <div class="font-card reveal" data-category="display">
+          <div class="font-preview-area" data-letter="ក">
+            <div class="preview-text style-display">ក្បាច់​ខ្មែរ​បុរាណ</div>
+          </div>
+          <div class="font-info">
+            <div class="font-info-top">
+              <div class="font-name">YOB Kbach Retro</div>
+              <span class="font-cat">Classic</span>
+            </div>
+            <div class="font-meta">Traditional Khmer motif inspired — culture + modern design combined</div>
+            <div class="font-tags">
+              <span class="font-tag">Classic</span>
+              <span class="font-tag">Culture</span>
+              <span class="font-tag">Heritage</span>
+            </div>
+            <div class="font-footer">
+              <div class="font-price">$25.00</div>
+              <a href="index.html#contact" class="btn-buy"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. YOB Tech Mono -->
+        <div class="font-card reveal" data-category="sans">
+          <div class="font-preview-area" data-letter="ប">
+            <div class="preview-text style-mono">បច្ចេក​វិទ្យា AI</div>
+          </div>
+          <div class="font-info">
+            <div class="font-info-top">
+              <div class="font-name">YOB Tech Mono</div>
+              <span class="font-cat">Coding</span>
+            </div>
+            <div class="font-meta">Monospace tech font — UI design, coding tools, fintech apps</div>
+            <div class="font-tags">
+              <span class="font-tag">Mono</span>
+              <span class="font-tag">Tech</span>
+              <span class="font-tag">UI</span>
+            </div>
+            <div class="font-footer">
+              <div class="font-price free-price">FREE</div>
+              <a href="index.html#resources" class="btn-free"><i class="fas fa-download"></i> Download</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. YOB Content Sans -->
+        <div class="font-card reveal" data-category="sans free">
+          <div class="font-preview-area" data-letter="អ">
+            <div class="preview-text style-sans">អានងាយ​ស្រួល​យល់</div>
+          </div>
+          <div class="font-info">
+            <div class="font-info-top">
+              <div class="font-name">YOB Content Sans</div>
+              <span class="font-cat">Basic</span>
+            </div>
+            <div class="font-meta">Clean readable sans — perfect for body text, web content, apps</div>
+            <div class="font-tags">
+              <span class="font-tag">Body</span>
+              <span class="font-tag">Web</span>
+              <span class="font-tag">App</span>
+            </div>
+            <div class="font-footer">
+              <div class="font-price free-price">FREE</div>
+              <a href="index.html#resources" class="btn-free"><i class="fas fa-download"></i> Download</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. YOB Minimal UI -->
+        <div class="font-card reveal" data-category="sans free">
+          <div class="font-preview-area" data-letter="រ">
+            <div class="preview-text style-sans">រចនា​បថ​សាមញ្ញ</div>
+          </div>
+          <div class="font-info">
+            <div class="font-info-top">
+              <div class="font-name">YOB Minimal UI</div>
+              <span class="font-cat">Web Design</span>
+            </div>
+            <div class="font-meta">Ultra-clean minimalist — modern web design, SaaS products, dashboards</div>
+            <div class="font-tags">
+              <span class="font-tag">Minimal</span>
+              <span class="font-tag">SaaS</span>
+              <span class="font-tag">Dashboard</span>
+            </div>
+            <div class="font-footer">
+              <div class="font-price free-price">FREE</div>
+              <a href="index.html#resources" class="btn-free"><i class="fas fa-download"></i> Download</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end fonts-grid -->
+    </div>
+  </section>
+
+  <!-- ══ BUNDLE ══ -->
+  <section class="bundle-section">
+    <div class="container">
+      <div class="bundle-card reveal">
+        <div class="bundle-content">
+          <div class="bundle-tag">🔥 Best Value</div>
+          <h2>YOB FONT <span style="background:linear-gradient(135deg,#fff,#e52c67);-webkit-background-clip:text;-webkit-text-fill-color:transparent">BUNDLE</span></h2>
+          <p>ទទួលបាន fonts ទាំង ៥ Premium ក្នុងតម្លៃពិសេស — save $40 ធៀបនឹងទិញដោយឡែក!</p>
+          <ul class="bundle-list">
+            <li><i class="fas fa-check"></i> YOB Heading Pro ($15)</li>
+            <li><i class="fas fa-check"></i> YOB Modern Serif ($18)</li>
+            <li><i class="fas fa-check"></i> YOB Signature ($20)</li>
+            <li><i class="fas fa-check"></i> YOB Poster Black ($12)</li>
+            <li><i class="fas fa-check"></i> YOB Kbach Retro ($25)</li>
+            <li><i class="fas fa-check"></i> Commercial License included</li>
+            <li><i class="fas fa-check"></i> Future updates FREE</li>
+          </ul>
+          <a href="index.html#contact" class="btn-primary" style="display:inline-flex">
+            <i class="fas fa-shopping-cart"></i> ទិញ Bundle ឥឡូវ
+          </a>
+        </div>
+        <div class="bundle-pricing">
+          <div class="bundle-price-box">
+            <div class="bundle-was">ជំនួស $90.00</div>
+            <div class="bundle-now"><span>$</span>50</div>
+            <div>per bundle</div>
+          </div>
+          <div class="bundle-save">✅ Save $40 (44% OFF)</div>
+          <div style="font-family:var(--fk);font-size:13px;color:var(--gray)">
+            ✓ Instant download &nbsp; ✓ All formats &nbsp; ✓ 1 year support
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ LICENSE ══ -->
+  <section class="license-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">License Options</span>
+        <h2 class="section-title">CHOOSE YOUR <span class="gradient-text">LICENSE</span></h2>
+      </div>
+      <div class="license-grid">
+        <div class="license-card reveal">
+          <div class="license-name">Personal</div>
+          <div class="license-price">FREE</div>
+          <ul class="license-features">
+            <li><i class="fas fa-check"></i> Personal projects</li>
+            <li><i class="fas fa-check"></i> Non-commercial use</li>
+            <li><i class="fas fa-check"></i> Social media (personal)</li>
+            <li class="no"><i class="fas fa-times"></i> Commercial use</li>
+            <li class="no"><i class="fas fa-times"></i> Client work</li>
+            <li class="no"><i class="fas fa-times"></i> Product design</li>
+          </ul>
+        </div>
+        <div class="license-card popular reveal">
+          <div class="license-name">Commercial</div>
+          <div class="license-price">$15–$25 <small>/font</small></div>
+          <ul class="license-features">
+            <li><i class="fas fa-check"></i> Commercial projects</li>
+            <li><i class="fas fa-check"></i> Client work</li>
+            <li><i class="fas fa-check"></i> Social media (business)</li>
+            <li><i class="fas fa-check"></i> Print & Digital</li>
+            <li><i class="fas fa-check"></i> Web embedding</li>
+            <li class="no"><i class="fas fa-times"></i> Resell / redistribute</li>
+          </ul>
+        </div>
+        <div class="license-card reveal">
+          <div class="license-name">Extended</div>
+          <div class="license-price">$199 <small>/font</small></div>
+          <ul class="license-features">
+            <li><i class="fas fa-check"></i> All Commercial rights</li>
+            <li><i class="fas fa-check"></i> App embedding</li>
+            <li><i class="fas fa-check"></i> Large circulation print</li>
+            <li><i class="fas fa-check"></i> Broadcasting / TV</li>
+            <li><i class="fas fa-check"></i> SaaS products</li>
+            <li><i class="fas fa-check"></i> Priority support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">FAQ</span>
+        <h2 class="section-title">COMMON <span class="gradient-text">QUESTIONS</span></h2>
+      </div>
+      <div style="max-width:720px;margin:0 auto">
+        <div class="faq-item reveal">
+          <div class="faq-q">តើ Font ជា Unicode ដែរទេ? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">បាទ! YOB Fonts ទាំងអស់ជា Khmer Unicode standard — ប្រើបានក្នុង Word, Photoshop, Illustrator, Figma, web browsers, និង apps ទាំងអស់ដែលគាំទ្រ Unicode។</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">ក្រោយទិញ download ដូចម្ដេច? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">ក្រោយ payment confirmed — YOB Digital នឹង reply ជា Telegram ឬ Email ក្នុង ២ ម៉ោង ជាមួយ download link! ប្រសិនបើ urgent ផ្ញើ message ទៅ Telegram @yobdigital ដោយផ្ទាល់។</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">Font Free អាចប្រើ Commercial បានទេ? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">Free version = Personal use only (social media personal, school projects, etc.)។ ចង់ប្រើ commercial ត្រូវទិញ Commercial License ក្នុងតម្លៃ $15-$25 ប៉ុណ្ណោះ!</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">មាន Trial / Preview version ទេ? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">មាន! ផ្ញើ Telegram @yobdigital ហើយ Babu នឹង send preview file ជូន ដើម្បី test ក្នុង project របស់អ្នក មុន decision ទិញ!</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">Custom Font / Bespoke Font service មានទេ? <i class="fas fa-plus"></i></div>
+          <div class="faq-a">មាន! YOB Digital provide custom Khmer font design service សម្រាប់ brand identity projects។ Timeline: 4-8 weeks | Price: starting from $500. Contact for quote!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ══ -->
+  <section class="prefooter">
+    <div class="container">
+      <div class="prefooter-box reveal">
+        <h2>Need a <span style="background:linear-gradient(135deg,#fff 0%,#ff8ab0 40%,#e52c67 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Custom</span> Font?</h2>
+        <p>YOB Digital design bespoke Khmer fonts សម្រាប់ brand ពិសេស — ផ្ញើ brief ហើយ Babu nwill quote ក្នុង ២ ម៉ោង!</p>
+        <div class="prefooter-actions">
+          <a href="index.html#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Request Custom Font</a>
+          <a href="https://t.me/yobdigital" class="btn-outline" target="_blank"><i class="fab fa-telegram-plane"></i> Telegram ជាមុន</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MEGA FOOTER ══ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="f-logo">YOB.DIGITAL</div>
+          <p>AI Tools · Digital Strategy · Khmer Typography — ដៃគូ Digital ដ៏ទុកចិត្តបំផុតសម្រាប់ MSMEs ខ្មែរ។</p>
+          <div class="footer-socials">
+            <a href="https://facebook.com/yobdigital"    aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://t.me/yobdigital"            aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://youtube.com/@yobdigital"    aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://linkedin.com/in/yobdigital" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Font Shop</h4>
+          <ul>
+            <li><a href="fonts.html">All Fonts</a></li>
+            <li><a href="fonts.html">YOB Heading Pro</a></li>
+            <li><a href="fonts.html">YOB Signature</a></li>
+            <li><a href="fonts.html">Font Bundle</a></li>
+            <li><a href="fonts.html">Free Fonts</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="index.html#tracks">AI Tools</a></li>
+            <li><a href="index.html#tracks">Digital Strategy</a></li>
+            <li><a href="index.html#tracks">Web Setup</a></li>
+            <li><a href="index.html#portfolio">Case Studies</a></li>
+            <li><a href="index.html#resources">Free Resources</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#about">About YOB</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="https://t.me/yobdigital">Telegram</a></li>
+            <li><a href="https://youtube.com/@yobdigital">YouTube</a></li>
+            <li><a href="index.html">← Back to Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 <span>YOB.DIGITAL</span> — All rights reserved.</div>
+        <div class="footer-tagline">យប់​មាន​តម្លៃ​ដូច​ពន្លឺ ✦ Built for Cambodia 🇰🇭</div>
+        <div class="footer-badge"><i class="fas fa-heart"></i> Made with passion in Phnom Penh</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Float + Back to Top -->
+  <div class="float-contact">
+    <a href="https://t.me/yobdigital" class="fl-btn tg" data-tip="Telegram YOB" target="_blank" rel="noopener">
+      <i class="fab fa-telegram-plane"></i>
+    </a>
+  </div>
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const fontCards  = document.querySelectorAll('.font-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        fontCards.forEach(card => {
+          const cat = card.dataset.category || '';
+          card.style.display = (filter === 'all' || cat.includes(filter)) ? 'block' : 'none';
+        });
+      });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    // Back to top
+    const bt = document.getElementById('backTop');
+    window.addEventListener('scroll', () => bt.classList.toggle('show', window.scrollY > 400));
+  </script>
+</body>
+</html>
