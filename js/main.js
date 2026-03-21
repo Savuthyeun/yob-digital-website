@@ -8,23 +8,27 @@
       const hamburger = document.getElementById("hamburger");
       const mobileDrawer = document.getElementById("mobileDrawer");
       const drawerClose = document.getElementById("drawerClose");
+
       function openDrawer() {
-        hamburger.classList.add("open");
-        mobileDrawer.classList.add("open");
+        if (hamburger) hamburger.classList.add("open");
+        if (mobileDrawer) mobileDrawer.classList.add("open");
         document.body.style.overflow = "hidden";
       }
       function closeDrawer() {
-        hamburger.classList.remove("open");
-        mobileDrawer.classList.remove("open");
+        if (hamburger) hamburger.classList.remove("open");
+        if (mobileDrawer) mobileDrawer.classList.remove("open");
         document.body.style.overflow = "";
       }
-      hamburger.addEventListener("click", () =>
-        hamburger.classList.contains("open") ? closeDrawer() : openDrawer(),
-      );
-      drawerClose.addEventListener("click", closeDrawer);
-      mobileDrawer.addEventListener("click", (e) => {
-        if (e.target === mobileDrawer) closeDrawer();
-      });
+
+      if (hamburger && mobileDrawer && drawerClose) {
+        hamburger.addEventListener("click", () =>
+          hamburger.classList.contains("open") ? closeDrawer() : openDrawer(),
+        );
+        drawerClose.addEventListener("click", closeDrawer);
+        mobileDrawer.addEventListener("click", (e) => {
+          if (e.target === mobileDrawer) closeDrawer();
+        });
+      }
 
       // ✅ Mobile Drawer Accordion
       document.querySelectorAll('.drawer-group-toggle').forEach(btn => {
@@ -42,16 +46,18 @@
 
       // ✅ Back to Top
       const backTop = document.getElementById("backTop");
-      window.addEventListener("scroll", () =>
-        backTop.classList.toggle("show", window.scrollY > 400),
-      );
+      if (backTop) {
+        window.addEventListener("scroll", () =>
+          backTop.classList.toggle("show", window.scrollY > 400),
+        );
+      }
 
       // --- Custom Cursor Logic (Pro Interaction) ---
       const cursorDot = document.querySelector(".cursor-dot");
       const cursorOutline = document.querySelector(".cursor-outline");
 
-      // Only run on non-touch devices
-      if (window.matchMedia("(pointer: fine)").matches) {
+      // Only run on non-touch devices with cursor elements present
+      if (cursorDot && cursorOutline && window.matchMedia("(pointer: fine)").matches) {
         window.addEventListener("mousemove", function (e) {
           const posX = e.clientX;
           const posY = e.clientY;
