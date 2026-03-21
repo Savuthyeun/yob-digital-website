@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="km">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -189,6 +189,7 @@
       .gradient-text {
         background: linear-gradient(135deg, #ff6b9d, var(--gold));
         -webkit-background-clip: text;
+        background-clip: text;
         -webkit-text-fill-color: transparent;
       }
 
@@ -268,8 +269,6 @@
           var(--gold),
           rgba(229, 44, 103, 0.5)
         );
-        background-clip: border-box;
-        -webkit-background-clip: border-box;
         transition: width var(--smooth);
       }
       .nav-links a:hover {
@@ -279,19 +278,22 @@
         width: 100%;
       }
 
-      .nav-cta {
-        background: var(--gold) !important;
-        color: var(--white) !important;
-        padding: 10px 24px !important;
-        border-radius: var(--radius-btn) !important;
-        font-weight: 700 !important;
+      .nav-links .nav-cta {
+        background: var(--gold);
+        color: var(--white);
+        padding: 10px 24px;
+        border-radius: var(--radius-btn);
+        font-weight: 700;
         box-shadow: 0 4px 15px var(--gold-glow);
         margin-left: 10px;
       }
-      .nav-cta:hover {
+      .nav-links .nav-cta i {
+        margin-left: 5px;
+      }
+      .nav-links .nav-cta:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(229, 44, 103, 0.4);
-        background: #ff4a85 !important;
+        background: #ff4a85;
       }
 
       /* ═══════════════════════════
@@ -1687,7 +1689,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        cursor: none;
+        cursor: pointer;
         opacity: 0;
         pointer-events: none;
         transition: all 0.3s ease;
@@ -1748,8 +1750,7 @@
           <li><a href="#about">About</a></li>
           <li>
             <a href="#contact" class="nav-cta"
-              >ទំនាក់ទំនង
-              <i class="fas fa-paper-plane" style="margin-left: 5px"></i
+              >ទំនាក់ទំនង <i class="fas fa-paper-plane"></i
             ></a>
           </li>
         </ul>
@@ -1764,405 +1765,158 @@
       <button class="drawer-close" id="drawerClose">
         <i class="fas fa-times"></i>
       </button>
-      <a href="#tracks" onclick="closeDrawer()">Services</a>
-      <a href="#portfolio" onclick="closeDrawer()">Portfolio</a>
-      <a href="#videos" onclick="closeDrawer()">Videos</a>
-      <a href="#resources" onclick="closeDrawer()">Resources</a>
-      <a href="#about" onclick="closeDrawer()">About</a>
-      <a href="#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
+      <a href="#tracks">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#videos">Videos</a>
+      <a href="#resources">Resources</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="d-cta">ទំនាក់ទំនង</a>
     </div>
 
-    <!-- ══ HERO ══ -->
-    <section id="hero">
-      <canvas id="night-canvas"></canvas>
-      <div class="container hero-inner">
-        <div class="hero-badge reveal">
-          <span><i class="fas fa-bolt"></i></span> AI & Digital Skills for
-          Cambodia
-        </div>
-
-        <h1 class="hero-headline reveal">
-          BUILD YOUR <br />
-          <span class="gradient-text">DIGITAL FUTURE.</span>
-        </h1>
-
-        <p class="hero-sub reveal">
-          ឈប់ប្រើវិធីសាស្រ្តចាស់ៗ! YOB Digital បង្រៀន AI Tools និងប្រព័ន្ធ
-          Digital ទំនើបៗ ជួយឱ្យ MSMEs និងសហគ្រិនខ្មែរ លក់ដាច់ និងចំណេញពេល។
-        </p>
-
-        <div class="hero-actions reveal">
-          <a href="#resources" class="btn-primary">🎁 ទាញយកឯកសារ Free</a>
-          <a href="#about" class="btn-outline">ប្រវត្តិ YOB Digital</a>
-        </div>
-
-        <div class="hero-stats reveal">
-          <div class="stat-item">
-            <div class="stat-num">500<span class="gold">+</span></div>
-            <div class="stat-lbl">Learners Trained</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">10<span class="gold">+</span></div>
-            <div class="stat-lbl">Practical Courses</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">100<span class="gold">%</span></div>
-            <div class="stat-lbl">Khmer Context</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ MARQUEE ══ -->
-    <div class="marquee-wrap">
-      <div class="marquee-track">
-        <span class="marquee-item"><i class="fas fa-star"></i> AI TOOLS</span>
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> DIGITAL MARKETING</span
-        >
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> KHMER TYPOGRAPHY</span
-        >
-        <span class="marquee-item"><i class="fas fa-star"></i> E-COMMERCE</span>
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> PROMPT ENGINEERING</span
-        >
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> WEB STRATEGY</span
-        >
-
-        <!-- Repeat for seamless loop -->
-        <span class="marquee-item"><i class="fas fa-star"></i> AI TOOLS</span>
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> DIGITAL MARKETING</span
-        >
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> KHMER TYPOGRAPHY</span
-        >
-        <span class="marquee-item"><i class="fas fa-star"></i> E-COMMERCE</span>
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> PROMPT ENGINEERING</span
-        >
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> WEB STRATEGY</span
-        >
-      </div>
-    </div>
-
-    <!-- ══ SERVICES ══ -->
-    <section id="tracks">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">Our Expertise</span>
-          <h2 class="section-title">CHOOSE YOUR PATH</h2>
-        </div>
-
-        <div class="tracks-grid">
-          <div class="track-card reveal">
-            <div class="track-icon-wrap"><i class="fas fa-robot"></i></div>
-            <h3 class="track-title">AI Tools Mastery</h3>
-            <p class="track-desc">
-              រៀនបញ្ជា AI ដូចជា Gemini, ChatGPT ដើម្បីជួយគិត Content, សរសេរ
-              Caption និងដោះស្រាយបញ្ហាការងារប្រចាំថ្ងៃលឿនជាងមុន ១០ ដង។
-            </p>
-            <a href="#contact" class="track-link"
-              >ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i
-            ></a>
+    <main>
+      <!-- ══ HERO ══ -->
+      <section id="hero">
+        <canvas id="night-canvas" aria-hidden="true"></canvas>
+        <div class="container hero-inner">
+          <div class="hero-badge reveal">
+            <span><i class="fas fa-bolt"></i></span> AI & Digital Skills for
+            Cambodia
           </div>
 
-          <div class="track-card reveal">
-            <div class="track-icon-wrap"><i class="fas fa-bullhorn"></i></div>
-            <h3 class="track-title">Digital Strategy</h3>
-            <p class="track-desc">
-              ឈប់ត្រឹមតែ Boost Post! រៀបចំយុទ្ធសាស្ត្រទីផ្សារពេញលេញ
-              ចាប់តាំងពីការទាញចំណាប់អារម្មណ៍ រហូតដល់ការប្រមូល Data អតិថិជន។
-            </p>
-            <a href="#contact" class="track-link"
-              >ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i
-            ></a>
-          </div>
+          <h1 class="hero-headline reveal">
+            BUILD YOUR <br />
+            <span class="gradient-text">DIGITAL FUTURE.</span>
+          </h1>
 
-          <div class="track-card reveal">
-            <div class="track-icon-wrap">
-              <i class="fas fa-laptop-code"></i>
-            </div>
-            <h3 class="track-title">Web & System Setup</h3>
-            <p class="track-desc">
-              លុបបំបាត់ការធ្វើការងារដោយដៃ! ជួយរៀបចំ Website ទំនើប (No WordPress)
-              និងប្រព័ន្ធ LMS សម្រាប់ស្ថាប័ន ឬអាជីវកម្មរបស់អ្នក។
-            </p>
-            <a href="#contact" class="track-link"
-              >ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i
-            ></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ TYPOGRAPHY STORE (FULL GRID SHOP) ══ -->
-    <section id="typography">
-      <div class="container">
-        <div
-          class="section-header reveal"
-          style="text-align: center; margin-bottom: 20px"
-        >
-          <span class="section-tag"
-            ><i class="fas fa-pen-nib"></i> KHMER FONT SHOP</span
-          >
-          <h2 class="section-title">
-            YOB <span class="gradient-text">TYPOGRAPHY</span>
-          </h2>
-          <p
-            style="
-              color: var(--gray);
-              font-family: var(--fk);
-              margin-top: 15px;
-              font-size: 16px;
-              max-width: 650px;
-              margin-inline: auto;
-            "
-          >
-            យីហោ (Branding) មិនអាចមើលទៅ Professional បានទេ ប្រសិនបើនៅតែប្រើ Font
-            ធម្មតាៗ។ លើកកម្ពស់គម្រោង Design
-            របស់អ្នកជាមួយពុម្ពអក្សរខ្មែរយូនីកូដប្រណិតៗ ទាំង Free និង Premium ពី
-            YOB Digital។
+          <p class="hero-sub reveal">
+            ឈប់ប្រើវិធីសាស្រ្តចាស់ៗ! YOB Digital បង្រៀន AI Tools និងប្រព័ន្ធ
+            Digital ទំនើបៗ ជួយឱ្យ MSMEs និងសហគ្រិនខ្មែរ លក់ដាច់ និងចំណេញពេល។
           </p>
-        </div>
 
-        <!-- 8 Fonts Grid -->
-        <div class="font-shop-grid reveal">
-          <!-- Font 1: Premium -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Heading Pro</span>
-              <span class="font-badge">BEST SELLER</span>
-            </div>
-            <div class="f-preview heavy">សិល្បៈឌីជីថល</div>
-            <div class="f-footer">
-              <span class="f-price">$15.00</span>
-              <a href="#" class="f-btn premium"
-                ><i class="fas fa-shopping-cart"></i> Buy</a
-              >
-            </div>
+          <div class="hero-actions reveal">
+            <a href="#resources" class="btn-primary">🎁 ទាញយកឯកសារ Free</a>
+            <a href="#about" class="btn-outline">ប្រវត្តិ YOB Digital</a>
           </div>
 
-          <!-- Font 2: Free -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Content Sans</span>
-              <span class="font-badge outline">BASIC</span>
+          <div class="hero-stats reveal">
+            <div class="stat-item">
+              <div class="stat-num">500<span class="gold">+</span></div>
+              <div class="stat-lbl">Learners Trained</div>
             </div>
-            <div class="f-preview sans">អានងាយស្រួលយល់</div>
-            <div class="f-footer">
-              <span class="f-price free">Free</span>
-              <a href="#" class="f-btn free"
-                ><i class="fas fa-download"></i> Get</a
-              >
+            <div class="stat-item">
+              <div class="stat-num">10<span class="gold">+</span></div>
+              <div class="stat-lbl">Practical Courses</div>
             </div>
-          </div>
-
-          <!-- Font 3: Premium -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Signature</span>
-              <span class="font-badge">ELEGANT</span>
-            </div>
-            <div class="f-preview italic">ហត្ថលេខាប្រណិត</div>
-            <div class="f-footer">
-              <span class="f-price">$20.00</span>
-              <a href="#" class="f-btn premium"
-                ><i class="fas fa-shopping-cart"></i> Buy</a
-              >
-            </div>
-          </div>
-
-          <!-- Font 4: Free -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Tech Mono</span>
-              <span class="font-badge outline">CODING</span>
-            </div>
-            <div class="f-preview sans" style="letter-spacing: 2px">
-              បច្ចេកវិទ្យា AI
-            </div>
-            <div class="f-footer">
-              <span class="f-price free">Free</span>
-              <a href="#" class="f-btn free"
-                ><i class="fas fa-download"></i> Get</a
-              >
-            </div>
-          </div>
-
-          <!-- Font 5: Premium -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Modern Serif</span>
-              <span class="font-badge">LUXURY</span>
-            </div>
-            <div class="f-preview">ភាពស៊ីវីល័យ</div>
-            <div class="f-footer">
-              <span class="f-price">$18.00</span>
-              <a href="#" class="f-btn premium"
-                ><i class="fas fa-shopping-cart"></i> Buy</a
-              >
-            </div>
-          </div>
-
-          <!-- Font 6: Premium -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Poster Black</span>
-              <span class="font-badge">BOLD</span>
-            </div>
-            <div class="f-preview heavy" style="font-size: 38px">
-              បញ្ចុះតម្លៃ ៥០%
-            </div>
-            <div class="f-footer">
-              <span class="f-price">$12.00</span>
-              <a href="#" class="f-btn premium"
-                ><i class="fas fa-shopping-cart"></i> Buy</a
-              >
-            </div>
-          </div>
-
-          <!-- Font 7: Premium -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Kbach Retro</span>
-              <span class="font-badge">CLASSIC</span>
-            </div>
-            <div class="f-preview">ក្បាច់ខ្មែរបុរាណ</div>
-            <div class="f-footer">
-              <span class="f-price">$25.00</span>
-              <a href="#" class="f-btn premium"
-                ><i class="fas fa-shopping-cart"></i> Buy</a
-              >
-            </div>
-          </div>
-
-          <!-- Font 8: Free -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Minimal UI</span>
-              <span class="font-badge outline">WEB DESIGN</span>
-            </div>
-            <div class="f-preview sans">រចនាបថសាមញ្ញ</div>
-            <div class="f-footer">
-              <span class="f-price free">Free</span>
-              <a href="#" class="f-btn free"
-                ><i class="fas fa-download"></i> Get</a
-              >
+            <div class="stat-item">
+              <div class="stat-num">100<span class="gold">%</span></div>
+              <div class="stat-lbl">Khmer Context</div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="reveal" style="text-align: center; margin-top: 40px">
-          <a href="#contact" class="btn-outline">
-            <i class="fas fa-cubes"></i> មើលកញ្ចប់ Font ទាំងអស់ (Bundle)
-          </a>
+      <!-- ══ MARQUEE ══ -->
+      <div class="marquee-wrap">
+        <div class="marquee-track">
+          <span class="marquee-item"><i class="fas fa-star"></i> AI TOOLS</span>
+          <span class="marquee-item"
+            ><i class="fas fa-star"></i> DIGITAL MARKETING</span
+          >
+          <span class="marquee-item"
+            ><i class="fas fa-star"></i> KHMER TYPOGRAPHY</span
+          >
+          <span class="marquee-item"
+            ><i class="fas fa-star"></i> E-COMMERCE</span
+          >
+          <span class="marquee-item"
+            ><i class="fas fa-star"></i> PROMPT ENGINEERING</span
+          >
+          <span class="marquee-item"
+            ><i class="fas fa-star"></i> WEB STRATEGY</span
+          >
+
+          <!-- Repeat for seamless loop -->
+          <span class="marquee-item"><i class="fas fa-star"></i> AI TOOLS</span>
+          <span class="marquee-item"
+            ><i class="fas fa-star"></i> DIGITAL MARKETING</span
+          >
+          <span class="marquee-item"
+            ><i class="fas fa-star"></i> KHMER TYPOGRAPHY</span
+          >
+          <span class="marquee-item"
+            ><i class="fas fa-star"></i> E-COMMERCE</span
+          >
+          <span class="marquee-item"
+            ><i class="fas fa-star"></i> PROMPT ENGINEERING</span
+          >
+          <span class="marquee-item"
+            ><i class="fas fa-star"></i> WEB STRATEGY</span
+          >
         </div>
       </div>
-    </section>
 
-    <!-- ══ PORTFOLIO / CASE STUDIES (NEW SECTION) ══ -->
-    <section id="portfolio">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">Our Work</span>
-          <h2 class="section-title">
-            CASE <span class="gradient-text">STUDIES</span>
-          </h2>
-          <p
-            style="
-              color: var(--gray);
-              font-family: var(--fk);
-              margin-top: 15px;
-              font-size: 16px;
-              max-width: 600px;
-              margin-inline: auto;
-            "
-          >
-            កុំជឿតែលើអ្វីដែលយើងនិយាយ! មើលពីរបៀបដែល YOB Digital
-            យកបច្ចេកវិទ្យាទៅដោះស្រាយបញ្ហាពិតប្រាកដជូនអតិថិជន និងគម្រោងធំៗ។
-          </p>
-        </div>
+      <!-- ══ SERVICES ══ -->
+      <section id="tracks">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-tag">Our Expertise</span>
+            <h2 class="section-title">CHOOSE YOUR PATH</h2>
+          </div>
 
-        <div class="portfolio-grid">
-          <!-- Case Study 2 -->
-          <div class="portfolio-card reveal">
-            <div class="portfolio-img-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=80&w=1974&auto=format&fit=crop"
-                alt="CHAMPION GIZ Event"
-              />
-              <div class="portfolio-overlay"></div>
-            </div>
-            <div class="portfolio-content">
-              <div class="portfolio-tags">
-                <span class="p-tag">Event Promotion</span>
-                <span class="p-tag">Storytelling</span>
-              </div>
-              <h3 class="portfolio-title">CHAMPION (GIZ ASEAN)</h3>
-              <p class="portfolio-desc">
-                យុទ្ធសាស្ត្រទាញចំណាប់អារម្មណ៍យុវជន និងសហគ្រិន តាមរយៈការធ្វើ
-                Content ក្ដៅគគុក និងរៀបចំ Workshop
-                ដែលមានអ្នកចូលរួមលើសការរំពឹងទុក។
+          <div class="tracks-grid">
+            <div class="track-card reveal">
+              <div class="track-icon-wrap"><i class="fas fa-robot"></i></div>
+              <h3 class="track-title">AI Tools Mastery</h3>
+              <p class="track-desc">
+                រៀនបញ្ជា AI ដូចជា Gemini, ChatGPT ដើម្បីជួយគិត Content, សរសេរ
+                Caption និងដោះស្រាយបញ្ហាការងារប្រចាំថ្ងៃលឿនជាងមុន ១០ ដង។
               </p>
-              <a href="#contact" class="portfolio-link"
-                >អាន Case Study <i class="fas fa-arrow-right"></i
+              <a href="#contact" class="track-link"
+                >ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i
               ></a>
             </div>
-          </div>
 
-          <!-- Case Study 3 -->
-          <div class="portfolio-card reveal">
-            <div class="portfolio-img-wrap">
-              <img
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1974&auto=format&fit=crop"
-                alt="Local MSME Transformation"
-              />
-              <div class="portfolio-overlay"></div>
-            </div>
-            <div class="portfolio-content">
-              <div class="portfolio-tags">
-                <span class="p-tag">AI Tools</span>
-                <span class="p-tag">Automation</span>
-              </div>
-              <h3 class="portfolio-title">Local MSMEs Transformation</h3>
-              <p class="portfolio-desc">
-                ជួយហាងកាហ្វេ និងអ្នកលក់រាយក្នុងស្រុក លុបបំបាត់ការកត់សៀវភៅដៃ
-                ដោយរៀបចំប្រព័ន្ធ POS និងបង្រៀនប្រើ AI ដើម្បីគិត Content
-                លក់រាល់ថ្ងៃ។
+            <div class="track-card reveal">
+              <div class="track-icon-wrap"><i class="fas fa-bullhorn"></i></div>
+              <h3 class="track-title">Digital Strategy</h3>
+              <p class="track-desc">
+                ឈប់ត្រឹមតែ Boost Post! រៀបចំយុទ្ធសាស្ត្រទីផ្សារពេញលេញ
+                ចាប់តាំងពីការទាញចំណាប់អារម្មណ៍ រហូតដល់ការប្រមូល Data អតិថិជន។
               </p>
-              <a href="#contact" class="portfolio-link"
-                >អាន Case Study <i class="fas fa-arrow-right"></i
+              <a href="#contact" class="track-link"
+                >ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="track-card reveal">
+              <div class="track-icon-wrap">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <h3 class="track-title">Web & System Setup</h3>
+              <p class="track-desc">
+                លុបបំបាត់ការធ្វើការងារដោយដៃ! ជួយរៀបចំ Website ទំនើប (No
+                WordPress) និងប្រព័ន្ធ LMS សម្រាប់ស្ថាប័ន ឬអាជីវកម្មរបស់អ្នក។
+              </p>
+              <a href="#contact" class="track-link"
+                >ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i
               ></a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ══ VIDEO MASTERCLASS (YOUTUBE SECTION) ══ -->
-    <section id="videos">
-      <div class="container">
-        <div
-          class="section-header reveal"
-          style="
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            flex-wrap: wrap;
-            gap: 20px;
-          "
-        >
-          <div>
+      <!-- ══ TYPOGRAPHY STORE (FULL GRID SHOP) ══ -->
+      <section id="typography">
+        <div class="container">
+          <div
+            class="section-header reveal"
+            style="text-align: center; margin-bottom: 20px"
+          >
             <span class="section-tag"
-              ><i class="fab fa-youtube" style="color: #ff0000"></i> Free
-              Masterclass</span
+              ><i class="fas fa-pen-nib"></i> KHMER FONT SHOP</span
             >
             <h2 class="section-title">
-              YOB <span class="gradient-text">TUTORIALS</span>
+              YOB <span class="gradient-text">TYPOGRAPHY</span>
             </h2>
             <p
               style="
@@ -2170,349 +1924,604 @@
                 font-family: var(--fk);
                 margin-top: 15px;
                 font-size: 16px;
-                max-width: 500px;
+                max-width: 650px;
+                margin-inline: auto;
               "
             >
-              រៀនពីក្បួន Digital Marketing, របៀបប្រើប្រាស់ AI, និងគន្លឹះរចនា
-              (Design) តាមរយៈវីដេអូបង្រៀនឥតគិតថ្លៃរបស់យើង។
+              យីហោ (Branding) មិនអាចមើលទៅ Professional បានទេ ប្រសិនបើនៅតែប្រើ
+              Font ធម្មតាៗ។ លើកកម្ពស់គម្រោង Design
+              របស់អ្នកជាមួយពុម្ពអក្សរខ្មែរយូនីកូដប្រណិតៗ ទាំង Free និង Premium
+              ពី YOB Digital។
             </p>
           </div>
-          <!-- ដាក់ Link ឆានែល YouTube ពិតរបស់ Oppa នៅទីនេះ -->
-          <a
-            href="https://youtube.com/@yobdigital"
-            target="_blank"
-            class="btn-outline"
-            style="
-              border-color: rgba(255, 0, 0, 0.3);
-              color: #ff4a4a;
-              background: rgba(255, 0, 0, 0.05);
-            "
-          >
-            <i class="fab fa-youtube" style="color: #ff0000"></i> Subscribe លើ
-            YouTube
-          </a>
-        </div>
 
-        <div class="video-grid reveal">
-          <!-- Video 1 -->
-          <a href="#" class="video-card">
-            <div class="video-thumb">
-              <!-- ដូររូបភាព Cover YouTube ទីនេះ -->
-              <img
-                src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop"
-                alt="YouTube Thumbnail"
-              />
-              <i class="fas fa-play-circle play-btn-overlay"></i>
-              <span class="video-duration">12:45</span>
-            </div>
-            <div class="video-info">
-              <h3 class="video-title">
-                របៀបប្រើប្រាស់ AI សរសេរ Content លក់ដាច់ ១០ ដង
-              </h3>
-              <div class="video-meta">
-                <span><i class="fas fa-eye"></i> 1.2K Views</span>
-                <span><i class="fas fa-clock"></i> 2 weeks ago</span>
+          <!-- 8 Fonts Grid -->
+          <div class="font-shop-grid reveal">
+            <!-- Font 1: Premium -->
+            <div class="f-card">
+              <div class="f-header">
+                <span class="f-title">YOB Heading Pro</span>
+                <span class="font-badge">BEST SELLER</span>
               </div>
-              <div class="video-tags">
-                <span class="v-badge">AI TOOLS</span>
-                <span class="v-badge">MARKETING</span>
+              <div class="f-preview heavy">សិល្បៈឌីជីថល</div>
+              <div class="f-footer">
+                <span class="f-price">$15.00</span>
+                <a href="#" class="f-btn premium"
+                  ><i class="fas fa-shopping-cart"></i> Buy</a
+                >
               </div>
             </div>
-          </a>
 
-          <!-- Video 2 -->
-          <a href="#" class="video-card">
-            <div class="video-thumb">
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop"
-                alt="YouTube Thumbnail"
-              />
-              <i class="fas fa-play-circle play-btn-overlay"></i>
-              <span class="video-duration">08:20</span>
-            </div>
-            <div class="video-info">
-              <h3 class="video-title">
-                គន្លឹះរៀបចំ Website សម្រាប់អាជីវកម្មខ្នាតតូច (MSMEs)
-              </h3>
-              <div class="video-meta">
-                <span><i class="fas fa-eye"></i> 850 Views</span>
-                <span><i class="fas fa-clock"></i> 1 month ago</span>
+            <!-- Font 2: Free -->
+            <div class="f-card">
+              <div class="f-header">
+                <span class="f-title">YOB Content Sans</span>
+                <span class="font-badge outline">BASIC</span>
               </div>
-              <div class="video-tags">
-                <span class="v-badge">WEB DESIGN</span>
-                <span class="v-badge">BUSINESS</span>
+              <div class="f-preview sans">អានងាយស្រួលយល់</div>
+              <div class="f-footer">
+                <span class="f-price free">Free</span>
+                <a href="#" class="f-btn free"
+                  ><i class="fas fa-download"></i> Get</a
+                >
               </div>
             </div>
-          </a>
 
-          <!-- Video 3 -->
-          <a href="#" class="video-card">
-            <div class="video-thumb">
-              <img
-                src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=2000&auto=format&fit=crop"
-                alt="YouTube Thumbnail"
-              />
-              <i class="fas fa-play-circle play-btn-overlay"></i>
-              <span class="video-duration">15:10</span>
-            </div>
-            <div class="video-info">
-              <h3 class="video-title">
-                អាថ៌កំបាំងទាញចំណាប់អារម្មណ៍ភ្ញៀវ ៣ វិនាទីដំបូង
-              </h3>
-              <div class="video-meta">
-                <span><i class="fas fa-eye"></i> 2.5K Views</span>
-                <span><i class="fas fa-clock"></i> 2 months ago</span>
+            <!-- Font 3: Premium -->
+            <div class="f-card">
+              <div class="f-header">
+                <span class="f-title">YOB Signature</span>
+                <span class="font-badge">ELEGANT</span>
               </div>
-              <div class="video-tags">
-                <span class="v-badge">CONTENT</span>
-                <span class="v-badge">TIKTOK</span>
+              <div class="f-preview italic">ហត្ថលេខាប្រណិត</div>
+              <div class="f-footer">
+                <span class="f-price">$20.00</span>
+                <a href="#" class="f-btn premium"
+                  ><i class="fas fa-shopping-cart"></i> Buy</a
+                >
               </div>
             </div>
-          </a>
-        </div>
-      </div>
-    </section>
 
-    <!-- ══ FREE RESOURCES (LEAD MAGNET) ══ -->
-    <section id="resources">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">Free Knowledge</span>
-          <h2 class="section-title">
-            YOB <span class="gradient-text">CONTENT HUB</span>
-          </h2>
-          <p
-            style="
-              color: var(--gray);
-              font-family: var(--fk);
-              margin-top: 15px;
-              font-size: 16px;
-              max-width: 600px;
-              margin-inline: auto;
-            "
-          >
-            កុំលាក់ចំណេះដឹង! នៅ YOB យើងចែករំលែកក្បួននិង Template
-            ដែលយើងប្រើប្រាស់ផ្ទាល់ ឱ្យបងប្អូនសហគ្រិនយកទៅអនុវត្តបានភ្លាមៗ
-            ដោយមិនគិតថ្លៃ។
-          </p>
-        </div>
+            <!-- Font 4: Free -->
+            <div class="f-card">
+              <div class="f-header">
+                <span class="f-title">YOB Tech Mono</span>
+                <span class="font-badge outline">CODING</span>
+              </div>
+              <div class="f-preview sans" style="letter-spacing: 2px">
+                បច្ចេកវិទ្យា AI
+              </div>
+              <div class="f-footer">
+                <span class="f-price free">Free</span>
+                <a href="#" class="f-btn free"
+                  ><i class="fas fa-download"></i> Get</a
+                >
+              </div>
+            </div>
 
-        <div class="resource-box reveal">
-          <!-- Visual Side -->
-          <div class="resource-visual">
-            <div class="mockup-book">
-              <span class="mockup-tag">Free Toolkit</span>
-              <h4>
-                THE AI <br />
-                CONTENT <br />
-                BIBLE
-              </h4>
-              <p>30-Day Calendar & Prompts for MSMEs</p>
-              <i class="fas fa-book-open mockup-icon"></i>
+            <!-- Font 5: Premium -->
+            <div class="f-card">
+              <div class="f-header">
+                <span class="f-title">YOB Modern Serif</span>
+                <span class="font-badge">LUXURY</span>
+              </div>
+              <div class="f-preview">ភាពស៊ីវីល័យ</div>
+              <div class="f-footer">
+                <span class="f-price">$18.00</span>
+                <a href="#" class="f-btn premium"
+                  ><i class="fas fa-shopping-cart"></i> Buy</a
+                >
+              </div>
+            </div>
+
+            <!-- Font 6: Premium -->
+            <div class="f-card">
+              <div class="f-header">
+                <span class="f-title">YOB Poster Black</span>
+                <span class="font-badge">BOLD</span>
+              </div>
+              <div class="f-preview heavy" style="font-size: 38px">
+                បញ្ចុះតម្លៃ ៥០%
+              </div>
+              <div class="f-footer">
+                <span class="f-price">$12.00</span>
+                <a href="#" class="f-btn premium"
+                  ><i class="fas fa-shopping-cart"></i> Buy</a
+                >
+              </div>
+            </div>
+
+            <!-- Font 7: Premium -->
+            <div class="f-card">
+              <div class="f-header">
+                <span class="f-title">YOB Kbach Retro</span>
+                <span class="font-badge">CLASSIC</span>
+              </div>
+              <div class="f-preview">ក្បាច់ខ្មែរបុរាណ</div>
+              <div class="f-footer">
+                <span class="f-price">$25.00</span>
+                <a href="#" class="f-btn premium"
+                  ><i class="fas fa-shopping-cart"></i> Buy</a
+                >
+              </div>
+            </div>
+
+            <!-- Font 8: Free -->
+            <div class="f-card">
+              <div class="f-header">
+                <span class="f-title">YOB Minimal UI</span>
+                <span class="font-badge outline">WEB DESIGN</span>
+              </div>
+              <div class="f-preview sans">រចនាបថសាមញ្ញ</div>
+              <div class="f-footer">
+                <span class="f-price free">Free</span>
+                <a href="#" class="f-btn free"
+                  ><i class="fas fa-download"></i> Get</a
+                >
+              </div>
             </div>
           </div>
 
-          <!-- Content & Form Side -->
-          <div class="resource-content">
-            <h3>កញ្ចប់សៀវភៅ "AI Content Bible"</h3>
-            <p>
-              លែងឈឺក្បាលរឿងគិត Content ផុសលក់អីវ៉ាន់រាល់ថ្ងៃ! ទាញយកសៀវភៅនិង
-              Template នេះពី YOB Content Hub ដើម្បីជួយអ្នកចំណេញពេល ១០ ដង។
-            </p>
+          <div class="reveal" style="text-align: center; margin-top: 40px">
+            <a href="#contact" class="btn-outline">
+              <i class="fas fa-cubes"></i> មើលកញ្ចប់ Font ទាំងអស់ (Bundle)
+            </a>
+          </div>
+        </div>
+      </section>
 
-            <ul class="checklist">
-              <li>
-                <i class="fas fa-check-circle"></i> រូបមន្តបញ្ជា AI សរសេរ
-                Caption អោយត្រូវចិត្តភ្ញៀវខ្មែរ។
-              </li>
-              <li>
-                <i class="fas fa-check-circle"></i> តារាង Content Plan
-                រួចជាស្រេចសម្រាប់រយៈពេល ៣០ ថ្ងៃ។
-              </li>
-              <li>
-                <i class="fas fa-check-circle"></i> ក្បួនទាញចំណាប់អារម្មណ៍ ៣
-                វិនាទីដំបូង (Hook Secrets)។
-              </li>
-            </ul>
-
-            <!-- Form to get the data (Lead Gen) -->
-            <form
-              class="lead-form"
-              onsubmit="
-                event.preventDefault();
-                alert(
-                  'អរគុណ! ឯកសារត្រូវបានផ្ញើទៅកាន់ Telegram របស់អ្នកហើយ។ (នេះជាការសាកល្បង)',
-                );
+      <!-- ══ PORTFOLIO / CASE STUDIES (NEW SECTION) ══ -->
+      <section id="portfolio">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-tag">Our Work</span>
+            <h2 class="section-title">
+              CASE <span class="gradient-text">STUDIES</span>
+            </h2>
+            <p
+              style="
+                color: var(--gray);
+                font-family: var(--fk);
+                margin-top: 15px;
+                font-size: 16px;
+                max-width: 600px;
+                margin-inline: auto;
               "
             >
-              <div class="lead-form-row">
-                <input
-                  type="text"
-                  class="lead-input"
-                  placeholder="ឈ្មោះរបស់អ្នក"
-                  required
+              កុំជឿតែលើអ្វីដែលយើងនិយាយ! មើលពីរបៀបដែល YOB Digital
+              យកបច្ចេកវិទ្យាទៅដោះស្រាយបញ្ហាពិតប្រាកដជូនអតិថិជន និងគម្រោងធំៗ។
+            </p>
+          </div>
+
+          <div class="portfolio-grid">
+            <!-- Case Study 2 -->
+            <div class="portfolio-card reveal">
+              <div class="portfolio-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=80&w=1974&auto=format&fit=crop"
+                  alt="CHAMPION GIZ Event"
                 />
-                <input
-                  type="text"
-                  class="lead-input"
-                  placeholder="លេខ Telegram"
-                  required
-                />
+                <div class="portfolio-overlay"></div>
               </div>
-              <button type="submit" class="lead-btn">
-                <i class="fas fa-download"></i> ទាញយកឥឡូវនេះ (100% Free)
-              </button>
-              <span
+              <div class="portfolio-content">
+                <div class="portfolio-tags">
+                  <span class="p-tag">Event Promotion</span>
+                  <span class="p-tag">Storytelling</span>
+                </div>
+                <h3 class="portfolio-title">CHAMPION (GIZ ASEAN)</h3>
+                <p class="portfolio-desc">
+                  យុទ្ធសាស្ត្រទាញចំណាប់អារម្មណ៍យុវជន និងសហគ្រិន តាមរយៈការធ្វើ
+                  Content ក្ដៅគគុក និងរៀបចំ Workshop
+                  ដែលមានអ្នកចូលរួមលើសការរំពឹងទុក។
+                </p>
+                <a href="#contact" class="portfolio-link"
+                  >អាន Case Study <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+
+            <!-- Case Study 3 -->
+            <div class="portfolio-card reveal">
+              <div class="portfolio-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1974&auto=format&fit=crop"
+                  alt="Local MSME Transformation"
+                />
+                <div class="portfolio-overlay"></div>
+              </div>
+              <div class="portfolio-content">
+                <div class="portfolio-tags">
+                  <span class="p-tag">AI Tools</span>
+                  <span class="p-tag">Automation</span>
+                </div>
+                <h3 class="portfolio-title">Local MSMEs Transformation</h3>
+                <p class="portfolio-desc">
+                  ជួយហាងកាហ្វេ និងអ្នកលក់រាយក្នុងស្រុក លុបបំបាត់ការកត់សៀវភៅដៃ
+                  ដោយរៀបចំប្រព័ន្ធ POS និងបង្រៀនប្រើ AI ដើម្បីគិត Content
+                  លក់រាល់ថ្ងៃ។
+                </p>
+                <a href="#contact" class="portfolio-link"
+                  >អាន Case Study <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ VIDEO MASTERCLASS (YOUTUBE SECTION) ══ -->
+      <section id="videos">
+        <div class="container">
+          <div
+            class="section-header reveal"
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-end;
+              flex-wrap: wrap;
+              gap: 20px;
+            "
+          >
+            <div>
+              <span class="section-tag"
+                ><i class="fab fa-youtube" style="color: #ff0000"></i> Free
+                Masterclass</span
+              >
+              <h2 class="section-title">
+                YOB <span class="gradient-text">TUTORIALS</span>
+              </h2>
+              <p
                 style="
-                  font-size: 12px;
                   color: var(--gray);
                   font-family: var(--fk);
-                  text-align: center;
-                  margin-top: 5px;
+                  margin-top: 15px;
+                  font-size: 16px;
+                  max-width: 500px;
                 "
               >
-                <i class="fas fa-lock" style="font-size: 10px"></i>
-                ព័ត៌មានរបស់អ្នកត្រូវបានរក្សាទុកជាសម្ងាត់។
-              </span>
+                រៀនពីក្បួន Digital Marketing, របៀបប្រើប្រាស់ AI, និងគន្លឹះរចនា
+                (Design) តាមរយៈវីដេអូបង្រៀនឥតគិតថ្លៃរបស់យើង។
+              </p>
+            </div>
+            <!-- ដាក់ Link ឆានែល YouTube ពិតរបស់ Oppa នៅទីនេះ -->
+            <a
+              href="https://youtube.com/@yobdigital"
+              target="_blank"
+              class="btn-outline"
+              style="
+                border-color: rgba(255, 0, 0, 0.3);
+                color: #ff4a4a;
+                background: rgba(255, 0, 0, 0.05);
+              "
+            >
+              <i class="fab fa-youtube" style="color: #ff0000"></i> Subscribe លើ
+              YouTube
+            </a>
+          </div>
+
+          <div class="video-grid reveal">
+            <!-- Video 1 -->
+            <a href="#" class="video-card">
+              <div class="video-thumb">
+                <!-- ដូររូបភាព Cover YouTube ទីនេះ -->
+                <img
+                  src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop"
+                  alt="YouTube Thumbnail"
+                />
+                <i class="fas fa-play-circle play-btn-overlay"></i>
+                <span class="video-duration">12:45</span>
+              </div>
+              <div class="video-info">
+                <h3 class="video-title">
+                  របៀបប្រើប្រាស់ AI សរសេរ Content លក់ដាច់ ១០ ដង
+                </h3>
+                <div class="video-meta">
+                  <span><i class="fas fa-eye"></i> 1.2K Views</span>
+                  <span><i class="fas fa-clock"></i> 2 weeks ago</span>
+                </div>
+                <div class="video-tags">
+                  <span class="v-badge">AI TOOLS</span>
+                  <span class="v-badge">MARKETING</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Video 2 -->
+            <a href="#" class="video-card">
+              <div class="video-thumb">
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop"
+                  alt="YouTube Thumbnail"
+                />
+                <i class="fas fa-play-circle play-btn-overlay"></i>
+                <span class="video-duration">08:20</span>
+              </div>
+              <div class="video-info">
+                <h3 class="video-title">
+                  គន្លឹះរៀបចំ Website សម្រាប់អាជីវកម្មខ្នាតតូច (MSMEs)
+                </h3>
+                <div class="video-meta">
+                  <span><i class="fas fa-eye"></i> 850 Views</span>
+                  <span><i class="fas fa-clock"></i> 1 month ago</span>
+                </div>
+                <div class="video-tags">
+                  <span class="v-badge">WEB DESIGN</span>
+                  <span class="v-badge">BUSINESS</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- Video 3 -->
+            <a href="#" class="video-card">
+              <div class="video-thumb">
+                <img
+                  src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=2000&auto=format&fit=crop"
+                  alt="YouTube Thumbnail"
+                />
+                <i class="fas fa-play-circle play-btn-overlay"></i>
+                <span class="video-duration">15:10</span>
+              </div>
+              <div class="video-info">
+                <h3 class="video-title">
+                  អាថ៌កំបាំងទាញចំណាប់អារម្មណ៍ភ្ញៀវ ៣ វិនាទីដំបូង
+                </h3>
+                <div class="video-meta">
+                  <span><i class="fas fa-eye"></i> 2.5K Views</span>
+                  <span><i class="fas fa-clock"></i> 2 months ago</span>
+                </div>
+                <div class="video-tags">
+                  <span class="v-badge">CONTENT</span>
+                  <span class="v-badge">TIKTOK</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ FREE RESOURCES (LEAD MAGNET) ══ -->
+      <section id="resources">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-tag">Free Knowledge</span>
+            <h2 class="section-title">
+              YOB <span class="gradient-text">CONTENT HUB</span>
+            </h2>
+            <p
+              style="
+                color: var(--gray);
+                font-family: var(--fk);
+                margin-top: 15px;
+                font-size: 16px;
+                max-width: 600px;
+                margin-inline: auto;
+              "
+            >
+              កុំលាក់ចំណេះដឹង! នៅ YOB យើងចែករំលែកក្បួននិង Template
+              ដែលយើងប្រើប្រាស់ផ្ទាល់ ឱ្យបងប្អូនសហគ្រិនយកទៅអនុវត្តបានភ្លាមៗ
+              ដោយមិនគិតថ្លៃ។
+            </p>
+          </div>
+
+          <div class="resource-box reveal">
+            <!-- Visual Side -->
+            <div class="resource-visual">
+              <div class="mockup-book">
+                <span class="mockup-tag">Free Toolkit</span>
+                <h4>
+                  THE AI <br />
+                  CONTENT <br />
+                  BIBLE
+                </h4>
+                <p>30-Day Calendar & Prompts for MSMEs</p>
+                <i class="fas fa-book-open mockup-icon"></i>
+              </div>
+            </div>
+
+            <!-- Content & Form Side -->
+            <div class="resource-content">
+              <h3>កញ្ចប់សៀវភៅ "AI Content Bible"</h3>
+              <p>
+                លែងឈឺក្បាលរឿងគិត Content ផុសលក់អីវ៉ាន់រាល់ថ្ងៃ! ទាញយកសៀវភៅនិង
+                Template នេះពី YOB Content Hub ដើម្បីជួយអ្នកចំណេញពេល ១០ ដង។
+              </p>
+
+              <ul class="checklist">
+                <li>
+                  <i class="fas fa-check-circle"></i> រូបមន្តបញ្ជា AI សរសេរ
+                  Caption អោយត្រូវចិត្តភ្ញៀវខ្មែរ។
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> តារាង Content Plan
+                  រួចជាស្រេចសម្រាប់រយៈពេល ៣០ ថ្ងៃ។
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> ក្បួនទាញចំណាប់អារម្មណ៍ ៣
+                  វិនាទីដំបូង (Hook Secrets)។
+                </li>
+              </ul>
+
+              <!-- Form to get the data (Lead Gen) -->
+              <form
+                class="lead-form"
+                onsubmit="
+                  event.preventDefault();
+                  alert(
+                    'អរគុណ! ឯកសារត្រូវបានផ្ញើទៅកាន់ Telegram របស់អ្នកហើយ។ (នេះជាការសាកល្បង)',
+                  );
+                "
+              >
+                <div class="lead-form-row">
+                  <input
+                    type="text"
+                    class="lead-input"
+                    placeholder="ឈ្មោះរបស់អ្នក"
+                    required
+                  />
+                  <input
+                    type="text"
+                    class="lead-input"
+                    placeholder="លេខ Telegram"
+                    required
+                  />
+                </div>
+                <button type="submit" class="lead-btn">
+                  <i class="fas fa-download"></i> ទាញយកឥឡូវនេះ (100% Free)
+                </button>
+                <span
+                  style="
+                    font-size: 12px;
+                    color: var(--gray);
+                    font-family: var(--fk);
+                    text-align: center;
+                    margin-top: 5px;
+                  "
+                >
+                  <i class="fas fa-lock" style="font-size: 10px"></i>
+                  ព័ត៌មានរបស់អ្នកត្រូវបានរក្សាទុកជាសម្ងាត់។
+                </span>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ ABOUT ══ -->
+      <section id="about">
+        <div class="container about-grid">
+          <div class="about-image reveal">
+            <!-- Add your real image here -->
+            <img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+              alt="YOB Digital Team"
+            />
+          </div>
+          <div class="about-content reveal">
+            <span class="section-tag">About YOB</span>
+            <h2
+              style="
+                font-family: var(--fk);
+                font-size: clamp(32px, 4vw, 45px);
+                line-height: 1.4;
+                margin-bottom: 20px;
+              "
+            >
+              <span class="gradient-text">"យប់ មានតម្លៃ ដូចពន្លឺ"</span>
+            </h2>
+            <p>
+              YOB Digital គឺជា Digital Marketing Agency ផ្ដោតលើ SMEs, Startups,
+              NGOs និង Corporate Teams នៅ Cambodia
+              ដែលត្រូវបានបង្កើតឡើងដោយខ្ញុំបាទ
+              <strong>យឺន សាវុទ្ធិ</strong>។ ពួកយើងមិនមែនជា Agency ធម្មតាទេ តែជា
+              "ដៃគូ" ដែលជួយប្រែក្លាយអាជីវកម្មរបស់អ្នកឱ្យដើរទាន់សម័យ Digital &
+              AI។
+            </p>
+            <div class="value-tags">
+              <div class="v-tag">
+                <i class="fas fa-check-circle"></i> Practical Learning
+              </div>
+              <div class="v-tag">
+                <i class="fas fa-check-circle"></i> Khmer Context
+              </div>
+              <div class="v-tag">
+                <i class="fas fa-check-circle"></i> Actionable Output
+              </div>
+              <div class="v-tag">
+                <i class="fas fa-check-circle"></i> Tech Driven
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ CONTACT ══ -->
+      <section id="contact">
+        <div class="container">
+          <div class="contact-wrapper reveal">
+            <div class="contact-info">
+              <h2>LET'S <span class="gold">CONNECT</span></h2>
+              <p>
+                មានបញ្ហាស្មុគស្មាញរឿង Digital មែនទេ? ឬចង់រៀបចំ Workshop?
+                ផ្ញើសារមកពួកយើងឥឡូវនេះ!
+              </p>
+
+              <div class="social-bubbles">
+                <a href="https://facebook.com/yobdigital"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="https://t.me/yobdigital"
+                  ><i class="fab fa-telegram-plane"></i
+                ></a>
+                <a href="https://linkedin.com/in/yobdigital"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+              </div>
+            </div>
+
+            <form
+              class="contact-form"
+              name="contact"
+              method="POST"
+              data-netlify="true"
+            >
+              <div
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px"
+              >
+                <div class="form-group">
+                  <label>ឈ្មោះរបស់អ្នក</label>
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    placeholder="ឧទាហរណ៍៖ Oppa Babu"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>លេខទូរស័ព្ទ ឬ Telegram</label>
+                  <input
+                    type="text"
+                    name="phone"
+                    class="form-control"
+                    placeholder="012 345 678"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label>ប្រធានបទ</label>
+                <input
+                  type="text"
+                  name="subject"
+                  class="form-control"
+                  placeholder="ចង់រៀន AI / ចង់ធ្វើ Website / ប្រឹក្សាយោបល់"
+                />
+              </div>
+              <div class="form-group">
+                <label>សាររបស់អ្នក</label>
+                <textarea
+                  name="message"
+                  class="form-control"
+                  placeholder="សូមរៀបរាប់ពីបញ្ហាអាជីវកម្មរបស់អ្នក..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="btn-primary"
+                style="
+                  border: none;
+                  cursor: pointer;
+                  width: 100%;
+                  justify-content: center;
+                "
+              >
+                បញ្ជូនសារ <i class="fas fa-paper-plane"></i>
+              </button>
             </form>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ══ ABOUT ══ -->
-    <section id="about">
-      <div class="container about-grid">
-        <div class="about-image reveal">
-          <!-- Add your real image here -->
-          <img
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
-            alt="YOB Digital Team"
-          />
-        </div>
-        <div class="about-content reveal">
-          <span class="section-tag">About YOB</span>
-          <h2
-            style="
-              font-family: var(--fk);
-              font-size: clamp(32px, 4vw, 45px);
-              line-height: 1.4;
-              margin-bottom: 20px;
-            "
-          >
-            <span class="gradient-text">"យប់ មានតម្លៃ ដូចពន្លឺ"</span>
-          </h2>
-          <p>
-            YOB Digital គឺជា Digital Marketing Agency ផ្ដោតលើ SMEs, Startups,
-            NGOs និង Corporate Teams នៅ Cambodia ដែលត្រូវបានបង្កើតឡើងដោយខ្ញុំបាទ
-            <strong>យឺន សាវុទ្ធិ</strong>។ ពួកយើងមិនមែនជា Agency ធម្មតាទេ តែជា
-            "ដៃគូ" ដែលជួយប្រែក្លាយអាជីវកម្មរបស់អ្នកឱ្យដើរទាន់សម័យ Digital & AI។
-          </p>
-          <div class="value-tags">
-            <div class="v-tag">
-              <i class="fas fa-check-circle"></i> Practical Learning
-            </div>
-            <div class="v-tag">
-              <i class="fas fa-check-circle"></i> Khmer Context
-            </div>
-            <div class="v-tag">
-              <i class="fas fa-check-circle"></i> Actionable Output
-            </div>
-            <div class="v-tag">
-              <i class="fas fa-check-circle"></i> Tech Driven
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ CONTACT ══ -->
-    <section id="contact">
-      <div class="container">
-        <div class="contact-wrapper reveal">
-          <div class="contact-info">
-            <h2>LET'S <span class="gold">CONNECT</span></h2>
-            <p>
-              មានបញ្ហាស្មុគស្មាញរឿង Digital មែនទេ? ឬចង់រៀបចំ Workshop?
-              ផ្ញើសារមកពួកយើងឥឡូវនេះ!
-            </p>
-
-            <div class="social-bubbles">
-              <a href="https://facebook.com/yobdigital"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a href="https://t.me/yobdigital"
-                ><i class="fab fa-telegram-plane"></i
-              ></a>
-              <a href="https://linkedin.com/in/yobdigital"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div>
-          </div>
-
-          <form
-            class="contact-form"
-            name="contact"
-            method="POST"
-            data-netlify="true"
-          >
-            <div
-              style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px"
-            >
-              <div class="form-group">
-                <label>ឈ្មោះរបស់អ្នក</label>
-                <input
-                  type="text"
-                  name="name"
-                  class="form-control"
-                  placeholder="ឧទាហរណ៍៖ Oppa Babu"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label>លេខទូរស័ព្ទ ឬ Telegram</label>
-                <input
-                  type="text"
-                  name="phone"
-                  class="form-control"
-                  placeholder="012 345 678"
-                  required
-                />
-              </div>
-            </div>
-            <div class="form-group">
-              <label>ប្រធានបទ</label>
-              <input
-                type="text"
-                name="subject"
-                class="form-control"
-                placeholder="ចង់រៀន AI / ចង់ធ្វើ Website / ប្រឹក្សាយោបល់"
-              />
-            </div>
-            <div class="form-group">
-              <label>សាររបស់អ្នក</label>
-              <textarea
-                name="message"
-                class="form-control"
-                placeholder="សូមរៀបរាប់ពីបញ្ហាអាជីវកម្មរបស់អ្នក..."
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              class="btn-primary"
-              style="
-                border: none;
-                cursor: pointer;
-                width: 100%;
-                justify-content: center;
-              "
-            >
-              បញ្ជូនសារ <i class="fas fa-paper-plane"></i>
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <!-- ══ FOOTER ══ -->
     <footer>
@@ -2554,23 +2563,10 @@
         rel="noopener"
         ><i class="fab fa-telegram-plane"></i
       ></a>
-      <a
-        href="https://wa.me/855XXXXXXXXX"
-        class="fl-btn wa"
-        data-tip="WhatsApp YOB"
-        target="_blank"
-        rel="noopener"
-        ><i class="fab fa-whatsapp"></i
-      ></a>
     </div>
 
     <!-- Back to Top -->
-    <button
-      class="back-top"
-      id="backTop"
-      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-      aria-label="Back to top"
-    >
+    <button class="back-top" id="backTop" aria-label="Back to top">
       <i class="fas fa-chevron-up"></i>
     </button>
 
@@ -2596,11 +2592,17 @@
       mobileDrawer.addEventListener("click", (e) => {
         if (e.target === mobileDrawer) closeDrawer();
       });
+      document
+        .querySelectorAll(".mobile-drawer a")
+        .forEach((a) => a.addEventListener("click", closeDrawer));
 
       // ✅ Back to Top
       const backTop = document.getElementById("backTop");
       window.addEventListener("scroll", () =>
         backTop.classList.toggle("show", window.scrollY > 400),
+      );
+      backTop.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" }),
       );
 
       // --- Custom Cursor Logic (Pro Interaction) ---
