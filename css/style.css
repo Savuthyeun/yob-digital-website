@@ -313,9 +313,10 @@
       }
       .dropdown-menu {
         position: absolute;
-        top: calc(100% + 12px);
+        top: 100%;
         left: 50%;
         transform: translateX(-50%) translateY(-8px);
+        padding-top: 12px !important;
         background: rgba(8, 11, 16, 0.96);
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
