@@ -124,6 +124,33 @@
     <!-- ══ HERO ══ -->
     <section id="hero">
       <canvas id="night-canvas"></canvas>
+
+      <!-- Floating Stat Cards -->
+      <div class="hero-float-cards">
+        <div class="hero-float-card hfc-tl">
+          <span class="fc-icon">⚡</span>
+          <div><div class="fc-value">10x</div><div class="fc-label">Productivity</div></div>
+        </div>
+        <div class="hero-float-card hfc-tr">
+          <span class="fc-icon">📈</span>
+          <div><div class="fc-value">3.8x</div><div class="fc-label">ROAS</div></div>
+        </div>
+        <div class="hero-float-card hfc-bl">
+          <span class="fc-icon">👥</span>
+          <div><div class="fc-value">500+</div><div class="fc-label">SMEs</div></div>
+        </div>
+        <div class="hero-float-card hfc-br">
+          <span class="fc-icon">🇰🇭</span>
+          <div><div class="fc-value">100%</div><div class="fc-label">Khmer</div></div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <div class="si-mouse"><div class="si-dot"></div></div>
+        <span class="si-label">Scroll</span>
+      </div>
+
       <div class="container hero-inner">
         <div class="hero-badge reveal">
           <span><i class="fas fa-bolt"></i></span> AI & Digital Skills for
@@ -204,10 +231,11 @@
         <div class="section-header reveal">
           <span class="section-tag">Our Expertise</span>
           <h2 class="section-title">CHOOSE YOUR PATH</h2>
+          <span class="section-bg-num">PATH</span>
         </div>
 
         <div class="tracks-grid">
-          <div class="track-card reveal">
+          <div class="track-card reveal" data-num="01">
             <div class="track-icon-wrap"><i class="fas fa-robot"></i></div>
             <h3 class="track-title">AI Tools Mastery</h3>
             <p class="track-desc">
@@ -217,9 +245,10 @@
             <a href="#contact" class="track-link"
               >ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i
             ></a>
+            <div class="track-result-pill">⚡ Save 10+ hrs/week</div>
           </div>
 
-          <div class="track-card reveal">
+          <div class="track-card reveal" data-num="02">
             <div class="track-icon-wrap"><i class="fas fa-bullhorn"></i></div>
             <h3 class="track-title">Digital Strategy</h3>
             <p class="track-desc">
@@ -229,9 +258,10 @@
             <a href="#contact" class="track-link"
               >ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i
             ></a>
+            <div class="track-result-pill">📈 3x ROAS proven</div>
           </div>
 
-          <div class="track-card reveal">
+          <div class="track-card reveal" data-num="03">
             <div class="track-icon-wrap">
               <i class="fas fa-laptop-code"></i>
             </div>
@@ -243,6 +273,7 @@
             <a href="#contact" class="track-link"
               >ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i
             ></a>
+            <div class="track-result-pill">👥 15 leads/day avg</div>
           </div>
         </div>
       </div>
@@ -286,7 +317,7 @@
               <span class="f-title">YOB Heading Pro</span>
               <span class="font-badge">BEST SELLER</span>
             </div>
-            <div class="f-preview heavy">សិល្បៈឌីជីថល</div>
+            <div class="f-preview heavy">សិល្បៈឌីជីថល<span class="f-bg-letter">ស</span></div>
             <div class="f-footer">
               <span class="f-price">$15.00</span>
               <a href="#" class="f-btn premium"
@@ -301,7 +332,7 @@
               <span class="f-title">YOB Content Sans</span>
               <span class="font-badge outline">BASIC</span>
             </div>
-            <div class="f-preview sans">អានងាយស្រួលយល់</div>
+            <div class="f-preview sans">អានងាយស្រួលយល់<span class="f-bg-letter">អ</span></div>
             <div class="f-footer">
               <span class="f-price free">Free</span>
               <a href="#" class="f-btn free"
@@ -316,7 +347,7 @@
               <span class="f-title">YOB Signature</span>
               <span class="font-badge">ELEGANT</span>
             </div>
-            <div class="f-preview italic">ហត្ថលេខាប្រណិត</div>
+            <div class="f-preview italic">ហត្ថលេខាប្រណិត<span class="f-bg-letter">ហ</span></div>
             <div class="f-footer">
               <span class="f-price">$20.00</span>
               <a href="#" class="f-btn premium"
@@ -332,7 +363,7 @@
               <span class="font-badge outline">CODING</span>
             </div>
             <div class="f-preview sans" style="letter-spacing: 2px">
-              បច្ចេកវិទ្យា AI
+              បច្ចេកវិទ្យា AI<span class="f-bg-letter">ប</span>
             </div>
             <div class="f-footer">
               <span class="f-price free">Free</span>
@@ -348,7 +379,7 @@
               <span class="f-title">YOB Modern Serif</span>
               <span class="font-badge">LUXURY</span>
             </div>
-            <div class="f-preview">ភាពស៊ីវីល័យ</div>
+            <div class="f-preview">ភាពស៊ីវីល័យ<span class="f-bg-letter">ភ</span></div>
             <div class="f-footer">
               <span class="f-price">$18.00</span>
               <a href="#" class="f-btn premium"
@@ -364,7 +395,7 @@
               <span class="font-badge">BOLD</span>
             </div>
             <div class="f-preview heavy" style="font-size: 38px">
-              បញ្ចុះតម្លៃ ៥០%
+              បញ្ចុះតម្លៃ ៥០%<span class="f-bg-letter">ប</span>
             </div>
             <div class="f-footer">
               <span class="f-price">$12.00</span>
@@ -380,7 +411,7 @@
               <span class="f-title">YOB Kbach Retro</span>
               <span class="font-badge">CLASSIC</span>
             </div>
-            <div class="f-preview">ក្បាច់ខ្មែរបុរាណ</div>
+            <div class="f-preview">ក្បាច់ខ្មែរបុរាណ<span class="f-bg-letter">ក</span></div>
             <div class="f-footer">
               <span class="f-price">$25.00</span>
               <a href="#" class="f-btn premium"
@@ -395,7 +426,7 @@
               <span class="f-title">YOB Minimal UI</span>
               <span class="font-badge outline">WEB DESIGN</span>
             </div>
-            <div class="f-preview sans">រចនាបថសាមញ្ញ</div>
+            <div class="f-preview sans">រចនាបថសាមញ្ញ<span class="f-bg-letter">រ</span></div>
             <div class="f-footer">
               <span class="f-price free">Free</span>
               <a href="#" class="f-btn free"
@@ -763,6 +794,21 @@
             <strong>យឺន សាវុទ្ធិ</strong>។ ពួកយើងមិនមែនជា Agency ធម្មតាទេ តែជា
             "ដៃគូ" ដែលជួយប្រែក្លាយអាជីវកម្មរបស់អ្នកឱ្យដើរទាន់សម័យ Digital & AI។
           </p>
+          <div class="about-mini-stats">
+            <div class="about-stat">
+              <div class="about-stat-num">500+</div>
+              <div class="about-stat-lbl">Businesses</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num">4yrs</div>
+              <div class="about-stat-lbl">Experience</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num">100%</div>
+              <div class="about-stat-lbl">Khmer</div>
+            </div>
+          </div>
+
           <div class="value-tags">
             <div class="v-tag">
               <i class="fas fa-check-circle"></i> Practical Learning

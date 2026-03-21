@@ -2086,3 +2086,278 @@
       }
 
       /* Footer: handled by Mega Footer CSS above */
+
+      /* ═══════════════════════════════════════════════
+         UX UPGRADE v10.0 — YOB Digital
+         Hero Floats · Services Watermarks · Typography
+         Testimonial Badges · About Animated Border
+         ═══════════════════════════════════════════════ */
+
+      /* ── Keyframes ── */
+      @keyframes floatCard {
+        0%, 100% { transform: translateY(0px); }
+        50%       { transform: translateY(-8px); }
+      }
+      @keyframes scrollDot {
+        0%   { opacity: 1; transform: translateX(-50%) translateY(0); }
+        100% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+      }
+      @keyframes borderPulse {
+        0%, 100% { opacity: 0.35; }
+        50%       { opacity: 0.9; }
+      }
+
+      /* ── Hero: Floating Stat Cards ── */
+      .hero-float-cards {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 2;
+      }
+      .hero-float-card {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 10px 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        animation: floatCard 4s ease-in-out infinite;
+        white-space: nowrap;
+      }
+      .hero-float-card .fc-icon { font-size: 18px; line-height: 1; }
+      .hero-float-card .fc-value {
+        font-family: var(--fh);
+        font-size: 18px;
+        color: var(--white);
+        letter-spacing: 0.5px;
+        line-height: 1;
+      }
+      .hero-float-card .fc-label {
+        font-size: 11px;
+        color: var(--gray);
+        line-height: 1.3;
+      }
+      .hfc-tl { top: 22%; left: 3%; animation-delay: 0s; }
+      .hfc-tr { top: 22%; right: 3%; animation-delay: 1s; }
+      .hfc-bl { bottom: 22%; left: 3%; animation-delay: 2s; }
+      .hfc-br { bottom: 22%; right: 3%; animation-delay: 1.5s; }
+      @media (max-width: 900px) { .hero-float-cards { display: none; } }
+
+      /* ── Hero: Scroll Indicator ── */
+      .scroll-indicator {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        z-index: 3;
+        opacity: 0.45;
+        transition: opacity 0.3s;
+        cursor: default;
+      }
+      .scroll-indicator:hover { opacity: 0.9; }
+      .scroll-indicator .si-mouse {
+        width: 22px;
+        height: 34px;
+        border: 2px solid rgba(255, 255, 255, 0.35);
+        border-radius: 11px;
+        position: relative;
+      }
+      .scroll-indicator .si-dot {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3px;
+        height: 6px;
+        background: var(--gold);
+        border-radius: 2px;
+        animation: scrollDot 1.6s ease-in-out infinite;
+      }
+      .scroll-indicator .si-label {
+        font-size: 9px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.35);
+      }
+      @media (max-width: 768px) { .scroll-indicator { display: none; } }
+
+      /* ── Services: Section BG Number ── */
+      .section-bg-num {
+        position: absolute;
+        right: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: var(--fh);
+        font-size: clamp(80px, 14vw, 160px);
+        color: rgba(229, 44, 103, 0.04);
+        letter-spacing: -4px;
+        pointer-events: none;
+        user-select: none;
+        line-height: 1;
+      }
+
+      /* ── Services: Track Card Watermark Number ── */
+      .track-card { position: relative; overflow: hidden; }
+      .track-card::after {
+        content: attr(data-num);
+        position: absolute;
+        bottom: -15px;
+        right: -5px;
+        font-family: var(--fh);
+        font-size: 110px;
+        color: rgba(255, 255, 255, 0.03);
+        line-height: 1;
+        pointer-events: none;
+        user-select: none;
+        transition: color 0.4s;
+      }
+      .track-card:hover::after { color: rgba(229, 44, 103, 0.07); }
+
+      /* ── Services: Result Pills ── */
+      .track-result-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: rgba(229, 44, 103, 0.08);
+        border: 1px solid rgba(229, 44, 103, 0.2);
+        border-radius: 50px;
+        padding: 5px 12px;
+        font-size: 12px;
+        color: var(--gold);
+        margin-top: 14px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+      }
+
+      /* ── Services: Track Icon hover gradient ── */
+      .track-card:hover .track-icon-wrap {
+        background: linear-gradient(135deg, rgba(229, 44, 103, 0.3), rgba(140, 15, 65, 0.15));
+        transform: scale(1.08);
+      }
+
+      /* ── Typography: Card Top Stripe ── */
+      .f-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        opacity: 0;
+        transition: opacity 0.3s;
+        border-radius: 2px 2px 0 0;
+      }
+      .f-card:hover::before { opacity: 1; }
+
+      /* ── Typography: BG Letter Watermark ── */
+      .f-preview { position: relative; }
+      .f-bg-letter {
+        position: absolute;
+        right: -5px;
+        bottom: -12px;
+        font-size: 75px;
+        color: rgba(229, 44, 103, 0.06);
+        font-family: var(--fk);
+        pointer-events: none;
+        user-select: none;
+        line-height: 1;
+        transition: color 0.3s;
+        z-index: 0;
+      }
+      .f-card:hover .f-bg-letter { color: rgba(229, 44, 103, 0.13); }
+
+      /* ── Testimonials: Gradient Avatar Initial ── */
+      .testi-avatar-initial {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--gold), #8c0f41);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--fh);
+        font-size: 17px;
+        color: var(--white);
+        flex-shrink: 0;
+        letter-spacing: 0;
+      }
+
+      /* ── Testimonials: Result Badge ── */
+      .testi-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        background: rgba(229, 44, 103, 0.1);
+        border: 1px solid rgba(229, 44, 103, 0.25);
+        border-radius: 50px;
+        padding: 3px 10px;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--gold);
+        margin-bottom: 10px;
+        letter-spacing: 0.3px;
+      }
+
+      /* ── Testimonials: Rating Bar ── */
+      .testi-rating-bar {
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold), rgba(229, 44, 103, 0.1));
+        border-radius: 2px;
+        margin: 8px 0 14px;
+        opacity: 0.45;
+        transition: opacity 0.3s;
+      }
+      .testi-card:hover .testi-rating-bar { opacity: 1; }
+
+      /* ── About: Animated Dashed Border ── */
+      .about-image::after {
+        animation: borderPulse 3s ease-in-out infinite !important;
+      }
+
+      /* ── About: Corner Glow Accent ── */
+      .about-image::before {
+        content: '';
+        position: absolute;
+        bottom: -24px;
+        left: -24px;
+        width: 90px;
+        height: 90px;
+        background: radial-gradient(circle, rgba(229, 44, 103, 0.28) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -1;
+        animation: floatCard 5s ease-in-out infinite;
+        animation-delay: 0.8s;
+      }
+
+      /* ── About: Mini Stats Row ── */
+      .about-mini-stats {
+        display: flex;
+        gap: 28px;
+        margin: 20px 0 22px;
+        flex-wrap: wrap;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 14px 0;
+      }
+      .about-stat { display: flex; flex-direction: column; gap: 2px; }
+      .about-stat-num {
+        font-family: var(--fh);
+        font-size: 26px;
+        color: var(--gold);
+        letter-spacing: 1px;
+        line-height: 1;
+      }
+      .about-stat-lbl {
+        font-size: 11px;
+        color: var(--gray);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
