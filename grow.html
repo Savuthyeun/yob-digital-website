@@ -563,25 +563,25 @@
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">YOB<span>.</span>DIGITAL</a>
       <ul class="nav-links">
-        <li><a href="grow.html" style="color:var(--gold)">Grow with Yob</a></li>
-        <li class="nav-has-dropdown">
-          <a href="#">Learn <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px"></i></a>
-          <ul class="nav-dropdown">
+        <li><a href="grow.html" class="dropdown-trigger active">Grow with Yob</a></li>
+        <li class="has-dropdown">
+          <a href="#" class="dropdown-trigger">Learn <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
             <li><a href="index.html#videos"><i class="fas fa-play-circle"></i> Tutorial</a></li>
             <li><a href="docs.html"><i class="fas fa-book"></i> Documentation</a></li>
-            <li><a href="case-studies.html"><i class="fas fa-trophy"></i> Case Studies</a></li>
+            <li><a href="case-studies.html"><i class="fas fa-briefcase"></i> Case Studies</a></li>
           </ul>
         </li>
-        <li class="nav-has-dropdown">
-          <a href="#">Products <i class="fas fa-chevron-down" style="font-size:9px;margin-left:4px"></i></a>
-          <ul class="nav-dropdown">
+        <li class="has-dropdown">
+          <a href="#" class="dropdown-trigger">Products <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
             <li><a href="fonts.html"><i class="fas fa-font"></i> Yob Fonts</a></li>
-            <li><a href="index.html#resources"><i class="fas fa-gift"></i> Free Toolkit</a></li>
+            <li><a href="index.html#resources"><i class="fas fa-toolbox"></i> Free Toolkit</a></li>
           </ul>
         </li>
         <li>
-          <a href="index.html#contact" class="nav-cta">
-            ទំនាក់ទំនង <i class="fas fa-paper-plane" style="margin-left:5px"></i>
+          <a href="index.html#contact" class="nav-cta">ទំនាក់ទំនង
+            <i class="fas fa-paper-plane" style="margin-left:5px"></i>
           </a>
         </li>
       </ul>
@@ -594,12 +594,22 @@
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" id="mobileDrawer">
     <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
-    <a href="grow.html"          onclick="closeDrawer()">Grow with Yob</a>
-    <a href="index.html#videos"  onclick="closeDrawer()">Tutorial</a>
-    <a href="docs.html"          onclick="closeDrawer()">Documentation</a>
-    <a href="case-studies.html"  onclick="closeDrawer()">Case Studies</a>
-    <a href="fonts.html"         onclick="closeDrawer()">Yob Fonts</a>
-    <a href="index.html#resources" onclick="closeDrawer()">Free Toolkit</a>
+    <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
+    <div class="drawer-group">
+      <button class="drawer-group-toggle">Learn <i class="fas fa-chevron-down"></i></button>
+      <div class="drawer-group-items">
+        <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+        <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+        <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
+      </div>
+    </div>
+    <div class="drawer-group">
+      <button class="drawer-group-toggle">Products <i class="fas fa-chevron-down"></i></button>
+      <div class="drawer-group-items">
+        <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+        <a href="index.html#resources" onclick="closeDrawer()">Free Toolkit</a>
+      </div>
+    </div>
     <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
   </div>
 
