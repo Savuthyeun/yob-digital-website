@@ -26,6 +26,20 @@
         if (e.target === mobileDrawer) closeDrawer();
       });
 
+      // ✅ Mobile Drawer Accordion
+      document.querySelectorAll('.drawer-group-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const items = btn.nextElementSibling;
+          const isOpen = items.classList.contains('open');
+          document.querySelectorAll('.drawer-group-items').forEach(el => el.classList.remove('open'));
+          document.querySelectorAll('.drawer-group-toggle').forEach(el => el.classList.remove('open'));
+          if (!isOpen) {
+            items.classList.add('open');
+            btn.classList.add('open');
+          }
+        });
+      });
+
       // ✅ Back to Top
       const backTop = document.getElementById("backTop");
       window.addEventListener("scroll", () =>

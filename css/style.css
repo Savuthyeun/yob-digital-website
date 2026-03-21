@@ -295,6 +295,111 @@
         background: #ff4a85 !important;
       }
 
+      /* ── DROPDOWN ── */
+      .has-dropdown { position: relative; }
+      .dropdown-trigger {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .dropdown-trigger .fa-chevron-down {
+        font-size: 10px;
+        transition: transform 0.3s ease;
+      }
+      .has-dropdown:hover .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+      .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 50%;
+        transform: translateX(-50%) translateY(-8px);
+        background: rgba(8, 11, 16, 0.96);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 8px;
+        min-width: 200px;
+        list-style: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                    0 0 0 1px rgba(229, 44, 103, 0.08);
+        z-index: 100;
+      }
+      .has-dropdown:hover .dropdown-menu {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateX(-50%) translateY(0);
+      }
+      .dropdown-menu li a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--gray);
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      }
+      .dropdown-menu li a:hover {
+        background: rgba(229, 44, 103, 0.08);
+        color: var(--white);
+      }
+      .dropdown-menu li a i {
+        color: var(--gold);
+        width: 16px;
+        text-align: center;
+        font-size: 13px;
+      }
+      .dropdown-trigger.active { color: var(--gold); }
+
+      /* ── MOBILE DRAWER GROUPS ── */
+      .drawer-group { width: 100%; }
+      .drawer-group-toggle {
+        background: none;
+        border: none;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: var(--fh);
+        font-size: clamp(32px, 8vw, 48px);
+        font-weight: 700;
+        color: var(--gray);
+        padding: 10px 24px;
+        cursor: pointer;
+        transition: color var(--t);
+      }
+      .drawer-group-toggle:hover { color: var(--gold); }
+      .drawer-group-toggle.active { color: var(--gold); }
+      .drawer-group-toggle .fa-chevron-down {
+        font-size: 20px;
+        transition: transform 0.3s ease;
+      }
+      .drawer-group-toggle.open .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+      .drawer-group-items {
+        display: none;
+        flex-direction: column;
+        padding-left: 24px;
+        gap: 4px;
+      }
+      .drawer-group-items.open { display: flex; }
+      .drawer-group-items a {
+        font-size: clamp(18px, 4vw, 26px) !important;
+        padding: 8px 24px !important;
+        color: rgba(255, 255, 255, 0.45) !important;
+      }
+      .drawer-group-items a:hover { color: var(--gold) !important; }
+
       /* ═══════════════════════════
        HERO
     ═══════════════════════════ */
