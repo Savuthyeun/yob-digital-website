@@ -1,8 +1,12 @@
+/* ═══════════════════════════════════════
    YOB Digital — Main Stylesheet
    Author: Yeun Savuth (Babu)
    Version: 9.0
+═══════════════════════════════════════ */
 
+/* ═══════════════════════════════════════
        VARIABLES & TOKENS
+   ═══════════════════════════════════════ */
       :root {
         --black: #000000;
         --dark: #080b10;
@@ -30,7 +34,9 @@
         --radius-btn: 50px;
       }
 
+      /* ═══════════════════════════════════════
        RESET & BASE
+      ═══════════════════════════════════════ */
       *,
       *::before,
       *::after {
@@ -210,7 +216,9 @@
         background-clip: text;
       }
 
+      /* ═══════════════════════════════════════
        NAVBAR (FLOATING PILL CONCEPT)
+      ═══════════════════════════════════════ */
       nav {
         position: fixed;
         top: 0;
@@ -260,7 +268,7 @@
         align-items: center;
       }
 
-      /* Clean Minimalist Hover (គ្មានបន្ទាត់ គ្មានអីញ៉េញ៉ៃ) */
+      /* Clean Minimalist Hover */
       .nav-links a {
         font-size: 14px;
         font-weight: 600;
@@ -392,7 +400,9 @@
       }
       .drawer-group-items a:hover { color: var(--gold) !important; }
 
+      /* ═══════════════════════════════════════
        HERO
+      ═══════════════════════════════════════ */
       #hero {
         min-height: 100vh;
         display: flex;
@@ -525,7 +535,9 @@
         font-weight: 500;
       }
 
+      /* ═══════════════════════════════════════
        MARQUEE
+      ═══════════════════════════════════════ */
       .marquee-wrap {
         background: var(--dark2);
         border-top: 1px solid var(--border);
@@ -578,7 +590,9 @@
         }
       }
 
+      /* ═══════════════════════════════════════
        SERVICES CARDS
+      ═══════════════════════════════════════ */
       #tracks {
         padding: 100px 0;
       }
@@ -693,7 +707,9 @@
         gap: 12px;
       }
 
+      /* ═══════════════════════════════════════
        TYPOGRAPHY STORE (FULL GRID SHOP)
+      ═══════════════════════════════════════ */
       #typography {
         padding: 120px 0;
         background: var(--dark);
@@ -969,7 +985,9 @@
         transform: scale(1.05);
       }
 
+      /* ═══════════════════════════════════════
        PORTFOLIO / CASE STUDIES
+      ═══════════════════════════════════════ */
       #portfolio {
         padding: 100px 0;
         background: transparent;
@@ -1072,7 +1090,9 @@
         gap: 12px;
       }
 
+      /* ═══════════════════════════════════════
        VIDEO TUTORIALS
+      ═══════════════════════════════════════ */
       #videos {
         padding: 100px 0;
         background: var(--dark);
@@ -1183,7 +1203,9 @@
         letter-spacing: 1px;
       }
 
+      /* ═══════════════════════════════════════
        FREE RESOURCES (LEAD MAGNET)
+      ═══════════════════════════════════════ */
       #resources {
         padding: 100px 0;
         background: transparent;
@@ -1361,7 +1383,9 @@
         box-shadow: 0 5px 15px rgba(229, 44, 103, 0.4);
       }
 
+      /* ═══════════════════════════════════════
        ABOUT
+      ═══════════════════════════════════════ */
       #about {
         padding: 100px 0;
         background: transparent;
@@ -1442,7 +1466,9 @@
         color: var(--gold);
       }
 
+      /* ═══════════════════════════════════════
        CONTACT FORM
+      ═══════════════════════════════════════ */
       #contact {
         padding: 100px 0;
       }
@@ -1528,7 +1554,9 @@
         resize: vertical;
       }
 
+      /* ═══════════════════════════════════════
        MEGA FOOTER — Astro Style
+      ═══════════════════════════════════════ */
       /* Pre-footer CTA */
       .prefooter {
         padding: 80px 0;
@@ -2057,11 +2085,11 @@
         border: 1px solid rgba(229, 44, 103, 0.15) !important;
       }
 
-      /* Footer: handled by Mega Footer CSS above */
-
+      /* ═══════════════════════════════════════════════════════════
          UX UPGRADE v10.0 — YOB Digital
          Hero Floats · Services Watermarks · Typography
          Testimonial Badges · About Animated Border
+         ═══════════════════════════════════════════════════════════ */
 
       /* ── Keyframes ── */
       @keyframes floatCard {
@@ -2332,7 +2360,10 @@
         text-transform: uppercase;
       }
 
-/* ═══ WHAT IS YOB DIGITAL — Section (after Marquee, before #tracks) ═══ */
+/* ═══════════════════════════════════
+   WHAT IS YOB DIGITAL — Section
+   Insert: after Marquee, before #tracks
+═══════════════════════════════════ */
 
 .what-is-yob-section {
   padding: 100px 0;
