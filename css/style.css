@@ -2337,10 +2337,8 @@
         letter-spacing: 0.5px;
         text-transform: uppercase;
       }
-}
 
-   WHAT IS YOB DIGITAL — Section
-   Insert: after Marquee, before #tracks
+/* ═══ WHAT IS YOB DIGITAL — Section (after Marquee, before #tracks) ═══ */
 
 .what-is-yob-section {
   padding: 100px 0;
