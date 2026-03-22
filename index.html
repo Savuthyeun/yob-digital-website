@@ -35,7 +35,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -44,7 +44,10 @@
       rel="preload"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
     <noscript>
       <link
@@ -52,7 +55,10 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       />
     </noscript>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
 
     <link rel="stylesheet" href="css/style.css" />
   </head>
@@ -71,23 +77,46 @@
         <ul class="nav-links">
           <li><a href="grow.html">Grow with Yob</a></li>
           <li class="nav-has-dropdown">
-            <a href="#" class="dropdown-trigger">Learn <i class="fas fa-chevron-down"></i></a>
+            <a href="#" class="dropdown-trigger"
+              >Learn <i class="fas fa-chevron-down"></i
+            ></a>
             <ul class="nav-dropdown">
-              <li><a href="#videos"><i class="fas fa-play-circle"></i> Tutorial</a></li>
-              <li><a href="docs.html"><i class="fas fa-book"></i> Documentation</a></li>
-              <li><a href="case-studies.html"><i class="fas fa-briefcase"></i> Case Studies</a></li>
+              <li>
+                <a href="#videos"
+                  ><i class="fas fa-play-circle"></i> Tutorial</a
+                >
+              </li>
+              <li>
+                <a href="docs.html"
+                  ><i class="fas fa-book"></i> Documentation</a
+                >
+              </li>
+              <li>
+                <a href="case-studies.html"
+                  ><i class="fas fa-briefcase"></i> Case Studies</a
+                >
+              </li>
             </ul>
           </li>
           <li class="nav-has-dropdown">
-            <a href="#" class="dropdown-trigger">Products <i class="fas fa-chevron-down"></i></a>
+            <a href="#" class="dropdown-trigger"
+              >Products <i class="fas fa-chevron-down"></i
+            ></a>
             <ul class="nav-dropdown">
-              <li><a href="fonts.html"><i class="fas fa-font"></i> Yob Fonts</a></li>
-              <li><a href="#resources"><i class="fas fa-toolbox"></i> Free Toolkit</a></li>
+              <li>
+                <a href="fonts.html"><i class="fas fa-font"></i> Yob Fonts</a>
+              </li>
+              <li>
+                <a href="#resources"
+                  ><i class="fas fa-toolbox"></i> Free Toolkit</a
+                >
+              </li>
             </ul>
           </li>
           <li>
-            <a href="#contact" class="nav-cta">ទំនាក់ទំនង
-              <i class="fas fa-paper-plane" style="margin-left:5px"></i>
+            <a href="#contact" class="nav-cta"
+              >ទំនាក់ទំនង
+              <i class="fas fa-paper-plane" style="margin-left: 5px"></i>
             </a>
           </li>
         </ul>
@@ -104,7 +133,9 @@
       </button>
       <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
       <div class="drawer-group">
-        <button class="drawer-group-toggle">Learn <i class="fas fa-chevron-down"></i></button>
+        <button class="drawer-group-toggle">
+          Learn <i class="fas fa-chevron-down"></i>
+        </button>
         <div class="drawer-group-items">
           <a href="#videos" onclick="closeDrawer()">Tutorial</a>
           <a href="docs.html" onclick="closeDrawer()">Documentation</a>
@@ -112,7 +143,9 @@
         </div>
       </div>
       <div class="drawer-group">
-        <button class="drawer-group-toggle">Products <i class="fas fa-chevron-down"></i></button>
+        <button class="drawer-group-toggle">
+          Products <i class="fas fa-chevron-down"></i>
+        </button>
         <div class="drawer-group-items">
           <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
           <a href="#resources" onclick="closeDrawer()">Free Toolkit</a>
@@ -129,19 +162,31 @@
       <div class="hero-float-cards">
         <div class="hero-float-card hfc-tl">
           <span class="fc-icon">⚡</span>
-          <div><div class="fc-value">10x</div><div class="fc-label">Productivity</div></div>
+          <div>
+            <div class="fc-value">10x</div>
+            <div class="fc-label">Productivity</div>
+          </div>
         </div>
         <div class="hero-float-card hfc-tr">
           <span class="fc-icon">📈</span>
-          <div><div class="fc-value">3.8x</div><div class="fc-label">ROAS</div></div>
+          <div>
+            <div class="fc-value">3.8x</div>
+            <div class="fc-label">ROAS</div>
+          </div>
         </div>
         <div class="hero-float-card hfc-bl">
           <span class="fc-icon">👥</span>
-          <div><div class="fc-value">500+</div><div class="fc-label">SMEs</div></div>
+          <div>
+            <div class="fc-value">500+</div>
+            <div class="fc-label">SMEs</div>
+          </div>
         </div>
         <div class="hero-float-card hfc-br">
           <span class="fc-icon">🇰🇭</span>
-          <div><div class="fc-value">100%</div><div class="fc-label">Khmer</div></div>
+          <div>
+            <div class="fc-value">100%</div>
+            <div class="fc-label">Khmer</div>
+          </div>
         </div>
       </div>
 
@@ -228,24 +273,27 @@
     <!-- ══ WHAT IS YOB DIGITAL ══ -->
     <section class="what-is-yob-section">
       <div class="container">
-
         <!-- Header -->
         <div class="wiy-header reveal">
-          <span class="section-tag">យប់​មាន​តម្លៃ</span>
+          <span class="section-tag">យប់​មាន​តម្លៃដូចពន្លឺ</span>
           <h2 class="section-title gradient-text">What is YOB Digital?</h2>
-          <p style="font-family:var(--fk);font-size:15px;color:var(--gray);margin-top:6px;">ដូច​ពន្លឺ ✨</p>
           <p class="wiy-lead reveal">
-            យើងមិនមែនត្រឹមតែជា Digital Marketing Agency ធម្មតាដែលចាំតែស៊ីឈ្នួល Boost Post ឬរចនារូបភាពឱ្យអ្នកនោះទេ។
-            YOB Digital គឺជា <strong>កន្លែងបំពាក់បំប៉ន និងប្រែក្លាយ MSMEs</strong>
-            និងយុវជនកម្ពុជា ឱ្យចេះប្រើ AI និងប្រព័ន្ធ Digital
-            — ធ្វើការ<strong>តិចជាងមុន</strong> ទទួលបាន<strong>លទ្ធផលច្រើនជាងមុន</strong>។
+            យើងមិនមែនត្រឹមតែជា Digital Marketing Agency ធម្មតាដែលចាំតែស៊ីឈ្នួល
+            Boost Post ឬរចនារូបភាពឱ្យអ្នកនោះទេ។ YOB Digital គឺជា
+            <strong>កន្លែងបំពាក់បំប៉ន និងប្រែក្លាយ MSMEs</strong>
+            និងយុវជនកម្ពុជា ឱ្យចេះប្រើ AI និងប្រព័ន្ធ Digital — ធ្វើការ<strong
+              >តិចជាងមុន</strong
+            >
+            ទទួលបាន<strong>លទ្ធផលច្រើនជាងមុន</strong>។
           </p>
         </div>
 
         <!-- Problem bar -->
         <div class="wiy-problem reveal">
           <div class="wiy-problem-inner">
-            <span class="wiy-problem-label">❗ បញ្ហាធំបំផុតរបស់ម្ចាស់អាជីវកម្មសព្វថ្ងៃ</span>
+            <span class="wiy-problem-label"
+              >❗ បញ្ហាធំបំផុតរបស់ម្ចាស់អាជីវកម្មសព្វថ្ងៃ</span
+            >
             <div class="wiy-problems-row">
               <span class="wiy-prob-item">
                 <i class="fas fa-circle"></i> ហត់នឿយការងាររដ្ឋបាលរាល់ថ្ងៃ
@@ -262,7 +310,6 @@
 
         <!-- 3 Pillars -->
         <div class="wiy-pillars">
-
           <div class="wiy-pillar reveal">
             <span class="wiy-pillar-num">01</span>
             <div class="wiy-pillar-icon">
@@ -286,8 +333,8 @@
             </div>
             <h3 class="wiy-pillar-title">Modern Web Ecosystems</h3>
             <p class="wiy-pillar-desc">
-              កសាងប្រព័ន្ធ Website និង Automation ទំនើបៗ
-              ដែលលុបបំបាត់ <strong>Manual Work</strong>
+              កសាងប្រព័ន្ធ Website និង Automation ទំនើបៗ ដែលលុបបំបាត់
+              <strong>Manual Work</strong>
               — business run 24/7 auto!
             </p>
             <span class="wiy-pillar-result">
@@ -302,28 +349,25 @@
             </div>
             <h3 class="wiy-pillar-title">Actionable Content</h3>
             <p class="wiy-pillar-desc">
-              គ្រប់ធនធាន គ្រប់ Lesson — apply បានភ្លាម
-              ជាភាសាខ្មែរ ១០០% ជាមួយ <strong>template
-              + case study</strong> ពី Cambodia ពិតៗ!
+              គ្រប់ធនធាន គ្រប់ Lesson — apply បានភ្លាម ជាភាសាខ្មែរ ១០០% ជាមួយ
+              <strong>template + case study</strong> ពី Cambodia ពិតៗ!
             </p>
             <span class="wiy-pillar-result">
               <i class="fas fa-arrow-up"></i> 3x ROAS proven
             </span>
           </div>
-
         </div>
 
         <!-- CTA strip -->
         <div class="wiy-cta-strip reveal">
           <p class="wiy-cta-text">
-            <strong>YOB Digital</strong> — ដៃគូ Digital ដ៏ទុកចិត្ត សម្រាប់ MSMEs ខ្មែរ
-            ជំហានម្ដងៗ រហូតទទួលបានលទ្ធផល!
+            <strong>YOB Digital</strong> — ដៃគូ Digital ដ៏ទុកចិត្ត សម្រាប់ MSMEs
+            ខ្មែរ ជំហានម្ដងៗ រហូតទទួលបានលទ្ធផល!
           </p>
           <a href="#contact" class="btn-primary">
             <i class="fas fa-arrow-right"></i> ចាប់ផ្ដើម Free ថ្ងៃនេះ
           </a>
         </div>
-
       </div>
     </section>
 
@@ -419,7 +463,9 @@
               <span class="f-title">YOB Heading Pro</span>
               <span class="font-badge">BEST SELLER</span>
             </div>
-            <div class="f-preview heavy">សិល្បៈឌីជីថល<span class="f-bg-letter">ស</span></div>
+            <div class="f-preview heavy">
+              សិល្បៈឌីជីថល<span class="f-bg-letter">ស</span>
+            </div>
             <div class="f-footer">
               <span class="f-price">$15.00</span>
               <a href="#" class="f-btn premium"
@@ -434,7 +480,9 @@
               <span class="f-title">YOB Content Sans</span>
               <span class="font-badge outline">BASIC</span>
             </div>
-            <div class="f-preview sans">អានងាយស្រួលយល់<span class="f-bg-letter">អ</span></div>
+            <div class="f-preview sans">
+              អានងាយស្រួលយល់<span class="f-bg-letter">អ</span>
+            </div>
             <div class="f-footer">
               <span class="f-price free">Free</span>
               <a href="#" class="f-btn free"
@@ -449,7 +497,9 @@
               <span class="f-title">YOB Signature</span>
               <span class="font-badge">ELEGANT</span>
             </div>
-            <div class="f-preview italic">ហត្ថលេខាប្រណិត<span class="f-bg-letter">ហ</span></div>
+            <div class="f-preview italic">
+              ហត្ថលេខាប្រណិត<span class="f-bg-letter">ហ</span>
+            </div>
             <div class="f-footer">
               <span class="f-price">$20.00</span>
               <a href="#" class="f-btn premium"
@@ -481,7 +531,9 @@
               <span class="f-title">YOB Modern Serif</span>
               <span class="font-badge">LUXURY</span>
             </div>
-            <div class="f-preview">ភាពស៊ីវីល័យ<span class="f-bg-letter">ភ</span></div>
+            <div class="f-preview">
+              ភាពស៊ីវីល័យ<span class="f-bg-letter">ភ</span>
+            </div>
             <div class="f-footer">
               <span class="f-price">$18.00</span>
               <a href="#" class="f-btn premium"
@@ -513,7 +565,9 @@
               <span class="f-title">YOB Kbach Retro</span>
               <span class="font-badge">CLASSIC</span>
             </div>
-            <div class="f-preview">ក្បាច់ខ្មែរបុរាណ<span class="f-bg-letter">ក</span></div>
+            <div class="f-preview">
+              ក្បាច់ខ្មែរបុរាណ<span class="f-bg-letter">ក</span>
+            </div>
             <div class="f-footer">
               <span class="f-price">$25.00</span>
               <a href="#" class="f-btn premium"
@@ -528,7 +582,9 @@
               <span class="f-title">YOB Minimal UI</span>
               <span class="font-badge outline">WEB DESIGN</span>
             </div>
-            <div class="f-preview sans">រចនាបថសាមញ្ញ<span class="f-bg-letter">រ</span></div>
+            <div class="f-preview sans">
+              រចនាបថសាមញ្ញ<span class="f-bg-letter">រ</span>
+            </div>
             <div class="f-footer">
               <span class="f-price free">Free</span>
               <a href="#" class="f-btn free"
@@ -1021,11 +1077,35 @@
     <section class="prefooter">
       <div class="container">
         <div class="prefooter-box reveal">
-          <h2>រួមគ្នា <span style="background:linear-gradient(135deg,#fff 0%,#ff8ab0 40%,#e52c67 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">BUILD</span> Cambodia Digital!</h2>
-          <p>មាន Project ចង់ discuss? ចង់រៀន AI? ចង់ buy Khmer Font? — YOB Digital ready ជួយ Bong Savuth ២៤/៧!</p>
+          <h2>
+            រួមគ្នា
+            <span
+              style="
+                background: linear-gradient(
+                  135deg,
+                  #fff 0%,
+                  #ff8ab0 40%,
+                  #e52c67 100%
+                );
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+              "
+              >BUILD</span
+            >
+            Cambodia Digital!
+          </h2>
+          <p>
+            មាន Project ចង់ discuss? ចង់រៀន AI? ចង់ buy Khmer Font? — YOB
+            Digital ready ជួយ Bong Savuth ២៤/៧!
+          </p>
           <div class="prefooter-actions">
-            <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> ទំនាក់ទំនងឥឡូវ</a>
-            <a href="#resources" class="btn-outline"><i class="fas fa-gift"></i> ទាញយក Free</a>
+            <a href="#contact" class="btn-primary"
+              ><i class="fas fa-paper-plane"></i> ទំនាក់ទំនងឥឡូវ</a
+            >
+            <a href="#resources" class="btn-outline"
+              ><i class="fas fa-gift"></i> ទាញយក Free</a
+            >
           </div>
         </div>
       </div>
@@ -1035,16 +1115,26 @@
     <footer>
       <div class="container">
         <div class="footer-grid">
-
           <!-- Brand Column -->
           <div class="footer-brand">
             <div class="f-logo">YOB.DIGITAL</div>
-            <p>AI Tools · Digital Marketing · Khmer Typography — ដៃគូ Digital ដ៏ទុកចិត្តបំផុតសម្រាប់ MSMEs ខ្មែរ។</p>
+            <p>
+              AI Tools · Digital Marketing · Khmer Typography — ដៃគូ Digital
+              ដ៏ទុកចិត្តបំផុតសម្រាប់ MSMEs ខ្មែរ។
+            </p>
             <div class="footer-socials">
-              <a href="https://facebook.com/yobdigital"  aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://t.me/yobdigital"          aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-              <a href="https://youtube.com/@yobdigital"  aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-              <a href="https://linkedin.com/in/yobdigital" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://facebook.com/yobdigital" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="https://t.me/yobdigital" aria-label="Telegram"
+                ><i class="fab fa-telegram-plane"></i
+              ></a>
+              <a href="https://youtube.com/@yobdigital" aria-label="YouTube"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="https://linkedin.com/in/yobdigital" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
             </div>
           </div>
 
@@ -1083,14 +1173,19 @@
               <li><a href="https://youtube.com/@yobdigital">YouTube</a></li>
             </ul>
           </div>
-
         </div>
 
         <!-- Bottom Bar -->
         <div class="footer-bottom">
-          <div class="footer-copy">© 2026 <span>YOB.DIGITAL</span> — All rights reserved.</div>
-          <div class="footer-tagline">យប់​មាន​តម្លៃ​ដូច​ពន្លឺ ✦ Built for Cambodia 🇰🇭</div>
-          <div class="footer-badge"><i class="fas fa-heart"></i> Made with passion in Phnom Penh</div>
+          <div class="footer-copy">
+            © 2026 <span>YOB.DIGITAL</span> — All rights reserved.
+          </div>
+          <div class="footer-tagline">
+            យប់​មាន​តម្លៃ​ដូច​ពន្លឺ ✦ Built for Cambodia 🇰🇭
+          </div>
+          <div class="footer-badge">
+            <i class="fas fa-heart"></i> Made with passion in Phnom Penh
+          </div>
         </div>
       </div>
     </footer>
@@ -1117,7 +1212,6 @@
       <i class="fas fa-chevron-up"></i>
     </button>
 
-
-      <script src="js/main.js" defer></script>
+    <script src="js/main.js" defer></script>
   </body>
 </html>
