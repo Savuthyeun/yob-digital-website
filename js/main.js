@@ -325,6 +325,23 @@
 })();
 
 // ═══════════════════════════════════════════════
+// SERVICE CHIP SELECTOR — Contact Form
+// ═══════════════════════════════════════════════
+(function () {
+  const chips = document.querySelectorAll('.svc-chip');
+  const serviceInput = document.getElementById('serviceInput');
+  if (!chips.length || !serviceInput) return;
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      serviceInput.value = chip.dataset.value || chip.textContent.trim();
+    });
+  });
+})();
+
+// ═══════════════════════════════════════════════
 // STICKY MOBILE CTA
 // ═══════════════════════════════════════════════
 (function () {

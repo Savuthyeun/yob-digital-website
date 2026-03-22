@@ -1111,89 +1111,115 @@
     </section>
 
     <!-- ══ CONTACT ══ -->
-    <section id="contact">
+    <section id="contact" class="section-dark-alt">
       <div class="container">
-        <div class="contact-wrapper reveal">
-          <div class="contact-info">
-            <h2>LET'S <span class="gold">CONNECT</span></h2>
-            <p>
-              មានបញ្ហាស្មុគស្មាញរឿង Digital មែនទេ? ឬចង់រៀបចំ Workshop?
-              ផ្ញើសារមកពួកយើងឥឡូវនេះ!
+        <div class="contact-grid">
+
+          <!-- LEFT — Info + Channels -->
+          <div class="contact-left reveal">
+            <span class="section-tag">Free Consultation</span>
+            <h2 class="contact-headline">
+              ចាប់ផ្ដើម<br>
+              <span class="gradient-text">ជាមួយ YOB</span>
+            </h2>
+            <p class="contact-sub">
+              មាន Project? ចង់ Scale Business? ឬ​ចង់​រៀន AI?<br>
+              ប្រាប់​យើង — ទទួល​បាន <strong>Plan ដំបូង ឥតគិតថ្លៃ</strong>
             </p>
 
-            <div class="social-bubbles">
-              <a href="https://facebook.com/yobdigital"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a href="https://t.me/yobdigital"
-                ><i class="fab fa-telegram-plane"></i
-              ></a>
-              <a href="https://linkedin.com/in/yobdigital"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
+            <!-- Online status -->
+            <div class="contact-status">
+              <span class="contact-status-dot"></span>
+              ក្រុម YOB Online — Reply ក្នុង 2–4 ម៉ោង
+            </div>
+
+            <!-- Quick channels -->
+            <div class="contact-channels">
+              <a href="https://t.me/yobdigital" class="contact-channel tg" target="_blank" rel="noopener">
+                <div class="cc-icon"><i class="fab fa-telegram-plane"></i></div>
+                <div class="cc-text">
+                  <strong>Telegram</strong>
+                  <span>Chat ផ្ទាល់ · ច​ន្ទ–​អ​ា​ទិ​ត្យ</span>
+                </div>
+                <i class="fas fa-arrow-right cc-arrow"></i>
+              </a>
+              <a href="https://facebook.com/yobdigital" class="contact-channel fb" target="_blank" rel="noopener">
+                <div class="cc-icon"><i class="fab fa-facebook-messenger"></i></div>
+                <div class="cc-text">
+                  <strong>Facebook</strong>
+                  <span>Messenger · YOB Digital</span>
+                </div>
+                <i class="fas fa-arrow-right cc-arrow"></i>
+              </a>
+            </div>
+
+            <!-- Trust row -->
+            <div class="contact-trust">
+              <div class="ct-item"><i class="fas fa-check-circle"></i> Free Consultation</div>
+              <div class="ct-item"><i class="fas fa-check-circle"></i> No Hidden Fees</div>
+              <div class="ct-item"><i class="fas fa-check-circle"></i> ជា​ភាសា​ខ្មែរ ១០០%</div>
+              <div class="ct-item"><i class="fas fa-check-circle"></i> Reply ជា​ញឹក​ញ​យ</div>
             </div>
           </div>
 
-          <form
-            class="contact-form"
-            name="contact"
-            method="POST"
-            data-netlify="true"
-          >
-            <div
-              style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px"
-            >
-              <div class="form-group">
-                <label>ឈ្មោះរបស់អ្នក</label>
-                <input
-                  type="text"
-                  name="name"
-                  class="form-control"
-                  placeholder="ឧទាហរណ៍៖ Oppa Babu"
-                  required
-                />
+          <!-- RIGHT — Form Card -->
+          <div class="contact-right reveal">
+            <div class="contact-form-card">
+
+              <div class="cfc-header">
+                <h3>ផ្ញើ​សារ​មក​យើង</h3>
+                <p>ជ្រើស​ Service ហើយ​បំពេញ​ Form — ក្រុម YOB​​ Connect ភ្លាម</p>
               </div>
-              <div class="form-group">
-                <label>លេខទូរស័ព្ទ ឬ Telegram</label>
-                <input
-                  type="text"
-                  name="phone"
-                  class="form-control"
-                  placeholder="012 345 678"
-                  required
-                />
+
+              <!-- Service selector chips -->
+              <div class="svc-selector">
+                <button type="button" class="svc-chip active" data-value="AI Training">
+                  <i class="fas fa-robot"></i> AI Training
+                </button>
+                <button type="button" class="svc-chip" data-value="Digital Strategy">
+                  <i class="fas fa-chart-line"></i> Strategy
+                </button>
+                <button type="button" class="svc-chip" data-value="Website Setup">
+                  <i class="fas fa-globe"></i> Website
+                </button>
+                <button type="button" class="svc-chip" data-value="Workshop">
+                  <i class="fas fa-chalkboard-teacher"></i> Workshop
+                </button>
+                <button type="button" class="svc-chip" data-value="Consulting">
+                  <i class="fas fa-comments"></i> Consulting
+                </button>
+                <button type="button" class="svc-chip" data-value="ផ្សេង​ទៀត">
+                  <i class="fas fa-ellipsis-h"></i> ផ្សេង​ទៀត
+                </button>
               </div>
+
+              <form class="cf-form" name="contact" method="POST" data-netlify="true">
+                <input type="hidden" name="service" id="serviceInput" value="AI Training"/>
+
+                <div class="cf-row">
+                  <div class="cf-field">
+                    <input type="text" name="name" class="cf-input" placeholder=" " required/>
+                    <label class="cf-label">ឈ្មោះ​របស់​អ្នក *</label>
+                  </div>
+                  <div class="cf-field">
+                    <input type="text" name="phone" class="cf-input" placeholder=" " required/>
+                    <label class="cf-label">Telegram / Phone *</label>
+                  </div>
+                </div>
+
+                <div class="cf-field">
+                  <textarea name="message" class="cf-input cf-textarea" placeholder=" "></textarea>
+                  <label class="cf-label">រៀបរាប់​ពី Business / Project អ្នក</label>
+                </div>
+
+                <button type="submit" class="cf-submit">
+                  ផ្ញើ​ទៅ YOB Digital <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+
             </div>
-            <div class="form-group">
-              <label>ប្រធានបទ</label>
-              <input
-                type="text"
-                name="subject"
-                class="form-control"
-                placeholder="ចង់រៀន AI / ចង់ធ្វើ Website / ប្រឹក្សាយោបល់"
-              />
-            </div>
-            <div class="form-group">
-              <label>សាររបស់អ្នក</label>
-              <textarea
-                name="message"
-                class="form-control"
-                placeholder="សូមរៀបរាប់ពីបញ្ហាអាជីវកម្មរបស់អ្នក..."
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              class="btn-primary"
-              style="
-                border: none;
-                cursor: pointer;
-                width: 100%;
-                justify-content: center;
-              "
-            >
-              បញ្ជូនសារ <i class="fas fa-paper-plane"></i>
-            </button>
-          </form>
+          </div>
+
         </div>
       </div>
     </section>
