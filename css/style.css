@@ -2344,9 +2344,10 @@
 
 .what-is-yob-section {
   padding: 100px 0;
+  background: var(--dark);
   border-top: 1px solid rgba(255,255,255,.05);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 .what-is-yob-section::before {
   content: '';
@@ -2355,6 +2356,7 @@
     radial-gradient(ellipse 70% 50% at 50% 50%,
       rgba(229,44,103,.06) 0%, transparent 65%);
   pointer-events: none;
+  overflow: hidden;
 }
 .what-is-yob-section .container { position: relative; z-index: 1; }
 
