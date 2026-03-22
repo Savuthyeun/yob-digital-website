@@ -148,7 +148,7 @@
         </button>
         <div class="drawer-group-items">
           <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
-          <a href="#resources" onclick="closeDrawer()">Free Toolkit</a>
+          <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
         </div>
       </div>
       <a href="#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
@@ -1024,106 +1024,88 @@
     <!-- ══ FREE RESOURCES (LEAD MAGNET) ══ -->
     <section id="resources">
       <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">Free Knowledge</span>
-          <h2 class="section-title">
-            YOB <span class="gradient-text">CONTENT HUB</span>
-          </h2>
-          <p
-            style="
-              color: var(--gray);
-              font-family: var(--fk);
-              margin-top: 15px;
-              font-size: 16px;
-              max-width: 600px;
-              margin-inline: auto;
-            "
-          >
-            កុំលាក់ចំណេះដឹង! នៅ YOB យើងចែករំលែកក្បួននិង Template
-            ដែលយើងប្រើប្រាស់ផ្ទាល់ ឱ្យបងប្អូនសហគ្រិនយកទៅអនុវត្តបានភ្លាមៗ
-            ដោយមិនគិតថ្លៃ។
-          </p>
+        <div class="section-header reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;">
+          <div>
+            <span class="section-tag">Free Knowledge</span>
+            <h2 class="section-title">YOB <span class="gradient-text">CONTENT HUB</span></h2>
+            <span class="section-bg-num">FREE</span>
+          </div>
+          <a href="resources.html" class="btn-outline" style="flex-shrink:0;">
+             មើលទាំងអស់ (10+) <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
 
+        <!-- Featured lead-magnet -->
         <div class="resource-box reveal">
-          <!-- Visual Side -->
           <div class="resource-visual">
             <div class="mockup-book">
-              <span class="mockup-tag">Free Toolkit</span>
-              <h4>
-                THE AI <br />
-                CONTENT <br />
-                BIBLE
-              </h4>
-              <p>30-Day Calendar & Prompts for MSMEs</p>
+              <span class="mockup-tag">★ Featured</span>
+              <h4>THE AI<br>CONTENT<br>BIBLE</h4>
+              <p>30-Day Calendar & 200+ Prompts</p>
               <i class="fas fa-book-open mockup-icon"></i>
             </div>
           </div>
-
-          <!-- Content & Form Side -->
           <div class="resource-content">
-            <h3>កញ្ចប់សៀវភៅ "AI Content Bible"</h3>
-            <p>
-              លែងឈឺក្បាលរឿងគិត Content ផុសលក់អីវ៉ាន់រាល់ថ្ងៃ! ទាញយកសៀវភៅនិង
-              Template នេះពី YOB Content Hub ដើម្បីជួយអ្នកចំណេញពេល ១០ ដង។
-            </p>
-
+            <h3>AI Content Bible — ឯកសារ #1 ដែល Download ច្រើនបំផុត</h3>
+            <p>Calendar ៣០ ថ្ងៃ + AI Prompts ២០០+ + Hook Formula ជា​ Context ខ្មែរ — ១,២០០+ Downloads រួចហើយ!</p>
             <ul class="checklist">
-              <li>
-                <i class="fas fa-check-circle"></i> រូបមន្តបញ្ជា AI សរសេរ
-                Caption អោយត្រូវចិត្តភ្ញៀវខ្មែរ។
-              </li>
-              <li>
-                <i class="fas fa-check-circle"></i> តារាង Content Plan
-                រួចជាស្រេចសម្រាប់រយៈពេល ៣០ ថ្ងៃ។
-              </li>
-              <li>
-                <i class="fas fa-check-circle"></i> ក្បួនទាញចំណាប់អារម្មណ៍ ៣
-                វិនាទីដំបូង (Hook Secrets)។
-              </li>
+              <li><i class="fas fa-check-circle"></i> AI Prompts ២០០+ ជា​ភាសា​ខ្មែរ-អង់គ្លេស</li>
+              <li><i class="fas fa-check-circle"></i> Content Calendar ៣០ ថ្ងៃ ត្រៀមប្រើ</li>
+              <li><i class="fas fa-check-circle"></i> Hook Secrets ១៥ ប្រភេទ</li>
             </ul>
-
-            <!-- Form to get the data (Lead Gen) -->
-            <form
-              class="lead-form"
-              onsubmit="
-                event.preventDefault();
-                alert(
-                  'អរគុណ! ឯកសារត្រូវបានផ្ញើទៅកាន់ Telegram របស់អ្នកហើយ។ (នេះជាការសាកល្បង)',
-                );
-              "
-            >
+            <form class="lead-form" onsubmit="event.preventDefault();alert('អរគុណ! ឯកសារ​នឹង​ផ្ញើ​ទៅ Telegram​ក្នុង​រយៈ​ពេល ២–៥ នាទី ✅');">
               <div class="lead-form-row">
-                <input
-                  type="text"
-                  class="lead-input"
-                  placeholder="ឈ្មោះរបស់អ្នក"
-                  required
-                />
-                <input
-                  type="text"
-                  class="lead-input"
-                  placeholder="លេខ Telegram"
-                  required
-                />
+                <input type="text" class="lead-input" placeholder="ឈ្មោះ​របស់​អ្នក" required/>
+                <input type="text" class="lead-input" placeholder="លេខ Telegram" required/>
               </div>
               <button type="submit" class="lead-btn">
-                <i class="fas fa-download"></i> ទាញយកឥឡូវនេះ (100% Free)
+                <i class="fas fa-download"></i> ទាញយក​ឥឡូវ (100% Free)
               </button>
-              <span
-                style="
-                  font-size: 12px;
-                  color: var(--gray);
-                  font-family: var(--fk);
-                  text-align: center;
-                  margin-top: 5px;
-                "
-              >
-                <i class="fas fa-lock" style="font-size: 10px"></i>
-                ព័ត៌មានរបស់អ្នកត្រូវបានរក្សាទុកជាសម្ងាត់។
+              <span style="font-size:12px;color:var(--gray);font-family:var(--fk);text-align:center;margin-top:5px;">
+                <i class="fas fa-lock" style="font-size:10px"></i> ព័ត៌មាន​ត្រូវ​បាន​រក្សា​ទុក​ជា​សម្ងាត់
               </span>
             </form>
           </div>
+        </div>
+
+        <!-- 3 more preview cards -->
+        <div class="res-preview-grid reveal">
+          <a href="resources.html" class="res-preview-card">
+            <div class="res-preview-icon" style="background:linear-gradient(135deg,#1a0a2e,#3d1060);">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="res-preview-body">
+              <span class="res-cat-badge badge-ai">AI Tools</span>
+              <div class="res-preview-title">100 AI Prompts for Khmer Business</div>
+              <div class="res-preview-dl"><i class="fas fa-download"></i> 850+ Downloads</div>
+            </div>
+          </a>
+          <a href="resources.html" class="res-preview-card">
+            <div class="res-preview-icon" style="background:linear-gradient(135deg,#0a1a2e,#103d60);">
+              <i class="fas fa-comment-dots"></i>
+            </div>
+            <div class="res-preview-body">
+              <span class="res-cat-badge badge-template">Template</span>
+              <div class="res-preview-title">Khmer Caption Templates ៥០+</div>
+              <div class="res-preview-dl"><i class="fas fa-download"></i> 910+ Downloads</div>
+            </div>
+          </a>
+          <a href="resources.html" class="res-preview-card">
+            <div class="res-preview-icon" style="background:linear-gradient(135deg,#1a0a10,#60103d);">
+              <i class="fab fa-facebook-f"></i>
+            </div>
+            <div class="res-preview-body">
+              <span class="res-cat-badge badge-marketing">Marketing</span>
+              <div class="res-preview-title">Facebook Ads Checklist</div>
+              <div class="res-preview-dl"><i class="fas fa-download"></i> 670+ Downloads</div>
+            </div>
+          </a>
+        </div>
+
+        <div style="text-align:center;margin-top:40px;" class="reveal">
+          <a href="resources.html" class="btn-primary">
+            <i class="fas fa-gift"></i> មើល Resources ទាំងអស់ 10+ items →
+          </a>
         </div>
       </div>
     </section>

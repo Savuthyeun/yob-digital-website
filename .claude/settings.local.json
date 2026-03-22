@@ -4,7 +4,11 @@
       "Bash(python3 -:*)",
       "Bash(python -:*)",
       "Bash(node -e \":*)",
-      "WebFetch(domain:astro.build)"
+      "WebFetch(domain:astro.build)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(sed -i 's|href=\"\"index\\\\.html#resources\"\"><i class=\"\"fas fa-toolbox\"\"></i> Free Toolkit|href=\"\"resources.html\"\"><i class=\"\"fas fa-toolbox\"\"></i> Free Resources|g;:*)",
+      "Bash(done)"
     ]
   }
 }
