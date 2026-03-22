@@ -284,3 +284,71 @@
         build();
         requestAnimationFrame(draw);
       })();
+
+// ═══════════════════════════════════════════════
+// COUNTER ANIMATION — Hero Stats
+// ═══════════════════════════════════════════════
+(function () {
+  const statsBlock = document.getElementById("heroStats");
+  if (!statsBlock) return;
+
+  function animateCount(el, target, duration) {
+    const start = performance.now();
+    function step(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+
+  let animated = false;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting && !animated) {
+          animated = true;
+          statsBlock.querySelectorAll(".stat-num[data-target]").forEach((num) => {
+            const target = parseInt(num.dataset.target, 10);
+            const countEl = num.querySelector(".count-num");
+            if (countEl) animateCount(countEl, target, 1800);
+          });
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+  observer.observe(statsBlock);
+})();
+
+// ═══════════════════════════════════════════════
+// STICKY MOBILE CTA
+// ═══════════════════════════════════════════════
+(function () {
+  const cta = document.getElementById("stickyCta");
+  const closeBtn = document.getElementById("stickyCtaClose");
+  if (!cta) return;
+
+  let dismissed = false;
+
+  function checkScroll() {
+    if (dismissed) return;
+    if (window.scrollY > 400) {
+      cta.classList.add("visible");
+    } else {
+      cta.classList.remove("visible");
+    }
+  }
+
+  window.addEventListener("scroll", checkScroll, { passive: true });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      dismissed = true;
+      cta.classList.remove("visible");
+    });
+  }
+})();
