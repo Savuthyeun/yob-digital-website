@@ -292,15 +292,19 @@
   const statsBlock = document.getElementById("heroStats");
   if (!statsBlock) return;
 
+  function toKhmerNum(n) {
+    return String(n).replace(/[0-9]/g, d => '០១២៣៤៥៦៧៨៩'[d]);
+  }
+
   function animateCount(el, target, duration) {
     const start = performance.now();
     function step(now) {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      el.textContent = Math.round(eased * target);
+      el.textContent = toKhmerNum(Math.round(eased * target));
       if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target;
+      else el.textContent = toKhmerNum(target);
     }
     requestAnimationFrame(step);
   }
