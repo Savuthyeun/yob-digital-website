@@ -12,7 +12,7 @@
       <li class="nav-has-dropdown">
         <a href="#" class="dropdown-trigger">Learn <i class="fas fa-chevron-down"></i></a>
         <ul class="nav-dropdown">
-          <li><a href="index.html#videos"><i class="fas fa-play-circle"></i> Tutorial</a></li>
+          <li><a href="yob-learning.html" data-page="yob-learning"><i class="fas fa-graduation-cap"></i> Yob Skills</a></li>
           <li><a href="docs.html" data-page="docs"><i class="fas fa-book"></i> Documentation</a></li>
           <li><a href="case-studies.html" data-page="case-studies"><i class="fas fa-briefcase"></i> Case Studies</a></li>
         </ul>
@@ -67,7 +67,7 @@
       <div class="footer-col">
         <h4>Learn</h4>
         <ul>
-          <li><a href="index.html#videos">Free Tutorials</a></li>
+          <li><a href="yob-learning.html">Yob Skills</a></li>
           <li><a href="docs.html">Documentation</a></li>
           <li><a href="case-studies.html">Case Studies</a></li>
           <li><a href="resources.html">Free Toolkit</a></li>
