@@ -77,92 +77,316 @@
       /* ── YEVA z-index: keep YEVA inside moon stacking context ── */
       .singularity-wrapper { isolation: isolate; }
 
-      /* ── Phase 1: Font Teaser Row ── */
-      .font-teaser-row {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-      }
-      @media (max-width: 768px) {
-        .font-teaser-row { grid-template-columns: 1fr; }
+      /* ══════════════════════════════════════════════════
+         STELLAR SPECIMEN PANELS — Typography v2
+         Concept: 3 full-width horizontal panels in space
+         Each font = a stellar object with its own nebula
+      ══════════════════════════════════════════════════ */
+      .font-teaser-row { display: none !important; }
+
+      .stellar-panels {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        border-radius: 24px;
+        overflow: hidden;
       }
 
-      /* ── Black Hole Ecosystem ── */
+      /* Base panel */
+      .sp-panel {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 165px;
+        overflow: hidden;
+        cursor: pointer;
+        text-decoration: none;
+        transition: height 0.5s cubic-bezier(0.16,1,0.3,1), background 0.4s;
+        background: rgba(6,3,14,0.88);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255,255,255,0.05);
+      }
+      .sp-panel:hover { height: 208px; z-index: 2; }
+      .sp-panel:first-child { border-radius: 22px 22px 4px 4px; }
+      .sp-panel:last-child  { border-radius: 4px 4px 22px 22px; }
+      .sp-panel + .sp-panel { border-top: 1px solid rgba(255,255,255,0.04); }
+
+      /* Per-panel nebula bg */
+      .sp-nebula {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.55;
+        transition: opacity 0.4s;
+      }
+      .sp-panel:hover .sp-nebula { opacity: 1; }
+
+      /* Panel 1 — pink/orange warm stellar */
+      .sp-panel--1 {
+        border-left: 3px solid rgba(229,44,103,0.55);
+      }
+      .sp-panel--1:hover {
+        border-left-color: var(--gold);
+        background: rgba(18,3,8,0.93) !important;
+      }
+      .sp-panel--1 .sp-nebula {
+        background:
+          radial-gradient(ellipse 55% 100% at 100% 50%, rgba(229,44,103,0.20) 0%, transparent 65%),
+          radial-gradient(ellipse 30% 80%  at 85%  50%, rgba(255,130,50,0.10) 0%, transparent 55%),
+          radial-gradient(ellipse 18% 60%  at 10%  50%, rgba(229,44,103,0.05) 0%, transparent 50%);
+      }
+
+      /* Panel 2 — cool cyan/blue stellar */
+      .sp-panel--2 {
+        border-left: 3px solid rgba(0,180,255,0.45);
+      }
+      .sp-panel--2:hover {
+        border-left-color: #00c8ff;
+        background: rgba(2,7,18,0.93) !important;
+      }
+      .sp-panel--2 .sp-nebula {
+        background:
+          radial-gradient(ellipse 55% 100% at 100% 50%, rgba(0,180,255,0.15) 0%, transparent 65%),
+          radial-gradient(ellipse 30% 80%  at 83%  50%, rgba(0,100,255,0.08) 0%, transparent 55%),
+          radial-gradient(ellipse 18% 60%  at 10%  50%, rgba(101,52,255,0.04) 0%, transparent 50%);
+      }
+
+      /* Panel 3 — rare violet/purple stellar */
+      .sp-panel--3 {
+        border-left: 3px solid rgba(150,60,255,0.50);
+      }
+      .sp-panel--3:hover {
+        border-left-color: #b060ff;
+        background: rgba(6,3,18,0.93) !important;
+      }
+      .sp-panel--3 .sp-nebula {
+        background:
+          radial-gradient(ellipse 55% 100% at 100% 50%, rgba(140,50,255,0.17) 0%, transparent 65%),
+          radial-gradient(ellipse 30% 80%  at 82%  50%, rgba(180,60,255,0.10) 0%, transparent 55%),
+          radial-gradient(ellipse 18% 60%  at 10%  50%, rgba(101,52,255,0.05) 0%, transparent 50%);
+      }
+
+      /* Left metadata column */
+      .sp-left {
+        flex-shrink: 0;
+        width: 270px;
+        padding: 0 32px 0 38px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Stellar classification */
+      .sp-class {
+        font-family: var(--fb);
+        font-size: 9px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+      }
+      .sp-panel--1 .sp-class { color: rgba(229,44,103,0.70); }
+      .sp-panel--2 .sp-class { color: rgba(0,180,255,0.70); }
+      .sp-panel--3 .sp-class { color: rgba(160,80,255,0.70); }
+
+      .sp-name {
+        font-family: var(--fh);
+        font-size: 23px;
+        color: var(--white);
+        letter-spacing: 1px;
+        margin: 0;
+        line-height: 1.1;
+      }
+      .sp-desc {
+        font-family: var(--fb);
+        font-size: 11px;
+        color: var(--gray);
+        opacity: 0.7;
+      }
+
+      .sp-meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 6px;
+      }
+      .sp-price {
+        font-family: var(--fb);
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--white);
+      }
+      .sp-price.free { color: #4ade80; }
+
+      .sp-badge {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 3px 9px;
+        border-radius: 20px;
+      }
+      .sp-panel--1 .sp-badge {
+        background: rgba(229,44,103,0.14);
+        color: var(--gold);
+        border: 1px solid rgba(229,44,103,0.28);
+      }
+      .sp-badge.outline {
+        background: rgba(255,255,255,0.04);
+        color: var(--gray);
+        border: 1px solid rgba(255,255,255,0.12);
+      }
+      .sp-panel--2 .sp-badge:not(.outline) {
+        background: rgba(0,180,255,0.12);
+        color: #00c8ff;
+        border: 1px solid rgba(0,180,255,0.28);
+      }
+      .sp-panel--3 .sp-badge {
+        background: rgba(160,80,255,0.12);
+        color: #b060ff;
+        border: 1px solid rgba(160,80,255,0.28);
+      }
+
+      /* CTA — slides up on hover */
+      .sp-cta {
+        font-family: var(--fb);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 4px;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
+      }
+      .sp-panel--1 .sp-cta { color: var(--gold); }
+      .sp-panel--2 .sp-cta { color: #00c8ff; }
+      .sp-panel--3 .sp-cta { color: #b060ff; }
+      .sp-panel:hover .sp-cta { opacity: 1; transform: translateY(0); }
+
+      /* Specimen text — right side, HUGE, overflows intentionally */
+      .sp-specimen {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        overflow: hidden;
+        padding-right: 24px;
+        position: relative;
+        z-index: 2;
+        mask-image: linear-gradient(to right, transparent 0%, black 20%, black 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 100%);
+      }
+      .sp-text {
+        white-space: nowrap;
+        line-height: 1;
+        user-select: none;
+        transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), color 0.4s, letter-spacing 0.5s;
+      }
+      .sp-panel--1 .sp-text { color: rgba(255,255,255,0.07); }
+      .sp-panel--2 .sp-text { color: rgba(255,255,255,0.06); }
+      .sp-panel--3 .sp-text { color: rgba(255,255,255,0.06); }
+      .sp-panel:hover .sp-text { transform: translateX(-12px) scale(1.03); }
+      .sp-panel--1:hover .sp-text { color: rgba(229,44,103,0.20); }
+      .sp-panel--2:hover .sp-text { color: rgba(0,180,255,0.17); }
+      .sp-panel--3:hover .sp-text { color: rgba(160,80,255,0.20); }
+
+      .sp-text.heavy {
+        font-family: var(--fh);
+        font-size: 118px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -3px;
+      }
+      .sp-text.sans {
+        font-family: var(--fk);
+        font-size: 100px;
+        font-weight: 400;
+      }
+      .sp-text.italic {
+        font-family: var(--fk);
+        font-size: 106px;
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      @media (max-width: 900px) {
+        .sp-panel { height: 140px; }
+        .sp-panel:hover { height: 180px; }
+        .sp-left { width: 210px; padding: 0 22px 0 26px; }
+        .sp-name { font-size: 19px; }
+        .sp-price { font-size: 18px; }
+        .sp-text.heavy  { font-size: 88px; }
+        .sp-text.sans   { font-size: 76px; }
+        .sp-text.italic { font-size: 80px; }
+      }
+      @media (max-width: 600px) {
+        .sp-panel { height: 118px; }
+        .sp-panel:hover { height: 155px; }
+        .sp-left { width: 168px; padding: 0 14px 0 20px; }
+        .sp-name { font-size: 15px; }
+        .sp-desc { display: none; }
+        .sp-price { font-size: 16px; }
+        .sp-text.heavy  { font-size: 64px; }
+        .sp-text.sans   { font-size: 56px; }
+        .sp-text.italic { font-size: 60px; }
+      }
+
+      /* ══════════════════════════════════════════════════
+         BLACK HOLE — Interstellar Singularity v2
+         Concept: Clean · Cinematic · Marvel Universe
+         — Removed noisy full-section spinning rings
+         — 3 distinct disk layers with depth & color
+         — Gradient photon ring (not just a border)
+         — Bigger event horizon with gravitational glow
+      ══════════════════════════════════════════════════ */
       #ecosystem {
         padding: 120px 0;
         position: relative;
         overflow: hidden;
-        background: radial-gradient(ellipse 70% 55% at 50% 50%,
-          #1d0009 0%, #0f0005 25%, #080b10 55%, #040608 100%);
         isolation: isolate;
       }
-      /* Outer wide accretion ring spanning full section */
-      #ecosystem::before {
-        content: '';
-        position: absolute;
-        top: 50%; left: 50%;
-        width: 1500px; height: 1500px;
-        margin: -750px 0 0 -750px;
-        border-radius: 50%;
-        background: conic-gradient(
-          from 0deg,
-          rgba(229,44,103,0.22) 0%,
-          rgba(80,5,28,0.06)    14%,
-          rgba(180,25,75,0.28)  28%,
-          rgba(229,44,103,0.08) 42%,
-          rgba(255,60,40,0.18)  56%,
-          rgba(160,20,65,0.30)  72%,
-          rgba(229,44,103,0.12) 86%,
-          rgba(229,44,103,0.22) 100%
-        );
-        transform: rotate(0deg) scaleY(0.16);
-        animation: ecoRingA 30s linear infinite;
-        pointer-events: none;
-        z-index: 0;
-        filter: blur(10px);
-      }
-      /* Inner tighter accretion belt — reverse spin */
-      #ecosystem::after {
-        content: '';
-        position: absolute;
-        top: 50%; left: 50%;
-        width: 960px; height: 960px;
-        margin: -480px 0 0 -480px;
-        border-radius: 50%;
-        background: conic-gradient(
-          from 200deg,
-          rgba(229,44,103,0.38) 0%,
-          rgba(255,70,30,0.14)  18%,
-          rgba(229,44,103,0.06) 38%,
-          rgba(200,20,75,0.42)  58%,
-          rgba(229,44,103,0.18) 78%,
-          rgba(229,44,103,0.38) 100%
-        );
-        transform: rotate(0deg) scaleY(0.12);
-        animation: ecoRingB 44s linear infinite reverse;
-        pointer-events: none;
-        z-index: 0;
-        filter: blur(6px);
-      }
-      @keyframes ecoRingA {
-        from { transform: rotate(0deg)   scaleY(0.16); }
-        to   { transform: rotate(360deg) scaleY(0.16); }
-      }
-      @keyframes ecoRingB {
-        from { transform: rotate(0deg)   scaleY(0.12); }
-        to   { transform: rotate(360deg) scaleY(0.12); }
-      }
-      /* Deep space radial glow — ambient pink corona */
-      #ecosystem .container {
-        position: relative;
-        z-index: 2;
-      }
+      /* No more full-section spinning chaos rings */
+      #ecosystem::before,
+      #ecosystem::after { display: none !important; }
+
+      #ecosystem .container { position: relative; z-index: 2; }
+
+      /* Wrap */
       .bh-wrap {
         position: relative;
-        width: 680px;
-        height: 680px;
+        width: 700px;
+        height: 700px;
         margin: 0 auto;
       }
+
+      /* Ambient corona pulsing behind everything */
+      .bh-wrap::before {
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 560px; height: 560px;
+        margin: -280px 0 0 -280px;
+        border-radius: 50%;
+        background: radial-gradient(circle,
+          transparent   32%,
+          rgba(229,44,103,0.04) 46%,
+          rgba(229,44,103,0.12) 56%,
+          rgba(229,44,103,0.04) 66%,
+          transparent   76%
+        );
+        animation: bhCorona 5s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 1;
+      }
+      @keyframes bhCorona {
+        0%,100% { transform: scale(1);    opacity: 0.7; }
+        50%     { transform: scale(1.07); opacity: 1;   }
+      }
+
       .bh-canvas {
         position: absolute;
         inset: 0;
@@ -171,79 +395,154 @@
         pointer-events: none;
         border-radius: 50%;
       }
+
+      /* All disks share these */
       .bh-disk {
         position: absolute;
         top: 50%; left: 50%;
         border-radius: 50%;
         pointer-events: none;
       }
+
+      /* Disk 1 — inner bright plasma: white-hot core → orange → pink */
       .bh-disk-1 {
-        width: 260px; height: 65px;
-        margin: -32px 0 0 -130px;
-        background: conic-gradient(from 0deg,rgba(229,44,103,0.95) 0%,rgba(255,110,50,0.6) 20%,rgba(229,44,103,0.08) 50%,rgba(120,15,50,0.85) 75%,rgba(229,44,103,0.95) 100%);
-        animation: bhSpin 5s linear infinite;
-        filter: blur(1.5px);
+        width: 308px; height: 77px;
+        margin: -38px 0 0 -154px;
+        background: conic-gradient(
+          from 0deg,
+          rgba(255,255,255,0.92) 0%,
+          rgba(255,170,70,0.88)  8%,
+          rgba(229,44,103,1)     18%,
+          rgba(100,8,38,0.25)    35%,
+          rgba(229,44,103,0.06)  50%,
+          rgba(100,8,38,0.25)    65%,
+          rgba(229,44,103,1)     82%,
+          rgba(255,140,60,0.75)  92%,
+          rgba(255,255,255,0.92) 100%
+        );
+        animation: bhSpin 6s linear infinite;
+        filter: blur(1px);
+        z-index: 3;
       }
+
+      /* Disk 2 — mid halo: violet → pink → deep violet */
       .bh-disk-2 {
-        width: 365px; height: 92px;
-        margin: -46px 0 0 -182px;
-        background: conic-gradient(from 130deg,rgba(160,25,70,0.65) 0%,rgba(229,44,103,0.35) 30%,rgba(255,70,30,0.25) 55%,rgba(229,44,103,0.55) 80%,rgba(160,25,70,0.65) 100%);
-        animation: bhSpin 9s linear infinite reverse;
-        filter: blur(3px);
+        width: 430px; height: 108px;
+        margin: -54px 0 0 -215px;
+        background: conic-gradient(
+          from 110deg,
+          rgba(101,52,255,0.55)  0%,
+          rgba(180,30,90,0.45)   22%,
+          rgba(229,44,103,0.30)  40%,
+          rgba(30,8,80,0.12)     55%,
+          rgba(229,44,103,0.32)  70%,
+          rgba(101,52,255,0.50)  88%,
+          rgba(101,52,255,0.55) 100%
+        );
+        animation: bhSpin 13s linear infinite reverse;
+        filter: blur(4px);
+        z-index: 2;
       }
+
+      /* Disk 3 — outer wispy haze: barely visible */
       .bh-disk-3 {
-        width: 470px; height: 118px;
-        margin: -59px 0 0 -235px;
-        background: conic-gradient(from 260deg,rgba(229,44,103,0.18) 0%,rgba(90,8,35,0.45) 40%,rgba(229,44,103,0.12) 70%,rgba(200,40,70,0.28) 100%);
-        animation: bhSpin 15s linear infinite;
-        filter: blur(5px);
+        width: 550px; height: 138px;
+        margin: -69px 0 0 -275px;
+        background: conic-gradient(
+          from 230deg,
+          rgba(229,44,103,0.07) 0%,
+          rgba(50,4,22,0.22)    30%,
+          rgba(0,0,0,0)         50%,
+          rgba(50,4,22,0.18)    70%,
+          rgba(229,44,103,0.05) 100%
+        );
+        animation: bhSpin 24s linear infinite;
+        filter: blur(11px);
+        z-index: 1;
       }
+
       @keyframes bhSpin {
-        from { transform: rotate(0deg) scaleY(0.22); }
-        to   { transform: rotate(360deg) scaleY(0.22); }
+        from { transform: rotate(0deg)   scaleY(0.26); }
+        to   { transform: rotate(360deg) scaleY(0.26); }
       }
+
+      /* Photon ring — gradient glow ring, not just a border line */
       .bh-photon-ring {
         position: absolute;
         top: 50%; left: 50%;
-        width: 178px; height: 178px;
-        margin: -89px 0 0 -89px;
+        width: 206px; height: 206px;
+        margin: -103px 0 0 -103px;
         border-radius: 50%;
-        border: 1.5px solid rgba(229,44,103,0.55);
-        box-shadow: 0 0 18px rgba(229,44,103,0.75), 0 0 38px rgba(229,44,103,0.35), inset 0 0 18px rgba(229,44,103,0.18);
-        animation: bhPhoton 3.2s ease-in-out infinite;
+        background: radial-gradient(circle,
+          transparent          57%,
+          rgba(229,44,103,0.9) 63%,
+          rgba(255,130,55,0.5) 69%,
+          rgba(229,44,103,0.1) 77%,
+          transparent          84%
+        );
+        box-shadow:
+          0 0 0 1px rgba(229,44,103,0.35),
+          0 0 28px rgba(229,44,103,0.55),
+          0 0 65px rgba(229,44,103,0.22),
+          0 0 130px rgba(229,44,103,0.08);
+        animation: bhPhoton 3.8s ease-in-out infinite;
         pointer-events: none;
+        z-index: 5;
       }
       @keyframes bhPhoton {
-        0%,100% { box-shadow: 0 0 18px rgba(229,44,103,0.75),0 0 38px rgba(229,44,103,0.35),inset 0 0 18px rgba(229,44,103,0.18); }
-        50%     { box-shadow: 0 0 28px rgba(229,44,103,1),0 0 56px rgba(229,44,103,0.55),inset 0 0 26px rgba(229,44,103,0.28); }
+        0%,100% {
+          box-shadow:
+            0 0 0 1px rgba(229,44,103,0.35),
+            0 0 28px rgba(229,44,103,0.55),
+            0 0 65px rgba(229,44,103,0.22),
+            0 0 130px rgba(229,44,103,0.08);
+        }
+        50% {
+          box-shadow:
+            0 0 0 1.5px rgba(229,44,103,0.60),
+            0 0 50px rgba(229,44,103,0.80),
+            0 0 110px rgba(229,44,103,0.38),
+            0 0 200px rgba(229,44,103,0.14),
+            0 0 300px rgba(229,44,103,0.05);
+        }
       }
+
+      /* Event horizon — larger, absolute void with gravitational glow rim */
       .bh-void {
         position: absolute;
         top: 50%; left: 50%;
-        width: 132px; height: 132px;
-        margin: -66px 0 0 -66px;
+        width: 172px; height: 172px;
+        margin: -86px 0 0 -86px;
         border-radius: 50%;
-        background: radial-gradient(circle at 40% 40%, #0a0002 0%, #000 55%, #080b10 100%);
+        background:
+          radial-gradient(circle at 40% 36%, #110003 0%, #040001 45%, #000 72%, #020006 100%);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         z-index: 6;
-        box-shadow: 0 0 0 4px rgba(0,0,0,0.9);
+        box-shadow:
+          0 0 0 3px #000,
+          0 0 0 5px rgba(229,44,103,0.14),
+          0 0 50px rgba(0,0,0,0.95);
       }
       .bh-void-logo {
         font-family: var(--fh);
-        font-size: 26px;
+        font-size: 34px;
         color: var(--gold);
-        letter-spacing: 2px;
+        letter-spacing: 3px;
         line-height: 1;
+        text-shadow: 0 0 16px rgba(229,44,103,0.9), 0 0 40px rgba(229,44,103,0.4);
       }
       .bh-void-sub {
         font-size: 9px;
-        color: var(--gray);
-        letter-spacing: 3.5px;
-        margin-top: 3px;
+        color: rgba(229,44,103,0.55);
+        letter-spacing: 4.5px;
+        margin-top: 5px;
+        text-transform: uppercase;
       }
+
+      /* SVG beams — subtler dashes */
       .bh-beams {
         position: absolute;
         inset: 0;
@@ -255,74 +554,88 @@
       .bh-beam {
         stroke: var(--gold);
         stroke-width: 1;
-        stroke-opacity: 0.35;
-        stroke-dasharray: 7 5;
-        animation: bhBeam 1.8s linear infinite;
+        stroke-opacity: 0.18;
+        stroke-dasharray: 5 9;
+        animation: bhBeam 2.8s linear infinite;
       }
       @keyframes bhBeam {
         from { stroke-dashoffset: 0; }
-        to   { stroke-dashoffset: -24; }
+        to   { stroke-dashoffset: -28; }
       }
+
+      /* Orbital node cards — glass, more breathing room */
       .bh-node {
         position: absolute;
-        width: 128px;
-        background: rgba(8,11,16,0.88);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border: 1px solid rgba(229,44,103,0.22);
-        border-radius: 16px;
-        padding: 16px 12px 14px;
+        width: 138px;
+        background: rgba(4,2,10,0.88);
+        backdrop-filter: blur(24px) saturate(200%);
+        -webkit-backdrop-filter: blur(24px) saturate(200%);
+        border: 1px solid rgba(229,44,103,0.18);
+        border-radius: 20px;
+        padding: 18px 14px 15px;
         text-align: center;
-        box-shadow: 0 0 22px rgba(229,44,103,0.08), inset 0 1px 0 rgba(255,255,255,0.05);
-        transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        box-shadow:
+          0 0 0 1px rgba(255,255,255,0.04),
+          0 12px 40px rgba(0,0,0,0.85),
+          0 0 24px rgba(229,44,103,0.04),
+          inset 0 1px 0 rgba(255,255,255,0.05);
+        transition: border-color 0.3s, box-shadow 0.35s, transform 0.35s, background 0.3s;
         z-index: 10;
         text-decoration: none;
       }
       .bh-node:hover {
-        border-color: rgba(229,44,103,0.55);
-        box-shadow: 0 0 32px rgba(229,44,103,0.22);
+        border-color: rgba(229,44,103,0.48);
+        background: rgba(14,4,22,0.92) !important;
+        box-shadow:
+          0 0 0 1px rgba(229,44,103,0.10),
+          0 20px 60px rgba(0,0,0,0.85),
+          0 0 56px rgba(229,44,103,0.18),
+          inset 0 1px 0 rgba(255,255,255,0.08);
       }
-      .bh-n-top    { top: 16px;    left: 50%; transform: translateX(-50%); }
-      .bh-n-top:hover    { transform: translateX(-50%) translateY(-4px); }
-      .bh-n-right  { top: 50%;    right: 16px; transform: translateY(-50%); }
-      .bh-n-right:hover  { transform: translateY(-50%) translateX(4px); }
-      .bh-n-bottom { bottom: 16px; left: 50%; transform: translateX(-50%); }
-      .bh-n-bottom:hover { transform: translateX(-50%) translateY(4px); }
-      .bh-n-left   { top: 50%;    left: 16px;  transform: translateY(-50%); }
-      .bh-n-left:hover   { transform: translateY(-50%) translateX(-4px); }
-      .bh-node-icon { font-size: 26px; margin-bottom: 6px; }
+      .bh-n-top    { top: 10px;    left: 50%; transform: translateX(-50%); }
+      .bh-n-right  { top: 50%;    right: 10px; transform: translateY(-50%); }
+      .bh-n-bottom { bottom: 10px; left: 50%; transform: translateX(-50%); }
+      .bh-n-left   { top: 50%;    left: 10px;  transform: translateY(-50%); }
+      .bh-n-top:hover    { transform: translateX(-50%) translateY(-6px); }
+      .bh-n-right:hover  { transform: translateY(-50%) translateX(6px); }
+      .bh-n-bottom:hover { transform: translateX(-50%) translateY(6px); }
+      .bh-n-left:hover   { transform: translateY(-50%) translateX(-6px); }
+      .bh-node-icon { font-size: 28px; margin-bottom: 8px; display: block; }
       .bh-node-name {
         font-family: var(--fh);
-        font-size: 15px;
+        font-size: 16px;
         color: var(--white);
-        letter-spacing: 1.5px;
-        margin-bottom: 4px;
+        letter-spacing: 2px;
+        margin-bottom: 5px;
+        display: block;
       }
       .bh-node-desc {
         font-size: 9.5px;
         color: var(--gray);
-        line-height: 1.55;
-        margin-bottom: 9px;
+        line-height: 1.6;
+        margin-bottom: 10px;
       }
       .bh-node-btn {
         display: inline-block;
         font-size: 10px;
         color: var(--gold);
-        border: 1px solid rgba(229,44,103,0.38);
+        border: 1px solid rgba(229,44,103,0.35);
         border-radius: 20px;
-        padding: 3px 11px;
+        padding: 4px 12px;
         text-decoration: none;
         transition: background 0.2s, color 0.2s;
       }
       .bh-node-btn:hover { background: var(--gold); color: #fff; }
+
       @media (max-width: 900px) {
-        .bh-wrap { width: 500px; height: 500px; }
-        .bh-disk-1 { width: 192px; height: 48px; margin: -24px 0 0 -96px; }
-        .bh-disk-2 { width: 268px; height: 68px; margin: -34px 0 0 -134px; }
-        .bh-disk-3 { width: 345px; height: 87px; margin: -43px 0 0 -172px; }
-        .bh-photon-ring { width: 132px; height: 132px; margin: -66px 0 0 -66px; }
-        .bh-void { width: 98px; height: 98px; margin: -49px 0 0 -49px; }
-        .bh-node { width: 112px; padding: 13px 10px 12px; }
+        .bh-wrap { width: 520px; height: 520px; }
+        .bh-disk-1 { width: 228px; height: 57px; margin: -28px 0 0 -114px; }
+        .bh-disk-2 { width: 318px; height: 80px; margin: -40px 0 0 -159px; }
+        .bh-disk-3 { width: 408px; height: 102px; margin: -51px 0 0 -204px; }
+        .bh-photon-ring { width: 152px; height: 152px; margin: -76px 0 0 -76px; }
+        .bh-void { width: 128px; height: 128px; margin: -64px 0 0 -64px; }
+        .bh-void-logo { font-size: 27px; }
+        .bh-node { width: 120px; padding: 14px 10px 12px; border-radius: 16px; }
         .bh-node-icon { font-size: 22px; }
         .bh-node-name { font-size: 13px; }
       }
@@ -332,10 +645,10 @@
           height: auto;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          grid-template-rows: auto auto;
           gap: 14px;
           padding: 0 12px;
         }
+        .bh-wrap::before,
         .bh-canvas, .bh-disk, .bh-photon-ring, .bh-void, .bh-beams { display: none; }
         .bh-node { position: static; transform: none !important; width: auto; }
         .bh-n-top, .bh-n-right, .bh-n-bottom, .bh-n-left { transform: none !important; }
@@ -445,6 +758,176 @@
       .moon-phase-3 .sacred-aura  { opacity: 1 !important; filter: hue-rotate(15deg) brightness(1.2); }
       .moon-phase-3 .yeva-label   { opacity: 1; transform: translateY(0); }
       .moon-phase-3 .yeva-sublabel{ opacity: 1; }
+
+      /* ════════════════════════════════════════════════════
+         ONE UNIVERSE — Unified cosmic background
+         Every section floats in the same space continuum
+      ════════════════════════════════════════════════════ */
+
+      /* Deep space base */
+      html { background: #030408; }
+      body { background: transparent !important; }
+
+      /* Layer 1 — Fixed void */
+      body::before {
+        content: '';
+        position: fixed; inset: 0; z-index: -3;
+        background: #030408;
+        pointer-events: none;
+      }
+
+      /* Layer 2 — Fixed cosmic nebula (breathes behind every section) */
+      body::after {
+        content: '';
+        position: fixed; inset: 0; z-index: -2;
+        pointer-events: none;
+        background:
+          /* Moon corona — top right where moon lives */
+          radial-gradient(ellipse 80% 45% at 75% 6%,  rgba(229,44,103,0.09) 0%, transparent 58%),
+          /* Left nebula — violet cloud */
+          radial-gradient(ellipse 65% 55% at 2%  28%, rgba(101,52,255,0.08) 0%, transparent 55%),
+          /* Right nebula — pink drift */
+          radial-gradient(ellipse 60% 50% at 98% 48%, rgba(229,44,103,0.06) 0%, transparent 55%),
+          /* Black hole zone — deep void mid-page */
+          radial-gradient(ellipse 55% 22% at 50% 52%, rgba(50,2,16,0.18)   0%, transparent 68%),
+          /* Bottom left — distant cyan star cluster */
+          radial-gradient(ellipse 45% 35% at 15% 88%, rgba(0,160,255,0.03)  0%, transparent 50%),
+          /* Bottom right — purple galaxy arm */
+          radial-gradient(ellipse 40% 30% at 85% 82%, rgba(101,52,255,0.04) 0%, transparent 50%);
+      }
+
+      /* Layer 3 — Fixed star canvas */
+      #home-star-canvas {
+        position: fixed; inset: 0; z-index: -1;
+        pointer-events: none;
+        width: 100%; height: 100%;
+      }
+
+      /* ── Hide blobs — replaced by cosmic nebula ── */
+      .blob { display: none !important; }
+
+      /* ── Nav → space glass ── */
+      .site-nav {
+        background: rgba(3,4,8,0.72) !important;
+        backdrop-filter: blur(40px) saturate(200%) !important;
+        -webkit-backdrop-filter: blur(40px) saturate(200%) !important;
+        border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+        box-shadow: 0 1px 0 rgba(255,255,255,0.04), 0 8px 32px rgba(0,0,0,0.5);
+      }
+
+      /* ── Hero — transparent (moon floats in open space) ── */
+      #hero { background: transparent !important; }
+
+      /* ── What is YOB — glass cards in space ── */
+      .what-is-yob-section { background: transparent !important; }
+      .wiy-pillar {
+        background: rgba(255,255,255,0.025) !important;
+        backdrop-filter: blur(22px) saturate(160%);
+        -webkit-backdrop-filter: blur(22px) saturate(160%);
+        border-color: rgba(255,255,255,0.07) !important;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+      }
+      .wiy-problem {
+        background: rgba(255,255,255,0.02) !important;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-color: rgba(255,255,255,0.05) !important;
+      }
+      .wiy-cta-strip {
+        background: rgba(255,255,255,0.025) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-color: rgba(255,255,255,0.07) !important;
+      }
+
+      /* ── Ecosystem — black hole blends into space void ── */
+      #ecosystem {
+        background: radial-gradient(ellipse 65% 55% at 50% 50%,
+          rgba(18,0,7,0.82) 0%, rgba(10,0,4,0.55) 38%, transparent 72%) !important;
+      }
+
+      /* ── Typography — transparent ── */
+      #typography { background: transparent !important; }
+      .f-card {
+        background: rgba(255,255,255,0.025) !important;
+        backdrop-filter: blur(22px) saturate(160%);
+        -webkit-backdrop-filter: blur(22px) saturate(160%);
+        border-color: rgba(255,255,255,0.08) !important;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05);
+      }
+
+      /* ── Portfolio — transparent ── */
+      #portfolio { background: transparent !important; }
+      .cs-featured {
+        background: rgba(255,255,255,0.025) !important;
+        backdrop-filter: blur(22px) saturate(160%);
+        -webkit-backdrop-filter: blur(22px) saturate(160%);
+        border-color: rgba(255,255,255,0.07) !important;
+      }
+      .cs-card {
+        background: rgba(255,255,255,0.025) !important;
+        backdrop-filter: blur(20px) saturate(160%);
+        -webkit-backdrop-filter: blur(20px) saturate(160%);
+        border-color: rgba(255,255,255,0.07) !important;
+      }
+      .cs-teaser {
+        background: rgba(255,255,255,0.02) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-color: rgba(229,44,103,0.15) !important;
+      }
+
+      /* ── Testimonials — semi-transparent cosmic strip ── */
+      #testimonials {
+        background: rgba(3,4,8,0.35) !important;
+        border-top: 1px solid rgba(255,255,255,0.04) !important;
+        border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+      }
+      .testi-card {
+        background: rgba(255,255,255,0.025) !important;
+        backdrop-filter: blur(22px) saturate(160%);
+        -webkit-backdrop-filter: blur(22px) saturate(160%);
+        border-color: rgba(255,255,255,0.07) !important;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+      }
+
+      /* ── Videos — transparent ── */
+      #videos { background: transparent !important; }
+      .video-card {
+        background: rgba(255,255,255,0.025) !important;
+        backdrop-filter: blur(20px) saturate(160%);
+        -webkit-backdrop-filter: blur(20px) saturate(160%);
+        border-color: rgba(255,255,255,0.07) !important;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      }
+
+      /* ── Resources — transparent ── */
+      #resources { background: transparent !important; }
+      .resource-box {
+        background: rgba(255,255,255,0.025) !important;
+        backdrop-filter: blur(22px) saturate(160%);
+        -webkit-backdrop-filter: blur(22px) saturate(160%);
+        border-color: rgba(255,255,255,0.07) !important;
+      }
+      .res-preview-card {
+        background: rgba(255,255,255,0.025) !important;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-color: rgba(255,255,255,0.06) !important;
+      }
+
+      /* ── Contact — transparent ── */
+      #contact {
+        background: transparent !important;
+        border-top: 1px solid rgba(255,255,255,0.04);
+      }
+      .contact-form-card {
+        background: rgba(255,255,255,0.03) !important;
+        backdrop-filter: blur(28px) saturate(160%);
+        -webkit-backdrop-filter: blur(28px) saturate(160%);
+        border-color: rgba(255,255,255,0.08) !important;
+        box-shadow: 0 16px 64px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06);
+      }
     </style>
   </head>
   <body>
@@ -454,6 +937,9 @@
 
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
+
+    <!-- Universe star canvas — fixed behind all sections -->
+    <canvas id="home-star-canvas"></canvas>
 
     <div id="nav-placeholder"></div>
 
@@ -832,58 +1318,62 @@
           </p>
         </div>
 
-        <!-- 3-Font Teaser -->
-        <div class="font-teaser-row reveal">
-          <!-- Font 1: Premium -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Heading Pro</span>
-              <span class="font-badge">BEST SELLER</span>
-            </div>
-            <div class="f-preview heavy">
-              សិល្បៈឌីជីថល<span class="f-bg-letter">ស</span>
-            </div>
-            <div class="f-footer">
-              <span class="f-price">$15.00</span>
-              <a href="fonts.html" class="f-btn premium"
-                ><i class="fas fa-shopping-cart"></i> Buy</a
-              >
-            </div>
-          </div>
+        <!-- Stellar Specimen Panels -->
+        <div class="stellar-panels reveal">
 
-          <!-- Font 2: Free -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Content Sans</span>
-              <span class="font-badge outline">BASIC</span>
+          <!-- Panel 1 — YOB Heading Pro · Supergiant Class · Warm Pink/Orange -->
+          <a href="fonts.html" class="sp-panel sp-panel--1">
+            <div class="sp-nebula"></div>
+            <div class="sp-left">
+              <span class="sp-class">✦ SUPERGIANT CLASS</span>
+              <h3 class="sp-name">YOB Heading Pro</h3>
+              <p class="sp-desc">Bold · Display · Khmer Premium</p>
+              <div class="sp-meta">
+                <span class="sp-price">$15.00</span>
+                <span class="sp-badge">BEST SELLER</span>
+              </div>
+              <span class="sp-cta"><i class="fas fa-shopping-cart"></i> Buy Now →</span>
             </div>
-            <div class="f-preview sans">
-              អានងាយស្រួលយល់<span class="f-bg-letter">អ</span>
+            <div class="sp-specimen">
+              <span class="sp-text heavy">សិល្បៈឌីជីថល</span>
             </div>
-            <div class="f-footer">
-              <span class="f-price free">Free</span>
-              <a href="fonts.html" class="f-btn free"
-                ><i class="fas fa-download"></i> Get</a
-              >
-            </div>
-          </div>
+          </a>
 
-          <!-- Font 3: Premium -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Signature</span>
-              <span class="font-badge">ELEGANT</span>
+          <!-- Panel 2 — YOB Content Sans · Main Sequence · Cool Blue -->
+          <a href="fonts.html" class="sp-panel sp-panel--2">
+            <div class="sp-nebula"></div>
+            <div class="sp-left">
+              <span class="sp-class">◈ MAIN SEQUENCE</span>
+              <h3 class="sp-name">YOB Content Sans</h3>
+              <p class="sp-desc">Clean · Readable · Khmer Body</p>
+              <div class="sp-meta">
+                <span class="sp-price free">Free</span>
+                <span class="sp-badge outline">BASIC</span>
+              </div>
+              <span class="sp-cta"><i class="fas fa-download"></i> Download Free →</span>
             </div>
-            <div class="f-preview italic">
-              ហត្ថលេខាប្រណិត<span class="f-bg-letter">ហ</span>
+            <div class="sp-specimen">
+              <span class="sp-text sans">អានងាយស្រួលយល់</span>
             </div>
-            <div class="f-footer">
-              <span class="f-price">$20.00</span>
-              <a href="fonts.html" class="f-btn premium"
-                ><i class="fas fa-shopping-cart"></i> Buy</a
-              >
+          </a>
+
+          <!-- Panel 3 — YOB Signature · Rare Binary · Deep Violet -->
+          <a href="fonts.html" class="sp-panel sp-panel--3">
+            <div class="sp-nebula"></div>
+            <div class="sp-left">
+              <span class="sp-class">⬡ RARE BINARY</span>
+              <h3 class="sp-name">YOB Signature</h3>
+              <p class="sp-desc">Elegant · Script · Khmer Luxury</p>
+              <div class="sp-meta">
+                <span class="sp-price">$20.00</span>
+                <span class="sp-badge">ELEGANT</span>
+              </div>
+              <span class="sp-cta"><i class="fas fa-shopping-cart"></i> Buy Now →</span>
             </div>
-          </div>
+            <div class="sp-specimen">
+              <span class="sp-text italic">ហត្ថលេខាប្រណិត</span>
+            </div>
+          </a>
 
         </div>
 
@@ -1821,6 +2311,63 @@
           face.style.opacity = '1';
         }, 100);
       });
+    })();
+    </script>
+
+    <!-- Universe Star Canvas — fixed behind all sections -->
+    <script>
+    (function () {
+      var canvas = document.getElementById('home-star-canvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var stars = [];
+      var NUM = 320;
+
+      function resize() {
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      function mkStar() {
+        return {
+          x     : Math.random() * window.innerWidth,
+          y     : Math.random() * window.innerHeight,
+          r     : 0.25 + Math.random() * 1.1,
+          base  : 0.08 + Math.random() * 0.45,
+          speed : 0.4  + Math.random() * 0.9,
+          phase : Math.random() * Math.PI * 2,
+          // subtle color tint: white / faint pink / faint violet
+          hue   : Math.random() < 0.75 ? 0 : (Math.random() < 0.5 ? 330 : 265)
+        };
+      }
+
+      for (var i = 0; i < NUM; i++) stars.push(mkStar());
+
+      var t = 0;
+      function tick() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        t += 0.012;
+        for (var i = 0; i < stars.length; i++) {
+          var s = stars[i];
+          var twinkle = s.base * (0.45 + 0.55 * Math.sin(t * s.speed + s.phase));
+          ctx.globalAlpha = twinkle;
+          if (s.hue === 0) {
+            ctx.fillStyle = '#ffffff';
+          } else if (s.hue === 330) {
+            ctx.fillStyle = 'hsl(330,70%,80%)';
+          } else {
+            ctx.fillStyle = 'hsl(265,60%,80%)';
+          }
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(tick);
+      }
+      tick();
     })();
     </script>
 
