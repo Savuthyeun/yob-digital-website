@@ -1,0 +1,10 @@
+{
+  "markdown.validate.enabled": false,
+  "problems.decorations.enabled": true,
+  "files.exclude": {
+    "**/.git": true
+  },
+  "search.exclude": {
+    "**/.git": true
+  }
+}

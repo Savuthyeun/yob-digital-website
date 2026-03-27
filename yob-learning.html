@@ -1,933 +1,2226 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="km">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YOB Learning — AI & Digital Skills for Cambodia</title>
-  <meta name="description" content="រៀន AI Tools, Digital Marketing, Web Development ជាភាសាខ្មែរ 100% — YOB Digital Learning Hub" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOB Learning — AI & Digital Skills for Cambodia</title>
+    <meta
+      name="description"
+      content="រៀន AI Tools, Digital Marketing, Web Development ជាភាសាខ្មែរ 100% — YOB Digital Learning Hub"
+    />
+    <!-- SEO -->
+    <link
+      rel="canonical"
+      href="https://yobdigital.netlify.app/yob-learning.html"
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
 
-  <!-- DNS Prefetch -->
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="YOB Learning — AI & Digital Skills for Cambodia"
+    />
+    <meta
+      property="og:description"
+      content="រៀន AI Tools, Digital Marketing, Web Development ជាភាសាខ្មែរ 100% — YOB Digital Learning Hub"
+    />
+    <meta
+      property="og:image"
+      content="https://yobdigital.netlify.app/images/og-cover.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://yobdigital.netlify.app/yob-learning.html"
+    />
+    <meta property="og:type" content="website" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/favicon.png" />
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Preload critical Google Fonts for LCP -->
+    <link
+      rel="preload"
+      href="https://fonts.gstatic.com/s/bebasneue/v10/JTUSjIgdlkC8_g_vfd6_Yg.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Font Awesome (async load) -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    /></noscript>
 
-  <!-- YOB Shared Styles -->
-  <link rel="stylesheet" href="css/style.css" />
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <!-- YOB Shared Styles -->
+    <link rel="stylesheet" href="css/style.css" />
 
-  <style>
+    <style>
+      /* ════════════════════════════════════════════════════
+         ETERNITY VERSION — Space & Glass Morphism
+         Concept: លំហអវកាស · Cosmic Nebula · Crystal Glass
+      ════════════════════════════════════════════════════ */
 
-/* Page-scoped variables not in style.css */
-:root {
-  --dark4:  #1C1D2C;
-  --dark5:  #242538;
-  --bord2:  rgba(255,255,255,0.1);
-  --muted:  #54556C;
-  --muted2: #8889A4;
-  --gold2:  #ff8ab0;
-  --gold3:  #ffb3cc;
-  --glow:   rgba(229,44,103,0.12);
-}
+      /* 1 ── Deep space base */
+      html { background: #030408; }
+      body  { background: transparent; }
 
-/* ══════════════════════════════════════
+      /* Cosmic nebula layers fixed behind everything */
+      body::before {
+        content: '';
+        position: fixed; inset: 0; z-index: -3;
+        background: #030408;
+      }
+      body::after {
+        content: '';
+        position: fixed; inset: 0; z-index: -2;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse 110% 60% at 15% 20%,  rgba(101, 52, 255, 0.10) 0%, transparent 55%),
+          radial-gradient(ellipse 90%  70% at 85% 80%,  rgba(229, 44, 103, 0.08) 0%, transparent 55%),
+          radial-gradient(ellipse 70%  50% at 50% 50%,  rgba(20,  80, 200, 0.06) 0%, transparent 60%),
+          radial-gradient(ellipse 50%  40% at 75% 12%,  rgba(0,  200, 255, 0.04) 0%, transparent 50%),
+          radial-gradient(ellipse 40%  60% at 25% 90%,  rgba(255, 100, 200, 0.05) 0%, transparent 50%);
+      }
+
+      /* 2 ── Star canvas */
+      #star-canvas {
+        position: fixed; inset: 0; z-index: -1;
+        pointer-events: none; display: block;
+        width: 100%; height: 100%;
+      }
+
+      /* 3 ── Glass helper */
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+      }
+
+      /* 4 ── Nav → ultra glass */
+      .learn-nav {
+        background: rgba(3, 4, 8, 0.60) !important;
+        backdrop-filter: blur(40px) saturate(200%) !important;
+        -webkit-backdrop-filter: blur(40px) saturate(200%) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+        box-shadow: 0 1px 0 rgba(255,255,255,0.04), 0 8px 32px rgba(0,0,0,0.5);
+      }
+
+      /* 5 ── Hero */
+      .hero { background: transparent !important; }
+      .hero-grid {
+        background-image:
+          linear-gradient(rgba(101, 52, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(101, 52, 255, 0.035) 1px, transparent 1px) !important;
+        mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 20%, transparent 100%) !important;
+      }
+      .orb1 {
+        width: 700px !important; height: 700px !important;
+        top: -200px !important; left: 0% !important;
+        background: radial-gradient(circle, rgba(101,52,255,0.11), transparent 65%) !important;
+        filter: blur(80px) !important;
+      }
+      .orb2 {
+        width: 600px !important; height: 600px !important;
+        top: 80px !important; right: 0% !important;
+        background: radial-gradient(circle, rgba(229,44,103,0.09), transparent 65%) !important;
+        filter: blur(80px) !important;
+      }
+
+      /* Ticker badge → glass pill */
+      .hero-ticker {
+        background: rgba(255,255,255,0.05) !important;
+        border: 1px solid rgba(255,255,255,0.10) !important;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 2px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08);
+      }
+
+      /* Trust row → glass pill */
+      .trust-row {
+        background: rgba(255,255,255,0.04) !important;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255,255,255,0.07) !important;
+        border-radius: 40px;
+        padding: 10px 24px !important;
+        display: inline-flex !important;
+        gap: 6px; flex-wrap: wrap;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+      }
+
+      /* 6 ── Scroll banner → glass */
+      .scroll-banner {
+        background: rgba(255,255,255,0.02) !important;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-color: rgba(255,255,255,0.05) !important;
+      }
+
+      /* 7 ── Stats band → glass */
+      .stats-band {
+        background: rgba(255,255,255,0.02) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-color: rgba(255,255,255,0.05) !important;
+      }
+      .stats-grid { background: rgba(255,255,255,0.04) !important; }
+      .stat-block {
+        background: rgba(3,4,8,0.6) !important;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .stat-block:hover { background: rgba(255,255,255,0.05) !important; }
+
+      /* 8 ── Path cards → glass */
+      .path-card {
+        background: rgba(255,255,255,0.03) !important;
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        border: 1px solid rgba(255,255,255,0.07) !important;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06);
+      }
+      .path-card:hover {
+        background: rgba(255,255,255,0.05) !important;
+        border-color: rgba(229,44,103,0.25) !important;
+        box-shadow: 0 24px 64px rgba(0,0,0,0.7), 0 0 48px rgba(229,44,103,0.08), inset 0 1px 0 rgba(255,255,255,0.10);
+        transform: translateY(-6px) !important;
+      }
+      .path-footer {
+        border-color: rgba(255,255,255,0.05) !important;
+        background: rgba(0,0,0,0.25);
+      }
+      .path-icon {
+        border-color: rgba(255,255,255,0.10) !important;
+        backdrop-filter: blur(8px);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+      }
+      .path-glow { opacity: 0.18 !important; filter: blur(50px) !important; }
+      .path-card:hover .path-glow { opacity: 0.32 !important; }
+
+      /* 9 ── Course cards → glass */
+      .course-card {
+        background: rgba(255,255,255,0.025) !important;
+        backdrop-filter: blur(16px) saturate(160%);
+        -webkit-backdrop-filter: blur(16px) saturate(160%);
+        border: 1px solid rgba(255,255,255,0.06) !important;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+      }
+      .course-card:hover {
+        background: rgba(255,255,255,0.05) !important;
+        border-color: rgba(229,44,103,0.20) !important;
+        box-shadow: 0 16px 48px rgba(0,0,0,0.65), 0 0 28px rgba(229,44,103,0.06);
+      }
+      .course-footer {
+        border-color: rgba(255,255,255,0.05) !important;
+        background: rgba(0,0,0,0.2);
+      }
+      .progress-bar { background: rgba(255,255,255,0.07) !important; }
+      .course-thumb-bg { opacity: 0.7 !important; }
+      .course-card:hover .course-thumb-bg { opacity: 1 !important; }
+
+      /* 10 ── Filter pills → glass */
+      .filt {
+        background: rgba(255,255,255,0.04) !important;
+        border-color: rgba(255,255,255,0.07) !important;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+      .filt:hover { background: rgba(255,255,255,0.07) !important; }
+      .filt.on {
+        background: rgba(229,44,103,0.12) !important;
+        border-color: rgba(229,44,103,0.30) !important;
+        box-shadow: 0 0 16px rgba(229,44,103,0.12);
+      }
+
+      /* 11 ── Flow diagram → glass */
+      .flow-diagram {
+        background: rgba(255,255,255,0.025) !important;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-color: rgba(255,255,255,0.07) !important;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+      }
+      .flow-node {
+        background: rgba(255,255,255,0.04) !important;
+        border-color: rgba(255,255,255,0.08) !important;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      }
+      .flow-node:hover {
+        background: rgba(255,255,255,0.07) !important;
+        border-color: rgba(229,44,103,0.25) !important;
+        box-shadow: 0 6px 24px rgba(0,0,0,0.5), 0 0 16px rgba(229,44,103,0.08);
+      }
+      .flow-node.root {
+        background: rgba(229,44,103,0.10) !important;
+        box-shadow: 0 0 24px rgba(229,44,103,0.12), inset 0 1px 0 rgba(255,255,255,0.08);
+      }
+
+      /* 12 ── CTA → cosmic glass + gradient border */
+      .cta-card {
+        background: rgba(255,255,255,0.03) !important;
+        backdrop-filter: blur(32px) saturate(200%);
+        -webkit-backdrop-filter: blur(32px) saturate(200%);
+        border: 1px solid rgba(229,44,103,0.20) !important;
+        box-shadow:
+          0 0 100px rgba(229,44,103,0.08),
+          0 48px 96px rgba(0,0,0,0.65),
+          inset 0 1px 0 rgba(255,255,255,0.08);
+      }
+      .cta-card::before {
+        background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(229,44,103,0.10), transparent 65%) !important;
+      }
+
+      /* 13 ── Subtle section dividers */
+      .flow-section { border-color: rgba(255,255,255,0.05) !important; }
+
+      /* 14 ── Section courses border override */
+      section[style*="border-top"] { border-color: rgba(255,255,255,0.05) !important; }
+
+      /* ════════════════════════════════════════════════════ */
+
+      /* Page-scoped variables not in style.css */
+      :root {
+        --path-ai:  #9b6dff;
+        --path-mkt: #e8453c;
+        --path-web: #10b981;
+        --dark4: #1c1d2c;
+        --dark5: #242538;
+        --bord2: rgba(255, 255, 255, 0.1);
+        --muted: #54556c;
+        --muted2: #8889a4;
+        --gold2: #ff8ab0;
+        --gold3: #ffb3cc;
+        --glow: rgba(229, 44, 103, 0.12);
+      }
+
+      /* ══════════════════════════════════════
    NAV — Google Skills Concept
    Logo | Sep | Badge | Links | CTA
 ══════════════════════════════════════ */
-.learn-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 200;
-  height: 64px;
-  background: rgba(8,9,16,0.96);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: stretch;
-  padding: 0 32px;
-}
+      .learn-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        height: 64px;
+        background: rgba(8, 9, 16, 0.96);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: stretch;
+        padding: 0 32px;
+      }
 
-/* Left: Logo + Sep + Badge */
-.learn-nav-left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-shrink: 0;
-  margin-right: 8px;
-}
-.learn-nav-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
-  letter-spacing: 2px;
-  background: linear-gradient(120deg, var(--white) 30%, var(--gold));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-decoration: none;
-  white-space: nowrap;
-  line-height: 1;
-}
-.learn-nav-sep {
-  width: 1px;
-  height: 20px;
-  background: var(--bord2);
-  flex-shrink: 0;
-}
-.learn-nav-badge {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  padding: 3px 10px;
-  border-radius: 20px;
-  background: var(--glow);
-  border: 1px solid rgba(229,44,103,0.2);
-  color: var(--gold);
-  white-space: nowrap;
-  text-transform: uppercase;
-}
+      /* Left: Logo + Sep + Badge */
+      .learn-nav-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-shrink: 0;
+        margin-right: 8px;
+      }
+      .learn-nav-logo {
+        font-family: var(--fb);
+        font-size: 22px;
+        letter-spacing: 2px;
+        background: linear-gradient(120deg, var(--white) 30%, var(--gold));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+        white-space: nowrap;
+        line-height: 1;
+      }
+      .learn-nav-sep {
+        width: 1px;
+        height: 20px;
+        background: var(--bord2);
+        flex-shrink: 0;
+      }
+      .learn-nav-badge {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        padding: 3px 10px;
+        border-radius: 20px;
+        background: var(--glow);
+        border: 1px solid rgba(229, 44, 103, 0.2);
+        color: var(--gold);
+        white-space: nowrap;
+        text-transform: uppercase;
+      }
 
-/* Center: Nav links — Google Skills style */
-.learn-nav-links {
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-  flex: 1;
-}
-.learn-nav-links a {
-  display: flex;
-  align-items: center;
-  padding: 0 16px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--muted2);
-  text-decoration: none;
-  white-space: nowrap;
-  position: relative;
-  transition: color var(--t);
-  /* Google Skills: bottom border indicator */
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px; /* sit on top of nav border */
-}
-.learn-nav-links a:hover {
-  color: var(--white);
-  border-bottom-color: rgba(229,44,103,0.35);
-}
-.learn-nav-links a.act {
-  color: var(--white);
-  font-weight: 600;
-  border-bottom-color: var(--gold);
-}
+      /* Center: Nav links — Google Skills style */
+      .learn-nav-links {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        flex: 1;
+      }
+      .learn-nav-links a {
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--muted2);
+        text-decoration: none;
+        white-space: nowrap;
+        position: relative;
+        transition: color var(--t);
+        /* Google Skills: bottom border indicator */
+        border-bottom: 2px solid transparent;
+        margin-bottom: -1px; /* sit on top of nav border */
+      }
+      .learn-nav-links a:hover {
+        color: var(--white);
+        border-bottom-color: rgba(229, 44, 103, 0.35);
+      }
+      .learn-nav-links a.act {
+        color: var(--white);
+        font-weight: 600;
+        border-bottom-color: var(--gold);
+      }
 
-/* Right: CTA buttons */
-.learn-nav-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-left: auto;
-  flex-shrink: 0;
-}
-.btn-nav-ghost {
-  padding: 7px 16px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  background: none;
-  border: 1px solid var(--bord2);
-  color: var(--muted2);
-  cursor: pointer;
-  transition: all var(--t);
-  white-space: nowrap;
-  font-family: 'DM Sans', sans-serif;
-  text-decoration: none;
-}
-.btn-nav-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
-.btn-nav-gold {
-  padding: 7px 20px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  background: var(--gold);
-  color: #fff;
-  cursor: pointer;
-  border: none;
-  transition: all var(--t);
-  white-space: nowrap;
-  font-family: 'DM Sans', sans-serif;
-  text-decoration: none;
-}
-.btn-nav-gold:hover { background: var(--gold2); transform: translateY(-1px); }
+      /* Right: CTA buttons */
+      .learn-nav-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: auto;
+        flex-shrink: 0;
+      }
+      .btn-nav-ghost {
+        padding: 7px 16px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        background: none;
+        border: 1px solid var(--bord2);
+        color: var(--muted2);
+        cursor: pointer;
+        transition: all var(--t);
+        white-space: nowrap;
+        font-family: var(--fb);
+        text-decoration: none;
+      }
+      .btn-nav-ghost:hover {
+        color: var(--white);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .btn-nav-gold {
+        padding: 7px 20px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        background: var(--gold);
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        transition: all var(--t);
+        white-space: nowrap;
+        font-family: var(--fb);
+        text-decoration: none;
+      }
+      .btn-nav-gold:hover {
+        background: var(--gold2);
+        transform: translateY(-1px);
+      }
 
-/* Mobile hamburger */
-.learn-nav-hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  margin-left: 8px;
-  flex-shrink: 0;
-}
-.learn-nav-hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--white);
-  border-radius: 2px;
-  transition: all 0.25s ease;
-}
+      /* Mobile hamburger */
+      .learn-nav-hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+      .learn-nav-hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--white);
+        border-radius: 2px;
+        transition: all 0.25s ease;
+      }
 
-/* Mobile: hide links, show hamburger */
-@media (max-width: 900px) {
-  .learn-nav-links { display: none; }
-  .learn-nav-hamburger { display: flex; }
-}
-@media (max-width: 600px) { .btn-nav-ghost { display: none; } }
+      /* Mobile: hide links, show hamburger */
+      @media (max-width: 900px) {
+        .learn-nav-links {
+          display: none;
+        }
+        .learn-nav-hamburger {
+          display: flex;
+        }
+      }
+      @media (max-width: 600px) {
+        .btn-nav-ghost {
+          display: none;
+        }
+      }
 
-/* ══ HERO ══ */
-.hero {
-  position: relative; z-index: 1;
-  padding: 110px 32px 0;
-  overflow: hidden;
-}
-.hero-grid {
-  position: absolute; inset: 0; z-index: 0;
-  background-image:
-    linear-gradient(rgba(229,44,103,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(229,44,103,0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
-}
-.orb { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; filter: blur(60px); }
-.orb1 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(229,44,103,0.08), transparent 65%); top: -100px; left: 10%; animation: float1 8s ease-in-out infinite; }
-.orb2 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(99,102,241,0.06), transparent 65%); top: 50px; right: 10%; animation: float2 10s ease-in-out infinite; }
-@keyframes float1 { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-20px) scale(1.05)} }
-@keyframes float2 { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(20px) scale(0.95)} }
+      /* ══ HERO ══ */
+      .hero {
+        position: relative;
+        z-index: 1;
+        padding: 110px 32px 0;
+        overflow: hidden;
+      }
+      .hero-grid {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background-image:
+          linear-gradient(rgba(229, 44, 103, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(229, 44, 103, 0.04) 1px, transparent 1px);
+        background-size: 60px 60px;
+        mask-image: radial-gradient(
+          ellipse 80% 60% at 50% 0%,
+          black 40%,
+          transparent 100%
+        );
+      }
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 0;
+        filter: blur(60px);
+      }
+      .orb1 {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(229, 44, 103, 0.08),
+          transparent 65%
+        );
+        top: -100px;
+        left: 10%;
+        animation: float1 8s ease-in-out infinite;
+      }
+      .orb2 {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(99, 102, 241, 0.06),
+          transparent 65%
+        );
+        top: 50px;
+        right: 10%;
+        animation: float2 10s ease-in-out infinite;
+      }
+      @keyframes float1 {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-20px) scale(1.05);
+        }
+      }
+      @keyframes float2 {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(20px) scale(0.95);
+        }
+      }
 
-.hero-inner {
-  max-width: 900px; margin: 0 auto;
-  text-align: center; position: relative; z-index: 1;
-  padding-bottom: 64px;
-}
-.hero-ticker {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: rgba(229,44,103,0.08);
-  border: 1px solid rgba(229,44,103,0.18);
-  border-radius: 30px; padding: 6px 16px 6px 8px;
-  font-size: 12px; font-weight: 600; color: var(--gold2);
-  margin-bottom: 24px; cursor: pointer; transition: all var(--t);
-}
-.hero-ticker:hover { background: rgba(229,44,103,0.14); }
-.ticker-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 6px var(--gold); animation: pulse 2s ease-in-out infinite; }
-@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.3)} }
-.ticker-text { font-family: 'Hanuman', serif; }
-.ticker-arr { font-size: 10px; opacity: 0.6; }
+      .hero-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        padding-bottom: 64px;
+      }
+      .hero-ticker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(229, 44, 103, 0.08);
+        border: 1px solid rgba(229, 44, 103, 0.18);
+        border-radius: 30px;
+        padding: 6px 16px 6px 8px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--gold2);
+        margin-bottom: 24px;
+        cursor: pointer;
+        transition: all var(--t);
+      }
+      .hero-ticker:hover {
+        background: rgba(229, 44, 103, 0.14);
+      }
+      .ticker-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 6px var(--gold);
+        animation: pulse 2s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.6;
+          transform: scale(1.3);
+        }
+      }
+      .ticker-text {
+        font-family: var(--fk);
+      }
+      .ticker-arr {
+        font-size: 10px;
+        opacity: 0.6;
+      }
 
-.hero-h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(56px, 9vw, 108px);
-  line-height: 0.9; letter-spacing: 2px;
-  margin-bottom: 24px;
-}
-.hero-h1 .row1 { display: block; background: linear-gradient(135deg, var(--white) 50%, rgba(255,255,255,0.5)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero-h1 .row2 { display: block; background: linear-gradient(135deg, var(--gold) 20%, var(--gold3)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero-h1 .row3 { display: block; background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 70%; }
+      .hero-h1 {
+        font-family: var(--fb);
+        font-size: clamp(56px, 9vw, 108px);
+        line-height: 0.9;
+        letter-spacing: 2px;
+        margin-bottom: 24px;
+      }
+      .hero-h1 .row1 {
+        display: block;
+        background: linear-gradient(
+          135deg,
+          var(--white) 50%,
+          rgba(255, 255, 255, 0.5)
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero-h1 .row2 {
+        display: block;
+        background: linear-gradient(135deg, var(--gold) 20%, var(--gold3));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero-h1 .row3 {
+        display: block;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.3),
+          rgba(255, 255, 255, 0.1)
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 70%;
+      }
 
-.hero-desc { font-family: 'Hanuman', serif; font-size: 17px; color: var(--muted2); line-height: 1.9; max-width: 540px; margin: 0 auto 32px; }
-.hero-desc strong { color: var(--white); }
+      .hero-desc {
+        font-family: var(--fk);
+        font-size: 17px;
+        color: var(--muted2);
+        line-height: 1.9;
+        max-width: 540px;
+        margin: 0 auto 32px;
+      }
+      .hero-desc strong {
+        color: var(--white);
+      }
 
-.hero-btns { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
-.btn-lg { padding: 14px 32px; border-radius: 12px; font-size: 15px; font-weight: 700; text-decoration: none; transition: all var(--t); display: inline-flex; align-items: center; gap: 9px; border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
-.btn-gold-lg { background: var(--gold); color: #fff; box-shadow: 0 6px 24px rgba(229,44,103,0.3); }
-.btn-gold-lg:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(229,44,103,0.4); background: var(--gold2); }
-.btn-outline-lg { background: none; border: 1px solid var(--bord2); color: var(--muted2); }
-.btn-outline-lg:hover { border-color: var(--gold); color: var(--gold); }
+      .hero-btns {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 48px;
+      }
+      .btn-lg {
+        padding: 14px 32px;
+        border-radius: 12px;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all var(--t);
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        border: none;
+        cursor: pointer;
+        font-family: var(--fb);
+      }
+      .btn-gold-lg {
+        background: var(--gold);
+        color: #fff;
+        box-shadow: 0 6px 24px rgba(229, 44, 103, 0.3);
+      }
+      .btn-gold-lg:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(229, 44, 103, 0.4);
+        background: var(--gold2);
+      }
+      .btn-outline-lg {
+        background: none;
+        border: 1px solid var(--bord2);
+        color: var(--muted2);
+      }
+      .btn-outline-lg:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
 
-.trust-row { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; font-size: 12px; color: var(--muted); }
-.trust-avatar { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--dark2); background: var(--dark4); display: flex; align-items: center; justify-content: center; font-size: 13px; margin-left: -6px; }
-.trust-avatar:first-child { margin-left: 0; }
-.trust-avatars { display: flex; align-items: center; }
-.trust-sep { width: 1px; height: 14px; background: var(--bord2); margin: 0 10px; }
+      .trust-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        flex-wrap: wrap;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      .trust-avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 2px solid var(--dark2);
+        background: var(--dark4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        margin-left: -6px;
+      }
+      .trust-avatar:first-child {
+        margin-left: 0;
+      }
+      .trust-avatars {
+        display: flex;
+        align-items: center;
+      }
+      .trust-sep {
+        width: 1px;
+        height: 14px;
+        background: var(--bord2);
+        margin: 0 10px;
+      }
 
-/* ══ SCROLLING BANNER ══ */
-.scroll-banner { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 14px 0; overflow: hidden; background: var(--dark2); position: relative; z-index: 1; }
-.scroll-track { display: flex; gap: 0; animation: scrollLeft 20s linear infinite; width: max-content; }
-.scroll-track:hover { animation-play-state: paused; }
-.scroll-item { display: flex; align-items: center; gap: 10px; padding: 0 40px; white-space: nowrap; font-size: 13px; font-weight: 600; color: var(--muted); }
-.scroll-item strong { color: var(--gold2); }
-.scroll-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: 0.4; }
-@keyframes scrollLeft { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+      /* ══ SCROLLING BANNER ══ */
+      .scroll-banner {
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 14px 0;
+        overflow: hidden;
+        background: var(--dark2);
+        position: relative;
+        z-index: 1;
+      }
+      .scroll-track {
+        display: flex;
+        gap: 0;
+        animation: scrollLeft 20s linear infinite;
+        width: max-content;
+      }
+      .scroll-track:hover {
+        animation-play-state: paused;
+      }
+      .scroll-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 40px;
+        white-space: nowrap;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .scroll-item strong {
+        color: var(--gold2);
+      }
+      .scroll-dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--gold);
+        opacity: 0.4;
+      }
+      @keyframes scrollLeft {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
 
-/* ══ SECTION BASE ══ */
-.section { position: relative; z-index: 1; padding: 72px 0; }
-.wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-.sec-head { margin-bottom: 40px; }
-.sec-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
-.sec-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(30px, 4vw, 46px); letter-spacing: 1.5px; line-height: 1; background: linear-gradient(135deg, var(--white), var(--muted2)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
-.sec-sub { font-family: 'Hanuman', serif; font-size: 14px; color: var(--muted2); line-height: 1.8; max-width: 560px; }
+      /* ══ SECTION BASE ══ */
+      .section {
+        position: relative;
+        z-index: 1;
+        padding: 72px 0;
+      }
+      .wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+      .sec-head {
+        margin-bottom: 40px;
+      }
+      .sec-eyebrow {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 8px;
+      }
+      .sec-title {
+        font-family: var(--fb);
+        font-size: clamp(30px, 4vw, 46px);
+        letter-spacing: 1.5px;
+        line-height: 1;
+        background: linear-gradient(135deg, var(--white), var(--muted2));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 8px;
+      }
+      .sec-sub {
+        font-family: var(--fk);
+        font-size: 14px;
+        color: var(--muted2);
+        line-height: 1.8;
+        max-width: 560px;
+      }
 
-/* ══ PATH CARDS ══ */
-.paths-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.path-card { border-radius: 18px; overflow: hidden; border: 1px solid var(--border); cursor: pointer; transition: all var(--t); background: var(--dark2); text-decoration: none; display: block; position: relative; }
-.path-card:hover { transform: translateY(-5px); border-color: rgba(229,44,103,0.2); box-shadow: 0 20px 48px rgba(0,0,0,0.4); }
-.path-header { padding: 28px 24px 20px; position: relative; overflow: hidden; }
-.path-glow { position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; border-radius: 50%; opacity: 0.12; filter: blur(40px); transition: opacity var(--t); }
-.path-card:hover .path-glow { opacity: 0.22; }
-.path-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.08); position: relative; z-index: 1; }
-.path-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; color: var(--white); margin-bottom: 4px; position: relative; z-index: 1; }
-.path-title-kh { font-family: 'Hanuman', serif; font-size: 12px; color: var(--muted2); position: relative; z-index: 1; }
-.path-body { padding: 0 24px 20px; }
-.path-desc { font-family: 'Hanuman', serif; font-size: 13px; color: var(--muted2); line-height: 1.8; margin-bottom: 16px; }
-.path-items { display: flex; flex-direction: column; gap: 6px; }
-.path-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted2); }
-.path-item-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
-.path-footer { padding: 14px 24px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-.path-count { font-size: 11px; color: var(--muted); font-weight: 600; }
-.path-arr { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; transition: all var(--t); border: 1px solid var(--border); color: var(--muted2); }
-.path-card:hover .path-arr { background: var(--gold); color: #fff; border-color: var(--gold); }
+      /* ══ PATH CARDS ══ */
+      .paths-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .path-card {
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        cursor: pointer;
+        transition: all var(--t);
+        background: var(--dark2);
+        text-decoration: none;
+        display: block;
+        position: relative;
+      }
+      .path-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(229, 44, 103, 0.2);
+        box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+      }
+      .path-header {
+        padding: 28px 24px 20px;
+        position: relative;
+        overflow: hidden;
+      }
+      .path-glow {
+        position: absolute;
+        top: -40px;
+        right: -40px;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        opacity: 0.12;
+        filter: blur(40px);
+        transition: opacity var(--t);
+      }
+      .path-card:hover .path-glow {
+        opacity: 0.22;
+      }
+      .path-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        position: relative;
+        z-index: 1;
+      }
+      .path-title {
+        font-family: var(--fb);
+        font-size: 22px;
+        letter-spacing: 1px;
+        color: var(--white);
+        margin-bottom: 4px;
+        position: relative;
+        z-index: 1;
+      }
+      .path-title-kh {
+        font-family: var(--fk);
+        font-size: 12px;
+        color: var(--muted2);
+        position: relative;
+        z-index: 1;
+      }
+      .path-body {
+        padding: 0 24px 20px;
+      }
+      .path-desc {
+        font-family: var(--fk);
+        font-size: 13px;
+        color: var(--muted2);
+        line-height: 1.8;
+        margin-bottom: 16px;
+      }
+      .path-items {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .path-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        color: var(--muted2);
+      }
+      .path-item-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .path-footer {
+        padding: 14px 24px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .path-count {
+        font-size: 11px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+      .path-arr {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        transition: all var(--t);
+        border: 1px solid var(--border);
+        color: var(--muted2);
+      }
+      .path-card:hover .path-arr {
+        background: var(--gold);
+        color: #fff;
+        border-color: var(--gold);
+      }
 
-/* ══ FILTER + COURSE CARDS ══ */
-.filter-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
-.filt { padding: 7px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; background: var(--dark3); border: 1px solid var(--bord2); color: var(--muted2); cursor: pointer; transition: all var(--t); font-family: 'DM Sans', sans-serif; }
-.filt:hover { color: var(--white); }
-.filt.on { background: var(--glow); border-color: rgba(229,44,103,0.3); color: var(--gold); }
+      /* ══ FILTER + COURSE CARDS ══ */
+      .filter-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 28px;
+      }
+      .filt {
+        padding: 7px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        background: var(--dark3);
+        border: 1px solid var(--bord2);
+        color: var(--muted2);
+        cursor: pointer;
+        transition: all var(--t);
+        font-family: var(--fb);
+      }
+      .filt:hover {
+        color: var(--white);
+      }
+      .filt.on {
+        background: var(--glow);
+        border-color: rgba(229, 44, 103, 0.3);
+        color: var(--gold);
+      }
 
-.courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
-.course-card { background: var(--dark2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: all var(--t); cursor: pointer; text-decoration: none; display: block; animation: fadeUp 0.5s ease both; }
-.course-card:hover { border-color: rgba(229,44,103,0.2); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.35); }
-@keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+      .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 14px;
+      }
+      .course-card {
+        background: var(--dark2);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all var(--t);
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+        animation: fadeUp 0.5s ease both;
+      }
+      .course-card:hover {
+        border-color: rgba(229, 44, 103, 0.2);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-.course-thumb { height: 148px; display: flex; align-items: center; justify-content: center; font-size: 44px; position: relative; overflow: hidden; }
-.course-thumb-bg { position: absolute; inset: 0; opacity: 0.6; transition: opacity var(--t); }
-.course-card:hover .course-thumb-bg { opacity: 0.85; }
-.course-thumb-icon { position: relative; z-index: 1; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5)); transition: transform var(--t); }
-.course-card:hover .course-thumb-icon { transform: scale(1.1); }
+      .course-thumb {
+        height: 148px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 44px;
+        position: relative;
+        overflow: hidden;
+      }
+      .course-thumb-bg {
+        position: absolute;
+        inset: 0;
+        opacity: 0.6;
+        transition: opacity var(--t);
+      }
+      .course-card:hover .course-thumb-bg {
+        opacity: 0.85;
+      }
+      .course-thumb-icon {
+        position: relative;
+        z-index: 1;
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+        transition: transform var(--t);
+      }
+      .course-card:hover .course-thumb-icon {
+        transform: scale(1.1);
+      }
 
-.level-badge { position: absolute; top: 10px; left: 10px; z-index: 2; font-size: 9px; font-weight: 700; letter-spacing: 0.8px; padding: 3px 8px; border-radius: 5px; text-transform: uppercase; }
-.lv-begin { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.25); color: #34D399; }
-.lv-inter { background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.25); color: #FCD34D; }
-.lv-adv   { background: rgba(239,68,68,0.12);  border: 1px solid rgba(239,68,68,0.2);  color: #FCA5A5; }
-.lv-free  { background: var(--glow); border: 1px solid rgba(229,44,103,0.25); color: var(--gold); }
+      .level-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 2;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        padding: 3px 8px;
+        border-radius: 5px;
+        text-transform: uppercase;
+      }
+      .lv-begin {
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        color: #34d399;
+      }
+      .lv-inter {
+        background: rgba(245, 158, 11, 0.15);
+        border: 1px solid rgba(245, 158, 11, 0.25);
+        color: #fcd34d;
+      }
+      .lv-adv {
+        background: rgba(239, 68, 68, 0.12);
+        border: 1px solid rgba(239, 68, 68, 0.2);
+        color: #fca5a5;
+      }
+      .lv-free {
+        background: var(--glow);
+        border: 1px solid rgba(229, 44, 103, 0.25);
+        color: var(--gold);
+      }
 
-.course-body { padding: 16px 18px; }
-.course-cat { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
-.course-name { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 4px; line-height: 1.3; }
-.course-name-kh { font-family: 'Hanuman', serif; font-size: 12px; color: var(--muted2); margin-bottom: 10px; }
-.course-meta { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--muted); flex-wrap: wrap; }
+      .course-body {
+        padding: 16px 18px;
+      }
+      .course-cat {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .course-name {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 4px;
+        line-height: 1.3;
+      }
+      .course-name-kh {
+        font-family: var(--fk);
+        font-size: 12px;
+        color: var(--muted2);
+        margin-bottom: 10px;
+      }
+      .course-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        color: var(--muted);
+        flex-wrap: wrap;
+      }
 
-.course-footer { padding: 12px 18px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-.course-progress-wrap { flex: 1; margin-right: 12px; }
-.progress-bar { height: 3px; background: var(--dark4); border-radius: 2px; overflow: hidden; }
-.progress-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--gold), var(--gold2)); transition: width 0.5s; }
-.progress-label { font-size: 10px; color: var(--muted); margin-top: 4px; }
-.course-btn { padding: 6px 14px; border-radius: 7px; font-size: 11px; font-weight: 700; white-space: nowrap; transition: all var(--t); border: none; cursor: pointer; font-family: 'DM Sans', sans-serif; }
-.btn-start { background: var(--gold); color: #fff; }
-.btn-start:hover { background: var(--gold2); }
-.btn-cont { background: rgba(229,44,103,0.1); border: 1px solid rgba(229,44,103,0.2); color: var(--gold); }
-.btn-cont:hover { background: rgba(229,44,103,0.18); }
+      .course-footer {
+        padding: 12px 18px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .course-progress-wrap {
+        flex: 1;
+        margin-right: 12px;
+      }
+      .progress-bar {
+        height: 3px;
+        background: var(--dark4);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        border-radius: 2px;
+        background: linear-gradient(90deg, var(--gold), var(--gold2));
+        transition: width 0.5s;
+      }
+      .progress-label {
+        font-size: 10px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .course-btn {
+        padding: 6px 14px;
+        border-radius: 7px;
+        font-size: 11px;
+        font-weight: 700;
+        white-space: nowrap;
+        transition: all var(--t);
+        border: none;
+        cursor: pointer;
+        font-family: var(--fb);
+      }
+      .btn-start {
+        background: var(--gold);
+        color: #fff;
+      }
+      .btn-start:hover {
+        background: var(--gold2);
+      }
+      .btn-cont {
+        background: rgba(229, 44, 103, 0.1);
+        border: 1px solid rgba(229, 44, 103, 0.2);
+        color: var(--gold);
+      }
+      .btn-cont:hover {
+        background: rgba(229, 44, 103, 0.18);
+      }
 
-/* ══ STATS BAND ══ */
-.stats-band { background: var(--dark2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 40px 0; }
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
-.stat-block { background: var(--dark2); padding: 28px 24px; text-align: center; transition: background var(--t); cursor: default; }
-.stat-block:hover { background: var(--dark3); }
-.stat-big { font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 1px; background: linear-gradient(135deg, var(--gold), var(--gold3)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
-.stat-lbl { font-family: 'Hanuman', serif; font-size: 13px; color: var(--muted2); margin-top: 5px; }
-.stat-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+      /* ══ STATS BAND ══ */
+      .stats-band {
+        background: var(--dark2);
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 40px 0;
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: var(--border);
+      }
+      .stat-block {
+        background: var(--dark2);
+        padding: 28px 24px;
+        text-align: center;
+        transition: background var(--t);
+        cursor: default;
+      }
+      .stat-block:hover {
+        background: var(--dark3);
+      }
+      .stat-big {
+        font-family: var(--fb);
+        font-size: 48px;
+        letter-spacing: 1px;
+        background: linear-gradient(135deg, var(--gold), var(--gold3));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+      }
+      .stat-lbl {
+        font-family: var(--fk);
+        font-size: 13px;
+        color: var(--muted2);
+        margin-top: 5px;
+      }
+      .stat-sub {
+        font-size: 11px;
+        color: var(--muted);
+        margin-top: 2px;
+      }
 
-/* ══ SITEMAP FLOW ══ */
-.flow-section { padding: 72px 0; border-top: 1px solid var(--border); }
-.flow-diagram { background: var(--dark2); border: 1px solid var(--bord2); border-radius: 20px; padding: 40px; overflow-x: auto; }
-.flow-title { font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
-.flow-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.flow-node { background: var(--dark3); border: 1px solid var(--bord2); border-radius: 12px; padding: 12px 16px; min-width: 140px; text-align: center; flex-shrink: 0; transition: all var(--t); cursor: pointer; position: relative; }
-.flow-node:hover { border-color: rgba(229,44,103,0.3); transform: translateY(-2px); }
-.flow-node.root { background: var(--glow); border-color: rgba(229,44,103,0.3); min-width: 160px; }
-.flow-node-icon { font-size: 20px; margin-bottom: 4px; }
-.flow-node-name { font-size: 12px; font-weight: 700; color: var(--white); }
-.flow-node-kh { font-family: 'Hanuman', serif; font-size: 10px; color: var(--muted2); margin-top: 2px; }
-.flow-node-count { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: var(--dark4); color: var(--muted2); margin-top: 4px; display: inline-block; }
-.flow-root-label { font-size: 9px; color: var(--gold); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+      /* ══ SITEMAP FLOW ══ */
+      .flow-section {
+        padding: 72px 0;
+        border-top: 1px solid var(--border);
+      }
+      .flow-diagram {
+        background: var(--dark2);
+        border: 1px solid var(--bord2);
+        border-radius: 20px;
+        padding: 40px;
+        overflow-x: auto;
+      }
+      .flow-title {
+        font-family: var(--fb);
+        font-size: 13px;
+        letter-spacing: 2px;
+        color: var(--muted);
+        text-transform: uppercase;
+        margin-bottom: 28px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .flow-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+      .flow-node {
+        background: var(--dark3);
+        border: 1px solid var(--bord2);
+        border-radius: 12px;
+        padding: 12px 16px;
+        min-width: 140px;
+        text-align: center;
+        flex-shrink: 0;
+        transition: all var(--t);
+        cursor: pointer;
+        position: relative;
+      }
+      .flow-node:hover {
+        border-color: rgba(229, 44, 103, 0.3);
+        transform: translateY(-2px);
+      }
+      .flow-node.root {
+        background: var(--glow);
+        border-color: rgba(229, 44, 103, 0.3);
+        min-width: 160px;
+      }
+      .flow-node-icon {
+        font-size: 20px;
+        margin-bottom: 4px;
+      }
+      .flow-node-name {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--white);
+      }
+      .flow-node-kh {
+        font-family: var(--fk);
+        font-size: 10px;
+        color: var(--muted2);
+        margin-top: 2px;
+      }
+      .flow-node-count {
+        font-size: 9px;
+        font-weight: 700;
+        padding: 2px 6px;
+        border-radius: 4px;
+        background: var(--dark4);
+        color: var(--muted2);
+        margin-top: 4px;
+        display: inline-block;
+      }
+      .flow-root-label {
+        font-size: 9px;
+        color: var(--gold);
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
 
-/* ══ CTA SECTION ══ */
-.cta-section { padding: 80px 0; position: relative; z-index: 1; overflow: hidden; }
-.cta-card { background: linear-gradient(135deg, var(--dark3), var(--dark4)); border: 1px solid rgba(229,44,103,0.15); border-radius: 24px; padding: 56px 48px; text-align: center; position: relative; overflow: hidden; max-width: 860px; margin: 0 auto; }
-.cta-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(229,44,103,0.06), transparent 65%); }
-.cta-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 5vw, 60px); letter-spacing: 2px; line-height: 1; background: linear-gradient(135deg, var(--white), var(--gold2)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 14px; position: relative; z-index: 1; }
-.cta-sub { font-family: 'Hanuman', serif; font-size: 16px; color: var(--muted2); line-height: 1.9; max-width: 480px; margin: 0 auto 32px; position: relative; z-index: 1; }
-.cta-sub strong { color: var(--white); }
-.cta-btns { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+      /* ══ CTA SECTION ══ */
+      .cta-section {
+        padding: 80px 0;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+      }
+      .cta-card {
+        background: linear-gradient(135deg, var(--dark3), var(--dark4));
+        border: 1px solid rgba(229, 44, 103, 0.15);
+        border-radius: 24px;
+        padding: 56px 48px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        max-width: 860px;
+        margin: 0 auto;
+      }
+      .cta-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 60% 40% at 50% 0%,
+          rgba(229, 44, 103, 0.06),
+          transparent 65%
+        );
+      }
+      .cta-title {
+        font-family: var(--fb);
+        font-size: clamp(36px, 5vw, 60px);
+        letter-spacing: 2px;
+        line-height: 1;
+        background: linear-gradient(135deg, var(--white), var(--gold2));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 14px;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-sub {
+        font-family: var(--fk);
+        font-size: 16px;
+        color: var(--muted2);
+        line-height: 1.9;
+        max-width: 480px;
+        margin: 0 auto 32px;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-sub strong {
+        color: var(--white);
+      }
+      .cta-btns {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+      }
 
-/* ══ FOOTER ══ */
-footer { border-top: 1px solid var(--border); padding: 40px 32px 32px; position: relative; z-index: 1; }
-.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 32px; }
-.footer-brand .logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; background: linear-gradient(120deg, var(--white) 30%, var(--gold)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; display: block; }
-.footer-brand p { font-family: 'Hanuman', serif; font-size: 13px; color: var(--muted2); line-height: 1.8; }
-.footer-col-title { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-.footer-col a { display: block; font-size: 13px; color: var(--muted2); text-decoration: none; padding: 4px 0; transition: color var(--t); }
-.footer-col a:hover { color: var(--gold); }
-.footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 24px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-.footer-copy { font-size: 11px; color: var(--muted); }
-.footer-socials { display: flex; gap: 8px; }
-.social-icon { width: 32px; height: 32px; border-radius: 8px; background: var(--dark3); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 14px; color: var(--muted2); text-decoration: none; transition: all var(--t); }
-.social-icon:hover { border-color: var(--gold); color: var(--gold); }
+      /* ══ FOOTER ══ */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 40px 32px 32px;
+        position: relative;
+        z-index: 1;
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto 32px;
+      }
+      .footer-brand .logo {
+        font-family: var(--fb);
+        font-size: 22px;
+        letter-spacing: 2px;
+        background: linear-gradient(120deg, var(--white) 30%, var(--gold));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 10px;
+        display: block;
+      }
+      .footer-brand p {
+        font-family: var(--fk);
+        font-size: 13px;
+        color: var(--muted2);
+        line-height: 1.8;
+      }
+      .footer-col-title {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+      .footer-col a {
+        display: block;
+        font-size: 13px;
+        color: var(--muted2);
+        text-decoration: none;
+        padding: 4px 0;
+        transition: color var(--t);
+      }
+      .footer-col a:hover {
+        color: var(--gold);
+      }
+      .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .footer-copy {
+        font-size: 11px;
+        color: var(--muted);
+      }
+      .footer-socials {
+        display: flex;
+        gap: 8px;
+      }
+      .social-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: var(--dark3);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: var(--muted2);
+        text-decoration: none;
+        transition: all var(--t);
+      }
+      .social-icon:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
 
-/* Responsive */
-@media (max-width: 1000px) {
-  .paths-grid { grid-template-columns: 1fr 1fr; }
-  .footer-top { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 768px) {
-  .paths-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-top { grid-template-columns: 1fr; }
-  .wrap { padding: 0 20px; }
-  .hero { padding: 90px 20px 0; }
-  .cta-card { padding: 36px 24px; }
-  .flow-diagram { padding: 24px 16px; }
-}
+      /* Responsive */
+      @media (max-width: 1000px) {
+        .paths-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        .paths-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .footer-top {
+          grid-template-columns: 1fr;
+        }
+        .wrap {
+          padding: 0 20px;
+        }
+        .hero {
+          padding: 90px 20px 0;
+        }
+        .cta-card {
+          padding: 36px 24px;
+        }
+        .flow-diagram {
+          padding: 24px 16px;
+        }
+      }
 
-  </style>
-</head>
-<body>
+      /* Staggered course card entrance — paused until in-view */
+      #coursesGrid .course-card { animation-play-state: paused; }
+      #coursesGrid.stagger-play .course-card { animation-play-state: running; }
+    </style>
+  </head>
+  <body>
+    <!-- Eternity: Star field canvas -->
+    <canvas id="star-canvas" aria-hidden="true"></canvas>
 
-  <!-- Custom Cursor -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
+    <!-- Custom Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 
-  <!-- Blobs -->
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
 
-  <!-- ════════════════════════════════
-       LEARN NAV — Google Skills Style
-       Logo | Sep | Badge | Links | CTA
-  ════════════════════════════════ -->
-  <nav class="learn-nav">
-    <!-- Left -->
-    <div class="learn-nav-left">
-      <a href="index.html" class="learn-nav-logo">YOB<span style="-webkit-text-fill-color:var(--gold)">.</span>DIGITAL</a>
-      <div class="learn-nav-sep"></div>
-      <span class="learn-nav-badge">LEARN</span>
-    </div>
+    <div id="nav-placeholder"></div>
 
-    <!-- Center links (Google Skills concept) -->
-    <div class="learn-nav-links">
-      <a href="index.html">Home</a>
-      <a href="#courses" class="act">Catalog</a>
-      <a href="#paths">Paths</a>
-      <a href="docs.html">Docs</a>
-      <a href="#sitemap">Site Map</a>
-    </div>
-
-    <!-- Right CTA -->
-    <div class="learn-nav-right">
-      <a href="index.html#contact" class="btn-nav-ghost">ទំនាក់ទំនង</a>
-      <a href="#paths" class="btn-nav-gold">រៀនផ្ទាល់ Free →</a>
-    </div>
-    <button class="learn-nav-hamburger" id="learnHamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-grid"></div>
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-
-    <div class="hero-inner">
-      <div class="hero-ticker">
-        <div class="ticker-dot"></div>
-        <span class="ticker-text">🔥 AI Course ថ្មី → Claude AI Guide បានបើកហើយ!</span>
-        <span class="ticker-arr">→</span>
-      </div>
-
-      <h1 class="hero-h1">
-        <span class="row1">BUILD YOUR</span>
-        <span class="row2">DIGITAL SKILLS</span>
-        <span class="row3">FOR CAMBODIA · 🇰🇭</span>
-      </h1>
-
-      <p class="hero-desc">
-        រៀន <strong>AI Tools</strong>, <strong>Digital Marketing</strong> និង <strong>Web Systems</strong>
-        ជាភាសាខ្មែរ — Free Courses, Practical Tools, Real Results!
-      </p>
-
-      <div class="hero-btns">
-        <a href="#paths" class="btn-lg btn-gold-lg">🎓 រៀនផ្ទាល់ Free</a>
-        <a href="tools.html" class="btn-lg btn-outline-lg">🧰 មើល Tools Hub</a>
-      </div>
-
-      <div class="trust-row">
-        <div class="trust-avatars">
-          <div class="trust-avatar">👨</div>
-          <div class="trust-avatar">👩</div>
-          <div class="trust-avatar">👨</div>
-          <div class="trust-avatar">🧑</div>
-          <div class="trust-avatar">👩‍💼</div>
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button class="drawer-close" id="drawerClose">
+        <i class="fas fa-times"></i>
+      </button>
+      <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">
+          Learn <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="drawer-group-items">
+          <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+          <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+          <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
         </div>
-        <span>500+ SMEs បានជ្រើសរើស YOB រួចហើយ</span>
-        <div class="trust-sep"></div>
-        <span>⭐ 4.9 / 5.0 Rating</span>
-        <div class="trust-sep"></div>
-        <span>🇰🇭 Made for Cambodia</span>
       </div>
-    </div>
-  </div>
-
-  <!-- SCROLLING BANNER -->
-  <div class="scroll-banner">
-    <div class="scroll-track">
-      <div class="scroll-item"><div class="scroll-dot"></div><strong>AI Tools Mastery</strong></div>
-      <div class="scroll-item"><div class="scroll-dot"></div>Digital Marketing</div>
-      <div class="scroll-item"><div class="scroll-dot"></div><strong>Khmer Typography</strong></div>
-      <div class="scroll-item"><div class="scroll-dot"></div>Content Strategy</div>
-      <div class="scroll-item"><div class="scroll-dot"></div><strong>Web Systems</strong></div>
-      <div class="scroll-item"><div class="scroll-dot"></div>Prompt Engineering</div>
-      <div class="scroll-item"><div class="scroll-dot"></div><strong>Cambodia SMEs</strong></div>
-      <div class="scroll-item"><div class="scroll-dot"></div>Free Tools</div>
-      <!-- duplicate for seamless loop -->
-      <div class="scroll-item"><div class="scroll-dot"></div><strong>AI Tools Mastery</strong></div>
-      <div class="scroll-item"><div class="scroll-dot"></div>Digital Marketing</div>
-      <div class="scroll-item"><div class="scroll-dot"></div><strong>Khmer Typography</strong></div>
-      <div class="scroll-item"><div class="scroll-dot"></div>Content Strategy</div>
-      <div class="scroll-item"><div class="scroll-dot"></div><strong>Web Systems</strong></div>
-      <div class="scroll-item"><div class="scroll-dot"></div>Prompt Engineering</div>
-      <div class="scroll-item"><div class="scroll-dot"></div><strong>Cambodia SMEs</strong></div>
-      <div class="scroll-item"><div class="scroll-dot"></div>Free Tools</div>
-    </div>
-  </div>
-
-  <!-- STATS BAND -->
-  <div class="stats-band">
-    <div class="stats-grid">
-      <div class="stat-block">
-        <div class="stat-big">500+</div>
-        <div class="stat-lbl">SMEs Trained</div>
-        <div class="stat-sub">Cambodia Businesses</div>
-      </div>
-      <div class="stat-block">
-        <div class="stat-big">10+</div>
-        <div class="stat-lbl">Practical Courses</div>
-        <div class="stat-sub">AI & Digital Skills</div>
-      </div>
-      <div class="stat-block">
-        <div class="stat-big">6</div>
-        <div class="stat-lbl">Free Tools</div>
-        <div class="stat-sub">No Signup Needed</div>
-      </div>
-      <div class="stat-block">
-        <div class="stat-big">100%</div>
-        <div class="stat-lbl">Khmer Language</div>
-        <div class="stat-sub">Context for Cambodia</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- LEARNING PATHS -->
-  <section class="section" id="paths">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="sec-eyebrow">LEARNING PATHS</div>
-        <div class="sec-title">ជ្រើសរើស PATH តាមគោលដៅ</div>
-        <p class="sec-sub">ជ្រើស Path ដែលត្រូវនឹងអ្នក — Beginner ដល់ Advanced គ្រប់ Level!</p>
-      </div>
-
-      <div class="paths-grid" id="pathsGrid">
-
-        <a href="#courses" class="path-card" onclick="filterCourses('ai')">
-          <div class="path-header">
-            <div class="path-glow" style="background:#9B6DFF"></div>
-            <div class="path-icon" style="background:rgba(155,109,255,0.1)">🤖</div>
-            <div class="path-title">AI TOOLS</div>
-            <div class="path-title-kh">ជំនាញ AI — ប្រើប្រាស់ AI ឱ្យចេះ</div>
-          </div>
-          <div class="path-body">
-            <p class="path-desc">Learn Claude, ChatGPT, Gemini — ប្រើ AI ជួយការងារ Save 10+ Hours/Week!</p>
-            <div class="path-items">
-              <div class="path-item"><div class="path-item-dot" style="background:#9B6DFF"></div>Claude AI Beginner Guide</div>
-              <div class="path-item"><div class="path-item-dot" style="background:#9B6DFF"></div>Prompt Engineering Master</div>
-              <div class="path-item"><div class="path-item-dot" style="background:#9B6DFF"></div>AI for Business Automation</div>
-              <div class="path-item"><div class="path-item-dot" style="background:#9B6DFF"></div>AI Content Creation Pro</div>
-            </div>
-          </div>
-          <div class="path-footer">
-            <span class="path-count">4 Courses · Beginner → Advanced</span>
-            <div class="path-arr">→</div>
-          </div>
-        </a>
-
-        <a href="#courses" class="path-card" onclick="filterCourses('marketing')">
-          <div class="path-header">
-            <div class="path-glow" style="background:#E8453C"></div>
-            <div class="path-icon" style="background:rgba(232,69,60,0.1)">📢</div>
-            <div class="path-title">DIGITAL MARKETING</div>
-            <div class="path-title-kh">Strategy + Content + Ads</div>
-          </div>
-          <div class="path-body">
-            <p class="path-desc">Full-funnel Digital Marketing — Content, Ads, Analytics ជាភាសាខ្មែរ!</p>
-            <div class="path-items">
-              <div class="path-item"><div class="path-item-dot" style="background:#E8453C"></div>Content Strategy for SMEs</div>
-              <div class="path-item"><div class="path-item-dot" style="background:#E8453C"></div>Facebook & Instagram Ads</div>
-              <div class="path-item"><div class="path-item-dot" style="background:#E8453C"></div>Social Media Growth</div>
-              <div class="path-item"><div class="path-item-dot" style="background:#E8453C"></div>Analytics & Data Reading</div>
-            </div>
-          </div>
-          <div class="path-footer">
-            <span class="path-count">4 Courses · Beginner → Pro</span>
-            <div class="path-arr">→</div>
-          </div>
-        </a>
-
-        <a href="#courses" class="path-card" onclick="filterCourses('web')">
-          <div class="path-header">
-            <div class="path-glow" style="background:#10B981"></div>
-            <div class="path-icon" style="background:rgba(16,185,129,0.1)">🌐</div>
-            <div class="path-title">WEB & SYSTEMS</div>
-            <div class="path-title-kh">Website + LMS + Automation</div>
-          </div>
-          <div class="path-body">
-            <p class="path-desc">Build Website, LMS, Automation System — No Wordpress, No Code ក៏បាន!</p>
-            <div class="path-items">
-              <div class="path-item"><div class="path-item-dot" style="background:#10B981"></div>HTML & CSS Fundamentals</div>
-              <div class="path-item"><div class="path-item-dot" style="background:#10B981"></div>Deploy with GitHub + Netlify</div>
-              <div class="path-item"><div class="path-item-dot" style="background:#10B981"></div>LMS Setup for Courses</div>
-              <div class="path-item"><div class="path-item-dot" style="background:#10B981"></div>ManyChat Automation</div>
-            </div>
-          </div>
-          <div class="path-footer">
-            <span class="path-count">4 Courses · Beginner → Builder</span>
-            <div class="path-arr">→</div>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- COURSES CATALOG -->
-  <section class="section" id="courses" style="border-top:1px solid var(--border);padding-top:64px">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="sec-eyebrow">COURSE CATALOG</div>
-        <div class="sec-title">EXPLORE CATALOG</div>
-        <p class="sec-sub">Free + Paid Courses — ជាភាសាខ្មែរ, Practical, Apply បានភ្លាម!</p>
-      </div>
-
-      <div class="filter-row">
-        <button class="filt on"  onclick="filterCourses('all',this)">🎓 គ្រប់ Course</button>
-        <button class="filt"     onclick="filterCourses('ai',this)">🤖 AI Tools</button>
-        <button class="filt"     onclick="filterCourses('marketing',this)">📢 Marketing</button>
-        <button class="filt"     onclick="filterCourses('web',this)">🌐 Web</button>
-        <button class="filt"     onclick="filterCourses('free',this)">✅ Free</button>
-      </div>
-
-      <div class="courses-grid" id="coursesGrid"></div>
-    </div>
-  </section>
-
-  <!-- SITEMAP FLOW -->
-  <section class="flow-section" id="sitemap">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="sec-eyebrow">SITE ARCHITECTURE</div>
-        <div class="sec-title">YOB SITE MAP</div>
-        <p class="sec-sub">Structure ទាំងមូល YOB Digital Platform — Page, Tool, Course មានអ្វីខ្លះ</p>
-      </div>
-
-      <div class="flow-diagram">
-        <div class="flow-title">YOB DIGITAL PLATFORM FLOW</div>
-
-        <div style="display:flex;align-items:flex-start;gap:0">
-          <div style="display:flex;flex-direction:column;align-items:center;flex-shrink:0">
-            <div class="flow-node root" style="text-align:center">
-              <div class="flow-root-label">HOME</div>
-              <div class="flow-node-icon">🏠</div>
-              <div class="flow-node-name">YOB.DIGITAL</div>
-              <div class="flow-node-kh">yobdigital.netlify.app</div>
-            </div>
-          </div>
-
-          <div style="display:flex;align-items:center;width:40px;flex-shrink:0">
-            <div style="width:100%;height:1px;background:var(--bord2);position:relative">
-              <div style="position:absolute;right:-4px;top:-3px;width:7px;height:7px;border-right:1.5px solid var(--muted);border-top:1.5px solid var(--muted);transform:rotate(45deg)"></div>
-            </div>
-          </div>
-
-          <div style="display:flex;flex-direction:column;gap:10px;flex:1;min-width:0">
-            <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px">
-
-              <div>
-                <div class="flow-node" style="background:rgba(155,109,255,0.08);border-color:rgba(155,109,255,0.2)">
-                  <div class="flow-node-icon">📚</div>
-                  <div class="flow-node-name" style="color:#C4A4FF">LEARN</div>
-                  <div class="flow-node-kh">រៀន</div>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;padding-left:8px;border-left:1px solid var(--border)">
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">🎓</div><div class="flow-node-name" style="font-size:11px">Courses</div><div class="flow-node-count">10+ courses</div></div>
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">🗺️</div><div class="flow-node-name" style="font-size:11px">Paths</div><div class="flow-node-count">3 paths</div></div>
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">📄</div><div class="flow-node-name" style="font-size:11px">Docs</div><div class="flow-node-count">docs.html</div></div>
-                </div>
-              </div>
-
-              <div>
-                <div class="flow-node" style="background:rgba(229,44,103,0.08);border-color:rgba(229,44,103,0.25)">
-                  <div class="flow-node-icon">🧰</div>
-                  <div class="flow-node-name" style="color:var(--gold)">TOOLS</div>
-                  <div class="flow-node-kh">tools.html</div>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;padding-left:8px;border-left:1px solid var(--border)">
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">🔤</div><div class="flow-node-name" style="font-size:11px">Font Preview</div></div>
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">✍️</div><div class="flow-node-name" style="font-size:11px">Caption Gen</div></div>
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">🎨</div><div class="flow-node-name" style="font-size:11px">Color Palette</div></div>
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">📐</div><div class="flow-node-name" style="font-size:11px">Size Guide</div></div>
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">🪝</div><div class="flow-node-name" style="font-size:11px">Hook Gen</div></div>
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">📅</div><div class="flow-node-name" style="font-size:11px">Calendar</div></div>
-                </div>
-              </div>
-
-              <div>
-                <div class="flow-node" style="background:rgba(232,69,60,0.08);border-color:rgba(232,69,60,0.2)">
-                  <div class="flow-node-icon">🛍️</div>
-                  <div class="flow-node-name" style="color:#FF8080">PRODUCTS</div>
-                  <div class="flow-node-kh">ផលិតផល</div>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;padding-left:8px;border-left:1px solid var(--border)">
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">🔤</div><div class="flow-node-name" style="font-size:11px">YOB Fonts</div><div class="flow-node-count">fonts.html</div></div>
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">📦</div><div class="flow-node-name" style="font-size:11px">Free Toolkit</div><div class="flow-node-count">resources</div></div>
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">📦</div><div class="flow-node-name" style="font-size:11px">Templates</div><div class="flow-node-count">coming soon</div></div>
-                </div>
-              </div>
-
-              <div>
-                <div class="flow-node" style="background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.2)">
-                  <div class="flow-node-icon">📈</div>
-                  <div class="flow-node-name" style="color:#34D399">GROW</div>
-                  <div class="flow-node-kh">grow.html</div>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;padding-left:8px;border-left:1px solid var(--border)">
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">🤝</div><div class="flow-node-name" style="font-size:11px">Services</div></div>
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">📊</div><div class="flow-node-name" style="font-size:11px">Case Studies</div></div>
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">📩</div><div class="flow-node-name" style="font-size:11px">Contact</div></div>
-                </div>
-              </div>
-
-              <div>
-                <div class="flow-node" style="background:rgba(56,189,248,0.08);border-color:rgba(56,189,248,0.2)">
-                  <div class="flow-node-icon">👥</div>
-                  <div class="flow-node-name" style="color:#7DD3FC">COMMUNITY</div>
-                  <div class="flow-node-kh">សហគមន៍</div>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;padding-left:8px;border-left:1px solid var(--border)">
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">✈️</div><div class="flow-node-name" style="font-size:11px">Telegram</div></div>
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">📘</div><div class="flow-node-name" style="font-size:11px">Facebook</div></div>
-                  <div class="flow-node" style="min-width:0;padding:8px 10px"><div style="font-size:14px">▶️</div><div class="flow-node-name" style="font-size:11px">YouTube</div></div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- User Journey Flow -->
-        <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border)">
-          <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:16px">USER JOURNEY FLOW</div>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-            <div class="flow-node" style="background:rgba(229,44,103,0.06);border-color:rgba(229,44,103,0.15);padding:10px 14px"><div style="font-size:18px">🔍</div><div class="flow-node-name" style="font-size:11px">Discover</div><div class="flow-node-kh">FB / Google</div></div>
-            <div style="font-size:18px;color:var(--muted)">→</div>
-            <div class="flow-node" style="padding:10px 14px"><div style="font-size:18px">🏠</div><div class="flow-node-name" style="font-size:11px">Visit Site</div><div class="flow-node-kh">Home Page</div></div>
-            <div style="font-size:18px;color:var(--muted)">→</div>
-            <div class="flow-node" style="padding:10px 14px"><div style="font-size:18px">🧰</div><div class="flow-node-name" style="font-size:11px">Use Free Tool</div><div class="flow-node-kh">Tools Hub</div></div>
-            <div style="font-size:18px;color:var(--muted)">→</div>
-            <div class="flow-node" style="padding:10px 14px"><div style="font-size:18px">📚</div><div class="flow-node-name" style="font-size:11px">Read Docs</div><div class="flow-node-kh">Learn Section</div></div>
-            <div style="font-size:18px;color:var(--muted)">→</div>
-            <div class="flow-node" style="padding:10px 14px"><div style="font-size:18px">✈️</div><div class="flow-node-name" style="font-size:11px">Join Community</div><div class="flow-node-kh">Telegram / FB</div></div>
-            <div style="font-size:18px;color:var(--muted)">→</div>
-            <div class="flow-node" style="background:rgba(229,44,103,0.1);border-color:rgba(229,44,103,0.3);padding:10px 14px"><div style="font-size:18px">💰</div><div class="flow-node-name" style="font-size:11px;color:var(--gold)">Buy Product</div><div class="flow-node-kh">Font / Course</div></div>
-          </div>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">
+          Products <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="drawer-group-items">
+          <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+          <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
         </div>
       </div>
+      <a href="about.html" onclick="closeDrawer()">About YOB</a>
+      <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
     </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="wrap">
-      <div class="cta-card">
-        <div class="cta-title">START LEARNING<br>FOR FREE TODAY</div>
-        <p class="cta-sub">
-          YOB Digital — <strong>Free Tools, Free Guides, Real Community</strong>
-          ជួយ SMEs ខ្មែរ Grow ក្នុង AI Era!
+    <div class="hero">
+      <div class="hero-grid"></div>
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+
+      <div class="hero-inner">
+        <div class="hero-ticker">
+          <div class="ticker-dot"></div>
+          <span class="ticker-text"
+            >🔥 AI Course ថ្មី → Claude AI Guide បានបើកហើយ!</span
+          >
+          <span class="ticker-arr">→</span>
+        </div>
+
+        <h1 class="hero-h1">
+          <span class="row1">BUILD YOUR</span>
+          <span class="row2">DIGITAL SKILLS</span>
+          <span class="row3">FOR CAMBODIA · 🇰🇭</span>
+        </h1>
+
+        <p class="hero-desc">
+          រៀន <strong>AI Tools</strong>, <strong>Digital Marketing</strong> និង
+          <strong>Web Systems</strong>
+          ជាភាសាខ្មែរ — Free Courses, Practical Tools, Real Results!
         </p>
-        <div class="cta-btns">
-          <a href="#courses" class="btn-lg btn-gold-lg">🎓 មើល Courses Free</a>
-          <a href="tools.html" class="btn-lg btn-outline-lg">🧰 មើល Tools Hub</a>
+
+        <div class="hero-btns">
+          <a href="#paths" class="btn-lg btn-gold-lg">🎓 រៀនផ្ទាល់ Free</a>
+          <a href="resources.html" class="btn-lg btn-outline-lg"
+            >🧰 មើល Tools Hub</a
+          >
+        </div>
+
+        <div class="trust-row">
+          <div class="trust-avatars">
+            <div class="trust-avatar">👨</div>
+            <div class="trust-avatar">👩</div>
+            <div class="trust-avatar">👨</div>
+            <div class="trust-avatar">🧑</div>
+            <div class="trust-avatar">👩‍💼</div>
+          </div>
+          <span>500+ SMEs បានជ្រើសរើស YOB រួចហើយ</span>
+          <div class="trust-sep"></div>
+          <span>⭐ 4.9 / 5.0 Rating</span>
+          <div class="trust-sep"></div>
+          <span>🇰🇭 Made for Cambodia</span>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="logo">YOB.DIGITAL</span>
-        <p>Digital Education Platform សម្រាប់ SMEs ខ្មែរ — AI, Marketing, Web Systems ជាភាសាខ្មែរ 100%</p>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Learn</div>
-        <a href="#courses">Course Catalog</a>
-        <a href="#paths">Learning Paths</a>
-        <a href="docs.html">Documentation</a>
-        <a href="case-studies.html">Case Studies</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Products</div>
-        <a href="fonts.html">YOB Fonts</a>
-        <a href="resources.html">Free Toolkit</a>
-        <a href="grow.html">Services</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Community</div>
-        <a href="#">Telegram Group</a>
-        <a href="#">Facebook Page</a>
-        <a href="#">YouTube Channel</a>
-        <a href="index.html#contact">ទំនាក់ទំនង</a>
+    <!-- STATS BAND -->
+    <div class="stats-band">
+      <div class="wrap">
+        <div class="stats-grid">
+          <div class="stat-block">
+            <div class="stat-big" data-count="500" data-suffix="+">500+</div>
+            <div class="stat-lbl">សិស្សសរុប</div>
+            <div class="stat-sub">Active Learners</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-big" data-count="10" data-suffix="">10</div>
+            <div class="stat-lbl">វគ្គសិក្សា</div>
+            <div class="stat-sub">Courses Available</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-big" data-count="3" data-suffix="">3</div>
+            <div class="stat-lbl">Learning Paths</div>
+            <div class="stat-sub">AI · Marketing · Web</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-big" data-count="4.9" data-suffix="/5" data-dec="1">4.9/5</div>
+            <div class="stat-lbl">⭐ Rating</div>
+            <div class="stat-sub">From 500+ Reviews</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2025 YOB Digital. Made with ❤️ for Cambodia 🇰🇭</span>
-      <div class="footer-socials">
-        <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+
+    <!-- LEARNING PATHS -->
+    <section class="section" id="paths">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="sec-eyebrow">LEARNING PATHS</div>
+          <div class="sec-title">ជ្រើសរើស PATH តាមគោលដៅ</div>
+          <p class="sec-sub">
+            ជ្រើស Path ដែលត្រូវនឹងអ្នក — Beginner ដល់ Advanced គ្រប់ Level!
+          </p>
+        </div>
+
+        <div class="paths-grid" id="pathsGrid">
+          <a href="#courses" class="path-card" onclick="filterCourses('ai')">
+            <div class="path-header">
+              <div class="path-glow" style="background: var(--path-ai)"></div>
+              <div
+                class="path-icon"
+                style="background: rgba(155, 109, 255, 0.1)"
+              >
+                🤖
+              </div>
+              <div class="path-title">AI TOOLS</div>
+              <div class="path-title-kh">ជំនាញ AI — ប្រើប្រាស់ AI ឱ្យចេះ</div>
+            </div>
+            <div class="path-body">
+              <p class="path-desc">
+                Learn Claude, ChatGPT, Gemini — ប្រើ AI ជួយការងារ Save 10+
+                Hours/Week!
+              </p>
+              <div class="path-items">
+                <div class="path-item">
+                  <div class="path-item-dot" style="background: var(--path-ai)"></div>
+                  Claude AI Beginner Guide
+                </div>
+                <div class="path-item">
+                  <div class="path-item-dot" style="background: var(--path-ai)"></div>
+                  Prompt Engineering Master
+                </div>
+                <div class="path-item">
+                  <div class="path-item-dot" style="background: var(--path-ai)"></div>
+                  AI for Business Automation
+                </div>
+                <div class="path-item">
+                  <div class="path-item-dot" style="background: var(--path-ai)"></div>
+                  AI Content Creation Pro
+                </div>
+              </div>
+            </div>
+            <div class="path-footer">
+              <span class="path-count">4 Courses · Beginner → Advanced</span>
+              <div class="path-arr">→</div>
+            </div>
+          </a>
+
+          <a
+            href="#courses"
+            class="path-card"
+            onclick="filterCourses('marketing')"
+          >
+            <div class="path-header">
+              <div class="path-glow" style="background: var(--path-mkt)"></div>
+              <div class="path-icon" style="background: rgba(232, 69, 60, 0.1)">
+                📢
+              </div>
+              <div class="path-title">DIGITAL MARKETING</div>
+              <div class="path-title-kh">Strategy + Content + Ads</div>
+            </div>
+            <div class="path-body">
+              <p class="path-desc">
+                Full-funnel Digital Marketing — Content, Ads, Analytics
+                ជាភាសាខ្មែរ!
+              </p>
+              <div class="path-items">
+                <div class="path-item">
+                  <div class="path-item-dot" style="background: var(--path-mkt)"></div>
+                  Content Strategy for SMEs
+                </div>
+                <div class="path-item">
+                  <div class="path-item-dot" style="background: var(--path-mkt)"></div>
+                  Facebook & Instagram Ads
+                </div>
+                <div class="path-item">
+                  <div class="path-item-dot" style="background: var(--path-mkt)"></div>
+                  Social Media Growth
+                </div>
+                <div class="path-item">
+                  <div class="path-item-dot" style="background: var(--path-mkt)"></div>
+                  Analytics & Data Reading
+                </div>
+              </div>
+            </div>
+            <div class="path-footer">
+              <span class="path-count">4 Courses · Beginner → Pro</span>
+              <div class="path-arr">→</div>
+            </div>
+          </a>
+
+          <a href="#courses" class="path-card" onclick="filterCourses('web')">
+            <div class="path-header">
+              <div class="path-glow" style="background: var(--path-web)"></div>
+              <div
+                class="path-icon"
+                style="background: rgba(16, 185, 129, 0.1)"
+              >
+                🌐
+              </div>
+              <div class="path-title">WEB & SYSTEMS</div>
+              <div class="path-title-kh">Website + LMS + Automation</div>
+            </div>
+            <div class="path-body">
+              <p class="path-desc">
+                Build Website, LMS, Automation System — No Wordpress, No Code
+                ក៏បាន!
+              </p>
+              <div class="path-items">
+                <div class="path-item">
+                  <div class="path-item-dot" style="background: var(--path-web)"></div>
+                  HTML & CSS Fundamentals
+                </div>
+                <div class="path-item">
+                  <div class="path-item-dot" style="background: var(--path-web)"></div>
+                  Deploy with GitHub + Netlify
+                </div>
+                <div class="path-item">
+                  <div class="path-item-dot" style="background: var(--path-web)"></div>
+                  LMS Setup for Courses
+                </div>
+                <div class="path-item">
+                  <div class="path-item-dot" style="background: var(--path-web)"></div>
+                  ManyChat Automation
+                </div>
+              </div>
+            </div>
+            <div class="path-footer">
+              <span class="path-count">4 Courses · Beginner → Builder</span>
+              <div class="path-arr">→</div>
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <!-- COURSES CATALOG -->
+    <section
+      class="section"
+      id="courses"
+      style="border-top: 1px solid var(--border); padding-top: 64px"
+    >
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="sec-eyebrow">COURSE CATALOG</div>
+          <div class="sec-title">EXPLORE CATALOG</div>
+          <p class="sec-sub">
+            Free + Paid Courses — ជាភាសាខ្មែរ, Practical, Apply បានភ្លាម!
+          </p>
+        </div>
 
-  <!-- YOB Shared Scripts -->
-  <script src="js/load-components.js"></script>
-  <script src="js/main.js" defer></script>
+        <div class="filter-row">
+          <button class="filt on" onclick="filterCourses('all', this)">
+            🎓 គ្រប់ Course
+          </button>
+          <button class="filt" onclick="filterCourses('ai', this)">
+            🤖 AI Tools
+          </button>
+          <button class="filt" onclick="filterCourses('marketing', this)">
+            📢 Marketing
+          </button>
+          <button class="filt" onclick="filterCourses('web', this)">
+            🌐 Web
+          </button>
+          <button class="filt" onclick="filterCourses('free', this)">
+            ✅ Free
+          </button>
+        </div>
 
-  <script>
-// ════════════════════════
-// COURSES DATA
-// ════════════════════════
-const COURSES = [
-  { id:'claude-ai',   cat:'ai',        free:true,  icon:'🤖', name:'Claude AI Beginner Guide',     nameKh:'ណែនាំប្រើប្រាស់ Claude AI',         level:'begin', meta:'5 Lessons · 2 hrs · Khmer',   progress:0, bg:'linear-gradient(135deg,#1A0A2E,#2D1B50)', accent:'#9B6DFF' },
-  { id:'prompt-eng',  cat:'ai',        free:true,  icon:'⚡', name:'Prompt Engineering Pro',        nameKh:'បច្ចេកទេស Prompt ឱ្យបានពូកែ',      level:'inter', meta:'8 Lessons · 3 hrs · Khmer',   progress:0, bg:'linear-gradient(135deg,#0A1020,#1A2A50)', accent:'#4F7FFF' },
-  { id:'ai-content',  cat:'ai',        free:false, icon:'✨', name:'AI Content Creation',           nameKh:'បង្កើត Content ជាមួយ AI',           level:'inter', meta:'10 Lessons · 4 hrs · Khmer',  progress:0, bg:'linear-gradient(135deg,#0A0A20,#2A1A40)', accent:'#C084FC' },
-  { id:'ai-marketing',cat:'ai',        free:false, icon:'🎯', name:'AI Marketing Strategy',         nameKh:'Strategy Marketing ជាមួយ AI',       level:'adv',   meta:'12 Lessons · 5 hrs · Khmer',  progress:0, bg:'linear-gradient(135deg,#100A20,#30104A)', accent:'#E879F9' },
-  { id:'social-media',cat:'marketing', free:true,  icon:'📱', name:'Social Media Growth',           nameKh:'បង្កើន Followers ដោយ Organic',      level:'begin', meta:'6 Lessons · 2.5 hrs · Khmer', progress:0, bg:'linear-gradient(135deg,#200A0A,#501020)', accent:'#F87171' },
-  { id:'fb-ads',      cat:'marketing', free:false, icon:'📊', name:'Facebook Ads Mastery',          nameKh:'ជំនាញ Facebook Ads',                level:'inter', meta:'10 Lessons · 4 hrs · Khmer',  progress:0, bg:'linear-gradient(135deg,#0A1428,#1B3060)', accent:'#60A8E8' },
-  { id:'content-strat',cat:'marketing',free:false, icon:'🗓️', name:'Content Strategy 30 Days',     nameKh:'Plan Content ៣០ ថ្ងៃ',             level:'inter', meta:'8 Lessons · 3 hrs · Khmer',   progress:0, bg:'linear-gradient(135deg,#0A200A,#1A4020)', accent:'#4ADE80' },
-  { id:'html-css',    cat:'web',       free:true,  icon:'💻', name:'HTML & CSS Basics',             nameKh:'HTML CSS ចាប់ផ្តើមពីដំបូង',         level:'begin', meta:'7 Lessons · 3 hrs · Khmer',   progress:0, bg:'linear-gradient(135deg,#0A1A0A,#1A3A20)', accent:'#34D399' },
-  { id:'github',      cat:'web',       free:true,  icon:'🚀', name:'GitHub + Netlify Deploy',       nameKh:'Deploy Website ឥតគិតថ្លៃ',          level:'begin', meta:'4 Lessons · 1.5 hrs · Khmer', progress:0, bg:'linear-gradient(135deg,#0A1210,#1A2820)', accent:'#2DD4BF' },
-  { id:'manychat',    cat:'marketing', free:false, icon:'🤖', name:'ManyChat Automation',           nameKh:'Automate ជាមួយ ManyChat',           level:'inter', meta:'6 Lessons · 2.5 hrs · Khmer', progress:0, bg:'linear-gradient(135deg,#200A10,#401A30)', accent:'#FB7185' },
-];
+        <div class="courses-grid" id="coursesGrid"></div>
+      </div>
+    </section>
 
-const levelLabel = { begin:'Beginner', inter:'Intermediate', adv:'Advanced' };
-const levelClass  = { begin:'lv-begin', inter:'lv-inter',    adv:'lv-adv' };
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="wrap">
+        <div class="cta-card">
+          <div class="cta-title">START LEARNING<br />FOR FREE TODAY</div>
+          <p class="cta-sub">
+            YOB Digital —
+            <strong>Free Tools, Free Guides, Real Community</strong>
+            ជួយ SMEs ខ្មែរ Grow ក្នុង AI Era!
+          </p>
+          <div class="cta-btns">
+            <a href="#courses" class="btn-lg btn-gold-lg"
+              >🎓 មើល Courses Free</a
+            >
+            <a href="resources.html" class="btn-lg btn-outline-lg"
+              >🧰 មើល Tools Hub</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
 
-let activeCat = 'all';
+    <!-- FOOTER -->
 
-function filterCourses(cat, el) {
-  activeCat = cat;
-  document.querySelectorAll('.filt').forEach(b => b.classList.remove('on'));
-  if (el) {
-    el.classList.add('on');
-  } else {
-    const match = document.querySelector(`.filt[onclick*="'${cat}'"]`);
-    if (match) match.classList.add('on');
-  }
-  renderCourses();
-  document.getElementById('courses').scrollIntoView({ behavior:'smooth', block:'start' });
-}
+    <div id="footer-placeholder"></div>
 
-function renderCourses() {
-  const grid = document.getElementById('coursesGrid');
-  const list = COURSES.filter(c => {
-    if (activeCat === 'free') return c.free;
-    if (activeCat === 'all')  return true;
-    return c.cat === activeCat;
-  });
+    <!-- GSAP -->
+    <!-- YOB Shared Scripts -->
+    <script src="js/load-components.js"></script>
+    <script src="js/main.js" defer></script>
 
-  grid.innerHTML = list.map((c, i) => `
-    <div class="course-card" style="animation-delay:${i * 0.06}s">
+    <script>
+      // ════════════════════════
+      // COURSES DATA
+      // ════════════════════════
+      const COURSES = [
+        {
+          id: "claude-ai",
+          cat: "ai",
+          free: true,
+          icon: "🤖",
+          name: "Claude AI Beginner Guide",
+          nameKh: "ណែនាំប្រើប្រាស់ Claude AI",
+          level: "begin",
+          meta: "5 Lessons · 2 hrs · Khmer",
+          progress: 0,
+          bg: "linear-gradient(135deg,#1A0A2E,#2D1B50)",
+          accent: "#9B6DFF",
+        },
+        {
+          id: "prompt-eng",
+          cat: "ai",
+          free: true,
+          icon: "⚡",
+          name: "Prompt Engineering Pro",
+          nameKh: "បច្ចេកទេស Prompt ឱ្យបានពូកែ",
+          level: "inter",
+          meta: "8 Lessons · 3 hrs · Khmer",
+          progress: 0,
+          bg: "linear-gradient(135deg,#0A1020,#1A2A50)",
+          accent: "#4F7FFF",
+        },
+        {
+          id: "ai-content",
+          cat: "ai",
+          free: false,
+          icon: "✨",
+          name: "AI Content Creation",
+          nameKh: "បង្កើត Content ជាមួយ AI",
+          level: "inter",
+          meta: "10 Lessons · 4 hrs · Khmer",
+          progress: 0,
+          bg: "linear-gradient(135deg,#0A0A20,#2A1A40)",
+          accent: "#C084FC",
+        },
+        {
+          id: "ai-marketing",
+          cat: "ai",
+          free: false,
+          icon: "🎯",
+          name: "AI Marketing Strategy",
+          nameKh: "Strategy Marketing ជាមួយ AI",
+          level: "adv",
+          meta: "12 Lessons · 5 hrs · Khmer",
+          progress: 0,
+          bg: "linear-gradient(135deg,#100A20,#30104A)",
+          accent: "#E879F9",
+        },
+        {
+          id: "social-media",
+          cat: "marketing",
+          free: true,
+          icon: "📱",
+          name: "Social Media Growth",
+          nameKh: "បង្កើន Followers ដោយ Organic",
+          level: "begin",
+          meta: "6 Lessons · 2.5 hrs · Khmer",
+          progress: 0,
+          bg: "linear-gradient(135deg,#200A0A,#501020)",
+          accent: "#F87171",
+        },
+        {
+          id: "fb-ads",
+          cat: "marketing",
+          free: false,
+          icon: "📊",
+          name: "Facebook Ads Mastery",
+          nameKh: "ជំនាញ Facebook Ads",
+          level: "inter",
+          meta: "10 Lessons · 4 hrs · Khmer",
+          progress: 0,
+          bg: "linear-gradient(135deg,#0A1428,#1B3060)",
+          accent: "#60A8E8",
+        },
+        {
+          id: "content-strat",
+          cat: "marketing",
+          free: false,
+          icon: "🗓️",
+          name: "Content Strategy 30 Days",
+          nameKh: "Plan Content ៣០ ថ្ងៃ",
+          level: "inter",
+          meta: "8 Lessons · 3 hrs · Khmer",
+          progress: 0,
+          bg: "linear-gradient(135deg,#0A200A,#1A4020)",
+          accent: "#4ADE80",
+        },
+        {
+          id: "html-css",
+          cat: "web",
+          free: true,
+          icon: "💻",
+          name: "HTML & CSS Basics",
+          nameKh: "HTML CSS ចាប់ផ្តើមពីដំបូង",
+          level: "begin",
+          meta: "7 Lessons · 3 hrs · Khmer",
+          progress: 0,
+          bg: "linear-gradient(135deg,#0A1A0A,#1A3A20)",
+          accent: "#34D399",
+        },
+        {
+          id: "github",
+          cat: "web",
+          free: true,
+          icon: "🚀",
+          name: "GitHub + Netlify Deploy",
+          nameKh: "Deploy Website ឥតគិតថ្លៃ",
+          level: "begin",
+          meta: "4 Lessons · 1.5 hrs · Khmer",
+          progress: 0,
+          bg: "linear-gradient(135deg,#0A1210,#1A2820)",
+          accent: "#2DD4BF",
+        },
+        {
+          id: "manychat",
+          cat: "marketing",
+          free: false,
+          icon: "🤖",
+          name: "ManyChat Automation",
+          nameKh: "Automate ជាមួយ ManyChat",
+          level: "inter",
+          meta: "6 Lessons · 2.5 hrs · Khmer",
+          progress: 0,
+          bg: "linear-gradient(135deg,#200A10,#401A30)",
+          accent: "#FB7185",
+        },
+      ];
+
+      let activeCat = "all";
+
+      const levelLabel = {
+        begin: "Beginner",
+        inter: "Intermediate",
+        adv: "Advanced",
+      };
+      const levelClass = {
+        begin: "lv-begin",
+        inter: "lv-inter",
+        adv: "lv-adv",
+      };
+
+      function filterCourses(cat, el) {
+        activeCat = cat;
+        document
+          .querySelectorAll(".filt")
+          .forEach((b) => b.classList.remove("on"));
+        if (el) {
+          el.classList.add("on");
+        } else {
+          const match = document.querySelector(`.filt[onclick*="'${cat}'"]`);
+          if (match) match.classList.add("on");
+        }
+        renderCourses();
+        document
+          .getElementById("courses")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function renderCourses() {
+        const grid = document.getElementById("coursesGrid");
+        const list = COURSES.filter((c) => {
+          if (activeCat === "free") return c.free;
+          if (activeCat === "all") return true;
+          return c.cat === activeCat;
+        });
+
+        grid.innerHTML = list
+          .map(
+            (c, i) => `
+    <div class="course-card" style="animation-delay:${i * 0.06}s" onclick="startCourse('${c.id}')">
       <div class="course-thumb" style="background:${c.bg}">
         <div class="course-thumb-bg" style="background:${c.bg}"></div>
-        <div class="course-thumb-icon" style="font-size:44px">${c.icon}</div>
-        <div class="level-badge ${c.free ? 'lv-free' : levelClass[c.level]}">${c.free ? '✅ FREE' : levelLabel[c.level]}</div>
+        <div class="course-thumb-icon">${c.icon}</div>
+        <div class="level-badge ${c.free ? "lv-free" : levelClass[c.level]}">
+          ${c.free ? "✅ FREE" : levelLabel[c.level]}
+        </div>
       </div>
       <div class="course-body">
         <div class="course-cat" style="color:${c.accent}">${c.cat.toUpperCase()}</div>
-        <div class="course-name">${c.name}</div>
-        <div class="course-name-kh">${c.nameKh}</div>
+        <h3 class="course-name">${c.name}</h3>
+        <p class="course-name-kh">${c.nameKh}</p>
         <div class="course-meta"><span>${c.meta}</span></div>
       </div>
       <div class="course-footer">
         <div class="course-progress-wrap">
           <div class="progress-bar">
-            <div class="progress-fill" style="width:${c.progress}%;background:linear-gradient(90deg,${c.accent},${c.accent}88)"></div>
+            <div class="progress-fill" style="width:${c.progress}%"></div>
           </div>
-          <div class="progress-label">${c.progress === 0 ? 'មិនទាន់ចាប់ផ្តើម' : c.progress + '% Complete'}</div>
+          <div class="progress-label">${c.progress === 0 ? "មិនទាន់ចាប់ផ្តើម" : c.progress + "% complete"}</div>
         </div>
-        <button class="course-btn ${c.progress > 0 ? 'btn-cont' : 'btn-start'}"
-          style="${c.progress === 0 ? `background:${c.accent};color:#080910` : ''}"
-          onclick="startCourse('${c.id}')">
-          ${c.progress > 0 ? '▶ Continue' : 'ចាប់ផ្តើម'}
+        <button class="course-btn ${c.progress > 0 ? "btn-cont" : "btn-start"}">
+          ${c.progress > 0 ? 'បន្ត <i class="fas fa-arrow-right"></i>' : 'ចាប់ផ្ដើម <i class="fas fa-play"></i>'}
         </button>
       </div>
     </div>
-  `).join('');
-}
+  `,
+          )
+          .join("");
+      }
 
-function startCourse(id) {
-  const c = COURSES.find(x => x.id === id);
-  if (!c) return;
-  if (c.id === 'claude-ai') {
-    window.location.href = 'docs.html';
-  } else {
-    alert(`Course "${c.name}" — Coming Soon! ✨\nJoin Telegram t.me/yobdigital ដើម្បី Notify ដំបូង!`);
-  }
-}
+      function startCourse(id) {
+        const c = COURSES.find((x) => x.id === id);
+        if (!c) return;
+        if (c.id === "claude-ai") {
+          window.location.href = "docs.html";
+        } else {
+          alert(
+            `Course "${c.name}" — Coming Soon! ✨\nJoin Telegram t.me/yobdigital ដើម្បី Notify ដំបូង!`,
+          );
+        }
+      }
 
-// Init
-renderCourses();
+      // Init
+      renderCourses();
+    </script>
 
-// Highlight active nav link on scroll
-const sections = ['paths','courses','sitemap'];
-window.addEventListener('scroll', () => {
-  const links = document.querySelectorAll('.learn-nav-links a');
-  let current = '';
-  sections.forEach(id => {
-    const el = document.getElementById(id);
-    if (el && window.scrollY >= el.offsetTop - 100) current = id;
-  });
-  links.forEach(a => {
-    a.classList.remove('act');
-    const href = a.getAttribute('href');
-    if (current && href === '#' + current) a.classList.add('act');
-    if (!current && href === 'index.html') a.classList.add('act');
-  });
-});
-  </script>
+    <!-- Eternity: Star field + Shooting Stars -->
+    <script>
+    (function () {
+      const canvas = document.getElementById("star-canvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      let W, H, stars = [], meteors = [];
+      const COUNT = 220;
 
-</body>
+      function resize() {
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+      }
+
+      function mkStar() {
+        return {
+          x:     Math.random() * W,
+          y:     Math.random() * H,
+          r:     Math.random() * 1.4 + 0.3,
+          base:  Math.random() * 0.6 + 0.2,
+          speed: Math.random() * 0.8 + 0.3,
+          phase: Math.random() * Math.PI * 2,
+          hue:   Math.random() < 0.15
+                   ? (Math.random() < 0.5 ? "180,140,255" : "255,160,210")
+                   : "255,255,255",
+        };
+      }
+
+      function spawnMeteor() {
+        const a = Math.PI / 5 + Math.random() * (Math.PI / 10);
+        meteors.push({
+          x:     Math.random() * W * 0.75,
+          y:     Math.random() * H * 0.45,
+          len:   Math.random() * 140 + 80,
+          speed: Math.random() * 10 + 8,
+          alpha: 0.9,
+          dx:    Math.cos(a),
+          dy:    Math.sin(a),
+        });
+      }
+
+      function scheduleMeteor() {
+        setTimeout(function () { spawnMeteor(); scheduleMeteor(); },
+          Math.random() * 5000 + 2500);
+      }
+
+      function init() {
+        resize();
+        stars = Array.from({ length: COUNT }, mkStar);
+        scheduleMeteor();
+      }
+
+      function draw(ts) {
+        ctx.clearRect(0, 0, W, H);
+        const t = ts * 0.001;
+
+        for (const s of stars) {
+          const alpha = s.base + Math.sin(t * s.speed + s.phase) * 0.35;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${s.hue},${Math.max(0, Math.min(1, alpha))})`;
+          ctx.fill();
+        }
+
+        for (let i = meteors.length - 1; i >= 0; i--) {
+          const m = meteors[i];
+          const g = ctx.createLinearGradient(
+            m.x, m.y, m.x - m.dx * m.len, m.y - m.dy * m.len
+          );
+          g.addColorStop(0,   "rgba(255,255,255," + m.alpha + ")");
+          g.addColorStop(0.4, "rgba(190,150,255," + (m.alpha * 0.5) + ")");
+          g.addColorStop(1,   "rgba(255,255,255,0)");
+          ctx.beginPath();
+          ctx.moveTo(m.x, m.y);
+          ctx.lineTo(m.x - m.dx * m.len, m.y - m.dy * m.len);
+          ctx.strokeStyle = g;
+          ctx.lineWidth   = 1.8;
+          ctx.stroke();
+          m.x     += m.dx * m.speed;
+          m.y     += m.dy * m.speed;
+          m.alpha -= 0.022;
+          if (m.alpha <= 0 || m.x > W + 60 || m.y > H + 60) meteors.splice(i, 1);
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+      if (!mq.matches) {
+        init();
+        window.addEventListener("resize", resize);
+        requestAnimationFrame(draw);
+      }
+    })();
+    </script>
+
+    <!-- Eternity: Mouse Parallax Orbs -->
+    <script>
+    (function () {
+      if (window.matchMedia("(hover: none)").matches) return;
+      const orb1 = document.querySelector(".orb1");
+      const orb2 = document.querySelector(".orb2");
+      if (!orb1 || !orb2) return;
+
+      orb1.style.animation = "none";
+      orb2.style.animation = "none";
+
+      var tx = 0, ty = 0, cx = 0, cy = 0;
+
+      window.addEventListener("mousemove", function (e) {
+        tx = e.clientX / window.innerWidth  - 0.5;
+        ty = e.clientY / window.innerHeight - 0.5;
+      });
+
+      function tick() {
+        cx += (tx - cx) * 0.04;
+        cy += (ty - cy) * 0.04;
+        var t  = Date.now() / 1000;
+        var f1 = Math.sin(t / 8) * 22;
+        var f2 = Math.sin(t / 10 + 1) * 18;
+        orb1.style.transform = "translate(" + (cx * 65) + "px, " + (cy * 50 + f1) + "px)";
+        orb2.style.transform = "translate(" + (-cx * 50) + "px, " + (-cy * 40 + f2) + "px) scale(" + (1 + Math.sin(t / 10) * 0.04) + ")";
+        requestAnimationFrame(tick);
+      }
+      tick();
+    })();
+    </script>
+
+    <!-- Eternity: Stats Counter -->
+    <script>
+    (function () {
+      function countUp(el) {
+        var target = parseFloat(el.dataset.count);
+        var suffix = el.dataset.suffix || "";
+        var dec    = parseInt(el.dataset.dec) || 0;
+        var dur    = 1600;
+        el.textContent = "0" + suffix;
+        var t0 = performance.now();
+        function frame(now) {
+          var p = Math.min((now - t0) / dur, 1);
+          var e = 1 - Math.pow(1 - p, 3);
+          el.textContent = (target * e).toFixed(dec) + suffix;
+          if (p < 1) requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { countUp(en.target); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.6 });
+
+      document.querySelectorAll(".stat-big[data-count]").forEach(function (el) {
+        io.observe(el);
+      });
+    })();
+    </script>
+
+    <!-- Eternity: Staggered Card Entrance -->
+    <script>
+    (function () {
+      var grid = document.getElementById("coursesGrid");
+      if (!grid) return;
+
+      var io = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { grid.classList.add("stagger-play"); io.disconnect(); }
+      }, { threshold: 0.05 });
+      io.observe(grid);
+
+      new MutationObserver(function () {
+        grid.classList.remove("stagger-play");
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            grid.classList.add("stagger-play");
+          });
+        });
+      }).observe(grid, { childList: true });
+    })();
+    </script>
+  </body>
 </html>

@@ -1,703 +1,1104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="km">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Case Studies — YOB Digital</title>
-  <meta name="description" content="ស្វែងយល់ពីរបៀបដែល YOB Digital ជួយ SMEs និង Creators ខ្មែរ transform business ជាមួយ AI & Digital Strategy។"/>
-  <meta property="og:title"       content="Case Studies — YOB Digital"/>
-  <meta property="og:description" content="Real results from real Cambodian businesses — powered by YOB Digital."/>
-  <meta property="og:image"       content="https://yobdigital.netlify.app/images/og-cover.jpg"/>
-  <meta property="og:url"         content="https://yobdigital.netlify.app/case-studies.html"/>
-  <meta property="og:type"        content="website"/>
-  <link rel="canonical"           href="https://yobdigital.netlify.app/case-studies.html"/>
-  <link rel="icon"                type="image/png" href="images/favicon.png"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Studies — YOB Digital</title>
+    <meta
+      name="description"
+      content="ស្វែងយល់ពីរបៀបដែល YOB Digital ជួយ SMEs និង Creators ខ្មែរ transform business ជាមួយ AI & Digital Strategy។"
+    />
+    <meta property="og:title" content="Case Studies — YOB Digital" />
+    <meta
+      property="og:description"
+      content="Real results from real Cambodian businesses — powered by YOB Digital."
+    />
+    <meta
+      property="og:image"
+      content="https://yobdigital.netlify.app/images/og-cover.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://yobdigital.netlify.app/case-studies.html"
+    />
+    <meta property="og:type" content="website" />
+    <link
+      rel="canonical"
+      href="https://yobdigital.netlify.app/case-studies.html"
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
 
-  <!-- DNS Prefetch -->
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Font Awesome async (non-render-blocking) -->
-  <link
-    rel="preload"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    as="style"
-    onload="this.onload=null;this.rel='stylesheet'"
-  />
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  </noscript>
+    <!-- Font Awesome async (non-render-blocking) -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      />
+    </noscript>
 
-  <link rel="stylesheet" href="css/style.css">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
 
-  <style>
-    /* ═══════════════════════════════════════
+    <style>
+      /* ═══════════════════════════════════════
        CASE STUDIES PAGE
     ═══════════════════════════════════════ */
 
-    /* Page Hero */
-    .cs-hero {
-      padding: 140px 0 80px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .cs-hero::before {
-      content: '';
-      position: absolute; inset: 0; z-index: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(229,44,103,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(168,85,247,0.07) 0%, transparent 55%);
-    }
-    .cs-hero > * { position: relative; z-index: 1; }
-    .page-tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(229,44,103,0.08);
-      border: 1px solid rgba(229,44,103,0.2);
-      padding: 6px 18px; border-radius: 50px;
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 20px;
-    }
-    .cs-hero h1 {
-      font-family: var(--fh);
-      font-size: clamp(48px, 7vw, 96px);
-      line-height: 1.2; letter-spacing: 1px;
-      margin-bottom: 20px;
-    }
-    .cs-hero h1 em {
-      font-style: normal;
-      background: linear-gradient(135deg, #fff 0%, #ff8ab0 40%, #e52c67 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .cs-hero p {
-      font-family: var(--fk); font-size: 17px;
-      color: var(--gray); max-width: 560px;
-      margin: 0 auto 40px; line-height: 1.9;
-    }
+      /* Page Hero */
+      .cs-hero {
+        padding: 140px 0 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .cs-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background:
+          radial-gradient(
+            ellipse 70% 60% at 50% 0%,
+            rgba(229, 44, 103, 0.12) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 50% 40% at 80% 80%,
+            rgba(168, 85, 247, 0.07) 0%,
+            transparent 55%
+          );
+      }
+      .cs-hero > * {
+        position: relative;
+        z-index: 1;
+      }
+      .page-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(229, 44, 103, 0.08);
+        border: 1px solid rgba(229, 44, 103, 0.2);
+        padding: 6px 18px;
+        border-radius: 50px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+      .cs-hero h1 {
+        font-family: var(--fh);
+        font-size: clamp(48px, 7vw, 96px);
+        line-height: 1.2;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+      }
+      .cs-hero h1 em {
+        font-style: normal;
+        background: linear-gradient(135deg, #fff 0%, #ff8ab0 40%, #e52c67 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .cs-hero p {
+        font-family: var(--fk);
+        font-size: 17px;
+        color: var(--gray);
+        max-width: 560px;
+        margin: 0 auto 40px;
+        line-height: 1.9;
+      }
 
-    /* Stats bar */
-    .stats-bar {
-      display: flex; justify-content: center; gap: 48px;
-      flex-wrap: wrap; margin-bottom: 16px;
-    }
-    .stat-pill {
-      display: flex; flex-direction: column;
-      align-items: center; gap: 4px;
-    }
-    .stat-pill .n {
-      font-family: var(--fh); font-size: 40px;
-      font-weight: 800; color: var(--white);
-      line-height: 1;
-    }
-    .stat-pill .n span { color: var(--gold); }
-    .stat-pill .l {
-      font-size: 12px; color: var(--gray);
-      font-weight: 500; letter-spacing: 0.5px;
-    }
+      /* Stats bar */
+      .stats-bar {
+        display: flex;
+        justify-content: center;
+        gap: 48px;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+      }
+      .stat-pill {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+      .stat-pill .n {
+        font-family: var(--fh);
+        font-size: 40px;
+        font-weight: 800;
+        color: var(--white);
+        line-height: 1;
+      }
+      .stat-pill .n span {
+        color: var(--gold);
+      }
+      .stat-pill .l {
+        font-size: 12px;
+        color: var(--gray);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
 
-    /* Filter tabs */
-    .filter-bar {
-      display: flex; gap: 8px; justify-content: center;
-      flex-wrap: wrap; margin: 40px 0 56px;
-    }
-    .filter-btn {
-      padding: 9px 20px; border-radius: 50px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--gray); font-family: var(--fb);
-      font-size: 13px; font-weight: 600;
-      cursor: pointer; transition: all var(--t);
-    }
-    .filter-btn:hover { background: rgba(255,255,255,0.07); color: var(--white); }
-    .filter-btn.active {
-      background: rgba(229,44,103,0.12);
-      border-color: rgba(229,44,103,0.3);
-      color: var(--gold);
-    }
+      /* Filter tabs */
+      .filter-bar {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 40px 0 56px;
+      }
+      .filter-btn {
+        padding: 9px 20px;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--gray);
+        font-family: var(--fb);
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--t);
+      }
+      .filter-btn:hover {
+        background: rgba(255, 255, 255, 0.07);
+        color: var(--white);
+      }
+      .filter-btn.active {
+        background: rgba(229, 44, 103, 0.12);
+        border-color: rgba(229, 44, 103, 0.3);
+        color: var(--gold);
+      }
 
-    /* Case Studies Grid */
-    .cs-section { padding: 0 0 100px; }
-    .cs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 28px;
-    }
+      /* Case Studies Grid */
+      .cs-section {
+        padding: 0 0 100px;
+      }
+      .cs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 28px;
+      }
 
-    /* Featured (first card — spans 2 cols) */
-    .cs-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
-      display: flex; flex-direction: column;
-      cursor: pointer;
-    }
-    .cs-card:hover {
-      border-color: rgba(229,44,103,0.3);
-      transform: translateY(-8px);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.5),
-                  0 0 0 1px rgba(229,44,103,0.1);
-    }
-    .cs-card.featured {
-      grid-column: span 2;
-      flex-direction: row;
-    }
-    .cs-card.featured .cs-thumb { width: 50%; flex-shrink: 0; aspect-ratio: unset; }
-    .cs-card.featured .cs-body  { padding: 48px 40px; justify-content: center; }
+      /* Featured (first card — spans 2 cols) */
+      .cs-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+      }
+      .cs-card:hover {
+        border-color: rgba(229, 44, 103, 0.3);
+        transform: translateY(-8px);
+        box-shadow:
+          0 24px 60px rgba(0, 0, 0, 0.5),
+          0 0 0 1px rgba(229, 44, 103, 0.1);
+      }
+      .cs-card.featured {
+        grid-column: span 2;
+        flex-direction: row;
+      }
+      .cs-card.featured .cs-thumb {
+        width: 50%;
+        flex-shrink: 0;
+        aspect-ratio: unset;
+      }
+      .cs-card.featured .cs-body {
+        padding: 48px 40px;
+        justify-content: center;
+      }
 
-    /* Thumbnail */
-    .cs-thumb {
-      position: relative;
-      aspect-ratio: 16/9;
-      overflow: hidden;
-      background: linear-gradient(135deg, rgba(229,44,103,0.08), rgba(0,0,0,0.3));
-    }
-    .cs-thumb img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
-      opacity: 0.85;
-      loading: lazy;
-    }
-    .cs-card:hover .cs-thumb img {
-      transform: scale(1.06);
-      opacity: 1;
-    }
-    .cs-thumb-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(8,11,16,0.7) 0%, transparent 50%);
-    }
-    .cs-category {
-      position: absolute; top: 16px; left: 16px;
-      background: rgba(8,11,16,0.8);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 4px 12px; border-radius: 20px;
-      font-size: 10px; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--gold);
-    }
-    .cs-result-badge {
-      position: absolute; bottom: 16px; right: 16px;
-      background: linear-gradient(135deg, var(--gold), #ff8ab0);
-      padding: 6px 14px; border-radius: 20px;
-      font-family: var(--fh); font-size: 15px;
-      font-weight: 700; color: #fff;
-      box-shadow: 0 4px 16px rgba(229,44,103,0.4);
-    }
+      /* Thumbnail */
+      .cs-thumb {
+        position: relative;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+        background: linear-gradient(
+          135deg,
+          rgba(229, 44, 103, 0.08),
+          rgba(0, 0, 0, 0.3)
+        );
+      }
+      .cs-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        opacity: 0.85;
+      }
+      .cs-card:hover .cs-thumb img {
+        transform: scale(1.06);
+        opacity: 1;
+      }
+      .cs-thumb-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(8, 11, 16, 0.7) 0%,
+          transparent 50%
+        );
+      }
+      .cs-category {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        background: rgba(8, 11, 16, 0.8);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .cs-result-badge {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        background: linear-gradient(135deg, var(--gold), #ff8ab0);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-family: var(--fh);
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        box-shadow: 0 4px 16px rgba(229, 44, 103, 0.4);
+      }
 
-    /* Body */
-    .cs-body {
-      padding: 28px 28px 24px;
-      display: flex; flex-direction: column;
-      gap: 12px; flex: 1;
-    }
-    .cs-client {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: var(--gold);
-    }
-    .cs-title {
-      font-family: var(--fh);
-      font-size: 26px; font-weight: 700;
-      line-height: 1.1; color: var(--white);
-      transition: color var(--t);
-    }
-    .cs-card:hover .cs-title { color: #ffd0df; }
-    .cs-card.featured .cs-title { font-size: 36px; }
-    .cs-excerpt {
-      font-family: var(--fk); font-size: 14px;
-      color: var(--gray); line-height: 1.8;
-      flex: 1;
-    }
+      /* Body */
+      .cs-body {
+        padding: 28px 28px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex: 1;
+      }
+      .cs-client {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .cs-title {
+        font-family: var(--fh);
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.1;
+        color: var(--white);
+        transition: color var(--t);
+      }
+      .cs-card:hover .cs-title {
+        color: #ffd0df;
+      }
+      .cs-card.featured .cs-title {
+        font-size: 36px;
+      }
+      .cs-excerpt {
+        font-family: var(--fk);
+        font-size: 14px;
+        color: var(--gray);
+        line-height: 1.8;
+        flex: 1;
+      }
 
-    /* Metrics row */
-    .cs-metrics {
-      display: flex; gap: 20px; flex-wrap: wrap;
-      padding: 16px 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .cs-metric { display: flex; flex-direction: column; gap: 3px; }
-    .cs-metric .mn {
-      font-family: var(--fh); font-size: 24px;
-      font-weight: 800; color: var(--gold); line-height: 1;
-    }
-    .cs-metric .ml {
-      font-size: 11px; color: var(--gray); font-weight: 500;
-    }
+      /* Metrics row */
+      .cs-metrics {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 16px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .cs-metric {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .cs-metric .mn {
+        font-family: var(--fh);
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--gold);
+        line-height: 1;
+      }
+      .cs-metric .ml {
+        font-size: 11px;
+        color: var(--gray);
+        font-weight: 500;
+      }
 
-    /* Footer */
-    .cs-footer {
-      display: flex; align-items: center;
-      justify-content: space-between; gap: 12px;
-    }
-    .cs-tags { display: flex; gap: 6px; flex-wrap: wrap; }
-    .cs-tag {
-      font-size: 10px; font-weight: 600; padding: 3px 10px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--gray);
-    }
-    .cs-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 13px; font-weight: 700; color: var(--gold);
-      white-space: nowrap; transition: gap var(--t);
-      flex-shrink: 0;
-    }
-    .cs-card:hover .cs-link { gap: 10px; }
+      /* Footer */
+      .cs-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .cs-tags {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .cs-tag {
+        font-size: 10px;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--gray);
+      }
+      .cs-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--gold);
+        white-space: nowrap;
+        transition: gap var(--t);
+        flex-shrink: 0;
+      }
+      .cs-card:hover .cs-link {
+        gap: 10px;
+      }
 
-    /* Testimonial section */
-    .testimonials-section { padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.06); }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-      gap: 20px; margin-top: 48px;
-    }
-    .testi-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 18px; padding: 28px 24px;
-      transition: all var(--t);
-    }
-    .testi-card:hover {
-      border-color: rgba(229,44,103,0.25);
-      transform: translateY(-4px);
-    }
-    .testi-stars {
-      display: flex; gap: 3px; margin-bottom: 14px;
-    }
-    .testi-stars i { color: #F5A623; font-size: 13px; }
-    .testi-quote {
-      font-family: var(--fk); font-size: 14px;
-      color: var(--gray); line-height: 1.9;
-      font-style: italic; margin-bottom: 20px;
-    }
-    .testi-author {
-      display: flex; align-items: center; gap: 12px;
-    }
-    .testi-avatar {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: linear-gradient(135deg, rgba(229,44,103,0.2), rgba(229,44,103,0.05));
-      border: 1px solid rgba(229,44,103,0.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
-    }
-    .testi-name { font-weight: 700; font-size: 13px; }
-    .testi-role { font-size: 11px; color: var(--gray); margin-top: 2px; }
+      /* Testimonial section */
+      .testimonials-section {
+        padding: 80px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 48px;
+      }
+      .testi-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 18px;
+        padding: 28px 24px;
+        transition: all var(--t);
+      }
+      .testi-card:hover {
+        border-color: rgba(229, 44, 103, 0.25);
+        transform: translateY(-4px);
+      }
+      .testi-stars {
+        display: flex;
+        gap: 3px;
+        margin-bottom: 14px;
+      }
+      .testi-stars i {
+        color: #f5a623;
+        font-size: 13px;
+      }
+      .testi-quote {
+        font-family: var(--fk);
+        font-size: 14px;
+        color: var(--gray);
+        line-height: 1.9;
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+      .testi-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .testi-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          rgba(229, 44, 103, 0.2),
+          rgba(229, 44, 103, 0.05)
+        );
+        border: 1px solid rgba(229, 44, 103, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+      }
+      .testi-name {
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .testi-role {
+        font-size: 11px;
+        color: var(--gray);
+        margin-top: 2px;
+      }
 
-    /* CTA Section */
-    .cs-cta { padding: 80px 0 100px; }
-    .cs-cta-box {
-      background: linear-gradient(135deg, rgba(229,44,103,0.1) 0%, rgba(229,44,103,0.03) 60%, transparent 100%);
-      border: 1px solid rgba(229,44,103,0.2);
-      border-radius: 24px; padding: 64px;
-      text-align: center; position: relative; overflow: hidden;
-      backdrop-filter: blur(16px);
-    }
-    .cs-cta-box::before {
-      content: '';
-      position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
-      width: 600px; height: 300px;
-      background: radial-gradient(ellipse, rgba(229,44,103,0.1) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .cs-cta-box > * { position: relative; z-index: 1; }
-    .cs-cta-box h2 {
-      font-family: var(--fh);
-      font-size: clamp(32px,4.5vw,60px);
-      margin-bottom: 16px; line-height: 1;
-    }
-    .cs-cta-box p {
-      font-family: var(--fk); font-size: 16px;
-      color: var(--gray); max-width: 520px;
-      margin: 0 auto 36px; line-height: 1.9;
-    }
-    .cta-actions {
-      display: flex; gap: 14px;
-      justify-content: center; flex-wrap: wrap;
-    }
+      /* CTA Section */
+      .cs-cta {
+        padding: 80px 0 100px;
+      }
+      .cs-cta-box {
+        background: linear-gradient(
+          135deg,
+          rgba(229, 44, 103, 0.1) 0%,
+          rgba(229, 44, 103, 0.03) 60%,
+          transparent 100%
+        );
+        border: 1px solid rgba(229, 44, 103, 0.2);
+        border-radius: 24px;
+        padding: 64px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(16px);
+      }
+      .cs-cta-box::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 300px;
+        background: radial-gradient(
+          ellipse,
+          rgba(229, 44, 103, 0.1) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .cs-cta-box > * {
+        position: relative;
+        z-index: 1;
+      }
+      .cs-cta-box h2 {
+        font-family: var(--fh);
+        font-size: clamp(32px, 4.5vw, 60px);
+        margin-bottom: 16px;
+        line-height: 1;
+      }
+      .cs-cta-box p {
+        font-family: var(--fk);
+        font-size: 16px;
+        color: var(--gray);
+        max-width: 520px;
+        margin: 0 auto 36px;
+        line-height: 1.9;
+      }
+      .cta-actions {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      .cs-card.featured { grid-column: span 1; flex-direction: column; }
-      .cs-card.featured .cs-thumb { width: 100%; aspect-ratio: 16/9; }
-      .cs-card.featured .cs-body { padding: 28px; }
-    }
-    @media (max-width: 600px) {
-      .cs-grid { grid-template-columns: 1fr; }
-      .stats-bar { gap: 28px; }
-      .cs-cta-box { padding: 40px 24px; }
-    }
-  </style>
-</head>
-<body>
+      /* Responsive */
+      @media (max-width: 900px) {
+        .cs-card.featured {
+          grid-column: span 1;
+          flex-direction: column;
+        }
+        .cs-card.featured .cs-thumb {
+          width: 100%;
+          aspect-ratio: 16/9;
+        }
+        .cs-card.featured .cs-body {
+          padding: 28px;
+        }
+      }
+      @media (max-width: 600px) {
+        .cs-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats-bar {
+          gap: 28px;
+        }
+        .cs-cta-box {
+          padding: 40px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
 
-  <!-- Cursor -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
+    <div id="nav-placeholder"></div>
 
-  <div id="nav-placeholder"></div>
-
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer" id="mobileDrawer">
-    <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
-    <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
-    <div class="drawer-group">
-      <button class="drawer-group-toggle active">Learn <i class="fas fa-chevron-down"></i></button>
-      <div class="drawer-group-items">
-        <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
-        <a href="docs.html" onclick="closeDrawer()">Documentation</a>
-        <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button class="drawer-close" id="drawerClose">
+        <i class="fas fa-times"></i>
+      </button>
+      <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle active">
+          Learn <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="drawer-group-items">
+          <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+          <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+          <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
+        </div>
       </div>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">
+          Products <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="drawer-group-items">
+          <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+          <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
+        </div>
+      </div>
+      <a href="about.html" onclick="closeDrawer()">About YOB</a>
+      <a href="index.html#contact" onclick="closeDrawer()" class="d-cta"
+        >ទំនាក់ទំនង</a
+      >
     </div>
-    <div class="drawer-group">
-      <button class="drawer-group-toggle">Products <i class="fas fa-chevron-down"></i></button>
-      <div class="drawer-group-items">
-        <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
-        <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
+
+    <!-- ══ HERO ══ -->
+    <section class="cs-hero">
+      <div class="container">
+        <div class="page-tag">
+          <i class="fas fa-trophy"></i> Real Results · Real Businesses
+        </div>
+        <h1>CASE <em>STUDIES</em></h1>
+        <p>
+          ស្វែងយល់ពីរបៀបដែល YOB Digital ជួយ SMEs និង Creators ខ្មែរ
+          <strong>transform business</strong> ជាមួយ AI, Digital Strategy និង Web
+          Systems។
+        </p>
+
+        <div class="stats-bar reveal">
+          <div class="stat-pill">
+            <div class="n">500<span>+</span></div>
+            <div class="l">Businesses Helped</div>
+          </div>
+          <div class="stat-pill">
+            <div class="n">3<span>x</span></div>
+            <div class="l">Average ROAS</div>
+          </div>
+          <div class="stat-pill">
+            <div class="n">80<span>%</span></div>
+            <div class="l">Report Revenue Growth</div>
+          </div>
+          <div class="stat-pill">
+            <div class="n">4<span>wks</span></div>
+            <div class="l">Avg. Time to Results</div>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <!-- ══ CASE STUDIES ══ -->
+    <section class="cs-section">
+      <div class="container">
+        <!-- Filter -->
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="ai">AI Tools</button>
+          <button class="filter-btn" data-filter="strategy">
+            Digital Strategy
+          </button>
+          <button class="filter-btn" data-filter="web">Web & Systems</button>
+          <button class="filter-btn" data-filter="font">Typography</button>
+        </div>
+
+        <div class="cs-grid">
+          <!-- ★ FEATURED Case Study 1 -->
+          <div class="cs-card featured reveal" data-cat="strategy">
+            <div class="cs-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=70&w=1200&auto=format&fit=crop"
+                alt="DC Fashion Case Study"
+                loading="lazy"
+              />
+              <div class="cs-thumb-overlay"></div>
+              <span class="cs-category">Digital Strategy</span>
+              <span class="cs-result-badge">3.8x ROAS</span>
+            </div>
+            <div class="cs-body">
+              <div class="cs-client">DC Fashion · Phnom Penh</div>
+              <div class="cs-title">ពី Boost Post ទៅ 3.8x ROAS ក្នុង ២ ខែ</div>
+              <div class="cs-excerpt">
+                DC Fashion ចំណាយ $300/month លើ Boost Post ប៉ុន្តែ ROI មិនច្បាស់។
+                YOB Digital design Full-Funnel Strategy — Hook Content +
+                Retargeting + KHQR checkout — ទទួលបាន ROAS 3.8x ក្នុង ៨ សប្ដាហ៍
+                ជំនួស 1.2x ដូចមុន!
+              </div>
+              <div class="cs-metrics">
+                <div class="cs-metric">
+                  <div class="mn">3.8x</div>
+                  <div class="ml">ROAS</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="mn">+147%</div>
+                  <div class="ml">Revenue</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="mn">-60%</div>
+                  <div class="ml">Cost per Lead</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="mn">8wks</div>
+                  <div class="ml">To Results</div>
+                </div>
+              </div>
+              <div class="cs-footer">
+                <div class="cs-tags">
+                  <span class="cs-tag">Facebook Ads</span>
+                  <span class="cs-tag">Content Strategy</span>
+                  <span class="cs-tag">KHQR</span>
+                </div>
+                <a href="index.html#contact" class="cs-link"
+                  >Read full story <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 2 -->
+          <div class="cs-card reveal" data-cat="ai">
+            <div class="cs-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=70&w=800&auto=format&fit=crop"
+                alt="CR Academy Case Study"
+                loading="lazy"
+              />
+              <div class="cs-thumb-overlay"></div>
+              <span class="cs-category">AI Tools</span>
+              <span class="cs-result-badge">Save $250/mo</span>
+            </div>
+            <div class="cs-body">
+              <div class="cs-client">Sokha Café · Siem Reap</div>
+              <div class="cs-title">
+                AI Content System ជំនួស Marketing Agency
+              </div>
+              <div class="cs-excerpt">
+                Sokha Café ចំណាយ $300/month hire agency ធ្វើ content។ YOB
+                Digital បង្រៀន AI Workflow — ឥឡូវ generate ១ month content ក្នុង
+                ២ ម៉ោង ដោយខ្លួនឯង!
+              </div>
+              <div class="cs-metrics">
+                <div class="cs-metric">
+                  <div class="mn">$250</div>
+                  <div class="ml">Saved/Month</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="mn">+32%</div>
+                  <div class="ml">Engagement</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="mn">2hrs</div>
+                  <div class="ml">30-day Content</div>
+                </div>
+              </div>
+              <div class="cs-footer">
+                <div class="cs-tags">
+                  <span class="cs-tag">ChatGPT</span>
+                  <span class="cs-tag">Canva AI</span>
+                  <span class="cs-tag">Automation</span>
+                </div>
+                <a href="index.html#contact" class="cs-link"
+                  >Read more <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 3 -->
+          <div class="cs-card reveal" data-cat="web">
+            <div class="cs-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=70&w=800&auto=format&fit=crop"
+                alt="CR Academy"
+                loading="lazy"
+              />
+              <div class="cs-thumb-overlay"></div>
+              <span class="cs-category">Web & Systems</span>
+              <span class="cs-result-badge">15 Leads/Day</span>
+            </div>
+            <div class="cs-body">
+              <div class="cs-client">CR Academy · Phnom Penh</div>
+              <div class="cs-title">Website + AI Workflow → 15 Leads/Day</div>
+              <div class="cs-excerpt">
+                CR Academy មាន Facebook Page ប៉ុន្តែ inquiry ចូល ២-៣/ថ្ងៃ។ YOB
+                Digital setup website + booking system + AI auto-reply — ឥឡូវ
+                12-15 qualified leads ចូលរាល់ថ្ងៃ!
+              </div>
+              <div class="cs-metrics">
+                <div class="cs-metric">
+                  <div class="mn">15</div>
+                  <div class="ml">Leads/Day</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="mn">5x</div>
+                  <div class="ml">More Inquiries</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="mn">2wks</div>
+                  <div class="ml">Setup Time</div>
+                </div>
+              </div>
+              <div class="cs-footer">
+                <div class="cs-tags">
+                  <span class="cs-tag">Website</span>
+                  <span class="cs-tag">Booking System</span>
+                  <span class="cs-tag">AI Chatbot</span>
+                </div>
+                <a href="index.html#contact" class="cs-link"
+                  >Read more <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 4 -->
+          <div class="cs-card reveal" data-cat="ai strategy">
+            <div class="cs-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=70&w=800&auto=format&fit=crop"
+                alt="FMCG Manager"
+                loading="lazy"
+              />
+              <div class="cs-thumb-overlay"></div>
+              <span class="cs-category">AI + Strategy</span>
+              <span class="cs-result-badge">10+ hrs/week saved</span>
+            </div>
+            <div class="cs-body">
+              <div class="cs-client">Piseth · FMCG Marketing Manager</div>
+              <div class="cs-title">AI Essentials → Save 10+ Hours Weekly</div>
+              <div class="cs-excerpt">
+                Piseth ជា Marketing Manager ដែលត្រូវ produce reports,
+                presentations, content weekly។ YOB AI Essentials training ជួយ
+                automate ៨០% tasks — save 10+ ម៉ោង/សប្ដាហ៍!
+              </div>
+              <div class="cs-metrics">
+                <div class="cs-metric">
+                  <div class="mn">10+</div>
+                  <div class="ml">Hours Saved/Week</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="mn">80%</div>
+                  <div class="ml">Tasks Automated</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="mn">$250</div>
+                  <div class="ml">Monthly Savings</div>
+                </div>
+              </div>
+              <div class="cs-footer">
+                <div class="cs-tags">
+                  <span class="cs-tag">AI Training</span>
+                  <span class="cs-tag">Automation</span>
+                  <span class="cs-tag">Productivity</span>
+                </div>
+                <a href="index.html#contact" class="cs-link"
+                  >Read more <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 5 -->
+          <div class="cs-card reveal" data-cat="font">
+            <div class="cs-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=70&w=800&auto=format&fit=crop"
+                alt="Brand Relaunch"
+                loading="lazy"
+              />
+              <div class="cs-thumb-overlay"></div>
+              <span class="cs-category">Typography</span>
+              <span class="cs-result-badge">+40% Brand Trust</span>
+            </div>
+            <div class="cs-body">
+              <div class="cs-client">Local Startup · Kampong Cham</div>
+              <div class="cs-title">
+                Khmer Font Upgrade → 40% More Brand Trust
+              </div>
+              <div class="cs-excerpt">
+                Startup ប្រើ default Khmer font ក្នុង branding materials ហើយ
+                look unprofessional។ YOB Typography — YOB Heading Pro + YOB
+                Signature — brand perceived trust ឡើង 40% ក្នុង customer survey!
+              </div>
+              <div class="cs-metrics">
+                <div class="cs-metric">
+                  <div class="mn">+40%</div>
+                  <div class="ml">Brand Trust</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="mn">+25%</div>
+                  <div class="ml">Conversion Rate</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="mn">1day</div>
+                  <div class="ml">Implementation</div>
+                </div>
+              </div>
+              <div class="cs-footer">
+                <div class="cs-tags">
+                  <span class="cs-tag">YOB Heading Pro</span>
+                  <span class="cs-tag">Branding</span>
+                  <span class="cs-tag">Print</span>
+                </div>
+                <a href="fonts.html" class="cs-link"
+                  >See fonts <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 6 -->
+          <div class="cs-card reveal" data-cat="strategy">
+            <div class="cs-thumb">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=70&w=800&auto=format&fit=crop"
+                alt="E-commerce Growth"
+                loading="lazy"
+              />
+              <div class="cs-thumb-overlay"></div>
+              <span class="cs-category">Digital Strategy</span>
+              <span class="cs-result-badge">+200% Online Sales</span>
+            </div>
+            <div class="cs-body">
+              <div class="cs-client">Handcraft Store · Battambang</div>
+              <div class="cs-title">Offline to Online → 200% Sales Growth</div>
+              <div class="cs-excerpt">
+                Handcraft store ពឹងផ្អែកលើ walk-in customers ១០០%។ YOB Digital
+                setup Facebook Shop + TikTok content strategy + Shopee listing —
+                online sales ឡើង 200% ក្នុង ៣ ខែ!
+              </div>
+              <div class="cs-metrics">
+                <div class="cs-metric">
+                  <div class="mn">+200%</div>
+                  <div class="ml">Online Sales</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="mn">3</div>
+                  <div class="ml">New Channels</div>
+                </div>
+                <div class="cs-metric">
+                  <div class="mn">3mo</div>
+                  <div class="ml">To Scale</div>
+                </div>
+              </div>
+              <div class="cs-footer">
+                <div class="cs-tags">
+                  <span class="cs-tag">E-Commerce</span>
+                  <span class="cs-tag">TikTok</span>
+                  <span class="cs-tag">Shopee</span>
+                </div>
+                <a href="index.html#contact" class="cs-link"
+                  >Read more <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end cs-grid -->
+      </div>
+    </section>
+
+    <!-- ══ TESTIMONIALS ══ -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">What Clients Say</span>
+          <h2 class="section-title">
+            REAL <span class="gradient-text">VOICES</span>
+          </h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testi-card reveal">
+            <div class="testi-badge">📈 +32% Sales</div>
+            <div class="testi-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
+            </div>
+            <div class="testi-rating-bar"></div>
+            <p class="testi-quote">
+              "ក្រោយ AI Course ១ ខែ ខ្ញុំ save ១២+ ម៉ោង/សប្ដាហ៍ — Sales ឡើង ៣២%!
+              Content ដែល Babu បង្រៀន apply ភ្លាម គ្មាន theory ហួស!"
+            </p>
+            <div class="testi-author">
+              <div class="testi-avatar-initial">SL</div>
+              <div>
+                <div class="testi-name">Sokha Lim</div>
+                <div class="testi-role">Owner, Café Phnom Penh</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card reveal">
+            <div class="testi-badge">🚀 3.8x ROAS</div>
+            <div class="testi-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
+            </div>
+            <div class="testi-rating-bar"></div>
+            <p class="testi-quote">
+              "YOB Strategy ជួយ ROAS ពី 1.2x ទៅ 3.8x ក្នុង ២ ខែ! លែង waste
+              budget on Boost Post ហើយ — real ROI!"
+            </p>
+            <div class="testi-author">
+              <div class="testi-avatar-initial">DC</div>
+              <div>
+                <div class="testi-name">Dara Chan</div>
+                <div class="testi-role">Founder, DC Fashion</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card reveal">
+            <div class="testi-badge">👥 15 leads/day</div>
+            <div class="testi-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
+            </div>
+            <div class="testi-rating-bar"></div>
+            <p class="testi-quote">
+              "YOB setup website + AI workflow ក្នុង ២ សប្ដាហ៍ — Inquiry ចូល
+              ១២-១៥ leads/ថ្ងៃ ជំនួស ២-៣ ដូចមុន!"
+            </p>
+            <div class="testi-author">
+              <div class="testi-avatar-initial">CR</div>
+              <div>
+                <div class="testi-name">Chanthy Ros</div>
+                <div class="testi-role">Director, CR Academy</div>
+              </div>
+            </div>
+          </div>
+          <div class="testi-card reveal">
+            <div class="testi-badge">💰 Save $250/mo</div>
+            <div class="testi-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i>
+            </div>
+            <div class="testi-rating-bar"></div>
+            <p class="testi-quote">
+              "AI course save $250/month marketing budget — ឥឡូវខ្ញុំ produce
+              content, design, ads ខ្លួនឯងបានទាំងអស់!"
+            </p>
+            <div class="testi-author">
+              <div class="testi-avatar-initial">PK</div>
+              <div>
+                <div class="testi-name">Piseth Ky</div>
+                <div class="testi-role">Marketing Manager, FMCG</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA ══ -->
+    <section class="cs-cta">
+      <div class="container">
+        <div class="cs-cta-box reveal">
+          <h2>
+            Ready to Be Our Next
+            <span class="gradient-text">Success Story?</span>
+          </h2>
+          <p>
+            Join 500+ Cambodian businesses — Free 30-min Strategy Call ជាមួយ
+            Babu! YOB Digital recommend action plan ត្រង់ based on your business
+            goals.
+          </p>
+          <div class="cta-actions">
+            <a href="index.html#contact" class="btn-primary"
+              ><i class="fas fa-paper-plane"></i> Book Free Strategy Call</a
+            >
+            <a href="docs.html" class="btn-outline"
+              ><i class="fas fa-book"></i> Read Documentation</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ MEGA FOOTER ══ -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Float + Back to top -->
+    <div class="float-contact">
+      <a
+        href="https://t.me/yobdigital"
+        class="fl-btn tg"
+        data-tip="Telegram YOB"
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fab fa-telegram-plane"></i>
+      </a>
     </div>
-    <a href="about.html" onclick="closeDrawer()">About YOB</a>
-    <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
-  </div>
+    <button
+      class="back-top"
+      id="backTop"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      aria-label="Back to top"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
 
-  <!-- ══ HERO ══ -->
-  <section class="cs-hero">
-    <div class="container">
-      <div class="page-tag"><i class="fas fa-trophy"></i> Real Results · Real Businesses</div>
-      <h1>CASE <em>STUDIES</em></h1>
-      <p>ស្វែងយល់ពីរបៀបដែល YOB Digital ជួយ SMEs និង Creators ខ្មែរ <strong>transform business</strong> ជាមួយ AI, Digital Strategy និង Web Systems។</p>
-
-      <div class="stats-bar reveal">
-        <div class="stat-pill">
-          <div class="n">500<span>+</span></div>
-          <div class="l">Businesses Helped</div>
-        </div>
-        <div class="stat-pill">
-          <div class="n">3<span>x</span></div>
-          <div class="l">Average ROAS</div>
-        </div>
-        <div class="stat-pill">
-          <div class="n">80<span>%</span></div>
-          <div class="l">Report Revenue Growth</div>
-        </div>
-        <div class="stat-pill">
-          <div class="n">4<span>wks</span></div>
-          <div class="l">Avg. Time to Results</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ CASE STUDIES ══ -->
-  <section class="cs-section">
-    <div class="container">
-
-      <!-- Filter -->
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="ai">AI Tools</button>
-        <button class="filter-btn" data-filter="strategy">Digital Strategy</button>
-        <button class="filter-btn" data-filter="web">Web & Systems</button>
-        <button class="filter-btn" data-filter="font">Typography</button>
-      </div>
-
-      <div class="cs-grid">
-
-        <!-- ★ FEATURED Case Study 1 -->
-        <div class="cs-card featured reveal" data-cat="strategy">
-          <div class="cs-thumb">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=70&w=1200&auto=format&fit=crop" alt="DC Fashion Case Study" loading="lazy">
-            <div class="cs-thumb-overlay"></div>
-            <span class="cs-category">Digital Strategy</span>
-            <span class="cs-result-badge">3.8x ROAS</span>
-          </div>
-          <div class="cs-body">
-            <div class="cs-client">DC Fashion · Phnom Penh</div>
-            <div class="cs-title">ពី Boost Post ទៅ 3.8x ROAS ក្នុង ២ ខែ</div>
-            <div class="cs-excerpt">
-              DC Fashion ចំណាយ $300/month លើ Boost Post ប៉ុន្តែ ROI មិនច្បាស់។
-              YOB Digital design Full-Funnel Strategy — Hook Content + Retargeting + KHQR checkout —
-              ទទួលបាន ROAS 3.8x ក្នុង ៨ សប្ដាហ៍ ជំនួស 1.2x ដូចមុន!
-            </div>
-            <div class="cs-metrics">
-              <div class="cs-metric"><div class="mn">3.8x</div><div class="ml">ROAS</div></div>
-              <div class="cs-metric"><div class="mn">+147%</div><div class="ml">Revenue</div></div>
-              <div class="cs-metric"><div class="mn">-60%</div><div class="ml">Cost per Lead</div></div>
-              <div class="cs-metric"><div class="mn">8wks</div><div class="ml">To Results</div></div>
-            </div>
-            <div class="cs-footer">
-              <div class="cs-tags">
-                <span class="cs-tag">Facebook Ads</span>
-                <span class="cs-tag">Content Strategy</span>
-                <span class="cs-tag">KHQR</span>
-              </div>
-              <a href="index.html#contact" class="cs-link">Read full story <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Case Study 2 -->
-        <div class="cs-card reveal" data-cat="ai">
-          <div class="cs-thumb">
-            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=70&w=800&auto=format&fit=crop" alt="CR Academy Case Study" loading="lazy">
-            <div class="cs-thumb-overlay"></div>
-            <span class="cs-category">AI Tools</span>
-            <span class="cs-result-badge">Save $250/mo</span>
-          </div>
-          <div class="cs-body">
-            <div class="cs-client">Sokha Café · Siem Reap</div>
-            <div class="cs-title">AI Content System ជំនួស Marketing Agency</div>
-            <div class="cs-excerpt">
-              Sokha Café ចំណាយ $300/month hire agency ធ្វើ content។ YOB Digital បង្រៀន AI Workflow —
-              ឥឡូវ generate ១ month content ក្នុង ២ ម៉ោង ដោយខ្លួនឯង!
-            </div>
-            <div class="cs-metrics">
-              <div class="cs-metric"><div class="mn">$250</div><div class="ml">Saved/Month</div></div>
-              <div class="cs-metric"><div class="mn">+32%</div><div class="ml">Engagement</div></div>
-              <div class="cs-metric"><div class="mn">2hrs</div><div class="ml">30-day Content</div></div>
-            </div>
-            <div class="cs-footer">
-              <div class="cs-tags">
-                <span class="cs-tag">ChatGPT</span>
-                <span class="cs-tag">Canva AI</span>
-                <span class="cs-tag">Automation</span>
-              </div>
-              <a href="index.html#contact" class="cs-link">Read more <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Case Study 3 -->
-        <div class="cs-card reveal" data-cat="web">
-          <div class="cs-thumb">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=70&w=800&auto=format&fit=crop" alt="CR Academy" loading="lazy">
-            <div class="cs-thumb-overlay"></div>
-            <span class="cs-category">Web & Systems</span>
-            <span class="cs-result-badge">15 Leads/Day</span>
-          </div>
-          <div class="cs-body">
-            <div class="cs-client">CR Academy · Phnom Penh</div>
-            <div class="cs-title">Website + AI Workflow → 15 Leads/Day</div>
-            <div class="cs-excerpt">
-              CR Academy មាន Facebook Page ប៉ុន្តែ inquiry ចូល ២-៣/ថ្ងៃ។
-              YOB Digital setup website + booking system + AI auto-reply —
-              ឥឡូវ 12-15 qualified leads ចូលរាល់ថ្ងៃ!
-            </div>
-            <div class="cs-metrics">
-              <div class="cs-metric"><div class="mn">15</div><div class="ml">Leads/Day</div></div>
-              <div class="cs-metric"><div class="mn">5x</div><div class="ml">More Inquiries</div></div>
-              <div class="cs-metric"><div class="mn">2wks</div><div class="ml">Setup Time</div></div>
-            </div>
-            <div class="cs-footer">
-              <div class="cs-tags">
-                <span class="cs-tag">Website</span>
-                <span class="cs-tag">Booking System</span>
-                <span class="cs-tag">AI Chatbot</span>
-              </div>
-              <a href="index.html#contact" class="cs-link">Read more <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Case Study 4 -->
-        <div class="cs-card reveal" data-cat="ai strategy">
-          <div class="cs-thumb">
-            <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=70&w=800&auto=format&fit=crop" alt="FMCG Manager" loading="lazy">
-            <div class="cs-thumb-overlay"></div>
-            <span class="cs-category">AI + Strategy</span>
-            <span class="cs-result-badge">10+ hrs/week saved</span>
-          </div>
-          <div class="cs-body">
-            <div class="cs-client">Piseth · FMCG Marketing Manager</div>
-            <div class="cs-title">AI Essentials → Save 10+ Hours Weekly</div>
-            <div class="cs-excerpt">
-              Piseth ជា Marketing Manager ដែលត្រូវ produce reports, presentations, content weekly។
-              YOB AI Essentials training ជួយ automate ៨០% tasks —
-              save 10+ ម៉ោង/សប្ដាហ៍!
-            </div>
-            <div class="cs-metrics">
-              <div class="cs-metric"><div class="mn">10+</div><div class="ml">Hours Saved/Week</div></div>
-              <div class="cs-metric"><div class="mn">80%</div><div class="ml">Tasks Automated</div></div>
-              <div class="cs-metric"><div class="mn">$250</div><div class="ml">Monthly Savings</div></div>
-            </div>
-            <div class="cs-footer">
-              <div class="cs-tags">
-                <span class="cs-tag">AI Training</span>
-                <span class="cs-tag">Automation</span>
-                <span class="cs-tag">Productivity</span>
-              </div>
-              <a href="index.html#contact" class="cs-link">Read more <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Case Study 5 -->
-        <div class="cs-card reveal" data-cat="font">
-          <div class="cs-thumb">
-            <img src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=70&w=800&auto=format&fit=crop" alt="Brand Relaunch" loading="lazy">
-            <div class="cs-thumb-overlay"></div>
-            <span class="cs-category">Typography</span>
-            <span class="cs-result-badge">+40% Brand Trust</span>
-          </div>
-          <div class="cs-body">
-            <div class="cs-client">Local Startup · Kampong Cham</div>
-            <div class="cs-title">Khmer Font Upgrade → 40% More Brand Trust</div>
-            <div class="cs-excerpt">
-              Startup ប្រើ default Khmer font ក្នុង branding materials ហើយ look unprofessional។
-              YOB Typography — YOB Heading Pro + YOB Signature —
-              brand perceived trust ឡើង 40% ក្នុង customer survey!
-            </div>
-            <div class="cs-metrics">
-              <div class="cs-metric"><div class="mn">+40%</div><div class="ml">Brand Trust</div></div>
-              <div class="cs-metric"><div class="mn">+25%</div><div class="ml">Conversion Rate</div></div>
-              <div class="cs-metric"><div class="mn">1day</div><div class="ml">Implementation</div></div>
-            </div>
-            <div class="cs-footer">
-              <div class="cs-tags">
-                <span class="cs-tag">YOB Heading Pro</span>
-                <span class="cs-tag">Branding</span>
-                <span class="cs-tag">Print</span>
-              </div>
-              <a href="fonts.html" class="cs-link">See fonts <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Case Study 6 -->
-        <div class="cs-card reveal" data-cat="strategy">
-          <div class="cs-thumb">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=70&w=800&auto=format&fit=crop" alt="E-commerce Growth" loading="lazy">
-            <div class="cs-thumb-overlay"></div>
-            <span class="cs-category">Digital Strategy</span>
-            <span class="cs-result-badge">+200% Online Sales</span>
-          </div>
-          <div class="cs-body">
-            <div class="cs-client">Handcraft Store · Battambang</div>
-            <div class="cs-title">Offline to Online → 200% Sales Growth</div>
-            <div class="cs-excerpt">
-              Handcraft store ពឹងផ្អែកលើ walk-in customers ១០០%។
-              YOB Digital setup Facebook Shop + TikTok content strategy + Shopee listing —
-              online sales ឡើង 200% ក្នុង ៣ ខែ!
-            </div>
-            <div class="cs-metrics">
-              <div class="cs-metric"><div class="mn">+200%</div><div class="ml">Online Sales</div></div>
-              <div class="cs-metric"><div class="mn">3</div><div class="ml">New Channels</div></div>
-              <div class="cs-metric"><div class="mn">3mo</div><div class="ml">To Scale</div></div>
-            </div>
-            <div class="cs-footer">
-              <div class="cs-tags">
-                <span class="cs-tag">E-Commerce</span>
-                <span class="cs-tag">TikTok</span>
-                <span class="cs-tag">Shopee</span>
-              </div>
-              <a href="index.html#contact" class="cs-link">Read more <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- end cs-grid -->
-    </div>
-  </section>
-
-  <!-- ══ TESTIMONIALS ══ -->
-  <section class="testimonials-section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">What Clients Say</span>
-        <h2 class="section-title">REAL <span class="gradient-text">VOICES</span></h2>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testi-card reveal">
-          <div class="testi-badge">📈 +32% Sales</div>
-          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <div class="testi-rating-bar"></div>
-          <p class="testi-quote">"ក្រោយ AI Course ១ ខែ ខ្ញុំ save ១២+ ម៉ោង/សប្ដាហ៍ — Sales ឡើង ៣២%! Content ដែល Babu បង្រៀន apply ភ្លាម គ្មាន theory ហួស!"</p>
-          <div class="testi-author"><div class="testi-avatar-initial">SL</div><div><div class="testi-name">Sokha Lim</div><div class="testi-role">Owner, Café Phnom Penh</div></div></div>
-        </div>
-        <div class="testi-card reveal">
-          <div class="testi-badge">🚀 3.8x ROAS</div>
-          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <div class="testi-rating-bar"></div>
-          <p class="testi-quote">"YOB Strategy ជួយ ROAS ពី 1.2x ទៅ 3.8x ក្នុង ២ ខែ! លែង waste budget on Boost Post ហើយ — real ROI!"</p>
-          <div class="testi-author"><div class="testi-avatar-initial">DC</div><div><div class="testi-name">Dara Chan</div><div class="testi-role">Founder, DC Fashion</div></div></div>
-        </div>
-        <div class="testi-card reveal">
-          <div class="testi-badge">👥 15 leads/day</div>
-          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <div class="testi-rating-bar"></div>
-          <p class="testi-quote">"YOB setup website + AI workflow ក្នុង ២ សប្ដាហ៍ — Inquiry ចូល ១២-១៥ leads/ថ្ងៃ ជំនួស ២-៣ ដូចមុន!"</p>
-          <div class="testi-author"><div class="testi-avatar-initial">CR</div><div><div class="testi-name">Chanthy Ros</div><div class="testi-role">Director, CR Academy</div></div></div>
-        </div>
-        <div class="testi-card reveal">
-          <div class="testi-badge">💰 Save $250/mo</div>
-          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <div class="testi-rating-bar"></div>
-          <p class="testi-quote">"AI course save $250/month marketing budget — ឥឡូវខ្ញុំ produce content, design, ads ខ្លួនឯងបានទាំងអស់!"</p>
-          <div class="testi-author"><div class="testi-avatar-initial">PK</div><div><div class="testi-name">Piseth Ky</div><div class="testi-role">Marketing Manager, FMCG</div></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ CTA ══ -->
-  <section class="cs-cta">
-    <div class="container">
-      <div class="cs-cta-box reveal">
-        <h2>Ready to Be Our Next <span class="gradient-text">Success Story?</span></h2>
-        <p>Join 500+ Cambodian businesses — Free 30-min Strategy Call ជាមួយ Babu! YOB Digital recommend action plan ត្រង់ based on your business goals.</p>
-        <div class="cta-actions">
-          <a href="index.html#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Book Free Strategy Call</a>
-          <a href="docs.html" class="btn-outline"><i class="fas fa-book"></i> Read Documentation</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ MEGA FOOTER ══ -->
-  <div id="footer-placeholder"></div>
-
-  <!-- Float + Back to top -->
-  <div class="float-contact">
-    <a href="https://t.me/yobdigital" class="fl-btn tg" data-tip="Telegram YOB" target="_blank" rel="noopener">
-      <i class="fab fa-telegram-plane"></i>
-    </a>
-  </div>
-  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <script src="js/load-components.js"></script>
-  <script src="js/main.js" defer></script>
-  <script>
-    // Filter
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const cards      = document.querySelectorAll('.cs-card');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const f = btn.dataset.filter;
-        cards.forEach(card => {
-          const cat = card.dataset.cat || '';
-          card.style.display = (f === 'all' || cat.includes(f)) ? '' : 'none';
+    <script src="js/load-components.js"></script>
+    <script src="js/main.js" defer></script>
+    <script>
+      // Filter
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const cards = document.querySelectorAll(".cs-card");
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const f = btn.dataset.filter;
+          cards.forEach((card) => {
+            const cat = card.dataset.cat || "";
+            card.style.display = f === "all" || cat.includes(f) ? "" : "none";
+          });
         });
       });
-    });
-
-  </script>
-</body>
+    </script>
+  </body>
 </html>

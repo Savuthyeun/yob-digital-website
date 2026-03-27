@@ -8,15 +8,27 @@
       name="description"
       content="YOB Digital — AI Tools, Digital Marketing, E-commerce training for Cambodian entrepreneurs and SMEs."
     />
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yobdigital.com/">
-    <meta property="og:title" content="YOB Digital | យប់មានតម្លៃដូចពន្លឺ">
-    <meta property="og:description" content="ដៃគូ Digital & AI ដ៏ទុកចិត្ត សម្រាប់ MSMEs ខ្មែរ — Practical, Khmer Context, Results Driven។">
-    <meta property="og:image" content="https://yobdigital.com/assets/og-image.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="YOB Digital | យប់មានតម្លៃដូចពន្លឺ">
-    <meta name="twitter:description" content="ដៃគូ Digital & AI ដ៏ទុកចិត្ត សម្រាប់ MSMEs ខ្មែរ — Practical, Khmer Context, Results Driven។">
-    <meta name="twitter:image" content="https://yobdigital.com/assets/og-image.jpg">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yobdigital.netlify.app/" />
+    <meta property="og:title" content="YOB Digital | យប់មានតម្លៃដូចពន្លឺ" />
+    <meta
+      property="og:description"
+      content="ដៃគូ Digital & AI ដ៏ទុកចិត្ត សម្រាប់ MSMEs ខ្មែរ — Practical, Khmer Context, Results Driven។"
+    />
+    <meta
+      property="og:image"
+      content="https://yobdigital.netlify.app/images/og-cover.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="YOB Digital | យប់មានតម្លៃដូចពន្លឺ" />
+    <meta
+      name="twitter:description"
+      content="ដៃគូ Digital & AI ដ៏ទុកចិត្ត សម្រាប់ MSMEs ខ្មែរ — Practical, Khmer Context, Results Driven។"
+    />
+    <meta
+      name="twitter:image"
+      content="https://yobdigital.netlify.app/images/og-cover.jpg"
+    />
     <link rel="canonical" href="https://yobdigital.netlify.app" />
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <link rel="apple-touch-icon" href="images/favicon.png" />
@@ -55,6 +67,385 @@
     ></script>
 
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .yt-icon { color: #ff0000; }
+      .btn-yt { border-color: rgba(255,0,0,0.3); color: #ff4a4a; background: rgba(255,0,0,0.05); }
+      .res-pi-purple { background: linear-gradient(135deg, #1a0a2e, #3d1060); }
+      .res-pi-blue   { background: linear-gradient(135deg, #0a1a2e, #103d60); }
+      .res-pi-pink   { background: linear-gradient(135deg, #1a0a10, #60103d); }
+
+      /* ── YEVA z-index: keep YEVA inside moon stacking context ── */
+      .singularity-wrapper { isolation: isolate; }
+
+      /* ── Phase 1: Font Teaser Row ── */
+      .font-teaser-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      @media (max-width: 768px) {
+        .font-teaser-row { grid-template-columns: 1fr; }
+      }
+
+      /* ── Black Hole Ecosystem ── */
+      #ecosystem {
+        padding: 120px 0;
+        position: relative;
+        overflow: hidden;
+        background: radial-gradient(ellipse 70% 55% at 50% 50%,
+          #1d0009 0%, #0f0005 25%, #080b10 55%, #040608 100%);
+        isolation: isolate;
+      }
+      /* Outer wide accretion ring spanning full section */
+      #ecosystem::before {
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 1500px; height: 1500px;
+        margin: -750px 0 0 -750px;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 0deg,
+          rgba(229,44,103,0.22) 0%,
+          rgba(80,5,28,0.06)    14%,
+          rgba(180,25,75,0.28)  28%,
+          rgba(229,44,103,0.08) 42%,
+          rgba(255,60,40,0.18)  56%,
+          rgba(160,20,65,0.30)  72%,
+          rgba(229,44,103,0.12) 86%,
+          rgba(229,44,103,0.22) 100%
+        );
+        transform: rotate(0deg) scaleY(0.16);
+        animation: ecoRingA 30s linear infinite;
+        pointer-events: none;
+        z-index: 0;
+        filter: blur(10px);
+      }
+      /* Inner tighter accretion belt — reverse spin */
+      #ecosystem::after {
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 960px; height: 960px;
+        margin: -480px 0 0 -480px;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 200deg,
+          rgba(229,44,103,0.38) 0%,
+          rgba(255,70,30,0.14)  18%,
+          rgba(229,44,103,0.06) 38%,
+          rgba(200,20,75,0.42)  58%,
+          rgba(229,44,103,0.18) 78%,
+          rgba(229,44,103,0.38) 100%
+        );
+        transform: rotate(0deg) scaleY(0.12);
+        animation: ecoRingB 44s linear infinite reverse;
+        pointer-events: none;
+        z-index: 0;
+        filter: blur(6px);
+      }
+      @keyframes ecoRingA {
+        from { transform: rotate(0deg)   scaleY(0.16); }
+        to   { transform: rotate(360deg) scaleY(0.16); }
+      }
+      @keyframes ecoRingB {
+        from { transform: rotate(0deg)   scaleY(0.12); }
+        to   { transform: rotate(360deg) scaleY(0.12); }
+      }
+      /* Deep space radial glow — ambient pink corona */
+      #ecosystem .container {
+        position: relative;
+        z-index: 2;
+      }
+      .bh-wrap {
+        position: relative;
+        width: 680px;
+        height: 680px;
+        margin: 0 auto;
+      }
+      .bh-canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        border-radius: 50%;
+      }
+      .bh-disk {
+        position: absolute;
+        top: 50%; left: 50%;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .bh-disk-1 {
+        width: 260px; height: 65px;
+        margin: -32px 0 0 -130px;
+        background: conic-gradient(from 0deg,rgba(229,44,103,0.95) 0%,rgba(255,110,50,0.6) 20%,rgba(229,44,103,0.08) 50%,rgba(120,15,50,0.85) 75%,rgba(229,44,103,0.95) 100%);
+        animation: bhSpin 5s linear infinite;
+        filter: blur(1.5px);
+      }
+      .bh-disk-2 {
+        width: 365px; height: 92px;
+        margin: -46px 0 0 -182px;
+        background: conic-gradient(from 130deg,rgba(160,25,70,0.65) 0%,rgba(229,44,103,0.35) 30%,rgba(255,70,30,0.25) 55%,rgba(229,44,103,0.55) 80%,rgba(160,25,70,0.65) 100%);
+        animation: bhSpin 9s linear infinite reverse;
+        filter: blur(3px);
+      }
+      .bh-disk-3 {
+        width: 470px; height: 118px;
+        margin: -59px 0 0 -235px;
+        background: conic-gradient(from 260deg,rgba(229,44,103,0.18) 0%,rgba(90,8,35,0.45) 40%,rgba(229,44,103,0.12) 70%,rgba(200,40,70,0.28) 100%);
+        animation: bhSpin 15s linear infinite;
+        filter: blur(5px);
+      }
+      @keyframes bhSpin {
+        from { transform: rotate(0deg) scaleY(0.22); }
+        to   { transform: rotate(360deg) scaleY(0.22); }
+      }
+      .bh-photon-ring {
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 178px; height: 178px;
+        margin: -89px 0 0 -89px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(229,44,103,0.55);
+        box-shadow: 0 0 18px rgba(229,44,103,0.75), 0 0 38px rgba(229,44,103,0.35), inset 0 0 18px rgba(229,44,103,0.18);
+        animation: bhPhoton 3.2s ease-in-out infinite;
+        pointer-events: none;
+      }
+      @keyframes bhPhoton {
+        0%,100% { box-shadow: 0 0 18px rgba(229,44,103,0.75),0 0 38px rgba(229,44,103,0.35),inset 0 0 18px rgba(229,44,103,0.18); }
+        50%     { box-shadow: 0 0 28px rgba(229,44,103,1),0 0 56px rgba(229,44,103,0.55),inset 0 0 26px rgba(229,44,103,0.28); }
+      }
+      .bh-void {
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 132px; height: 132px;
+        margin: -66px 0 0 -66px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 40% 40%, #0a0002 0%, #000 55%, #080b10 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 6;
+        box-shadow: 0 0 0 4px rgba(0,0,0,0.9);
+      }
+      .bh-void-logo {
+        font-family: var(--fh);
+        font-size: 26px;
+        color: var(--gold);
+        letter-spacing: 2px;
+        line-height: 1;
+      }
+      .bh-void-sub {
+        font-size: 9px;
+        color: var(--gray);
+        letter-spacing: 3.5px;
+        margin-top: 3px;
+      }
+      .bh-beams {
+        position: absolute;
+        inset: 0;
+        width: 100%; height: 100%;
+        pointer-events: none;
+        z-index: 4;
+        overflow: visible;
+      }
+      .bh-beam {
+        stroke: var(--gold);
+        stroke-width: 1;
+        stroke-opacity: 0.35;
+        stroke-dasharray: 7 5;
+        animation: bhBeam 1.8s linear infinite;
+      }
+      @keyframes bhBeam {
+        from { stroke-dashoffset: 0; }
+        to   { stroke-dashoffset: -24; }
+      }
+      .bh-node {
+        position: absolute;
+        width: 128px;
+        background: rgba(8,11,16,0.88);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(229,44,103,0.22);
+        border-radius: 16px;
+        padding: 16px 12px 14px;
+        text-align: center;
+        box-shadow: 0 0 22px rgba(229,44,103,0.08), inset 0 1px 0 rgba(255,255,255,0.05);
+        transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+        z-index: 10;
+        text-decoration: none;
+      }
+      .bh-node:hover {
+        border-color: rgba(229,44,103,0.55);
+        box-shadow: 0 0 32px rgba(229,44,103,0.22);
+      }
+      .bh-n-top    { top: 16px;    left: 50%; transform: translateX(-50%); }
+      .bh-n-top:hover    { transform: translateX(-50%) translateY(-4px); }
+      .bh-n-right  { top: 50%;    right: 16px; transform: translateY(-50%); }
+      .bh-n-right:hover  { transform: translateY(-50%) translateX(4px); }
+      .bh-n-bottom { bottom: 16px; left: 50%; transform: translateX(-50%); }
+      .bh-n-bottom:hover { transform: translateX(-50%) translateY(4px); }
+      .bh-n-left   { top: 50%;    left: 16px;  transform: translateY(-50%); }
+      .bh-n-left:hover   { transform: translateY(-50%) translateX(-4px); }
+      .bh-node-icon { font-size: 26px; margin-bottom: 6px; }
+      .bh-node-name {
+        font-family: var(--fh);
+        font-size: 15px;
+        color: var(--white);
+        letter-spacing: 1.5px;
+        margin-bottom: 4px;
+      }
+      .bh-node-desc {
+        font-size: 9.5px;
+        color: var(--gray);
+        line-height: 1.55;
+        margin-bottom: 9px;
+      }
+      .bh-node-btn {
+        display: inline-block;
+        font-size: 10px;
+        color: var(--gold);
+        border: 1px solid rgba(229,44,103,0.38);
+        border-radius: 20px;
+        padding: 3px 11px;
+        text-decoration: none;
+        transition: background 0.2s, color 0.2s;
+      }
+      .bh-node-btn:hover { background: var(--gold); color: #fff; }
+      @media (max-width: 900px) {
+        .bh-wrap { width: 500px; height: 500px; }
+        .bh-disk-1 { width: 192px; height: 48px; margin: -24px 0 0 -96px; }
+        .bh-disk-2 { width: 268px; height: 68px; margin: -34px 0 0 -134px; }
+        .bh-disk-3 { width: 345px; height: 87px; margin: -43px 0 0 -172px; }
+        .bh-photon-ring { width: 132px; height: 132px; margin: -66px 0 0 -66px; }
+        .bh-void { width: 98px; height: 98px; margin: -49px 0 0 -49px; }
+        .bh-node { width: 112px; padding: 13px 10px 12px; }
+        .bh-node-icon { font-size: 22px; }
+        .bh-node-name { font-size: 13px; }
+      }
+      @media (max-width: 640px) {
+        .bh-wrap {
+          width: 100%;
+          height: auto;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto auto;
+          gap: 14px;
+          padding: 0 12px;
+        }
+        .bh-canvas, .bh-disk, .bh-photon-ring, .bh-void, .bh-beams { display: none; }
+        .bh-node { position: static; transform: none !important; width: auto; }
+        .bh-n-top, .bh-n-right, .bh-n-bottom, .bh-n-left { transform: none !important; }
+      }
+
+      /* ── Phase 3: YEVA Holographic Face ── */
+      .yeva-face {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 1s ease;
+        pointer-events: none;
+        z-index: 5;
+      }
+      .yeva-svg { width: 74%; height: 74%; overflow: visible; }
+      .yeva-outline {
+        fill: none;
+        stroke: rgba(229,44,103,0.22);
+        stroke-width: 0.8;
+        stroke-dasharray: 5 4;
+        animation: yevaDash 25s linear infinite;
+      }
+      @keyframes yevaDash { to { stroke-dashoffset: -200; } }
+      .yeva-eye {
+        fill: none;
+        stroke: var(--gold);
+        stroke-width: 1.6;
+        filter: drop-shadow(0 0 5px rgba(229,44,103,0.9));
+      }
+      .yeva-pupil {
+        fill: var(--gold);
+        filter: drop-shadow(0 0 8px rgba(229,44,103,1));
+        transition: transform 0.06s linear;
+      }
+      .yeva-brow {
+        stroke: rgba(229,44,103,0.55);
+        stroke-width: 1;
+        stroke-linecap: round;
+      }
+      .yeva-line {
+        fill: none;
+        stroke: rgba(229,44,103,0.5);
+        stroke-width: 1;
+        stroke-linecap: round;
+      }
+      .yeva-mouth {
+        fill: none;
+        stroke: var(--gold);
+        stroke-width: 1.4;
+        stroke-linecap: round;
+        filter: drop-shadow(0 0 4px rgba(229,44,103,0.7));
+      }
+      .yeva-bracket {
+        fill: none;
+        stroke: rgba(229,44,103,0.4);
+        stroke-width: 1.2;
+        stroke-linecap: square;
+      }
+      .yeva-scan {
+        stroke: rgba(229,44,103,0.55);
+        stroke-width: 0.8;
+        animation: yevaScan 2.8s ease-in-out infinite;
+      }
+      @keyframes yevaScan {
+        0%   { transform: translateY(-62px); opacity: 0; }
+        12%  { opacity: 1; }
+        88%  { opacity: 1; }
+        100% { transform: translateY(62px); opacity: 0; }
+      }
+      .yeva-label {
+        font-family: var(--fh);
+        font-size: 12px;
+        letter-spacing: 5px;
+        color: var(--gold);
+        text-shadow: 0 0 14px rgba(229,44,103,0.8);
+        margin-top: 5px;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+      }
+      .yeva-sublabel {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+        color: rgba(229,44,103,0.5);
+        text-transform: uppercase;
+        font-family: var(--fb);
+        margin-top: 3px;
+        opacity: 0;
+        transition: opacity 0.8s ease 0.7s;
+      }
+
+      /* Moon scroll phases */
+      .moon-phase-1 .sacred-aura { opacity: 0.85 !important; }
+      .moon-phase-1 .scan-line   { animation-duration: 1.3s !important; }
+
+      .moon-phase-2 .yeva-face   { opacity: 0.55; }
+      .moon-phase-2 .moon-core   { opacity: 0.35 !important; }
+      .moon-phase-2 .sacred-aura { opacity: 1 !important; }
+
+      .moon-phase-3 .yeva-face    { opacity: 1; }
+      .moon-phase-3 .moon-core    { opacity: 0.12 !important; }
+      .moon-phase-3 .neural-mesh  { opacity: 0.08 !important; }
+      .moon-phase-3 .sacred-aura  { opacity: 1 !important; filter: hue-rotate(15deg) brightness(1.2); }
+      .moon-phase-3 .yeva-label   { opacity: 1; transform: translateY(0); }
+      .moon-phase-3 .yeva-sublabel{ opacity: 1; }
+    </style>
   </head>
   <body>
     <!-- Custom Cursor Elements -->
@@ -64,7 +455,7 @@
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
 
-  <div id="nav-placeholder"></div>
+    <div id="nav-placeholder"></div>
 
     <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
@@ -77,7 +468,8 @@
           Learn <i class="fas fa-chevron-down"></i>
         </button>
         <div class="drawer-group-items">
-          <a href="#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
           <a href="docs.html" onclick="closeDrawer()">Documentation</a>
           <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
         </div>
@@ -91,44 +483,16 @@
           <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
         </div>
       </div>
-      <a href="#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
+      <a href="about.html" onclick="closeDrawer()">About YOB</a>
+      <a href="index.html#contact" onclick="closeDrawer()" class="d-cta"
+        >ទំនាក់ទំនង</a
+      >
     </div>
 
     <!-- ══ HERO ══ -->
     <section id="hero">
       <canvas id="night-canvas"></canvas>
 
-      <!-- Floating Stat Cards -->
-      <div class="hero-float-cards">
-        <div class="hero-float-card hfc-tl">
-          <span class="fc-icon">⚡</span>
-          <div>
-            <div class="fc-value">10x</div>
-            <div class="fc-label">Productivity</div>
-          </div>
-        </div>
-        <div class="hero-float-card hfc-tr">
-          <span class="fc-icon">📈</span>
-          <div>
-            <div class="fc-value">3.8x</div>
-            <div class="fc-label">ROAS</div>
-          </div>
-        </div>
-        <div class="hero-float-card hfc-bl">
-          <span class="fc-icon">👥</span>
-          <div>
-            <div class="fc-value">500+</div>
-            <div class="fc-label">SMEs</div>
-          </div>
-        </div>
-        <div class="hero-float-card hfc-br">
-          <span class="fc-icon">🇰🇭</span>
-          <div>
-            <div class="fc-value">100%</div>
-            <div class="fc-label">Khmer</div>
-          </div>
-        </div>
-      </div>
 
       <!-- Scroll Indicator -->
       <div class="scroll-indicator">
@@ -136,87 +500,151 @@
         <span class="si-label">Scroll</span>
       </div>
 
-      <div class="container hero-inner">
-        <div class="hero-badge reveal">
-          <span><i class="fas fa-bolt"></i></span> AI & Digital Skills for
-          Cambodia
+      <div class="container hero-container">
+        <!-- Left Side: Text Content -->
+        <div class="hero-content">
+          <div class="hero-badge reveal">
+            <span><i class="fas fa-bolt"></i></span> AI & Digital Skills for
+            Cambodia
+          </div>
+
+          <h1 class="hero-headline reveal">
+            <span class="gradient-text">រៀបចំអនាគតឌីជីថល</span>
+          </h1>
+
+          <p class="hero-sub reveal">
+            យប់ឌីជីថល ជួយអ្នករៀបចំគម្រោងអាជីវកម្ម និងប្រើប្រាស់ឧបករណ៍ AI ទំនើបៗ
+            ដើម្បីធ្វើឱ្យការងារប្រចាំថ្ងៃកាន់តែងាយស្រួល ចំណេញពេលវេលា
+            និងរីកចម្រើនទៅមុខជាមួយគ្នា។
+          </p>
+
+          <div class="hero-actions reveal">
+            <a href="#resources" class="btn-primary"
+              >🎁 ទាញយកឯកសារមានតម្លៃ ដោយឥតគិតថ្លៃ</a
+            >
+            <a href="grow.html" class="btn-outline">យប់ក៏ដូចថ្ងៃ</a>
+          </div>
+
+          <div class="hero-stats reveal" id="heroStats">
+            <div class="stat-item">
+              <div class="stat-num" data-target="500" data-suffix="+">
+                <span class="count-num">៥០០</span><span class="gold">+</span>
+              </div>
+              <div class="stat-lbl">កំពុងរៀនដាច់យប់</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" data-target="10" data-suffix="+">
+                <span class="count-num">១០</span><span class="gold">+</span>
+              </div>
+              <div class="stat-lbl">មេរៀនទល់ភ្លឺ</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num" data-target="100" data-suffix="%">
+                <span class="count-num">១00</span><span class="gold">%</span>
+              </div>
+              <div class="stat-lbl">ភាសាខ្មែរ</div>
+            </div>
+          </div>
         </div>
 
-        <h1 class="hero-headline reveal">
-          <span class="gradient-text">រៀបចំអនាគតឌីជីថល</span>
-        </h1>
-
-        <p class="hero-sub reveal">
-          យប់ឌីជីថល ជួយអ្នករៀបចំគម្រោងអាជីវកម្ម និងប្រើប្រាស់ឧបករណ៍ AI ទំនើបៗ
-          ដើម្បីធ្វើឱ្យការងារប្រចាំថ្ងៃកាន់តែងាយស្រួល ចំណេញពេលវេលា
-          និងរីកចម្រើនទៅមុខជាមួយគ្នា។
-        </p>
-
-        <div class="hero-actions reveal">
-          <a href="#resources" class="btn-primary"
-            >🎁 ទាញយកឯកសារមានតម្លៃ ដោយឥតគិតថ្លៃ</a
-          >
-          <a href="grow.html" class="btn-outline">យប់ក៏ដូចថ្ងៃ</a>
-        </div>
-
-        <div class="hero-stats reveal" id="heroStats">
-          <div class="stat-item">
-            <div class="stat-num" data-target="500" data-suffix="+">
-              <span class="count-num">៥០០</span><span class="gold">+</span>
+        <!-- Right Side: YOB Moon Visual -->
+        <div class="hero-moon-side">
+          <div class="singularity-wrapper" id="moon-trigger">
+            <div class="sacred-aura">
+              <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="48" stroke-width="0.2" />
+                <circle cx="50" cy="50" r="30" stroke-width="0.2" />
+                <path d="M50 2L50 98M2 50L98 50" stroke-width="0.1" />
+                <circle cx="50" cy="30" r="20" stroke-width="0.1" />
+                <circle cx="50" cy="70" r="20" stroke-width="0.1" />
+                <circle cx="32.7" cy="40" r="20" stroke-width="0.1" />
+                <circle cx="67.3" cy="40" r="20" stroke-width="0.1" />
+                <circle cx="32.7" cy="60" r="20" stroke-width="0.1" />
+                <circle cx="67.3" cy="60" r="20" stroke-width="0.1" />
+              </svg>
             </div>
-            <div class="stat-lbl">កំពុងរៀនដាច់យប់</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num" data-target="10" data-suffix="+">
-              <span class="count-num">១០</span><span class="gold">+</span>
+            <div class="glow-layer"></div>
+            <div class="moon-body">
+              <div class="neural-mesh"></div>
+              <div class="scan-line"></div>
+              <div class="white-hole" id="whiteHole"></div>
+              <div class="moon-core"></div>
+
+              <!-- YEVA Holographic Face -->
+              <div class="yeva-face" id="yevaFace">
+                <svg class="yeva-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Face outline -->
+                  <ellipse class="yeva-outline" cx="100" cy="100" rx="58" ry="70"/>
+                  <!-- Eyes -->
+                  <circle class="yeva-eye" cx="74" cy="84" r="9"/>
+                  <circle class="yeva-eye" cx="126" cy="84" r="9"/>
+                  <circle class="yeva-pupil" id="pupilL" cx="74" cy="84" r="4"/>
+                  <circle class="yeva-pupil" id="pupilR" cx="126" cy="84" r="4"/>
+                  <!-- Brow lines -->
+                  <line class="yeva-brow" x1="64" y1="72" x2="84" y2="68"/>
+                  <line class="yeva-brow" x1="116" y1="68" x2="136" y2="72"/>
+                  <!-- Nose -->
+                  <line class="yeva-line" x1="100" y1="96" x2="100" y2="116"/>
+                  <line class="yeva-line" x1="100" y1="116" x2="93" y2="121"/>
+                  <line class="yeva-line" x1="100" y1="116" x2="107" y2="121"/>
+                  <!-- Mouth -->
+                  <path class="yeva-mouth" d="M 82 130 Q 100 142 118 130"/>
+                  <!-- Scan line -->
+                  <line class="yeva-scan" x1="30" y1="100" x2="170" y2="100"/>
+                  <!-- Corner brackets -->
+                  <path class="yeva-bracket" d="M 38 52 L 28 52 L 28 62"/>
+                  <path class="yeva-bracket" d="M 162 52 L 172 52 L 172 62"/>
+                  <path class="yeva-bracket" d="M 38 148 L 28 148 L 28 138"/>
+                  <path class="yeva-bracket" d="M 162 148 L 172 148 L 172 138"/>
+                </svg>
+                <div class="yeva-label">Y · E · V · A</div>
+                <div class="yeva-sublabel">YOB Enhanced Virtual Assistant</div>
+              </div>
             </div>
-            <div class="stat-lbl">មេរៀនទល់ភ្លឺ</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num" data-target="100" data-suffix="%">
-              <span class="count-num">១00</span><span class="gold">%</span>
+
+            <!-- ── Orbit Cards ── -->
+            <div class="orbit-arm oa-1">
+              <div class="hero-float-card">
+                <span class="fc-icon">⚡</span>
+                <div>
+                  <div class="fc-value">10x</div>
+                  <div class="fc-label">Productivity</div>
+                </div>
+              </div>
             </div>
-            <div class="stat-lbl">ភាសាខ្មែរ</div>
+            <div class="orbit-arm oa-2">
+              <div class="hero-float-card">
+                <span class="fc-icon">📈</span>
+                <div>
+                  <div class="fc-value">3.8x</div>
+                  <div class="fc-label">ROAS</div>
+                </div>
+              </div>
+            </div>
+            <div class="orbit-arm oa-3">
+              <div class="hero-float-card">
+                <span class="fc-icon">👥</span>
+                <div>
+                  <div class="fc-value">500+</div>
+                  <div class="fc-label">SMEs</div>
+                </div>
+              </div>
+            </div>
+            <div class="orbit-arm oa-4">
+              <div class="hero-float-card">
+                <span class="fc-icon">🇰🇭</span>
+                <div>
+                  <div class="fc-value">100%</div>
+                  <div class="fc-label">Khmer</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ══ MARQUEE ══ -->
-    <div class="marquee-wrap">
-      <div class="marquee-track">
-        <span class="marquee-item"><i class="fas fa-star"></i> AI TOOLS</span>
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> DIGITAL MARKETING</span
-        >
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> KHMER TYPOGRAPHY</span
-        >
-        <span class="marquee-item"><i class="fas fa-star"></i> E-COMMERCE</span>
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> PROMPT ENGINEERING</span
-        >
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> WEB STRATEGY</span
-        >
-
-        <!-- Repeat for seamless loop -->
-        <span class="marquee-item"><i class="fas fa-star"></i> AI TOOLS</span>
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> DIGITAL MARKETING</span
-        >
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> KHMER TYPOGRAPHY</span
-        >
-        <span class="marquee-item"><i class="fas fa-star"></i> E-COMMERCE</span>
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> PROMPT ENGINEERING</span
-        >
-        <span class="marquee-item"
-          ><i class="fas fa-star"></i> WEB STRATEGY</span
-        >
-      </div>
-    </div>
+    <!-- ══ MARQUEE ══ (hidden) -->
 
     <!-- ══ WHAT IS YOB DIGITAL ══ -->
     <section class="what-is-yob-section">
@@ -322,141 +750,90 @@
       </div>
     </section>
 
-    <!-- ══ HOW IT WORKS ══ -->
-    <section id="how-it-works" class="section-dark-alt">
+    <!-- ══ YOB ECOSYSTEM ══ -->
+    <section id="ecosystem" class="section-dark-alt">
       <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">យប់មិនទាន់ដេក</span>
+        <div class="section-header reveal" style="text-align:center; margin-bottom:48px">
+          <span class="section-tag">YOB ECOSYSTEM</span>
           <h2 class="section-title">
-            របៀបបំពេញ<span class="gradient-text">ការងារ</span>
+            ប្រព័ន្ធ YOB <span class="gradient-text">DIGITAL</span>
           </h2>
-          <span class="section-bg-num">HOW</span>
-        </div>
-
-        <div class="hiw-timeline">
-          <!-- connecting track -->
-          <div class="hiw-track" aria-hidden="true"></div>
-
-          <!-- Step 1 -->
-          <div class="hiw-node reveal">
-            <div class="hiw-node-top">
-              <div class="hiw-circle">
-                <i class="fas fa-comments"></i>
-              </div>
-              <span class="hiw-step-num">01</span>
-            </div>
-            <div class="hiw-node-body">
-              <h3 class="hiw-title">ពិគ្រោះ<br />យោបល់ឥតគិតថ្លៃ</h3>
-              <p class="hiw-desc">
-                ប្រាប់យើងអំពីបញ្ហា និងគោលដៅ — ស្វែងយល់ចប់ នឹងទទួលបានផែនការ
-                ដំបូងដោយ​មិនគិតថ្លៃ។
-              </p>
-              <div class="hiw-badge">
-                <i class="fas fa-clock"></i> 30 min call
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="hiw-node reveal">
-            <div class="hiw-node-top">
-              <div class="hiw-circle">
-                <i class="fas fa-drafting-compass"></i>
-              </div>
-              <span class="hiw-step-num">02</span>
-            </div>
-            <div class="hiw-node-body">
-              <h3 class="hiw-title">រៀបចំ<br />យុទ្ធសាស្ត្រ</h3>
-              <p class="hiw-desc">
-                ក្រុម YOB Digital នឹងរៀបចំDesign Strategy, Content Plan និង Tool
-                Setup តាមតម្រូវការអ្នក។
-              </p>
-              <div class="hiw-badge">
-                <i class="fas fa-file-alt"></i> Custom Plan
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="hiw-node reveal">
-            <div class="hiw-node-top">
-              <div class="hiw-circle">
-                <i class="fas fa-rocket"></i>
-              </div>
-              <span class="hiw-step-num">03</span>
-            </div>
-            <div class="hiw-node-body">
-              <h3 class="hiw-title">
-                ដាក់ឱ្យដំណើរការ និងដុតខាត់<br />ឱ្យកាន់តែប្រសើរ។
-              </h3>
-              <p class="hiw-desc">
-                ដំណើរការ Campaign, វាស់លទ្ធផល និង Optimize
-                ជារៀងរហូតរហូតអ្នកទទួលបាន ROI ពិតប្រាកដ។
-              </p>
-              <div class="hiw-badge">
-                <i class="fas fa-chart-line"></i> Live Results
-              </div>
-            </div>
-          </div>
-
-          <!-- Step 4 -->
-          <div class="hiw-node reveal">
-            <div class="hiw-node-top">
-              <div class="hiw-circle hiw-circle-end">
-                <i class="fas fa-trophy"></i>
-              </div>
-              <span class="hiw-step-num">04</span>
-            </div>
-            <div class="hiw-node-body">
-              <h3 class="hiw-title">
-                ពង្រីក<br />
-                និងជំរុញការលូតលាស់
-              </h3>
-              <p class="hiw-desc">
-                Report ប្រចាំខែ + Strategy ថ្មី ដើម្បី Scale Business អ្នករហូត​
-                Sustainable Growth។
-              </p>
-              <div class="hiw-badge hiw-badge-gold">
-                <i class="fas fa-star"></i> Long-term Partner
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ TYPOGRAPHY STORE (FULL GRID SHOP) ══ -->
-    <section id="typography">
-      <div class="container">
-        <div
-          class="section-header reveal"
-          style="text-align: center; margin-bottom: 20px"
-        >
-          <span class="section-tag"
-            ><i class="fas fa-pen-nib"></i> KHMER FONT SHOP</span
-          >
-          <h2 class="section-title">
-            YOB <span class="gradient-text">TYPOGRAPHY</span>
-          </h2>
-          <p
-            style="
-              color: var(--gray);
-              font-family: var(--fk);
-              margin-top: 15px;
-              font-size: 16px;
-              max-width: 650px;
-              margin-inline: auto;
-            "
-          >
-            យីហោ (Branding) មិនអាចមើលទៅ Professional បានទេ ប្រសិនបើនៅតែប្រើ Font
-            ធម្មតាៗ។ លើកកម្ពស់គម្រោង Design
-            របស់អ្នកជាមួយពុម្ពអក្សរខ្មែរយូនីកូដប្រណិតៗ ទាំង Free និង Premium ពី
-            YOB Digital។
+          <span class="section-bg-num">ECO</span>
+          <p class="section-sub">
+            គ្រប់ Page, Tool, Service ត្រូវបានភ្ជាប់ — ដើម្បីជួយ MSMEs ខ្មែរ
+            Grow!
           </p>
         </div>
 
-        <!-- 8 Fonts Grid -->
-        <div class="font-shop-grid reveal">
+        <!-- ── BLACK HOLE VISUAL ── -->
+        <div class="bh-wrap reveal">
+          <canvas class="bh-canvas" id="bhCanvas"></canvas>
+
+          <!-- Accretion disks -->
+          <div class="bh-disk bh-disk-1"></div>
+          <div class="bh-disk bh-disk-2"></div>
+          <div class="bh-disk bh-disk-3"></div>
+
+          <!-- Photon ring -->
+          <div class="bh-photon-ring"></div>
+
+          <!-- Event horizon -->
+          <div class="bh-void">
+            <div class="bh-void-logo">YOB</div>
+            <div class="bh-void-sub">DIGITAL</div>
+          </div>
+
+          <!-- Energy beams (SVG) -->
+          <svg class="bh-beams" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg">
+            <line class="bh-beam" x1="340" y1="340" x2="340" y2="100"/>
+            <line class="bh-beam" x1="340" y1="340" x2="580" y2="340"/>
+            <line class="bh-beam" x1="340" y1="340" x2="340" y2="580"/>
+            <line class="bh-beam" x1="340" y1="340" x2="100" y2="340"/>
+          </svg>
+
+          <!-- Orbital nodes -->
+          <div class="bh-node bh-n-top">
+            <div class="bh-node-icon">🎓</div>
+            <div class="bh-node-name">LEARN</div>
+            <div class="bh-node-desc">Courses · Docs · Case Studies</div>
+            <a href="yob-learning.html" class="bh-node-btn">Explore →</a>
+          </div>
+          <div class="bh-node bh-n-right">
+            <div class="bh-node-icon">📈</div>
+            <div class="bh-node-name">GROW</div>
+            <div class="bh-node-desc">Roadmap · Strategy · Consulting</div>
+            <a href="grow.html" class="bh-node-btn">Explore →</a>
+          </div>
+          <div class="bh-node bh-n-bottom">
+            <div class="bh-node-icon">🛒</div>
+            <div class="bh-node-name">PRODUCTS</div>
+            <div class="bh-node-desc">Fonts · Templates · Resources</div>
+            <a href="fonts.html" class="bh-node-btn">Explore →</a>
+          </div>
+          <div class="bh-node bh-n-left">
+            <div class="bh-node-icon">💬</div>
+            <div class="bh-node-name">CONNECT</div>
+            <div class="bh-node-desc">Consult · Telegram · Community</div>
+            <a href="#contact" class="bh-node-btn">Explore →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ TYPOGRAPHY TEASER ══ -->
+    <section id="typography">
+      <div class="container">
+        <div class="section-header reveal" style="text-align:center; margin-bottom:20px">
+          <span class="section-tag"><i class="fas fa-pen-nib"></i> KHMER FONT SHOP</span>
+          <h2 class="section-title">YOB <span class="gradient-text">TYPOGRAPHY</span></h2>
+          <p style="color:var(--gray);font-family:var(--fk);margin-top:15px;font-size:16px;max-width:600px;margin-inline:auto">
+            ពុម្ពអក្សរខ្មែរ Premium — សម្រាប់ Brand ដែលចង់ Professional និង Unique
+          </p>
+        </div>
+
+        <!-- 3-Font Teaser -->
+        <div class="font-teaser-row reveal">
           <!-- Font 1: Premium -->
           <div class="f-card">
             <div class="f-header">
@@ -468,7 +845,7 @@
             </div>
             <div class="f-footer">
               <span class="f-price">$15.00</span>
-              <a href="#" class="f-btn premium"
+              <a href="fonts.html" class="f-btn premium"
                 ><i class="fas fa-shopping-cart"></i> Buy</a
               >
             </div>
@@ -485,7 +862,7 @@
             </div>
             <div class="f-footer">
               <span class="f-price free">Free</span>
-              <a href="#" class="f-btn free"
+              <a href="fonts.html" class="f-btn free"
                 ><i class="fas fa-download"></i> Get</a
               >
             </div>
@@ -502,101 +879,17 @@
             </div>
             <div class="f-footer">
               <span class="f-price">$20.00</span>
-              <a href="#" class="f-btn premium"
+              <a href="fonts.html" class="f-btn premium"
                 ><i class="fas fa-shopping-cart"></i> Buy</a
               >
             </div>
           </div>
 
-          <!-- Font 4: Free -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Tech Mono</span>
-              <span class="font-badge outline">CODING</span>
-            </div>
-            <div class="f-preview sans" style="letter-spacing: 2px">
-              បច្ចេកវិទ្យា AI<span class="f-bg-letter">ប</span>
-            </div>
-            <div class="f-footer">
-              <span class="f-price free">Free</span>
-              <a href="#" class="f-btn free"
-                ><i class="fas fa-download"></i> Get</a
-              >
-            </div>
-          </div>
-
-          <!-- Font 5: Premium -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Modern Serif</span>
-              <span class="font-badge">LUXURY</span>
-            </div>
-            <div class="f-preview">
-              ភាពស៊ីវីល័យ<span class="f-bg-letter">ភ</span>
-            </div>
-            <div class="f-footer">
-              <span class="f-price">$18.00</span>
-              <a href="#" class="f-btn premium"
-                ><i class="fas fa-shopping-cart"></i> Buy</a
-              >
-            </div>
-          </div>
-
-          <!-- Font 6: Premium -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Poster Black</span>
-              <span class="font-badge">BOLD</span>
-            </div>
-            <div class="f-preview heavy" style="font-size: 38px">
-              បញ្ចុះតម្លៃ ៥០%<span class="f-bg-letter">ប</span>
-            </div>
-            <div class="f-footer">
-              <span class="f-price">$12.00</span>
-              <a href="#" class="f-btn premium"
-                ><i class="fas fa-shopping-cart"></i> Buy</a
-              >
-            </div>
-          </div>
-
-          <!-- Font 7: Premium -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Kbach Retro</span>
-              <span class="font-badge">CLASSIC</span>
-            </div>
-            <div class="f-preview">
-              ក្បាច់ខ្មែរបុរាណ<span class="f-bg-letter">ក</span>
-            </div>
-            <div class="f-footer">
-              <span class="f-price">$25.00</span>
-              <a href="#" class="f-btn premium"
-                ><i class="fas fa-shopping-cart"></i> Buy</a
-              >
-            </div>
-          </div>
-
-          <!-- Font 8: Free -->
-          <div class="f-card">
-            <div class="f-header">
-              <span class="f-title">YOB Minimal UI</span>
-              <span class="font-badge outline">WEB DESIGN</span>
-            </div>
-            <div class="f-preview sans">
-              រចនាបថសាមញ្ញ<span class="f-bg-letter">រ</span>
-            </div>
-            <div class="f-footer">
-              <span class="f-price free">Free</span>
-              <a href="#" class="f-btn free"
-                ><i class="fas fa-download"></i> Get</a
-              >
-            </div>
-          </div>
         </div>
 
-        <div class="reveal" style="text-align: center; margin-top: 40px">
-          <a href="#contact" class="btn-outline">
-            <i class="fas fa-cubes"></i> មើលកញ្ចប់ Font ទាំងអស់ (Bundle)
+        <div class="reveal" style="text-align:center; margin-top:36px">
+          <a href="fonts.html" class="btn-primary">
+            <i class="fas fa-font"></i> មើល Font ទាំងអស់ (8+) →
           </a>
         </div>
       </div>
@@ -621,12 +914,12 @@
 
         <!-- ── Featured card (horizontal split) ── -->
         <div class="cs-featured reveal">
-          <div class="cs-feat-img">
-            <img
-              src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=80&w=1974&auto=format&fit=crop"
-              alt="CHAMPION GIZ ASEAN Event"
-              loading="lazy"
-            />
+          <div class="cs-feat-img cs-feat-img--giz">
+            <div class="cs-img-visual">
+              <div class="cs-img-icon"><i class="fas fa-users"></i></div>
+              <div class="cs-img-label">GIZ × ASEAN</div>
+              <div class="cs-img-sub">Event Promotion · 500+ Participants</div>
+            </div>
             <span class="cs-feat-badge">
               <i class="fas fa-star"></i> Featured
             </span>
@@ -669,12 +962,12 @@
         <div class="cs-grid">
           <!-- Card 2 -->
           <div class="cs-card reveal">
-            <div class="cs-card-img">
-              <img
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1974&auto=format&fit=crop"
-                alt="Local MSMEs Transformation"
-                loading="lazy"
-              />
+            <div class="cs-card-img cs-card-img--ai">
+              <div class="cs-img-visual">
+                <div class="cs-img-icon"><i class="fas fa-robot"></i></div>
+                <div class="cs-img-label">AI × SMEs</div>
+                <div class="cs-img-sub">Automation · Local Business</div>
+              </div>
               <div class="cs-card-overlay">
                 <div class="cs-overlay-metric">
                   <strong>80%</strong>
@@ -810,7 +1103,7 @@
     </section>
 
     <!-- ══ PRICING / PACKAGES ══ -->
-    <section id="pricing">
+    <section id="pricing" style="display:none">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Transparent Pricing</span>
@@ -898,7 +1191,7 @@
         >
           <div>
             <span class="section-tag"
-              ><i class="fab fa-youtube" style="color: #ff0000"></i> Free
+              ><i class="fab fa-youtube yt-icon"></i> Free
               Masterclass</span
             >
             <h2 class="section-title">
@@ -921,14 +1214,9 @@
           <a
             href="https://youtube.com/@yobdigital"
             target="_blank"
-            class="btn-outline"
-            style="
-              border-color: rgba(255, 0, 0, 0.3);
-              color: #ff4a4a;
-              background: rgba(255, 0, 0, 0.05);
-            "
+            class="btn-outline btn-yt"
           >
-            <i class="fab fa-youtube" style="color: #ff0000"></i> Subscribe លើ
+            <i class="fab fa-youtube yt-icon"></i> Subscribe លើ
             YouTube
           </a>
         </div>
@@ -1116,8 +1404,7 @@
         <div class="res-preview-grid reveal">
           <a href="resources.html" class="res-preview-card">
             <div
-              class="res-preview-icon"
-              style="background: linear-gradient(135deg, #1a0a2e, #3d1060)"
+              class="res-preview-icon res-pi-purple"
             >
               <i class="fas fa-robot"></i>
             </div>
@@ -1133,8 +1420,7 @@
           </a>
           <a href="resources.html" class="res-preview-card">
             <div
-              class="res-preview-icon"
-              style="background: linear-gradient(135deg, #0a1a2e, #103d60)"
+              class="res-preview-icon res-pi-blue"
             >
               <i class="fas fa-comment-dots"></i>
             </div>
@@ -1148,8 +1434,7 @@
           </a>
           <a href="resources.html" class="res-preview-card">
             <div
-              class="res-preview-icon"
-              style="background: linear-gradient(135deg, #1a0a10, #60103d)"
+              class="res-preview-icon res-pi-pink"
             >
               <i class="fab fa-facebook-f"></i>
             </div>
@@ -1170,6 +1455,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- ══ CONTACT ══ -->
     <section id="contact" class="section-dark-alt">
@@ -1344,7 +1630,7 @@
     </section>
 
     <!-- ══ MEGA FOOTER ══ -->
-  <div id="footer-placeholder"></div>
+    <div id="footer-placeholder"></div>
 
     <!-- Float Contact Buttons -->
     <div class="float-contact">
@@ -1380,5 +1666,237 @@
 
     <script src="js/load-components.js"></script>
     <script src="js/main.js" defer></script>
+
+    <!-- Moon JARVIS Audio -->
+    <script>
+    (function () {
+      const moon = document.getElementById('moon-trigger');
+      if (!moon) return;
+
+      let ctx = null;
+      function ac() {
+        if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+        if (ctx.state === 'suspended') ctx.resume();
+        return ctx;
+      }
+
+      /* ── Tech Ping: 3 layered oscillators ── */
+      function ping() {
+        const c = ac();
+        const t = c.currentTime;
+
+        // Main sweep: low → high → settle
+        const o1 = c.createOscillator(), g1 = c.createGain();
+        o1.type = 'sine';
+        o1.frequency.setValueAtTime(520, t);
+        o1.frequency.exponentialRampToValueAtTime(1760, t + 0.10);
+        o1.frequency.exponentialRampToValueAtTime(880, t + 0.32);
+        g1.gain.setValueAtTime(0, t);
+        g1.gain.linearRampToValueAtTime(0.20, t + 0.025);
+        g1.gain.exponentialRampToValueAtTime(0.001, t + 0.50);
+        o1.connect(g1); g1.connect(c.destination);
+        o1.start(t); o1.stop(t + 0.50);
+
+        // High sparkle: crystal shimmer
+        const o2 = c.createOscillator(), g2 = c.createGain();
+        o2.type = 'triangle';
+        o2.frequency.setValueAtTime(2800, t);
+        o2.frequency.exponentialRampToValueAtTime(4200, t + 0.07);
+        g2.gain.setValueAtTime(0, t);
+        g2.gain.linearRampToValueAtTime(0.06, t + 0.01);
+        g2.gain.exponentialRampToValueAtTime(0.001, t + 0.18);
+        o2.connect(g2); g2.connect(c.destination);
+        o2.start(t); o2.stop(t + 0.18);
+
+        // Deep pulse: hologram resonance
+        const o3 = c.createOscillator(), g3 = c.createGain();
+        o3.type = 'sine';
+        o3.frequency.setValueAtTime(130, t);
+        o3.frequency.linearRampToValueAtTime(75, t + 0.40);
+        g3.gain.setValueAtTime(0, t);
+        g3.gain.linearRampToValueAtTime(0.07, t + 0.04);
+        g3.gain.exponentialRampToValueAtTime(0.001, t + 0.42);
+        o3.connect(g3); g3.connect(c.destination);
+        o3.start(t); o3.stop(t + 0.42);
+      }
+
+      /* ── JARVIS Greeting Voice ── */
+      function speakGreeting() {
+        if (!window.speechSynthesis) return;
+        window.speechSynthesis.cancel();
+
+        function speak() {
+          const voices = window.speechSynthesis.getVoices();
+          const utter  = new SpeechSynthesisUtterance();
+
+          // Priority: Khmer voice → female English → any
+          const km = voices.find(v => v.lang.startsWith('km'));
+          const female = voices.find(v =>
+            /samantha|karen|victoria|zira|moira|fiona|ava|allison|google uk english female/i.test(v.name)
+          );
+
+          if (km) {
+            utter.voice = km;
+            utter.text  = 'សួស្ដី បងៗ ទាំងអស់គ្នា។ ខ្ញុំគឺ YOB AI ។';
+          } else if (female) {
+            utter.voice = female;
+            utter.text  = 'Sawassdei. I am YOB A.I. How can I assist you today?';
+          } else {
+            utter.text  = 'Sawassdei. I am YOB A.I. How can I assist you today?';
+          }
+
+          utter.rate   = 0.80;
+          utter.pitch  = 1.18;
+          utter.volume = 1.0;
+          window.speechSynthesis.speak(utter);
+        }
+
+        // Voices list may not load until requested
+        const v = window.speechSynthesis.getVoices();
+        if (v.length) { speak(); }
+        else { window.speechSynthesis.onvoiceschanged = speak; }
+      }
+
+      /* ── State ── */
+      let activated    = false;
+      let hoverCooldown = false;
+
+      // CLICK → unlock AudioContext + ping + voice
+      moon.addEventListener('click', function () {
+        activated = true;
+        ping();
+        setTimeout(speakGreeting, 220);
+        moon.style.cursor = 'pointer';
+      });
+
+      // HOVER → ping only (requires one prior click to unlock)
+      moon.addEventListener('mouseenter', function () {
+        if (!activated || hoverCooldown) return;
+        ping();
+        hoverCooldown = true;
+        setTimeout(function () { hoverCooldown = false; }, 3500);
+      });
+    })();
+    </script>
+
+    <!-- Phase 3: YEVA — Scroll phases + Mouse-follow pupils -->
+    <script>
+    (function () {
+      var wrapper = document.getElementById('moon-trigger');
+      var pupilL  = document.getElementById('pupilL');
+      var pupilR  = document.getElementById('pupilR');
+      if (!wrapper || !pupilL || !pupilR) return;
+
+      /* ── Scroll → Moon phase classes ── */
+      function updatePhase() {
+        var sy = window.scrollY;
+        wrapper.classList.remove('moon-phase-1', 'moon-phase-2', 'moon-phase-3');
+        if      (sy > 480) wrapper.classList.add('moon-phase-3');
+        else if (sy > 220) wrapper.classList.add('moon-phase-2');
+        else if (sy > 70)  wrapper.classList.add('moon-phase-1');
+      }
+      window.addEventListener('scroll', updatePhase, { passive: true });
+      updatePhase();
+
+      /* ── Mouse → pupils follow cursor ── */
+      var RANGE = 3.5; // max pixel travel for pupils
+      document.addEventListener('mousemove', function (e) {
+        var r  = wrapper.getBoundingClientRect();
+        var cx = r.left + r.width  / 2;
+        var cy = r.top  + r.height / 2;
+        var dx = Math.max(-1, Math.min(1, (e.clientX - cx) / (window.innerWidth  * 0.4)));
+        var dy = Math.max(-1, Math.min(1, (e.clientY - cy) / (window.innerHeight * 0.4)));
+        pupilL.style.transform = 'translate(' + (dx * RANGE) + 'px,' + (dy * RANGE) + 'px)';
+        pupilR.style.transform = 'translate(' + (dx * RANGE) + 'px,' + (dy * RANGE) + 'px)';
+      });
+
+      /* ── Click moon in phase 3 → YEVA greeting blink ── */
+      wrapper.addEventListener('click', function () {
+        var face = document.getElementById('yevaFace');
+        if (!face || !wrapper.classList.contains('moon-phase-3')) return;
+        face.style.transition = 'opacity 0.08s';
+        face.style.opacity = '0.2';
+        setTimeout(function () {
+          face.style.transition = 'opacity 0.15s';
+          face.style.opacity = '1';
+        }, 100);
+      });
+    })();
+    </script>
+
+    <!-- Black Hole Canvas Particles -->
+    <script>
+    (function () {
+      var canvas = document.getElementById('bhCanvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+
+      function resize() {
+        canvas.width  = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      var W, H, cx, cy;
+      function dims() {
+        W = canvas.width; H = canvas.height;
+        cx = W / 2; cy = H / 2;
+      }
+      dims();
+      window.addEventListener('resize', dims);
+
+      /* -- Particles -- */
+      var NUM = 140;
+      var particles = [];
+
+      function mkParticle(init) {
+        var angle = Math.random() * Math.PI * 2;
+        var r = init
+          ? 50 + Math.random() * 230
+          : 210 + Math.random() * 60;
+        return {
+          angle : angle,
+          r     : r,
+          speed : (0.0025 + Math.random() * 0.004) * (Math.random() < 0.5 ? 1 : -1),
+          drift : 0.28 + Math.random() * 0.45,
+          size  : 0.6 + Math.random() * 1.6,
+          alpha : 0.25 + Math.random() * 0.65,
+          hue   : Math.random() < 0.65 ? 338 : (290 + Math.random() * 50)
+        };
+      }
+
+      for (var i = 0; i < NUM; i++) particles.push(mkParticle(true));
+
+      function tick() {
+        dims();
+        ctx.clearRect(0, 0, W, H);
+
+        for (var j = 0; j < particles.length; j++) {
+          var p = particles[j];
+          p.angle += p.speed;
+          p.r     -= p.drift * 0.28;
+
+          if (p.r < 52) {
+            particles[j] = mkParticle(false);
+            continue;
+          }
+
+          var px   = cx + Math.cos(p.angle) * p.r;
+          var py   = cy + Math.sin(p.angle) * p.r * 0.42; /* flatten � disk illusion */
+          var fade = Math.min(1, (p.r - 52) / 45);
+
+          ctx.globalAlpha = p.alpha * fade;
+          ctx.fillStyle   = 'hsl(' + p.hue + ',88%,65%)';
+          ctx.beginPath();
+          ctx.arc(px, py, p.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(tick);
+      }
+      tick();
+    })();
+    </script>
   </body>
 </html>

@@ -1,16 +1,16 @@
 # YOB DIGITAL — Claude Code Project Memory
 > Auto-loaded by Claude Code on every session. DO NOT delete this file.
-> Last updated: 2026 | Site: https://yobdigital.netlify.app
+> Last updated: 2026-03-27 | Site: https://yobdigital.netlify.app
 
 ---
 
 ## 🏢 PROJECT OVERVIEW
 
-**Project:** YOB Digital — AI & Digital Skills for Cambodia  
-**Owner:** Yeun Savuth (Babu)  
-**Brand:** YOB.DIGITAL — "យប់ មានតម្លៃ ដូចពន្លឺ"  
-**Deploy:** GitHub (Savuthyeun/yob-digital-website) → Netlify (yob-digital-kh)  
-**Stack:** Vanilla HTML + CSS + JS — NO framework, NO npm build step  
+**Project:** YOB Digital — AI & Digital Skills for Cambodia
+**Owner:** Yeun Savuth (Babu)
+**Brand:** YOB.DIGITAL — "យប់ មានតម្លៃ ដូចពន្លឺ"
+**Deploy:** GitHub (Savuthyeun/yob-digital-website) → Netlify (yob-digital-kh)
+**Stack:** Vanilla HTML + CSS + JS — NO framework, NO npm build step
 
 ---
 
@@ -22,16 +22,19 @@ yob-digital-website/
 ├── index.html                   ← Homepage (main)
 ├── grow.html                    ← Growth Roadmap
 ├── fonts.html                   ← Khmer Font Shop
-├── docs.html                    ← Documentation
+├── docs.html                    ← Documentation (has own sidebar nav — no shared nav)
 ├── about.html                   ← About YOB
 ├── case-studies.html            ← Case Studies
 ├── resources.html               ← Free Resources / Content Hub
-├── yob-learning.html            ← Learning Hub (courses)
+├── yob-learning.html            ← Learning Hub (courses) — Eternity Version
 ├── css/
-│   └── style.css                ← ALL shared styles (96KB)
+│   └── style.css                ← ALL shared styles (~97KB)
 ├── js/
 │   ├── main.js                  ← Cursor, constellation, scroll reveal, drawer
 │   └── load-components.js       ← Injects nav into id="nav-placeholder"
+├── components/
+│   ├── nav.html                 ← Shared nav (injected by load-components.js)
+│   └── footer.html              ← Shared footer (injected by load-components.js)
 └── images/
     ├── favicon.png
     └── og-cover.jpg
@@ -53,13 +56,15 @@ yob-learning.html → YOB Learning — AI & Digital Skills for Cambodia
 ```
 Grow with Yob → grow.html
 Learn ▾
-  Tutorial      → #videos (index only) or index.html#videos
+  Tutorial      → index.html#videos
+  YOB Learning  → yob-learning.html   ← ADDED
   Documentation → docs.html
   Case Studies  → case-studies.html
 Products ▾
   Yob Fonts     → fonts.html
   Free Resources→ resources.html
-ទំនាក់ទំនង    → #contact (same page) or index.html#contact
+About YOB     → about.html
+ទំនាក់ទំនង  → #contact (same page) or index.html#contact
 ```
 
 ---
@@ -77,6 +82,7 @@ Products ▾
 --white:       #ffffff   /* Primary text */
 --border:      rgba(255, 255, 255, 0.08)
 --border2:     rgba(255, 255, 255, 0.14)
+--moon-size:   340px     /* Moon / singularity-wrapper size */
 --fh:          "Bebas Neue", "Kantumruy Pro", "Hanuman", serif    /* Display/heading */
 --fk:          "Kantumruy Pro", "Hanuman", serif                  /* Khmer body */
 --fb:          "Kantumruy Pro", "Hanuman", "DM Sans", sans-serif  /* Body */
@@ -171,6 +177,7 @@ Products ▾
       </button>
       <div class="drawer-group-items">
         <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+        <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
         <a href="docs.html" onclick="closeDrawer()">Documentation</a>
         <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
       </div>
@@ -184,6 +191,7 @@ Products ▾
         <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
       </div>
     </div>
+    <a href="about.html" onclick="closeDrawer()">About YOB</a>
     <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
   </div>
 
@@ -229,7 +237,7 @@ Every section MUST follow this structure:
 ### Section Classes Available
 ```
 (no class)          → default dark background var(--dark)
-section-dark-alt    → slightly lighter background var(--dark2)
+section-dark-alt    → slightly lighter background var(--dark3) + subtle border-top
 ```
 
 ### Scroll Animation
@@ -270,20 +278,78 @@ section-dark-alt    → slightly lighter background var(--dark2)
 
 ---
 
-## 🚦 KNOWN ISSUES TO FIX (Priority)
+## 🏠 INDEX.HTML — SECTION ORDER & SPECIAL FEATURES
 
-| File | Issue | Fix |
-|------|-------|-----|
-| `index.html` | Missing `<meta name="description">` | Add description meta tag |
-| `grow.html` | Missing canonical + og:title | Add SEO meta tags |
-| `fonts.html` | Missing canonical + og:title | Add SEO meta tags |
-| `docs.html` | ❌ Missing nav-placeholder, cursor, blob, load-components.js, style.css | Full restructure needed |
-| `about.html` | Missing canonical | Add canonical link |
-| `case-studies.html` | Missing canonical + og:title | Add SEO meta tags |
-| `yob-learning.html` | Missing canonical + og:title + og:image + nav-placeholder | Fix head + nav |
-| `resources.html` | Missing canonical + og:title | Add SEO meta tags |
-| `style.css` | Missing `prefers-reduced-motion` media query | Add at end of file |
-| `style.css` | Missing `will-change: transform` on animated elements | Add to float cards, pillar, track-card |
+### Current Section Order
+```
+1. #hero              — Moon singularity + YEVA + orbiting float cards + star canvas
+2. .what-is-yob-section — "តើយប់ឌីជីថលគឺជាអ្វី?"
+3. #ecosystem         — Black Hole Marvel animation (YOB Ecosystem)
+4. #how-it-works      — 4-step timeline
+5. #typography        — Font teaser (3 cards)
+6. #portfolio         — Case studies
+7. #testimonials      — Client testimonials
+8. #pricing           — HIDDEN (display:none) — not needed yet
+9. #videos            — Video tutorials
+10. #resources        — Free resources
+11. #contact          — Contact form
+12. Footer
+```
+
+### Hero Section Special Features
+
+**Moon / Singularity Wrapper** (`.singularity-wrapper`, `--moon-size: 340px`):
+- Sacred aura SVG rings
+- Moon body with neural mesh + scan line + white hole + moon core
+- **YEVA Holographic Face** — AI assistant face that appears on scroll
+  - Scroll phases: `moon-phase-1` (>70px), `moon-phase-2` (>220px), `moon-phase-3` (>480px)
+  - Pupils follow mouse position (JS)
+  - Click in phase-3 → blink animation
+- **JARVIS Audio** — Web Audio API (no audio files needed)
+  - First CLICK unlocks AudioContext (browser autoplay policy)
+  - HOVER → 3-layer tech ping (sine sweep + triangle sparkle + deep pulse)
+  - CLICK → ping + Khmer SpeechSynthesis voice "សួស្ដី"
+
+**Orbit Float Cards** (inside `.singularity-wrapper`):
+- 4 cards orbit the moon using CSS `orbit-arm` + counter-rotation technique
+- Classes: `.orbit-arm .oa-1/2/3/4` — 20s orbit, evenly staggered by 5s
+- Cards: ⚡ 10x Productivity | 📈 3.8x ROAS | 👥 500+ SMEs | 🇰🇭 100% Khmer
+- **Hidden on mobile** (≤900px) — `display: none`
+- CSS technique: arm rotates via `@keyframes orbitSpin`, card counter-rotates via `@keyframes counterSpin` to stay upright
+
+**Marquee:** Hidden (`<!-- ══ MARQUEE ══ (hidden) -->`) — can restore if needed
+
+### Ecosystem Section (`#ecosystem`)
+- **Black Hole Marvel design** with Canvas particle system
+- HTML canvas: 140 pink/purple particles spiral into event horizon
+- 3 accretion disk rings (`conic-gradient` + `scaleY` ellipse trick, speeds: 5s/9s/15s)
+- Photon ring with pulsing glow
+- Event horizon void with "YOB / DIGITAL" branding
+- SVG animated dashed beam lines to 4 orbital nodes
+- 4 glass morphism orbital nodes: LEARN / GROW / PRODUCTS / CONNECT
+- Mobile (≤640px): collapses to 2×2 grid, canvas/disks hidden
+- Canvas JS: Black Hole Canvas Particles script before `</body>`
+
+---
+
+## 🚦 KNOWN ISSUES (Updated)
+
+| File | Issue | Status |
+|------|-------|--------|
+| `docs.html` | Has own sidebar nav — shared nav/drawer intentionally hidden via CSS | ⚠️ By design, needs full restructure eventually |
+| `style.css` | `will-change` missing on `.track-card`, `.pillar` | Pending |
+| Video cards in `#videos` | `href="#"` placeholder links — need real YouTube URLs | Pending |
+
+### Previously Fixed ✅
+- All pages: canonical, og:title, og:image, nav-placeholder, mobile-drawer
+- `yob-learning.html` added to mobile drawer (all 8 pages)
+- `style.css`: `will-change: transform` added to `.hero-float-card`
+- `style.css`: `prefers-reduced-motion` media query added
+- `style.css`: `border-top` added to `.section-dark-alt` for section separation
+- `#ecosystem`: `padding: 100px 0` added
+- `.section-sub`: centered with `margin: auto` + `text-align: center`
+- `.yeva-sublabel`: `monospace` → `var(--fb)`
+- `.testi-qmark`: `Georgia` → `var(--fh)`
 
 ---
 
@@ -303,6 +369,8 @@ section-dark-alt    → slightly lighter background var(--dark2)
 ❌ Create new CSS variables that duplicate existing ones
 ❌ Integrate external CSS with --gold: #C8A456 — change to #e52c67
 ❌ Add <nav> HTML directly — nav is injected by JS automatically
+❌ Use PowerShell Set-Content / Get-Content on HTML files — breaks UTF-8 Khmer encoding
+❌ Put orbit cards outside .singularity-wrapper — they must be children of it
 ```
 
 ---
@@ -320,6 +388,7 @@ section-dark-alt    → slightly lighter background var(--dark2)
 ✅ Use gradient-text class for accent words in h2 headings
 ✅ Test on mobile after every change
 ✅ All internal links: relative paths (grow.html NOT /grow.html)
+✅ When editing HTML files with PowerShell: use [System.IO.File]::ReadAllText / WriteAllText with UTF-8 encoding — never Get-Content / Set-Content
 ```
 
 ---
@@ -350,16 +419,21 @@ Update mobile drawer in ALL these files simultaneously:
 `index.html`, `grow.html`, `fonts.html`, `docs.html`, `about.html`,
 `case-studies.html`, `resources.html`, `yob-learning.html`
 
+### Show/hide a section
+- Hide: add `style="display:none"` to the `<section>` tag
+- Show: remove `style="display:none"`
+- Currently hidden: `#pricing`, Marquee strip
+
 ---
 
-## 📊 CSS FILE MAP (style.css — 96KB)
+## 📊 CSS FILE MAP (style.css — ~97KB)
 
 Key sections in order:
 ```
-:root variables
+:root variables (incl. --moon-size: 340px)
 Global reset + typography (Khmer-safe)
 Nav + Dropdown + Mobile Drawer
-Hero section (float cards, scroll indicator)
+Hero section — Moon singularity, orbit cards (@keyframes orbitSpin/counterSpin)
 What is YOB section (wiy-*)
 Services / Tracks section
 Typography / Font Shop section (f-card)
@@ -371,10 +445,12 @@ Resources section
 About section (animated border, mini stats)
 Contact / Form section
 Footer (grid, social links)
-Keyframes (marquee, pulse, float, scrollDot, borderPulse, floatCard, spinSlow)
+Keyframes (pulse, float, scrollDot, borderPulse, floatCard, spinSlow, orbitSpin, counterSpin, bhSpin, bhPhoton, bhBeam)
 Back-to-top button
 Sticky CTA bar
-Responsive breakpoints (18 media queries, main: 900px + 600px)
+Moon / Singularity Wrapper + YEVA face CSS
+Performance: will-change, prefers-reduced-motion
+Responsive breakpoints (main: 900px + 600px)
 ```
 
 ---
@@ -408,6 +484,7 @@ Before writing any code, read this file and confirm:
 3. Are we adding CSS? → append to css/style.css, never inline in HTML
 4. Are we adding a new page? → follow full template above
 5. Is there a --gold color conflict in external code? → fix to #e52c67
+6. Does the task touch index.html Hero? → be careful not to break YEVA scroll phases or orbit cards
 
 ---
 
