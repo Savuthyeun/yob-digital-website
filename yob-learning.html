@@ -44,7 +44,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Hanuman:wght@400;700;900&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <!-- Preload critical Google Fonts for LCP -->
@@ -308,6 +308,9 @@
         --path-ai:  #9b6dff;
         --path-mkt: #e8453c;
         --path-web: #10b981;
+      --path-ai-bg:  rgba(155, 109, 255, 0.1);
+      --path-mkt-bg: rgba(232,  69,  60, 0.1);
+      --path-web-bg: rgba( 16, 185, 129, 0.1);
         --dark4: #1c1d2c;
         --dark5: #242538;
         --bord2: rgba(255, 255, 255, 0.1);
@@ -593,9 +596,9 @@
         border-radius: 50%;
         background: var(--gold);
         box-shadow: 0 0 6px var(--gold);
-        animation: pulse 2s ease-in-out infinite;
+        animation: pulse-yl 2s ease-in-out infinite;
       }
-      @keyframes pulse {
+      @keyframes pulse-yl {
         0%,
         100% {
           opacity: 1;
@@ -1487,15 +1490,15 @@
     </style>
   </head>
   <body>
-    <!-- Eternity: Star field canvas -->
-    <canvas id="star-canvas" aria-hidden="true"></canvas>
-
     <!-- Custom Cursor Elements -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
+
+    <!-- Eternity: Star field canvas -->
+    <canvas id="star-canvas" aria-hidden="true"></canvas>
 
     <div id="nav-placeholder"></div>
 
@@ -1624,7 +1627,7 @@
               <div class="path-glow" style="background: var(--path-ai)"></div>
               <div
                 class="path-icon"
-                style="background: rgba(155, 109, 255, 0.1)"
+                style="background: var(--path-ai-bg)"
               >
                 🤖
               </div>
@@ -1668,7 +1671,7 @@
           >
             <div class="path-header">
               <div class="path-glow" style="background: var(--path-mkt)"></div>
-              <div class="path-icon" style="background: rgba(232, 69, 60, 0.1)">
+              <div class="path-icon" style="background: var(--path-mkt-bg)">
                 📢
               </div>
               <div class="path-title">DIGITAL MARKETING</div>
@@ -1709,7 +1712,7 @@
               <div class="path-glow" style="background: var(--path-web)"></div>
               <div
                 class="path-icon"
-                style="background: rgba(16, 185, 129, 0.1)"
+                style="background: var(--path-web-bg)"
               >
                 🌐
               </div>

@@ -24,9 +24,9 @@
   --purple: rgba(168, 85, 247, 0.12);
   --indigo: rgba(99, 102, 241, 0.08);
 
-  --fh: "Bebas Neue", "Kantumruy Pro", "Hanuman", serif;
-  --fk: "Kantumruy Pro", "Hanuman", serif;
-  --fb: "Kantumruy Pro", "Hanuman", "DM Sans", sans-serif;
+  --fh: "Bebas Neue", "Kantumruy Pro", sans-serif;
+  --fk: "Kantumruy Pro", sans-serif;
+  --fb: "Kantumruy Pro", "DM Sans", sans-serif;
 
   --max: 1200px;
   --t: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
