@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="km" xml:lang="km">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Forging — YOB Digital</title>
+  <meta name="description" content="YOB Digital is assembling new weapons. Something powerful is being forged. Stay locked." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="apple-touch-icon" href="images/favicon.png" />
+
+  <meta property="og:title" content="System Forging — YOB Digital" />
+  <meta property="og:description" content="YOB Digital is assembling. Something powerful is coming." />
+  <meta property="og:image" content="https://yobdigital.netlify.app/images/og-cover.jpg" />
+  <meta property="og:type" content="website" />
+
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* ═══════════════════════════════════════
+       THE COSMIC FORGE — Under Construction
+    ═══════════════════════════════════════ */
+    :root {
+      --uc-cyan:   #00f0ff;
+      --uc-pink:   #e52c67;
+      --uc-purple: #7b4fff;
+      --uc-bg:     #050a1f;
+      --uc-mono:   'JetBrains Mono', 'Courier New', monospace;
+    }
+
+    html, body { background: var(--uc-bg) !important; }
+    .blob-1, .blob-2 { display: none !important; }
+    #nav-placeholder { display: none !important; }
+    .mobile-drawer  { display: none !important; }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: -2;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%,   rgba(0,240,255,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 10% 80%,  rgba(123,79,255,0.06) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 60% at 90% 50%,  rgba(229,44,103,0.05) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    /* 3D Perspective Grid — scrolling floor */
+    .uc-grid {
+      position: fixed; inset: 0; z-index: -1;
+      overflow: hidden; pointer-events: none;
+    }
+    .uc-grid::after {
+      content: '';
+      position: absolute;
+      left: -50%; right: -50%;
+      top: 30%; bottom: -40%;
+      background-image:
+        linear-gradient(rgba(0,240,255,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,240,255,0.07) 1px, transparent 1px);
+      background-size: 48px 48px;
+      transform: perspective(600px) rotateX(55deg);
+      animation: uc-gridScroll 12s linear infinite;
+    }
+    @keyframes uc-gridScroll {
+      from { background-position: 0 0; }
+      to   { background-position: 0 48px; }
+    }
+
+    /* Page layout */
+    .uc-page {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 100px 24px 60px;
+      text-align: center;
+      position: relative; z-index: 10;
+    }
+
+    /* Status badge */
+    .uc-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--uc-mono); font-size: 10px;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--uc-pink);
+      border: 1px solid rgba(229,44,103,0.3);
+      background: rgba(229,44,103,0.05);
+      padding: 6px 18px; border-radius: 4px;
+      margin-bottom: 48px;
+    }
+
+    /* Blueprint Hologram */
+    .uc-forge {
+      position: relative;
+      width: 220px; height: 220px;
+      margin: 0 auto 48px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Outer dashed orbit */
+    .uc-ring-outer {
+      position: absolute; inset: 0;
+      border: 2px dashed rgba(0,240,255,0.35);
+      border-radius: 50%;
+      animation: uc-spin 18s linear infinite;
+    }
+    /* Tick marks on outer ring */
+    .uc-ring-outer::before, .uc-ring-outer::after {
+      content: '';
+      position: absolute;
+      width: 8px; height: 8px;
+      background: var(--uc-cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--uc-cyan);
+      top: 50%; left: -4px;
+      transform: translateY(-50%);
+    }
+    .uc-ring-outer::after { left: auto; right: -4px; background: var(--uc-pink); box-shadow: 0 0 8px var(--uc-pink); }
+
+    /* Middle ring */
+    .uc-ring-mid {
+      position: absolute; inset: 24px;
+      border: 1px solid rgba(0,240,255,0.2);
+      border-radius: 50%;
+      animation: uc-spinR 10s linear infinite;
+    }
+
+    /* Core hexagon */
+    .uc-core {
+      position: absolute; inset: 50px;
+      border: 2px solid var(--uc-pink);
+      border-radius: 24px;
+      box-shadow:
+        0 0 24px rgba(229,44,103,0.4),
+        inset 0 0 20px rgba(229,44,103,0.15);
+      animation: uc-spinR 8s linear infinite, uc-pulse 2.5s ease-in-out infinite alternate;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .uc-core-icon {
+      font-family: var(--fh);
+      font-size: 28px; color: rgba(229,44,103,0.7);
+      animation: uc-spinR 8s linear infinite; /* counter-rotate to stay upright */
+    }
+
+    /* Laser scanner */
+    .uc-scanner {
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .uc-scanner::after {
+      content: '';
+      position: absolute;
+      left: -10%; right: -10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--uc-cyan), transparent);
+      box-shadow: 0 0 12px var(--uc-cyan), 0 16px 24px rgba(0,240,255,0.15);
+      animation: uc-scan 3s ease-in-out infinite;
+    }
+    @keyframes uc-scan {
+      0%   { top: -4%; opacity: 0; }
+      8%   { opacity: 1; }
+      92%  { opacity: 1; }
+      100% { top: 104%; opacity: 0; }
+    }
+
+    /* Corner brackets — HUD feel */
+    .uc-hud {
+      position: absolute; inset: -12px;
+      pointer-events: none;
+    }
+    .uc-hud::before, .uc-hud::after {
+      content: '';
+      position: absolute;
+      width: 20px; height: 20px;
+      border-color: rgba(0,240,255,0.5);
+      border-style: solid;
+    }
+    .uc-hud::before { top: 0; left: 0; border-width: 2px 0 0 2px; }
+    .uc-hud::after  { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+    /* Typography */
+    .uc-title {
+      font-family: var(--fh);
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 0.9; letter-spacing: 4px;
+      color: var(--white);
+      margin-bottom: 20px;
+      text-shadow: 0 0 40px rgba(255,255,255,0.1);
+    }
+    .uc-title .uc-accent { color: var(--uc-pink); }
+
+    .uc-desc {
+      font-family: var(--fb);
+      font-size: 16px; color: rgba(255,255,255,0.5);
+      max-width: 480px; line-height: 1.85;
+      margin-bottom: 48px;
+    }
+    .uc-desc strong { color: rgba(255,255,255,0.85); }
+
+    /* Radar form */
+    .uc-form {
+      display: flex; gap: 10px;
+      max-width: 420px; width: 100%;
+      margin: 0 auto 32px;
+    }
+    .uc-input {
+      flex: 1;
+      background: rgba(0,240,255,0.04);
+      border: 1px solid rgba(0,240,255,0.25);
+      padding: 13px 20px;
+      border-radius: 50px;
+      color: var(--white);
+      font-family: var(--uc-mono); font-size: 12px;
+      letter-spacing: 1px;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .uc-input::placeholder { color: rgba(255,255,255,0.3); }
+    .uc-input:focus {
+      border-color: var(--uc-cyan);
+      box-shadow: 0 0 16px rgba(0,240,255,0.15);
+    }
+    .uc-btn {
+      background: transparent;
+      border: 1px solid var(--uc-cyan);
+      color: var(--uc-cyan);
+      padding: 13px 22px;
+      border-radius: 50px;
+      font-family: var(--uc-mono); font-size: 11px;
+      font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: none;
+      transition: all 0.25s;
+      white-space: nowrap;
+    }
+    .uc-btn:hover {
+      background: var(--uc-cyan);
+      color: var(--uc-bg);
+      box-shadow: 0 0 24px rgba(0,240,255,0.4);
+    }
+
+    /* Success message */
+    .uc-success {
+      display: none;
+      font-family: var(--uc-mono); font-size: 12px;
+      letter-spacing: 2px; color: var(--uc-cyan);
+      text-shadow: 0 0 10px rgba(0,240,255,0.5);
+      margin-bottom: 32px;
+    }
+    .uc-success.show { display: block; }
+
+    /* Back home link */
+    .uc-home {
+      font-family: var(--fb); font-size: 12px;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: color 0.25s;
+    }
+    .uc-home:hover { color: rgba(255,255,255,0.7); }
+
+    /* Keyframes */
+    @keyframes uc-spin  { to { transform: rotate(360deg); } }
+    @keyframes uc-spinR { to { transform: rotate(-360deg); } }
+    @keyframes uc-pulse {
+      from { box-shadow: 0 0 24px rgba(229,44,103,0.4), inset 0 0 20px rgba(229,44,103,0.15); }
+      to   { box-shadow: 0 0 40px rgba(229,44,103,0.65), inset 0 0 30px rgba(229,44,103,0.25); }
+    }
+
+    /* Responsive */
+    @media (max-width: 540px) {
+      .uc-form { flex-direction: column; }
+      .uc-forge { width: 180px; height: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="uc-grid" aria-hidden="true"></div>
+
+  <div id="nav-placeholder"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+    <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
+    <div class="drawer-group">
+      <button class="drawer-group-toggle">Learn <i class="fas fa-chevron-down"></i></button>
+      <div class="drawer-group-items">
+        <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+        <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+        <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+        <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
+      </div>
+    </div>
+    <div class="drawer-group">
+      <button class="drawer-group-toggle">Products <i class="fas fa-chevron-down"></i></button>
+      <div class="drawer-group-items">
+        <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+        <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
+      </div>
+    </div>
+    <a href="about.html" onclick="closeDrawer()">About YOB</a>
+    <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
+  </div>
+
+  <main class="uc-page">
+
+    <div class="uc-badge">
+      <i class="fas fa-cog fa-spin"></i>
+      SYSTEM FORGING IN PROGRESS
+    </div>
+
+    <div class="uc-forge" aria-hidden="true">
+      <div class="uc-hud"></div>
+      <div class="uc-scanner"></div>
+      <div class="uc-ring-outer"></div>
+      <div class="uc-ring-mid"></div>
+      <div class="uc-core">
+        <span class="uc-core-icon">⬡</span>
+      </div>
+    </div>
+
+    <h1 class="uc-title">ASSEMBLING THE <span class="uc-accent">ARSENAL</span></h1>
+
+    <p class="uc-desc">
+      ទំព័រនេះកំពុងស្ថិតនៅក្នុង<strong>រោងជាងអវកាស</strong>របស់ YOB។<br>
+      យើងកំពុងលត់ដុំដែក និងតំឡើងប្រព័ន្ធ ដើម្បីនាំយក<strong>អាវុធឌីជីថលថ្មី</strong>មកកាន់អ្នកឆាប់ៗនេះ។
+    </p>
+
+    <form class="uc-form" id="radarForm">
+      <input type="email" class="uc-input" placeholder="Email — Lock Radar Signal..." required aria-label="Email address" />
+      <button type="submit" class="uc-btn">Lock Radar</button>
+    </form>
+
+    <p class="uc-success" id="radarSuccess">
+      ◈ RADAR LOCKED — Signal received. We'll reach you.
+    </p>
+
+    <a href="index.html" class="uc-home">
+      <i class="fas fa-arrow-left"></i> ត្រលប់ទៅទីបញ្ជាការ
+    </a>
+
+  </main>
+
+  <script>
+  document.getElementById('radarForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('radarSuccess').classList.add('show');
+  });
+  </script>
+  <script src="js/load-components.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

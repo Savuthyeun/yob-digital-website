@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="km" xml:lang="km">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sitemap — YOB Digital</title>
+  <meta name="description" content="Navigate the YOB Digital universe — explore all pages, tools, and resources in one interactive cosmic constellation map." />
+
+  <link rel="canonical" href="https://yobdigital.netlify.app/sitemap.html" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="apple-touch-icon" href="images/favicon.png" />
+
+  <meta property="og:title" content="Sitemap — YOB Digital" />
+  <meta property="og:description" content="Navigate the YOB Digital universe — explore all pages and resources in one interactive cosmic map." />
+  <meta property="og:image" content="https://yobdigital.netlify.app/images/og-cover.jpg" />
+  <meta property="og:url" content="https://yobdigital.netlify.app/sitemap.html" />
+  <meta property="og:type" content="website" />
+
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* ═══════════════════════════════════════════
+       NEXUS CONSTELLATION — YOB DIGITAL SITEMAP
+    ═══════════════════════════════════════════ */
+
+    html, body { background: #050a1f !important; }
+    .blob-1, .blob-2 { display: none !important; }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: -2;
+      background:
+        radial-gradient(ellipse 70% 60% at 15% 20%, rgba(229,44,103,0.08) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 50% at 85% 80%, rgba(0,240,255,0.06) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 70% at 50% 0%,  rgba(79,130,255,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* ── Starfield canvas ── */
+    #sm-stars {
+      position: fixed; inset: 0;
+      width: 100%; height: 100%;
+      z-index: -1; pointer-events: none;
+    }
+
+    /* ── Page layout ── */
+    .sm-page { min-height: 100vh; overflow-x: hidden; }
+
+    /* ── Header ── */
+    .sm-header {
+      text-align: center;
+      padding: 130px 24px 32px;
+      position: relative; z-index: 10;
+    }
+    .sm-eyebrow {
+      display: inline-block;
+      font-family: var(--fb);
+      font-size: 10px; letter-spacing: 4px;
+      color: rgba(0,240,255,0.65);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      border: 1px solid rgba(0,240,255,0.2);
+      padding: 5px 16px;
+      border-radius: 20px;
+    }
+    .sm-title {
+      font-family: var(--fh);
+      font-size: clamp(56px, 9vw, 108px);
+      line-height: 0.88; color: var(--white);
+      letter-spacing: 4px; margin-bottom: 16px;
+    }
+    .sm-title .sm-accent { color: var(--gold); }
+    .sm-sub {
+      font-family: var(--fb);
+      font-size: 13px; color: rgba(255,255,255,0.35);
+      letter-spacing: 2px;
+    }
+
+    /* ══════════════════════════════════════
+       CONSTELLATION CANVAS
+    ══════════════════════════════════════ */
+    .nx-canvas {
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 240px);
+      min-height: 540px;
+      max-height: 720px;
+    }
+
+    /* SVG thread layer — behind all nodes */
+    .nx-svg {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 1;
+    }
+
+    /* ── Base node ── */
+    .nx-node {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      z-index: 5;
+      animation: sm-float var(--sm-dur, 7s) ease-in-out infinite var(--sm-delay, 0s);
+    }
+
+    /* Dot (the glowing circle) */
+    .nx-dot {
+      width: var(--sm-sz, 58px);
+      height: var(--sm-sz, 58px);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,255,255,0.12) 0%, transparent 60%),
+        radial-gradient(circle, rgba(var(--nc), 0.18) 0%, transparent 70%);
+      border: 1.5px solid rgba(var(--nc), 0.45);
+      box-shadow:
+        0 0  18px rgba(var(--nc), 0.30),
+        0 0  60px rgba(var(--nc), 0.10),
+        inset 0 0  16px rgba(var(--nc), 0.08);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1),
+                  box-shadow 0.4s cubic-bezier(0.16,1,0.3,1),
+                  border-color 0.4s;
+      position: relative;
+    }
+    .nx-node:hover .nx-dot {
+      transform: scale(1.18);
+      box-shadow:
+        0 0  28px rgba(var(--nc), 0.65),
+        0 0  80px rgba(var(--nc), 0.28),
+        inset 0 0  24px rgba(var(--nc), 0.18);
+      border-color: rgba(var(--nc), 0.8);
+    }
+
+    /* Pulse rings — center node only */
+    .nx-node--center .nx-dot::before,
+    .nx-node--center .nx-dot::after {
+      content: '';
+      position: absolute; border-radius: 50%;
+      border: 1px solid rgba(var(--nc), 0.28);
+      animation: sm-pulse 3s ease-out infinite;
+      pointer-events: none;
+    }
+    .nx-node--center .nx-dot::before { inset: -12px; }
+    .nx-node--center .nx-dot::after  { inset: -26px; animation-delay: 1.5s; }
+    @keyframes sm-pulse {
+      0%   { transform: scale(1); opacity: 0.7; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+
+    /* Icon inside dot */
+    .nx-icon {
+      font-family: var(--fh);
+      font-size: var(--sm-icon, 20px);
+      color: rgba(var(--nc), 1);
+      line-height: 1; user-select: none;
+      font-style: normal;
+    }
+
+    /* Label below dot */
+    .nx-label {
+      font-family: var(--fb);
+      font-size: 9px; letter-spacing: 2.5px;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      margin-top: 10px;
+      white-space: nowrap;
+      text-align: center;
+      transition: color 0.3s;
+    }
+    .nx-node:hover .nx-label { color: rgba(var(--nc), 0.9); }
+
+    /* ── CENTER NODE overrides ── */
+    .nx-node--center {
+      --sm-sz: 84px;
+      --sm-icon: 26px;
+      --sm-dur: 9s;
+      z-index: 6;
+    }
+    .nx-node--center .nx-label {
+      font-size: 11px; letter-spacing: 3px;
+      color: rgba(255,255,255,0.7); font-weight: 600;
+      margin-top: 14px;
+    }
+    .nx-node--center:hover .nx-label { color: rgba(var(--nc), 1); }
+
+    /* ══════════════════════════════════════
+       GLASSMORPHISM TOOLTIP
+    ══════════════════════════════════════ */
+    .nx-tip {
+      position: absolute;
+      bottom: calc(100% + 18px);
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      width: 210px;
+      background: rgba(5, 10, 31, 0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(var(--nc), 0.28);
+      border-radius: 14px;
+      padding: 16px 18px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.3s cubic-bezier(0.16,1,0.3,1);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 24px rgba(var(--nc),0.08);
+      z-index: 30;
+      text-align: left;
+    }
+    .nx-node:hover .nx-tip {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    /* Arrow pointing down */
+    .nx-tip::after {
+      content: '';
+      position: absolute;
+      top: 100%; left: 50%;
+      transform: translateX(-50%);
+      border: 7px solid transparent;
+      border-top-color: rgba(var(--nc), 0.28);
+    }
+
+    /* Tooltip — show BELOW for top nodes */
+    .tip-below .nx-tip {
+      bottom: auto;
+      top: calc(100% + 18px);
+      transform: translateX(-50%) translateY(-10px);
+    }
+    .tip-below:hover .nx-tip {
+      transform: translateX(-50%) translateY(0);
+    }
+    .tip-below .nx-tip::after {
+      top: auto; bottom: 100%;
+      border-top-color: transparent;
+      border-bottom-color: rgba(var(--nc), 0.28);
+    }
+
+    /* Tooltip — shift RIGHT for left-edge nodes */
+    .tip-right .nx-tip {
+      left: 0; transform: translateY(10px);
+    }
+    .tip-right:hover .nx-tip { transform: translateY(0); }
+    .tip-right .nx-tip::after { left: 24px; transform: none; }
+
+    /* Tooltip — shift LEFT for right-edge nodes */
+    .tip-left .nx-tip {
+      left: auto; right: 0; transform: translateY(10px);
+    }
+    .tip-left:hover .nx-tip { transform: translateY(0); }
+    .tip-left .nx-tip::after { left: auto; right: 24px; transform: none; }
+
+    .nxt-name {
+      font-family: var(--fb);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: rgba(var(--nc), 1);
+      margin-bottom: 7px;
+    }
+    .nxt-desc {
+      font-family: var(--fb);
+      font-size: 12px; color: rgba(255,255,255,0.5);
+      line-height: 1.65; margin-bottom: 14px;
+    }
+    .nxt-link {
+      font-family: var(--fb);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(var(--nc), 1);
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid rgba(var(--nc), 0.3);
+      border-radius: 20px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .nxt-link:hover {
+      background: rgba(var(--nc), 0.12);
+      border-color: rgba(var(--nc), 0.6);
+    }
+
+    /* ══════════════════════════════════════
+       NODE POSITIONS & COLORS
+    ══════════════════════════════════════ */
+    /* --nc = R,G,B values only (used in rgba()) */
+    #nx-home      { --nc: 229,44,103;  left: 50%;  top: 50%; --sm-dur: 9s; }
+    #nx-grow      { --nc: 0,255,200;   left: 73%;  top: 20%; --sm-dur: 7s;   --sm-delay: -1.5s; }
+    #nx-learn     { --nc: 79,130,255;  left: 26%;  top: 23%; --sm-dur: 6.5s; --sm-delay: -3s; }
+    #nx-docs      { --nc: 155,107,255; left: 50%;  top: 10%; --sm-dur: 8.5s; --sm-delay: -0.5s; }
+    #nx-cases     { --nc: 0,240,255;   left: 86%;  top: 52%; --sm-dur: 7.5s; --sm-delay: -2s; }
+    #nx-resources { --nc: 245,181,56;  left: 71%;  top: 82%; --sm-dur: 8s;   --sm-delay: -4s; }
+    #nx-fonts     { --nc: 220,190,255; left: 27%;  top: 82%; --sm-dur: 6s;   --sm-delay: -1s; }
+    #nx-about     { --nc: 229,44,103;  left: 13%;  top: 52%; --sm-dur: 8.5s; --sm-delay: -3.5s; }
+
+    /* ══════════════════════════════════════
+       FLOAT ANIMATION
+    ══════════════════════════════════════ */
+    @keyframes sm-float {
+      0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+      50%       { transform: translate(-50%, -50%) translateY(-14px); }
+    }
+
+    /* ══════════════════════════════════════
+       LEGEND
+    ══════════════════════════════════════ */
+    .sm-legend {
+      display: flex; justify-content: center;
+      gap: 28px; flex-wrap: wrap;
+      padding: 16px 24px 48px;
+    }
+    .sm-leg-item {
+      display: flex; align-items: center; gap: 7px;
+      font-family: var(--fb); font-size: 9px;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .sm-leg-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════════
+       MOBILE FALLBACK GRID
+    ══════════════════════════════════════ */
+    .sm-mobile { display: none; padding: 32px 20px 80px; }
+    .sm-m-section { margin-bottom: 36px; }
+    .sm-m-heading {
+      font-family: var(--fb); font-size: 9px;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .sm-m-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .sm-m-card {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .sm-m-card:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.14);
+    }
+    .sm-m-icon {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+      font-family: var(--fh);
+    }
+    .sm-m-name {
+      font-family: var(--fb); font-size: 11px;
+      font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--white);
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .nx-canvas, .sm-legend { display: none; }
+      .sm-mobile { display: block; }
+      .sm-header { padding: 110px 20px 28px; }
+    }
+    @media (max-width: 480px) {
+      .sm-m-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ══════════════════════════════════════
+       COSMIC CURSOR — override existing dots
+    ══════════════════════════════════════ */
+    body { cursor: none !important; }
+
+    /* Reuse existing .cursor-dot → cyan glow core */
+    .cursor-dot {
+      width: 7px !important; height: 7px !important;
+      background: #00f0ff !important;
+      box-shadow: 0 0 12px #00f0ff, 0 0 24px rgba(0,240,255,0.4) !important;
+      border-radius: 50% !important;
+      transition: width .18s, height .18s, background .18s, box-shadow .18s !important;
+    }
+    /* Reuse existing .cursor-outline → pink orbit ring */
+    .cursor-outline {
+      width: 32px !important; height: 32px !important;
+      border: 1.5px solid rgba(229,44,103,0.55) !important;
+      border-radius: 50% !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      transition: width .22s ease-out, height .22s ease-out,
+                  border-color .22s, background .22s !important;
+    }
+    /* Hover state — triggered via JS on .cursor-hover on body */
+    body.cursor-hover .cursor-dot {
+      width: 11px !important; height: 11px !important;
+      background: #e52c67 !important;
+      box-shadow: 0 0 16px #e52c67, 0 0 32px rgba(229,44,103,0.35) !important;
+    }
+    body.cursor-hover .cursor-outline {
+      width: 52px !important; height: 52px !important;
+      border-color: rgba(0,240,255,0.6) !important;
+      background: rgba(0,240,255,0.04) !important;
+    }
+
+    /* sm-blink keyframe */
+    @keyframes sm-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* ── Particle burst ── */
+    .sm-particle {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      animation: sm-pburst 0.7s ease-out forwards;
+    }
+    @keyframes sm-pburst {
+      0%   { transform: translate(-50%,-50%) translate(0,0) scale(1.2); opacity: 1; }
+      100% { transform: translate(-50%,-50%) translate(var(--sm-px,60px),var(--sm-py,-60px)) scale(0); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <canvas id="sm-stars" aria-hidden="true"></canvas>
+
+  <div id="nav-placeholder"></div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+    <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
+    <div class="drawer-group">
+      <button class="drawer-group-toggle">Learn <i class="fas fa-chevron-down"></i></button>
+      <div class="drawer-group-items">
+        <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+        <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+        <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+        <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
+      </div>
+    </div>
+    <div class="drawer-group">
+      <button class="drawer-group-toggle">Products <i class="fas fa-chevron-down"></i></button>
+      <div class="drawer-group-items">
+        <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+        <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
+      </div>
+    </div>
+    <a href="about.html" onclick="closeDrawer()">About YOB</a>
+    <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       PAGE CONTENT
+  ════════════════════════════════════════ -->
+  <main class="sm-page">
+
+    <!-- Header -->
+    <header class="sm-header">
+      <span class="sm-eyebrow">◈ NEXUS CONSTELLATION · YOB DIGITAL UNIVERSE</span>
+      <h1 class="sm-title">THE <span class="sm-accent">NEXUS</span></h1>
+      <p class="sm-sub">Hover each node to explore &nbsp;·&nbsp; Click to navigate</p>
+    </header>
+
+    <!-- ══ CONSTELLATION CANVAS (Desktop) ══ -->
+    <div class="nx-canvas" id="nxCanvas">
+
+      <!-- SVG Thread Layer -->
+      <svg class="nx-svg" id="nxSvg" aria-hidden="true"></svg>
+
+      <!-- ── CENTER: YOB Home ── -->
+      <div class="nx-node nx-node--center" id="nx-home">
+        <div class="nx-dot">
+          <i class="nx-icon">⬡</i>
+        </div>
+        <div class="nx-label">YOB CORE</div>
+        <div class="nx-tip">
+          <div class="nxt-name">YOB Digital Home</div>
+          <div class="nxt-desc">Main hub — Hero, Ecosystem, Videos & Contact Form</div>
+          <a href="index.html" class="nxt-link">Launch ➔</a>
+        </div>
+      </div>
+
+      <!-- ── ORBIT: Grow ── -->
+      <div class="nx-node" id="nx-grow">
+        <div class="nx-dot"><i class="nx-icon">↑</i></div>
+        <div class="nx-label">GROW</div>
+        <div class="nx-tip">
+          <div class="nxt-name">Growth Roadmap</div>
+          <div class="nxt-desc">Digital Growth — Phase 00 to 04, step-by-step in Khmer</div>
+          <a href="grow.html" class="nxt-link">Launch ➔</a>
+        </div>
+      </div>
+
+      <!-- ── ORBIT: Learning ── -->
+      <div class="nx-node" id="nx-learn">
+        <div class="nx-dot"><i class="nx-icon">◈</i></div>
+        <div class="nx-label">LEARNING HUB</div>
+        <div class="nx-tip">
+          <div class="nxt-name">YOB Learning</div>
+          <div class="nxt-desc">AI & Digital Skills — Courses, Tracks & Curriculum</div>
+          <a href="yob-learning.html" class="nxt-link">Launch ➔</a>
+        </div>
+      </div>
+
+      <!-- ── ORBIT: Docs ── -->
+      <div class="nx-node tip-below" id="nx-docs">
+        <div class="nx-dot"><i class="nx-icon">▣</i></div>
+        <div class="nx-label">DOCS</div>
+        <div class="nx-tip">
+          <div class="nxt-name">Documentation</div>
+          <div class="nxt-desc">Technical Guides, References & How-to Resources</div>
+          <a href="docs.html" class="nxt-link">Launch ➔</a>
+        </div>
+      </div>
+
+      <!-- ── ORBIT: Case Studies ── -->
+      <div class="nx-node tip-left" id="nx-cases">
+        <div class="nx-dot"><i class="nx-icon">◉</i></div>
+        <div class="nx-label">CASE STUDIES</div>
+        <div class="nx-tip">
+          <div class="nxt-name">Success Logs</div>
+          <div class="nxt-desc">Real Results — Client Success Stories & Project Outcomes</div>
+          <a href="case-studies.html" class="nxt-link">Launch ➔</a>
+        </div>
+      </div>
+
+      <!-- ── ORBIT: Resources ── -->
+      <div class="nx-node tip-left" id="nx-resources">
+        <div class="nx-dot"><i class="nx-icon">◧</i></div>
+        <div class="nx-label">RESOURCES</div>
+        <div class="nx-tip">
+          <div class="nxt-name">Free Arsenal</div>
+          <div class="nxt-desc">Templates, AI Content Bible & Free Digital Tools</div>
+          <a href="resources.html" class="nxt-link">Launch ➔</a>
+        </div>
+      </div>
+
+      <!-- ── ORBIT: Fonts ── -->
+      <div class="nx-node tip-right" id="nx-fonts">
+        <div class="nx-dot"><i class="nx-icon" style="font-family:var(--fb);font-size:16px;font-style:normal">Aa</i></div>
+        <div class="nx-label">YOB FONTS</div>
+        <div class="nx-tip">
+          <div class="nxt-name">Khmer Typography</div>
+          <div class="nxt-desc">Khmer Font Shop — Premium & Free Typefaces</div>
+          <a href="fonts.html" class="nxt-link">Launch ➔</a>
+        </div>
+      </div>
+
+      <!-- ── ORBIT: About ── -->
+      <div class="nx-node tip-right" id="nx-about">
+        <div class="nx-dot"><i class="nx-icon">◎</i></div>
+        <div class="nx-label">ABOUT</div>
+        <div class="nx-tip">
+          <div class="nxt-name">About YOB Digital</div>
+          <div class="nxt-desc">Origin Story, Founder Yeun Savuth, Team & Mission</div>
+          <a href="about.html" class="nxt-link">Launch ➔</a>
+        </div>
+      </div>
+
+    </div><!-- /.nx-canvas -->
+
+    <!-- Legend -->
+    <div class="sm-legend" aria-hidden="true">
+      <span class="sm-leg-item"><span class="sm-leg-dot" style="background:#e52c67;box-shadow:0 0 6px #e52c67"></span>Core</span>
+      <span class="sm-leg-item"><span class="sm-leg-dot" style="background:#00ffc8;box-shadow:0 0 6px #00ffc8"></span>Grow</span>
+      <span class="sm-leg-item"><span class="sm-leg-dot" style="background:#4f82ff;box-shadow:0 0 6px #4f82ff"></span>Learning</span>
+      <span class="sm-leg-item"><span class="sm-leg-dot" style="background:#9b6bff;box-shadow:0 0 6px #9b6bff"></span>Docs</span>
+      <span class="sm-leg-item"><span class="sm-leg-dot" style="background:#00f0ff;box-shadow:0 0 6px #00f0ff"></span>Cases</span>
+      <span class="sm-leg-item"><span class="sm-leg-dot" style="background:#f5b538;box-shadow:0 0 6px #f5b538"></span>Resources</span>
+      <span class="sm-leg-item"><span class="sm-leg-dot" style="background:#dcbeff;box-shadow:0 0 6px #dcbeff"></span>Fonts</span>
+      <span class="sm-leg-item"><span class="sm-leg-dot" style="background:#e52c67;box-shadow:0 0 6px #e52c67"></span>About</span>
+    </div>
+
+    <!-- ══ MOBILE FALLBACK GRID ══ -->
+    <div class="sm-mobile">
+      <div class="sm-m-section">
+        <div class="sm-m-heading">Main</div>
+        <div class="sm-m-grid">
+          <a href="index.html" class="sm-m-card">
+            <div class="sm-m-icon" style="background:rgba(229,44,103,.15);color:#e52c67">⬡</div>
+            <span class="sm-m-name">Home</span>
+          </a>
+          <a href="grow.html" class="sm-m-card">
+            <div class="sm-m-icon" style="background:rgba(0,255,200,.15);color:#00ffc8">↑</div>
+            <span class="sm-m-name">Grow</span>
+          </a>
+          <a href="about.html" class="sm-m-card">
+            <div class="sm-m-icon" style="background:rgba(229,44,103,.15);color:#e52c67">◎</div>
+            <span class="sm-m-name">About</span>
+          </a>
+        </div>
+      </div>
+      <div class="sm-m-section">
+        <div class="sm-m-heading">Learn</div>
+        <div class="sm-m-grid">
+          <a href="yob-learning.html" class="sm-m-card">
+            <div class="sm-m-icon" style="background:rgba(79,130,255,.15);color:#4f82ff">◈</div>
+            <span class="sm-m-name">Learning</span>
+          </a>
+          <a href="docs.html" class="sm-m-card">
+            <div class="sm-m-icon" style="background:rgba(155,107,255,.15);color:#9b6bff">▣</div>
+            <span class="sm-m-name">Docs</span>
+          </a>
+          <a href="case-studies.html" class="sm-m-card">
+            <div class="sm-m-icon" style="background:rgba(0,240,255,.15);color:#00f0ff">◉</div>
+            <span class="sm-m-name">Cases</span>
+          </a>
+        </div>
+      </div>
+      <div class="sm-m-section">
+        <div class="sm-m-heading">Products</div>
+        <div class="sm-m-grid">
+          <a href="resources.html" class="sm-m-card">
+            <div class="sm-m-icon" style="background:rgba(245,181,56,.15);color:#f5b538">◧</div>
+            <span class="sm-m-name">Resources</span>
+          </a>
+          <a href="fonts.html" class="sm-m-card">
+            <div class="sm-m-icon" style="background:rgba(220,190,255,.15);color:#dcbeff" style="font-family:var(--fb)">Aa</div>
+            <span class="sm-m-name">Fonts</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main><!-- /.sm-page -->
+
+  <script>
+
+  /* ══════════════════════════════════════
+     COSMIC CURSOR — hover class on body
+  ══════════════════════════════════════ */
+  (function () {
+    const targets = 'a, button, .nx-node, .sm-m-card, .nxt-link';
+    document.querySelectorAll(targets).forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+  })();
+
+  (function () {
+
+    /* ══════════════════════════════════════
+       1. WEB AUDIO — Hover Ping
+    ══════════════════════════════════════ */
+    let AC = null;
+    function getAC() {
+      if (!AC) AC = new (window.AudioContext || window.webkitAudioContext)();
+      if (AC.state === 'suspended') AC.resume();
+      return AC;
+    }
+    document.addEventListener('click', () => getAC(), { once: true });
+
+    function ping(ncStr) {
+      try {
+        const ctx = getAC(), now = ctx.currentTime;
+        const parts = (ncStr || '0,240,255').split(',').map(Number);
+        const base  = 280 + (parts[0] / 255) * 320 + (parts[2] / 255) * 180;
+
+        const o1 = ctx.createOscillator(), g1 = ctx.createGain();
+        o1.type = 'sine';
+        o1.frequency.setValueAtTime(base, now);
+        o1.frequency.exponentialRampToValueAtTime(base * 0.55, now + 0.22);
+        g1.gain.setValueAtTime(0.07, now);
+        g1.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+        o1.connect(g1); g1.connect(ctx.destination);
+        o1.start(now); o1.stop(now + 0.22);
+
+        const o2 = ctx.createOscillator(), g2 = ctx.createGain();
+        o2.type = 'triangle';
+        o2.frequency.setValueAtTime(base * 2.8, now);
+        o2.frequency.exponentialRampToValueAtTime(base * 1.3, now + 0.15);
+        g2.gain.setValueAtTime(0.03, now);
+        g2.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+        o2.connect(g2); g2.connect(ctx.destination);
+        o2.start(now); o2.stop(now + 0.15);
+      } catch(e) {}
+    }
+
+    /* ══════════════════════════════════════
+       2. PARTICLE BURST — On Click
+    ══════════════════════════════════════ */
+    function burst(x, y, ncStr) {
+      const color = `rgb(${ncStr || '229,44,103'})`;
+      for (let i = 0; i < 16; i++) {
+        const angle = (i / 16) * Math.PI * 2 + Math.random() * 0.3;
+        const dist  = 55 + Math.random() * 85;
+        const size  = Math.random() * 5 + 2;
+        const dur   = 0.45 + Math.random() * 0.45;
+        const p     = document.createElement('div');
+        p.className = 'sm-particle';
+        p.style.cssText = [
+          `left:${x}px`, `top:${y}px`,
+          `width:${size}px`, `height:${size}px`,
+          `background:${color}`,
+          `box-shadow:0 0 ${size*3}px ${color},0 0 ${size*7}px ${color}`,
+          `--sm-px:${Math.cos(angle)*dist}px`,
+          `--sm-py:${Math.sin(angle)*dist}px`,
+          `animation-duration:${dur}s`
+        ].join(';');
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), dur * 1000 + 100);
+      }
+    }
+
+    /* ══════════════════════════════════════
+       3. STARFIELD CANVAS
+    ══════════════════════════════════════ */
+    const sc   = document.getElementById('sm-stars');
+    const sctx = sc.getContext('2d');
+    let stars  = [];
+
+    function resizeStar() { sc.width = window.innerWidth; sc.height = window.innerHeight; }
+    function mkStars() {
+      stars = [];
+      const n = Math.floor((sc.width * sc.height) / 5500);
+      for (let i = 0; i < n; i++) {
+        stars.push({
+          x: Math.random() * sc.width,   y: Math.random() * sc.height,
+          r: Math.random() * 1.1 + 0.15, o: Math.random() * 0.45 + 0.08,
+          sp: Math.random() * 0.004 + 0.001, ph: Math.random() * Math.PI * 2,
+          col: Math.random() > 0.82 ? '0,240,255,' : '255,255,255,'
+        });
+      }
+    }
+    let tf = 0;
+    function drawStars() {
+      sctx.clearRect(0, 0, sc.width, sc.height);
+      tf++;
+      stars.forEach(s => {
+        const o = s.o * (0.65 + 0.35 * Math.sin(tf * s.sp + s.ph));
+        sctx.beginPath();
+        sctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        sctx.fillStyle = 'rgba(' + s.col + o + ')';
+        sctx.fill();
+      });
+      requestAnimationFrame(drawStars);
+    }
+    resizeStar(); mkStars(); drawStars();
+    window.addEventListener('resize', () => { resizeStar(); mkStars(); });
+
+    /* ══════════════════════════════════════
+       4. SVG THREADS + PULSE TRAVEL
+    ══════════════════════════════════════ */
+    const svg      = document.getElementById('nxSvg');
+    const cvs      = document.getElementById('nxCanvas');
+    const home     = document.getElementById('nx-home');
+    const orbitIds = ['nx-grow','nx-learn','nx-docs','nx-cases','nx-resources','nx-fonts','nx-about'];
+
+    function midPt(ax, ay, bx, by, bend) {
+      const mx = (ax+bx)/2, my = (ay+by)/2;
+      const dx = bx-ax, dy = by-ay;
+      const len = Math.sqrt(dx*dx+dy*dy) || 1;
+      return { x: mx+(-dy/len)*bend, y: my+(dx/len)*bend };
+    }
+    function nodeCenter(el) {
+      const cr = cvs.getBoundingClientRect(), er = el.getBoundingClientRect();
+      return { x: er.left+er.width/2-cr.left, y: er.top+er.height/2-cr.top };
+    }
+
+    function drawLines() {
+      svg.innerHTML = '';
+      const defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
+      defs.innerHTML = `
+        <filter id="sm-gf" x="-80%" y="-80%" width="260%" height="260%">
+          <feGaussianBlur stdDeviation="3" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="sm-pf" x="-200%" y="-200%" width="500%" height="500%">
+          <feGaussianBlur stdDeviation="5"/>
+        </filter>`;
+      svg.appendChild(defs);
+
+      const h = nodeCenter(home);
+
+      orbitIds.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const o   = nodeCenter(el);
+        const nc  = getComputedStyle(el).getPropertyValue('--nc').trim();
+        const col = nc ? `rgb(${nc})` : 'rgb(0,240,255)';
+        const bend = (i % 2 === 0 ? 1 : -1) * 32;
+        const cp   = midPt(h.x, h.y, o.x, o.y, bend);
+        const d    = `M ${h.x} ${h.y} Q ${cp.x} ${cp.y} ${o.x} ${o.y}`;
+        const pid  = `sm-p${i}`;
+
+        /* Glow backing */
+        const glow = document.createElementNS('http://www.w3.org/2000/svg','path');
+        glow.setAttribute('d',d); glow.setAttribute('stroke',col);
+        glow.setAttribute('stroke-width','5'); glow.setAttribute('stroke-opacity','0.09');
+        glow.setAttribute('fill','none'); glow.setAttribute('filter','url(#sm-gf)');
+        svg.appendChild(glow);
+
+        /* Dashed thread — needs ID for animateMotion */
+        const line = document.createElementNS('http://www.w3.org/2000/svg','path');
+        line.id = pid;
+        line.setAttribute('d',d); line.setAttribute('stroke',col);
+        line.setAttribute('stroke-width','1'); line.setAttribute('stroke-opacity','0.28');
+        line.setAttribute('stroke-dasharray','5 10'); line.setAttribute('fill','none');
+        svg.appendChild(line);
+
+        /* Pulse dot traveling along the thread */
+        function makePulse(r, fo, filterId, delay) {
+          const dot = document.createElementNS('http://www.w3.org/2000/svg','circle');
+          dot.setAttribute('r', r);
+          dot.setAttribute('fill', col);
+          dot.setAttribute('fill-opacity', fo);
+          if (filterId) dot.setAttribute('filter', `url(#${filterId})`);
+          const mot = document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
+          mot.setAttribute('dur', `${2.2 + i * 0.38}s`);
+          mot.setAttribute('repeatCount','indefinite');
+          mot.setAttribute('begin', `${delay}s`);
+          mot.setAttribute('calcMode','spline');
+          mot.setAttribute('keyTimes','0;1');
+          mot.setAttribute('keySplines','0.42 0 0.58 1');
+          const mp = document.createElementNS('http://www.w3.org/2000/svg','mpath');
+          mp.setAttributeNS('http://www.w3.org/1999/xlink','href',`#${pid}`);
+          mot.appendChild(mp); dot.appendChild(mot);
+          svg.appendChild(dot);
+        }
+        makePulse(6,  0.25, 'sm-pf', i * 0.5);      /* halo glow */
+        makePulse(2.8, 0.95, 'sm-gf', i * 0.5);     /* bright core */
+      });
+    }
+
+    setTimeout(drawLines, 80);
+    window.addEventListener('resize', drawLines);
+
+    /* ══════════════════════════════════════
+       5. NODE INTERACTIONS
+    ══════════════════════════════════════ */
+    let lastPing = 0;
+    document.querySelectorAll('.nx-node').forEach(node => {
+      const nc = getComputedStyle(node).getPropertyValue('--nc').trim();
+
+      node.addEventListener('mouseenter', () => {
+        const now = Date.now();
+        if (now - lastPing > 250) { ping(nc); lastPing = now; }
+      });
+
+      node.addEventListener('click', e => {
+        if (e.target.closest('.nxt-link')) return;
+        const dot = node.querySelector('.nx-dot');
+        const r   = dot.getBoundingClientRect();
+        burst(r.left + r.width / 2, r.top + r.height / 2, nc);
+      });
+    });
+
+  })();
+  </script>
+
+  <script src="js/load-components.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

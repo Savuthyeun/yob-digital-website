@@ -1,53 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- ══ Core Pages ══ -->
   <url>
-    <loc>https://yobdigital.com/</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://yobdigital.netlify.app/</loc>
+    <lastmod>2026-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://yobdigital.com/about.html</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://yobdigital.netlify.app/grow.html</loc>
+    <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
+  <!-- ══ Learn ══ -->
   <url>
-    <loc>https://yobdigital.com/grow.html</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://yobdigital.netlify.app/yob-learning.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://yobdigital.netlify.app/docs.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://yobdigital.netlify.app/case-studies.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ══ Products ══ -->
+  <url>
+    <loc>https://yobdigital.netlify.app/fonts.html</loc>
+    <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://yobdigital.com/resources.html</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://yobdigital.netlify.app/resources.html</loc>
+    <lastmod>2026-03-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
+  <!-- ══ Company ══ -->
   <url>
-    <loc>https://yobdigital.com/case-studies.html</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://yobdigital.netlify.app/about.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://yobdigital.netlify.app/contact.html</loc>
+    <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://yobdigital.com/fonts.html</loc>
-    <lastmod>2026-03-24</lastmod>
+    <loc>https://yobdigital.netlify.app/sitemap.html</loc>
+    <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- ══ Legal ══ -->
+  <url>
+    <loc>https://yobdigital.netlify.app/privacy.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://yobdigital.com/docs.html</loc>
-    <lastmod>2026-03-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://yobdigital.netlify.app/terms.html</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
+
+  <!-- Excluded: under-construction.html (Disallow in robots.txt) -->
+  <!-- Excluded: 404.html (noindex, nofollow) -->
 
 </urlset>

@@ -57,41 +57,37 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="index.html#tracks">AI Tools Mastery</a></li>
-          <li><a href="index.html#tracks">Digital Strategy</a></li>
-          <li><a href="index.html#tracks">Web &amp; System Setup</a></li>
-          <li><a href="index.html#pricing">Workshop &amp; Training</a></li>
-          <li><a href="index.html#pricing">1-on-1 Consulting</a></li>
+          <li><a href="case-studies.html">AI Tools</a></li>
+          <li><a href="case-studies.html">Digital Strategy</a></li>
+          <li><a href="case-studies.html">Web &amp; Systems</a></li>
+          <li><a href="case-studies.html">Typography</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Learn</h4>
         <ul>
-          <li><a href="yob-learning.html">Yob Skills</a></li>
-          <li><a href="docs.html">Documentation</a></li>
-          <li><a href="case-studies.html">Case Studies</a></li>
-          <li><a href="resources.html">Free Toolkit</a></li>
-          <li><a href="grow.html">Growth Roadmap</a></li>
+          <li><a href="yob-learning.html">AI Tools</a></li>
+          <li><a href="yob-learning.html">Marketing</a></li>
+          <li><a href="yob-learning.html">Web</a></li>
+          <li><a href="yob-learning.html">Free</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Products</h4>
         <ul>
-          <li><a href="fonts.html">Khmer Font Shop</a></li>
-          <li><a href="resources.html">AI Content Bible</a></li>
-          <li><a href="fonts.html">YOB Bold Pro</a></li>
-          <li><a href="fonts.html">YOB Sans Light</a></li>
-          <li><a href="fonts.html">YOB Starter (Free)</a></li>
+          <li><a href="fonts.html">Yob Font</a></li>
+          <li><a href="resources.html">AI Content</a></li>
+          <li><a href="resources.html">Templates</a></li>
+          <li><a href="resources.html">Design</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
-          <li><a href="about.html">About YOB</a></li>
-          <li><a href="grow.html">Our Mission</a></li>
-          <li><a href="index.html#contact">Contact Us</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="docs.html">Document</a></li>
+          <li><a href="sitemap.html">Sitemap</a></li>
         </ul>
       </div>
     </div>
@@ -110,9 +106,9 @@
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 <span>YOB.DIGITAL</span> — All rights reserved.</div>
       <div class="footer-legal">
-        <a href="#">Privacy</a>
+        <a href="privacy.html">Privacy</a>
         <span class="footer-dot">·</span>
-        <a href="#">Terms</a>
+        <a href="terms.html">Terms</a>
         <span class="footer-dot">·</span>
         <a href="about.html">About</a>
       </div>

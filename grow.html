@@ -1924,116 +1924,129 @@
     }
     .timeline-node:last-child { margin-bottom: 0; }
 
-    /* ── Star node — constellation dot + wormhole portal ── */
+    /* ── Star node — Signal Lock-On ── */
     .node-point {
       position: absolute;
-      left: -62px;
-      top: 12px;
-      width: 36px; height: 36px;
+      left: -74px;
+      top: 8px;
+      width: 44px; height: 44px;
       border-radius: 50%;
-      background: var(--dark);
-      border: 1.5px solid rgba(var(--pr), 0.35);
+      background: rgba(var(--pr), 0.04);
+      border: 1.5px solid rgba(var(--pr), 0.18);
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
       transition:
-        border-color   0.5s var(--smooth),
-        background     0.5s var(--smooth),
-        box-shadow     0.5s var(--smooth),
-        transform      0.5s var(--smooth);
+        border-color 0.5s var(--smooth),
+        background   0.5s var(--smooth),
+        box-shadow   0.5s var(--smooth);
       z-index: 4;
     }
 
-    /* Constellation star core — tiny bright dot */
+    /* Scanning arc — rotates INSIDE the dot */
     .node-point::before {
       content: '';
       position: absolute;
-      width: 6px; height: 6px;
+      inset: 5px;
       border-radius: 50%;
-      background: rgba(var(--pr), 0.5);
-      transition: background 0.5s var(--smooth), box-shadow 0.5s var(--smooth);
+      border: 1.5px solid transparent;
+      border-top-color: rgba(var(--pr), 0);
+      border-right-color: rgba(var(--pr), 0);
+      transition:
+        border-top-color   0.4s var(--smooth),
+        border-right-color 0.4s var(--smooth);
+      pointer-events: none;
+      z-index: 1;
     }
 
-    /* Wormhole ring 1 — pulses outward when active */
+    /* Pulse ring — starts OUTSIDE dot, no overlap with number */
     .node-point::after {
       content: '';
       position: absolute;
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      border: 1px solid rgba(var(--pr), 0);
-      transform: scale(1);
-      opacity: 0;
-      transition: none;
-    }
-
-    /* Phase label */
-    .node-phase-label {
-      font-family: var(--fb);
-      font-size: 8px;
-      letter-spacing: 1px;
-      color: rgba(var(--pr), 0.6);
-      position: relative;
-      z-index: 1;
-      transition: color 0.5s var(--smooth), opacity 0.5s var(--smooth);
-      opacity: 0.7;
-      line-height: 1;
-    }
-
-    /* ── ACTIVE — wormhole opens ── */
-    .timeline-node.active .node-point {
-      border-color: rgba(var(--pr), 0.9);
-      background: rgba(var(--pr), 0.12);
-      box-shadow:
-        0 0 0   4px rgba(var(--pr), 0.08),
-        0 0 16px     rgba(var(--pr), 0.55),
-        0 0 36px     rgba(var(--pr), 0.25);
-      transform: scale(1.3);
-    }
-    .timeline-node.active .node-point::before {
-      background: rgba(var(--pr), 1);
-      box-shadow: 0 0 8px rgba(var(--pr), 0.9);
-    }
-    /* Portal ring 1 — expanding */
-    .timeline-node.active .node-point::after {
-      animation: portalRing1 1.8s ease-out infinite;
-    }
-    .timeline-node.active .node-phase-label {
-      color: #fff;
-      opacity: 1;
-    }
-
-    /* Second portal ring — CSS @keyframes with 2nd div */
-    .node-ring2 {
-      position: absolute;
-      width: 36px; height: 36px;
+      width: 52px; height: 52px;
       border-radius: 50%;
       border: 1px solid rgba(var(--pr), 0);
       top: 50%; left: 50%;
-      transform: translate(-50%,-50%) scale(1);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: none;
+      z-index: 1;
+    }
+
+    /* Phase label — centered inside dot, above the arc */
+    .node-phase-label {
+      font-family: var(--fb);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--pc);
+      position: relative;
+      z-index: 6;
+      line-height: 1;
+      transition:
+        color       0.5s var(--smooth),
+        text-shadow 0.5s var(--smooth);
+      opacity: 0.6;
+    }
+
+    /* ── ACTIVE — signal locked on ── */
+    .timeline-node.active .node-point {
+      border-color: rgba(var(--pr), 0.8);
+      background: rgba(var(--pr), 0.1);
+      box-shadow:
+        0 0 0  6px rgba(var(--pr), 0.06),
+        0 0 18px   rgba(var(--pr), 0.55),
+        0 0 44px   rgba(var(--pr), 0.22);
+    }
+    /* Arc spins inside circle */
+    .timeline-node.active .node-point::before {
+      border-top-color:   rgba(var(--pr), 0.8);
+      border-right-color: rgba(var(--pr), 0.3);
+      animation: gr-arcSpin 1.6s linear infinite;
+    }
+    /* Pulse ring fires from outside edge */
+    .timeline-node.active .node-point::after {
+      animation: gr-pulseRing 2.2s ease-out 0.2s infinite;
+    }
+    /* Number: white + phase glow — fully readable */
+    .timeline-node.active .node-phase-label {
+      color: #fff;
+      opacity: 1;
+      text-shadow:
+        0 0 6px  rgba(var(--pr), 1),
+        0 0 16px rgba(var(--pr), 0.7),
+        0 0 32px rgba(var(--pr), 0.35);
+    }
+
+    /* Pulse ring 2 — delayed */
+    .node-ring2 {
+      position: absolute;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      border: 1px solid rgba(var(--pr), 0);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
       opacity: 0;
       pointer-events: none;
+      z-index: 1;
     }
     .timeline-node.active .node-ring2 {
-      animation: portalRing2 1.8s ease-out 0.6s infinite;
+      animation: gr-pulseRing 2.2s ease-out 1.1s infinite;
     }
 
-    @keyframes portalRing1 {
-      0%   { width: 36px; height: 36px; opacity: 0.7;
-             border-color: rgba(var(--pr), 0.7);
-             top: 50%; left: 50%; transform: translate(-50%,-50%) scale(1); }
-      100% { width: 90px; height: 90px; opacity: 0;
-             border-color: rgba(var(--pr), 0);
-             top: 50%; left: 50%; transform: translate(-50%,-50%) scale(1); }
+    @keyframes gr-arcSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
     }
-    @keyframes portalRing2 {
-      0%   { width: 36px; height: 36px; opacity: 0.5;
-             border-color: rgba(var(--pr), 0.5);
-             transform: translate(-50%,-50%); }
-      100% { width: 110px; height: 110px; opacity: 0;
-             border-color: rgba(var(--pr), 0);
-             transform: translate(-50%,-50%); }
+    @keyframes gr-pulseRing {
+      0%   { width: 52px; height: 52px; top: 50%; left: 50%;
+             transform: translate(-50%,-50%);
+             border-color: rgba(var(--pr), 0.7); opacity: 0.8; }
+      100% { width: 100px; height: 100px; top: 50%; left: 50%;
+             transform: translate(-50%,-50%);
+             border-color: rgba(var(--pr), 0);   opacity: 0; }
     }
 
-    /* ── Card — wormhole emergence effect ── */
+    /* ── Card — 3D holographic reveal ── */
     .node-content {
       background: rgba(255, 255, 255, 0.025);
       backdrop-filter: blur(20px) saturate(160%);
@@ -2045,32 +2058,31 @@
       position: relative;
       overflow: hidden;
       transition:
-        border-color  0.6s var(--smooth),
-        box-shadow    0.6s var(--smooth),
-        transform     0.6s var(--smooth),
-        opacity       0.6s var(--smooth),
-        filter        0.6s var(--smooth);
-      /* Deep in the wormhole — blurred & small */
-      transform: translateX(18px) scale(0.97);
+        border-color 0.7s var(--smooth),
+        box-shadow   0.7s var(--smooth),
+        transform    0.7s var(--smooth),
+        opacity      0.6s var(--smooth),
+        filter       0.6s var(--smooth);
+      transform: perspective(900px) rotateY(-6deg) translateX(32px);
       filter: blur(3px);
-      opacity: 0.35;
+      opacity: 0.2;
     }
 
-    /* Constellation accent line — left edge glow per phase */
+    /* Left bar — fills downward when active */
     .node-content::before {
       content: '';
       position: absolute;
-      top: 20%; bottom: 20%;
-      left: 0;
+      top: 0; bottom: 100%; left: 0;
       width: 2px;
       border-radius: 99px;
-      background: rgba(var(--pr), 0.6);
-      box-shadow: 0 0 8px rgba(var(--pr), 0.4);
-      transition: opacity 0.5s var(--smooth);
-      opacity: 0;
+      background: linear-gradient(to bottom,
+        rgba(var(--pr), 0.9),
+        rgba(var(--pr), 0.25));
+      box-shadow: 0 0 8px rgba(var(--pr), 0.5);
+      transition: bottom 0.85s var(--smooth) 0.3s;
     }
 
-    /* Radial glow behind card — wormhole mouth */
+    /* Radial glow — left side */
     .node-content::after {
       content: '';
       position: absolute;
@@ -2079,13 +2091,13 @@
       background: radial-gradient(ellipse 60% 50% at 0% 50%,
         rgba(var(--pr), 0.07) 0%, transparent 70%);
       opacity: 0;
-      transition: opacity 0.6s var(--smooth);
+      transition: opacity 0.6s var(--smooth) 0.2s;
       pointer-events: none;
     }
 
-    /* ── Emerged from wormhole ── */
+    /* ── Card active — locked in ── */
     .timeline-node.active .node-content {
-      transform: translateX(0) scale(1);
+      transform: perspective(900px) rotateY(0deg) translateX(0);
       filter: blur(0);
       opacity: 1;
       border-color: rgba(var(--pr), 0.2);
@@ -2093,7 +2105,7 @@
         0 10px 40px rgba(0,0,0,0.5),
         0 0 0 1px rgba(var(--pr), 0.06) inset;
     }
-    .timeline-node.active .node-content::before { opacity: 1; }
+    .timeline-node.active .node-content::before { bottom: 0; }
     .timeline-node.active .node-content::after  { opacity: 1; }
 
     /* ── Typography inside card ── */
@@ -2156,10 +2168,376 @@
     @media (max-width: 640px) {
       .cosmic-roadmap-container { padding-left: 54px; }
       .timeline-thread { left: 15px; }
-      .node-point { left: -45px; width: 28px; height: 28px; top: 10px; }
-      .node-phase-label { font-size: 7px; }
+      .node-point { left: -52px; width: 34px; height: 34px; top: 8px; }
+      .node-phase-label { font-size: 10px; }
+      .node-point::after, .node-ring2 { width: 34px; height: 34px; }
+      @keyframes gr-pulseRing {
+        0%   { width: 34px; height: 34px; top: 50%; left: 50%;
+               transform: translate(-50%,-50%);
+               border-color: rgba(var(--pr), 0.65); opacity: 0.8; }
+        100% { width: 80px; height: 80px; top: 50%; left: 50%;
+               transform: translate(-50%,-50%);
+               border-color: rgba(var(--pr), 0);   opacity: 0; }
+      }
       .node-content { padding: 20px 16px; }
       .node-title { font-size: 1.15rem; }
+    }
+
+
+    /* ════ KREE TERMINAL — S4 CONTACT ════ */
+    :root {
+      --kree-cyan:   #00f0ff;
+      --photon-gold: #ffcc00;
+      --cosmic-red:  #e62429;
+    }
+
+    .kree-terminal-section {
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0 160px;
+      background: transparent;
+    }
+
+    /* ── Starfield canvas (section-local) ── */
+    #kree-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    /* ── Hex grid overlay ── */
+    .kree-hex-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(60deg,
+          rgba(0,240,255,0.04) 0px, rgba(0,240,255,0.04) 1px,
+          transparent 1px, transparent 28px),
+        repeating-linear-gradient(-60deg,
+          rgba(0,240,255,0.04) 0px, rgba(0,240,255,0.04) 1px,
+          transparent 1px, transparent 28px),
+        repeating-linear-gradient(0deg,
+          rgba(0,240,255,0.03) 0px, rgba(0,240,255,0.03) 1px,
+          transparent 1px, transparent 28px);
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%,
+        black 30%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%,
+        black 30%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .kree-terminal-section .container { position: relative; z-index: 2; }
+
+    /* ── Section header ── */
+    .kree-terminal-section .section-title {
+      letter-spacing: 6px;
+    }
+    .kree-terminal-section .section-tag {
+      border-color: rgba(0,240,255,0.3);
+      color: var(--kree-cyan);
+    }
+
+    /* ── Glass terminal card ── */
+    .kree-terminal {
+      max-width: 640px;
+      margin: 48px auto 0;
+      background: rgba(5, 15, 40, 0.6);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid rgba(0,240,255,0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(0,240,255,0.06) inset,
+        0 0 60px rgba(0,240,255,0.08),
+        0 30px 80px rgba(0,0,0,0.6);
+      will-change: transform;
+    }
+
+    /* ── Terminal header bar ── */
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      background: rgba(0,240,255,0.05);
+      border-bottom: 1px solid rgba(0,240,255,0.12);
+    }
+    .terminal-dots {
+      display: flex; gap: 6px;
+    }
+    .terminal-dots span {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+    .terminal-dots span:nth-child(1) { background: var(--cosmic-red); box-shadow: 0 0 6px var(--cosmic-red); }
+    .terminal-dots span:nth-child(2) { background: var(--photon-gold); box-shadow: 0 0 6px var(--photon-gold); }
+    .terminal-dots span:nth-child(3) { background: var(--kree-cyan); box-shadow: 0 0 6px var(--kree-cyan); }
+    .terminal-title {
+      font-family: var(--fb);
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: rgba(0,240,255,0.6);
+      flex: 1;
+      text-align: center;
+    }
+    .terminal-signal {
+      display: flex; align-items: flex-end; gap: 3px;
+    }
+    .signal-bar {
+      width: 3px;
+      background: var(--kree-cyan);
+      border-radius: 2px;
+      box-shadow: 0 0 4px var(--kree-cyan);
+      animation: gr-signalPulse 1.4s ease-in-out infinite;
+    }
+    .signal-bar:nth-child(1) { height: 6px;  animation-delay: 0s; }
+    .signal-bar:nth-child(2) { height: 10px; animation-delay: 0.2s; }
+    .signal-bar:nth-child(3) { height: 14px; animation-delay: 0.4s; }
+    @keyframes gr-signalPulse {
+      0%,100% { opacity: 0.3; }
+      50%      { opacity: 1; }
+    }
+
+    /* ── Form ── */
+    #kree-form {
+      padding: 32px 36px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .kree-field {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .kree-field label {
+      font-family: var(--fb);
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: rgba(0,240,255,0.55);
+    }
+    .kree-field input,
+    .kree-field textarea {
+      font-family: var(--fb);
+      font-size: 0.95rem;
+      color: var(--white);
+      background: rgba(0,240,255,0.03);
+      border: none;
+      border-bottom: 1.5px solid rgba(0,240,255,0.2);
+      border-radius: 0;
+      padding: 10px 4px;
+      outline: none;
+      resize: none;
+      transition:
+        border-color 0.4s var(--t),
+        box-shadow   0.4s var(--t),
+        background   0.4s var(--t);
+      will-change: box-shadow;
+    }
+    .kree-field input::placeholder,
+    .kree-field textarea::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+    /* Bracket corners */
+    .kree-field input,
+    .kree-field textarea {
+      clip-path: none;
+    }
+    .kree-field::before,
+    .kree-field::after {
+      content: '';
+      position: absolute;
+      width: 8px; height: 8px;
+      border-color: rgba(0,240,255,0.3);
+      border-style: solid;
+      transition: border-color 0.4s var(--t);
+      bottom: 0;
+    }
+    .kree-field::before { left: 0;  border-width: 0 0 1px 1px; }
+    .kree-field::after  { right: 0; border-width: 0 1px 1px 0; }
+
+    /* Focus — photon gold glow */
+    .kree-field:focus-within input,
+    .kree-field:focus-within textarea {
+      border-bottom-color: var(--photon-gold);
+      background: rgba(255,204,0,0.04);
+      box-shadow: 0 6px 24px rgba(255,204,0,0.12);
+    }
+    .kree-field:focus-within::before,
+    .kree-field:focus-within::after {
+      border-color: rgba(255,204,0,0.6);
+    }
+    .kree-field:focus-within label {
+      color: var(--photon-gold);
+    }
+
+    /* ── Photon blast button ── */
+    .photon-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 36px;
+      font-family: var(--fb);
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: var(--white);
+      background: linear-gradient(135deg, #e62429 0%, #ff6b00 50%, #ffcc00 100%);
+      background-size: 200% 200%;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      overflow: hidden;
+      transition:
+        background-position 0.5s var(--t),
+        box-shadow          0.4s var(--t),
+        transform           0.3s var(--smooth);
+      will-change: transform, box-shadow;
+      margin-top: 8px;
+    }
+    .photon-btn .btn-text { position: relative; z-index: 2; }
+    .photon-btn .btn-icon { position: relative; z-index: 2; }
+    .photon-aura {
+      position: absolute;
+      inset: -3px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #e62429, #ffcc00, #e62429);
+      background-size: 300% 300%;
+      opacity: 0;
+      filter: blur(14px);
+      transition: opacity 0.4s var(--t);
+      animation: gr-auraShift 2s linear infinite paused;
+      z-index: 0;
+    }
+    @keyframes gr-auraShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .photon-btn:hover {
+      background-position: 100% 0%;
+      box-shadow:
+        0 0 24px rgba(230,36,41,0.6),
+        0 0 60px rgba(255,204,0,0.3),
+        0 8px 32px rgba(230,36,41,0.4);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .photon-btn:hover .photon-aura {
+      opacity: 0.7;
+      animation-play-state: running;
+    }
+    .photon-btn:active { transform: translateY(0) scale(0.98); }
+
+    /* ── Submit loading state ── */
+    .photon-btn.firing {
+      pointer-events: none;
+      animation: gr-photonFire 0.6s var(--smooth) forwards;
+    }
+    @keyframes gr-photonFire {
+      0%   { transform: scale(1);   box-shadow: 0 0 0 rgba(255,204,0,0); }
+      40%  { transform: scale(1.08); box-shadow: 0 0 80px rgba(255,204,0,0.9), 0 0 160px rgba(230,36,41,0.6); }
+      100% { transform: scale(0.95); opacity: 0.7; }
+    }
+
+    /* ── Form → success transition ── */
+    #kree-form {
+      transition: opacity 0.5s var(--smooth), transform 0.5s var(--smooth);
+    }
+    #kree-form.fade-out {
+      opacity: 0;
+      transform: scale(0.96);
+      pointer-events: none;
+    }
+
+    .transmission-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 48px 36px 52px;
+      gap: 16px;
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.6s var(--smooth) 0.4s, transform 0.6s var(--smooth) 0.4s;
+    }
+    .transmission-success.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .success-icon {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: rgba(0,240,255,0.08);
+      border: 1.5px solid rgba(0,240,255,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      color: var(--kree-cyan);
+      box-shadow: 0 0 30px rgba(0,240,255,0.3);
+      animation: gr-successPulse 2s ease-in-out infinite;
+    }
+    @keyframes gr-successPulse {
+      0%,100% { box-shadow: 0 0 20px rgba(0,240,255,0.3); }
+      50%      { box-shadow: 0 0 50px rgba(0,240,255,0.6), 0 0 80px rgba(0,240,255,0.2); }
+    }
+    .success-headline {
+      font-family: var(--fh);
+      font-size: clamp(1.2rem, 3vw, 1.7rem);
+      letter-spacing: 3px;
+      color: var(--kree-cyan);
+      text-shadow: 0 0 20px rgba(0,240,255,0.5);
+      margin: 0;
+    }
+    .success-sub {
+      font-family: var(--fb);
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin: 0;
+    }
+
+    /* ── Quick contact row ── */
+    .kree-quick {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .quick-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--fb);
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: rgba(0,240,255,0.6);
+      padding: 10px 22px;
+      border: 1px solid rgba(0,240,255,0.15);
+      border-radius: 50px;
+      text-decoration: none;
+      transition:
+        color       0.3s var(--t),
+        border-color 0.3s var(--t),
+        box-shadow  0.3s var(--t),
+        background  0.3s var(--t);
+    }
+    .quick-link:hover {
+      color: var(--kree-cyan);
+      border-color: rgba(0,240,255,0.5);
+      background: rgba(0,240,255,0.06);
+      box-shadow: 0 0 18px rgba(0,240,255,0.15);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      #kree-form { padding: 24px 20px 28px; }
+      .kree-quick { flex-wrap: wrap; }
     }
 
   </style>
@@ -2511,25 +2889,86 @@
     </div>
   </section>
 
-  <!-- ══ S4: CTA — INITIATE ══ -->
-  <section id="contact" class="gw-section" style="padding-bottom:140px">
+  <!-- ══ S4: COSMIC PAGER — KREE TERMINAL ══ -->
+  <section id="contact" class="kree-terminal-section">
+    <canvas id="kree-canvas"></canvas>
+    <div class="kree-hex-grid"></div>
+
     <div class="container">
-      <div class="cta-box reveal">
-        <div class="gw-badge">WATCHER ONLINE · KH SECTOR</div>
-        <h2>READY TO <span class="b-accent">INITIATE SEQUENCE</span>?</h2>
-        <p>ចាប់ផ្ដើម Free 30-min Strategy Call ជាមួយ Babu — YOB Digital analyze business របស់អ្នក ហើយ map the exact route! Zero pressure, zero cost.</p>
-        <div class="cta-btns">
-          <a href="https://t.me/yobdigital" class="btn-primary" target="_blank" rel="noopener">
-            <i class="fab fa-telegram-plane"></i> ចាប់ផ្ដើមតាម Telegram
-          </a>
-          <a href="index.html#contact" class="btn-outline">
-            <i class="fas fa-calendar-check"></i> Book Strategy Call
-          </a>
-        </div>
-        <p class="cta-note">
-          <i class="fas fa-check-circle"></i> Free · No commitment · Reply within 2 hours via Telegram
+      <div class="section-header reveal">
+        <span class="section-tag">INITIATE SIGNAL · KH SECTOR</span>
+        <h2 class="section-title">
+          COSMIC <span class="gradient-text">PAGER</span>
+        </h2>
+        <p class="section-sub" style="max-width:480px;margin:0 auto">
+          ចាប់ផ្ដើម Free 30-min Strategy Call — YOB Digital analyze business របស់អ្នក ហើយ map the exact route!
         </p>
       </div>
+
+      <!-- Glass terminal -->
+      <div class="kree-terminal reveal">
+
+        <!-- Header bar -->
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span class="terminal-title">KREE COMM SYSTEM v7.4 · SIGNAL ACTIVE</span>
+          <div class="terminal-signal">
+            <span class="signal-bar"></span>
+            <span class="signal-bar"></span>
+            <span class="signal-bar"></span>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form id="kree-form" novalidate>
+          <div class="kree-field">
+            <label for="kree-name">IDENTIFIER</label>
+            <input type="text" id="kree-name" placeholder="Your Name" autocomplete="off" required />
+          </div>
+          <div class="kree-field">
+            <label for="kree-email">COMM FREQUENCY</label>
+            <input type="email" id="kree-email" placeholder="your@email.com" autocomplete="off" required />
+          </div>
+          <div class="kree-field">
+            <label for="kree-msg">TRANSMISSION</label>
+            <textarea id="kree-msg" rows="4" placeholder="Enter your message..." required></textarea>
+          </div>
+          <button type="submit" class="photon-btn" id="photon-submit">
+            <span class="btn-text">TRANSMIT SIGNAL</span>
+            <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+            <div class="photon-aura"></div>
+          </button>
+        </form>
+
+        <!-- Success state (hidden until submit) -->
+        <div class="transmission-success" id="transmission-success">
+          <div class="success-icon">
+            <i class="fas fa-satellite-dish"></i>
+          </div>
+          <p class="success-headline">SIGNAL TRANSMITTED<br>ACROSS THE GALAXY</p>
+          <p class="success-sub">YOB Digital will respond within 2 hours via Telegram</p>
+          <a href="https://t.me/yobdigital" class="btn-primary" target="_blank" rel="noopener">
+            <i class="fab fa-telegram-plane"></i> ចាប់ក្ដីតាម Telegram
+          </a>
+        </div>
+
+      </div><!-- /.kree-terminal -->
+
+      <!-- Quick links -->
+      <div class="kree-quick reveal">
+        <a href="https://t.me/yobdigital" class="quick-link" target="_blank" rel="noopener">
+          <i class="fab fa-telegram-plane"></i> Telegram
+        </a>
+        <a href="https://facebook.com/yobdigital" class="quick-link" target="_blank" rel="noopener">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+        <a href="https://youtube.com/@yobdigital" class="quick-link" target="_blank" rel="noopener">
+          <i class="fab fa-youtube"></i> YouTube
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -2543,6 +2982,84 @@
   <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
     <i class="fas fa-chevron-up"></i>
   </button>
+
+  <!-- ── Kree Terminal: Starfield + Form ── -->
+  <script>
+  (function () {
+    /* ── Starfield canvas ── */
+    const cv = document.getElementById('kree-canvas');
+    if (cv) {
+      const cx = cv.getContext('2d');
+      const stars = [];
+      function resize() {
+        cv.width  = cv.offsetWidth;
+        cv.height = cv.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+
+      for (let i = 0; i < 160; i++) {
+        stars.push({
+          x: Math.random(),
+          y: Math.random(),
+          r: Math.random() * 1.2 + 0.2,
+          speed: Math.random() * 0.00006 + 0.00002,
+          opacity: Math.random() * 0.7 + 0.15,
+          twinkle: Math.random() * Math.PI * 2
+        });
+      }
+
+      (function tick(t) {
+        requestAnimationFrame(tick);
+        cx.clearRect(0, 0, cv.width, cv.height);
+        stars.forEach(s => {
+          s.y += s.speed;
+          if (s.y > 1) s.y = 0;
+          s.twinkle += 0.018;
+          const op = s.opacity * (0.6 + 0.4 * Math.sin(s.twinkle));
+          cx.beginPath();
+          cx.arc(s.x * cv.width, s.y * cv.height, s.r, 0, Math.PI * 2);
+          cx.fillStyle = `rgba(0,240,255,${op})`;
+          cx.fill();
+        });
+      })(0);
+    }
+
+    /* ── Form: photon blast submit ── */
+    const form    = document.getElementById('kree-form');
+    const btn     = document.getElementById('photon-submit');
+    const success = document.getElementById('transmission-success');
+
+    if (form && btn && success) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        /* Validate */
+        const name  = document.getElementById('kree-name').value.trim();
+        const email = document.getElementById('kree-email').value.trim();
+        const msg   = document.getElementById('kree-msg').value.trim();
+        if (!name || !email || !msg) return;
+
+        /* Fire animation */
+        btn.classList.add('firing');
+
+        setTimeout(() => {
+          /* Fade form out */
+          form.classList.add('fade-out');
+
+          setTimeout(() => {
+            form.style.display = 'none';
+            success.style.display = 'flex';
+            /* Force reflow then animate in */
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => success.classList.add('show'));
+            });
+          }, 500);
+        }, 600);
+      });
+    }
+  })();
+  </script>
 
   <script src="js/load-components.js"></script>
   <script src="js/main.js" defer></script>

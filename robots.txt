@@ -1,4 +1,11 @@
+# YOB Digital — robots.txt
+# https://yobdigital.netlify.app
+
 User-agent: *
 Allow: /
 
-Sitemap: https://yobdigital.com/sitemap.xml
+# Utility pages — no SEO value
+Disallow: /under-construction.html
+
+# Sitemap
+Sitemap: https://yobdigital.netlify.app/sitemap.xml
