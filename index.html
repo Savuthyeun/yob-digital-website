@@ -68,22 +68,43 @@
 
     <link rel="stylesheet" href="css/style.css" />
     <style>
-      :root { --yt-red: #ff0000; --yt-red-dim: rgba(255,0,0,0.3); --yt-red-bg: rgba(255,0,0,0.05); --yt-red-hover: #ff4a4a; }
-      .yt-icon { color: var(--yt-red); }
-      .btn-yt { border-color: var(--yt-red-dim); color: var(--yt-red-hover); background: var(--yt-red-bg); }
-      .res-pi-purple { background: linear-gradient(135deg, #1a0a2e, #3d1060); }
-      .res-pi-blue   { background: linear-gradient(135deg, #0a1a2e, #103d60); }
-      .res-pi-pink   { background: linear-gradient(135deg, #1a0a10, #60103d); }
+      :root {
+        --yt-red: #ff0000;
+        --yt-red-dim: rgba(255, 0, 0, 0.3);
+        --yt-red-bg: rgba(255, 0, 0, 0.05);
+        --yt-red-hover: #ff4a4a;
+      }
+      .yt-icon {
+        color: var(--yt-red);
+      }
+      .btn-yt {
+        border-color: var(--yt-red-dim);
+        color: var(--yt-red-hover);
+        background: var(--yt-red-bg);
+      }
+      .res-pi-purple {
+        background: linear-gradient(135deg, #1a0a2e, #3d1060);
+      }
+      .res-pi-blue {
+        background: linear-gradient(135deg, #0a1a2e, #103d60);
+      }
+      .res-pi-pink {
+        background: linear-gradient(135deg, #1a0a10, #60103d);
+      }
 
       /* ── YEVA z-index: keep YEVA inside moon stacking context ── */
-      .singularity-wrapper { isolation: isolate; }
+      .singularity-wrapper {
+        isolation: isolate;
+      }
 
       /* ══════════════════════════════════════════════════
          STELLAR SPECIMEN PANELS — Typography v2
          Concept: 3 full-width horizontal panels in space
          Each font = a stellar object with its own nebula
       ══════════════════════════════════════════════════ */
-      .font-teaser-row { display: none !important; }
+      .font-teaser-row {
+        display: none !important;
+      }
 
       .stellar-panels {
         display: flex;
@@ -102,16 +123,27 @@
         overflow: hidden;
         cursor: pointer;
         text-decoration: none;
-        transition: height 0.5s cubic-bezier(0.16,1,0.3,1), background 0.4s;
-        background: rgba(6,3,14,0.88);
+        transition:
+          height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+          background 0.4s;
+        background: rgba(6, 3, 14, 0.88);
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
-        border: 1px solid rgba(255,255,255,0.05);
+        border: 1px solid rgba(255, 255, 255, 0.05);
       }
-      .sp-panel:hover { height: 208px; z-index: 2; }
-      .sp-panel:first-child { border-radius: 22px 22px 4px 4px; }
-      .sp-panel:last-child  { border-radius: 4px 4px 22px 22px; }
-      .sp-panel + .sp-panel { border-top: 1px solid rgba(255,255,255,0.04); }
+      .sp-panel:hover {
+        height: 208px;
+        z-index: 2;
+      }
+      .sp-panel:first-child {
+        border-radius: 22px 22px 4px 4px;
+      }
+      .sp-panel:last-child {
+        border-radius: 4px 4px 22px 22px;
+      }
+      .sp-panel + .sp-panel {
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+      }
 
       /* Per-panel nebula bg */
       .sp-nebula {
@@ -121,51 +153,89 @@
         opacity: 0.55;
         transition: opacity 0.4s;
       }
-      .sp-panel:hover .sp-nebula { opacity: 1; }
+      .sp-panel:hover .sp-nebula {
+        opacity: 1;
+      }
 
       /* Panel 1 — pink/orange warm stellar */
       .sp-panel--1 {
-        border-left: 3px solid rgba(229,44,103,0.55);
+        border-left: 3px solid rgba(229, 44, 103, 0.55);
       }
       .sp-panel--1:hover {
         border-left-color: var(--gold);
-        background: rgba(18,3,8,0.93) !important;
+        background: rgba(18, 3, 8, 0.93) !important;
       }
       .sp-panel--1 .sp-nebula {
         background:
-          radial-gradient(ellipse 55% 100% at 100% 50%, rgba(229,44,103,0.20) 0%, transparent 65%),
-          radial-gradient(ellipse 30% 80%  at 85%  50%, rgba(255,130,50,0.10) 0%, transparent 55%),
-          radial-gradient(ellipse 18% 60%  at 10%  50%, rgba(229,44,103,0.05) 0%, transparent 50%);
+          radial-gradient(
+            ellipse 55% 100% at 100% 50%,
+            rgba(229, 44, 103, 0.2) 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 30% 80% at 85% 50%,
+            rgba(255, 130, 50, 0.1) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse 18% 60% at 10% 50%,
+            rgba(229, 44, 103, 0.05) 0%,
+            transparent 50%
+          );
       }
 
       /* Panel 2 — cool cyan/blue stellar */
       .sp-panel--2 {
-        border-left: 3px solid rgba(0,180,255,0.45);
+        border-left: 3px solid rgba(0, 180, 255, 0.45);
       }
       .sp-panel--2:hover {
         border-left-color: #00c8ff;
-        background: rgba(2,7,18,0.93) !important;
+        background: rgba(2, 7, 18, 0.93) !important;
       }
       .sp-panel--2 .sp-nebula {
         background:
-          radial-gradient(ellipse 55% 100% at 100% 50%, rgba(0,180,255,0.15) 0%, transparent 65%),
-          radial-gradient(ellipse 30% 80%  at 83%  50%, rgba(0,100,255,0.08) 0%, transparent 55%),
-          radial-gradient(ellipse 18% 60%  at 10%  50%, rgba(101,52,255,0.04) 0%, transparent 50%);
+          radial-gradient(
+            ellipse 55% 100% at 100% 50%,
+            rgba(0, 180, 255, 0.15) 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 30% 80% at 83% 50%,
+            rgba(0, 100, 255, 0.08) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse 18% 60% at 10% 50%,
+            rgba(101, 52, 255, 0.04) 0%,
+            transparent 50%
+          );
       }
 
       /* Panel 3 — rare violet/purple stellar */
       .sp-panel--3 {
-        border-left: 3px solid rgba(150,60,255,0.50);
+        border-left: 3px solid rgba(150, 60, 255, 0.5);
       }
       .sp-panel--3:hover {
         border-left-color: #b060ff;
-        background: rgba(6,3,18,0.93) !important;
+        background: rgba(6, 3, 18, 0.93) !important;
       }
       .sp-panel--3 .sp-nebula {
         background:
-          radial-gradient(ellipse 55% 100% at 100% 50%, rgba(140,50,255,0.17) 0%, transparent 65%),
-          radial-gradient(ellipse 30% 80%  at 82%  50%, rgba(180,60,255,0.10) 0%, transparent 55%),
-          radial-gradient(ellipse 18% 60%  at 10%  50%, rgba(101,52,255,0.05) 0%, transparent 50%);
+          radial-gradient(
+            ellipse 55% 100% at 100% 50%,
+            rgba(140, 50, 255, 0.17) 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 30% 80% at 82% 50%,
+            rgba(180, 60, 255, 0.1) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse 18% 60% at 10% 50%,
+            rgba(101, 52, 255, 0.05) 0%,
+            transparent 50%
+          );
       }
 
       /* Left metadata column */
@@ -188,9 +258,15 @@
         text-transform: uppercase;
         margin-bottom: 2px;
       }
-      .sp-panel--1 .sp-class { color: rgba(229,44,103,0.70); }
-      .sp-panel--2 .sp-class { color: rgba(0,180,255,0.70); }
-      .sp-panel--3 .sp-class { color: rgba(160,80,255,0.70); }
+      .sp-panel--1 .sp-class {
+        color: rgba(229, 44, 103, 0.7);
+      }
+      .sp-panel--2 .sp-class {
+        color: rgba(0, 180, 255, 0.7);
+      }
+      .sp-panel--3 .sp-class {
+        color: rgba(160, 80, 255, 0.7);
+      }
 
       .sp-name {
         font-family: var(--fh);
@@ -219,7 +295,9 @@
         font-weight: 700;
         color: var(--white);
       }
-      .sp-price.free { color: #4ade80; }
+      .sp-price.free {
+        color: #4ade80;
+      }
 
       .sp-badge {
         font-size: 9px;
@@ -229,24 +307,24 @@
         border-radius: 20px;
       }
       .sp-panel--1 .sp-badge {
-        background: rgba(229,44,103,0.14);
+        background: rgba(229, 44, 103, 0.14);
         color: var(--gold);
-        border: 1px solid rgba(229,44,103,0.28);
+        border: 1px solid rgba(229, 44, 103, 0.28);
       }
       .sp-badge.outline {
-        background: rgba(255,255,255,0.04);
+        background: rgba(255, 255, 255, 0.04);
         color: var(--gray);
-        border: 1px solid rgba(255,255,255,0.12);
+        border: 1px solid rgba(255, 255, 255, 0.12);
       }
       .sp-panel--2 .sp-badge:not(.outline) {
-        background: rgba(0,180,255,0.12);
+        background: rgba(0, 180, 255, 0.12);
         color: #00c8ff;
-        border: 1px solid rgba(0,180,255,0.28);
+        border: 1px solid rgba(0, 180, 255, 0.28);
       }
       .sp-panel--3 .sp-badge {
-        background: rgba(160,80,255,0.12);
+        background: rgba(160, 80, 255, 0.12);
         color: #b060ff;
-        border: 1px solid rgba(160,80,255,0.28);
+        border: 1px solid rgba(160, 80, 255, 0.28);
       }
 
       /* CTA — slides up on hover */
@@ -261,12 +339,23 @@
         margin-top: 4px;
         opacity: 0;
         transform: translateY(8px);
-        transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
+        transition:
+          opacity 0.3s ease 0.05s,
+          transform 0.3s ease 0.05s;
       }
-      .sp-panel--1 .sp-cta { color: var(--gold); }
-      .sp-panel--2 .sp-cta { color: #00c8ff; }
-      .sp-panel--3 .sp-cta { color: #b060ff; }
-      .sp-panel:hover .sp-cta { opacity: 1; transform: translateY(0); }
+      .sp-panel--1 .sp-cta {
+        color: var(--gold);
+      }
+      .sp-panel--2 .sp-cta {
+        color: #00c8ff;
+      }
+      .sp-panel--3 .sp-cta {
+        color: #b060ff;
+      }
+      .sp-panel:hover .sp-cta {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
       /* Specimen text — right side, HUGE, overflows intentionally */
       .sp-specimen {
@@ -278,22 +367,49 @@
         padding-right: 24px;
         position: relative;
         z-index: 2;
-        mask-image: linear-gradient(to right, transparent 0%, black 20%, black 100%);
-        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 100%);
+        mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          black 20%,
+          black 100%
+        );
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          black 20%,
+          black 100%
+        );
       }
       .sp-text {
         white-space: nowrap;
         line-height: 1;
         user-select: none;
-        transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), color 0.4s, letter-spacing 0.5s;
+        transition:
+          transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+          color 0.4s,
+          letter-spacing 0.5s;
       }
-      .sp-panel--1 .sp-text { color: rgba(255,255,255,0.07); }
-      .sp-panel--2 .sp-text { color: rgba(255,255,255,0.06); }
-      .sp-panel--3 .sp-text { color: rgba(255,255,255,0.06); }
-      .sp-panel:hover .sp-text { transform: translateX(-12px) scale(1.03); }
-      .sp-panel--1:hover .sp-text { color: rgba(229,44,103,0.20); }
-      .sp-panel--2:hover .sp-text { color: rgba(0,180,255,0.17); }
-      .sp-panel--3:hover .sp-text { color: rgba(160,80,255,0.20); }
+      .sp-panel--1 .sp-text {
+        color: rgba(255, 255, 255, 0.07);
+      }
+      .sp-panel--2 .sp-text {
+        color: rgba(255, 255, 255, 0.06);
+      }
+      .sp-panel--3 .sp-text {
+        color: rgba(255, 255, 255, 0.06);
+      }
+      .sp-panel:hover .sp-text {
+        transform: translateX(-12px) scale(1.03);
+      }
+      .sp-panel--1:hover .sp-text {
+        color: rgba(229, 44, 103, 0.2);
+      }
+      .sp-panel--2:hover .sp-text {
+        color: rgba(0, 180, 255, 0.17);
+      }
+      .sp-panel--3:hover .sp-text {
+        color: rgba(160, 80, 255, 0.2);
+      }
 
       .sp-text.heavy {
         font-family: var(--fh);
@@ -315,25 +431,61 @@
       }
 
       @media (max-width: 900px) {
-        .sp-panel { height: 140px; }
-        .sp-panel:hover { height: 180px; }
-        .sp-left { width: 210px; padding: 0 22px 0 26px; }
-        .sp-name { font-size: 19px; }
-        .sp-price { font-size: 18px; }
-        .sp-text.heavy  { font-size: 88px; }
-        .sp-text.sans   { font-size: 76px; }
-        .sp-text.italic { font-size: 80px; }
+        .sp-panel {
+          height: 140px;
+        }
+        .sp-panel:hover {
+          height: 180px;
+        }
+        .sp-left {
+          width: 210px;
+          padding: 0 22px 0 26px;
+        }
+        .sp-name {
+          font-size: 19px;
+        }
+        .sp-price {
+          font-size: 18px;
+        }
+        .sp-text.heavy {
+          font-size: 88px;
+        }
+        .sp-text.sans {
+          font-size: 76px;
+        }
+        .sp-text.italic {
+          font-size: 80px;
+        }
       }
       @media (max-width: 600px) {
-        .sp-panel { height: 118px; }
-        .sp-panel:hover { height: 155px; }
-        .sp-left { width: 168px; padding: 0 14px 0 20px; }
-        .sp-name { font-size: 15px; }
-        .sp-desc { display: none; }
-        .sp-price { font-size: 16px; }
-        .sp-text.heavy  { font-size: 64px; }
-        .sp-text.sans   { font-size: 56px; }
-        .sp-text.italic { font-size: 60px; }
+        .sp-panel {
+          height: 118px;
+        }
+        .sp-panel:hover {
+          height: 155px;
+        }
+        .sp-left {
+          width: 168px;
+          padding: 0 14px 0 20px;
+        }
+        .sp-name {
+          font-size: 15px;
+        }
+        .sp-desc {
+          display: none;
+        }
+        .sp-price {
+          font-size: 16px;
+        }
+        .sp-text.heavy {
+          font-size: 64px;
+        }
+        .sp-text.sans {
+          font-size: 56px;
+        }
+        .sp-text.italic {
+          font-size: 60px;
+        }
       }
 
       /* ══════════════════════════════════════════════════
@@ -352,9 +504,14 @@
       }
       /* No more full-section spinning chaos rings */
       #ecosystem::before,
-      #ecosystem::after { display: none !important; }
+      #ecosystem::after {
+        display: none !important;
+      }
 
-      #ecosystem .container { position: relative; z-index: 2; }
+      #ecosystem .container {
+        position: relative;
+        z-index: 2;
+      }
 
       /* Wrap */
       .bh-wrap {
@@ -366,26 +523,36 @@
 
       /* Ambient corona pulsing behind everything */
       .bh-wrap::before {
-        content: '';
+        content: "";
         position: absolute;
-        top: 50%; left: 50%;
-        width: 560px; height: 560px;
+        top: 50%;
+        left: 50%;
+        width: 560px;
+        height: 560px;
         margin: -280px 0 0 -280px;
         border-radius: 50%;
-        background: radial-gradient(circle,
-          transparent   32%,
-          rgba(229,44,103,0.04) 46%,
-          rgba(229,44,103,0.12) 56%,
-          rgba(229,44,103,0.04) 66%,
-          transparent   76%
+        background: radial-gradient(
+          circle,
+          transparent 32%,
+          rgba(229, 44, 103, 0.04) 46%,
+          rgba(229, 44, 103, 0.12) 56%,
+          rgba(229, 44, 103, 0.04) 66%,
+          transparent 76%
         );
         animation: bhCorona 5s ease-in-out infinite;
         pointer-events: none;
         z-index: 1;
       }
       @keyframes bhCorona {
-        0%,100% { transform: scale(1);    opacity: 0.7; }
-        50%     { transform: scale(1.07); opacity: 1;   }
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.7;
+        }
+        50% {
+          transform: scale(1.07);
+          opacity: 1;
+        }
       }
 
       .bh-canvas {
@@ -400,26 +567,28 @@
       /* All disks share these */
       .bh-disk {
         position: absolute;
-        top: 50%; left: 50%;
+        top: 50%;
+        left: 50%;
         border-radius: 50%;
         pointer-events: none;
       }
 
       /* Disk 1 — inner bright plasma: white-hot core → orange → pink */
       .bh-disk-1 {
-        width: 308px; height: 77px;
+        width: 308px;
+        height: 77px;
         margin: -38px 0 0 -154px;
         background: conic-gradient(
           from 0deg,
-          rgba(255,255,255,0.92) 0%,
-          rgba(255,170,70,0.88)  8%,
-          rgba(229,44,103,1)     18%,
-          rgba(100,8,38,0.25)    35%,
-          rgba(229,44,103,0.06)  50%,
-          rgba(100,8,38,0.25)    65%,
-          rgba(229,44,103,1)     82%,
-          rgba(255,140,60,0.75)  92%,
-          rgba(255,255,255,0.92) 100%
+          rgba(255, 255, 255, 0.92) 0%,
+          rgba(255, 170, 70, 0.88) 8%,
+          rgba(229, 44, 103, 1) 18%,
+          rgba(100, 8, 38, 0.25) 35%,
+          rgba(229, 44, 103, 0.06) 50%,
+          rgba(100, 8, 38, 0.25) 65%,
+          rgba(229, 44, 103, 1) 82%,
+          rgba(255, 140, 60, 0.75) 92%,
+          rgba(255, 255, 255, 0.92) 100%
         );
         animation: bhSpin 6s linear infinite;
         filter: blur(1px);
@@ -428,17 +597,18 @@
 
       /* Disk 2 — mid halo: violet → pink → deep violet */
       .bh-disk-2 {
-        width: 430px; height: 108px;
+        width: 430px;
+        height: 108px;
         margin: -54px 0 0 -215px;
         background: conic-gradient(
           from 110deg,
-          rgba(101,52,255,0.55)  0%,
-          rgba(180,30,90,0.45)   22%,
-          rgba(229,44,103,0.30)  40%,
-          rgba(30,8,80,0.12)     55%,
-          rgba(229,44,103,0.32)  70%,
-          rgba(101,52,255,0.50)  88%,
-          rgba(101,52,255,0.55) 100%
+          rgba(101, 52, 255, 0.55) 0%,
+          rgba(180, 30, 90, 0.45) 22%,
+          rgba(229, 44, 103, 0.3) 40%,
+          rgba(30, 8, 80, 0.12) 55%,
+          rgba(229, 44, 103, 0.32) 70%,
+          rgba(101, 52, 255, 0.5) 88%,
+          rgba(101, 52, 255, 0.55) 100%
         );
         animation: bhSpin 13s linear infinite reverse;
         filter: blur(4px);
@@ -447,15 +617,16 @@
 
       /* Disk 3 — outer wispy haze: barely visible */
       .bh-disk-3 {
-        width: 550px; height: 138px;
+        width: 550px;
+        height: 138px;
         margin: -69px 0 0 -275px;
         background: conic-gradient(
           from 230deg,
-          rgba(229,44,103,0.07) 0%,
-          rgba(50,4,22,0.22)    30%,
-          rgba(0,0,0,0)         50%,
-          rgba(50,4,22,0.18)    70%,
-          rgba(229,44,103,0.05) 100%
+          rgba(229, 44, 103, 0.07) 0%,
+          rgba(50, 4, 22, 0.22) 30%,
+          rgba(0, 0, 0, 0) 50%,
+          rgba(50, 4, 22, 0.18) 70%,
+          rgba(229, 44, 103, 0.05) 100%
         );
         animation: bhSpin 24s linear infinite;
         filter: blur(11px);
@@ -463,60 +634,75 @@
       }
 
       @keyframes bhSpin {
-        from { transform: rotate(0deg)   scaleY(0.26); }
-        to   { transform: rotate(360deg) scaleY(0.26); }
+        from {
+          transform: rotate(0deg) scaleY(0.26);
+        }
+        to {
+          transform: rotate(360deg) scaleY(0.26);
+        }
       }
 
       /* Photon ring — gradient glow ring, not just a border line */
       .bh-photon-ring {
         position: absolute;
-        top: 50%; left: 50%;
-        width: 206px; height: 206px;
+        top: 50%;
+        left: 50%;
+        width: 206px;
+        height: 206px;
         margin: -103px 0 0 -103px;
         border-radius: 50%;
-        background: radial-gradient(circle,
-          transparent          57%,
-          rgba(229,44,103,0.9) 63%,
-          rgba(255,130,55,0.5) 69%,
-          rgba(229,44,103,0.1) 77%,
-          transparent          84%
+        background: radial-gradient(
+          circle,
+          transparent 57%,
+          rgba(229, 44, 103, 0.9) 63%,
+          rgba(255, 130, 55, 0.5) 69%,
+          rgba(229, 44, 103, 0.1) 77%,
+          transparent 84%
         );
         box-shadow:
-          0 0 0 1px rgba(229,44,103,0.35),
-          0 0 28px rgba(229,44,103,0.55),
-          0 0 65px rgba(229,44,103,0.22),
-          0 0 130px rgba(229,44,103,0.08);
+          0 0 0 1px rgba(229, 44, 103, 0.35),
+          0 0 28px rgba(229, 44, 103, 0.55),
+          0 0 65px rgba(229, 44, 103, 0.22),
+          0 0 130px rgba(229, 44, 103, 0.08);
         animation: bhPhoton 3.8s ease-in-out infinite;
         pointer-events: none;
         z-index: 5;
       }
       @keyframes bhPhoton {
-        0%,100% {
+        0%,
+        100% {
           box-shadow:
-            0 0 0 1px rgba(229,44,103,0.35),
-            0 0 28px rgba(229,44,103,0.55),
-            0 0 65px rgba(229,44,103,0.22),
-            0 0 130px rgba(229,44,103,0.08);
+            0 0 0 1px rgba(229, 44, 103, 0.35),
+            0 0 28px rgba(229, 44, 103, 0.55),
+            0 0 65px rgba(229, 44, 103, 0.22),
+            0 0 130px rgba(229, 44, 103, 0.08);
         }
         50% {
           box-shadow:
-            0 0 0 1.5px rgba(229,44,103,0.60),
-            0 0 50px rgba(229,44,103,0.80),
-            0 0 110px rgba(229,44,103,0.38),
-            0 0 200px rgba(229,44,103,0.14),
-            0 0 300px rgba(229,44,103,0.05);
+            0 0 0 1.5px rgba(229, 44, 103, 0.6),
+            0 0 50px rgba(229, 44, 103, 0.8),
+            0 0 110px rgba(229, 44, 103, 0.38),
+            0 0 200px rgba(229, 44, 103, 0.14),
+            0 0 300px rgba(229, 44, 103, 0.05);
         }
       }
 
       /* Event horizon — larger, absolute void with gravitational glow rim */
       .bh-void {
         position: absolute;
-        top: 50%; left: 50%;
-        width: 172px; height: 172px;
+        top: 50%;
+        left: 50%;
+        width: 172px;
+        height: 172px;
         margin: -86px 0 0 -86px;
         border-radius: 50%;
-        background:
-          radial-gradient(circle at 40% 36%, #110003 0%, #040001 45%, #000 72%, #020006 100%);
+        background: radial-gradient(
+          circle at 40% 36%,
+          #110003 0%,
+          #040001 45%,
+          #000 72%,
+          #020006 100%
+        );
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -524,8 +710,8 @@
         z-index: 6;
         box-shadow:
           0 0 0 3px #000,
-          0 0 0 5px rgba(229,44,103,0.14),
-          0 0 50px rgba(0,0,0,0.95);
+          0 0 0 5px rgba(229, 44, 103, 0.14),
+          0 0 50px rgba(0, 0, 0, 0.95);
       }
       .bh-void-logo {
         font-family: var(--fh);
@@ -533,12 +719,14 @@
         color: var(--gold);
         letter-spacing: 3px;
         line-height: 1;
-        text-shadow: 0 0 16px rgba(229,44,103,0.9), 0 0 40px rgba(229,44,103,0.4);
+        text-shadow:
+          0 0 16px rgba(229, 44, 103, 0.9),
+          0 0 40px rgba(229, 44, 103, 0.4);
       }
       .bh-void-sub {
-        font-size: 9px;
-        color: rgba(229,44,103,0.55);
-        letter-spacing: 4.5px;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.55);
+        letter-spacing: 1.5px;
         margin-top: 5px;
         text-transform: uppercase;
       }
@@ -547,7 +735,8 @@
       .bh-beams {
         position: absolute;
         inset: 0;
-        width: 100%; height: 100%;
+        width: 100%;
+        height: 100%;
         pointer-events: none;
         z-index: 4;
         overflow: visible;
@@ -560,53 +749,89 @@
         animation: bhBeam 2.8s linear infinite;
       }
       @keyframes bhBeam {
-        from { stroke-dashoffset: 0; }
-        to   { stroke-dashoffset: -28; }
+        from {
+          stroke-dashoffset: 0;
+        }
+        to {
+          stroke-dashoffset: -28;
+        }
       }
 
       /* Orbital node cards — glass, more breathing room */
       .bh-node {
         position: absolute;
         width: 138px;
-        background: rgba(4,2,10,0.88);
+        background: rgba(4, 2, 10, 0.88);
         backdrop-filter: blur(24px) saturate(200%);
         -webkit-backdrop-filter: blur(24px) saturate(200%);
-        border: 1px solid rgba(229,44,103,0.18);
+        border: 1px solid rgba(229, 44, 103, 0.18);
         border-radius: 20px;
         padding: 18px 14px 15px;
         text-align: center;
         box-shadow:
-          0 0 0 1px rgba(255,255,255,0.04),
-          0 12px 40px rgba(0,0,0,0.85),
-          0 0 24px rgba(229,44,103,0.04),
-          inset 0 1px 0 rgba(255,255,255,0.05);
-        transition: border-color 0.3s, box-shadow 0.35s, transform 0.35s, background 0.3s;
+          0 0 0 1px rgba(255, 255, 255, 0.04),
+          0 12px 40px rgba(0, 0, 0, 0.85),
+          0 0 24px rgba(229, 44, 103, 0.04),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        transition:
+          border-color 0.3s,
+          box-shadow 0.35s,
+          transform 0.35s,
+          background 0.3s;
         z-index: 10;
         text-decoration: none;
       }
       .bh-node:hover {
-        border-color: rgba(229,44,103,0.48);
-        background: rgba(14,4,22,0.92) !important;
+        border-color: rgba(229, 44, 103, 0.48);
+        background: rgba(14, 4, 22, 0.92) !important;
         box-shadow:
-          0 0 0 1px rgba(229,44,103,0.10),
-          0 20px 60px rgba(0,0,0,0.85),
-          0 0 56px rgba(229,44,103,0.18),
-          inset 0 1px 0 rgba(255,255,255,0.08);
+          0 0 0 1px rgba(229, 44, 103, 0.1),
+          0 20px 60px rgba(0, 0, 0, 0.85),
+          0 0 56px rgba(229, 44, 103, 0.18),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
       }
-      .bh-n-top    { top: 10px;    left: 50%; transform: translateX(-50%); }
-      .bh-n-right  { top: 50%;    right: 10px; transform: translateY(-50%); }
-      .bh-n-bottom { bottom: 10px; left: 50%; transform: translateX(-50%); }
-      .bh-n-left   { top: 50%;    left: 10px;  transform: translateY(-50%); }
-      .bh-n-top:hover    { transform: translateX(-50%) translateY(-6px); }
-      .bh-n-right:hover  { transform: translateY(-50%) translateX(6px); }
-      .bh-n-bottom:hover { transform: translateX(-50%) translateY(6px); }
-      .bh-n-left:hover   { transform: translateY(-50%) translateX(-6px); }
-      .bh-node-icon { font-size: 28px; margin-bottom: 8px; display: block; }
+      .bh-n-top {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .bh-n-right {
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+      }
+      .bh-n-bottom {
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .bh-n-left {
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+      }
+      .bh-n-top:hover {
+        transform: translateX(-50%) translateY(-6px);
+      }
+      .bh-n-right:hover {
+        transform: translateY(-50%) translateX(6px);
+      }
+      .bh-n-bottom:hover {
+        transform: translateX(-50%) translateY(6px);
+      }
+      .bh-n-left:hover {
+        transform: translateY(-50%) translateX(-6px);
+      }
+      .bh-node-icon {
+        font-size: 28px;
+        margin-bottom: 8px;
+        display: block;
+      }
       .bh-node-name {
         font-family: var(--fh);
         font-size: 16px;
         color: var(--white);
-        letter-spacing: 2px;
+        letter-spacing: 0px;
         margin-bottom: 5px;
         display: block;
       }
@@ -620,25 +845,63 @@
         display: inline-block;
         font-size: 10px;
         color: var(--gold);
-        border: 1px solid rgba(229,44,103,0.35);
+        border: 1px solid rgba(229, 44, 103, 0.35);
         border-radius: 20px;
         padding: 4px 12px;
         text-decoration: none;
-        transition: background 0.2s, color 0.2s;
+        transition:
+          background 0.2s,
+          color 0.2s;
       }
-      .bh-node-btn:hover { background: var(--gold); color: #fff; }
+      .bh-node-btn:hover {
+        background: var(--gold);
+        color: #fff;
+      }
 
       @media (max-width: 900px) {
-        .bh-wrap { width: 520px; height: 520px; }
-        .bh-disk-1 { width: 228px; height: 57px; margin: -28px 0 0 -114px; }
-        .bh-disk-2 { width: 318px; height: 80px; margin: -40px 0 0 -159px; }
-        .bh-disk-3 { width: 408px; height: 102px; margin: -51px 0 0 -204px; }
-        .bh-photon-ring { width: 152px; height: 152px; margin: -76px 0 0 -76px; }
-        .bh-void { width: 128px; height: 128px; margin: -64px 0 0 -64px; }
-        .bh-void-logo { font-size: 27px; }
-        .bh-node { width: 120px; padding: 14px 10px 12px; border-radius: 16px; }
-        .bh-node-icon { font-size: 22px; }
-        .bh-node-name { font-size: 13px; }
+        .bh-wrap {
+          width: 520px;
+          height: 520px;
+        }
+        .bh-disk-1 {
+          width: 228px;
+          height: 57px;
+          margin: -28px 0 0 -114px;
+        }
+        .bh-disk-2 {
+          width: 318px;
+          height: 80px;
+          margin: -40px 0 0 -159px;
+        }
+        .bh-disk-3 {
+          width: 408px;
+          height: 102px;
+          margin: -51px 0 0 -204px;
+        }
+        .bh-photon-ring {
+          width: 152px;
+          height: 152px;
+          margin: -76px 0 0 -76px;
+        }
+        .bh-void {
+          width: 128px;
+          height: 128px;
+          margin: -64px 0 0 -64px;
+        }
+        .bh-void-logo {
+          font-size: 27px;
+        }
+        .bh-node {
+          width: 120px;
+          padding: 14px 10px 12px;
+          border-radius: 16px;
+        }
+        .bh-node-icon {
+          font-size: 22px;
+        }
+        .bh-node-name {
+          font-size: 13px;
+        }
       }
       @media (max-width: 640px) {
         .bh-wrap {
@@ -650,9 +913,24 @@
           padding: 0 12px;
         }
         .bh-wrap::before,
-        .bh-canvas, .bh-disk, .bh-photon-ring, .bh-void, .bh-beams { display: none; }
-        .bh-node { position: static; transform: none !important; width: auto; }
-        .bh-n-top, .bh-n-right, .bh-n-bottom, .bh-n-left { transform: none !important; }
+        .bh-canvas,
+        .bh-disk,
+        .bh-photon-ring,
+        .bh-void,
+        .bh-beams {
+          display: none;
+        }
+        .bh-node {
+          position: static;
+          transform: none !important;
+          width: auto;
+        }
+        .bh-n-top,
+        .bh-n-right,
+        .bh-n-bottom,
+        .bh-n-left {
+          transform: none !important;
+        }
       }
 
       /* ── Phase 3: YEVA Holographic Face ── */
@@ -668,34 +946,42 @@
         pointer-events: none;
         z-index: 5;
       }
-      .yeva-svg { width: 74%; height: 74%; overflow: visible; }
+      .yeva-svg {
+        width: 74%;
+        height: 74%;
+        overflow: visible;
+      }
       .yeva-outline {
         fill: none;
-        stroke: rgba(229,44,103,0.22);
+        stroke: rgba(229, 44, 103, 0.22);
         stroke-width: 0.8;
         stroke-dasharray: 5 4;
         animation: yevaDash 25s linear infinite;
       }
-      @keyframes yevaDash { to { stroke-dashoffset: -200; } }
+      @keyframes yevaDash {
+        to {
+          stroke-dashoffset: -200;
+        }
+      }
       .yeva-eye {
         fill: none;
         stroke: var(--gold);
         stroke-width: 1.6;
-        filter: drop-shadow(0 0 5px rgba(229,44,103,0.9));
+        filter: drop-shadow(0 0 5px rgba(229, 44, 103, 0.9));
       }
       .yeva-pupil {
         fill: var(--gold);
-        filter: drop-shadow(0 0 8px rgba(229,44,103,1));
+        filter: drop-shadow(0 0 8px rgba(229, 44, 103, 1));
         transition: transform 0.06s linear;
       }
       .yeva-brow {
-        stroke: rgba(229,44,103,0.55);
+        stroke: rgba(229, 44, 103, 0.55);
         stroke-width: 1;
         stroke-linecap: round;
       }
       .yeva-line {
         fill: none;
-        stroke: rgba(229,44,103,0.5);
+        stroke: rgba(229, 44, 103, 0.5);
         stroke-width: 1;
         stroke-linecap: round;
       }
@@ -704,40 +990,52 @@
         stroke: var(--gold);
         stroke-width: 1.4;
         stroke-linecap: round;
-        filter: drop-shadow(0 0 4px rgba(229,44,103,0.7));
+        filter: drop-shadow(0 0 4px rgba(229, 44, 103, 0.7));
       }
       .yeva-bracket {
         fill: none;
-        stroke: rgba(229,44,103,0.4);
+        stroke: rgba(229, 44, 103, 0.4);
         stroke-width: 1.2;
         stroke-linecap: square;
       }
       .yeva-scan {
-        stroke: rgba(229,44,103,0.55);
+        stroke: rgba(229, 44, 103, 0.55);
         stroke-width: 0.8;
         animation: yevaScan 2.8s ease-in-out infinite;
       }
       @keyframes yevaScan {
-        0%   { transform: translateY(-62px); opacity: 0; }
-        12%  { opacity: 1; }
-        88%  { opacity: 1; }
-        100% { transform: translateY(62px); opacity: 0; }
+        0% {
+          transform: translateY(-62px);
+          opacity: 0;
+        }
+        12% {
+          opacity: 1;
+        }
+        88% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(62px);
+          opacity: 0;
+        }
       }
       .yeva-label {
         font-family: var(--fh);
         font-size: 12px;
         letter-spacing: 5px;
         color: var(--gold);
-        text-shadow: 0 0 14px rgba(229,44,103,0.8);
+        text-shadow: 0 0 14px rgba(229, 44, 103, 0.8);
         margin-top: 5px;
         opacity: 0;
         transform: translateY(8px);
-        transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+        transition:
+          opacity 0.8s ease 0.4s,
+          transform 0.8s ease 0.4s;
       }
       .yeva-sublabel {
         font-size: 8px;
         letter-spacing: 1.5px;
-        color: rgba(229,44,103,0.5);
+        color: rgba(229, 44, 103, 0.5);
         text-transform: uppercase;
         font-family: var(--fb);
         margin-top: 3px;
@@ -746,19 +1044,43 @@
       }
 
       /* Moon scroll phases */
-      .moon-phase-1 .sacred-aura { opacity: 0.85 !important; }
-      .moon-phase-1 .scan-line   { animation-duration: 1.3s !important; }
+      .moon-phase-1 .sacred-aura {
+        opacity: 0.85 !important;
+      }
+      .moon-phase-1 .scan-line {
+        animation-duration: 1.3s !important;
+      }
 
-      .moon-phase-2 .yeva-face   { opacity: 0.55; }
-      .moon-phase-2 .moon-core   { opacity: 0.35 !important; }
-      .moon-phase-2 .sacred-aura { opacity: 1 !important; }
+      .moon-phase-2 .yeva-face {
+        opacity: 0.55;
+      }
+      .moon-phase-2 .moon-core {
+        opacity: 0.35 !important;
+      }
+      .moon-phase-2 .sacred-aura {
+        opacity: 1 !important;
+      }
 
-      .moon-phase-3 .yeva-face    { opacity: 1; }
-      .moon-phase-3 .moon-core    { opacity: 0.12 !important; }
-      .moon-phase-3 .neural-mesh  { opacity: 0.08 !important; }
-      .moon-phase-3 .sacred-aura  { opacity: 1 !important; filter: hue-rotate(15deg) brightness(1.2); }
-      .moon-phase-3 .yeva-label   { opacity: 1; transform: translateY(0); }
-      .moon-phase-3 .yeva-sublabel{ opacity: 1; }
+      .moon-phase-3 .yeva-face {
+        opacity: 1;
+      }
+      .moon-phase-3 .moon-core {
+        opacity: 0.12 !important;
+      }
+      .moon-phase-3 .neural-mesh {
+        opacity: 0.08 !important;
+      }
+      .moon-phase-3 .sacred-aura {
+        opacity: 1 !important;
+        filter: hue-rotate(15deg) brightness(1.2);
+      }
+      .moon-phase-3 .yeva-label {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .moon-phase-3 .yeva-sublabel {
+        opacity: 1;
+      }
 
       /* ════════════════════════════════════════════════════
          ONE UNIVERSE — Unified cosmic background
@@ -766,168 +1088,231 @@
       ════════════════════════════════════════════════════ */
 
       /* Deep space base */
-      html { background: #030408; }
-      body { background: transparent !important; }
+      html {
+        background: #030408;
+      }
+      body {
+        background: transparent !important;
+      }
 
       /* Layer 1 — Fixed void */
       body::before {
-        content: '';
-        position: fixed; inset: 0; z-index: -3;
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -3;
         background: #030408;
         pointer-events: none;
       }
 
       /* Layer 2 — Fixed cosmic nebula (breathes behind every section) */
       body::after {
-        content: '';
-        position: fixed; inset: 0; z-index: -2;
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -2;
         pointer-events: none;
         background:
           /* Moon corona — top right where moon lives */
-          radial-gradient(ellipse 80% 45% at 75% 6%,  rgba(229,44,103,0.09) 0%, transparent 58%),
+          radial-gradient(
+            ellipse 80% 45% at 75% 6%,
+            rgba(229, 44, 103, 0.09) 0%,
+            transparent 58%
+          ),
           /* Left nebula — violet cloud */
-          radial-gradient(ellipse 65% 55% at 2%  28%, rgba(101,52,255,0.08) 0%, transparent 55%),
+          radial-gradient(
+              ellipse 65% 55% at 2% 28%,
+              rgba(101, 52, 255, 0.08) 0%,
+              transparent 55%
+            ),
           /* Right nebula — pink drift */
-          radial-gradient(ellipse 60% 50% at 98% 48%, rgba(229,44,103,0.06) 0%, transparent 55%),
+          radial-gradient(
+              ellipse 60% 50% at 98% 48%,
+              rgba(229, 44, 103, 0.06) 0%,
+              transparent 55%
+            ),
           /* Black hole zone — deep void mid-page */
-          radial-gradient(ellipse 55% 22% at 50% 52%, rgba(50,2,16,0.18)   0%, transparent 68%),
+          radial-gradient(
+              ellipse 55% 22% at 50% 52%,
+              rgba(50, 2, 16, 0.18) 0%,
+              transparent 68%
+            ),
           /* Bottom left — distant cyan star cluster */
-          radial-gradient(ellipse 45% 35% at 15% 88%, rgba(0,160,255,0.03)  0%, transparent 50%),
+          radial-gradient(
+              ellipse 45% 35% at 15% 88%,
+              rgba(0, 160, 255, 0.03) 0%,
+              transparent 50%
+            ),
           /* Bottom right — purple galaxy arm */
-          radial-gradient(ellipse 40% 30% at 85% 82%, rgba(101,52,255,0.04) 0%, transparent 50%);
+          radial-gradient(
+              ellipse 40% 30% at 85% 82%,
+              rgba(101, 52, 255, 0.04) 0%,
+              transparent 50%
+            );
       }
 
       /* Layer 3 — Fixed star canvas */
       #home-star-canvas {
-        position: fixed; inset: 0; z-index: -1;
+        position: fixed;
+        inset: 0;
+        z-index: -1;
         pointer-events: none;
-        width: 100%; height: 100%;
+        width: 100%;
+        height: 100%;
       }
 
       /* ── Hide blobs — replaced by cosmic nebula ── */
-      .blob { display: none !important; }
+      .blob {
+        display: none !important;
+      }
 
       /* ── Nav → space glass ── */
       .site-nav {
-        background: rgba(3,4,8,0.72) !important;
+        background: rgba(3, 4, 8, 0.72) !important;
         backdrop-filter: blur(40px) saturate(200%) !important;
         -webkit-backdrop-filter: blur(40px) saturate(200%) !important;
-        border-bottom: 1px solid rgba(255,255,255,0.06) !important;
-        box-shadow: 0 1px 0 rgba(255,255,255,0.04), 0 8px 32px rgba(0,0,0,0.5);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+        box-shadow:
+          0 1px 0 rgba(255, 255, 255, 0.04),
+          0 8px 32px rgba(0, 0, 0, 0.5);
       }
 
       /* ── Hero — transparent (moon floats in open space) ── */
-      #hero { background: transparent !important; }
+      #hero {
+        background: transparent !important;
+      }
 
       /* ── What is YOB — glass cards in space ── */
-      .what-is-yob-section { background: transparent !important; }
+      .what-is-yob-section {
+        background: transparent !important;
+      }
       .wiy-pillar {
-        background: rgba(255,255,255,0.025) !important;
+        background: rgba(255, 255, 255, 0.025) !important;
         backdrop-filter: blur(22px) saturate(160%);
         -webkit-backdrop-filter: blur(22px) saturate(160%);
-        border-color: rgba(255,255,255,0.07) !important;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+        border-color: rgba(255, 255, 255, 0.07) !important;
+        box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
       }
       .wiy-problem {
-        background: rgba(255,255,255,0.02) !important;
+        background: rgba(255, 255, 255, 0.02) !important;
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        border-color: rgba(255,255,255,0.05) !important;
+        border-color: rgba(255, 255, 255, 0.05) !important;
       }
       .wiy-cta-strip {
-        background: rgba(255,255,255,0.025) !important;
+        background: rgba(255, 255, 255, 0.025) !important;
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border-color: rgba(255,255,255,0.07) !important;
+        border-color: rgba(255, 255, 255, 0.07) !important;
       }
 
       /* ── Ecosystem — black hole blends into space void ── */
       #ecosystem {
-        background: radial-gradient(ellipse 65% 55% at 50% 50%,
-          rgba(18,0,7,0.82) 0%, rgba(10,0,4,0.55) 38%, transparent 72%) !important;
+        background: radial-gradient(
+          ellipse 65% 55% at 50% 50%,
+          rgba(18, 0, 7, 0.82) 0%,
+          rgba(10, 0, 4, 0.55) 38%,
+          transparent 72%
+        ) !important;
       }
 
       /* ── Typography — transparent ── */
-      #typography { background: transparent !important; }
+      #typography {
+        background: transparent !important;
+      }
       .f-card {
-        background: rgba(255,255,255,0.025) !important;
+        background: rgba(255, 255, 255, 0.025) !important;
         backdrop-filter: blur(22px) saturate(160%);
         -webkit-backdrop-filter: blur(22px) saturate(160%);
-        border-color: rgba(255,255,255,0.08) !important;
-        box-shadow: 0 8px 40px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05);
+        border-color: rgba(255, 255, 255, 0.08) !important;
+        box-shadow:
+          0 8px 40px rgba(0, 0, 0, 0.55),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
       }
 
       /* ── Portfolio — transparent ── */
-      #portfolio { background: transparent !important; }
+      #portfolio {
+        background: transparent !important;
+      }
       .cs-featured {
-        background: rgba(255,255,255,0.025) !important;
+        background: rgba(255, 255, 255, 0.025) !important;
         backdrop-filter: blur(22px) saturate(160%);
         -webkit-backdrop-filter: blur(22px) saturate(160%);
-        border-color: rgba(255,255,255,0.07) !important;
+        border-color: rgba(255, 255, 255, 0.07) !important;
       }
       .cs-card {
-        background: rgba(255,255,255,0.025) !important;
+        background: rgba(255, 255, 255, 0.025) !important;
         backdrop-filter: blur(20px) saturate(160%);
         -webkit-backdrop-filter: blur(20px) saturate(160%);
-        border-color: rgba(255,255,255,0.07) !important;
+        border-color: rgba(255, 255, 255, 0.07) !important;
       }
       .cs-teaser {
-        background: rgba(255,255,255,0.02) !important;
+        background: rgba(255, 255, 255, 0.02) !important;
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border-color: rgba(229,44,103,0.15) !important;
+        border-color: rgba(229, 44, 103, 0.15) !important;
       }
 
       /* ── Testimonials — semi-transparent cosmic strip ── */
       #testimonials {
-        background: rgba(3,4,8,0.35) !important;
-        border-top: 1px solid rgba(255,255,255,0.04) !important;
-        border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+        background: rgba(3, 4, 8, 0.35) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.04) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
       }
       .testi-card {
-        background: rgba(255,255,255,0.025) !important;
+        background: rgba(255, 255, 255, 0.025) !important;
         backdrop-filter: blur(22px) saturate(160%);
         -webkit-backdrop-filter: blur(22px) saturate(160%);
-        border-color: rgba(255,255,255,0.07) !important;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+        border-color: rgba(255, 255, 255, 0.07) !important;
+        box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
       }
 
       /* ── Videos — transparent ── */
-      #videos { background: transparent !important; }
+      #videos {
+        background: transparent !important;
+      }
       .video-card {
-        background: rgba(255,255,255,0.025) !important;
+        background: rgba(255, 255, 255, 0.025) !important;
         backdrop-filter: blur(20px) saturate(160%);
         -webkit-backdrop-filter: blur(20px) saturate(160%);
-        border-color: rgba(255,255,255,0.07) !important;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        border-color: rgba(255, 255, 255, 0.07) !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
       }
 
       /* ── Resources — transparent ── */
-      #resources { background: transparent !important; }
+      #resources {
+        background: transparent !important;
+      }
       .resource-box {
-        background: rgba(255,255,255,0.025) !important;
+        background: rgba(255, 255, 255, 0.025) !important;
         backdrop-filter: blur(22px) saturate(160%);
         -webkit-backdrop-filter: blur(22px) saturate(160%);
-        border-color: rgba(255,255,255,0.07) !important;
+        border-color: rgba(255, 255, 255, 0.07) !important;
       }
       .res-preview-card {
-        background: rgba(255,255,255,0.025) !important;
+        background: rgba(255, 255, 255, 0.025) !important;
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        border-color: rgba(255,255,255,0.06) !important;
+        border-color: rgba(255, 255, 255, 0.06) !important;
       }
 
       /* ── Contact — transparent ── */
       #contact {
         background: transparent !important;
-        border-top: 1px solid rgba(255,255,255,0.04);
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
       }
       .contact-form-card {
-        background: rgba(255,255,255,0.03) !important;
+        background: rgba(255, 255, 255, 0.03) !important;
         backdrop-filter: blur(28px) saturate(160%);
         -webkit-backdrop-filter: blur(28px) saturate(160%);
-        border-color: rgba(255,255,255,0.08) !important;
-        box-shadow: 0 16px 64px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06);
+        border-color: rgba(255, 255, 255, 0.08) !important;
+        box-shadow:
+          0 16px 64px rgba(0, 0, 0, 0.6),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
       }
     </style>
   </head>
@@ -939,7 +1324,6 @@
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
 
-
     <!-- Universe star canvas — fixed behind all sections -->
     <canvas id="home-star-canvas"></canvas>
 
@@ -950,37 +1334,35 @@
       <button class="drawer-close" id="drawerClose">
         <i class="fas fa-times"></i>
       </button>
-      <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
+      <a href="grow.html" onclick="closeDrawer()">Yob ដើម្បីអាជីវកម្ម</a>
       <div class="drawer-group">
         <button class="drawer-group-toggle">
-          Learn <i class="fas fa-chevron-down"></i>
+          រៀនជាមួយ Yob <i class="fas fa-chevron-down"></i>
         </button>
         <div class="drawer-group-items">
-          <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
-          <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
-          <a href="docs.html" onclick="closeDrawer()">Documentation</a>
-          <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
+          <a href="yob-learning.html" onclick="closeDrawer()">ជំនាញឌីជីថល</a>
+          <a href="docs.html" onclick="closeDrawer()">ឯកសារមេរៀន</a>
+          <a href="case-studies.html" onclick="closeDrawer()">កម្រងស្នាដៃ</a>
         </div>
       </div>
       <div class="drawer-group">
         <button class="drawer-group-toggle">
-          Products <i class="fas fa-chevron-down"></i>
+          តូបឌីជីថល <i class="fas fa-chevron-down"></i>
         </button>
         <div class="drawer-group-items">
-          <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
-          <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
+          <a href="fonts.html" onclick="closeDrawer()">YOB អក្ខរា</a>
+          <a href="resources.html" onclick="closeDrawer()">កាដូឌីជីថល</a>
         </div>
       </div>
       <a href="about.html" onclick="closeDrawer()">About YOB</a>
       <a href="index.html#contact" onclick="closeDrawer()" class="d-cta"
-        >ទំនាក់ទំនង</a
+        >សាកសួរ</a
       >
     </div>
 
     <!-- ══ HERO ══ -->
     <section id="hero">
       <canvas id="night-canvas"></canvas>
-
 
       <!-- Scroll Indicator -->
       <div class="scroll-indicator">
@@ -1060,30 +1442,55 @@
 
               <!-- YEVA Holographic Face -->
               <div class="yeva-face" id="yevaFace">
-                <svg class="yeva-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  class="yeva-svg"
+                  viewBox="0 0 200 200"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <!-- Face outline -->
-                  <ellipse class="yeva-outline" cx="100" cy="100" rx="58" ry="70"/>
+                  <ellipse
+                    class="yeva-outline"
+                    cx="100"
+                    cy="100"
+                    rx="58"
+                    ry="70"
+                  />
                   <!-- Eyes -->
-                  <circle class="yeva-eye" cx="74" cy="84" r="9"/>
-                  <circle class="yeva-eye" cx="126" cy="84" r="9"/>
-                  <circle class="yeva-pupil" id="pupilL" cx="74" cy="84" r="4"/>
-                  <circle class="yeva-pupil" id="pupilR" cx="126" cy="84" r="4"/>
+                  <circle class="yeva-eye" cx="74" cy="84" r="9" />
+                  <circle class="yeva-eye" cx="126" cy="84" r="9" />
+                  <circle
+                    class="yeva-pupil"
+                    id="pupilL"
+                    cx="74"
+                    cy="84"
+                    r="4"
+                  />
+                  <circle
+                    class="yeva-pupil"
+                    id="pupilR"
+                    cx="126"
+                    cy="84"
+                    r="4"
+                  />
                   <!-- Brow lines -->
-                  <line class="yeva-brow" x1="64" y1="72" x2="84" y2="68"/>
-                  <line class="yeva-brow" x1="116" y1="68" x2="136" y2="72"/>
+                  <line class="yeva-brow" x1="64" y1="72" x2="84" y2="68" />
+                  <line class="yeva-brow" x1="116" y1="68" x2="136" y2="72" />
                   <!-- Nose -->
-                  <line class="yeva-line" x1="100" y1="96" x2="100" y2="116"/>
-                  <line class="yeva-line" x1="100" y1="116" x2="93" y2="121"/>
-                  <line class="yeva-line" x1="100" y1="116" x2="107" y2="121"/>
+                  <line class="yeva-line" x1="100" y1="96" x2="100" y2="116" />
+                  <line class="yeva-line" x1="100" y1="116" x2="93" y2="121" />
+                  <line class="yeva-line" x1="100" y1="116" x2="107" y2="121" />
                   <!-- Mouth -->
-                  <path class="yeva-mouth" d="M 82 130 Q 100 142 118 130"/>
+                  <path class="yeva-mouth" d="M 82 130 Q 100 142 118 130" />
                   <!-- Scan line -->
-                  <line class="yeva-scan" x1="30" y1="100" x2="170" y2="100"/>
+                  <line class="yeva-scan" x1="30" y1="100" x2="170" y2="100" />
                   <!-- Corner brackets -->
-                  <path class="yeva-bracket" d="M 38 52 L 28 52 L 28 62"/>
-                  <path class="yeva-bracket" d="M 162 52 L 172 52 L 172 62"/>
-                  <path class="yeva-bracket" d="M 38 148 L 28 148 L 28 138"/>
-                  <path class="yeva-bracket" d="M 162 148 L 172 148 L 172 138"/>
+                  <path class="yeva-bracket" d="M 38 52 L 28 52 L 28 62" />
+                  <path class="yeva-bracket" d="M 162 52 L 172 52 L 172 62" />
+                  <path class="yeva-bracket" d="M 38 148 L 28 148 L 28 138" />
+                  <path
+                    class="yeva-bracket"
+                    d="M 162 148 L 172 148 L 172 138"
+                  />
                 </svg>
                 <div class="yeva-label">Y · E · V · A</div>
                 <div class="yeva-sublabel">YOB Enhanced Virtual Assistant</div>
@@ -1142,12 +1549,10 @@
           <span class="section-tag">យប់​មាន​តម្លៃដូចពន្លឺ</span>
           <h2 class="section-title gradient-text">តើយប់ឌីជីថលគឺជាអ្វី?</h2>
           <p class="wiy-lead reveal">
-            យប់ឌីជីថល មិនមែនជាកន្លែងសម្រាប់ការប្រឹក្សារឿង Facebook Post នោះទេ។
-            យើងគឺជា
-            <strong>ទីពឹងឌីជីថល</strong>
-            សម្រាប់អ្នកដែលមានតម្រូវការបច្ចេកវិទ្យាពិតប្រាកដ។
-            យប់ឌីជីថលក៏ជាកន្លែងចែករំលែកគន្លឹះ និង <strong>ដោះស្រាយបញ្ហា</strong>
-            ជាមួយបច្ចេកវិទ្យាថ្មីៗផងដែរ។
+            លើសពីការផ្ដល់យោបល់ទូទៅ យើងគឺជា
+            <strong>កម្មករឌីជីថល</strong>
+            ដែលជួយអ្នករៀបចំ ប្រព័ន្ធគ្រប់គ្រងអាជីវកម្ម និង ស្ថាបនាអនាគតជាមួយ AI
+            ដើម្បីលទ្ធផលការងារពិតប្រាកដ។
           </p>
         </div>
 
@@ -1166,10 +1571,10 @@
                 <i class="fas fa-circle"></i> រត់តាមបច្ចេកវិទ្យាមិនទាន់
               </span>
               <span class="wiy-prob-item">
-                <i class="fas fa-circle"></i> ពេលវេលាដើរលឿងពេក
+                <i class="fas fa-circle"></i> ខ្វះចំណេះដឹងឌីជីថល
               </span>
               <span class="wiy-prob-item">
-                <i class="fas fa-circle"></i> អត់ចេះភាសាបរទេស
+                <i class="fas fa-circle"></i> ភាសាបរទេសបច្ចេកទេសពេក
               </span>
             </div>
           </div>
@@ -1178,15 +1583,14 @@
         <!-- 3 Pillars -->
         <div class="wiy-pillars">
           <div class="wiy-pillar reveal">
-            <span class="wiy-pillar-num">01</span>
+            <span class="wiy-pillar-num">០១</span>
             <div class="wiy-pillar-icon">
               <i class="fas fa-robot"></i>
             </div>
-            <h3 class="wiy-pillar-title">AI Tools Mastery</h3>
+            <h3 class="wiy-pillar-title">ពង្រឹងមុខរបរដោយប្រើ AI</h3>
             <p class="wiy-pillar-desc">
-              បង្រៀនឱ្យម្ចាស់អាជីវកម្មចេះប្រើ AI បង្កើត Content
-              និងរៀបចំយុទ្ធសាស្ត្រលក់ក្នុង
-              <strong>Khmer Context ១០០%</strong>។
+              រៀនជាមួយយើង អ្នកមិនត្រឹមតែចេះប្រើ Tools ទេ តែអ្នកនឹងចេះ Prompt ឱ្យ
+              AI និយាយភាសាខ្មែរបានយ៉ាងស្ទាត់ជំនាញ និងទាក់ទាញអតិថិជនល្អបំផុត។
             </p>
             <span class="wiy-pillar-result">
               <i class="fas fa-arrow-up"></i> Save 10+ hrs/week
@@ -1194,15 +1598,14 @@
           </div>
 
           <div class="wiy-pillar reveal">
-            <span class="wiy-pillar-num">02</span>
+            <span class="wiy-pillar-num">០២</span>
             <div class="wiy-pillar-icon">
               <i class="fas fa-globe"></i>
             </div>
-            <h3 class="wiy-pillar-title">Modern Web Ecosystems</h3>
+            <h3 class="wiy-pillar-title">វេបសាយទំនើប</h3>
             <p class="wiy-pillar-desc">
-              កសាងប្រព័ន្ធ Website និង Automation ទំនើបៗ ដែលលុបបំបាត់
-              <strong>Manual Work</strong>
-              — business run 24/7 auto!
+              កសាងប្រព័ន្ធវេបសាយ និងប្រព័ន្ធស្វ័យប្រវត្តិកម្ម ដែលលុបបំបាត់រាល់
+              Manual Work ជួយឱ្យអាជីវកម្មរបស់អ្នកដំណើរការ ២៤/៧ ដោយស្វ័យប្រវត្តិ។
             </p>
             <span class="wiy-pillar-result">
               <i class="fas fa-arrow-up"></i> 15 leads/day avg
@@ -1210,14 +1613,14 @@
           </div>
 
           <div class="wiy-pillar reveal">
-            <span class="wiy-pillar-num">03</span>
+            <span class="wiy-pillar-num">០៣</span>
             <div class="wiy-pillar-icon">
               <i class="fas fa-bolt"></i>
             </div>
-            <h3 class="wiy-pillar-title">Actionable Content</h3>
+            <h3 class="wiy-pillar-title">អនុវត្តជាក់ស្ដែង</h3>
             <p class="wiy-pillar-desc">
-              គ្រប់ធនធាន គ្រប់ Lesson — apply បានភ្លាម ជាភាសាខ្មែរ ១០០% ជាមួយ
-              <strong>template + case study</strong> ពី Cambodia ពិតៗ!
+              រាល់ឯកសារ និងមេរៀនទាំងអស់ អាចអនុវត្តបានភ្លាមៗ ជាភាសាខ្មែរ ១០០%
+              ជាមួយ គំរូឯកសារ និង កម្រងស្នាដៃជាក់ស្ដែងពីកម្ពុជា។
             </p>
             <span class="wiy-pillar-result">
               <i class="fas fa-arrow-up"></i> 3x ROAS proven
@@ -1241,15 +1644,20 @@
     <!-- ══ YOB ECOSYSTEM ══ -->
     <section id="ecosystem" class="section-dark-alt">
       <div class="container">
-        <div class="section-header reveal" style="text-align:center; margin-bottom:48px">
+        <div
+          class="section-header reveal"
+          style="text-align: center; margin-bottom: 48px"
+        >
           <span class="section-tag">YOB ECOSYSTEM</span>
           <h2 class="section-title">
-            ប្រព័ន្ធ YOB <span class="gradient-text">DIGITAL</span>
+            <span class="gradient-text">ស្នូល យប់ឌីជីថល</span>
           </h2>
-          <span class="section-bg-num">ECO</span>
+          <span class="section-bg-num">ស្នូល</span>
           <p class="section-sub">
-            គ្រប់ Page, Tool, Service ត្រូវបានភ្ជាប់ — ដើម្បីជួយ MSMEs ខ្មែរ
-            Grow!
+            យប់ឌីជីថល
+            ជាកម្មករឌីជីថលមួយក្រុមដែលមិនមែនមានសេវាកម្មរាយប៉ាយសម្រាប់អាជីវកម្មសម័យនេះនោះទេយើងជួយយក
+            AI វេបសាយ និងមេរៀន
+            មកដោះស្រាយបញ្ហាជាប់គាំងដើម្បីឱ្យអាជីវកម្មអ្នករត់លឿនជាងមុន។
           </p>
         </div>
 
@@ -1267,62 +1675,86 @@
 
           <!-- Event horizon -->
           <div class="bh-void">
-            <div class="bh-void-logo">YOB</div>
-            <div class="bh-void-sub">DIGITAL</div>
+            <div class="bh-void-logo">យប់</div>
+            <div class="bh-void-sub">ឌីជីថល</div>
           </div>
 
           <!-- Energy beams (SVG) -->
-          <svg class="bh-beams" viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg">
-            <line class="bh-beam" x1="340" y1="340" x2="340" y2="100"/>
-            <line class="bh-beam" x1="340" y1="340" x2="580" y2="340"/>
-            <line class="bh-beam" x1="340" y1="340" x2="340" y2="580"/>
-            <line class="bh-beam" x1="340" y1="340" x2="100" y2="340"/>
+          <svg
+            class="bh-beams"
+            viewBox="0 0 680 680"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line class="bh-beam" x1="340" y1="340" x2="340" y2="100" />
+            <line class="bh-beam" x1="340" y1="340" x2="580" y2="340" />
+            <line class="bh-beam" x1="340" y1="340" x2="340" y2="580" />
+            <line class="bh-beam" x1="340" y1="340" x2="100" y2="340" />
           </svg>
 
           <!-- Orbital nodes -->
           <div class="bh-node bh-n-top">
             <div class="bh-node-icon">🎓</div>
-            <div class="bh-node-name">LEARN</div>
-            <div class="bh-node-desc">Courses · Docs · Case Studies</div>
-            <a href="yob-learning.html" class="bh-node-btn">Explore →</a>
+            <div class="bh-node-name">សាលារៀន</div>
+            <div class="bh-node-desc">ចំណេះដឹង · ឯកសារមេរៀន · កម្រងស្នាដៃ</div>
+            <a href="yob-learning.html" class="bh-node-btn">រុករក →</a>
           </div>
           <div class="bh-node bh-n-right">
             <div class="bh-node-icon">📈</div>
-            <div class="bh-node-name">GROW</div>
-            <div class="bh-node-desc">Roadmap · Strategy · Consulting</div>
-            <a href="grow.html" class="bh-node-btn">Explore →</a>
+            <div class="bh-node-name">ដើម្បីអាជីវកម្ម</div>
+            <div class="bh-node-desc">រៀបផ្លូវដើរ · យល់ពីវិធី · ចំគោលដៅ</div>
+            <a href="grow.html" class="bh-node-btn">រុករក →</a>
           </div>
           <div class="bh-node bh-n-bottom">
             <div class="bh-node-icon">🛒</div>
-            <div class="bh-node-name">PRODUCTS</div>
-            <div class="bh-node-desc">Fonts · Templates · Resources</div>
-            <a href="fonts.html" class="bh-node-btn">Explore →</a>
+            <div class="bh-node-name">តូបឌីជីថល</div>
+            <div class="bh-node-desc">យប់ អក្ខរា · គំរូ · កាដូឌីជីថល</div>
+            <a href="fonts.html" class="bh-node-btn">រុករក →</a>
           </div>
           <div class="bh-node bh-n-left">
             <div class="bh-node-icon">💬</div>
-            <div class="bh-node-name">CONNECT</div>
-            <div class="bh-node-desc">Consult · Telegram · Community</div>
-            <a href="#contact" class="bh-node-btn">Explore →</a>
+            <div class="bh-node-name">សាកសួរ</div>
+            <div class="bh-node-desc">
+              ប្រឹក្សារាល់យប់ · ផ្ញើសារមកយប់ · សហគមន៍យប់
+            </div>
+            <a href="contact.html" class="bh-node-btn">រុករក →</a>
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- ══ TYPOGRAPHY TEASER ══ -->
     <section id="typography">
       <div class="container">
-        <div class="section-header reveal" style="text-align:center; margin-bottom:20px">
-          <span class="section-tag"><i class="fas fa-pen-nib"></i> KHMER FONT SHOP</span>
-          <h2 class="section-title">YOB <span class="gradient-text">TYPOGRAPHY</span></h2>
-          <p style="color:var(--gray);font-family:var(--fk);margin-top:15px;font-size:16px;max-width:600px;margin-inline:auto">
-            ពុម្ពអក្សរខ្មែរ Premium — សម្រាប់ Brand ដែលចង់ Professional និង Unique
+        <div
+          class="section-header reveal"
+          style="text-align: center; margin-bottom: 20px"
+        >
+          <span class="section-tag"
+            ><i class="fas fa-pen-nib"></i> KHMER FONT SHOP</span
+          >
+          <h2 class="section-title">
+            យប់
+            <span class="gradient-text">អក្ខរា</span>
+            សិល្បៈនៃពុម្ពអក្សរខ្មែរទំនើប
+          </h2>
+          <p
+            style="
+              color: var(--gray);
+              font-family: var(--fk);
+              margin-top: 15px;
+              font-size: 16px;
+              max-width: 640px;
+              margin-inline: auto;
+            "
+          >
+            ផ្តល់នូវភាពប្លែកគេ និងភាពថ្លៃថ្នូរដល់គ្រប់ស្នាដៃរចនា។ យើងផ្ដល់ជូននូវ
+            Khmer Premium Fonts ដែលត្រូវបានសម្រិតសម្រាំងយ៉ាងផ្ចិតផ្ចង់ ដើម្បីឱ្យ
+            Brand របស់អ្នកលេចធ្លោជាងគេ។
           </p>
         </div>
 
         <!-- Stellar Specimen Panels -->
         <div class="stellar-panels reveal">
-
           <!-- Panel 1 — YOB Heading Pro · Supergiant Class · Warm Pink/Orange -->
           <a href="fonts.html" class="sp-panel sp-panel--1">
             <div class="sp-nebula"></div>
@@ -1334,7 +1766,9 @@
                 <span class="sp-price">$15.00</span>
                 <span class="sp-badge">BEST SELLER</span>
               </div>
-              <span class="sp-cta"><i class="fas fa-shopping-cart"></i> Buy Now →</span>
+              <span class="sp-cta"
+                ><i class="fas fa-shopping-cart"></i> Buy Now →</span
+              >
             </div>
             <div class="sp-specimen">
               <span class="sp-text heavy">សិល្បៈឌីជីថល</span>
@@ -1352,7 +1786,9 @@
                 <span class="sp-price free">Free</span>
                 <span class="sp-badge outline">BASIC</span>
               </div>
-              <span class="sp-cta"><i class="fas fa-download"></i> Download Free →</span>
+              <span class="sp-cta"
+                ><i class="fas fa-download"></i> Download Free →</span
+              >
             </div>
             <div class="sp-specimen">
               <span class="sp-text sans">អានងាយស្រួលយល់</span>
@@ -1370,16 +1806,17 @@
                 <span class="sp-price">$20.00</span>
                 <span class="sp-badge">ELEGANT</span>
               </div>
-              <span class="sp-cta"><i class="fas fa-shopping-cart"></i> Buy Now →</span>
+              <span class="sp-cta"
+                ><i class="fas fa-shopping-cart"></i> Buy Now →</span
+              >
             </div>
             <div class="sp-specimen">
               <span class="sp-text italic">ហត្ថលេខាប្រណិត</span>
             </div>
           </a>
-
         </div>
 
-        <div class="reveal" style="text-align:center; margin-top:36px">
+        <div class="reveal" style="text-align: center; margin-top: 36px">
           <a href="fonts.html" class="btn-primary">
             <i class="fas fa-font"></i> មើល Font ទាំងអស់ (8+) →
           </a>
@@ -1395,12 +1832,13 @@
           <div>
             <span class="section-tag">Proven Results</span>
             <h2 class="section-title" style="margin-bottom: 0">
-              CASE <span class="gradient-text">STUDIES</span>
+              កម្រង <span class="gradient-text">ស្នាដៃ</span>
             </h2>
           </div>
           <p class="cs-header-sub">
-            កុំជឿតែពាក្យ — មើលលទ្ធផលពិតប្រាកដ ដែល YOB Digital
-            បានសម្រេចជូនអតិថិជន
+            ស្នាដៃបានសម្រេចជូនអតិថិជនដោយកម្លាំង កម្មករឌីជីថល
+            ខិតខំបំពេញរៀងរាល់យប់ ហើយពួកយើង
+            បានបំប្លែងបញ្ហាដែលស្មុគស្មាញឱ្យទៅជាលទ្ធផលពិតប្រាកដ។
           </p>
         </div>
 
@@ -1514,10 +1952,12 @@
           <div class="testi-left">
             <span class="section-tag">Client Stories</span>
             <h2 class="section-title" style="margin-top: 16px">
-              អ្នក​ប្រើ​ប្រាស់<br /><span class="gradient-text">និយាយ</span>
+              ការផ្ដល់<br /><span class="gradient-text">កម្លាំងចិត្ត</span>
             </h2>
             <p class="testi-sub">
-              លទ្ធផលពិត ពី MSMEs ខ្មែរ ដែលបានជឿទុកចិត្ត YOB Digital ជំហានម្ដង​ៗ។
+              តាមរយៈ វាយតម្លៃរបស់អ្នកប្រើប្រាស់កម្មករយប់ឌីជីថល គឺពិតជាបានធ្វើឱ្យ
+              ក្រុមការងារ បានមើលឃើញអំពីទំនួសខុសត្រូវកាន់តែធំ
+              និងពោរពេញដោយមោទនភាពបំផុត។
             </p>
             <div class="testi-stat-row">
               <div class="testi-stat">
@@ -1595,7 +2035,7 @@
     </section>
 
     <!-- ══ PRICING / PACKAGES ══ -->
-    <section id="pricing" style="display:none">
+    <section id="pricing" style="display: none">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">Transparent Pricing</span>
@@ -1663,7 +2103,7 @@
         </div>
         <p class="pricing-note reveal">
           * តម្លៃអាចប្ដូរបាន ស្របតាមតម្រូវការ —
-          <a href="#contact">ទំនាក់ទំនង</a> សម្រាប់ Custom Package
+          <a href="#contact">សាកសួរ</a> សម្រាប់ Custom Package
         </p>
       </div>
     </section>
@@ -1683,11 +2123,10 @@
         >
           <div>
             <span class="section-tag"
-              ><i class="fab fa-youtube yt-icon"></i> Free
-              Masterclass</span
+              ><i class="fab fa-youtube yt-icon"></i> Free Masterclass</span
             >
             <h2 class="section-title">
-              YOB <span class="gradient-text">TUTORIALS</span>
+              យប់ <span class="gradient-text">សម្រាប់ការចំណេះដឹង</span>
             </h2>
             <p
               style="
@@ -1698,8 +2137,9 @@
                 max-width: 500px;
               "
             >
-              រៀនពីក្បួន Digital Marketing, របៀបប្រើប្រាស់ AI, និងគន្លឹះរចនា
-              (Design) តាមរយៈវីដេអូបង្រៀនឥតគិតថ្លៃរបស់យើង។
+              រៀនពី Digital Marketing សម្រាប់វាយលុកទីផ្សារ, របៀបប្រើប្រាស់ AI
+              ដើម្បីបញ្ជាឱ្យធ្វើការជំនួស, គន្លឹះឆ្នៃប្រឌិត ...
+              តាមរយៈវីដេអូបង្រៀនឥតគិតថ្លៃ។
             </p>
           </div>
           <!-- ដាក់ Link ឆានែល YouTube ពិតរបស់ Oppa នៅទីនេះ -->
@@ -1708,8 +2148,7 @@
             target="_blank"
             class="btn-outline btn-yt"
           >
-            <i class="fab fa-youtube yt-icon"></i> Subscribe លើ
-            YouTube
+            <i class="fab fa-youtube yt-icon"></i> Subscribe លើ YouTube
           </a>
         </div>
 
@@ -1812,7 +2251,7 @@
           <div>
             <span class="section-tag">Free Knowledge</span>
             <h2 class="section-title">
-              YOB <span class="gradient-text">CONTENT HUB</span>
+              កាដូ <span class="gradient-text">ឌីជីថល</span>
             </h2>
             <span class="section-bg-num">FREE</span>
           </div>
@@ -1895,9 +2334,7 @@
         <!-- 3 more preview cards -->
         <div class="res-preview-grid reveal">
           <a href="resources.html" class="res-preview-card">
-            <div
-              class="res-preview-icon res-pi-purple"
-            >
+            <div class="res-preview-icon res-pi-purple">
               <i class="fas fa-robot"></i>
             </div>
             <div class="res-preview-body">
@@ -1911,9 +2348,7 @@
             </div>
           </a>
           <a href="resources.html" class="res-preview-card">
-            <div
-              class="res-preview-icon res-pi-blue"
-            >
+            <div class="res-preview-icon res-pi-blue">
               <i class="fas fa-comment-dots"></i>
             </div>
             <div class="res-preview-body">
@@ -1925,9 +2360,7 @@
             </div>
           </a>
           <a href="resources.html" class="res-preview-card">
-            <div
-              class="res-preview-icon res-pi-pink"
-            >
+            <div class="res-preview-icon res-pi-pink">
               <i class="fab fa-facebook-f"></i>
             </div>
             <div class="res-preview-body">
@@ -1948,7 +2381,6 @@
       </div>
     </section>
 
-
     <!-- ══ CONTACT ══ -->
     <section id="contact" class="section-dark-alt">
       <div class="container">
@@ -1957,18 +2389,18 @@
           <div class="contact-left reveal">
             <span class="section-tag">Free Consultation</span>
             <h2 class="contact-headline">
-              ចាប់ផ្ដើម<br />
-              <span class="gradient-text">ជាមួយ YOB</span>
+              បើបងមាន<br />
+              <span class="gradient-text">ចំណាប់អារម្មណ!</span>
             </h2>
             <p class="contact-sub">
               មាន Project? ចង់ Scale Business? ឬ​ចង់​រៀន AI?<br />
-              ប្រាប់​យើង — ទទួល​បាន <strong>Plan ដំបូង ឥតគិតថ្លៃ</strong>
+              សាកសួរពួកយើងបានណា!
             </p>
 
             <!-- Online status -->
             <div class="contact-status">
               <span class="contact-status-dot"></span>
-              ក្រុម YOB Online — Reply ក្នុង 2–4 ម៉ោង
+              កម្មករយប់ឌីជីថលកំពុង Online * Reply ក្នុង 2-4 ម៉ោង
             </div>
 
             <!-- Quick channels -->
@@ -1982,7 +2414,7 @@
                 <div class="cc-icon"><i class="fab fa-telegram-plane"></i></div>
                 <div class="cc-text">
                   <strong>Telegram</strong>
-                  <span>Chat ផ្ទាល់ · ច​ន្ទ–​អ​ា​ទិ​ត្យ</span>
+                  <span>Chat ផ្ទាល់ · ច​ន្ទ–​អាទិ​ត្យ</span>
                 </div>
                 <i class="fas fa-arrow-right cc-arrow"></i>
               </a>
@@ -2161,291 +2593,325 @@
 
     <!-- Moon JARVIS Audio -->
     <script>
-    (function () {
-      const moon = document.getElementById('moon-trigger');
-      if (!moon) return;
+      (function () {
+        const moon = document.getElementById("moon-trigger");
+        if (!moon) return;
 
-      let ctx = null;
-      function ac() {
-        if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
-        if (ctx.state === 'suspended') ctx.resume();
-        return ctx;
-      }
-
-      /* ── Tech Ping: 3 layered oscillators ── */
-      function ping() {
-        const c = ac();
-        const t = c.currentTime;
-
-        // Main sweep: low → high → settle
-        const o1 = c.createOscillator(), g1 = c.createGain();
-        o1.type = 'sine';
-        o1.frequency.setValueAtTime(520, t);
-        o1.frequency.exponentialRampToValueAtTime(1760, t + 0.10);
-        o1.frequency.exponentialRampToValueAtTime(880, t + 0.32);
-        g1.gain.setValueAtTime(0, t);
-        g1.gain.linearRampToValueAtTime(0.20, t + 0.025);
-        g1.gain.exponentialRampToValueAtTime(0.001, t + 0.50);
-        o1.connect(g1); g1.connect(c.destination);
-        o1.start(t); o1.stop(t + 0.50);
-
-        // High sparkle: crystal shimmer
-        const o2 = c.createOscillator(), g2 = c.createGain();
-        o2.type = 'triangle';
-        o2.frequency.setValueAtTime(2800, t);
-        o2.frequency.exponentialRampToValueAtTime(4200, t + 0.07);
-        g2.gain.setValueAtTime(0, t);
-        g2.gain.linearRampToValueAtTime(0.06, t + 0.01);
-        g2.gain.exponentialRampToValueAtTime(0.001, t + 0.18);
-        o2.connect(g2); g2.connect(c.destination);
-        o2.start(t); o2.stop(t + 0.18);
-
-        // Deep pulse: hologram resonance
-        const o3 = c.createOscillator(), g3 = c.createGain();
-        o3.type = 'sine';
-        o3.frequency.setValueAtTime(130, t);
-        o3.frequency.linearRampToValueAtTime(75, t + 0.40);
-        g3.gain.setValueAtTime(0, t);
-        g3.gain.linearRampToValueAtTime(0.07, t + 0.04);
-        g3.gain.exponentialRampToValueAtTime(0.001, t + 0.42);
-        o3.connect(g3); g3.connect(c.destination);
-        o3.start(t); o3.stop(t + 0.42);
-      }
-
-      /* ── JARVIS Greeting Voice ── */
-      function speakGreeting() {
-        if (!window.speechSynthesis) return;
-        window.speechSynthesis.cancel();
-
-        function speak() {
-          const voices = window.speechSynthesis.getVoices();
-          const utter  = new SpeechSynthesisUtterance();
-
-          // Priority: Khmer voice → female English → any
-          const km = voices.find(v => v.lang.startsWith('km'));
-          const female = voices.find(v =>
-            /samantha|karen|victoria|zira|moira|fiona|ava|allison|google uk english female/i.test(v.name)
-          );
-
-          if (km) {
-            utter.voice = km;
-            utter.text  = 'សួស្ដី បងៗ ទាំងអស់គ្នា។ ខ្ញុំគឺ YOB AI ។';
-          } else if (female) {
-            utter.voice = female;
-            utter.text  = 'Sawassdei. I am YOB A.I. How can I assist you today?';
-          } else {
-            utter.text  = 'Sawassdei. I am YOB A.I. How can I assist you today?';
-          }
-
-          utter.rate   = 0.80;
-          utter.pitch  = 1.18;
-          utter.volume = 1.0;
-          window.speechSynthesis.speak(utter);
+        let ctx = null;
+        function ac() {
+          if (!ctx)
+            ctx = new (window.AudioContext || window.webkitAudioContext)();
+          if (ctx.state === "suspended") ctx.resume();
+          return ctx;
         }
 
-        // Voices list may not load until requested
-        const v = window.speechSynthesis.getVoices();
-        if (v.length) { speak(); }
-        else { window.speechSynthesis.onvoiceschanged = speak; }
-      }
+        /* ── Tech Ping: 3 layered oscillators ── */
+        function ping() {
+          const c = ac();
+          const t = c.currentTime;
 
-      /* ── State ── */
-      let activated    = false;
-      let hoverCooldown = false;
+          // Main sweep: low → high → settle
+          const o1 = c.createOscillator(),
+            g1 = c.createGain();
+          o1.type = "sine";
+          o1.frequency.setValueAtTime(520, t);
+          o1.frequency.exponentialRampToValueAtTime(1760, t + 0.1);
+          o1.frequency.exponentialRampToValueAtTime(880, t + 0.32);
+          g1.gain.setValueAtTime(0, t);
+          g1.gain.linearRampToValueAtTime(0.2, t + 0.025);
+          g1.gain.exponentialRampToValueAtTime(0.001, t + 0.5);
+          o1.connect(g1);
+          g1.connect(c.destination);
+          o1.start(t);
+          o1.stop(t + 0.5);
 
-      // CLICK → unlock AudioContext + ping + voice
-      moon.addEventListener('click', function () {
-        activated = true;
-        ping();
-        setTimeout(speakGreeting, 220);
-        moon.style.cursor = 'pointer';
-      });
+          // High sparkle: crystal shimmer
+          const o2 = c.createOscillator(),
+            g2 = c.createGain();
+          o2.type = "triangle";
+          o2.frequency.setValueAtTime(2800, t);
+          o2.frequency.exponentialRampToValueAtTime(4200, t + 0.07);
+          g2.gain.setValueAtTime(0, t);
+          g2.gain.linearRampToValueAtTime(0.06, t + 0.01);
+          g2.gain.exponentialRampToValueAtTime(0.001, t + 0.18);
+          o2.connect(g2);
+          g2.connect(c.destination);
+          o2.start(t);
+          o2.stop(t + 0.18);
 
-      // HOVER → ping only (requires one prior click to unlock)
-      moon.addEventListener('mouseenter', function () {
-        if (!activated || hoverCooldown) return;
-        ping();
-        hoverCooldown = true;
-        setTimeout(function () { hoverCooldown = false; }, 3500);
-      });
-    })();
+          // Deep pulse: hologram resonance
+          const o3 = c.createOscillator(),
+            g3 = c.createGain();
+          o3.type = "sine";
+          o3.frequency.setValueAtTime(130, t);
+          o3.frequency.linearRampToValueAtTime(75, t + 0.4);
+          g3.gain.setValueAtTime(0, t);
+          g3.gain.linearRampToValueAtTime(0.07, t + 0.04);
+          g3.gain.exponentialRampToValueAtTime(0.001, t + 0.42);
+          o3.connect(g3);
+          g3.connect(c.destination);
+          o3.start(t);
+          o3.stop(t + 0.42);
+        }
+
+        /* ── JARVIS Greeting Voice ── */
+        function speakGreeting() {
+          if (!window.speechSynthesis) return;
+          window.speechSynthesis.cancel();
+
+          function speak() {
+            const voices = window.speechSynthesis.getVoices();
+            const utter = new SpeechSynthesisUtterance();
+
+            // Priority: Khmer voice → female English → any
+            const km = voices.find((v) => v.lang.startsWith("km"));
+            const female = voices.find((v) =>
+              /samantha|karen|victoria|zira|moira|fiona|ava|allison|google uk english female/i.test(
+                v.name,
+              ),
+            );
+
+            if (km) {
+              utter.voice = km;
+              utter.text = "សួស្ដី បងៗ ទាំងអស់គ្នា។ ខ្ញុំគឺ YOB AI ។";
+            } else if (female) {
+              utter.voice = female;
+              utter.text =
+                "Sawassdei. I am YOB A.I. How can I assist you today?";
+            } else {
+              utter.text =
+                "Sawassdei. I am YOB A.I. How can I assist you today?";
+            }
+
+            utter.rate = 0.8;
+            utter.pitch = 1.18;
+            utter.volume = 1.0;
+            window.speechSynthesis.speak(utter);
+          }
+
+          // Voices list may not load until requested
+          const v = window.speechSynthesis.getVoices();
+          if (v.length) {
+            speak();
+          } else {
+            window.speechSynthesis.onvoiceschanged = speak;
+          }
+        }
+
+        /* ── State ── */
+        let activated = false;
+        let hoverCooldown = false;
+
+        // CLICK → unlock AudioContext + ping + voice
+        moon.addEventListener("click", function () {
+          activated = true;
+          ping();
+          setTimeout(speakGreeting, 220);
+          moon.style.cursor = "pointer";
+        });
+
+        // HOVER → ping only (requires one prior click to unlock)
+        moon.addEventListener("mouseenter", function () {
+          if (!activated || hoverCooldown) return;
+          ping();
+          hoverCooldown = true;
+          setTimeout(function () {
+            hoverCooldown = false;
+          }, 3500);
+        });
+      })();
     </script>
 
     <!-- Phase 3: YEVA — Scroll phases + Mouse-follow pupils -->
     <script>
-    (function () {
-      var wrapper = document.getElementById('moon-trigger');
-      var pupilL  = document.getElementById('pupilL');
-      var pupilR  = document.getElementById('pupilR');
-      if (!wrapper || !pupilL || !pupilR) return;
+      (function () {
+        var wrapper = document.getElementById("moon-trigger");
+        var pupilL = document.getElementById("pupilL");
+        var pupilR = document.getElementById("pupilR");
+        if (!wrapper || !pupilL || !pupilR) return;
 
-      /* ── Scroll → Moon phase classes ── */
-      function updatePhase() {
-        var sy = window.scrollY;
-        wrapper.classList.remove('moon-phase-1', 'moon-phase-2', 'moon-phase-3');
-        if      (sy > 480) wrapper.classList.add('moon-phase-3');
-        else if (sy > 220) wrapper.classList.add('moon-phase-2');
-        else if (sy > 70)  wrapper.classList.add('moon-phase-1');
-      }
-      window.addEventListener('scroll', updatePhase, { passive: true });
-      updatePhase();
+        /* ── Scroll → Moon phase classes ── */
+        function updatePhase() {
+          var sy = window.scrollY;
+          wrapper.classList.remove(
+            "moon-phase-1",
+            "moon-phase-2",
+            "moon-phase-3",
+          );
+          if (sy > 480) wrapper.classList.add("moon-phase-3");
+          else if (sy > 220) wrapper.classList.add("moon-phase-2");
+          else if (sy > 70) wrapper.classList.add("moon-phase-1");
+        }
+        window.addEventListener("scroll", updatePhase, { passive: true });
+        updatePhase();
 
-      /* ── Mouse → pupils follow cursor ── */
-      var RANGE = 3.5; // max pixel travel for pupils
-      document.addEventListener('mousemove', function (e) {
-        var r  = wrapper.getBoundingClientRect();
-        var cx = r.left + r.width  / 2;
-        var cy = r.top  + r.height / 2;
-        var dx = Math.max(-1, Math.min(1, (e.clientX - cx) / (window.innerWidth  * 0.4)));
-        var dy = Math.max(-1, Math.min(1, (e.clientY - cy) / (window.innerHeight * 0.4)));
-        pupilL.style.transform = 'translate(' + (dx * RANGE) + 'px,' + (dy * RANGE) + 'px)';
-        pupilR.style.transform = 'translate(' + (dx * RANGE) + 'px,' + (dy * RANGE) + 'px)';
-      });
+        /* ── Mouse → pupils follow cursor ── */
+        var RANGE = 3.5; // max pixel travel for pupils
+        document.addEventListener("mousemove", function (e) {
+          var r = wrapper.getBoundingClientRect();
+          var cx = r.left + r.width / 2;
+          var cy = r.top + r.height / 2;
+          var dx = Math.max(
+            -1,
+            Math.min(1, (e.clientX - cx) / (window.innerWidth * 0.4)),
+          );
+          var dy = Math.max(
+            -1,
+            Math.min(1, (e.clientY - cy) / (window.innerHeight * 0.4)),
+          );
+          pupilL.style.transform =
+            "translate(" + dx * RANGE + "px," + dy * RANGE + "px)";
+          pupilR.style.transform =
+            "translate(" + dx * RANGE + "px," + dy * RANGE + "px)";
+        });
 
-      /* ── Click moon in phase 3 → YEVA greeting blink ── */
-      wrapper.addEventListener('click', function () {
-        var face = document.getElementById('yevaFace');
-        if (!face || !wrapper.classList.contains('moon-phase-3')) return;
-        face.style.transition = 'opacity 0.08s';
-        face.style.opacity = '0.2';
-        setTimeout(function () {
-          face.style.transition = 'opacity 0.15s';
-          face.style.opacity = '1';
-        }, 100);
-      });
-    })();
+        /* ── Click moon in phase 3 → YEVA greeting blink ── */
+        wrapper.addEventListener("click", function () {
+          var face = document.getElementById("yevaFace");
+          if (!face || !wrapper.classList.contains("moon-phase-3")) return;
+          face.style.transition = "opacity 0.08s";
+          face.style.opacity = "0.2";
+          setTimeout(function () {
+            face.style.transition = "opacity 0.15s";
+            face.style.opacity = "1";
+          }, 100);
+        });
+      })();
     </script>
 
     <!-- Universe Star Canvas — fixed behind all sections -->
     <script>
-    (function () {
-      var canvas = document.getElementById('home-star-canvas');
-      if (!canvas) return;
-      var ctx = canvas.getContext('2d');
-      var stars = [];
-      var NUM = 320;
+      (function () {
+        var canvas = document.getElementById("home-star-canvas");
+        if (!canvas) return;
+        var ctx = canvas.getContext("2d");
+        var stars = [];
+        var NUM = 320;
 
-      function resize() {
-        canvas.width  = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      resize();
-      window.addEventListener('resize', resize);
-
-      function mkStar() {
-        return {
-          x     : Math.random() * window.innerWidth,
-          y     : Math.random() * window.innerHeight,
-          r     : 0.25 + Math.random() * 1.1,
-          base  : 0.08 + Math.random() * 0.45,
-          speed : 0.4  + Math.random() * 0.9,
-          phase : Math.random() * Math.PI * 2,
-          // subtle color tint: white / faint pink / faint violet
-          hue   : Math.random() < 0.75 ? 0 : (Math.random() < 0.5 ? 330 : 265)
-        };
-      }
-
-      for (var i = 0; i < NUM; i++) stars.push(mkStar());
-
-      var t = 0;
-      function tick() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        t += 0.012;
-        for (var i = 0; i < stars.length; i++) {
-          var s = stars[i];
-          var twinkle = s.base * (0.45 + 0.55 * Math.sin(t * s.speed + s.phase));
-          ctx.globalAlpha = twinkle;
-          if (s.hue === 0) {
-            ctx.fillStyle = '#ffffff';
-          } else if (s.hue === 330) {
-            ctx.fillStyle = 'hsl(330,70%,80%)';
-          } else {
-            ctx.fillStyle = 'hsl(265,60%,80%)';
-          }
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-          ctx.fill();
+        function resize() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
         }
-        ctx.globalAlpha = 1;
-        requestAnimationFrame(tick);
-      }
-      tick();
-    })();
+        resize();
+        window.addEventListener("resize", resize);
+
+        function mkStar() {
+          return {
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            r: 0.25 + Math.random() * 1.1,
+            base: 0.08 + Math.random() * 0.45,
+            speed: 0.4 + Math.random() * 0.9,
+            phase: Math.random() * Math.PI * 2,
+            // subtle color tint: white / faint pink / faint violet
+            hue: Math.random() < 0.75 ? 0 : Math.random() < 0.5 ? 330 : 265,
+          };
+        }
+
+        for (var i = 0; i < NUM; i++) stars.push(mkStar());
+
+        var t = 0;
+        function tick() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          t += 0.012;
+          for (var i = 0; i < stars.length; i++) {
+            var s = stars[i];
+            var twinkle =
+              s.base * (0.45 + 0.55 * Math.sin(t * s.speed + s.phase));
+            ctx.globalAlpha = twinkle;
+            if (s.hue === 0) {
+              ctx.fillStyle = "#ffffff";
+            } else if (s.hue === 330) {
+              ctx.fillStyle = "hsl(330,70%,80%)";
+            } else {
+              ctx.fillStyle = "hsl(265,60%,80%)";
+            }
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          ctx.globalAlpha = 1;
+          requestAnimationFrame(tick);
+        }
+        tick();
+      })();
     </script>
 
     <!-- Black Hole Canvas Particles -->
     <script>
-    (function () {
-      var canvas = document.getElementById('bhCanvas');
-      if (!canvas) return;
-      var ctx = canvas.getContext('2d');
+      (function () {
+        var canvas = document.getElementById("bhCanvas");
+        if (!canvas) return;
+        var ctx = canvas.getContext("2d");
 
-      function resize() {
-        canvas.width  = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-      }
-      resize();
-      window.addEventListener('resize', resize);
-
-      var W, H, cx, cy;
-      function dims() {
-        W = canvas.width; H = canvas.height;
-        cx = W / 2; cy = H / 2;
-      }
-      dims();
-      window.addEventListener('resize', dims);
-
-      /* -- Particles -- */
-      var NUM = 140;
-      var particles = [];
-
-      function mkParticle(init) {
-        var angle = Math.random() * Math.PI * 2;
-        var r = init
-          ? 50 + Math.random() * 230
-          : 210 + Math.random() * 60;
-        return {
-          angle : angle,
-          r     : r,
-          speed : (0.0025 + Math.random() * 0.004) * (Math.random() < 0.5 ? 1 : -1),
-          drift : 0.28 + Math.random() * 0.45,
-          size  : 0.6 + Math.random() * 1.6,
-          alpha : 0.25 + Math.random() * 0.65,
-          hue   : Math.random() < 0.65 ? 338 : (290 + Math.random() * 50)
-        };
-      }
-
-      for (var i = 0; i < NUM; i++) particles.push(mkParticle(true));
-
-      function tick() {
-        dims();
-        ctx.clearRect(0, 0, W, H);
-
-        for (var j = 0; j < particles.length; j++) {
-          var p = particles[j];
-          p.angle += p.speed;
-          p.r     -= p.drift * 0.28;
-
-          if (p.r < 52) {
-            particles[j] = mkParticle(false);
-            continue;
-          }
-
-          var px   = cx + Math.cos(p.angle) * p.r;
-          var py   = cy + Math.sin(p.angle) * p.r * 0.42; /* flatten � disk illusion */
-          var fade = Math.min(1, (p.r - 52) / 45);
-
-          ctx.globalAlpha = p.alpha * fade;
-          ctx.fillStyle   = 'hsl(' + p.hue + ',88%,65%)';
-          ctx.beginPath();
-          ctx.arc(px, py, p.size, 0, Math.PI * 2);
-          ctx.fill();
+        function resize() {
+          canvas.width = canvas.offsetWidth;
+          canvas.height = canvas.offsetHeight;
         }
-        ctx.globalAlpha = 1;
-        requestAnimationFrame(tick);
-      }
-      tick();
-    })();
+        resize();
+        window.addEventListener("resize", resize);
+
+        var W, H, cx, cy;
+        function dims() {
+          W = canvas.width;
+          H = canvas.height;
+          cx = W / 2;
+          cy = H / 2;
+        }
+        dims();
+        window.addEventListener("resize", dims);
+
+        /* -- Particles -- */
+        var NUM = 140;
+        var particles = [];
+
+        function mkParticle(init) {
+          var angle = Math.random() * Math.PI * 2;
+          var r = init ? 50 + Math.random() * 230 : 210 + Math.random() * 60;
+          return {
+            angle: angle,
+            r: r,
+            speed:
+              (0.0025 + Math.random() * 0.004) * (Math.random() < 0.5 ? 1 : -1),
+            drift: 0.28 + Math.random() * 0.45,
+            size: 0.6 + Math.random() * 1.6,
+            alpha: 0.25 + Math.random() * 0.65,
+            hue: Math.random() < 0.65 ? 338 : 290 + Math.random() * 50,
+          };
+        }
+
+        for (var i = 0; i < NUM; i++) particles.push(mkParticle(true));
+
+        function tick() {
+          dims();
+          ctx.clearRect(0, 0, W, H);
+
+          for (var j = 0; j < particles.length; j++) {
+            var p = particles[j];
+            p.angle += p.speed;
+            p.r -= p.drift * 0.28;
+
+            if (p.r < 52) {
+              particles[j] = mkParticle(false);
+              continue;
+            }
+
+            var px = cx + Math.cos(p.angle) * p.r;
+            var py =
+              cy + Math.sin(p.angle) * p.r * 0.42; /* flatten � disk illusion */
+            var fade = Math.min(1, (p.r - 52) / 45);
+
+            ctx.globalAlpha = p.alpha * fade;
+            ctx.fillStyle = "hsl(" + p.hue + ",88%,65%)";
+            ctx.beginPath();
+            ctx.arc(px, py, p.size, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          ctx.globalAlpha = 1;
+          requestAnimationFrame(tick);
+        }
+        tick();
+      })();
     </script>
   </body>
 </html>

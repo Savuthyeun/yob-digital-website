@@ -1236,10 +1236,22 @@ nav {
 
 /* ── Case Study Visual Placeholders ── */
 .cs-feat-img--giz {
-  background: linear-gradient(135deg, #0d0820 0%, #1a0535 40%, #2d0a4e 70%, #1a1035 100%);
+  background: linear-gradient(
+    135deg,
+    #0d0820 0%,
+    #1a0535 40%,
+    #2d0a4e 70%,
+    #1a1035 100%
+  );
 }
 .cs-card-img--ai {
-  background: linear-gradient(135deg, #080b18 0%, #0d1a2e 40%, #0a2040 70%, #060e1a 100%);
+  background: linear-gradient(
+    135deg,
+    #080b18 0%,
+    #0d1a2e 40%,
+    #0a2040 70%,
+    #060e1a 100%
+  );
 }
 .cs-img-visual {
   position: absolute;
@@ -2359,15 +2371,17 @@ nav {
 /* Mega Footer */
 /* ── Footer top gradient line ── */
 .footer-topbar {
-  height: 2px;
+  width: 140px;
+  height: 3px;
+  margin: 0 auto 36px;
+  border-radius: 999px;
   background: linear-gradient(
     90deg,
-    transparent 0%,
-    rgba(229, 44, 103, 0.5) 20%,
-    rgba(229, 44, 103, 0.8) 50%,
-    rgba(229, 44, 103, 0.5) 80%,
-    transparent 100%
+    rgba(229, 44, 103, 0.16) 0%,
+    rgba(229, 44, 103, 0.95) 50%,
+    rgba(229, 44, 103, 0.16) 100%
   );
+  box-shadow: 0 0 24px rgba(229, 44, 103, 0.14);
 }
 
 footer {
@@ -2447,7 +2461,7 @@ footer {
 /* Link columns */
 .footer-col h4 {
   font-family: var(--fb);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -2568,7 +2582,7 @@ footer {
   gap: 12px;
 }
 .footer-copy {
-  font-size: 12px;
+  font-size: 13px;
   color: rgba(255, 255, 255, 0.2);
   font-family: var(--fb);
 }
@@ -2582,7 +2596,7 @@ footer {
 }
 .footer-legal a {
   font-family: var(--fb);
-  font-size: 12px;
+  font-size: 13px;
   color: rgba(255, 255, 255, 0.2);
   text-decoration: none !important;
   transition: color 0.2s;
@@ -3087,37 +3101,63 @@ footer {
 }
 .orbit-arm .hero-float-card {
   position: absolute;
-  left: 200px;       /* orbit radius — 200px from moon center */
+  left: 200px; /* orbit radius — 200px from moon center */
   top: 0;
   pointer-events: auto;
-  animation: none;   /* remove old floatCard bounce */
+  animation: none; /* remove old floatCard bounce */
   will-change: transform;
 }
 
 /* 4 arms evenly spaced — 20s full orbit, staggered by 5s each */
-.oa-1 { animation: orbitSpin 20s linear infinite 0s; }
-.oa-2 { animation: orbitSpin 20s linear infinite -5s; }
-.oa-3 { animation: orbitSpin 20s linear infinite -10s; }
-.oa-4 { animation: orbitSpin 20s linear infinite -15s; }
+.oa-1 {
+  animation: orbitSpin 20s linear infinite 0s;
+}
+.oa-2 {
+  animation: orbitSpin 20s linear infinite -5s;
+}
+.oa-3 {
+  animation: orbitSpin 20s linear infinite -10s;
+}
+.oa-4 {
+  animation: orbitSpin 20s linear infinite -15s;
+}
 
 /* Counter-rotate card so text stays upright while arm spins */
-.oa-1 .hero-float-card { animation: counterSpin 20s linear infinite 0s !important; }
-.oa-2 .hero-float-card { animation: counterSpin 20s linear infinite -5s !important; }
-.oa-3 .hero-float-card { animation: counterSpin 20s linear infinite -10s !important; }
-.oa-4 .hero-float-card { animation: counterSpin 20s linear infinite -15s !important; }
+.oa-1 .hero-float-card {
+  animation: counterSpin 20s linear infinite 0s !important;
+}
+.oa-2 .hero-float-card {
+  animation: counterSpin 20s linear infinite -5s !important;
+}
+.oa-3 .hero-float-card {
+  animation: counterSpin 20s linear infinite -10s !important;
+}
+.oa-4 .hero-float-card {
+  animation: counterSpin 20s linear infinite -15s !important;
+}
 
 @keyframes orbitSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 @keyframes counterSpin {
-  from { transform: translateY(-50%) rotate(0deg); }
-  to   { transform: translateY(-50%) rotate(-360deg); }
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(-360deg);
+  }
 }
 
 /* Hide orbit cards on mobile — moon is stacked below text */
 @media (max-width: 900px) {
-  .orbit-arm { display: none; }
+  .orbit-arm {
+    display: none;
+  }
 }
 
 /* ── Hero: Scroll Indicator ── */
