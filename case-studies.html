@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="km">
   <head>
     <meta charset="UTF-8" />
@@ -63,7 +63,7 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
       defer
     ></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.min.css" />
 
     <style>
       /* ═══════════════════════════════════════
@@ -72,7 +72,7 @@
 
       /* Page Hero */
       .cs-hero {
-        padding: 140px 0 80px;
+        padding: clamp(70px, 8vw, 140px) 0 clamp(40px, 6vw, 80px);
         text-align: center;
         position: relative;
         overflow: hidden;
@@ -401,7 +401,7 @@
 
       /* Testimonial section */
       .testimonials-section {
-        padding: 80px 0;
+        padding: clamp(40px, 10vw, 80px) 0;
         border-top: 1px solid rgba(255, 255, 255, 0.06);
       }
       .testimonials-grid {
@@ -470,7 +470,7 @@
 
       /* CTA Section */
       .cs-cta {
-        padding: 80px 0 100px;
+        padding: clamp(50px, 10vw, 80px) 0 clamp(60px, 12vw, 100px);
       }
       .cs-cta-box {
         background: linear-gradient(
@@ -539,6 +539,17 @@
         }
         .cs-card.featured .cs-body {
           padding: 28px;
+        }
+      }
+      @media (max-width: 768px) {
+        .cs-hero {
+          padding: clamp(60px, 8vw, 120px) 0 clamp(35px, 6vw, 70px);
+        }
+        .testimonials-section {
+          padding: clamp(35px, 8vw, 60px) 0;
+        }
+        .cs-cta {
+          padding: clamp(40px, 8vw, 70px) 0 clamp(50px, 10vw, 80px);
         }
       }
       @media (max-width: 600px) {
@@ -647,9 +658,15 @@
           <div class="cs-card featured reveal" data-cat="strategy">
             <div class="cs-thumb">
               <img
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=70&w=1200&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=75&w=1200&auto=format&fit=crop"
                 alt="DC Fashion Case Study"
                 loading="lazy"
+                decoding="async"
+                srcset="
+                  https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=75&w=800&auto=format&fit=crop   800w,
+                  https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=75&w=1200&auto=format&fit=crop 1200w
+                "
+                sizes="(max-width: 900px) 100vw, 60vw"
               />
               <div class="cs-thumb-overlay"></div>
               <span class="cs-category">Digital Strategy</span>
@@ -699,9 +716,15 @@
           <div class="cs-card reveal" data-cat="ai">
             <div class="cs-thumb">
               <img
-                src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=70&w=800&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=75&w=800&auto=format&fit=crop"
                 alt="CR Academy Case Study"
                 loading="lazy"
+                decoding="async"
+                srcset="
+                  https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=75&w=640&auto=format&fit=crop 640w,
+                  https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=75&w=800&auto=format&fit=crop 800w
+                "
+                sizes="(max-width: 900px) 100vw, 45vw"
               />
               <div class="cs-thumb-overlay"></div>
               <span class="cs-category">AI Tools</span>
@@ -748,9 +771,15 @@
           <div class="cs-card reveal" data-cat="web">
             <div class="cs-thumb">
               <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=70&w=800&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=800&auto=format&fit=crop"
                 alt="CR Academy"
                 loading="lazy"
+                decoding="async"
+                srcset="
+                  https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=640&auto=format&fit=crop 640w,
+                  https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=800&auto=format&fit=crop 800w
+                "
+                sizes="(max-width: 900px) 100vw, 45vw"
               />
               <div class="cs-thumb-overlay"></div>
               <span class="cs-category">Web & Systems</span>
@@ -795,9 +824,15 @@
           <div class="cs-card reveal" data-cat="ai strategy">
             <div class="cs-thumb">
               <img
-                src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=70&w=800&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=75&w=800&auto=format&fit=crop"
                 alt="FMCG Manager"
                 loading="lazy"
+                decoding="async"
+                srcset="
+                  https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=75&w=640&auto=format&fit=crop 640w,
+                  https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=75&w=800&auto=format&fit=crop 800w
+                "
+                sizes="(max-width: 900px) 100vw, 45vw"
               />
               <div class="cs-thumb-overlay"></div>
               <span class="cs-category">AI + Strategy</span>
@@ -842,9 +877,15 @@
           <div class="cs-card reveal" data-cat="font">
             <div class="cs-thumb">
               <img
-                src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=70&w=800&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=75&w=800&auto=format&fit=crop"
                 alt="Brand Relaunch"
                 loading="lazy"
+                decoding="async"
+                srcset="
+                  https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=75&w=640&auto=format&fit=crop 640w,
+                  https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=75&w=800&auto=format&fit=crop 800w
+                "
+                sizes="(max-width: 900px) 100vw, 45vw"
               />
               <div class="cs-thumb-overlay"></div>
               <span class="cs-category">Typography</span>
@@ -891,9 +932,15 @@
           <div class="cs-card reveal" data-cat="strategy">
             <div class="cs-thumb">
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=70&w=800&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=800&auto=format&fit=crop"
                 alt="E-commerce Growth"
                 loading="lazy"
+                decoding="async"
+                srcset="
+                  https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=640&auto=format&fit=crop 640w,
+                  https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=800&auto=format&fit=crop 800w
+                "
+                sizes="(max-width: 900px) 100vw, 45vw"
               />
               <div class="cs-thumb-overlay"></div>
               <span class="cs-category">Digital Strategy</span>

@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="km">
   <head>
     <meta charset="UTF-8" />
@@ -54,8 +54,11 @@
       />
     </noscript>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="css/style.min.css" />
 
     <style>
       /* ═══════════════════════════════════════
@@ -65,8 +68,12 @@
 
       /* Docs has its own header + sidebar nav — hide shared site nav */
       #nav-placeholder,
-      .mobile-drawer { display: none !important; }
-      .blob { display: none !important; }
+      .mobile-drawer {
+        display: none !important;
+      }
+      .blob {
+        display: none !important;
+      }
       :root {
         --dark: #080b10;
         --dark2: #0d1117;
@@ -468,7 +475,7 @@
         flex: 1;
         margin-left: var(--sidebar-w);
         margin-right: var(--toc-w);
-        padding: 48px 56px;
+        padding: clamp(40px, 6vw, 48px) clamp(40px, 8vw, 56px);
         min-width: 0;
         max-width: 860px;
       }
@@ -884,7 +891,7 @@
         }
         .docs-main {
           margin-left: 0;
-          padding: 32px 24px;
+          padding: clamp(28px, 5vw, 32px) clamp(20px, 6vw, 24px);
         }
         .sidebar-toggle {
           display: flex;
@@ -900,9 +907,14 @@
           display: block;
         }
       }
+      @media (max-width: 768px) {
+        .docs-main {
+          padding: clamp(24px, 5vw, 30px) clamp(18px, 5vw, 22px);
+        }
+      }
       @media (max-width: 600px) {
         .docs-main {
-          padding: 24px 16px;
+          padding: clamp(20px, 4vw, 24px) clamp(14px, 4vw, 16px);
         }
         .page-nav {
           flex-direction: column;

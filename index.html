@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="km">
   <head>
     <meta charset="UTF-8" />
@@ -66,13 +66,16 @@
       defer
     ></script>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.min.css" />
     <style>
       :root {
         --yt-red: #ff0000;
         --yt-red-dim: rgba(255, 0, 0, 0.3);
         --yt-red-bg: rgba(255, 0, 0, 0.05);
         --yt-red-hover: #ff4a4a;
+        --cyan-accent: #00c8ff;
+        --purple-accent: #b060ff;
+        --green-free: #4ade80;
       }
       .yt-icon {
         color: var(--yt-red);
@@ -189,7 +192,7 @@
         border-left: 3px solid rgba(0, 180, 255, 0.45);
       }
       .sp-panel--2:hover {
-        border-left-color: #00c8ff;
+        border-left-color: var(--cyan-accent);
         background: rgba(2, 7, 18, 0.93) !important;
       }
       .sp-panel--2 .sp-nebula {
@@ -216,7 +219,7 @@
         border-left: 3px solid rgba(150, 60, 255, 0.5);
       }
       .sp-panel--3:hover {
-        border-left-color: #b060ff;
+        border-left-color: var(--purple-accent);
         background: rgba(6, 3, 18, 0.93) !important;
       }
       .sp-panel--3 .sp-nebula {
@@ -253,7 +256,7 @@
       /* Stellar classification */
       .sp-class {
         font-family: var(--fb);
-        font-size: 9px;
+        font-size: 11px;
         letter-spacing: 2.5px;
         text-transform: uppercase;
         margin-bottom: 2px;
@@ -296,11 +299,11 @@
         color: var(--white);
       }
       .sp-price.free {
-        color: #4ade80;
+        color: var(--green-free);
       }
 
       .sp-badge {
-        font-size: 9px;
+        font-size: 11px;
         letter-spacing: 1.5px;
         text-transform: uppercase;
         padding: 3px 9px;
@@ -318,12 +321,12 @@
       }
       .sp-panel--2 .sp-badge:not(.outline) {
         background: rgba(0, 180, 255, 0.12);
-        color: #00c8ff;
+        color: var(--cyan-accent);
         border: 1px solid rgba(0, 180, 255, 0.28);
       }
       .sp-panel--3 .sp-badge {
         background: rgba(160, 80, 255, 0.12);
-        color: #b060ff;
+        color: var(--purple-accent);
         border: 1px solid rgba(160, 80, 255, 0.28);
       }
 
@@ -347,10 +350,10 @@
         color: var(--gold);
       }
       .sp-panel--2 .sp-cta {
-        color: #00c8ff;
+        color: var(--cyan-accent);
       }
       .sp-panel--3 .sp-cta {
-        color: #b060ff;
+        color: var(--purple-accent);
       }
       .sp-panel:hover .sp-cta {
         opacity: 1;
@@ -413,19 +416,19 @@
 
       .sp-text.heavy {
         font-family: var(--fh);
-        font-size: 118px;
+        font-size: clamp(64px, 8vw, 118px);
         font-weight: 900;
         text-transform: uppercase;
         letter-spacing: -3px;
       }
       .sp-text.sans {
         font-family: var(--fk);
-        font-size: 100px;
+        font-size: clamp(56px, 7vw, 100px);
         font-weight: 400;
       }
       .sp-text.italic {
         font-family: var(--fk);
-        font-size: 106px;
+        font-size: clamp(60px, 8vw, 106px);
         font-style: italic;
         font-weight: 300;
       }
@@ -455,6 +458,89 @@
         }
         .sp-text.italic {
           font-size: 80px;
+        }
+      }
+      @media (max-width: 768px) {
+        .sp-panel {
+          height: 130px;
+        }
+        .sp-panel:hover {
+          height: 170px;
+        }
+        .sp-left {
+          width: 190px;
+          padding: 0 20px 0 24px;
+        }
+        .sp-name {
+          font-size: 17px;
+        }
+        .sp-price {
+          font-size: 16px;
+        }
+        .sp-text.heavy {
+          font-size: 76px;
+        }
+        .sp-text.sans {
+          font-size: 68px;
+        }
+        .sp-text.italic {
+          font-size: 72px;
+        }
+      }
+      @media (max-width: 720px) {
+        .sp-panel {
+          height: 125px;
+        }
+        .sp-panel:hover {
+          height: 165px;
+        }
+        .sp-left {
+          width: 180px;
+          padding: 0 18px 0 22px;
+        }
+        .sp-name {
+          font-size: 16px;
+        }
+        .sp-price {
+          font-size: 15px;
+        }
+        .sp-text.heavy {
+          font-size: 72px;
+        }
+        .sp-text.sans {
+          font-size: 64px;
+        }
+        .sp-text.italic {
+          font-size: 68px;
+        }
+        .bh-wrap {
+          width: 550px;
+          height: 550px;
+        }
+        .bh-disk-1 {
+          width: 238px;
+          height: 60px;
+          margin: -30px 0 0 -119px;
+        }
+        .bh-disk-2 {
+          width: 340px;
+          height: 85px;
+          margin: -42px 0 0 -170px;
+        }
+        .bh-disk-3 {
+          width: 440px;
+          height: 110px;
+          margin: -55px 0 0 -220px;
+        }
+        .bh-photon-ring {
+          width: 160px;
+          height: 160px;
+          margin: -80px 0 0 -80px;
+        }
+        .bh-void {
+          width: 135px;
+          height: 135px;
+          margin: -67px 0 0 -67px;
         }
       }
       @media (max-width: 600px) {
@@ -724,7 +810,7 @@
           0 0 40px rgba(229, 44, 103, 0.4);
       }
       .bh-void-sub {
-        font-size: 11px;
+        font-size: 12px;
         color: rgba(255, 255, 255, 0.55);
         letter-spacing: 1.5px;
         margin-top: 5px;
@@ -836,14 +922,14 @@
         display: block;
       }
       .bh-node-desc {
-        font-size: 9.5px;
+        font-size: 11px;
         color: var(--gray);
         line-height: 1.6;
         margin-bottom: 10px;
       }
       .bh-node-btn {
         display: inline-block;
-        font-size: 10px;
+        font-size: 11px;
         color: var(--gold);
         border: 1px solid rgba(229, 44, 103, 0.35);
         border-radius: 20px;
@@ -901,6 +987,57 @@
         }
         .bh-node-name {
           font-size: 13px;
+        }
+      }
+      @media (max-width: 768px) {
+        .bh-wrap {
+          width: 580px;
+          height: 580px;
+        }
+        .bh-disk-1 {
+          width: 248px;
+          height: 62px;
+          margin: -31px 0 0 -124px;
+        }
+        .bh-disk-2 {
+          width: 360px;
+          height: 90px;
+          margin: -45px 0 0 -180px;
+        }
+        .bh-disk-3 {
+          width: 460px;
+          height: 115px;
+          margin: -57px 0 0 -230px;
+        }
+        .bh-photon-ring {
+          width: 168px;
+          height: 168px;
+          margin: -84px 0 0 -84px;
+        }
+        .bh-void {
+          width: 140px;
+          height: 140px;
+          margin: -70px 0 0 -70px;
+        }
+        .bh-void-logo {
+          font-size: 28px;
+        }
+        .bh-node {
+          width: 125px;
+          padding: 15px 11px 13px;
+          border-radius: 17px;
+        }
+        .bh-node-icon {
+          font-size: 24px;
+        }
+        .bh-node-name {
+          font-size: 14px;
+        }
+        .bh-node-desc {
+          font-size: 10px;
+        }
+        .bh-node-btn {
+          font-size: 11px;
         }
       }
       @media (max-width: 640px) {
@@ -1313,6 +1450,30 @@
         box-shadow:
           0 16px 64px rgba(0, 0, 0, 0.6),
           inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      /* Form Messages */
+      .form-message {
+        padding: 16px 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        font-family: var(--fk);
+        font-size: 14px;
+        line-height: 1.4;
+        text-align: center;
+      }
+      .form-message.success {
+        background: rgba(46, 125, 50, 0.1);
+        border: 1px solid rgba(46, 125, 50, 0.3);
+        color: #81c784;
+      }
+      .form-message.error {
+        background: rgba(211, 47, 47, 0.1);
+        border: 1px solid rgba(211, 47, 47, 0.3);
+        color: #ef5350;
+      }
+      .form-message i {
+        margin-right: 8px;
       }
     </style>
   </head>
@@ -2154,13 +2315,23 @@
 
         <div class="video-grid reveal">
           <!-- Video 1 -->
-          <a href="#" class="video-card">
+          <a
+            href="https://www.youtube.com/watch?v=WZhRKNMt8p0"
+            target="_blank"
+            class="video-card"
+          >
             <div class="video-thumb">
               <!-- ដូររូបភាព Cover YouTube ទីនេះ -->
               <img
-                src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=75&w=1200&auto=format&fit=crop"
                 alt="YouTube Thumbnail"
                 loading="lazy"
+                decoding="async"
+                srcset="
+                  https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=75&w=640&auto=format&fit=crop   640w,
+                  https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=75&w=1200&auto=format&fit=crop 1200w
+                "
+                sizes="(max-width: 640px) 100vw, 90vw"
               />
               <i class="fas fa-play-circle play-btn-overlay"></i>
               <span class="video-duration">12:45</span>
@@ -2181,12 +2352,22 @@
           </a>
 
           <!-- Video 2 -->
-          <a href="#" class="video-card">
+          <a
+            href="https://www.youtube.com/watch?v=4CUQRAj6wGA"
+            target="_blank"
+            class="video-card"
+          >
             <div class="video-thumb">
               <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=1200&auto=format&fit=crop"
                 alt="YouTube Thumbnail"
                 loading="lazy"
+                decoding="async"
+                srcset="
+                  https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=640&auto=format&fit=crop   640w,
+                  https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=1200&auto=format&fit=crop 1200w
+                "
+                sizes="(max-width: 640px) 100vw, 90vw"
               />
               <i class="fas fa-play-circle play-btn-overlay"></i>
               <span class="video-duration">08:20</span>
@@ -2207,12 +2388,22 @@
           </a>
 
           <!-- Video 3 -->
-          <a href="#" class="video-card">
+          <a
+            href="https://www.youtube.com/watch?v=h2kyBly32JY"
+            target="_blank"
+            class="video-card"
+          >
             <div class="video-thumb">
               <img
-                src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=2000&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=75&w=1200&auto=format&fit=crop"
                 alt="YouTube Thumbnail"
                 loading="lazy"
+                decoding="async"
+                srcset="
+                  https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=75&w=640&auto=format&fit=crop   640w,
+                  https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=75&w=1200&auto=format&fit=crop 1200w
+                "
+                sizes="(max-width: 640px) 100vw, 90vw"
               />
               <i class="fas fa-play-circle play-btn-overlay"></i>
               <span class="video-duration">15:10</span>
@@ -2501,13 +2692,35 @@
                 name="contact"
                 method="POST"
                 data-netlify="true"
+                data-netlify-honeypot="bot-field"
               >
+                <div data-netlify-recaptcha="true"></div>
+                <input type="hidden" name="form-name" value="contact" />
                 <input
                   type="hidden"
                   name="service"
                   id="serviceInput"
                   value="AI Training"
                 />
+
+                <!-- Success/Error Messages -->
+                <div
+                  id="contact-success"
+                  class="form-message success"
+                  style="display: none"
+                >
+                  <i class="fas fa-check-circle"></i>
+                  អរគុណ! សាររបស់អ្នកបានផ្ញើដោយជោគជ័យ ✅<br />
+                  <small>យើងនឹងទាក់ទងអ្នកក្នុងរយៈពេល 2-4 ម៉ោង</small>
+                </div>
+                <div
+                  id="contact-error"
+                  class="form-message error"
+                  style="display: none"
+                >
+                  <i class="fas fa-exclamation-triangle"></i>
+                  មានបញ្ហា! សូមព្យាយាមម្ដងទៀត ឬទាក់ទងយើងតាម Telegram
+                </div>
 
                 <div class="cf-row">
                   <div class="cf-field">
@@ -2555,6 +2768,37 @@
 
     <!-- ══ MEGA FOOTER ══ -->
     <div id="footer-placeholder"></div>
+
+    <!-- Page-specific inline <script> blocks go BEFORE load-components, never after -->
+    <script>
+      // Contact Form Handling
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.querySelector(".cf-form");
+        const successMsg = document.getElementById("contact-success");
+        const errorMsg = document.getElementById("contact-error");
+
+        if (contactForm) {
+          contactForm.addEventListener("submit", function (e) {
+            // Hide any existing messages
+            successMsg.style.display = "none";
+            errorMsg.style.display = "none";
+
+            // Show success message (Netlify will handle the actual submission)
+            setTimeout(function () {
+              successMsg.style.display = "block";
+              contactForm.reset();
+              // Scroll to message
+              successMsg.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            }, 1000);
+          });
+        }
+      });
+    </script>
+    <script src="js/load-components.js"></script>
+    <script src="js/main.js" defer></script>
 
     <!-- Float Contact Buttons -->
     <div class="float-contact">

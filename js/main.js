@@ -25,8 +25,15 @@ if (hamburger && mobileDrawer && drawerClose) {
     hamburger.classList.contains("open") ? closeDrawer() : openDrawer(),
   );
   drawerClose.addEventListener("click", closeDrawer);
+  // Backdrop click to close (click on drawer background)
   mobileDrawer.addEventListener("click", (e) => {
     if (e.target === mobileDrawer) closeDrawer();
+  });
+  // ESC key to close drawer
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mobileDrawer.classList.contains("open")) {
+      closeDrawer();
+    }
   });
 }
 

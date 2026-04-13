@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="km">
   <head>
     <meta charset="UTF-8" />
@@ -60,7 +60,7 @@
       defer
     ></script>
     <!-- Shared styles from main site -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.min.css" />
 
     <style>
       /* ═══════════════════════════════════
@@ -69,7 +69,7 @@
 
       /* Page hero */
       .fonts-hero {
-        padding: 140px 0 80px;
+        padding: clamp(70px, 8vw, 140px) 0 clamp(40px, 6vw, 80px);
         text-align: center;
         position: relative;
         overflow: hidden;
@@ -412,7 +412,7 @@
 
       /* Bundle section */
       .bundle-section {
-        padding: 80px 0;
+        padding: clamp(40px, 10vw, 80px) 0;
       }
       .bundle-card {
         background: linear-gradient(
@@ -536,7 +536,7 @@
 
       /* License table */
       .license-section {
-        padding: 60px 0 80px;
+        padding: clamp(40px, 8vw, 60px) 0 clamp(50px, 10vw, 80px);
       }
       .license-grid {
         display: grid;
@@ -602,7 +602,7 @@
 
       /* FAQ */
       .faq-section {
-        padding: 60px 0 80px;
+        padding: clamp(40px, 8vw, 60px) 0 clamp(50px, 10vw, 80px);
       }
       .faq-item {
         background: rgba(255, 255, 255, 0.03);
@@ -657,7 +657,15 @@
           grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
         }
       }
+      @media (max-width: 720px) {
+        .fonts-hero {
+          padding: clamp(60px, 8vw, 120px) 0 clamp(35px, 6vw, 70px);
+        }
+      }
       @media (max-width: 600px) {
+        .fonts-hero {
+          padding: clamp(50px, 7vw, 100px) 0 clamp(30px, 5vw, 60px);
+        }
         .fonts-grid {
           grid-template-columns: 1fr;
         }

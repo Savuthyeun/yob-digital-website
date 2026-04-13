@@ -44,7 +44,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  cursor: none;
 }
 html {
   scroll-behavior: smooth;
@@ -106,7 +105,7 @@ button,
 input,
 textarea {
   cursor: none;
-}
+} /* Interactive elements use default cursor on non-JS environments */
 /* ✅ FIX: Remove double underline on all links */
 a {
   text-decoration: none !important;
@@ -468,7 +467,7 @@ nav {
   text-align: left;
   max-width: var(--max);
   margin: 0 auto;
-  padding: 100px 0;
+  padding: clamp(40px, 10vw, 100px) 0;
   position: relative;
   z-index: 5;
 }
@@ -772,7 +771,7 @@ nav {
        TYPOGRAPHY STORE (FULL GRID SHOP)
       ═══════════════════════════════════════ */
 #typography {
-  padding: 120px 0;
+  padding: clamp(40px, 10vw, 120px) 0;
   background: var(--dark);
   border-top: 1px solid var(--border);
   position: relative;
@@ -1050,7 +1049,7 @@ nav {
        PORTFOLIO / CASE STUDIES
       ═══════════════════════════════════════ */
 #portfolio {
-  padding: 100px 0;
+  padding: clamp(40px, 10vw, 100px) 0;
   background: transparent;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -1623,7 +1622,7 @@ nav {
        VIDEO TUTORIALS
       ═══════════════════════════════════════ */
 #videos {
-  padding: 100px 0;
+  padding: clamp(40px, 10vw, 100px) 0;
   background: var(--dark);
   border-top: 1px solid var(--border);
 }
@@ -1736,7 +1735,7 @@ nav {
        FREE RESOURCES (LEAD MAGNET)
       ═══════════════════════════════════════ */
 #resources {
-  padding: 100px 0;
+  padding: clamp(40px, 10vw, 100px) 0;
   background: transparent;
   position: relative;
 }
@@ -1751,6 +1750,12 @@ nav {
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   transition: border-color var(--smooth);
+}
+
+@media (max-width: 768px) {
+  .resource-box {
+    grid-template-columns: 1fr;
+  }
 }
 .resource-box:hover {
   border-color: var(--gold);
@@ -1881,30 +1886,55 @@ nav {
   flex: 1;
   background: var(--dark);
   border: 1px solid var(--border);
-  padding: 14px 20px;
+  padding: 16px 20px;
   border-radius: 12px;
   color: var(--white);
   font-family: var(--fk);
+  font-size: 16px;
+  min-height: 48px;
   transition: all var(--t);
+  -webkit-appearance: none;
+  appearance: none;
 }
 .lead-input:focus {
   outline: none;
   border-color: var(--gold);
   background: var(--dark2);
 }
+
+@media (max-width: 768px) {
+  .lead-input {
+    min-height: 44px;
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .lead-input {
+    min-height: 40px;
+    padding: 12px 14px;
+    font-size: 16px;
+  }
+}
 .lead-btn {
   background: var(--white);
   color: var(--dark);
   font-weight: 700;
   font-family: var(--fk);
-  padding: 14px 24px;
+  font-size: 16px;
+  padding: 16px 24px;
   border-radius: 12px;
   border: none;
+  min-height: 48px;
   transition: all var(--t);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
 }
 .lead-btn:hover {
   background: var(--gold);
@@ -1912,12 +1942,15 @@ nav {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(229, 44, 103, 0.4);
 }
+.lead-btn:active {
+  transform: translateY(0);
+}
 
 /* ═══════════════════════════════════════
        ABOUT
       ═══════════════════════════════════════ */
 #about {
-  padding: 100px 0;
+  padding: clamp(40px, 10vw, 100px) 0;
   background: transparent;
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -1928,6 +1961,13 @@ nav {
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 .about-image {
@@ -1955,6 +1995,24 @@ nav {
 .about-image:hover::after {
   inset: -10px;
   border-style: solid;
+}
+
+@media (max-width: 768px) {
+  .about-image::after {
+    inset: -15px;
+  }
+  .about-image:hover::after {
+    inset: -10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-image::after {
+    inset: -10px;
+  }
+  .about-image:hover::after {
+    inset: -8px;
+  }
 }
 
 .about-content h2 {
@@ -2001,7 +2059,18 @@ nav {
        CONTACT — Split Layout
       ═══════════════════════════════════════ */
 #contact {
-  padding: 100px 0;
+  padding: clamp(40px, 10vw, 100px) 0;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .contact-left {
+    position: static !important;
+    top: auto !important;
+  }
 }
 .contact-grid {
   display: grid;
@@ -2226,20 +2295,23 @@ nav {
   background: var(--dark);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 22px 16px 8px;
+  padding: 24px 18px 10px;
   color: var(--white);
   font-family: var(--fk);
-  font-size: 15px;
+  font-size: 16px;
+  min-height: 48px;
   transition:
     border-color var(--t),
     box-shadow var(--t),
     background var(--t);
   box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
 }
 .cf-textarea {
-  min-height: 130px;
+  min-height: 150px;
   resize: vertical;
-  padding-top: 26px;
+  padding-top: 28px;
 }
 .cf-input:focus,
 .cf-textarea:focus {
@@ -2273,7 +2345,8 @@ nav {
 /* Submit button */
 .cf-submit {
   width: 100%;
-  padding: 16px;
+  padding: 18px;
+  min-height: 48px;
   border-radius: 12px;
   border: none;
   background: linear-gradient(135deg, var(--gold) 0%, #c0254e 100%);
@@ -2292,6 +2365,8 @@ nav {
     opacity var(--smooth);
   box-shadow: 0 8px 24px rgba(229, 44, 103, 0.3);
   margin-top: 4px;
+  -webkit-appearance: none;
+  appearance: none;
 }
 .cf-submit:hover {
   transform: translateY(-2px);
@@ -2652,6 +2727,122 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+}
+
+/* ═══════════════════════════════════════
+       MOBILE UX — Ultra-Small Screens (≤480px)
+═══════════════════════════════════════ */
+@media (max-width: 480px) {
+  /* Increase padding for all forms */
+  .lead-form,
+  .cf-form {
+    gap: 18px;
+  }
+  .lead-form-row {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .cf-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  /* Hero section spacing on tiny screens */
+  .hero-container {
+    padding: 60px 0;
+  }
+  .hero-sub {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  .hero-actions {
+    gap: 12px;
+  }
+  .btn-primary,
+  .btn-outline {
+    font-size: 14px;
+    padding: 14px 28px;
+    min-height: 44px;
+  }
+
+  /* Reduce padding in sections for mobile */
+  section {
+    padding: 60px 0 !important;
+  }
+  .container {
+    padding: 0 4% !important;
+  }
+
+  /* Ensure touch targets on all buttons */
+  button,
+  a[class*="btn"],
+  input[type="submit"],
+  input[type="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Improve form spacing */
+  .lead-input,
+  .cf-input,
+  .cf-textarea,
+  .lead-btn,
+  .cf-submit {
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  /* Drawer optimization */
+  .mobile-drawer {
+    gap: 12px;
+  }
+  .mobile-drawer a {
+    font-size: clamp(24px, 6vw, 32px);
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Reduce section gaps */
+  .tracks-grid,
+  .portfolio-grid,
+  .video-grid,
+  .pricing-grid {
+    gap: 20px;
+  }
+
+  /* Contact section optimization */
+  .contact-channel {
+    min-height: 50px;
+  }
+
+  /* Slider/card padding reduction */
+  .track-card,
+  .portfolio-card,
+  .video-card,
+  .f-card {
+    padding: 20px;
+  }
+
+  /* Fix overflow on very small screens */
+  .type-banner {
+    padding: 24px;
+  }
+
+  /* Testimonial cards */
+  .testi-card {
+    padding: 24px 20px;
+  }
+
+  /* Landscape mode handling */
+  @media (max-height: 500px) {
+    section {
+      padding: 40px 0 !important;
+    }
+    .hero-container {
+      padding: 40px 0;
+    }
   }
 }
 
