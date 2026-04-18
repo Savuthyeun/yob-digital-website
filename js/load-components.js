@@ -99,7 +99,7 @@
         </div>
       </div>
       <a href="https://t.me/yobdigital" target="_blank" rel="noopener" class="footer-sub-btn">
-        Join Free <i class="fas fa-arrow-right"></i>
+        ចូលរួមឥតគិតថ្លៃ <i class="fas fa-arrow-right"></i>
       </a>
     </div>
     <div class="footer-bottom">
