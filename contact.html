@@ -544,7 +544,7 @@
       </div>
     </div>
     <a href="about.html" onclick="closeDrawer()">About YOB</a>
-    <a href="contact.html" onclick="closeDrawer()" class="d-cta">សាកសួរ</a>
+    <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">សាកសួរ</a>
   </div>
 
   <!-- ══ PAGE ══ -->
@@ -617,8 +617,15 @@
         </div>
 
         <!-- Form -->
-        <form id="ctForm" name="contact" method="POST" data-netlify="true">
+        <form
+          id="ctForm"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
           <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="bot-field" />
 
           <!-- Service selector -->
           <div style="margin-bottom:32px;">
@@ -676,6 +683,7 @@
 
   </div><!-- /.ct-page -->
 
+  <script src="js/form-utils.js"></script>
   <script>
     // ─── Starfield ───────────────────────────────
     (function() {
@@ -694,6 +702,10 @@
         }));
       }
       function draw() {
+        if (document.hidden) {
+          requestAnimationFrame(draw);
+          return;
+        }
         ctx.clearRect(0, 0, W, H);
         stars.forEach(s => {
           s.a = Math.max(0.05, Math.min(1, s.a + s.da));
@@ -710,16 +722,28 @@
     })();
 
     // ─── Service chip selector ─────────────────
-    document.querySelectorAll('.ct-svc-chip').forEach(chip => {
+    const ctServiceChips = Array.from(document.querySelectorAll('.ct-svc-chip'));
+    const ctServiceInput = document.getElementById('ctSvcInput');
+
+    ctServiceChips.forEach((chip) => {
       chip.addEventListener('click', function() {
-        document.querySelectorAll('.ct-svc-chip').forEach(c => c.classList.remove('active'));
+        ctServiceChips.forEach((c) => c.classList.remove('active'));
         this.classList.add('active');
-        document.getElementById('ctSvcInput').value = this.dataset.svc;
+        ctServiceInput.value = this.dataset.svc;
       });
     });
 
+    // Ensure a deterministic default for analytics/submissions
+    if (ctServiceInput && !ctServiceInput.value.trim()) {
+      const preferred = ctServiceChips.find((chip) => chip.classList.contains('active')) || ctServiceChips[0];
+      if (preferred) {
+        preferred.classList.add('active');
+        ctServiceInput.value = preferred.dataset.svc || 'Other';
+      }
+    }
+
     // ─── Form submit — Photon Blast ────────────
-    document.getElementById('ctForm').addEventListener('submit', function(e) {
+    document.getElementById('ctForm').addEventListener('submit', async function(e) {
       e.preventDefault();
 
       const btn     = document.getElementById('ctSubmitBtn');
@@ -727,17 +751,31 @@
       const success = document.getElementById('ctSuccess');
       const terminal = document.getElementById('ctTerminal');
 
+      if (btn.disabled) return;
+
       // 1. Button → Transmitting
+      btn.disabled = true;
       btn.classList.add('transmitting');
       btn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right:10px;"></i>TRANSMITTING...';
 
       // 2. Submit to Netlify
-      const formData = new FormData(this);
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-      }).catch(() => {}); // Silent fail — show success regardless on static site
+      try {
+        await window.YOBFormUtils.submitNetlifyForm(this);
+        window.YOBFormUtils.track('form_submit_success', {
+          form: 'contact_page',
+          service: ctServiceInput.value || 'Other'
+        });
+      } catch (error) {
+        btn.disabled = false;
+        btn.classList.remove('transmitting');
+        btn.innerHTML = '<i class="fas fa-satellite-dish" style="margin-right:10px;"></i>TRANSMIT SIGNAL';
+        window.YOBFormUtils.track('form_submit_error', {
+          form: 'contact_page',
+          reason: 'network_or_server'
+        });
+        alert('Submission failed. Please try again or contact us via Telegram.');
+        return;
+      }
 
       // 3. After 1.5s — photon flash + success
       setTimeout(() => {
@@ -756,9 +794,16 @@
     document.getElementById('ctReturnBtn').addEventListener('click', function() {
       document.getElementById('ctSuccess').classList.remove('active');
       document.getElementById('ctForm').reset();
-      document.querySelectorAll('.ct-svc-chip').forEach(c => c.classList.remove('active'));
-      document.getElementById('ctSvcInput').value = '';
+      ctServiceChips.forEach(c => c.classList.remove('active'));
       const btn = document.getElementById('ctSubmitBtn');
+      const firstChip = ctServiceChips[0];
+      if (firstChip) {
+        firstChip.classList.add('active');
+        ctServiceInput.value = firstChip.dataset.svc || 'Other';
+      } else {
+        ctServiceInput.value = 'Other';
+      }
+      btn.disabled = false;
       btn.classList.remove('transmitting');
       btn.innerHTML = '<i class="fas fa-satellite-dish" style="margin-right:10px;"></i>TRANSMIT SIGNAL';
     });

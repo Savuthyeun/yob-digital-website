@@ -344,8 +344,25 @@
       យើងកំពុងលត់ដុំដែក និងតំឡើងប្រព័ន្ធ ដើម្បីនាំយក<strong>អាវុធឌីជីថលថ្មី</strong>មកកាន់អ្នកឆាប់ៗនេះ។
     </p>
 
-    <form class="uc-form" id="radarForm">
-      <input type="email" class="uc-input" placeholder="Email — Lock Radar Signal..." required aria-label="Email address" />
+    <form
+      class="uc-form"
+      id="radarForm"
+      name="radar-waitlist"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="radar-waitlist" />
+      <input type="hidden" name="bot-field" />
+      <input
+        type="email"
+        name="email"
+        class="uc-input"
+        placeholder="Email — Lock Radar Signal..."
+        required
+        aria-label="Email address"
+        autocomplete="email"
+      />
       <button type="submit" class="uc-btn">Lock Radar</button>
     </form>
 
@@ -359,11 +376,35 @@
 
   </main>
 
+  <script src="js/form-utils.js"></script>
   <script>
-  document.getElementById('radarForm').addEventListener('submit', function(e) {
+  document.getElementById('radarForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    this.style.display = 'none';
-    document.getElementById('radarSuccess').classList.add('show');
+    const form = this;
+    const submitBtn = form.querySelector('.uc-btn');
+    const originalText = submitBtn.textContent;
+
+    if (submitBtn.disabled) return;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Locking...';
+
+    try {
+      await window.YOBFormUtils.submitNetlifyForm(form);
+      window.YOBFormUtils.track('form_submit_success', {
+        form: 'under_construction_waitlist'
+      });
+
+      form.style.display = 'none';
+      document.getElementById('radarSuccess').classList.add('show');
+    } catch (error) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+      window.YOBFormUtils.track('form_submit_error', {
+        form: 'under_construction_waitlist',
+        reason: 'network_or_server'
+      });
+      alert('Submission failed. Please try again later.');
+    }
   });
   </script>
   <script src="js/load-components.js"></script>

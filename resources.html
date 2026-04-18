@@ -1165,21 +1165,36 @@
           បំពេញ Form ខាងក្រោម — ឯកសារ​នឹង​ផ្ញើ​ទៅ Telegram អ្នក​ភ្លាមៗ
           <strong>ដោយ​ឥតគិតថ្លៃ</strong>។
         </div>
-        <form class="dl-form" onsubmit="handleDownload(event)">
+        <form
+          class="dl-form"
+          name="resource-download"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onsubmit="handleDownload(event)"
+        >
+          <input type="hidden" name="form-name" value="resource-download" />
+          <input type="hidden" name="bot-field" />
+          <input type="hidden" name="resource" id="dlResourceName" value="" />
           <input
             type="text"
+            name="name"
             class="dl-input"
             placeholder="ឈ្មោះ​របស់​អ្នក *"
+            autocomplete="name"
             required
           />
           <input
             type="text"
+            name="telegram"
             class="dl-input"
             placeholder="លេខ Telegram (ឧ. 012 345 678) *"
+            autocomplete="tel"
             required
           />
           <input
             type="text"
+            name="business_type"
             class="dl-input"
             placeholder="ប្រភេទ Business (Optional)"
           />
@@ -1205,6 +1220,7 @@
       <i class="fas fa-chevron-up"></i>
     </button>
 
+    <script src="js/form-utils.js"></script>
     <script>
       // ── Filter Logic ──
       const filterBtns = document.querySelectorAll(".res-filter-btn");
@@ -1226,6 +1242,7 @@
       function openModal(title, icon) {
         document.getElementById("modalTitle").textContent = title;
         document.getElementById("modalIcon").className = icon;
+        document.getElementById("dlResourceName").value = title;
         document.getElementById("dlModal").classList.add("open");
         document.body.style.overflow = "hidden";
       }
@@ -1233,12 +1250,41 @@
         document.getElementById("dlModal").classList.remove("open");
         document.body.style.overflow = "";
       }
-      function handleDownload(e) {
+      async function handleDownload(e) {
         e.preventDefault();
-        closeModal();
-        setTimeout(() => {
-          alert("អរគុណ! ឯកសារ​នឹង​ផ្ញើ​ទៅ Telegram​ក្នុង​រយៈ​ពេល ២–៥ នាទី។ ✅");
-        }, 200);
+        const form = e.target;
+        const submitBtn = form.querySelector(".dl-submit");
+        const originalBtn = submitBtn ? submitBtn.innerHTML : "";
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> កំពុងបញ្ជូន...';
+        }
+
+        try {
+          await window.YOBFormUtils.submitNetlifyForm(form);
+          window.YOBFormUtils.track("form_submit_success", {
+            form: "resources_download",
+            resource: document.getElementById("dlResourceName").value || "unknown",
+          });
+
+          closeModal();
+          form.reset();
+          setTimeout(() => {
+            alert("អរគុណ! ឯកសារ​នឹង​ផ្ញើ​ទៅ Telegram​ក្នុង​រយៈ​ពេល ២–៥ នាទី។ ✅");
+          }, 200);
+        } catch (err) {
+          window.YOBFormUtils.track("form_submit_error", {
+            form: "resources_download",
+            reason: "network_or_server",
+          });
+          alert("សូមអភ័យទោស មានបញ្ហាបច្ចេកទេស។ សូមសាកម្តងទៀត។");
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtn;
+          }
+        }
       }
       // Close modal on backdrop click
       document

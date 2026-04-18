@@ -2482,24 +2482,28 @@
             </ul>
             <form
               class="lead-form"
-              onsubmit="
-                event.preventDefault();
-                alert(
-                  'អរគុណ! ឯកសារ​នឹង​ផ្ញើ​ទៅ Telegram​ក្នុង​រយៈ​ពេល ២–៥ នាទី ✅',
-                );
-              "
+              name="lead-magnet"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
             >
+              <input type="hidden" name="form-name" value="lead-magnet" />
+              <input type="hidden" name="bot-field" />
               <div class="lead-form-row">
                 <input
                   type="text"
+                  name="name"
                   class="lead-input"
                   placeholder="ឈ្មោះ​របស់​អ្នក"
+                  autocomplete="name"
                   required
                 />
                 <input
                   type="text"
+                  name="telegram"
                   class="lead-input"
                   placeholder="លេខ Telegram"
+                  autocomplete="tel"
                   required
                 />
               </div>
@@ -2770,35 +2774,83 @@
     <div id="footer-placeholder"></div>
 
     <!-- Page-specific inline <script> blocks go BEFORE load-components, never after -->
+    <script src="js/form-utils.js"></script>
     <script>
-      // Contact Form Handling
       document.addEventListener("DOMContentLoaded", function () {
         const contactForm = document.querySelector(".cf-form");
         const successMsg = document.getElementById("contact-success");
         const errorMsg = document.getElementById("contact-error");
+        const serviceInput = document.getElementById("serviceInput");
+        const serviceChips = document.querySelectorAll(".svc-chip");
+        const leadForm = document.querySelector(".lead-form");
+
+        serviceChips.forEach(function (chip) {
+          chip.addEventListener("click", function () {
+            serviceChips.forEach(function (c) {
+              c.classList.remove("active");
+            });
+            chip.classList.add("active");
+            if (serviceInput) {
+              serviceInput.value = chip.dataset.value || "AI Training";
+            }
+            window.YOBFormUtils.track("service_chip_selected", {
+              form: "home_contact",
+              service: serviceInput ? serviceInput.value : "AI Training",
+            });
+          });
+        });
 
         if (contactForm) {
-          contactForm.addEventListener("submit", function (e) {
-            // Hide any existing messages
+          contactForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
             successMsg.style.display = "none";
             errorMsg.style.display = "none";
 
-            // Show success message (Netlify will handle the actual submission)
-            setTimeout(function () {
+            try {
+              await window.YOBFormUtils.submitNetlifyForm(contactForm);
               successMsg.style.display = "block";
               contactForm.reset();
-              // Scroll to message
-              successMsg.scrollIntoView({
-                behavior: "smooth",
-                block: "center",
+              if (serviceInput) {
+                serviceInput.value = "AI Training";
+              }
+              serviceChips.forEach(function (c, index) {
+                c.classList.toggle("active", index === 0);
               });
-            }, 1000);
+              window.YOBFormUtils.track("form_submit_success", {
+                form: "home_contact",
+              });
+              successMsg.scrollIntoView({ behavior: "smooth", block: "center" });
+            } catch (err) {
+              errorMsg.style.display = "block";
+              window.YOBFormUtils.track("form_submit_error", {
+                form: "home_contact",
+                reason: "network_or_server",
+              });
+            }
+          });
+        }
+
+        if (leadForm) {
+          leadForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            try {
+              await window.YOBFormUtils.submitNetlifyForm(leadForm);
+              leadForm.reset();
+              window.YOBFormUtils.track("form_submit_success", {
+                form: "home_lead_magnet",
+              });
+              alert("អរគុណ! ឯកសារ​នឹង​ផ្ញើ​ទៅ Telegram​ក្នុង​រយៈ​ពេល ២–៥ នាទី ✅");
+            } catch (err) {
+              window.YOBFormUtils.track("form_submit_error", {
+                form: "home_lead_magnet",
+                reason: "network_or_server",
+              });
+              alert("សូមអភ័យទោស មានបញ្ហាបច្ចេកទេស។ សូមសាកម្តងទៀត។");
+            }
           });
         }
       });
     </script>
-    <script src="js/load-components.js"></script>
-    <script src="js/main.js" defer></script>
 
     <!-- Float Contact Buttons -->
     <div class="float-contact">
@@ -2831,9 +2883,6 @@
         <i class="fas fa-times"></i>
       </button>
     </div>
-
-    <script src="js/load-components.js"></script>
-    <script src="js/main.js" defer></script>
 
     <!-- Moon JARVIS Audio -->
     <script>
@@ -3056,6 +3105,10 @@
 
         var t = 0;
         function tick() {
+          if (document.hidden) {
+            requestAnimationFrame(tick);
+            return;
+          }
           ctx.clearRect(0, 0, canvas.width, canvas.height);
           t += 0.012;
           for (var i = 0; i < stars.length; i++) {
@@ -3127,6 +3180,10 @@
         for (var i = 0; i < NUM; i++) particles.push(mkParticle(true));
 
         function tick() {
+          if (document.hidden) {
+            requestAnimationFrame(tick);
+            return;
+          }
           dims();
           ctx.clearRect(0, 0, W, H);
 
@@ -3157,5 +3214,7 @@
         tick();
       })();
     </script>
+    <script src="js/load-components.js"></script>
+    <script src="js/main.js" defer></script>
   </body>
 </html>

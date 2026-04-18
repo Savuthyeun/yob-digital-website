@@ -4077,20 +4077,22 @@
       <!-- Content: 5 elements — clean hierarchy -->
       <div class="container">
         <!-- 1. Eyebrow -->
-        <span class="cosmic-status reveal">📡 SECTOR · CAMBODIA · ACTIVE</span>
+        <span class="cosmic-status reveal"
+          >📡 មូលដ្ឋាន · កម្ពុជា · ប្រតិបត្តិការ</span
+        >
 
         <!-- 2. Headline -->
         <h1 class="g-h1 reveal">
-          GROW WITH
-          <span class="g-accent">YOB DIGITAL</span>
+          ដាស់សមត្ថភាព
+          <span class="g-accent">ជាមួយ ឌីជីថល </span>
         </h1>
 
         <!-- 3. Lead -->
         <p class="g-lead reveal">
-          តើអ្នកចង់ឱ្យ<strong>អាជីវកម្ម និងជំនាញ</strong>របស់អ្នក
-          លូតលាស់ទៅផ្លូវណា?<br />
-          យើងនៅទីនេះដើម្បី<strong>ជួយចង្អុលបង្ហាញផ្លូវ</strong> step-by-step
-          ជាភាសាខ្មែរ!
+          អាជីវកម្មនីមួយៗសុទ្ធតែមានសក្ដានុពលដែលមិនទាន់បញ្ចេញអស់។ នៅ YOB Digital
+          យើងមិនត្រឹមតែផ្ដល់បច្ចេកវិទ្យាទេ តែយើងជួយ "ដាស់"
+          គ្រាប់ពូជនៃសមត្ថភាពទាំងនោះ ឱ្យក្លាយជាកម្លាំងចលករឌីជីថលដ៏មានឥទ្ធិពល
+          ដើម្បីរុញច្រានអាជីវកម្មលោកអ្នកឱ្យឈានដល់កម្រិតថ្មីមួយដែលលើសពីការរំពឹងទុក។
         </p>
 
         <!-- Orbit System — planetary rings as visual separator -->
@@ -4103,23 +4105,23 @@
         <div class="g-stats reveal">
           <div class="gs-item">
             <div class="gs-num">50<span>+</span></div>
-            <div class="gs-label">MSMEs Supported</div>
+            <div class="gs-label">គាំទ្រសហគ្រាស</div>
           </div>
           <div class="gs-item">
             <div class="gs-num">1,200<span>+</span></div>
-            <div class="gs-label">Training Hours</div>
+            <div class="gs-label">ម៉ោងផ្ទេរចំណេះដឹង</div>
           </div>
           <div class="gs-item">
             <div class="gs-num">15<span>+</span></div>
-            <div class="gs-label">AI Systems Built</div>
+            <div class="gs-label">ការរៀបចំប្រព័ន្ធ AI</div>
           </div>
           <div class="gs-item">
             <div class="gs-num">100<span>%</span></div>
-            <div class="gs-label">In Khmer Language</div>
+            <div class="gs-label">ជាភាសាខ្មែរ</div>
           </div>
           <div class="gs-item">
             <div class="gs-num free-green">FREE</div>
-            <div class="gs-label">To Start</div>
+            <div class="gs-label">សាកល្បងដោយសេរី</div>
           </div>
         </div>
       </div>
@@ -4129,13 +4131,15 @@
     <section id="who" class="gw-section">
       <div class="container">
         <div class="gw-intro reveal">
-          <span class="gw-tag">YOB ជួយអ្នកណា?</span>
+          <span class="gw-tag"
+            >ដាស់សមត្ថភាពអាជីវកម្ម ជាមួយយុទ្ធសាស្ត្រឌីជីថល</span
+          >
           <h2 class="gw-title">
-            YOB ត្រូវបាន<span class="b-accent">រចនា</span>សម្រាប់អ្នក
+            រចនាឡើងយ៉ាង<span class="b-accent">ពិសេស</span>
           </h2>
           <p class="gw-sub">
-            មិនថាអ្នកជា SME Owner, Creator ឬ Student ទេ — YOB Digital មាន
-            roadmap ត្រឹមត្រូវ ជូនដល់អ្នក។
+            មិនថាអ្នកស្ថិតក្នុងដំណាក់កាលណា ទិសដៅឌីជីថលដ៏ច្បាស់លាស់មួយ
+            ត្រូវបានសម្រាំងទុកជាស្រេចសម្រាប់អ្នក។
           </p>
         </div>
 
@@ -4512,14 +4516,24 @@
           </div>
 
           <!-- Form -->
-          <form id="kree-form" novalidate>
+          <form
+            id="kree-form"
+            name="grow-contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            novalidate
+          >
+            <input type="hidden" name="form-name" value="grow-contact" />
+            <input type="hidden" name="bot-field" />
             <div class="kree-field">
               <label for="kree-name">IDENTIFIER</label>
               <input
                 type="text"
                 id="kree-name"
+                name="name"
                 placeholder="Your Name"
-                autocomplete="off"
+                autocomplete="name"
                 required
               />
             </div>
@@ -4528,8 +4542,9 @@
               <input
                 type="email"
                 id="kree-email"
+                name="contact"
                 placeholder="your@email.com"
-                autocomplete="off"
+                autocomplete="email"
                 required
               />
             </div>
@@ -4537,6 +4552,7 @@
               <label for="kree-msg">TRANSMISSION</label>
               <textarea
                 id="kree-msg"
+                name="message"
                 rows="4"
                 placeholder="Enter your message..."
                 required
@@ -4625,6 +4641,7 @@
     </button>
 
     <!-- ── Kree Terminal: Starfield + Form ── -->
+    <script src="js/form-utils.js"></script>
     <script>
       (function () {
         /* ── Starfield canvas ── */
@@ -4652,6 +4669,7 @@
 
           (function tick(t) {
             requestAnimationFrame(tick);
+            if (document.hidden) return;
             cx.clearRect(0, 0, cv.width, cv.height);
             stars.forEach((s) => {
               s.y += s.speed;
@@ -4672,7 +4690,7 @@
         const success = document.getElementById("transmission-success");
 
         if (form && btn && success) {
-          form.addEventListener("submit", function (e) {
+          form.addEventListener("submit", async function (e) {
             e.preventDefault();
 
             /* Validate */
@@ -4681,29 +4699,42 @@
             const msg = document.getElementById("kree-msg").value.trim();
             if (!name || !email || !msg) return;
 
-            /* Fire animation */
-            btn.classList.add("firing");
+            btn.disabled = true;
 
-            setTimeout(() => {
-              /* Fade form out */
-              form.classList.add("fade-out");
+            try {
+              await window.YOBFormUtils.submitNetlifyForm(form);
+              window.YOBFormUtils.track("form_submit_success", {
+                form: "grow_contact",
+              });
+
+              /* Fire animation */
+              btn.classList.add("firing");
 
               setTimeout(() => {
-                form.style.display = "none";
-                success.style.display = "flex";
-                /* Force reflow then animate in */
-                requestAnimationFrame(() => {
-                  requestAnimationFrame(() => success.classList.add("show"));
-                });
-              }, 500);
-            }, 600);
+                /* Fade form out */
+                form.classList.add("fade-out");
+
+                setTimeout(() => {
+                  form.style.display = "none";
+                  success.style.display = "flex";
+                  /* Force reflow then animate in */
+                  requestAnimationFrame(() => {
+                    requestAnimationFrame(() => success.classList.add("show"));
+                  });
+                }, 500);
+              }, 600);
+            } catch (err) {
+              window.YOBFormUtils.track("form_submit_error", {
+                form: "grow_contact",
+                reason: "network_or_server",
+              });
+              alert("Sorry, submission failed. Please try again or contact us via Telegram.");
+              btn.disabled = false;
+            }
           });
         }
       })();
     </script>
-
-    <script src="js/load-components.js"></script>
-    <script src="js/main.js" defer></script>
 
     <script>
       // Node graph hover — highlight path on node hover
@@ -4812,6 +4843,10 @@
         }
 
         function loop() {
+          if (document.hidden) {
+            requestAnimationFrame(loop);
+            return;
+          }
           const W = cv.width,
             H = cv.height;
 
@@ -4865,5 +4900,7 @@
         onScroll(); // run once on load
       })();
     </script>
+    <script src="js/load-components.js"></script>
+    <script src="js/main.js" defer></script>
   </body>
 </html>
