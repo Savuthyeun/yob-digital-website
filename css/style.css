@@ -75,6 +75,27 @@ p {
   line-height: 1.6;
 }
 
+/* Khmer script needs more vertical space and no forced letter spacing. */
+html[lang="km"] :is(h1, h2, h3, .hero-headline, .section-title, .track-title) {
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+html[lang="km"] :is(.btn-primary, .btn-outline, .nav-links a, .dropdown-menu li a, .nav-dropdown li a) {
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.5;
+}
+
+html[lang="km"] .mobile-drawer a,
+html[lang="km"] .drawer-group-toggle,
+html[lang="km"] .drawer-group-items a {
+  font-family: var(--fb);
+  letter-spacing: 0 !important;
+  text-transform: none;
+  line-height: 1.4;
+}
+
 /* Astro-style: fixed deep space mesh background */
 body::before {
   content: "";
