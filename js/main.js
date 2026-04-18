@@ -8,19 +8,31 @@
 const hamburger = document.getElementById("hamburger");
 const mobileDrawer = document.getElementById("mobileDrawer");
 const drawerClose = document.getElementById("drawerClose");
+let lastFocusedBeforeDrawer = null;
 
 function openDrawer() {
+  lastFocusedBeforeDrawer = document.activeElement;
   if (hamburger) hamburger.classList.add("open");
   if (mobileDrawer) mobileDrawer.classList.add("open");
+  if (hamburger) hamburger.setAttribute("aria-expanded", "true");
+  if (mobileDrawer) mobileDrawer.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
+  if (drawerClose) drawerClose.focus();
 }
 function closeDrawer() {
   if (hamburger) hamburger.classList.remove("open");
   if (mobileDrawer) mobileDrawer.classList.remove("open");
+  if (hamburger) hamburger.setAttribute("aria-expanded", "false");
+  if (mobileDrawer) mobileDrawer.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
+  if (lastFocusedBeforeDrawer && typeof lastFocusedBeforeDrawer.focus === "function") {
+    lastFocusedBeforeDrawer.focus();
+  }
 }
 
 if (hamburger && mobileDrawer && drawerClose) {
+  hamburger.setAttribute("aria-expanded", "false");
+  mobileDrawer.setAttribute("aria-hidden", "true");
   hamburger.addEventListener("click", () =>
     hamburger.classList.contains("open") ? closeDrawer() : openDrawer(),
   );
@@ -39,6 +51,7 @@ if (hamburger && mobileDrawer && drawerClose) {
 
 // ✅ Mobile Drawer Accordion
 document.querySelectorAll(".drawer-group-toggle").forEach((btn) => {
+  btn.setAttribute("aria-expanded", "false");
   btn.addEventListener("click", () => {
     const items = btn.nextElementSibling;
     const isOpen = items.classList.contains("open");
@@ -47,10 +60,14 @@ document.querySelectorAll(".drawer-group-toggle").forEach((btn) => {
       .forEach((el) => el.classList.remove("open"));
     document
       .querySelectorAll(".drawer-group-toggle")
-      .forEach((el) => el.classList.remove("open"));
+      .forEach((el) => {
+        el.classList.remove("open");
+        el.setAttribute("aria-expanded", "false");
+      });
     if (!isOpen) {
       items.classList.add("open");
       btn.classList.add("open");
+      btn.setAttribute("aria-expanded", "true");
     }
   });
 });
@@ -129,6 +146,7 @@ reveals.forEach((el) => observer.observe(el));
 (function () {
   const canvas = document.getElementById("night-canvas");
   if (!canvas) return;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const ctx = canvas.getContext("2d");
   const hero = document.getElementById("hero");
 
@@ -317,31 +335,35 @@ reveals.forEach((el) => observer.observe(el));
       ctx.fill();
     }
 
-    requestAnimationFrame(draw);
+    if (!reduceMotion) requestAnimationFrame(draw);
   }
 
   // Mouse tracking
-  document.addEventListener("mousemove", (e) => {
-    const rect = hero.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-  });
+  if (!reduceMotion) {
+    document.addEventListener("mousemove", (e) => {
+      const rect = hero.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    });
+  }
 
   // Click — shockwave repel nodes
-  hero.addEventListener("click", (e) => {
-    const rect = hero.getBoundingClientRect();
-    const cx = e.clientX - rect.left;
-    const cy = e.clientY - rect.top;
-    nodes.forEach((n) => {
-      const d = Math.hypot(cx - n.x, cy - n.y);
-      if (d < 220) {
-        const f = (1 - d / 220) * 3.5;
-        const a = Math.atan2(n.y - cy, n.x - cx);
-        n.vx += Math.cos(a) * f;
-        n.vy += Math.sin(a) * f;
-      }
+  if (!reduceMotion) {
+    hero.addEventListener("click", (e) => {
+      const rect = hero.getBoundingClientRect();
+      const cx = e.clientX - rect.left;
+      const cy = e.clientY - rect.top;
+      nodes.forEach((n) => {
+        const d = Math.hypot(cx - n.x, cy - n.y);
+        if (d < 220) {
+          const f = (1 - d / 220) * 3.5;
+          const a = Math.atan2(n.y - cy, n.x - cx);
+          n.vx += Math.cos(a) * f;
+          n.vy += Math.sin(a) * f;
+        }
+      });
     });
-  });
+  }
 
   // Resize
   let rTimer;
@@ -351,7 +373,11 @@ reveals.forEach((el) => observer.observe(el));
   });
 
   build();
-  requestAnimationFrame(draw);
+  if (reduceMotion) {
+    draw(0);
+  } else {
+    requestAnimationFrame(draw);
+  }
 })();
 
 // ═══════════════════════════════════════════════

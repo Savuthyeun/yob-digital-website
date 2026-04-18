@@ -509,7 +509,7 @@
       /* Left label block */
       .tele-ch {
         font-family: var(--fb);
-        font-size: 8px;
+        font-size: 10px;
         letter-spacing: 1.5px;
         color: rgba(0, 255, 200, 0.55);
         background: rgba(0, 255, 200, 0.06);
@@ -1273,7 +1273,7 @@
         position: relative;
       }
       .pc-num-label {
-        font-size: 9px;
+        font-size: 10px;
         font-weight: 700;
         letter-spacing: 2px;
         text-transform: uppercase;
@@ -1389,7 +1389,7 @@
       }
 
       .pc-badge {
-        font-size: 9px;
+        font-size: 10px;
         padding: 2px 10px;
         border-radius: 30px;
         font-weight: 700;
@@ -2593,7 +2593,7 @@
       }
       .gw-coord {
         font-family: var(--fb);
-        font-size: 9px;
+        font-size: 10px;
         letter-spacing: 3px;
         color: var(--gold);
         margin-bottom: 6px;
@@ -2694,7 +2694,7 @@
       }
       .gw-who-label {
         font-family: var(--fb);
-        font-size: 9px;
+        font-size: 10px;
         letter-spacing: 3px;
         color: var(--gold);
         text-transform: uppercase;
@@ -2888,7 +2888,7 @@
       }
       .ng-hub-label {
         font-family: var(--fb);
-        font-size: 8px;
+        font-size: 10px;
         letter-spacing: 2.5px;
         color: rgba(79, 130, 255, 0.55);
         text-transform: uppercase;
@@ -2998,7 +2998,7 @@
 
       .ng-signal {
         font-family: var(--fb);
-        font-size: 8px;
+        font-size: 10px;
         letter-spacing: 3px;
         text-transform: uppercase;
         margin-bottom: 4px;
@@ -3727,7 +3727,7 @@
       }
       .kree-field label {
         font-family: var(--fb);
-        font-size: 9px;
+        font-size: 10px;
         letter-spacing: 3px;
         color: rgba(0, 240, 255, 0.55);
       }
@@ -3995,11 +3995,45 @@
 
       /* ── Responsive ── */
       @media (max-width: 640px) {
+        .kree-terminal-section .section-sub {
+          font-size: 15px;
+          line-height: 1.8;
+          max-width: 38ch !important;
+        }
+        .terminal-title {
+          font-size: 10px;
+          letter-spacing: 1.5px;
+        }
         #kree-form {
           padding: 24px 20px 28px;
         }
+        .kree-field label {
+          font-size: 10px;
+          letter-spacing: 2px;
+        }
+        .kree-field input,
+        .kree-field textarea {
+          font-size: 16px;
+          line-height: 1.6;
+        }
+        .photon-btn {
+          min-height: 50px;
+          font-size: 12px;
+          letter-spacing: 2px;
+          padding: 14px 18px;
+        }
+        #kree-error {
+          font-size: 14px !important;
+          line-height: 1.6 !important;
+        }
         .kree-quick {
           flex-wrap: wrap;
+        }
+        .quick-link {
+          width: 100%;
+          justify-content: center;
+          font-size: 14px;
+          padding: 12px 14px;
         }
       }
     </style>
@@ -4563,6 +4597,22 @@
               <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
               <div class="photon-aura"></div>
             </button>
+            <div
+              id="kree-error"
+              style="
+                display: none;
+                margin-top: 12px;
+                border-radius: 10px;
+                border: 1px solid rgba(239, 68, 68, 0.35);
+                background: rgba(239, 68, 68, 0.12);
+                color: #ffb3b3;
+                padding: 10px 12px;
+                font-family: var(--fb);
+                font-size: 13px;
+              "
+            >
+              មានបញ្ហាក្នុងការបញ្ជូនសារ។ សូមសាកម្តងទៀត ឬទាក់ទង Telegram ដោយផ្ទាល់។
+            </div>
           </form>
 
           <!-- Success state (hidden until submit) -->
@@ -4644,9 +4694,11 @@
     <script src="js/form-utils.js"></script>
     <script>
       (function () {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
         /* ── Starfield canvas ── */
         const cv = document.getElementById("kree-canvas");
-        if (cv) {
+        if (cv && !reduceMotion) {
           const cx = cv.getContext("2d");
           const stars = [];
           function resize() {
@@ -4688,6 +4740,7 @@
         const form = document.getElementById("kree-form");
         const btn = document.getElementById("photon-submit");
         const success = document.getElementById("transmission-success");
+        const errorBox = document.getElementById("kree-error");
 
         if (form && btn && success) {
           form.addEventListener("submit", async function (e) {
@@ -4698,6 +4751,8 @@
             const email = document.getElementById("kree-email").value.trim();
             const msg = document.getElementById("kree-msg").value.trim();
             if (!name || !email || !msg) return;
+
+            if (errorBox) errorBox.style.display = "none";
 
             btn.disabled = true;
 
@@ -4728,7 +4783,7 @@
                 form: "grow_contact",
                 reason: "network_or_server",
               });
-              alert("Sorry, submission failed. Please try again or contact us via Telegram.");
+              if (errorBox) errorBox.style.display = "block";
               btn.disabled = false;
             }
           });
@@ -4762,6 +4817,9 @@
 
       // ── LAYER 1: 3D PARALLAX STARFIELD ──────────────────────────
       (function () {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduceMotion) return;
+
         const cv = document.getElementById("grow-canvas");
         if (!cv) return;
         const cx = cv.getContext("2d");

@@ -9,7 +9,7 @@
     <ul class="nav-links">
       <li><a href="grow.html" data-page="grow">Yob ដើម្បីអាជីវកម្ម</a></li>
       <li class="nav-has-dropdown">
-        <a href="#" class="dropdown-trigger">រៀនជាមួយ Yob <i class="fas fa-chevron-down"></i></a>
+        <a href="#" class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">រៀនជាមួយ Yob <i class="fas fa-chevron-down"></i></a>
         <ul class="nav-dropdown">
           <li><a href="yob-learning.html" data-page="yob-learning"><i class="fas fa-graduation-cap"></i> ជំនាញឌីជីថល</a></li>
           <li><a href="docs.html" data-page="docs"><i class="fas fa-book"></i> ឯកសារមេរៀន</a></li>
@@ -17,7 +17,7 @@
         </ul>
       </li>
       <li class="nav-has-dropdown">
-        <a href="#" class="dropdown-trigger">តូបឌីជីថល <i class="fas fa-chevron-down"></i></a>
+        <a href="#" class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">តូបឌីជីថល <i class="fas fa-chevron-down"></i></a>
         <ul class="nav-dropdown">
           <li><a href="fonts.html" data-page="fonts"><i class="fas fa-font"></i> YOB អក្ខរា</a></li>
           <li><a href="resources.html" data-page="resources"><i class="fas fa-toolbox"></i> កាដូឌីជីថល</a></li>
@@ -134,11 +134,20 @@
   // Hamburger menu
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.querySelector(".nav-links");
+  const mobileDrawer = document.getElementById("mobileDrawer");
   if (hamburger && navLinks) {
-    hamburger.addEventListener("click", () => {
-      hamburger.classList.toggle("open");
-      navLinks.classList.toggle("open");
-    });
+    hamburger.setAttribute("aria-expanded", "false");
+    // Fallback only: when a page has no shared mobile drawer.
+    if (!mobileDrawer) {
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        navLinks.classList.toggle("open");
+        hamburger.setAttribute(
+          "aria-expanded",
+          hamburger.classList.contains("open") ? "true" : "false",
+        );
+      });
+    }
   }
 
   // Mobile dropdown
@@ -146,7 +155,9 @@
     trigger.addEventListener("click", (e) => {
       if (window.innerWidth <= 768) {
         e.preventDefault();
-        trigger.closest(".nav-has-dropdown").classList.toggle("open");
+        const parent = trigger.closest(".nav-has-dropdown");
+        const isOpen = parent.classList.toggle("open");
+        trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
       }
     });
   });

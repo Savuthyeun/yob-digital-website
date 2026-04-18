@@ -1475,6 +1475,47 @@
       .form-message i {
         margin-right: 8px;
       }
+
+      @media (max-width: 768px) {
+        .section-sub,
+        .contact-sub {
+          font-size: 15px;
+          line-height: 1.85;
+        }
+        .lead-form-row,
+        .cf-row {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+        .lead-input,
+        .cf-input,
+        .cf-textarea {
+          font-size: 16px;
+        }
+        .lead-btn,
+        .cf-submit {
+          min-height: 50px;
+          font-size: 15px;
+        }
+        .svc-selector {
+          gap: 8px;
+        }
+        .svc-chip {
+          font-size: 13px;
+          padding: 10px 12px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .contact-form-card {
+          padding: 20px 16px;
+        }
+        .form-message {
+          font-size: 13px;
+          line-height: 1.6;
+          padding: 12px 14px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -2510,6 +2551,22 @@
               <button type="submit" class="lead-btn">
                 <i class="fas fa-download"></i> ទាញយក​ឥឡូវ (100% Free)
               </button>
+              <div
+                id="lead-success"
+                class="form-message success"
+                style="display: none"
+              >
+                <i class="fas fa-check-circle"></i>
+                បានទទួលសំណើររួចរាល់។ ឯកសារនឹងផ្ញើទៅ Telegram ក្នុងរយៈពេល ២–៥ នាទី។
+              </div>
+              <div
+                id="lead-error"
+                class="form-message error"
+                style="display: none"
+              >
+                <i class="fas fa-exclamation-triangle"></i>
+                មានបញ្ហាបច្ចេកទេស។ សូមសាកម្តងទៀត ឬទាក់ទង Telegram ដោយផ្ទាល់។
+              </div>
               <span
                 style="
                   font-size: 12px;
@@ -2783,6 +2840,8 @@
         const serviceInput = document.getElementById("serviceInput");
         const serviceChips = document.querySelectorAll(".svc-chip");
         const leadForm = document.querySelector(".lead-form");
+        const leadSuccess = document.getElementById("lead-success");
+        const leadError = document.getElementById("lead-error");
 
         serviceChips.forEach(function (chip) {
           chip.addEventListener("click", function () {
@@ -2833,19 +2892,24 @@
         if (leadForm) {
           leadForm.addEventListener("submit", async function (e) {
             e.preventDefault();
+            if (leadSuccess) leadSuccess.style.display = "none";
+            if (leadError) leadError.style.display = "none";
             try {
               await window.YOBFormUtils.submitNetlifyForm(leadForm);
               leadForm.reset();
               window.YOBFormUtils.track("form_submit_success", {
                 form: "home_lead_magnet",
               });
-              alert("អរគុណ! ឯកសារ​នឹង​ផ្ញើ​ទៅ Telegram​ក្នុង​រយៈ​ពេល ២–៥ នាទី ✅");
+              if (leadSuccess) {
+                leadSuccess.style.display = "block";
+                leadSuccess.scrollIntoView({ behavior: "smooth", block: "center" });
+              }
             } catch (err) {
               window.YOBFormUtils.track("form_submit_error", {
                 form: "home_lead_magnet",
                 reason: "network_or_server",
               });
-              alert("សូមអភ័យទោស មានបញ្ហាបច្ចេកទេស។ សូមសាកម្តងទៀត។");
+              if (leadError) leadError.style.display = "block";
             }
           });
         }

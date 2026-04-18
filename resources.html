@@ -213,6 +213,13 @@
       .res-filter-btn.active .res-count {
         background: rgba(229, 44, 103, 0.2);
       }
+      .res-filter-feedback {
+        text-align: center;
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gray);
+        margin: -28px 0 28px;
+      }
 
       /* ── Resource Grid ── */
       .res-section {
@@ -621,6 +628,25 @@
         color: var(--gold);
         font-size: 10px;
       }
+      .dl-status {
+        display: none;
+        margin-top: 4px;
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-family: var(--fk);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .dl-status.success {
+        color: #79d3a6;
+        background: rgba(16, 185, 129, 0.12);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+      }
+      .dl-status.error {
+        color: #ff9f9f;
+        background: rgba(239, 68, 68, 0.12);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+      }
 
       /* ── Responsive ── */
       @media (max-width: 900px) {
@@ -635,6 +661,22 @@
         .res-hero {
           padding: clamp(60px, 8vw, 120px) 0 clamp(35px, 6vw, 70px);
         }
+        .res-hero p {
+          font-size: 16px;
+          line-height: 1.85;
+          max-width: 42ch;
+          margin-bottom: 30px;
+        }
+        .res-stats {
+          gap: 22px;
+        }
+        .res-filter-btn {
+          padding: 10px 14px;
+          font-size: 12px;
+        }
+        .res-filter-feedback {
+          margin: -16px 0 24px;
+        }
         .res-section {
           padding: clamp(40px, 8vw, 70px) 0 clamp(50px, 12vw, 100px);
         }
@@ -643,6 +685,23 @@
         }
         .res-card[data-featured="true"] {
           grid-column: span 1;
+        }
+        .res-body {
+          padding: 22px 20px;
+          gap: 12px;
+        }
+        .res-title,
+        .res-card[data-featured="true"] .res-title {
+          font-size: 18px;
+          line-height: 1.45;
+        }
+        .res-desc {
+          font-size: 14px;
+          line-height: 1.78;
+        }
+        .res-includes li {
+          font-size: 14px;
+          line-height: 1.65;
         }
       }
       @media (max-width: 600px) {
@@ -657,8 +716,39 @@
           width: 100%;
           min-height: 160px;
         }
+        .res-meta {
+          gap: 10px;
+        }
+        .res-footer {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+        .res-dl-count {
+          font-size: 13px;
+        }
+        .res-dl-btn {
+          width: 100%;
+          justify-content: center;
+          padding: 12px 16px;
+        }
         .dl-modal-box {
           padding: 32px 24px;
+        }
+        .dl-modal-sub {
+          font-size: 15px;
+          line-height: 1.7;
+        }
+        .dl-input {
+          font-size: 16px;
+        }
+        .dl-submit {
+          font-size: 16px;
+          min-height: 50px;
+        }
+        .dl-status {
+          font-size: 14px;
+          line-height: 1.6;
         }
       }
     </style>
@@ -758,6 +848,7 @@
             <span class="res-count">1</span>
           </button>
         </div>
+        <div class="res-filter-feedback" id="resFilterFeedback">បង្ហាញ 10 ឯកសារ</div>
 
         <!-- Grid -->
         <div class="res-grid">
@@ -1201,6 +1292,12 @@
           <button type="submit" class="dl-submit">
             <i class="fas fa-download"></i> ទាញយក​ឥឡូវ (100% Free)
           </button>
+          <div class="dl-status success" id="dlStatusSuccess">
+            បានទទួលការស្នើររួចរាល់។ សូមពិនិត្យ Telegram ក្នុងរយៈពេល ២–៥ នាទី។
+          </div>
+          <div class="dl-status error" id="dlStatusError">
+            មានបញ្ហាបច្ចេកទេសក្នុងការបញ្ជូន។ សូមសាកម្តងទៀត ឬទាក់ទង Telegram ដោយផ្ទាល់។
+          </div>
           <span class="dl-privacy"
             ><i class="fas fa-lock"></i>
             ព័ត៌មាន​របស់​អ្នក​ត្រូវ​បាន​រក្សា​ទុក​ជា​សម្ងាត់</span
@@ -1225,16 +1322,25 @@
       // ── Filter Logic ──
       const filterBtns = document.querySelectorAll(".res-filter-btn");
       const cards = document.querySelectorAll(".res-card");
+      const filterFeedback = document.getElementById("resFilterFeedback");
+
+      function updateFilterFeedback(count) {
+        if (!filterFeedback) return;
+        filterFeedback.textContent = `បង្ហាញ ${count} ឯកសារ`;
+      }
 
       filterBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
           filterBtns.forEach((b) => b.classList.remove("active"));
           btn.classList.add("active");
           const f = btn.dataset.filter;
+          let visibleCount = 0;
           cards.forEach((card) => {
             const match = f === "all" || card.dataset.cat === f;
             card.classList.toggle("hidden", !match);
+            if (match) visibleCount += 1;
           });
+          updateFilterFeedback(visibleCount);
         });
       });
 
@@ -1255,6 +1361,11 @@
         const form = e.target;
         const submitBtn = form.querySelector(".dl-submit");
         const originalBtn = submitBtn ? submitBtn.innerHTML : "";
+        const successMsg = document.getElementById("dlStatusSuccess");
+        const errorMsg = document.getElementById("dlStatusError");
+
+        successMsg.style.display = "none";
+        errorMsg.style.display = "none";
 
         if (submitBtn) {
           submitBtn.disabled = true;
@@ -1268,17 +1379,18 @@
             resource: document.getElementById("dlResourceName").value || "unknown",
           });
 
-          closeModal();
-          form.reset();
+          successMsg.style.display = "block";
           setTimeout(() => {
-            alert("អរគុណ! ឯកសារ​នឹង​ផ្ញើ​ទៅ Telegram​ក្នុង​រយៈ​ពេល ២–៥ នាទី។ ✅");
-          }, 200);
+            closeModal();
+            form.reset();
+            successMsg.style.display = "none";
+          }, 1200);
         } catch (err) {
           window.YOBFormUtils.track("form_submit_error", {
             form: "resources_download",
             reason: "network_or_server",
           });
-          alert("សូមអភ័យទោស មានបញ្ហាបច្ចេកទេស។ សូមសាកម្តងទៀត។");
+          errorMsg.style.display = "block";
         } finally {
           if (submitBtn) {
             submitBtn.disabled = false;
