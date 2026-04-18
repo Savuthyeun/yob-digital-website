@@ -382,6 +382,19 @@
     .ct-btn-transmit:hover::before { left: 100%; }
     .ct-btn-transmit:active { transform: translateY(0); }
 
+    .ct-inline-error {
+      display: none;
+      margin-top: 12px;
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: 8px;
+      background: rgba(239, 68, 68, 0.12);
+      color: #ffb3b3;
+      font-family: var(--fb);
+      font-size: 13px;
+      line-height: 1.6;
+      padding: 10px 12px;
+    }
+
     /* Transmitting state */
     .ct-btn-transmit.transmitting {
       background: var(--gold);
@@ -696,6 +709,9 @@
             <i class="fas fa-satellite-dish" style="margin-right:10px;"></i>
             TRANSMIT SIGNAL
           </button>
+          <div class="ct-inline-error" id="ctErrorBox">
+            មានបញ្ហាក្នុងការបញ្ជូនសារ។ សូមសាកម្តងទៀត ឬទាក់ទង Telegram ដោយផ្ទាល់។
+          </div>
         </form>
 
         <!-- Success overlay -->
@@ -786,8 +802,10 @@
       const flash   = document.getElementById('ctFlash');
       const success = document.getElementById('ctSuccess');
       const terminal = document.getElementById('ctTerminal');
+      const errorBox = document.getElementById('ctErrorBox');
 
       if (btn.disabled) return;
+      if (errorBox) errorBox.style.display = 'none';
 
       // 1. Button → Transmitting
       btn.disabled = true;
@@ -809,7 +827,7 @@
           form: 'contact_page',
           reason: 'network_or_server'
         });
-        alert('Submission failed. Please try again or contact us via Telegram.');
+        if (errorBox) errorBox.style.display = 'block';
         return;
       }
 
