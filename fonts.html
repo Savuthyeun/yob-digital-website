@@ -138,6 +138,17 @@
         justify-content: center;
         flex-wrap: wrap;
       }
+      .hero-cta-row {
+        margin-top: 24px;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .hero-cta-row .btn-primary,
+      .hero-cta-row .btn-outline {
+        padding: 12px 26px;
+      }
       .hero-badge-item {
         display: flex;
         align-items: center;
@@ -207,6 +218,12 @@
         box-shadow:
           0 24px 60px rgba(0, 0, 0, 0.5),
           0 0 0 1px rgba(229, 44, 103, 0.1);
+      }
+      .font-card.selected {
+        border-color: rgba(229, 44, 103, 0.55);
+        box-shadow:
+          0 28px 70px rgba(0, 0, 0, 0.55),
+          0 0 0 2px rgba(229, 44, 103, 0.28);
       }
       .font-card.featured {
         border-color: rgba(229, 44, 103, 0.25);
@@ -651,6 +668,75 @@
         display: block;
       }
 
+      /* Sticky selected font CTA */
+      .font-sticky-cta {
+        position: fixed;
+        left: 50%;
+        bottom: 16px;
+        transform: translateX(-50%) translateY(120%);
+        width: min(960px, calc(100% - 24px));
+        z-index: 120;
+        background: rgba(8, 11, 16, 0.94);
+        border: 1px solid rgba(229, 44, 103, 0.32);
+        border-radius: 16px;
+        box-shadow: 0 22px 55px rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(14px);
+        padding: 12px;
+        transition: transform 0.35s ease;
+      }
+      .font-sticky-cta.show {
+        transform: translateX(-50%) translateY(0);
+      }
+      .font-sticky-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .font-sticky-meta {
+        font-family: var(--fb);
+        color: var(--white);
+      }
+      .font-sticky-label {
+        font-size: 12px;
+        color: var(--gray);
+        margin-bottom: 2px;
+      }
+      .font-sticky-name {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+      .font-sticky-price {
+        color: var(--gold);
+      }
+      .font-sticky-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .font-sticky-actions .btn-primary,
+      .font-sticky-actions .btn-outline {
+        padding: 10px 18px;
+        font-size: 13px;
+      }
+      .font-sticky-close {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--gray);
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .font-sticky-close:hover {
+        color: var(--white);
+        border-color: rgba(229, 44, 103, 0.5);
+      }
+
       /* Responsive */
       @media (max-width: 900px) {
         .bundle-card {
@@ -673,11 +759,24 @@
         .fonts-hero {
           padding: clamp(50px, 7vw, 100px) 0 clamp(30px, 5vw, 60px);
         }
+        .hero-cta-row .btn-primary,
+        .hero-cta-row .btn-outline {
+          width: 100%;
+          justify-content: center;
+        }
         .fonts-grid {
           grid-template-columns: 1fr;
         }
         .bundle-card {
           padding: 32px 20px;
+        }
+        .font-sticky-actions {
+          width: 100%;
+        }
+        .font-sticky-actions .btn-primary,
+        .font-sticky-actions .btn-outline {
+          flex: 1;
+          justify-content: center;
         }
       }
     </style>
@@ -747,6 +846,14 @@
             <i class="fas fa-check-circle"></i> Commercial License
           </div>
         </div>
+        <div class="hero-cta-row reveal">
+          <a href="#fonts-grid" class="btn-outline"
+            ><i class="fas fa-font"></i> មើល Font ទាំងអស់</a
+          >
+          <a href="#" id="heroPickPopular" class="btn-primary"
+            ><i class="fas fa-bolt"></i> ជ្រើស Font ពេញនិយម</a
+          >
+        </div>
       </div>
     </section>
 
@@ -763,7 +870,7 @@
         </div>
 
         <!-- Fonts Grid -->
-        <div class="fonts-grid">
+        <div class="fonts-grid" id="fonts-grid">
           <!-- 1. YOB Heading Pro -->
           <div class="font-card featured reveal" data-category="display">
             <div class="font-preview-area" data-letter="ស">
@@ -787,7 +894,7 @@
               <div class="font-footer">
                 <div class="font-price">$15.00</div>
                 <a href="index.html#contact" class="btn-buy"
-                  ><i class="fas fa-shopping-cart"></i> Buy Now</a
+                  ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
                 >
               </div>
             </div>
@@ -814,7 +921,7 @@
               <div class="font-footer">
                 <div class="font-price">$18.00</div>
                 <a href="index.html#contact" class="btn-buy"
-                  ><i class="fas fa-shopping-cart"></i> Buy Now</a
+                  ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
                 >
               </div>
             </div>
@@ -842,7 +949,7 @@
               <div class="font-footer">
                 <div class="font-price">$20.00</div>
                 <a href="index.html#contact" class="btn-buy"
-                  ><i class="fas fa-shopping-cart"></i> Buy Now</a
+                  ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
                 >
               </div>
             </div>
@@ -869,7 +976,7 @@
               <div class="font-footer">
                 <div class="font-price">$12.00</div>
                 <a href="index.html#contact" class="btn-buy"
-                  ><i class="fas fa-shopping-cart"></i> Buy Now</a
+                  ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
                 >
               </div>
             </div>
@@ -897,7 +1004,7 @@
               <div class="font-footer">
                 <div class="font-price">$25.00</div>
                 <a href="index.html#contact" class="btn-buy"
-                  ><i class="fas fa-shopping-cart"></i> Buy Now</a
+                  ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
                 >
               </div>
             </div>
@@ -924,7 +1031,7 @@
               <div class="font-footer">
                 <div class="font-price free-price">FREE</div>
                 <a href="index.html#resources" class="btn-free"
-                  ><i class="fas fa-download"></i> Download</a
+                  ><i class="fas fa-download"></i> ទាញយក Font នេះ</a
                 >
               </div>
             </div>
@@ -951,7 +1058,7 @@
               <div class="font-footer">
                 <div class="font-price free-price">FREE</div>
                 <a href="index.html#resources" class="btn-free"
-                  ><i class="fas fa-download"></i> Download</a
+                  ><i class="fas fa-download"></i> ទាញយក Font នេះ</a
                 >
               </div>
             </div>
@@ -979,7 +1086,7 @@
               <div class="font-footer">
                 <div class="font-price free-price">FREE</div>
                 <a href="index.html#resources" class="btn-free"
-                  ><i class="fas fa-download"></i> Download</a
+                  ><i class="fas fa-download"></i> ទាញយក Font នេះ</a
                 >
               </div>
             </div>
@@ -1039,7 +1146,7 @@
     </section>
 
     <!-- ══ LICENSE ══ -->
-    <section class="license-section">
+    <section class="license-section" id="license">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag">License Options</span>
@@ -1178,6 +1285,31 @@
       </div>
     </section>
 
+    <div class="font-sticky-cta" id="fontStickyCta" aria-live="polite">
+      <div class="font-sticky-inner">
+        <div class="font-sticky-meta">
+          <div class="font-sticky-label">អ្នកបានជ្រើស</div>
+          <div class="font-sticky-name" id="fontStickyName">YOB Heading Pro</div>
+          <div class="font-sticky-price" id="fontStickyPrice">$15.00</div>
+        </div>
+        <div class="font-sticky-actions">
+          <a href="index.html#contact" class="btn-primary" id="fontStickyPrimary"
+            ><i class="fas fa-shopping-cart"></i> បន្តទិញ</a
+          >
+          <a href="#license" class="btn-outline"
+            ><i class="fas fa-shield-alt"></i> មើលអាជ្ញាប័ណ្ណ</a
+          >
+          <button
+            class="font-sticky-close"
+            id="fontStickyClose"
+            aria-label="Close selected font bar"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- ══ MEGA FOOTER ══ -->
     <div id="footer-placeholder"></div>
 
@@ -1206,6 +1338,32 @@
       // Filter functionality
       const filterBtns = document.querySelectorAll(".filter-btn");
       const fontCards = document.querySelectorAll(".font-card");
+      const stickyBar = document.getElementById("fontStickyCta");
+      const stickyName = document.getElementById("fontStickyName");
+      const stickyPrice = document.getElementById("fontStickyPrice");
+      const stickyPrimary = document.getElementById("fontStickyPrimary");
+      const stickyClose = document.getElementById("fontStickyClose");
+      const heroPickPopular = document.getElementById("heroPickPopular");
+
+      function selectFontCard(card) {
+        if (!card) return;
+        fontCards.forEach((c) => c.classList.remove("selected"));
+        card.classList.add("selected");
+
+        const name = card.querySelector(".font-name")?.textContent?.trim() || "YOB Font";
+        const price = card.querySelector(".font-price")?.textContent?.trim() || "";
+        const ctaLink = card.querySelector(".btn-buy, .btn-free");
+        const isFree = ctaLink?.classList.contains("btn-free");
+
+        stickyName.textContent = name;
+        stickyPrice.textContent = price;
+        stickyPrimary.setAttribute("href", ctaLink?.getAttribute("href") || "index.html#contact");
+        stickyPrimary.innerHTML = isFree
+          ? '<i class="fas fa-download"></i> ទាញយកឥឡូវ'
+          : '<i class="fas fa-shopping-cart"></i> បន្តទិញ';
+
+        stickyBar.classList.add("show");
+      }
 
       filterBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -1219,6 +1377,38 @@
           });
         });
       });
+
+      fontCards.forEach((card) => {
+        card.addEventListener("click", (event) => {
+          if (event.target.closest("a, button")) return;
+          selectFontCard(card);
+        });
+      });
+
+      stickyClose?.addEventListener("click", () => {
+        stickyBar.classList.remove("show");
+        fontCards.forEach((c) => c.classList.remove("selected"));
+      });
+
+      heroPickPopular?.addEventListener("click", (event) => {
+        event.preventDefault();
+        const featuredCard = document.querySelector(".font-card.featured");
+        selectFontCard(featuredCard);
+        featuredCard?.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+
+      const fontParam = new URLSearchParams(window.location.search).get("font");
+      if (fontParam) {
+        const normalized = fontParam.toLowerCase();
+        const matched = Array.from(fontCards).find((card) => {
+          const name = card.querySelector(".font-name")?.textContent?.toLowerCase() || "";
+          return name.includes(normalized);
+        });
+        if (matched) {
+          selectFontCard(matched);
+          matched.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
 
       // FAQ accordion
       document.querySelectorAll(".faq-q").forEach((q) => {
