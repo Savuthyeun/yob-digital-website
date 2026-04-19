@@ -1,0 +1,28 @@
+# Netlify _headers — Cache Control for YOB Digital
+# Static assets: 1 year cache (immutable)
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts (Google Fonts handles their own cache, this covers local assets)
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML pages: revalidate every visit (so updates deploy immediately)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Security headers (all pages)
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

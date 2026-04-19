@@ -21,14 +21,11 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-
-  <link rel="stylesheet" href="css/style.min.css" />
 
   <style>
     /* ═══════════════════════════════════════════
@@ -386,9 +383,22 @@
       .nx-canvas, .sm-legend { display: none; }
       .sm-mobile { display: block; }
       .sm-header { padding: 110px 20px 28px; }
+      .sm-m-card { gap: 10px; }
+      .sm-m-name {
+        letter-spacing: 1px;
+      }
     }
     @media (max-width: 480px) {
       .sm-m-grid { grid-template-columns: 1fr; }
+      .sm-m-card {
+        padding: 12px 14px;
+        gap: 9px;
+      }
+      .sm-m-name {
+        font-size: 12px;
+        letter-spacing: 0.6px;
+        text-transform: none;
+      }
     }
 
     /* ══════════════════════════════════════
@@ -475,7 +485,7 @@
       </div>
     </div>
     <a href="about.html" onclick="closeDrawer()">About YOB</a>
-    <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">សាកសួរ</a>
+    <a href="contact.html" onclick="closeDrawer()" class="d-cta">សាកសួរ</a>
   </div>
 
   <!-- ════════════════════════════════════════
@@ -606,15 +616,15 @@
         <div class="sm-m-heading">Main</div>
         <div class="sm-m-grid">
           <a href="index.html" class="sm-m-card">
-            <div class="sm-m-icon" style="background:rgba(229,44,103,.15);color:#e52c67">⬡</div>
+            <div class="sm-m-icon icon-core">⬡</div>
             <span class="sm-m-name">Home</span>
           </a>
           <a href="grow.html" class="sm-m-card">
-            <div class="sm-m-icon" style="background:rgba(0,255,200,.15);color:#00ffc8">↑</div>
+            <div class="sm-m-icon icon-grow">↑</div>
             <span class="sm-m-name">Grow</span>
           </a>
           <a href="about.html" class="sm-m-card">
-            <div class="sm-m-icon" style="background:rgba(229,44,103,.15);color:#e52c67">◎</div>
+            <div class="sm-m-icon icon-core">◎</div>
             <span class="sm-m-name">About</span>
           </a>
         </div>
@@ -623,15 +633,15 @@
         <div class="sm-m-heading">Learn</div>
         <div class="sm-m-grid">
           <a href="yob-learning.html" class="sm-m-card">
-            <div class="sm-m-icon" style="background:rgba(79,130,255,.15);color:#4f82ff">◈</div>
+            <div class="sm-m-icon icon-web">◈</div>
             <span class="sm-m-name">Learning</span>
           </a>
           <a href="docs.html" class="sm-m-card">
-            <div class="sm-m-icon" style="background:rgba(155,107,255,.15);color:#9b6bff">▣</div>
+            <div class="sm-m-icon icon-docs">▣</div>
             <span class="sm-m-name">Docs</span>
           </a>
           <a href="case-studies.html" class="sm-m-card">
-            <div class="sm-m-icon" style="background:rgba(0,240,255,.15);color:#00f0ff">◉</div>
+            <div class="sm-m-icon icon-cases">◉</div>
             <span class="sm-m-name">Cases</span>
           </a>
         </div>
@@ -640,11 +650,11 @@
         <div class="sm-m-heading">Products</div>
         <div class="sm-m-grid">
           <a href="resources.html" class="sm-m-card">
-            <div class="sm-m-icon" style="background:rgba(245,181,56,.15);color:#f5b538">◧</div>
+            <div class="sm-m-icon icon-resources">◧</div>
             <span class="sm-m-name">Resources</span>
           </a>
           <a href="fonts.html" class="sm-m-card">
-            <div class="sm-m-icon" style="background:rgba(220,190,255,.15);color:#dcbeff" style="font-family:var(--fb)">Aa</div>
+            <div class="sm-m-icon icon-fonts">Aa</div>
             <span class="sm-m-name">Fonts</span>
           </a>
         </div>
@@ -653,6 +663,7 @@
 
   </main><!-- /.sm-page -->
 
+  <script>
   <script>
 
   /* ══════════════════════════════════════
@@ -877,6 +888,7 @@
   })();
   </script>
 
+  <script src="js/load-components.js"></script>
   <script src="js/load-components.js"></script>
   <script src="js/main.js" defer></script>
 </body>

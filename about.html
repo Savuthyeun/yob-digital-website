@@ -63,6 +63,7 @@
 
     <!-- ══ JSON-LD: Organization + Person + AboutPage ══ -->
     <script type="application/ld+json">
+    <script type="application/ld+json">
       [
         {
           "@context": "https://schema.org",
@@ -212,7 +213,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Kantumruy+Pro:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
 
@@ -230,9 +231,6 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     /></noscript>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-      defer
     ></script>
     <link rel="stylesheet" href="css/style.min.css" />
 
@@ -252,7 +250,7 @@
         --tva-cream: #c9a87a;
         --tva-dim: #6a5230;
         --tva-white: #ede0c8;
-        --tva-mono: "JetBrains Mono", "Kantumruy Pro", monospace;
+        --tva-mono: var(--fb);
       }
 
       /* ── One unified background ── */
@@ -1239,9 +1237,7 @@
         </div>
       </div>
       <a href="about.html" onclick="closeDrawer()">About YOB</a>
-      <a href="index.html#contact" onclick="closeDrawer()" class="d-cta"
-        >សាកសួរ</a
-      >
+      <a href="contact.html" onclick="closeDrawer()" class="d-cta">សាកសួរ</a>
     </div>
 
     <!-- TVA noise layer -->
@@ -1347,15 +1343,15 @@
               <div class="tva-case-stamp">
                 CASE FILE · TVA-KH-YOB-2020 · CLASSIFICATION: OPEN
               </div>
-              <p class="tva-hero-sub">SUBJECT DOSSIER — DIGITAL AGENCY</p>
+              <p class="tva-hero-sub">SME DIGITAL PARTNER — CAMBODIA</p>
               <h1 class="tva-hero-title">
                 YOB.<br /><span class="accent">DIGITAL</span
                 ><span class="tva-cursor" aria-hidden="true"></span>
               </h1>
               <p class="tva-hero-khmer">
-                ផ្លាស់ប្តូរការប្រើប្រាស់បច្ចេកវិទ្យា<br />
-                មកជាការគ្រប់គ្រងឌីជីថល<br />
-                <strong>ប្រកបដោយអំណាច និងប្រសិទ្ធភាព</strong>
+                YOB Digital ជាដៃគូជួយ SMEs ខ្មែរ<br />
+                យល់សេវាកម្មឌីជីថលឱ្យច្បាស់<br />
+                <strong>ហើយអនុវត្តបានពិតដើម្បីបង្កើនលទ្ធផលលក់</strong>
               </p>
             </div>
             <!-- Data readout -->
@@ -1692,11 +1688,13 @@
           </h2>
           <p class="tva-mission-sub">
             ផ្ដល់ Knowledge, Tools, & Strategy ជាភាសាខ្មែរ —<br />
-            ដើម្បីបង្កើន Revenue, Brand, & Impact ប្រកបដោយ AI
+            ដើម្បីឱ្យអ្នកយល់ពីជំហានប្រើសេវាកម្ម បន្ទាប់មកអនុវត្ត
+            និងវាស់លទ្ធផលបានច្បាស់
           </p>
           <div class="tva-mission-btns">
-            <a href="index.html#contact" class="tva-btn">
-              <i class="fas fa-paper-plane"></i> INITIATE CONTACT
+            <a href="contact.html" class="tva-btn">
+              <i class="fas fa-paper-plane"></i> ស្នើ Consultation + Digital
+              Check
             </a>
             <a href="grow.html" class="tva-btn tva-btn-outline">
               <i class="fas fa-seedling"></i> GROW WITH YOB
@@ -1732,6 +1730,7 @@
       <i class="fas fa-chevron-up"></i>
     </button>
 
+    <script>
     <script>
       (function () {
         /* ── Scroll progress bar ── */
@@ -1810,6 +1809,7 @@
       })();
     </script>
 
+    <script src="js/load-components.js"></script>
     <script src="js/load-components.js"></script>
     <script src="js/main.js" defer></script>
   </body>

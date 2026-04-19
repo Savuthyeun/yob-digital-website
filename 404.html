@@ -15,13 +15,10 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-  <link rel="stylesheet" href="css/style.min.css" />
 
   <style>
     /* ═══════════════════════════════════════
@@ -31,7 +28,7 @@
       --fof-bg:   #030510;
       --fof-cyan: #00f0ff;
       --fof-pink: #e52c67;
-      --fof-mono: 'JetBrains Mono', 'Courier New', monospace;
+      --fof-mono: var(--fb);
     }
 
     html, body { background: var(--fof-bg) !important; }
@@ -226,7 +223,7 @@
       </div>
     </div>
     <a href="about.html" onclick="closeDrawer()">About YOB</a>
-    <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
+    <a href="contact.html" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
   </div>
 
   <main class="fof-page">
@@ -253,6 +250,7 @@
 
   </main>
 
+  <script>
   <script>
   (function () {
     const c   = document.getElementById('fof-stars');
@@ -292,6 +290,7 @@
     window.addEventListener('resize', () => { resize(); mkStars(); });
   })();
   </script>
+  <script src="js/load-components.js"></script>
   <script src="js/load-components.js"></script>
   <script src="js/main.js" defer></script>
 </body>

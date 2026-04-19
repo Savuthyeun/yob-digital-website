@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="km">
   <head>
     <meta charset="UTF-8" />
@@ -47,15 +47,6 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Preload critical Google Fonts for LCP -->
-    <link
-      rel="preload"
-      href="https://fonts.gstatic.com/s/bebasneue/v10/JTUSjIgdlkC8_g_vfd6_Yg.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-
     <!-- Font Awesome (async load) -->
     <link
       rel="preload"
@@ -73,9 +64,6 @@
     /></noscript>
 
     <!-- GSAP -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-      defer
     ></script>
     <!-- YOB Shared Styles -->
     <link rel="stylesheet" href="css/style.min.css" />
@@ -401,6 +389,332 @@
         border-color: rgba(255, 255, 255, 0.05) !important;
       }
 
+      /* 15 ── WHY section */
+      .yl-why-section {
+        padding: 80px 0 60px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .yl-why-header {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .yl-why-tag {
+        display: inline-block;
+        font-family: var(--fb);
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--gold);
+        text-transform: uppercase;
+        background: rgba(229, 44, 103, 0.1);
+        border: 1px solid rgba(229, 44, 103, 0.2);
+        border-radius: 50px;
+        padding: 5px 16px;
+        margin-bottom: 16px;
+      }
+      .yl-why-title {
+        font-family: var(--fb);
+        font-size: clamp(26px, 4.1vw, 44px);
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 12px;
+        line-height: 1.2;
+      }
+      .yl-why-sub {
+        font-family: var(--fb);
+        color: var(--gray);
+        font-size: 15px;
+        max-width: 520px;
+        margin: 0 auto;
+      }
+      .yl-pain-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 36px;
+      }
+      .yl-pain-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 20px;
+        padding: 28px;
+        transition: all var(--t);
+        backdrop-filter: blur(12px);
+      }
+      .yl-pain-card:hover {
+        border-color: rgba(229, 44, 103, 0.2);
+        transform: translateY(-4px);
+        box-shadow:
+          0 16px 48px rgba(0, 0, 0, 0.4),
+          0 0 32px rgba(229, 44, 103, 0.06);
+      }
+      .yl-pain-icon {
+        font-size: 36px;
+        margin-bottom: 12px;
+      }
+      .yl-pain-title {
+        font-family: var(--fb);
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 10px;
+      }
+      .yl-pain-desc {
+        font-family: var(--fb);
+        font-size: 14px;
+        color: var(--gray);
+        line-height: 1.6;
+        margin-bottom: 16px;
+      }
+      .yl-pain-fix {
+        font-family: var(--fb);
+        font-size: 13px;
+        color: #4ade80;
+        background: rgba(74, 222, 128, 0.08);
+        border: 1px solid rgba(74, 222, 128, 0.15);
+        border-radius: 8px;
+        padding: 8px 12px;
+        line-height: 1.5;
+      }
+      .yl-why-cta {
+        text-align: center;
+      }
+      .yl-why-cta-text {
+        font-family: var(--fb);
+        font-size: 16px;
+        color: var(--gray);
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 50px;
+        padding: 12px 28px;
+        display: inline-block;
+      }
+
+      /* 16 ── Path result tag */
+      .path-result-tag {
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gold);
+        background: rgba(229, 44, 103, 0.08);
+        border-top: 1px solid rgba(229, 44, 103, 0.12);
+        padding: 10px 20px;
+        margin: 0 -1px;
+      }
+
+      /* 17 ── Catalog notice */
+      .yl-catalog-notice {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        background: rgba(229, 44, 103, 0.04);
+        border: 1px solid rgba(229, 44, 103, 0.18);
+        border-radius: 12px;
+        padding: 14px 20px;
+        margin-bottom: 28px;
+        font-family: var(--fb);
+        font-size: 14px;
+        color: var(--gray);
+        line-height: 1.6;
+      }
+      .yl-notice-icon {
+        font-size: 18px;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .yl-notice-link {
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .yl-notice-link:hover {
+        text-decoration: underline;
+      }
+
+      /* 18 ── Social proof */
+      .yl-proof-section {
+        padding: 80px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .yl-proof-header {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .yl-proof-tag {
+        display: inline-block;
+        font-family: var(--fb);
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--gold);
+        text-transform: uppercase;
+        background: rgba(229, 44, 103, 0.1);
+        border: 1px solid rgba(229, 44, 103, 0.2);
+        border-radius: 50px;
+        padding: 5px 16px;
+        margin-bottom: 16px;
+      }
+      .yl-proof-title {
+        font-family: var(--fb);
+        font-size: clamp(26px, 4.1vw, 44px);
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.38;
+      }
+      .yl-proof-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .yl-proof-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 20px;
+        padding: 28px;
+        backdrop-filter: blur(12px);
+        transition: all var(--t);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .yl-proof-card--featured {
+        border-color: rgba(229, 44, 103, 0.25) !important;
+        box-shadow: 0 0 40px rgba(229, 44, 103, 0.07);
+        background: rgba(229, 44, 103, 0.03) !important;
+      }
+      .yl-proof-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+      }
+      .yl-proof-stars {
+        font-size: 16px;
+      }
+      .yl-proof-quote {
+        font-family: var(--fb);
+        font-size: 14px;
+        color: var(--gray);
+        line-height: 1.7;
+        flex: 1;
+        font-style: italic;
+      }
+      .yl-proof-quote strong {
+        color: var(--white);
+        font-style: normal;
+      }
+      .yl-proof-person {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .yl-proof-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        flex-shrink: 0;
+      }
+      .yl-av-1 {
+        background: rgba(155, 109, 255, 0.15);
+        border-color: rgba(155, 109, 255, 0.3);
+      }
+      .yl-av-2 {
+        background: rgba(229, 44, 103, 0.15);
+        border-color: rgba(229, 44, 103, 0.3);
+      }
+      .yl-av-3 {
+        background: rgba(16, 185, 129, 0.15);
+        border-color: rgba(16, 185, 129, 0.3);
+      }
+      .yl-proof-info {
+        flex: 1;
+      }
+      .yl-proof-name {
+        font-family: var(--fb);
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--white);
+      }
+      .yl-proof-role {
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gray);
+      }
+      .yl-proof-result {
+        font-family: var(--fb);
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--gold);
+        background: rgba(229, 44, 103, 0.1);
+        border: 1px solid rgba(229, 44, 103, 0.2);
+        border-radius: 50px;
+        padding: 4px 12px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      /* 19 ── CTA steps + note */
+      .yl-cta-steps {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 24px 0;
+      }
+      .yl-cta-step {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 50px;
+        padding: 10px 18px;
+        font-family: var(--fb);
+        font-size: 14px;
+        color: var(--white);
+      }
+      .yl-cta-step-num {
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .yl-cta-arrow {
+        color: var(--gray);
+        font-size: 18px;
+      }
+      .yl-cta-note {
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+        margin-top: 16px;
+        opacity: 0.8;
+      }
+
+      /* 20 ── Responsive */
+      @media (max-width: 900px) {
+        .yl-pain-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .yl-proof-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .yl-cta-steps {
+          flex-direction: column;
+          gap: 8px;
+        }
+        .yl-cta-arrow {
+          transform: rotate(90deg);
+        }
+      }
+      @media (max-width: 600px) {
+        .yl-why-section,
+        .yl-proof-section {
+          padding: 60px 0 40px;
+        }
+      }
+
       /* ════════════════════════════════════════════════════ */
 
       /* Page-scoped variables not in style.css */
@@ -452,7 +766,6 @@
       .learn-nav-logo {
         font-family: var(--fb);
         font-size: 22px;
-        letter-spacing: 2px;
         background: linear-gradient(120deg, var(--white) 30%, var(--gold));
         background-clip: text;
         -webkit-background-clip: text;
@@ -468,9 +781,8 @@
         flex-shrink: 0;
       }
       .learn-nav-badge {
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 700;
-        letter-spacing: 1.5px;
         padding: 3px 10px;
         border-radius: 20px;
         background: var(--glow);
@@ -713,15 +1025,14 @@
         font-family: var(--fk);
       }
       .ticker-arr {
-        font-size: 10px;
+        font-size: 12px;
         opacity: 0.6;
       }
 
       .hero-h1 {
         font-family: var(--fb);
-        font-size: clamp(56px, 9vw, 108px);
-        line-height: 0.9;
-        letter-spacing: 2px;
+        font-size: clamp(40px, 7vw, 56px);
+        line-height: 1.05;
         margin-bottom: 24px;
       }
       .hero-h1 .row1 {
@@ -757,7 +1068,7 @@
 
       .hero-desc {
         font-family: var(--fk);
-        font-size: 17px;
+        font-size: 15px;
         color: var(--muted2);
         line-height: 1.9;
         max-width: 540px;
@@ -787,7 +1098,7 @@
         gap: 9px;
         border: none;
         cursor: pointer;
-        font-family: var(--fb);
+        font-family: var(--fk);
       }
       .btn-gold-lg {
         background: var(--gold);
@@ -907,17 +1218,15 @@
         margin-bottom: 40px;
       }
       .sec-eyebrow {
-        font-size: 10px;
+        font-size: 14px;
         font-weight: 700;
-        letter-spacing: 2px;
         text-transform: uppercase;
         color: var(--gold);
         margin-bottom: 8px;
       }
       .sec-title {
-        font-family: var(--fb);
-        font-size: clamp(30px, 4vw, 46px);
-        letter-spacing: 1.5px;
+        font-family: var(--fh);
+        font-size: clamp(28px, 4.1vw, 44px);
         line-height: 1;
         background: linear-gradient(135deg, var(--white), var(--muted2));
         background-clip: text;
@@ -927,7 +1236,7 @@
       }
       .sec-sub {
         font-family: var(--fk);
-        font-size: 14px;
+        font-size: 15px;
         color: var(--muted2);
         line-height: 1.8;
         max-width: 560px;
@@ -990,7 +1299,6 @@
       .path-title {
         font-family: var(--fb);
         font-size: 22px;
-        letter-spacing: 1px;
         color: var(--white);
         margin-bottom: 4px;
         position: relative;
@@ -1039,7 +1347,7 @@
         justify-content: space-between;
       }
       .path-count {
-        font-size: 11px;
+        font-size: 12px;
         color: var(--muted);
         font-weight: 600;
       }
@@ -1155,9 +1463,8 @@
         top: 10px;
         left: 10px;
         z-index: 2;
-        font-size: 9px;
+        font-size: 12px;
         font-weight: 700;
-        letter-spacing: 0.8px;
         padding: 3px 8px;
         border-radius: 5px;
         text-transform: uppercase;
@@ -1187,9 +1494,8 @@
         padding: 16px 18px;
       }
       .course-cat {
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 700;
-        letter-spacing: 1px;
         text-transform: uppercase;
         margin-bottom: 6px;
       }
@@ -1210,7 +1516,7 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        font-size: 11px;
+        font-size: 12px;
         color: var(--muted);
         flex-wrap: wrap;
       }
@@ -1239,14 +1545,14 @@
         transition: width 0.5s;
       }
       .progress-label {
-        font-size: 10px;
+        font-size: 12px;
         color: var(--muted);
         margin-top: 4px;
       }
       .course-btn {
         padding: 6px 14px;
         border-radius: 7px;
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 700;
         white-space: nowrap;
         transition: all var(--t);
@@ -1296,7 +1602,6 @@
       .stat-big {
         font-family: var(--fb);
         font-size: 48px;
-        letter-spacing: 1px;
         background: linear-gradient(135deg, var(--gold), var(--gold3));
         background-clip: text;
         -webkit-background-clip: text;
@@ -1310,7 +1615,7 @@
         margin-top: 5px;
       }
       .stat-sub {
-        font-size: 11px;
+        font-size: 12px;
         color: var(--muted);
         margin-top: 2px;
       }
@@ -1330,7 +1635,6 @@
       .flow-title {
         font-family: var(--fb);
         font-size: 13px;
-        letter-spacing: 2px;
         color: var(--muted);
         text-transform: uppercase;
         margin-bottom: 28px;
@@ -1376,12 +1680,12 @@
       }
       .flow-node-kh {
         font-family: var(--fk);
-        font-size: 10px;
+        font-size: 12px;
         color: var(--muted2);
         margin-top: 2px;
       }
       .flow-node-count {
-        font-size: 9px;
+        font-size: 12px;
         font-weight: 700;
         padding: 2px 6px;
         border-radius: 4px;
@@ -1391,10 +1695,9 @@
         display: inline-block;
       }
       .flow-root-label {
-        font-size: 9px;
+        font-size: 12px;
         color: var(--gold);
         font-weight: 700;
-        letter-spacing: 1px;
         text-transform: uppercase;
         margin-bottom: 4px;
       }
@@ -1429,9 +1732,8 @@
       }
       .cta-title {
         font-family: var(--fb);
-        font-size: clamp(36px, 5vw, 60px);
-        letter-spacing: 2px;
-        line-height: 1;
+        font-size: clamp(28px, 4.1vw, 44px);
+        line-height: 1.38;
         background: linear-gradient(135deg, var(--white), var(--gold2));
         background-clip: text;
         -webkit-background-clip: text;
@@ -1442,7 +1744,7 @@
       }
       .cta-sub {
         font-family: var(--fk);
-        font-size: 16px;
+        font-size: 15px;
         color: var(--muted2);
         line-height: 1.9;
         max-width: 480px;
@@ -1480,7 +1782,6 @@
       .footer-brand .logo {
         font-family: var(--fb);
         font-size: 22px;
-        letter-spacing: 2px;
         background: linear-gradient(120deg, var(--white) 30%, var(--gold));
         background-clip: text;
         -webkit-background-clip: text;
@@ -1495,9 +1796,8 @@
         line-height: 1.8;
       }
       .footer-col-title {
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 700;
-        letter-spacing: 1.5px;
         text-transform: uppercase;
         color: var(--muted);
         margin-bottom: 14px;
@@ -1525,7 +1825,7 @@
         gap: 12px;
       }
       .footer-copy {
-        font-size: 11px;
+        font-size: 12px;
         color: var(--muted);
       }
       .footer-socials {
@@ -1568,6 +1868,30 @@
       @media (max-width: 768px) {
         .paths-grid {
           grid-template-columns: 1fr;
+        }
+        .path-header {
+          padding: 22px 18px 14px;
+        }
+        .path-icon {
+          margin-bottom: 10px;
+        }
+        .path-title {
+          font-size: 18px;
+          line-height: 1.25;
+        }
+        .path-title-kh {
+          font-size: 12px;
+          line-height: 1.5;
+        }
+        .path-body {
+          padding: 0 18px 14px;
+        }
+        .path-item {
+          font-size: 12px;
+          line-height: 1.6;
+        }
+        .path-footer {
+          padding: 12px 18px;
         }
         .stats-grid {
           grid-template-columns: repeat(2, 1fr);
@@ -1625,29 +1949,30 @@
       <button class="drawer-close" id="drawerClose">
         <i class="fas fa-times"></i>
       </button>
-      <a href="grow.html" onclick="closeDrawer()">Yob ដើម្បីអាជីវកម្ម</a>
+      <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
       <div class="drawer-group">
         <button class="drawer-group-toggle">
-          រៀនជាមួយ Yob <i class="fas fa-chevron-down"></i>
+          Learn <i class="fas fa-chevron-down"></i>
         </button>
         <div class="drawer-group-items">
-          <a href="yob-learning.html" onclick="closeDrawer()">ជំនាញឌីជីថល</a>
-          <a href="docs.html" onclick="closeDrawer()">ឯកសារមេរៀន</a>
-          <a href="case-studies.html" onclick="closeDrawer()">កម្រងស្នាដៃ</a>
+          <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+          <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+          <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
         </div>
       </div>
       <div class="drawer-group">
         <button class="drawer-group-toggle">
-          តូបឌីជីថល <i class="fas fa-chevron-down"></i>
+          Products <i class="fas fa-chevron-down"></i>
         </button>
         <div class="drawer-group-items">
-          <a href="fonts.html" onclick="closeDrawer()">YOB អក្ខរា</a>
-          <a href="resources.html" onclick="closeDrawer()">កាដូឌីជីថល</a>
+          <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+          <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
         </div>
       </div>
       <a href="about.html" onclick="closeDrawer()">About YOB</a>
       <a href="index.html#contact" onclick="closeDrawer()" class="d-cta"
-        >សាកសួរ</a
+        >ទំនាក់ទំនង</a
       >
     </div>
 
@@ -1660,28 +1985,29 @@
         <div class="hero-ticker">
           <div class="ticker-dot"></div>
           <span class="ticker-text"
-            >🔥 AI Course ថ្មី → Claude AI Guide បានបើកហើយ!</span
+            >✅ FREE ថ្មី → Claude AI Guide · ចូលរៀនបានភ្លាម!</span
           >
           <span class="ticker-arr">→</span>
         </div>
 
         <h1 class="hero-h1">
-          <span class="row1">BUILD YOUR</span>
-          <span class="row2">DIGITAL SKILLS</span>
-          <span class="row3">FOR CAMBODIA · 🇰🇭</span>
+          <span class="row1">AI + Digital ជាភាសាខ្មែរ</span>
+          <span class="row2">Apply ភ្លាម · Business Grow</span>
+          <span class="row3">FREE ចាប់ផ្ដើម · 🇰🇭 ១០០%</span>
         </h1>
 
         <p class="hero-desc">
-          រៀន <strong>AI Tools</strong>, <strong>Digital Marketing</strong> និង
-          <strong>Web Systems</strong>
-          ជាភាសាខ្មែរ — វគ្គឥតគិតថ្លៃ, Tools អនុវត្តបានភ្លាម, លទ្ធផលជាក់ស្ដែង!
+          SME · Creator · Student ខ្មែរ — YOB ជួយអ្នករៀន
+          <strong>AI Tools</strong>, <strong>Digital Marketing</strong> និង
+          <strong>Web Systems</strong> ជាភាសាខ្មែរ ១០០%។ រៀន​ហើយ
+          <strong>Apply ភ្លាម</strong> — មើលឃើញ Result ក្នុង ៣០ ថ្ងៃ!
         </p>
 
         <div class="hero-btns">
-          <a href="#paths" class="btn-lg btn-gold-lg">🎓 រៀនវគ្គឥតគិតថ្លៃ</a>
-          <a href="resources.html" class="btn-lg btn-outline-lg"
-            >🧰 មើល Tools Hub</a
+          <a href="#paths" class="btn-lg btn-gold-lg"
+            ><i class="fas fa-graduation-cap"></i> ជ្រើស Path ខ្លួនអ្នក</a
           >
+          <a href="#courses" class="btn-lg btn-outline-lg">✅ មើលវគ្គ FREE</a>
         </div>
 
         <div class="trust-row">
@@ -1711,9 +2037,9 @@
             <div class="stat-sub">Active Learners</div>
           </div>
           <div class="stat-block">
-            <div class="stat-big" data-count="10" data-suffix="">10</div>
-            <div class="stat-lbl">វគ្គសិក្សា</div>
-            <div class="stat-sub">Courses Available</div>
+            <div class="stat-big" data-count="4" data-suffix="+">4+</div>
+            <div class="stat-lbl">FREE Courses</div>
+            <div class="stat-sub">ចូលរៀនបានភ្លាម</div>
           </div>
           <div class="stat-block">
             <div class="stat-big" data-count="3" data-suffix="">3</div>
@@ -1736,14 +2062,69 @@
       </div>
     </div>
 
+    <!-- WHY LEARN — Pain Points -->
+    <section class="yl-why-section">
+      <div class="wrap">
+        <div class="yl-why-header reveal">
+          <span class="yl-why-tag">យប់ YOB ជួយដោះស្រាយ</span>
+          <h2 class="yl-why-title">
+            អ្នកប្រឈមមុខ<span class="gradient-text"> បញ្ហានេះ?</span>
+          </h2>
+          <p class="yl-why-sub">
+            Business ខ្មែរ ភាគច្រើនខំប្រឹង ប៉ុន្តែ Result មិនកើន — ព្រោះ Skills
+            Digital នៅខ្វះ
+          </p>
+        </div>
+        <div class="yl-pain-grid reveal">
+          <div class="yl-pain-card">
+            <div class="yl-pain-icon">📱</div>
+            <h3 class="yl-pain-title">Post ច្រើន · Reach តិច</h3>
+            <p class="yl-pain-desc">
+              Post ជារៀងរាល់ថ្ងៃ ប៉ុន្តែ Engagement ស្ទើរតែ ០ — ព្រោះ Algorithm
+              ថ្មី Content Strategy ខ្វះ
+            </p>
+            <div class="yl-pain-fix">
+              ✅ YOB ជួយ: AI Content + Strategy ជាភាសាខ្មែរ
+            </div>
+          </div>
+          <div class="yl-pain-card">
+            <div class="yl-pain-icon">💸</div>
+            <h3 class="yl-pain-title">Ads ចំណាយ · Return តិច</h3>
+            <p class="yl-pain-desc">
+              Boost Post ដោយ Guess Work — ចំណាយ $50 បាន Leads ២-៣ ប្រហែលជាមិនទិញ
+            </p>
+            <div class="yl-pain-fix">
+              ✅ YOB ជួយ: Facebook Ads Mastery + Analytics
+            </div>
+          </div>
+          <div class="yl-pain-card">
+            <div class="yl-pain-icon">⏰</div>
+            <h3 class="yl-pain-title">ធ្វើអ្វីៗ ១ ម្នាក់ · Burn Out</h3>
+            <p class="yl-pain-desc">
+              គ្មាន System · គ្មាន Automation — ជាប់ Reply, ជាប់ Post, ជាប់
+              Admin ពេញថ្ងៃ
+            </p>
+            <div class="yl-pain-fix">
+              ✅ YOB ជួយ: AI Automation + ManyChat + Web System
+            </div>
+          </div>
+        </div>
+        <div class="yl-why-cta reveal">
+          <span class="yl-why-cta-text"
+            >ជ្រើសរើស Path ដែលត្រូវអ្នក ហើយ Apply ភ្លាម 👇</span
+          >
+        </div>
+      </div>
+    </section>
+
     <!-- LEARNING PATHS -->
     <section class="section" id="paths">
       <div class="wrap">
         <div class="sec-head">
-          <div class="sec-eyebrow">LEARNING PATHS</div>
-          <div class="sec-title">ជ្រើសរើស PATH តាមគោលដៅ</div>
+          <div class="sec-eyebrow">LEARNING PATHS · ជ្រើសតាមគោលដៅ</div>
+          <div class="sec-title">ចង់ Grow — ជ្រើស PATH ខ្លួនអ្នក</div>
           <p class="sec-sub">
-            ជ្រើស Path ដែលត្រូវនឹងអ្នក — Beginner ដល់ Advanced គ្រប់ Level!
+            ៣ Path · Beginner → Pro · ជាភាសាខ្មែរ · ឥតគិតថ្លៃ ៤+ Courses!
           </p>
         </div>
 
@@ -1751,16 +2132,14 @@
           <a href="#courses" class="path-card" onclick="filterCourses('ai')">
             <div class="path-header">
               <div class="path-glow" style="background: var(--path-ai)"></div>
-              <div class="path-icon" style="background: var(--path-ai-bg)">
-                🤖
-              </div>
+              <div class="path-icon icon-ai">🤖</div>
               <div class="path-title">AI TOOLS</div>
               <div class="path-title-kh">ជំនាញ AI — ប្រើប្រាស់ AI ឱ្យចេះ</div>
             </div>
             <div class="path-body">
               <p class="path-desc">
                 Learn Claude, ChatGPT, Gemini — ប្រើ AI ជួយការងារ Save 10+
-                Hours/Week!
+                Hours/Week និងរៀបចំ Workflow ប្រចាំថ្ងៃឱ្យរលូន!
               </p>
               <div class="path-items">
                 <div class="path-item">
@@ -1793,6 +2172,9 @@
                 </div>
               </div>
             </div>
+            <div class="path-result-tag">
+              🎯 លទ្ធផល: Save 10+ Hours/Week · Content ល្អ · Leads ច្រើន
+            </div>
             <div class="path-footer">
               <span class="path-count">4 Courses · Beginner → Advanced</span>
               <div class="path-arr">→</div>
@@ -1806,16 +2188,14 @@
           >
             <div class="path-header">
               <div class="path-glow" style="background: var(--path-mkt)"></div>
-              <div class="path-icon" style="background: var(--path-mkt-bg)">
-                📢
-              </div>
+              <div class="path-icon icon-marketing">📢</div>
               <div class="path-title">DIGITAL MARKETING</div>
               <div class="path-title-kh">Strategy + Content + Ads</div>
             </div>
             <div class="path-body">
               <p class="path-desc">
                 Full-funnel Digital Marketing — Content, Ads, Analytics
-                ជាភាសាខ្មែរ!
+                ជាភាសាខ្មែរ ដើម្បីបង្កើន Leads និង ROAS ឱ្យច្បាស់!
               </p>
               <div class="path-items">
                 <div class="path-item">
@@ -1848,6 +2228,9 @@
                 </div>
               </div>
             </div>
+            <div class="path-result-tag">
+              📈 លទ្ធផល: Reach ×3 · ROAS ×2 · Leads ថ្ងៃនៃថ្ងៃ
+            </div>
             <div class="path-footer">
               <span class="path-count">4 Courses · Beginner → Pro</span>
               <div class="path-arr">→</div>
@@ -1857,16 +2240,14 @@
           <a href="#courses" class="path-card" onclick="filterCourses('web')">
             <div class="path-header">
               <div class="path-glow" style="background: var(--path-web)"></div>
-              <div class="path-icon" style="background: var(--path-web-bg)">
-                🌐
-              </div>
+              <div class="path-icon icon-web">🌐</div>
               <div class="path-title">WEB & SYSTEMS</div>
               <div class="path-title-kh">Website + LMS + Automation</div>
             </div>
             <div class="path-body">
               <p class="path-desc">
                 Build Website, LMS, Automation System — No Wordpress, No Code
-                ក៏បាន!
+                ក៏បាន ហើយអាចទទួល Leads 24/7!
               </p>
               <div class="path-items">
                 <div class="path-item">
@@ -1899,6 +2280,9 @@
                 </div>
               </div>
             </div>
+            <div class="path-result-tag">
+              🌐 លទ្ធផល: Website ផ្ទាល់ · Leads 24/7 · System Auto
+            </div>
             <div class="path-footer">
               <span class="path-count">4 Courses · Beginner → Builder</span>
               <div class="path-arr">→</div>
@@ -1916,11 +2300,25 @@
     >
       <div class="wrap">
         <div class="sec-head">
-          <div class="sec-eyebrow">COURSE CATALOG</div>
-          <div class="sec-title">EXPLORE CATALOG</div>
+          <div class="sec-eyebrow">COURSE CATALOG · ជ្រើស Course</div>
+          <div class="sec-title">វគ្គ FREE + COMING SOON</div>
           <p class="sec-sub">
-            វគ្គឥតគិតថ្លៃ + វគ្គបង់ថ្លៃ — ជាភាសាខ្មែរ, Practical, Apply បានភ្លាម!
+            ✅ FREE Courses: ចូលរៀន Claude AI + HTML/CSS + GitHub ភ្លាម · 📅
+            វគ្គថ្មីៗ Coming Soon — Join Telegram ដើម្បី Notify!
           </p>
+        </div>
+        <div class="yl-catalog-notice reveal">
+          <span class="yl-notice-icon">📢</span>
+          <span class="yl-notice-text"
+            >ចុច <strong>✅ ឥតគិតថ្លៃ</strong> ដើម្បីឃើញ Course
+            ដែលចូលរៀនបានភ្លាម · Course ដទៃ Coming Soon —
+            <a
+              href="https://t.me/yobdigital"
+              target="_blank"
+              rel="noopener"
+              class="yl-notice-link"
+              >Join Telegram <i class="fas fa-arrow-right"></i></a
+          ></span>
         </div>
 
         <div class="filter-row">
@@ -1945,24 +2343,103 @@
       </div>
     </section>
 
+    <!-- SOCIAL PROOF -->
+    <section class="yl-proof-section">
+      <div class="wrap">
+        <div class="yl-proof-header reveal">
+          <span class="yl-proof-tag">📣 សិស្ស YOB និយាយ</span>
+          <h2 class="yl-proof-title">
+            លទ្ធផល<span class="gradient-text"> ពិតប្រាកដ</span> ពីសិស្ស
+          </h2>
+        </div>
+        <div class="yl-proof-grid reveal">
+          <div class="yl-proof-card">
+            <div class="yl-proof-stars">⭐⭐⭐⭐⭐</div>
+            <p class="yl-proof-quote">
+              "YOB ជួយខ្ញុំ Learn Claude AI ហើយ Apply ភ្លាម —
+              <strong>ប្រហែល ១ ខែ</strong> Content ខ្ញុំ Reach ×4 Engagement ×3
+              ហើយ Leads ចាប់ផ្ដើមមកដោយ Organic!"
+            </p>
+            <div class="yl-proof-person">
+              <div class="yl-proof-avatar yl-av-1">🎓</div>
+              <div class="yl-proof-info">
+                <div class="yl-proof-name">ស្រីពៅ រ.</div>
+                <div class="yl-proof-role">Online Shop · Phnom Penh</div>
+              </div>
+              <div class="yl-proof-result">Reach ×4</div>
+            </div>
+          </div>
+          <div class="yl-proof-card yl-proof-card--featured">
+            <div class="yl-proof-stars">⭐⭐⭐⭐⭐</div>
+            <p class="yl-proof-quote">
+              "ខ្ញុំចូលរៀន Facebook Ads Path — Apply Ads ដោយ Strategy ថ្មី។
+              <strong>ROAS ពី 1.2x ទៅ 3.8x</strong> ក្នុង ២ ខែ! Recommend ណាស់!"
+            </p>
+            <div class="yl-proof-person">
+              <div class="yl-proof-avatar yl-av-2">💼</div>
+              <div class="yl-proof-info">
+                <div class="yl-proof-name">ដារ៉ា ម.</div>
+                <div class="yl-proof-role">F&B Business · Siem Reap</div>
+              </div>
+              <div class="yl-proof-result">ROAS ×3.8</div>
+            </div>
+          </div>
+          <div class="yl-proof-card">
+            <div class="yl-proof-stars">⭐⭐⭐⭐⭐</div>
+            <p class="yl-proof-quote">
+              "HTML &amp; CSS Path ជួយខ្ញុំ Build Website ផ្ទាល់ in
+              <strong>2 weeks</strong> — Deploy on Netlify FREE! ឥឡូវ Leads មក
+              24/7 ពី Website!"
+            </p>
+            <div class="yl-proof-person">
+              <div class="yl-proof-avatar yl-av-3">🌐</div>
+              <div class="yl-proof-info">
+                <div class="yl-proof-name">មករា ហ.</div>
+                <div class="yl-proof-role">Freelance Dev · Battambang</div>
+              </div>
+              <div class="yl-proof-result">Website ក្នុង 2 weeks</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section class="cta-section">
       <div class="wrap">
         <div class="cta-card">
-          <div class="cta-title">ចាប់ផ្ដើមរៀន<br />ឥតគិតថ្លៃថ្ងៃនេះ</div>
+          <div class="cta-title">ចាប់ផ្ដើម FREE ថ្ងៃនេះ — Apply ភ្លាម!</div>
           <p class="cta-sub">
-            YOB Digital —
-            <strong>Free Tools, Free Guides, សហគមន៍ពិតប្រាកដ</strong>
-            ជួយ SMEs ខ្មែរ Grow ក្នុង AI Era!
+            រៀន AI + Digital ជាភាសាខ្មែរ · Free Courses + Tools + Community ·
+            <strong>Result ក្នុង ៣០ ថ្ងៃ</strong>
           </p>
+          <div class="yl-cta-steps">
+            <div class="yl-cta-step">
+              <span class="yl-cta-step-num">①</span>
+              <span class="yl-cta-step-text">ជ្រើស Path ឬ FREE Course</span>
+            </div>
+            <div class="yl-cta-arrow">→</div>
+            <div class="yl-cta-step">
+              <span class="yl-cta-step-num">②</span>
+              <span class="yl-cta-step-text">រៀន · Apply · ឃើញ Result</span>
+            </div>
+            <div class="yl-cta-arrow">→</div>
+            <div class="yl-cta-step">
+              <span class="yl-cta-step-num">③</span>
+              <span class="yl-cta-step-text">ស្នើ FREE Strategy Call</span>
+            </div>
+          </div>
           <div class="cta-btns">
             <a href="#courses" class="btn-lg btn-gold-lg"
-              >🎓 មើលវគ្គឥតគិតថ្លៃ</a
+              >✅ ចូលរៀន FREE ភ្លាម</a
             >
-            <a href="resources.html" class="btn-lg btn-outline-lg"
-              >🧰 មើល Tools Hub</a
+            <a href="grow.html#contact" class="btn-lg btn-outline-lg"
+              ><i class="fas fa-paper-plane"></i> ស្នើ FREE Strategy Call</a
             >
           </div>
+          <p class="yl-cta-note">
+            📞 Strategy Call ឥតគិតថ្លៃ · ១០០% ជាភាសាខ្មែរ · គ្មាន Commitment
+          </p>
         </div>
       </div>
     </section>
@@ -1974,8 +2451,10 @@
     <!-- GSAP -->
     <!-- YOB Shared Scripts -->
     <script src="js/load-components.js"></script>
+    <script src="js/load-components.js"></script>
     <script src="js/main.js" defer></script>
 
+    <script>
     <script>
       // ════════════════════════
       // COURSES DATA
@@ -2190,11 +2669,32 @@
         if (!c) return;
         if (c.id === "claude-ai") {
           window.location.href = "docs.html";
+        } else if (c.free && (c.id === "html-css" || c.id === "github")) {
+          window.open("https://t.me/yobdigital", "_blank", "noopener");
         } else {
-          alert(
-            `Course "${c.name}" — Coming Soon! ✨\nJoin Telegram t.me/yobdigital ដើម្បី Notify ដំបូង!`,
-          );
+          showComingSoonModal(c.name);
         }
+      }
+
+      function showComingSoonModal(name) {
+        const overlay = document.createElement("div");
+        overlay.style.cssText =
+          "position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)";
+        overlay.innerHTML = `
+          <div style="background:#0d1117;border:1px solid rgba(229,44,103,0.3);border-radius:20px;padding:40px;max-width:440px;width:100%;text-align:center;box-shadow:0 0 60px rgba(229,44,103,0.15)">
+            <div style="font-size:48px;margin-bottom:16px">📅</div>
+            <h3 style="font-family:var(--fb);font-size:20px;color:#fff;margin-bottom:12px">Coming Soon!</h3>
+            <p style="font-family:var(--fb);color:#8b949e;font-size:15px;margin-bottom:8px">វគ្គ <strong style="color:#fff">${name}</strong></p>
+            <p style="font-family:var(--fb);color:#8b949e;font-size:14px;margin-bottom:28px">Join Telegram ដើម្បីទទួល Notify ដំបូង ពេល Course Launch!</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+              <a href="https://t.me/yobdigital" target="_blank" rel="noopener" style="font-family:var(--fb);background:var(--gold);color:#fff;padding:12px 24px;border-radius:50px;text-decoration:none;font-weight:600;font-size:14px">📣 Join Telegram</a>
+              <button onclick="this.closest('[style*=fixed]').remove()" style="font-family:var(--fb);background:transparent;border:1px solid rgba(255,255,255,0.15);color:#8b949e;padding:12px 24px;border-radius:50px;cursor:pointer;font-size:14px">បិទ</button>
+            </div>
+          </div>`;
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) overlay.remove();
+        });
+        document.body.appendChild(overlay);
       }
 
       // Init
@@ -2202,6 +2702,7 @@
     </script>
 
     <!-- Eternity: Star field + Shooting Stars -->
+    <script>
     <script>
       (function () {
         const canvas = document.getElementById("star-canvas");
@@ -2314,6 +2815,7 @@
 
     <!-- Eternity: Mouse Parallax Orbs -->
     <script>
+    <script>
       (function () {
         if (window.matchMedia("(hover: none)").matches) return;
         const orb1 = document.querySelector(".orb1");
@@ -2357,6 +2859,7 @@
 
     <!-- Eternity: Stats Counter -->
     <script>
+    <script>
       (function () {
         function countUp(el) {
           var target = parseFloat(el.dataset.count);
@@ -2395,6 +2898,7 @@
     </script>
 
     <!-- Eternity: Staggered Card Entrance -->
+    <script>
     <script>
       (function () {
         var grid = document.getElementById("coursesGrid");

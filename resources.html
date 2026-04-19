@@ -3,18 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YOB Content Hub — Free Resources & Templates</title>
+    <title>មជ្ឈមណ្ឌលកាដូឌីជីថល — YOB Digital</title>
     <meta
       name="description"
       content="ទាញយក Templates, Guides, AI Prompts, និង Checklists ឥតគិតថ្លៃ ពី YOB Digital — ជួយ MSMEs ខ្មែរ ចាប់ផ្ដើម Digital ភ្លាមៗ។"
     />
-    <meta
-      property="og:title"
-      content="YOB Content Hub — Free Digital Resources"
-    />
+    <meta property="og:title" content="មជ្ឈមណ្ឌលកាដូឌីជីថល — YOB Digital" />
     <meta
       property="og:description"
-      content="Free AI Prompts, Templates, Guides & Checklists for Cambodian businesses."
+      content="កាដូឌីជីថលឥតគិតថ្លៃ ដូចជា AI Prompts, Templates, Guides និង Checklists សម្រាប់អាជីវកម្មខ្មែរ។"
     />
     <meta
       property="og:image"
@@ -56,9 +53,6 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     /></noscript>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-      defer
     ></script>
     <link rel="stylesheet" href="css/style.min.css" />
 
@@ -341,7 +335,7 @@
       }
       .res-cat-badge {
         font-family: var(--fb);
-        font-size: 10px;
+        font-size: 11px;
         font-weight: 700;
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -371,7 +365,7 @@
 
       .res-format {
         font-family: var(--fb);
-        font-size: 10px;
+        font-size: 11px;
         color: var(--gray);
         display: flex;
         align-items: center;
@@ -380,7 +374,7 @@
       .res-free-tag {
         margin-left: auto;
         font-family: var(--fb);
-        font-size: 10px;
+        font-size: 11px;
         font-weight: 700;
         color: #4ade80;
         background: rgba(74, 222, 128, 0.1);
@@ -485,6 +479,23 @@
       .res-card.hidden {
         display: none;
       }
+
+      /* Filter empty state */
+      .res-empty {
+        display: none;
+        text-align: center;
+        padding: 64px 20px;
+        color: var(--gray);
+        font-family: var(--fb);
+      }
+      .res-empty i {
+        font-size: 36px;
+        margin-bottom: 16px;
+        display: block;
+        opacity: 0.4;
+      }
+      .res-empty p { font-size: 14px; line-height: 1.7; margin-top: 8px; }
+      .res-empty.show { display: block; }
 
       /* ── Download Modal ── */
       .dl-modal {
@@ -626,7 +637,7 @@
       }
       .dl-privacy i {
         color: var(--gold);
-        font-size: 10px;
+        font-size: 11px;
       }
       .dl-status {
         display: none;
@@ -766,46 +777,46 @@
       <button class="drawer-close" id="drawerClose">
         <i class="fas fa-times"></i>
       </button>
-      <a href="grow.html" onclick="closeDrawer()">Yob ដើម្បីអាជីវកម្ម</a>
+      <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
       <div class="drawer-group">
         <button class="drawer-group-toggle">
-          រៀនជាមួយ Yob <i class="fas fa-chevron-down"></i>
+          Learn <i class="fas fa-chevron-down"></i>
         </button>
         <div class="drawer-group-items">
-          <a href="yob-learning.html" onclick="closeDrawer()">ជំនាញឌីជីថល</a>
-          <a href="docs.html" onclick="closeDrawer()">ឯកសារមេរៀន</a>
-          <a href="case-studies.html" onclick="closeDrawer()">កម្រងស្នាដៃ</a>
+          <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+          <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+          <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
         </div>
       </div>
       <div class="drawer-group">
         <button class="drawer-group-toggle">
-          តូបឌីជីថល <i class="fas fa-chevron-down"></i>
+          Products <i class="fas fa-chevron-down"></i>
         </button>
         <div class="drawer-group-items">
-          <a href="fonts.html" onclick="closeDrawer()">YOB អក្ខរា</a>
-          <a href="resources.html" onclick="closeDrawer()">កាដូឌីជីថល</a>
+          <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+          <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
         </div>
       </div>
       <a href="about.html" onclick="closeDrawer()">About YOB</a>
-      <a href="index.html#contact" onclick="closeDrawer()" class="d-cta"
-        >សាកសួរ</a
-      >
+      <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
     </div>
 
     <!-- ══ HERO ══ -->
     <section class="res-hero">
       <div class="container">
         <div class="res-eyebrow reveal">
-          <i class="fas fa-gift"></i> Free Knowledge
+          <i class="fas fa-gift"></i> កាដូឌីជីថលឥតគិតថ្លៃ
         </div>
         <h1 class="reveal">
-          YOB CONTENT
-          <span>HUB</span>
+          មជ្ឈមណ្ឌល
+          <span>កាដូឌីជីថល</span>
         </h1>
         <p class="reveal">
           <strong>Templates, Guides, AI Prompts</strong> និង Checklists
-          ឥតគិតថ្លៃ សម្រាប់ម្ចាស់អាជីវកម្មខ្មែរ — ទាញយក ហើយអនុវត្តភ្លាមៗ
-          ដើម្បីបង្កើន Leads និងលទ្ធផលទីផ្សារ។
+          ឥតគិតថ្លៃ — ទាញយកភ្លាម ហើយអនុវត្តបានតែម្ដង។
+          មិនដឹងថាឯកសារណាសាក?
+          <a href="contact.html" style="color:var(--gold);text-decoration:none;font-weight:700">សាក Digital Check →</a>
         </p>
         <div class="res-stats reveal">
           <div class="res-stat">
@@ -814,11 +825,11 @@
           </div>
           <div class="res-stat">
             <span class="res-stat-num">4</span>
-            <span class="res-stat-lbl">Categories</span>
+            <span class="res-stat-lbl">ផ្នែកសំខាន់ៗ</span>
           </div>
           <div class="res-stat">
             <span class="res-stat-num">100%</span>
-            <span class="res-stat-lbl">Free Always</span>
+            <span class="res-stat-lbl">ឥតគិតថ្លៃជានិច្ច</span>
           </div>
         </div>
       </div>
@@ -833,23 +844,25 @@
             <i class="fas fa-th"></i> ទាំងអស់ <span class="res-count">10</span>
           </button>
           <button class="res-filter-btn" data-filter="ai">
-            <i class="fas fa-robot"></i> AI Tools
+            <i class="fas fa-robot"></i> ឧបករណ៍ AI (សន្សំពេល)
             <span class="res-count">4</span>
           </button>
           <button class="res-filter-btn" data-filter="template">
-            <i class="fas fa-table"></i> Templates
+            <i class="fas fa-table"></i> គំរូត្រៀមប្រើ (អនុវត្តភ្លាម)
             <span class="res-count">3</span>
           </button>
           <button class="res-filter-btn" data-filter="marketing">
-            <i class="fas fa-bullhorn"></i> Marketing
+            <i class="fas fa-bullhorn"></i> ទីផ្សារ (បង្កើនលទ្ធផល)
             <span class="res-count">2</span>
           </button>
           <button class="res-filter-btn" data-filter="design">
-            <i class="fas fa-paint-brush"></i> Design
+            <i class="fas fa-paint-brush"></i> រចនា
             <span class="res-count">1</span>
           </button>
         </div>
-        <div class="res-filter-feedback" id="resFilterFeedback">បង្ហាញ 10 ឯកសារ</div>
+        <div class="res-filter-feedback" id="resFilterFeedback">
+          បង្ហាញ 10 ឯកសារ
+        </div>
 
         <!-- Grid -->
         <div class="res-grid">
@@ -858,44 +871,44 @@
             <div class="res-cover" data-cat="ai">
               <div class="res-cover-inner">
                 <i class="fas fa-book-open"></i>
-                <div class="res-cover-title">AI CONTENT<br />BIBLE</div>
+                <div class="res-cover-title">គម្ពីរ<br />AI Content</div>
               </div>
             </div>
             <div class="res-body">
               <div class="res-meta">
-                <span class="res-cat-badge badge-ai">AI Tools</span>
+                <span class="res-cat-badge badge-ai">ឧបករណ៍ AI</span>
                 <span class="res-format"
-                  ><i class="fas fa-file-pdf"></i> PDF + Template</span
+                  ><i class="fas fa-file-pdf"></i> PDF + គំរូត្រៀមប្រើ</span
                 >
-                <span class="res-free-tag">FREE</span>
+                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
               </div>
               <div class="res-title">
-                AI Content Bible — 30-Day Calendar &amp; Prompts
+                គម្ពីរ AI Content — ប្រតិទិន ៣០ ថ្ងៃ និង Prompt ត្រៀមប្រើ
               </div>
               <div class="res-desc">
                 ប្រព័ន្ធ Content ពេញលេញ + AI Prompts ២០០+ សម្រាប់ MSMEs ខ្មែរ
-                ឱ្យបង្កើត Post ជាប្រចាំ និងរក Leads បានលឿនជាងមុន
-                ដោយប្រើ ChatGPT / Gemini ក្នុង ១០ នាទី។
+                ឱ្យបង្កើត Post ជាប្រចាំ និងរក Leads បានលឿនជាងមុន ដោយប្រើ ChatGPT
+                / Gemini ក្នុង ១០ នាទី។
               </div>
               <ul class="res-includes">
                 <li>
-                  <i class="fas fa-check"></i> 30-Day Content Calendar
+                  <i class="fas fa-check"></i> ប្រតិទិន Content ៣០ ថ្ងៃ
                   ជាស្រេចរួច
                 </li>
                 <li>
                   <i class="fas fa-check"></i> AI Prompts ២០០+
-                  ជា​ភាសា​ខ្មែរ-អង់គ្លេស
+                  ជាភាសាខ្មែរ-អង់គ្លេស
                 </li>
-                <li><i class="fas fa-check"></i> Hook Formula ៣ វិនាទីដំបូង</li>
-                <li><i class="fas fa-check"></i> Caption Templates ១០ Style</li>
+                <li><i class="fas fa-check"></i> រូបមន្ត Hook ៣ វិនាទីដំបូង</li>
+                <li><i class="fas fa-check"></i> គំរូ Caption ១០ រចនាបថ</li>
               </ul>
               <div class="res-footer">
                 <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> 1,200+ Downloads</span
+                  ><i class="fas fa-download"></i> ទាញយក 1,200+ ដង</span
                 >
                 <button
                   class="res-dl-btn res-dl-btn-primary"
-                  onclick="openModal('AI Content Bible', 'fas fa-book-open')"
+                  onclick="openModal('គម្ពីរ AI Content', 'fas fa-book-open')"
                 >
                   <i class="fas fa-download"></i> ទាញយកឥតគិតថ្លៃ
                 </button>
@@ -908,29 +921,29 @@
             <div class="res-cover" data-cat="ai">
               <div class="res-cover-inner">
                 <i class="fas fa-robot"></i>
-                <div class="res-cover-title">AI PROMPT<br />PACK</div>
+                <div class="res-cover-title">AI PROMPT<br />កញ្ចប់</div>
               </div>
             </div>
             <div class="res-body">
               <div class="res-meta">
-                <span class="res-cat-badge badge-ai">AI Tools</span>
+                <span class="res-cat-badge badge-ai">ឧបករណ៍ AI</span>
                 <span class="res-format"
-                  ><i class="fas fa-file-alt"></i> Text File</span
+                  ><i class="fas fa-file-alt"></i> ឯកសារ​អត្ថបទ</span
                 >
-                <span class="res-free-tag">FREE</span>
+                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
               </div>
-              <div class="res-title">100 AI Prompts សម្រាប់ Business ខ្មែរ</div>
+              <div class="res-title">AI Prompts ១០០ សម្រាប់អាជីវកម្មខ្មែរ</div>
               <div class="res-desc">
                 Prompts ១០០ ត្រៀមប្រើ — Cover​ ពី Content, Ads Copy, Email,
                 Caption, Reply Comment, Product Description ជា​ភាសា​ខ្មែរ។
               </div>
               <div class="res-footer">
                 <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> 850+ Downloads</span
+                  ><i class="fas fa-download"></i> ទាញយក 850+ ដង</span
                 >
                 <button
                   class="res-dl-btn"
-                  onclick="openModal('AI Prompt Pack 100', 'fas fa-robot')"
+                  onclick="openModal('កញ្ចប់ AI Prompts 100', 'fas fa-robot')"
                 >
                   <i class="fas fa-download"></i> ទាញយក
                 </button>
@@ -943,30 +956,35 @@
             <div class="res-cover" data-cat="ai">
               <div class="res-cover-inner">
                 <i class="fas fa-graduation-cap"></i>
-                <div class="res-cover-title">CHATGPT<br />STARTER</div>
+                <div class="res-cover-title">CHATGPT<br />ចាប់ផ្តើម</div>
               </div>
             </div>
             <div class="res-body">
               <div class="res-meta">
-                <span class="res-cat-badge badge-ai">AI Tools</span>
+                <span class="res-cat-badge badge-ai">ឧបករណ៍ AI</span>
                 <span class="res-format"
-                  ><i class="fas fa-file-pdf"></i> PDF Guide</span
+                  ><i class="fas fa-file-pdf"></i> មគ្គុទ្ទេសក៍ PDF</span
                 >
-                <span class="res-free-tag">FREE</span>
+                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
               </div>
-              <div class="res-title">ChatGPT Beginner Guide ជា​ភាសា​ខ្មែរ</div>
+              <div class="res-title">
+                មគ្គុទ្ទេសក៍ចាប់ផ្តើម ChatGPT ជាភាសាខ្មែរ
+              </div>
               <div class="res-desc">
                 ចាប់ពី Sign Up រហូតដល់ Prompt ដំបូង — Step-by-step Guide ១២
                 ទំព័រ ជួយអ្នកចាប់ AI ក្នុង ១ ម៉ោង។
               </div>
               <div class="res-footer">
                 <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> 620+ Downloads</span
+                  ><i class="fas fa-download"></i> ទាញយក 620+ ដង</span
                 >
                 <button
                   class="res-dl-btn"
                   onclick="
-                    openModal('ChatGPT Beginner Guide', 'fas fa-graduation-cap')
+                    openModal(
+                      'មគ្គុទ្ទេសក៍ចាប់ផ្តើម ChatGPT',
+                      'fas fa-graduation-cap',
+                    )
                   "
                 >
                   <i class="fas fa-download"></i> ទាញយក
@@ -980,31 +998,31 @@
             <div class="res-cover" data-cat="ai">
               <div class="res-cover-inner">
                 <i class="fas fa-bolt"></i>
-                <div class="res-cover-title">HOOK<br />SECRETS</div>
+                <div class="res-cover-title">ក្បួន<br />HOOK</div>
               </div>
             </div>
             <div class="res-body">
               <div class="res-meta">
-                <span class="res-cat-badge badge-ai">AI Tools</span>
+                <span class="res-cat-badge badge-ai">ឧបករណ៍ AI</span>
                 <span class="res-format"
                   ><i class="fas fa-file-pdf"></i> PDF</span
                 >
-                <span class="res-free-tag">FREE</span>
+                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
               </div>
               <div class="res-title">
-                Hook Secrets — ០ ​ទៅ Viral ក្នុង ៣ វិនាទី
+                ក្បួន Hook — ពី ០ ទៅ Viral ក្នុង ៣ វិនាទី
               </div>
               <div class="res-desc">
-                រូបមន្ត Hook ១៥ ប្រភេទ + ឧទាហរណ៍ Video Hook, Text Hook, ​Photo
+                រូបមន្ត Hook ១៥ ប្រភេទ + ឧទាហរណ៍ Video Hook, Text Hook, Photo
                 Hook ជា​ Context ខ្មែរ ដែល Algorithm ចូលចិត្ត។
               </div>
               <div class="res-footer">
                 <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> 540+ Downloads</span
+                  ><i class="fas fa-download"></i> ទាញយក 540+ ដង</span
                 >
                 <button
                   class="res-dl-btn"
-                  onclick="openModal('Hook Secrets PDF', 'fas fa-bolt')"
+                  onclick="openModal('ក្បួន Hook PDF', 'fas fa-bolt')"
                 >
                   <i class="fas fa-download"></i> ទាញយក
                 </button>
@@ -1017,30 +1035,30 @@
             <div class="res-cover" data-cat="template">
               <div class="res-cover-inner">
                 <i class="fas fa-calendar-alt"></i>
-                <div class="res-cover-title">30-DAY<br />PLAN</div>
+                <div class="res-cover-title">ផែនការ<br />30 ថ្ងៃ</div>
               </div>
             </div>
             <div class="res-body">
               <div class="res-meta">
-                <span class="res-cat-badge badge-template">Template</span>
+                <span class="res-cat-badge badge-template">គំរូត្រៀមប្រើ</span>
                 <span class="res-format"
-                  ><i class="fas fa-table"></i> Google Sheets</span
+                  ><i class="fas fa-table"></i> សន្លឹក Google</span
                 >
-                <span class="res-free-tag">FREE</span>
+                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
               </div>
-              <div class="res-title">30-Day Content Plan Template</div>
+              <div class="res-title">គំរូផែនការ Content ៣០ ថ្ងៃ</div>
               <div class="res-desc">
-                Google Sheets Template រៀបចំ Content ១ ខែ — Post Type, Date,
-                Caption Draft, Status Track ត្រៀមស្រេចរួចជាមុន។
+                គំរូសន្លឹក Google សម្រាប់រៀបចំ Content ១ ខែ — ប្រភេទ Post,
+                កាលបរិច្ឆេទ, Caption Draft និងតាមដានស្ថានភាពជាស្រេច។
               </div>
               <div class="res-footer">
                 <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> 780+ Downloads</span
+                  ><i class="fas fa-download"></i> ទាញយក 780+ ដង</span
                 >
                 <button
                   class="res-dl-btn"
                   onclick="
-                    openModal('30-Day Content Plan', 'fas fa-calendar-alt')
+                    openModal('ផែនការ Content 30 ថ្ងៃ', 'fas fa-calendar-alt')
                   "
                 >
                   <i class="fas fa-download"></i> ទាញយក
@@ -1054,33 +1072,30 @@
             <div class="res-cover" data-cat="template">
               <div class="res-cover-inner">
                 <i class="fas fa-comment-dots"></i>
-                <div class="res-cover-title">KHMER<br />CAPTIONS</div>
+                <div class="res-cover-title">CAPTION<br />ខ្មែរ</div>
               </div>
             </div>
             <div class="res-body">
               <div class="res-meta">
-                <span class="res-cat-badge badge-template">Template</span>
+                <span class="res-cat-badge badge-template">គំរូត្រៀមប្រើ</span>
                 <span class="res-format"
                   ><i class="fas fa-file-word"></i> Word / Docs</span
                 >
-                <span class="res-free-tag">FREE</span>
+                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
               </div>
-              <div class="res-title">Khmer Caption Templates ៥០+</div>
+              <div class="res-title">គំរូ Caption ខ្មែរ ៥០+</div>
               <div class="res-desc">
                 Caption ជា​ភាសា​ខ្មែរ ៥០+ ទម្រង់ — Flash Sale, New Product,
                 Testimonial, Event, ​Promotion ត្រៀម Copy-Paste ភ្លាមៗ។
               </div>
               <div class="res-footer">
                 <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> 910+ Downloads</span
+                  ><i class="fas fa-download"></i> ទាញយក 910+ ដង</span
                 >
                 <button
                   class="res-dl-btn"
                   onclick="
-                    openModal(
-                      'Khmer Caption Templates 50+',
-                      'fas fa-comment-dots',
-                    )
+                    openModal('គំរូ Caption ខ្មែរ 50+', 'fas fa-comment-dots')
                   "
                 >
                   <i class="fas fa-download"></i> ទាញយក
@@ -1094,31 +1109,31 @@
             <div class="res-cover" data-cat="template">
               <div class="res-cover-inner">
                 <i class="fas fa-clipboard-check"></i>
-                <div class="res-cover-title">SOCIAL<br />AUDIT</div>
+                <div class="res-cover-title">សវនកម្ម<br />សង្គម</div>
               </div>
             </div>
             <div class="res-body">
               <div class="res-meta">
-                <span class="res-cat-badge badge-template">Template</span>
+                <span class="res-cat-badge badge-template">គំរូត្រៀមប្រើ</span>
                 <span class="res-format"
-                  ><i class="fas fa-table"></i> Google Sheets</span
+                  ><i class="fas fa-table"></i> សន្លឹក Google</span
                 >
-                <span class="res-free-tag">FREE</span>
+                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
               </div>
-              <div class="res-title">Social Media Audit Template</div>
+              <div class="res-title">គំរូសវនកម្មបណ្ដាញសង្គម</div>
               <div class="res-desc">
                 Rate Account Facebook, Instagram, TikTok, YouTube របស់អ្នក ១ ១ —
                 Score Card ដាក់ Priority Fix មុននឹង Boost Ads។
               </div>
               <div class="res-footer">
                 <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> 430+ Downloads</span
+                  ><i class="fas fa-download"></i> ទាញយក 430+ ដង</span
                 >
                 <button
                   class="res-dl-btn"
                   onclick="
                     openModal(
-                      'Social Media Audit Template',
+                      'គំរូសវនកម្មបណ្ដាញសង្គម',
                       'fas fa-clipboard-check',
                     )
                   "
@@ -1139,27 +1154,27 @@
             </div>
             <div class="res-body">
               <div class="res-meta">
-                <span class="res-cat-badge badge-marketing">Marketing</span>
+                <span class="res-cat-badge badge-marketing">ទីផ្សារ</span>
                 <span class="res-format"
                   ><i class="fas fa-file-pdf"></i> PDF</span
                 >
-                <span class="res-free-tag">FREE</span>
+                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
               </div>
               <div class="res-title">
-                Facebook Ads Checklist — Before You Spend $1
+                Checklist Facebook Ads — មុនចំណាយ ១ ដុល្លារ
               </div>
               <div class="res-desc">
-                រៀបចំ Campaign ត្រឹមត្រូវ មុន Boost — Checklist ២៥ ចំណុច ជួយ Cut
+                រៀបចំ Campaign ត្រឹមត្រូវ មុន Boost — Checklist ២៥ ចំណុច ជួយកាត់
                 Waste ហើយ Improve ROAS តាំងពី Day 1។
               </div>
               <div class="res-footer">
                 <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> 670+ Downloads</span
+                  ><i class="fas fa-download"></i> ទាញយក 670+ ដង</span
                 >
                 <button
                   class="res-dl-btn"
                   onclick="
-                    openModal('Facebook Ads Checklist', 'fab fa-facebook-f')
+                    openModal('Checklist Facebook Ads', 'fab fa-facebook-f')
                   "
                 >
                   <i class="fas fa-download"></i> ទាញយក
@@ -1173,27 +1188,27 @@
             <div class="res-cover" data-cat="marketing">
               <div class="res-cover-inner">
                 <i class="fas fa-chess"></i>
-                <div class="res-cover-title">STRATEGY<br />CANVAS</div>
+                <div class="res-cover-title">ផែនការ<br />CANVAS</div>
               </div>
             </div>
             <div class="res-body">
               <div class="res-meta">
-                <span class="res-cat-badge badge-marketing">Marketing</span>
+                <span class="res-cat-badge badge-marketing">ទីផ្សារ</span>
                 <span class="res-format"
-                  ><i class="fas fa-file-pdf"></i> PDF 1-Page</span
+                  ><i class="fas fa-file-pdf"></i> PDF ១ ទំព័រ</span
                 >
-                <span class="res-free-tag">FREE</span>
+                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
               </div>
               <div class="res-title">
-                Digital Strategy Canvas — 1-Page Business Plan
+                Digital Strategy Canvas — ផែនការអាជីវកម្ម ១ ទំព័រ
               </div>
               <div class="res-desc">
-                Framework ១ ទំព័រ ជួយ Map Digital Strategy — Target, Channel,
-                Budget, KPI, Content Pillar ច្បាស់លាស់ ក្នុង ១ ម៉ោង។
+                Framework ១ ទំព័រ ជួយគូសផែនការ Digital Strategy — Target,
+                Channel, Budget, KPI, Content Pillar ច្បាស់លាស់ ក្នុង ១ ម៉ោង។
               </div>
               <div class="res-footer">
                 <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> 390+ Downloads</span
+                  ><i class="fas fa-download"></i> ទាញយក 390+ ដង</span
                 >
                 <button
                   class="res-dl-btn"
@@ -1215,20 +1230,21 @@
             </div>
             <div class="res-body">
               <div class="res-meta">
-                <span class="res-cat-badge badge-design">Design</span>
+                <span class="res-cat-badge badge-design">រចនា</span>
                 <span class="res-format"
                   ><i class="fas fa-file-pdf"></i> PDF</span
                 >
-                <span class="res-free-tag">FREE</span>
+                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
               </div>
-              <div class="res-title">Branding Checklist — SMEs ខ្មែរ</div>
+              <div class="res-title">Branding Checklist — សហគ្រាសខ្មែរ</div>
               <div class="res-desc">
-                Logo, Color, Font, Tone of Voice, Profile Picture ត្រូវ Standard
-                ទំនើប — Checklist ៣០ ចំណុច ជួយ Audit Brand ​អ្នកថ្ងៃ​នេះ។
+                Logo, Color, Font, Tone of Voice, Profile Picture
+                ត្រូវមានស្តង់ដារ ទំនើប — Checklist ៣០ ចំណុច ជួយ Audit Brand
+                ​អ្នកថ្ងៃ​នេះ។
               </div>
               <div class="res-footer">
                 <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> 280+ Downloads</span
+                  ><i class="fas fa-download"></i> ទាញយក 280+ ដង</span
                 >
                 <button
                   class="res-dl-btn"
@@ -1241,6 +1257,11 @@
           </div>
         </div>
         <!-- /res-grid -->
+        <div class="res-empty" id="resEmpty">
+          <i class="fas fa-box-open"></i>
+          <strong>មិនមានឯកសារក្នុង Category នេះទេ</strong>
+          <p>ចុច <strong>ទាំងអស់</strong> ដើម្បីមើលឯកសារទាំង 10 ។</p>
+        </div>
       </div>
     </section>
 
@@ -1253,10 +1274,9 @@
         <div class="dl-modal-icon">
           <i id="modalIcon" class="fas fa-book-open"></i>
         </div>
-        <div class="dl-modal-title" id="modalTitle">AI Content Bible</div>
+        <div class="dl-modal-title" id="modalTitle">គម្ពីរ AI Content</div>
         <div class="dl-modal-sub">
-          បំពេញ Form ខាងក្រោម — ឯកសារ​នឹង​ផ្ញើ​ទៅ Telegram អ្នក​ភ្លាមៗ
-          <strong>ដោយ​ឥតគិតថ្លៃ</strong> ហើយអាចយកទៅប្រើក្នុងការងារបានភ្លាម។
+          បំពេញ Form ខាងក្រោម — <strong>ក្រុម YOB នឹង DM file ទៅ Telegram</strong> របស់អ្នក ក្នុងរយៈពេល ២–៥ នាទី។ ប្រាកដថា Telegram search <strong>@yobdigital</strong> ហើយ allow message មុន ។
         </div>
         <form
           class="dl-form"
@@ -1289,7 +1309,7 @@
             type="text"
             name="business_type"
             class="dl-input"
-            placeholder="ប្រភេទ Business (Optional)"
+            placeholder="ប្រភេទអាជីវកម្ម (ជាជម្រើស)"
           />
           <button type="submit" class="dl-submit">
             <i class="fas fa-download"></i> ទាញយកឥឡូវ (ឥតគិតថ្លៃ)
@@ -1298,7 +1318,8 @@
             បានទទួលការស្នើររួចរាល់។ សូមពិនិត្យ Telegram ក្នុងរយៈពេល ២–៥ នាទី។
           </div>
           <div class="dl-status error" id="dlStatusError">
-            មានបញ្ហាបច្ចេកទេសក្នុងការបញ្ជូន។ សូមសាកម្តងទៀត ឬទាក់ទង Telegram ដោយផ្ទាល់។
+            មានបញ្ហាបច្ចេកទេសក្នុងការបញ្ជូន។ សូមសាកម្តងទៀត ឬទាក់ទង Telegram
+            ដោយផ្ទាល់។
           </div>
           <span class="dl-privacy"
             ><i class="fas fa-lock"></i>
@@ -1319,16 +1340,18 @@
       <i class="fas fa-chevron-up"></i>
     </button>
 
-    <script src="js/form-utils.js"></script>
+    <script src="js/form-utils.js" defer></script>
+    <script src="js/form-utils.js" defer></script>
     <script>
       // ── Filter Logic ──
       const filterBtns = document.querySelectorAll(".res-filter-btn");
       const cards = document.querySelectorAll(".res-card");
       const filterFeedback = document.getElementById("resFilterFeedback");
+      const resEmpty = document.getElementById("resEmpty");
 
       function updateFilterFeedback(count) {
-        if (!filterFeedback) return;
-        filterFeedback.textContent = `បង្ហាញ ${count} ឯកសារ`;
+        if (filterFeedback) filterFeedback.textContent = `បង្ហាញ ${count} ឯកសារ`;
+        if (resEmpty) resEmpty.classList.toggle("show", count === 0);
       }
 
       filterBtns.forEach((btn) => {
@@ -1371,14 +1394,16 @@
 
         if (submitBtn) {
           submitBtn.disabled = true;
-          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> កំពុងបញ្ជូន...';
+          submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> កំពុងបញ្ជូន...';
         }
 
         try {
           await window.YOBFormUtils.submitNetlifyForm(form);
           window.YOBFormUtils.track("form_submit_success", {
             form: "resources_download",
-            resource: document.getElementById("dlResourceName").value || "unknown",
+            resource:
+              document.getElementById("dlResourceName").value || "unknown",
           });
 
           successMsg.style.display = "block";
@@ -1407,6 +1432,7 @@
           if (e.target === this) closeModal();
         });
     </script>
+    <script src="js/load-components.js"></script>
     <script src="js/load-components.js"></script>
     <script src="js/main.js" defer></script>
   </body>

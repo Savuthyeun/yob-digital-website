@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Khmer Font Shop — YOB Digital</title>
+    <title>ហាងអក្សរខ្មែរ — YOB Digital</title>
     <meta
       name="description"
-      content="Premium Khmer Unicode Fonts ដោយ YOB Digital — Bold, Serif, Script, Display fonts for branding, web, and print."
+      content="អក្សរខ្មែរ Unicode គុណភាពខ្ពស់ដោយ YOB Digital សម្រាប់ម៉ាក, វេបសាយ និងការបោះពុម្ព។"
     />
-    <meta property="og:title" content="Khmer Font Shop — YOB Digital" />
+    <meta property="og:title" content="ហាងអក្សរខ្មែរ — YOB Digital" />
     <meta
       property="og:description"
-      content="Premium Khmer Unicode Fonts — from $12. Free version included!"
+      content="អក្សរខ្មែរ Unicode គុណភាពខ្ពស់ ចាប់ពី $12 និងមានកំណែឥតគិតថ្លៃ។"
     />
     <meta
       property="og:image"
@@ -55,9 +55,6 @@
       />
     </noscript>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-      defer
     ></script>
     <!-- Shared styles from main site -->
     <link rel="stylesheet" href="css/style.min.css" />
@@ -196,6 +193,111 @@
         color: var(--gold);
       }
 
+      .font-hub-toolbar {
+        margin: 0 auto 24px;
+        max-width: 1080px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 18px;
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.05),
+          rgba(255, 255, 255, 0.015)
+        );
+        padding: 18px;
+      }
+      .font-hub-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 14px;
+        flex-wrap: wrap;
+      }
+      .font-hub-title {
+        font-family: var(--fb);
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--white);
+      }
+      .font-hub-sub {
+        font-family: var(--fk);
+        font-size: 12px;
+        color: var(--gray);
+      }
+      .font-hub-tools {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .font-hub-field {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 10px 12px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .font-hub-label {
+        font-family: var(--fb);
+        font-size: 11px;
+        color: var(--gray);
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .font-hub-input,
+      .font-hub-range {
+        width: 100%;
+      }
+      .font-hub-input {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--white);
+        font-family: var(--fk);
+        font-size: 14px;
+        padding: 10px 12px;
+      }
+      .font-hub-input::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+      .font-hub-meter {
+        margin-top: 7px;
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gray);
+      }
+      .font-hub-shortcuts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .font-hub-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        padding: 6px 12px;
+        color: var(--gray);
+        font-family: var(--fb);
+        font-size: 12px;
+      }
+      .font-hub-chip:hover {
+        border-color: rgba(229, 44, 103, 0.4);
+        color: var(--white);
+      }
+
+      .filter-empty {
+        display: none;
+        margin: 10px 0 24px;
+        border: 1px dashed rgba(229, 44, 103, 0.35);
+        border-radius: 14px;
+        padding: 14px;
+        font-family: var(--fk);
+        color: var(--gray);
+        background: rgba(229, 44, 103, 0.06);
+      }
+
       /* Font cards grid */
       .fonts-grid {
         display: grid;
@@ -211,6 +313,8 @@
         overflow: hidden;
         transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         position: relative;
+        transform-style: preserve-3d;
+        will-change: transform;
       }
       .font-card:hover {
         border-color: rgba(229, 44, 103, 0.3);
@@ -230,7 +334,7 @@
         background: rgba(229, 44, 103, 0.05);
       }
       .font-card.featured::before {
-        content: "⭐ BEST SELLER";
+        content: "⭐ លក់ដាច់";
         position: absolute;
         top: 16px;
         right: 16px;
@@ -241,6 +345,23 @@
         letter-spacing: 1.5px;
         padding: 4px 10px;
         border-radius: 20px;
+      }
+      .font-card::after {
+        content: "";
+        position: absolute;
+        inset: -120% -30%;
+        background: linear-gradient(
+          115deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.1) 48%,
+          transparent 66%
+        );
+        transform: translateX(-60%) rotate(8deg);
+        transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        pointer-events: none;
+      }
+      .font-card:hover::after {
+        transform: translateX(58%) rotate(8deg);
       }
 
       /* Font preview area */
@@ -279,6 +400,7 @@
         transition: color 0.3s ease;
         position: relative;
         z-index: 1;
+        animation: fontsPreviewFloat 4.8s ease-in-out infinite;
       }
       .font-card:hover .preview-text {
         color: #ffd0df;
@@ -312,6 +434,51 @@
         font-family: var(--fh);
         font-size: 50px;
         font-weight: 900;
+      }
+      @keyframes fontsPreviewFloat {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-4px);
+        }
+      }
+
+      @keyframes fontsHeroBadgePulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 rgba(229, 44, 103, 0);
+        }
+        50% {
+          box-shadow: 0 0 0 8px rgba(229, 44, 103, 0.06);
+        }
+      }
+
+      .hero-badge-item {
+        animation: fontsHeroBadgePulse 3.6s ease-in-out infinite;
+      }
+      .hero-badge-item:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+      .hero-badge-item:nth-child(3) {
+        animation-delay: 1s;
+      }
+      .hero-badge-item:nth-child(4) {
+        animation-delay: 1.5s;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .preview-text,
+        .hero-badge-item {
+          animation: none !important;
+        }
+        .font-card {
+          transition: none !important;
+        }
+        .font-card::after {
+          display: none;
+        }
       }
 
       /* Font card info */
@@ -425,6 +592,359 @@
         background: #4ade80;
         color: var(--dark);
         transform: translateY(-2px);
+      }
+
+      .gkhmer-section-head {
+        margin: 14px 0 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .gkhmer-title {
+        font-family: var(--fh);
+        font-size: clamp(24px, 3vw, 34px);
+        letter-spacing: 0.5px;
+      }
+      .gkhmer-note {
+        font-family: var(--fk);
+        font-size: 13px;
+        color: var(--gray);
+      }
+      .gkhmer-controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .gkhmer-custom {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .gkhmer-custom-input {
+        min-width: min(320px, 80vw);
+        height: 36px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--white);
+        font-family: var(--fk);
+        font-size: 13px;
+        padding: 0 14px;
+        outline: none;
+        transition:
+          border-color var(--t),
+          box-shadow var(--t);
+      }
+      .gkhmer-custom-input::placeholder {
+        color: rgba(255, 255, 255, 0.45);
+      }
+      .gkhmer-custom-input:focus {
+        border-color: rgba(229, 44, 103, 0.5);
+        box-shadow: 0 0 0 3px rgba(229, 44, 103, 0.16);
+      }
+      .gkhmer-control-btn {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--gray);
+        border-radius: 999px;
+        padding: 6px 12px;
+        font-family: var(--fb);
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .gkhmer-control-btn:hover {
+        color: var(--white);
+        border-color: rgba(229, 44, 103, 0.35);
+      }
+      .gkhmer-control-btn.active {
+        color: var(--gold);
+        border-color: rgba(229, 44, 103, 0.45);
+        background: rgba(229, 44, 103, 0.12);
+      }
+      .gkhmer-reset-btn {
+        border: 1px solid rgba(74, 222, 128, 0.35);
+        background: rgba(74, 222, 128, 0.08);
+        color: #4ade80;
+      }
+      .gkhmer-reset-btn:hover {
+        border-color: #4ade80;
+        color: #9ef6bc;
+      }
+      .gkhmer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 14px;
+      }
+      .gkhmer-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: all var(--t);
+      }
+      .gkhmer-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(229, 44, 103, 0.35);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.28);
+      }
+      .gkhmer-preview {
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 10px;
+        background: rgba(229, 44, 103, 0.04);
+        color: var(--white);
+        font-size: 21px;
+        line-height: 1.35;
+        padding: 12px;
+      }
+      .gkhmer-name {
+        font-family: var(--fb);
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--white);
+      }
+      .gkhmer-meta {
+        font-size: 12px;
+        color: #4ade80;
+      }
+      .gkhmer-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .gkhmer-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        color: var(--gray);
+        padding: 7px 12px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .gkhmer-link:hover {
+        color: var(--white);
+        border-color: rgba(229, 44, 103, 0.45);
+      }
+
+      .keyboard-guide {
+        padding: clamp(40px, 7vw, 72px) 0;
+      }
+      .kbd-grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .kbd-tabs {
+        display: inline-flex;
+        gap: 8px;
+        margin-bottom: 14px;
+        padding: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .kbd-tab-btn {
+        border: none;
+        border-radius: 999px;
+        padding: 8px 14px;
+        background: transparent;
+        color: var(--gray);
+        font-family: var(--fb);
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .kbd-tab-btn.active {
+        background: rgba(229, 44, 103, 0.18);
+        color: var(--white);
+      }
+      .kbd-panel {
+        display: none;
+      }
+      .kbd-panel.active {
+        display: block;
+      }
+      .kbd-card {
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 18px;
+      }
+      .kbd-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--fb);
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .kbd-head i {
+        color: var(--gold);
+      }
+      .kbd-steps {
+        margin: 0;
+        padding-left: 18px;
+        display: grid;
+        gap: 8px;
+      }
+      .kbd-steps li {
+        font-family: var(--fk);
+        color: var(--gray);
+        line-height: 1.75;
+        font-size: 14px;
+      }
+      .kbd-download {
+        margin-top: 12px;
+      }
+      .kbd-download .btn-outline {
+        display: inline-flex;
+        padding: 9px 14px;
+      }
+      .kbd-checklist {
+        margin-top: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 14px;
+      }
+      .kbd-checklist-title {
+        font-family: var(--fb);
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+      .kbd-checklist-items {
+        display: grid;
+        gap: 7px;
+      }
+      .kbd-check-item {
+        display: flex;
+        gap: 9px;
+        align-items: flex-start;
+        font-family: var(--fk);
+        font-size: 13px;
+        color: var(--gray);
+      }
+      .kbd-check-item input {
+        margin-top: 3px;
+        accent-color: var(--gold);
+      }
+      .kbd-check-progress {
+        margin-top: 8px;
+        font-family: var(--fb);
+        color: var(--gold);
+        font-size: 12px;
+      }
+      .kbd-check-actions {
+        margin-top: 10px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .kbd-check-reset {
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--gray);
+        border-radius: 999px;
+        padding: 7px 12px;
+        font-family: var(--fb);
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .kbd-check-reset:hover {
+        color: var(--white);
+        border-color: rgba(229, 44, 103, 0.4);
+      }
+      .kbd-help {
+        margin-top: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 14px;
+      }
+      .kbd-help-title {
+        font-family: var(--fb);
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+      .kbd-help-list {
+        margin: 0;
+        padding-left: 18px;
+        display: grid;
+        gap: 6px;
+      }
+      .kbd-help-list li {
+        font-family: var(--fk);
+        color: var(--gray);
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      .typing-practice {
+        margin-top: 16px;
+        border: 1px solid rgba(229, 44, 103, 0.26);
+        border-radius: 16px;
+        background: linear-gradient(
+          140deg,
+          rgba(229, 44, 103, 0.12),
+          rgba(255, 255, 255, 0.02)
+        );
+        padding: 16px;
+      }
+      .typing-practice-head {
+        font-family: var(--fb);
+        font-size: 15px;
+        margin-bottom: 10px;
+      }
+      .typing-practice-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .typing-practice-input,
+      .typing-practice-output {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        background: rgba(8, 11, 16, 0.4);
+        color: var(--white);
+        font-family: var(--fk);
+        font-size: 15px;
+        min-height: 92px;
+        padding: 12px;
+      }
+      .typing-practice-output {
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+      .typing-practice-actions {
+        margin-top: 10px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .typing-copy-status {
+        font-family: var(--fk);
+        color: var(--gray);
+        font-size: 12px;
+      }
+
+      .help-center-intro {
+        max-width: 760px;
+        margin: 0 auto 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 12px 14px;
+        font-family: var(--fk);
+        font-size: 14px;
+        line-height: 1.8;
+        color: var(--gray);
       }
 
       /* Bundle section */
@@ -737,6 +1257,130 @@
         border-color: rgba(229, 44, 103, 0.5);
       }
 
+      /* In-page multi-font order box */
+      .font-order-section {
+        padding: 0 0 clamp(36px, 6vw, 64px);
+        display: none;
+      }
+      .font-order-section.show {
+        display: block;
+      }
+      .font-order-box {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(229, 44, 103, 0.22);
+        border-radius: 20px;
+        padding: clamp(18px, 3vw, 26px);
+      }
+      .font-order-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 14px;
+      }
+      .font-order-title {
+        font-family: var(--fb);
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .font-order-total {
+        font-family: var(--fb);
+        font-size: 14px;
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .font-order-list {
+        list-style: none;
+        margin: 0 0 16px;
+        padding: 0;
+        display: grid;
+        gap: 8px;
+      }
+      .font-order-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .font-order-item-name {
+        font-family: var(--fb);
+        font-size: 14px;
+      }
+      .font-order-item-price {
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+      }
+      .font-order-remove {
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--gray);
+        border-radius: 999px;
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .font-order-remove:hover {
+        color: var(--white);
+        border-color: rgba(229, 44, 103, 0.45);
+      }
+      .font-order-form {
+        display: grid;
+        gap: 10px;
+      }
+      .font-order-grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .font-order-input,
+      .font-order-textarea {
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 12px;
+        color: var(--white);
+        font-family: var(--fb);
+        font-size: 14px;
+        padding: 12px 14px;
+      }
+      .font-order-input::placeholder,
+      .font-order-textarea::placeholder {
+        color: var(--gray);
+      }
+      .font-order-textarea {
+        min-height: 90px;
+        resize: vertical;
+      }
+      .font-order-note {
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gray);
+      }
+      .font-order-msg {
+        display: none;
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-family: var(--fb);
+        font-size: 13px;
+      }
+      .font-order-msg.success {
+        background: rgba(74, 222, 128, 0.12);
+        border: 1px solid rgba(74, 222, 128, 0.35);
+        color: #4ade80;
+      }
+      .font-order-msg.error {
+        background: rgba(239, 68, 68, 0.12);
+        border: 1px solid rgba(239, 68, 68, 0.34);
+        color: #fca5a5;
+      }
+
       /* Responsive */
       @media (max-width: 900px) {
         .bundle-card {
@@ -778,6 +1422,265 @@
           flex: 1;
           justify-content: center;
         }
+        .font-order-grid {
+          grid-template-columns: 1fr;
+        }
+        .font-hub-tools {
+          grid-template-columns: 1fr;
+        }
+        .kbd-grid {
+          grid-template-columns: 1fr;
+        }
+        .typing-practice-grid {
+          grid-template-columns: 1fr;
+        }
+        .kbd-tabs {
+          width: 100%;
+          justify-content: center;
+        }
+        .gkhmer-custom {
+          width: 100%;
+        }
+        .gkhmer-custom-input {
+          min-width: 0;
+          width: 100%;
+        }
+      }
+      /* ── TOOLBAR REDESIGN (Google Fonts style) ── */
+      .font-hub-toolbar {
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.03);
+        padding: 20px 24px;
+        margin-bottom: 0;
+      }
+      .font-hub-search-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .font-hub-search-wrap {
+        flex: 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      .font-hub-search-wrap i {
+        position: absolute;
+        left: 16px;
+        color: var(--gray);
+        font-size: 14px;
+        pointer-events: none;
+      }
+      .font-hub-input.search-big {
+        padding-left: 42px;
+        font-size: 15px;
+        height: 48px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.04);
+        color: var(--white);
+        font-family: var(--fk);
+        transition: border-color var(--t), box-shadow var(--t);
+      }
+      .font-hub-input.search-big:focus {
+        border-color: rgba(229,44,103,0.45);
+        box-shadow: 0 0 0 3px rgba(229,44,103,0.12);
+        outline: none;
+      }
+      .font-hub-controls-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .font-hub-size-wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+      .font-hub-size-label-text {
+        font-size: 11px;
+        color: var(--gray);
+        font-family: var(--fb);
+        white-space: nowrap;
+      }
+      .font-hub-range {
+        width: 120px;
+        accent-color: var(--gold);
+        cursor: pointer;
+      }
+      .font-hub-size-val {
+        font-size: 11px;
+        color: var(--gold);
+        font-family: var(--fb);
+        min-width: 36px;
+      }
+
+      /* ── STICKY FILTER BAR ── */
+      .font-filter-sticky {
+        position: sticky;
+        top: 68px;
+        z-index: 90;
+        background: rgba(8,11,16,0.94);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        margin: 16px -20px 0;
+        padding: 12px 20px;
+      }
+      .font-filter-sticky .filter-bar {
+        margin-bottom: 0;
+        padding: 0;
+      }
+
+      /* ── USE CASE CHIPS on font cards ── */
+      .font-usecase {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+      }
+      .uc-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 10px;
+        font-weight: 600;
+        font-family: var(--fb);
+        padding: 3px 10px;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        color: rgba(255,255,255,0.5);
+        transition: all var(--t);
+      }
+      .uc-chip i { font-size: 9px; color: var(--gold); }
+      .font-card:hover .uc-chip {
+        border-color: rgba(229,44,103,0.15);
+        color: var(--gray);
+      }
+
+      /* ── FONT WEIGHT INDICATOR ── */
+      .font-weights {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      .fw-dot {
+        height: 3px;
+        border-radius: 3px;
+        background: rgba(255,255,255,0.15);
+        transition: background var(--t);
+        flex: 1;
+      }
+      .fw-dot.on { background: var(--gold); }
+      .fw-label {
+        font-size: 10px;
+        color: var(--gray);
+        font-family: var(--fb);
+        white-space: nowrap;
+      }
+
+      /* ── GOOGLE KHMER SECTION HEADER ── */
+      .gkhmer-section-wrap {
+        margin-top: 60px;
+        padding-top: 60px;
+        border-top: 1px solid rgba(255,255,255,0.06);
+      }
+      .gkhmer-section-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(74,222,128,0.08);
+        border: 1px solid rgba(74,222,128,0.2);
+        padding: 5px 14px;
+        border-radius: 50px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #4ade80;
+        margin-bottom: 12px;
+      }
+      .gkhmer-section-title {
+        font-family: var(--fh);
+        font-size: clamp(26px, 3.5vw, 40px);
+        margin-bottom: 6px;
+        line-height: 1.1;
+      }
+      .gkhmer-section-desc {
+        font-family: var(--fk);
+        font-size: 14px;
+        color: var(--gray);
+        margin-bottom: 24px;
+        line-height: 1.8;
+      }
+
+      /* ── KEYBOARD SETUP REFERRAL CARD ── */
+      .font-setup-referral {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        background: rgba(229,44,103,0.06);
+        border: 1px solid rgba(229,44,103,0.2);
+        border-radius: var(--radius);
+        padding: 32px 36px;
+      }
+      .fsr-icon {
+        flex-shrink: 0;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(229,44,103,0.12);
+        border-radius: 14px;
+        font-size: 22px;
+        color: var(--gold);
+      }
+      .fsr-body { flex: 1; }
+      .fsr-title {
+        font-family: var(--fb);
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 6px;
+      }
+      .fsr-desc {
+        font-family: var(--fk);
+        font-size: 13px;
+        color: var(--gray);
+        line-height: 1.7;
+        margin-bottom: 12px;
+      }
+      .fsr-steps {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 20px;
+      }
+      .fsr-steps span {
+        font-family: var(--fb);
+        font-size: 12px;
+        color: #4ade80;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .fsr-cta { flex-shrink: 0; white-space: nowrap; }
+      @media (max-width: 768px) {
+        .font-setup-referral { flex-direction: column; align-items: flex-start; padding: 24px; }
+        .fsr-cta { width: 100%; text-align: center; }
+      }
+
+      /* Responsive additions */
+      @media (max-width: 768px) {
+        .font-hub-controls-row { gap: 12px; }
+        .font-hub-range { width: 80px; }
+        .font-filter-sticky { margin: 16px -16px 0; padding: 10px 16px; }
       }
     </style>
   </head>
@@ -792,58 +1695,53 @@
 
     <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
-      <button class="drawer-close" id="drawerClose">
-        <i class="fas fa-times"></i>
-      </button>
-      <a href="grow.html" onclick="closeDrawer()">Yob ដើម្បីអាជីវកម្ម</a>
+      <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+      <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
       <div class="drawer-group">
-        <button class="drawer-group-toggle">
-          រៀនជាមួយ Yob <i class="fas fa-chevron-down"></i>
-        </button>
+        <button class="drawer-group-toggle">Learn <i class="fas fa-chevron-down"></i></button>
         <div class="drawer-group-items">
-          <a href="yob-learning.html" onclick="closeDrawer()">ជំនាញឌីជីថល</a>
-          <a href="docs.html" onclick="closeDrawer()">ឯកសារមេរៀន</a>
-          <a href="case-studies.html" onclick="closeDrawer()">កម្រងស្នាដៃ</a>
+          <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+          <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+          <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
         </div>
       </div>
       <div class="drawer-group">
-        <button class="drawer-group-toggle active">
-          តូបឌីជីថល <i class="fas fa-chevron-down"></i>
-        </button>
+        <button class="drawer-group-toggle">Products <i class="fas fa-chevron-down"></i></button>
         <div class="drawer-group-items">
-          <a href="fonts.html" onclick="closeDrawer()">YOB អក្ខរា</a>
-          <a href="resources.html" onclick="closeDrawer()">កាដូឌីជីថល</a>
+          <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+          <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
         </div>
       </div>
       <a href="about.html" onclick="closeDrawer()">About YOB</a>
-      <a href="index.html#contact" onclick="closeDrawer()" class="d-cta"
-        >សាកសួរ</a
-      >
+      <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
     </div>
 
     <!-- ══ PAGE HERO ══ -->
     <section class="fonts-hero">
       <div class="container">
         <div class="page-tag">
-          <i class="fas fa-pen-nib"></i> YOB Typography Store
+          <i class="fas fa-pen-nib"></i> ហាងអក្សរខ្មែរ YOB
         </div>
-        <h1>KHMER <em>FONT</em><br />SHOP</h1>
+        <h1>អក្សរ <em>ខ្មែរ</em><br />គុណភាពខ្ពស់</h1>
         <p>
           Premium Khmer Unicode Fonts ដែលរចនាដោយ YOB Digital — Brand ដែលប្រើ
-          Premium Font = <strong>40% more trust</strong> ពី customers!
+          Premium Font = <strong>ទំនុកចិត្តកើន 40%</strong> ពីអតិថិជន!
+          បើមិនទាន់ច្បាស់ថា Font មួយណាសមនឹងអាជីវកម្មអ្នក ស្នើ Digital Check
+          មុនបាន។
         </p>
         <div class="hero-badges">
           <div class="hero-badge-item">
-            <i class="fas fa-check-circle"></i> Unicode Ready
+            <i class="fas fa-check-circle"></i> គាំទ្រ Unicode ពេញលេញ
           </div>
           <div class="hero-badge-item">
-            <i class="fas fa-check-circle"></i> Web + Print
+            <i class="fas fa-check-circle"></i> ប្រើបាន Web + Print
           </div>
           <div class="hero-badge-item">
-            <i class="fas fa-check-circle"></i> Free Version
+            <i class="fas fa-check-circle"></i> មានកំណែឥតគិតថ្លៃ
           </div>
           <div class="hero-badge-item">
-            <i class="fas fa-check-circle"></i> Commercial License
+            <i class="fas fa-check-circle"></i> អាជ្ញាប័ណ្ណពាណិជ្ជកម្ម
           </div>
         </div>
         <div class="hero-cta-row reveal">
@@ -851,7 +1749,10 @@
             ><i class="fas fa-font"></i> មើល Font ទាំងអស់</a
           >
           <a href="#" id="heroPickPopular" class="btn-primary"
-            ><i class="fas fa-bolt"></i> ជ្រើស Font ពេញនិយម</a
+            ><i class="fas fa-bolt"></i> ជ្រើស Font ពេញនិយម (Digital Check)</a
+          >
+          <a href="docs.html#font-setup" class="btn-outline"
+            ><i class="fas fa-keyboard"></i> របៀបដំឡើង Khmer Unicode</a
           >
         </div>
       </div>
@@ -860,13 +1761,66 @@
     <!-- ══ FONT SHOP ══ -->
     <section style="padding: 20px 0 80px">
       <div class="container">
-        <!-- Filter -->
-        <div class="filter-bar">
-          <button class="filter-btn active" data-filter="all">All Fonts</button>
-          <button class="filter-btn" data-filter="display">Display</button>
-          <button class="filter-btn" data-filter="sans">Sans Serif</button>
-          <button class="filter-btn" data-filter="script">Script</button>
-          <button class="filter-btn" data-filter="free">Free</button>
+        <div class="font-hub-toolbar reveal">
+          <!-- Row 1: Search (Google Fonts style — big, prominent) -->
+          <div class="font-hub-search-row">
+            <div class="font-hub-search-wrap" style="flex:1">
+              <i class="fas fa-search"></i>
+              <input
+                id="fontHubSearch"
+                class="font-hub-input search-big"
+                style="width:100%"
+                type="text"
+                placeholder="ស្វែងរក Font... ឧ. Heading, Serif, Display"
+                aria-label="Search Khmer fonts"
+              />
+            </div>
+          </div>
+          <!-- Row 2: Preview text + size -->
+          <div class="font-hub-controls-row">
+            <div class="font-hub-search-wrap" style="flex:1">
+              <i class="fas fa-pen" style="left:16px"></i>
+              <input
+                id="fontHubPreview"
+                class="font-hub-input search-big"
+                style="width:100%;font-size:14px;height:40px"
+                type="text"
+                placeholder=" វាយអត្ថបទខ្មែររបស់អ្នក ដើម្បី preview..."
+                aria-label="Global preview text"
+                maxlength="120"
+              />
+            </div>
+            <div class="font-hub-size-wrap">
+              <span class="font-hub-size-label-text">ទំហំ</span>
+              <input
+                id="fontHubSize"
+                class="font-hub-range"
+                type="range"
+                min="70"
+                max="160"
+                value="100"
+                aria-label="Preview size scale"
+              />
+              <span class="font-hub-size-val" id="fontHubSizeLabel">100%</span>
+            </div>
+          </div>
+          <!-- Row 3: Quick chips -->
+          <div class="font-hub-shortcuts" style="margin-top:14px">
+            <a href="#fonts-grid" class="font-hub-chip"><i class="fas fa-star"></i> YOB Premium</a>
+            <a href="#google-khmer-free" class="font-hub-chip"><i class="fas fa-globe"></i> Google Khmer Free</a>
+            <a href="docs.html#font-setup" class="font-hub-chip"><i class="fas fa-keyboard"></i> ដំឡើង Keyboard</a>
+          </div>
+        </div>
+
+        <!-- Sticky Filter Bar -->
+        <div class="font-filter-sticky">
+          <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">ទាំងអស់</button>
+            <button class="filter-btn" data-filter="display"><i class="fas fa-heading" style="font-size:10px;margin-right:4px"></i>ចំណងជើង</button>
+            <button class="filter-btn" data-filter="sans"><i class="fas fa-align-left" style="font-size:10px;margin-right:4px"></i>អានងាយ</button>
+            <button class="filter-btn" data-filter="script"><i class="fas fa-signature" style="font-size:10px;margin-right:4px"></i>ហត្ថលេខា</button>
+            <button class="filter-btn" data-filter="free"><i class="fas fa-gift" style="font-size:10px;margin-right:4px;color:#4ade80"></i>ឥតគិតថ្លៃ</button>
+          </div>
         </div>
 
         <!-- Fonts Grid -->
@@ -879,21 +1833,25 @@
             <div class="font-info">
               <div class="font-info-top">
                 <div class="font-name">YOB Heading Pro</div>
-                <span class="font-cat">Display</span>
+                <span class="font-cat">ចំណងជើង</span>
               </div>
               <div class="font-meta">
-                Bold display font — perfect for headlines, posters, brand
-                identity
+                អក្សរដិតសម្រាប់ចំណងជើង ផ្ទាំងផ្សព្វផ្សាយ និងអត្តសញ្ញាណម៉ាក
               </div>
-              <div class="font-tags">
-                <span class="font-tag">Heading</span>
-                <span class="font-tag">Poster</span>
-                <span class="font-tag">Branding</span>
-                <span class="font-tag">Unicode</span>
+              <div class="font-weights">
+                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot"></div><div class="fw-dot"></div>
+                <span class="fw-label">3 Weights · Bold Focus</span>
+              </div>
+              <div class="font-usecase">
+                <span class="uc-chip"><i class="fas fa-paint-brush"></i> Brand</span>
+                <span class="uc-chip"><i class="fas fa-print"></i> Print</span>
+                <span class="uc-chip"><i class="fas fa-ad"></i> Social Ads</span>
               </div>
               <div class="font-footer">
                 <div class="font-price">$15.00</div>
-                <a href="index.html#contact" class="btn-buy"
+                <a
+                  href="index.html?service=Font%20Purchase&font=YOB%20Heading%20Pro&price=15&type=paid&source=fonts#contact"
+                  class="btn-buy"
                   ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
                 >
               </div>
@@ -908,19 +1866,25 @@
             <div class="font-info">
               <div class="font-info-top">
                 <div class="font-name">YOB Modern Serif</div>
-                <span class="font-cat">Luxury</span>
+                <span class="font-cat">ប្រណិត</span>
               </div>
               <div class="font-meta">
-                Elegant serif — ideal for luxury brands, editorial, magazines
+                អក្សរ Serif សម្រាប់ម៉ាកប្រណិត ការបោះពុម្ព និងទស្សនាវដ្តី
               </div>
-              <div class="font-tags">
-                <span class="font-tag">Serif</span>
-                <span class="font-tag">Luxury</span>
-                <span class="font-tag">Editorial</span>
+              <div class="font-weights">
+                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot"></div>
+                <span class="fw-label">4 Weights · Serif</span>
+              </div>
+              <div class="font-usecase">
+                <span class="uc-chip"><i class="fas fa-gem"></i> Luxury Brand</span>
+                <span class="uc-chip"><i class="fas fa-book-open"></i> Editorial</span>
+                <span class="uc-chip"><i class="fas fa-print"></i> Print</span>
               </div>
               <div class="font-footer">
                 <div class="font-price">$18.00</div>
-                <a href="index.html#contact" class="btn-buy"
+                <a
+                  href="index.html?service=Font%20Purchase&font=YOB%20Modern%20Serif&price=18&type=paid&source=fonts#contact"
+                  class="btn-buy"
                   ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
                 >
               </div>
@@ -935,20 +1899,25 @@
             <div class="font-info">
               <div class="font-info-top">
                 <div class="font-name">YOB Signature</div>
-                <span class="font-cat">Script</span>
+                <span class="font-cat">ហត្ថលេខា</span>
               </div>
               <div class="font-meta">
-                Elegant script — perfect for wedding cards, invitations,
-                personal branding
+                អក្សរហត្ថលេខាសម្រាប់ការអញ្ជើញ កាតអាពាហ៍ពិពាហ៍ និងម៉ាកផ្ទាល់ខ្លួន
               </div>
-              <div class="font-tags">
-                <span class="font-tag">Script</span>
-                <span class="font-tag">Wedding</span>
-                <span class="font-tag">Invitation</span>
+              <div class="font-weights">
+                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot"></div><div class="fw-dot"></div><div class="fw-dot"></div>
+                <span class="fw-label">2 Weights · Script</span>
+              </div>
+              <div class="font-usecase">
+                <span class="uc-chip"><i class="fas fa-ring"></i> Wedding</span>
+                <span class="uc-chip"><i class="fas fa-envelope-open-text"></i> Invitation</span>
+                <span class="uc-chip"><i class="fas fa-store"></i> Personal Brand</span>
               </div>
               <div class="font-footer">
                 <div class="font-price">$20.00</div>
-                <a href="index.html#contact" class="btn-buy"
+                <a
+                  href="index.html?service=Font%20Purchase&font=YOB%20Signature&price=20&type=paid&source=fonts#contact"
+                  class="btn-buy"
                   ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
                 >
               </div>
@@ -963,19 +1932,25 @@
             <div class="font-info">
               <div class="font-info-top">
                 <div class="font-name">YOB Poster Black</div>
-                <span class="font-cat">Bold</span>
+                <span class="font-cat">ដិតខ្លាំង</span>
               </div>
               <div class="font-meta">
-                Ultra-bold display — designed for promotions, ads, social media
+                អក្សរដិតខ្លាំង សម្រាប់ប្រូម៉ូសិន ពាណិជ្ជកម្ម និងបណ្ដាញសង្គម
               </div>
-              <div class="font-tags">
-                <span class="font-tag">Bold</span>
-                <span class="font-tag">Poster</span>
-                <span class="font-tag">Social Media</span>
+              <div class="font-weights">
+                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div>
+                <span class="fw-label">1 Weight · Ultra Bold</span>
+              </div>
+              <div class="font-usecase">
+                <span class="uc-chip"><i class="fab fa-facebook"></i> Social Media</span>
+                <span class="uc-chip"><i class="fas fa-percentage"></i> Promotion</span>
+                <span class="uc-chip"><i class="fas fa-bullhorn"></i> Ads</span>
               </div>
               <div class="font-footer">
                 <div class="font-price">$12.00</div>
-                <a href="index.html#contact" class="btn-buy"
+                <a
+                  href="index.html?service=Font%20Purchase&font=YOB%20Poster%20Black&price=12&type=paid&source=fonts#contact"
+                  class="btn-buy"
                   ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
                 >
               </div>
@@ -990,20 +1965,25 @@
             <div class="font-info">
               <div class="font-info-top">
                 <div class="font-name">YOB Kbach Retro</div>
-                <span class="font-cat">Classic</span>
+                <span class="font-cat">បុរាណ</span>
               </div>
               <div class="font-meta">
-                Traditional Khmer motif inspired — culture + modern design
-                combined
+                រចនាដោយយកក្បាច់ខ្មែរបុរាណ បញ្ចូលជាមួយរចនាប័ទ្មទំនើប
               </div>
-              <div class="font-tags">
-                <span class="font-tag">Classic</span>
-                <span class="font-tag">Culture</span>
-                <span class="font-tag">Heritage</span>
+              <div class="font-weights">
+                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot"></div><div class="fw-dot"></div>
+                <span class="fw-label">3 Weights · Decorative</span>
+              </div>
+              <div class="font-usecase">
+                <span class="uc-chip"><i class="fas fa-landmark"></i> Heritage</span>
+                <span class="uc-chip"><i class="fas fa-scroll"></i> Poster</span>
+                <span class="uc-chip"><i class="fas fa-hotel"></i> Hospitality</span>
               </div>
               <div class="font-footer">
                 <div class="font-price">$25.00</div>
-                <a href="index.html#contact" class="btn-buy"
+                <a
+                  href="index.html?service=Font%20Purchase&font=YOB%20Kbach%20Retro&price=25&type=paid&source=fonts#contact"
+                  class="btn-buy"
                   ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
                 >
               </div>
@@ -1018,15 +1998,19 @@
             <div class="font-info">
               <div class="font-info-top">
                 <div class="font-name">YOB Tech Mono</div>
-                <span class="font-cat">Coding</span>
+                <span class="font-cat">បច្ចេកវិទ្យា</span>
               </div>
               <div class="font-meta">
-                Monospace tech font — UI design, coding tools, fintech apps
+                អក្សរ Monospace សម្រាប់ UI ឧបករណ៍កូដ និង app បច្ចេកវិទ្យា
               </div>
-              <div class="font-tags">
-                <span class="font-tag">Mono</span>
-                <span class="font-tag">Tech</span>
-                <span class="font-tag">UI</span>
+              <div class="font-weights">
+                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot"></div><div class="fw-dot"></div><div class="fw-dot"></div>
+                <span class="fw-label">2 Weights · Monospace</span>
+              </div>
+              <div class="font-usecase">
+                <span class="uc-chip"><i class="fas fa-mobile-alt"></i> App UI</span>
+                <span class="uc-chip"><i class="fas fa-code"></i> Tech</span>
+                <span class="uc-chip"><i class="fas fa-robot"></i> AI Product</span>
               </div>
               <div class="font-footer">
                 <div class="font-price free-price">FREE</div>
@@ -1045,15 +2029,19 @@
             <div class="font-info">
               <div class="font-info-top">
                 <div class="font-name">YOB Content Sans</div>
-                <span class="font-cat">Basic</span>
+                <span class="font-cat">មូលដ្ឋាន</span>
               </div>
               <div class="font-meta">
-                Clean readable sans — perfect for body text, web content, apps
+                អក្សរអានស្រួល សម្រាប់អត្ថបទវែង ខ្លឹមសារវេបសាយ និង app
               </div>
-              <div class="font-tags">
-                <span class="font-tag">Body</span>
-                <span class="font-tag">Web</span>
-                <span class="font-tag">App</span>
+              <div class="font-weights">
+                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot"></div>
+                <span class="fw-label">4 Weights · Readable</span>
+              </div>
+              <div class="font-usecase">
+                <span class="uc-chip"><i class="fas fa-globe"></i> Website</span>
+                <span class="uc-chip"><i class="fas fa-newspaper"></i> Blog</span>
+                <span class="uc-chip"><i class="fas fa-mobile-alt"></i> App</span>
               </div>
               <div class="font-footer">
                 <div class="font-price free-price">FREE</div>
@@ -1072,16 +2060,19 @@
             <div class="font-info">
               <div class="font-info-top">
                 <div class="font-name">YOB Minimal UI</div>
-                <span class="font-cat">Web Design</span>
+                <span class="font-cat">រចនាវេប</span>
               </div>
               <div class="font-meta">
-                Ultra-clean minimalist — modern web design, SaaS products,
-                dashboards
+                រចនាប័ទ្មសាមញ្ញស្អាត សម្រាប់វេបទំនើប ផលិតផល SaaS និង dashboard
               </div>
-              <div class="font-tags">
-                <span class="font-tag">Minimal</span>
-                <span class="font-tag">SaaS</span>
-                <span class="font-tag">Dashboard</span>
+              <div class="font-weights">
+                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div>
+                <span class="fw-label">5 Weights · Geometric</span>
+              </div>
+              <div class="font-usecase">
+                <span class="uc-chip"><i class="fas fa-chart-bar"></i> Dashboard</span>
+                <span class="uc-chip"><i class="fas fa-cloud"></i> SaaS</span>
+                <span class="uc-chip"><i class="fas fa-layer-group"></i> UI Kit</span>
               </div>
               <div class="font-footer">
                 <div class="font-price free-price">FREE</div>
@@ -1093,6 +2084,171 @@
           </div>
         </div>
         <!-- end fonts-grid -->
+
+        <div class="gkhmer-section-wrap reveal" id="google-khmer-free">
+          <div class="gkhmer-section-tag"><i class="fas fa-globe"></i> FREE · Google Fonts</div>
+          <div class="gkhmer-section-title">Google Khmer Fonts</div>
+          <div class="gkhmer-section-desc">អក្សរខ្មែរឥតគិតថ្លៃ ត្រឹមត្រូវ — ប្រើបាន Web + Print + App ដោយស្របច្បាប់ (Open Font License)</div>
+        <div class="gkhmer-section-head" style="margin-top:0">
+          <h3 class="gkhmer-title" style="display:none">Google Khmer Fonts (Free)</h3>
+          <div class="gkhmer-controls">
+            <button
+              class="gkhmer-control-btn active"
+              data-gpreview="អក្សរខ្មែរ"
+            >
+              អក្សរខ្មែរ
+            </button>
+            <button
+              class="gkhmer-control-btn"
+              data-gpreview="សួស្តី អ្នកទាំងអស់គ្នា"
+            >
+              សួស្តី
+            </button>
+            <button
+              class="gkhmer-control-btn"
+              data-gpreview="យប់មានតម្លៃដូចពន្លឺ"
+            >
+              ស្លោកម៉ាក
+            </button>
+            <div class="gkhmer-custom">
+              <input
+                type="text"
+                id="gkhmerCustomInput"
+                class="gkhmer-custom-input"
+                placeholder="វាយពាក្យខ្មែរ ដើម្បីសាកល្បង..."
+                maxlength="80"
+                aria-label="Custom Khmer preview text"
+              />
+              <button
+                type="button"
+                id="gkhmerResetBtn"
+                class="gkhmer-control-btn gkhmer-reset-btn"
+              >
+                កំណត់ឡើងវិញ
+              </button>
+            </div>
+          </div>
+          <div class="gkhmer-note">
+            បញ្ជីសរុប Khmer families ពី Google Fonts — អាចប្រើឥតគិតថ្លៃ
+            និងប្ដូរពាក្យសាកល្បងបាន
+          </div>
+        </div>
+        <div class="gkhmer-grid" id="googleKhmerGrid"></div>
+        </div><!-- end gkhmer-section-wrap -->
+        <div class="filter-empty" id="fontFilterEmpty">
+          មិនឃើញលទ្ធផលតាមពាក្យស្វែងរកនេះទេ។ សាកល្បងពាក្យផ្សេង ឬចុច
+          <strong>អក្សរទាំងអស់</strong> ដើម្បី reset filter។
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ KEYBOARD SETUP REFERRAL ══ -->
+    <section style="padding: 40px 0 60px">
+      <div class="container">
+        <div class="font-setup-referral reveal">
+          <div class="fsr-icon"><i class="fas fa-keyboard"></i></div>
+          <div class="fsr-body">
+            <div class="fsr-title">ត្រូវការ Setup Khmer Keyboard?</div>
+            <p class="fsr-desc">មគ្គុទ្ទេស Windows &amp; macOS, Install Checklist, Typing Practice — ត្រូវបានផ្ទេរទៅ Documentation Hub ដែលសម្បូរបែបជាង។</p>
+            <div class="fsr-steps">
+              <span><i class="fas fa-check-circle"></i> Windows 10/11 Setup</span>
+              <span><i class="fas fa-check-circle"></i> macOS Setup</span>
+              <span><i class="fas fa-check-circle"></i> Typing Practice</span>
+              <span><i class="fas fa-check-circle"></i> Troubleshooting</span>
+            </div>
+          </div>
+          <a href="docs.html#font-setup" class="btn-primary fsr-cta">
+            <i class="fas fa-book-open"></i> មើលមគ្គុទ្ទេសពេញ
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="font-order-section" id="fontOrderSection">
+      <div class="container">
+        <div class="font-order-box reveal">
+          <div class="font-order-head">
+            <div class="font-order-title">បញ្ជាទិញ Font (នៅទំព័រនេះ)</div>
+            <div class="font-order-total" id="fontOrderTotal">
+              បានជ្រើស 0 Font · $0
+            </div>
+          </div>
+
+          <ul class="font-order-list" id="fontOrderList"></ul>
+
+          <form
+            class="font-order-form"
+            id="fontOrderForm"
+            name="font-order"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="font-order" />
+            <input type="hidden" name="bot-field" />
+            <input type="hidden" name="service" value="Font Purchase" />
+            <input
+              type="hidden"
+              name="selected_fonts"
+              id="orderSelectedFonts"
+              value=""
+            />
+            <input
+              type="hidden"
+              name="selected_total"
+              id="orderSelectedTotal"
+              value=""
+            />
+            <input
+              type="hidden"
+              name="selected_count"
+              id="orderSelectedCount"
+              value="0"
+            />
+            <input type="hidden" name="source" value="fonts-page" />
+
+            <div class="font-order-grid">
+              <input
+                class="font-order-input"
+                type="text"
+                name="name"
+                placeholder="ឈ្មោះ​របស់​អ្នក *"
+                required
+              />
+              <input
+                class="font-order-input"
+                type="text"
+                name="phone"
+                placeholder="Telegram / Phone *"
+                required
+              />
+            </div>
+
+            <textarea
+              class="font-order-textarea"
+              name="message"
+              placeholder="បន្ថែមចំណាំ (ជាជម្រើស): style, license, usage..."
+            ></textarea>
+
+            <div class="font-order-msg success" id="fontOrderSuccess">
+              អរគុណ! បញ្ជាទិញ Font របស់អ្នកបានផ្ញើដោយជោគជ័យ ✅
+            </div>
+            <div class="font-order-msg error" id="fontOrderError">
+              មានបញ្ហាក្នុងការផ្ញើ។ សូមសាកម្តងទៀត ឬទាក់ទង Telegram។
+            </div>
+
+            <button
+              type="submit"
+              class="btn-primary"
+              style="display: inline-flex; width: fit-content"
+            >
+              <i class="fas fa-paper-plane"></i> ផ្ញើបញ្ជាទិញ Font ឥឡូវ
+            </button>
+            <div class="font-order-note">
+              បញ្ជាក់: អ្នកអាចជ្រើសច្រើន Font ហើយ submit តែម្តងបាន។
+            </div>
+          </form>
+        </div>
       </div>
     </section>
 
@@ -1101,11 +2257,11 @@
       <div class="container">
         <div class="bundle-card reveal">
           <div class="bundle-content">
-            <div class="bundle-tag">🔥 Best Value</div>
-            <h2>YOB FONT <span class="gradient-text">BUNDLE</span></h2>
+            <div class="bundle-tag">🔥 តម្លៃល្អបំផុត</div>
+            <h2>កញ្ចប់អក្សរ <span class="gradient-text">YOB</span></h2>
             <p>
-              ទទួលបាន fonts ទាំង ៥ Premium ក្នុងតម្លៃពិសេស — save $40
-              ធៀបនឹងទិញដោយឡែក!
+              ទទួលបានអក្សរ Premium ៥ មុខក្នុងតម្លៃពិសេស — សន្សំបាន $40
+              បើប្រៀបធៀបនឹងទិញដាច់ដោយឡែក!
             </p>
             <ul class="bundle-list">
               <li><i class="fas fa-check"></i> YOB Heading Pro ($15)</li>
@@ -1113,11 +2269,13 @@
               <li><i class="fas fa-check"></i> YOB Signature ($20)</li>
               <li><i class="fas fa-check"></i> YOB Poster Black ($12)</li>
               <li><i class="fas fa-check"></i> YOB Kbach Retro ($25)</li>
-              <li><i class="fas fa-check"></i> Commercial License included</li>
-              <li><i class="fas fa-check"></i> Future updates FREE</li>
+              <li>
+                <i class="fas fa-check"></i> រួមបញ្ចូលអាជ្ញាប័ណ្ណពាណិជ្ជកម្ម
+              </li>
+              <li><i class="fas fa-check"></i> អាប់ដេតអនាគតឥតគិតថ្លៃ</li>
             </ul>
             <a
-              href="index.html#contact"
+              href="index.html?service=Font%20Purchase&font=YOB%20Font%20Bundle&price=50&type=bundle&source=fonts#contact"
               class="btn-primary"
               style="display: inline-flex"
             >
@@ -1128,9 +2286,9 @@
             <div class="bundle-price-box">
               <div class="bundle-was">ជំនួស $90.00</div>
               <div class="bundle-now"><span>$</span>50</div>
-              <div>per bundle</div>
+              <div>ក្នុងមួយកញ្ចប់</div>
             </div>
-            <div class="bundle-save">✅ Save $40 (44% OFF)</div>
+            <div class="bundle-save">✅ សន្សំ $40 (បញ្ចុះ 44%)</div>
             <div
               style="
                 font-family: var(--fk);
@@ -1138,7 +2296,7 @@
                 color: var(--gray);
               "
             >
-              ✓ Instant download &nbsp; ✓ All formats &nbsp; ✓ 1 year support
+              ✓ ទាញយកភ្លាម &nbsp; ✓ គ្រប់ format &nbsp; ✓ គាំទ្រ 1 ឆ្នាំ
             </div>
           </div>
         </div>
@@ -1149,62 +2307,67 @@
     <section class="license-section" id="license">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-tag">License Options</span>
+          <span class="section-tag">ជម្រើសអាជ្ញាប័ណ្ណ</span>
           <h2 class="section-title">
-            CHOOSE YOUR <span class="gradient-text">LICENSE</span>
+            ជ្រើស <span class="gradient-text">អាជ្ញាប័ណ្ណ</span>
           </h2>
         </div>
         <div class="license-grid">
           <div class="license-card reveal">
-            <div class="license-name">Personal</div>
+            <div class="license-name">ផ្ទាល់ខ្លួន</div>
             <div class="license-price">FREE</div>
             <ul class="license-features">
-              <li><i class="fas fa-check"></i> Personal projects</li>
-              <li><i class="fas fa-check"></i> Non-commercial use</li>
-              <li><i class="fas fa-check"></i> Social media (personal)</li>
-              <li class="no"><i class="fas fa-times"></i> Commercial use</li>
-              <li class="no"><i class="fas fa-times"></i> Client work</li>
-              <li class="no"><i class="fas fa-times"></i> Product design</li>
+              <li><i class="fas fa-check"></i> Project ផ្ទាល់ខ្លួន</li>
+              <li><i class="fas fa-check"></i> មិនប្រើពាណិជ្ជកម្ម</li>
+              <li><i class="fas fa-check"></i> បណ្ដាញសង្គមផ្ទាល់ខ្លួន</li>
+              <li class="no"><i class="fas fa-times"></i> ប្រើពាណិជ្ជកម្ម</li>
+              <li class="no"><i class="fas fa-times"></i> ការងារអតិថិជន</li>
+              <li class="no"><i class="fas fa-times"></i> រចនាផលិតផល</li>
             </ul>
           </div>
           <div class="license-card popular reveal">
-            <div class="license-name">Commercial</div>
+            <div class="license-name">ពាណិជ្ជកម្ម</div>
             <div class="license-price">$15–$25 <small>/font</small></div>
             <ul class="license-features">
-              <li><i class="fas fa-check"></i> Commercial projects</li>
-              <li><i class="fas fa-check"></i> Client work</li>
-              <li><i class="fas fa-check"></i> Social media (business)</li>
-              <li><i class="fas fa-check"></i> Print & Digital</li>
-              <li><i class="fas fa-check"></i> Web embedding</li>
+              <li><i class="fas fa-check"></i> Project ពាណិជ្ជកម្ម</li>
+              <li><i class="fas fa-check"></i> ការងារសម្រាប់អតិថិជន</li>
+              <li><i class="fas fa-check"></i> បណ្ដាញសង្គមអាជីវកម្ម</li>
+              <li><i class="fas fa-check"></i> ប្រើសម្រាប់ Print & Digital</li>
+              <li><i class="fas fa-check"></i> បង្កប់លើវេបសាយ</li>
               <li class="no">
-                <i class="fas fa-times"></i> Resell / redistribute
+                <i class="fas fa-times"></i> លក់បន្ត / ចែកចាយបន្ត
               </li>
             </ul>
           </div>
           <div class="license-card reveal">
-            <div class="license-name">Extended</div>
+            <div class="license-name">កម្រិតពេញ</div>
             <div class="license-price">$199 <small>/font</small></div>
             <ul class="license-features">
-              <li><i class="fas fa-check"></i> All Commercial rights</li>
-              <li><i class="fas fa-check"></i> App embedding</li>
-              <li><i class="fas fa-check"></i> Large circulation print</li>
-              <li><i class="fas fa-check"></i> Broadcasting / TV</li>
-              <li><i class="fas fa-check"></i> SaaS products</li>
-              <li><i class="fas fa-check"></i> Priority support</li>
+              <li><i class="fas fa-check"></i> សិទ្ធិពាណិជ្ជកម្មគ្រប់យ៉ាង</li>
+              <li><i class="fas fa-check"></i> បង្កប់ក្នុង App</li>
+              <li><i class="fas fa-check"></i> បោះពុម្ពបរិមាណធំ</li>
+              <li><i class="fas fa-check"></i> ផ្សាយផ្សព្វផ្សាយ / ទូរទស្សន៍</li>
+              <li><i class="fas fa-check"></i> ផលិតផល SaaS</li>
+              <li><i class="fas fa-check"></i> គាំទ្រអាទិភាព</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ══ FAQ ══ -->
+    <!-- ══ HELP CENTER ══ -->
     <section class="faq-section">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-tag">FAQ</span>
+          <span class="section-tag">Khmer Font Help Center</span>
           <h2 class="section-title">
-            COMMON <span class="gradient-text">QUESTIONS</span>
+            មជ្ឈមណ្ឌល <span class="gradient-text">ជំនួយអក្សរខ្មែរ</span>
           </h2>
+        </div>
+        <div class="help-center-intro reveal">
+          បើអ្នកជួបបញ្ហា install font, keyboard, ឬមិនដឹងប្រើនៅ
+          Word/Figma/Canva/Photoshop យ៉ាងណា, សូមមើលជំហានខាងក្រោម។
+          ទំព័រនេះត្រូវបានរៀបចំឲ្យជាផ្ទះមួយសម្រាប់អ្នកប្រើ Khmer Unicode។
         </div>
         <div style="max-width: 720px; margin: 0 auto">
           <div class="faq-item reveal">
@@ -1248,6 +2411,39 @@
           </div>
           <div class="faq-item reveal">
             <div class="faq-q">
+              ប្រើ Font Khmer ក្នុង Microsoft Word ដូចម្តេច?
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-a">
+              បន្ទាប់ពី install font ហើយ បិទ-បើក Word ម្តង, ទៅ Home &gt; Font
+              list រួចជ្រើសឈ្មោះ font Khmer ដែលអ្នកបានដំឡើង។ ប្រសិនបើមើលមិនឃើញ
+              សាក restart Windows ម្តង។
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-q">
+              ប្រើក្នុង Figma និង Canva ត្រូវធ្វើអ្វីខ្លះ?
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-a">
+              Figma Desktop នឹងអាន font ពីម៉ាស៊ីនដោយស្វ័យប្រវត្តិ (restart app
+              ក្រោយ install)។ សម្រាប់ Canva បើ font មិនមានក្នុង library សាធារណៈ
+              សូម upload font នៅ Brand Kit (គម្រោងដែលគាំទ្រ custom fonts)។
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-q">
+              Photoshop/Illustrator អក្សរខ្មែរបែក ឬជាន់គ្នា តើដោះស្រាយដូចម្តេច?
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-a">
+              ត្រូវប្រើ Khmer Unicode font ពិត និងកំណត់ text engine ឲ្យ
+              supporting complex scripts។ បើនៅតែបែក សូម update Adobe app
+              និងពិនិត្យថា keyboard input ជា Khmer Unicode មែនទេ។
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-q">
               Custom Font / Bespoke Font service មានទេ?
               <i class="fas fa-plus"></i>
             </div>
@@ -1265,14 +2461,16 @@
     <section class="prefooter">
       <div class="container">
         <div class="prefooter-box reveal">
-          <h2>Need a <span class="gradient-text">Custom</span> Font?</h2>
+          <h2>
+            ត្រូវការ Font <span class="gradient-text">កែតាមតម្រូវការ</span>?
+          </h2>
           <p>
-            YOB Digital design bespoke Khmer fonts សម្រាប់ brand ពិសេស — ផ្ញើ
-            brief ហើយ Babu nwill quote ក្នុង ២ ម៉ោង!
+            YOB Digital រចនា Font ខ្មែរពិសេសសម្រាប់ម៉ាករបស់អ្នក — ផ្ញើ brief ហើយ
+            Babu នឹងផ្តល់ quote ក្នុង ២ ម៉ោង!
           </p>
           <div class="prefooter-actions">
-            <a href="index.html#contact" class="btn-primary"
-              ><i class="fas fa-paper-plane"></i> Request Custom Font</a
+            <a href="contact.html" class="btn-primary"
+              ><i class="fas fa-paper-plane"></i> ស្នើរចនា Font ផ្ទាល់ខ្លួន</a
             >
             <a
               href="https://t.me/yobdigital"
@@ -1289,11 +2487,16 @@
       <div class="font-sticky-inner">
         <div class="font-sticky-meta">
           <div class="font-sticky-label">អ្នកបានជ្រើស</div>
-          <div class="font-sticky-name" id="fontStickyName">YOB Heading Pro</div>
+          <div class="font-sticky-name" id="fontStickyName">
+            YOB Heading Pro
+          </div>
           <div class="font-sticky-price" id="fontStickyPrice">$15.00</div>
         </div>
         <div class="font-sticky-actions">
-          <a href="index.html#contact" class="btn-primary" id="fontStickyPrimary"
+          <a
+            href="index.html?service=Font%20Purchase&font=YOB%20Heading%20Pro&price=15&type=paid&source=fonts#contact"
+            class="btn-primary"
+            id="fontStickyPrimary"
             ><i class="fas fa-shopping-cart"></i> បន្តទិញ</a
           >
           <a href="#license" class="btn-outline"
@@ -1334,33 +2537,372 @@
       <i class="fas fa-chevron-up"></i>
     </button>
 
+    <script src="js/form-utils.js" defer></script>
+    <script src="js/form-utils.js" defer></script>
     <script>
+      const googleKhmerFamilies = [
+        "Angkor",
+        "Battambang",
+        "Bayon",
+        "Bokor",
+        "Chenla",
+        "Content",
+        "Dangrek",
+        "Fasthand",
+        "Freehand",
+        "Google Sans",
+        "Hanuman",
+        "Kantumruy Pro",
+        "Kdam Thmor Pro",
+        "Khmer",
+        "Koh Santepheap",
+        "Konkhmer Sleokchher",
+        "Koulen",
+        "Metal",
+        "Moul",
+        "Moulpali",
+        "Nokora",
+        "Noto Sans Khmer",
+        "Noto Serif Khmer",
+        "Odor Mean Chey",
+        "Preahvihear",
+        "Siemreap",
+        "Suwannaphum",
+        "Taprom",
+      ];
+
+      const googleKhmerGrid = document.getElementById("googleKhmerGrid");
+      const googlePreviewBtns = document.querySelectorAll("[data-gpreview]");
+      const gkhmerCustomInput = document.getElementById("gkhmerCustomInput");
+      const gkhmerResetBtn = document.getElementById("gkhmerResetBtn");
+      const googleKhmerCssUrl =
+        "https://fonts.googleapis.com/css2?" +
+        googleKhmerFamilies
+          .map(
+            (family) =>
+              "family=" + encodeURIComponent(family).replace(/%20/g, "+"),
+          )
+          .join("&") +
+        "&display=swap";
+
+      let googleKhmerFontsLoaded = false;
+      function loadGoogleKhmerFonts() {
+        if (googleKhmerFontsLoaded) return;
+        googleKhmerFontsLoaded = true;
+
+        const googleKhmerFontLink = document.createElement("link");
+        googleKhmerFontLink.rel = "preload";
+        googleKhmerFontLink.as = "style";
+        googleKhmerFontLink.href = googleKhmerCssUrl;
+        googleKhmerFontLink.onload = function () {
+          this.onload = null;
+          this.rel = "stylesheet";
+        };
+        document.head.appendChild(googleKhmerFontLink);
+      }
+
+      if (googleKhmerGrid) {
+        googleKhmerFamilies.forEach((family) => {
+          const card = document.createElement("div");
+          card.className = "font-card reveal";
+          card.setAttribute("data-category", "free google");
+
+          const slug = encodeURIComponent(family).replace(/%20/g, "+");
+          const specimenUrl =
+            "https://fonts.google.com/specimen/" +
+            slug +
+            "?preview.script=Khmr&preview.lang=km_Khmr";
+
+          card.innerHTML =
+            '<div class="gkhmer-card">' +
+            '<div class="gkhmer-preview" style="font-family:\'' +
+            family.replace(/'/g, "\\'") +
+            "', var(--fk), sans-serif;\">អក្សរខ្មែរ</div>" +
+            '<div class="gkhmer-name">' +
+            family +
+            "</div>" +
+            '<div class="gkhmer-meta">ឥតគិតថ្លៃ • Google Fonts</div>' +
+            '<div class="gkhmer-actions">' +
+            '<a class="gkhmer-link" href="' +
+            specimenUrl +
+            '" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> មើលលម្អិត</a>' +
+            '<a class="gkhmer-link" href="' +
+            specimenUrl +
+            '#about" target="_blank" rel="noopener"><i class="fas fa-download"></i> ទាញយក</a>' +
+            "</div>" +
+            "</div>";
+
+          googleKhmerGrid.appendChild(card);
+        });
+
+        const gridObserver = new IntersectionObserver(
+          (entries, observer) => {
+            if (entries.some((entry) => entry.isIntersecting)) {
+              loadGoogleKhmerFonts();
+              observer.disconnect();
+            }
+          },
+          { rootMargin: "280px 0px" },
+        );
+        gridObserver.observe(googleKhmerGrid);
+      }
+
+      function updateGooglePreviewText(text) {
+        document.querySelectorAll(".gkhmer-preview").forEach((el) => {
+          el.textContent = text;
+        });
+      }
+
+      function clearGooglePresetActive() {
+        googlePreviewBtns.forEach((btn) => btn.classList.remove("active"));
+      }
+
+      googlePreviewBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          clearGooglePresetActive();
+          btn.classList.add("active");
+          const previewText = btn.getAttribute("data-gpreview") || "អក្សរខ្មែរ";
+          updateGooglePreviewText(previewText);
+          if (gkhmerCustomInput) {
+            gkhmerCustomInput.value = "";
+          }
+          loadGoogleKhmerFonts();
+        });
+      });
+
+      if (gkhmerCustomInput) {
+        gkhmerCustomInput.addEventListener("input", () => {
+          const value = gkhmerCustomInput.value.trim();
+          if (!value) {
+            const activePreset = document.querySelector(
+              ".gkhmer-control-btn.active[data-gpreview]",
+            );
+            const fallbackText =
+              activePreset?.getAttribute("data-gpreview") || "អក្សរខ្មែរ";
+            updateGooglePreviewText(fallbackText);
+            return;
+          }
+          clearGooglePresetActive();
+          updateGooglePreviewText(value);
+          loadGoogleKhmerFonts();
+        });
+      }
+
+      if (gkhmerResetBtn) {
+        gkhmerResetBtn.addEventListener("click", () => {
+          if (gkhmerCustomInput) {
+            gkhmerCustomInput.value = "";
+          }
+          clearGooglePresetActive();
+          const firstPreset = document.querySelector(
+            ".gkhmer-control-btn[data-gpreview]",
+          );
+          if (firstPreset) {
+            firstPreset.classList.add("active");
+            updateGooglePreviewText(
+              firstPreset.getAttribute("data-gpreview") || "អក្សរខ្មែរ",
+            );
+          } else {
+            updateGooglePreviewText("អក្សរខ្មែរ");
+          }
+        });
+      }
+
       // Filter functionality
       const filterBtns = document.querySelectorAll(".filter-btn");
       const fontCards = document.querySelectorAll(".font-card");
+      const fontHubSearch = document.getElementById("fontHubSearch");
+      const fontHubPreview = document.getElementById("fontHubPreview");
+      const fontHubSize = document.getElementById("fontHubSize");
+      const fontHubSizeLabel = document.getElementById("fontHubSizeLabel");
+      const fontFilterEmpty = document.getElementById("fontFilterEmpty");
+      const kbdTabBtns = document.querySelectorAll("[data-kbdtab]");
+      const kbdPanels = document.querySelectorAll("[data-kbdpanel]");
+      const typingPracticeInput = document.getElementById(
+        "typingPracticeInput",
+      );
+      const typingPracticeOutput = document.getElementById(
+        "typingPracticeOutput",
+      );
+      const typingCopyBtn = document.getElementById("typingCopyBtn");
+      const typingClearBtn = document.getElementById("typingClearBtn");
+      const typingCopyStatus = document.getElementById("typingCopyStatus");
+      const kbdCheckInputs = document.querySelectorAll("[data-kbdcheck]");
+      const kbdCheckProgress = document.getElementById("kbdCheckProgress");
+      const kbdCheckResetBtn = document.getElementById("kbdCheckResetBtn");
       const stickyBar = document.getElementById("fontStickyCta");
       const stickyName = document.getElementById("fontStickyName");
       const stickyPrice = document.getElementById("fontStickyPrice");
       const stickyPrimary = document.getElementById("fontStickyPrimary");
       const stickyClose = document.getElementById("fontStickyClose");
       const heroPickPopular = document.getElementById("heroPickPopular");
+      const orderSection = document.getElementById("fontOrderSection");
+      const orderList = document.getElementById("fontOrderList");
+      const orderTotal = document.getElementById("fontOrderTotal");
+      const orderForm = document.getElementById("fontOrderForm");
+      const orderSuccess = document.getElementById("fontOrderSuccess");
+      const orderError = document.getElementById("fontOrderError");
+      const orderSelectedFonts = document.getElementById("orderSelectedFonts");
+      const orderSelectedTotal = document.getElementById("orderSelectedTotal");
+      const orderSelectedCount = document.getElementById("orderSelectedCount");
+      const selectedFonts = new Map();
+      const KBD_CHECKLIST_KEY = "yob_khmer_keyboard_checklist_v1";
+      const KBD_TAB_PREF_KEY = "yob_khmer_keyboard_tab_pref_v1";
+
+      document
+        .querySelectorAll(".preview-text, .gkhmer-preview")
+        .forEach((el) => {
+          if (!el.dataset.defaultText) {
+            el.dataset.defaultText = el.textContent || "";
+          }
+          if (!el.dataset.baseSize) {
+            const style = window.getComputedStyle(el);
+            const parsedSize = parseFloat(style.fontSize || "0");
+            el.dataset.baseSize = Number.isFinite(parsedSize)
+              ? String(parsedSize)
+              : "24";
+          }
+        });
+
+      function getCardSearchText(card) {
+        const parts = [
+          card.dataset.category || "",
+          card.querySelector(".font-name")?.textContent || "",
+          card.querySelector(".gkhmer-name")?.textContent || "",
+          card.querySelector(".font-meta")?.textContent || "",
+          card.querySelector(".gkhmer-meta")?.textContent || "",
+        ];
+        return parts.join(" ").toLowerCase();
+      }
+
+      function applyFontFilters() {
+        const activeBtn = document.querySelector(".filter-btn.active");
+        const activeFilter = activeBtn?.dataset.filter || "all";
+        const keyword = (fontHubSearch?.value || "").trim().toLowerCase();
+        let visibleCount = 0;
+
+        fontCards.forEach((card) => {
+          const category = card.dataset.category || "";
+          const categoryMatch =
+            activeFilter === "all" || category.includes(activeFilter);
+          const textMatch =
+            !keyword || getCardSearchText(card).includes(keyword);
+          const isVisible = categoryMatch && textMatch;
+          card.style.display = isVisible ? "block" : "none";
+          if (isVisible) visibleCount += 1;
+        });
+
+        if (fontFilterEmpty) {
+          fontFilterEmpty.style.display = visibleCount ? "none" : "block";
+        }
+      }
+
+      function applyHubPreviewText(value) {
+        const normalized = value.trim();
+        document
+          .querySelectorAll(".preview-text, .gkhmer-preview")
+          .forEach((el) => {
+            el.textContent = normalized || el.dataset.defaultText || "";
+          });
+      }
+
+      function applyHubPreviewSize(percentValue) {
+        const scale = Number(percentValue) / 100;
+        document
+          .querySelectorAll(".preview-text, .gkhmer-preview")
+          .forEach((el) => {
+            const baseSize = parseFloat(el.dataset.baseSize || "24");
+            const size = Math.max(14, baseSize * scale);
+            el.style.fontSize = size.toFixed(2) + "px";
+          });
+        if (fontHubSizeLabel) {
+          fontHubSizeLabel.textContent = percentValue + "%";
+        }
+      }
+
+      function parsePrice(rawPrice) {
+        const normalized = (rawPrice || "").toUpperCase();
+        if (!normalized || normalized.includes("FREE")) return 0;
+        const numeric = parseFloat(normalized.replace(/[^0-9.]/g, ""));
+        return Number.isFinite(numeric) ? numeric : 0;
+      }
+
+      function getCardInfo(card) {
+        const name =
+          card.querySelector(".font-name")?.textContent?.trim() || "YOB Font";
+        const priceLabel =
+          card.querySelector(".font-price")?.textContent?.trim() || "";
+        const priceValue = parsePrice(priceLabel);
+        return { name: name, priceLabel: priceLabel, priceValue: priceValue };
+      }
+
+      function renderOrderList() {
+        const items = Array.from(selectedFonts.values());
+        const total = items.reduce((sum, item) => sum + item.priceValue, 0);
+
+        orderList.innerHTML = "";
+        items.forEach((item) => {
+          const li = document.createElement("li");
+          li.className = "font-order-item";
+          li.innerHTML =
+            '<div><div class="font-order-item-name">' +
+            item.name +
+            '</div><div class="font-order-item-price">' +
+            item.priceLabel +
+            "</div></div>" +
+            '<button type="button" class="font-order-remove" data-remove-name="' +
+            item.name +
+            '" aria-label="Remove font"><i class="fas fa-times"></i></button>';
+          orderList.appendChild(li);
+        });
+
+        if (!items.length) {
+          orderSection.classList.remove("show");
+          orderTotal.textContent = "បានជ្រើស 0 Font · $0";
+          orderSelectedFonts.value = "";
+          orderSelectedTotal.value = "0";
+          orderSelectedCount.value = "0";
+          return;
+        }
+
+        orderSection.classList.add("show");
+        orderTotal.textContent =
+          "បានជ្រើស " + items.length + " Font · $" + total.toFixed(2);
+        orderSelectedFonts.value = items
+          .map((item) => item.name + " (" + item.priceLabel + ")")
+          .join(" | ");
+        orderSelectedTotal.value = total.toFixed(2);
+        orderSelectedCount.value = String(items.length);
+      }
+
+      function addCardToOrder(card, shouldScroll) {
+        const info = getCardInfo(card);
+        selectedFonts.set(info.name, info);
+        renderOrderList();
+        if (shouldScroll) {
+          orderSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
 
       function selectFontCard(card) {
         if (!card) return;
+        if (!card.querySelector(".font-price")) return;
         fontCards.forEach((c) => c.classList.remove("selected"));
         card.classList.add("selected");
 
-        const name = card.querySelector(".font-name")?.textContent?.trim() || "YOB Font";
-        const price = card.querySelector(".font-price")?.textContent?.trim() || "";
+        const name =
+          card.querySelector(".font-name")?.textContent?.trim() || "YOB Font";
+        const price =
+          card.querySelector(".font-price")?.textContent?.trim() || "";
         const ctaLink = card.querySelector(".btn-buy, .btn-free");
         const isFree = ctaLink?.classList.contains("btn-free");
 
         stickyName.textContent = name;
         stickyPrice.textContent = price;
-        stickyPrimary.setAttribute("href", ctaLink?.getAttribute("href") || "index.html#contact");
+        stickyPrimary.setAttribute("href", "#fontOrderSection");
         stickyPrimary.innerHTML = isFree
           ? '<i class="fas fa-download"></i> ទាញយកឥឡូវ'
-          : '<i class="fas fa-shopping-cart"></i> បន្តទិញ';
+          : '<i class="fas fa-shopping-cart"></i> បញ្ចូលក្នុងបញ្ជីទិញ';
 
         stickyBar.classList.add("show");
       }
@@ -1369,20 +2911,231 @@
         btn.addEventListener("click", () => {
           filterBtns.forEach((b) => b.classList.remove("active"));
           btn.classList.add("active");
-          const filter = btn.dataset.filter;
-          fontCards.forEach((card) => {
-            const cat = card.dataset.category || "";
-            card.style.display =
-              filter === "all" || cat.includes(filter) ? "block" : "none";
-          });
+          applyFontFilters();
         });
       });
 
+      fontHubSearch?.addEventListener("input", () => {
+        applyFontFilters();
+      });
+
+      fontHubPreview?.addEventListener("input", () => {
+        applyHubPreviewText(fontHubPreview.value || "");
+        if ((fontHubPreview.value || "").trim()) {
+          loadGoogleKhmerFonts();
+        }
+      });
+
+      fontHubSize?.addEventListener("input", () => {
+        applyHubPreviewSize(fontHubSize.value);
+      });
+
+      function setKeyboardTab(target) {
+        kbdTabBtns.forEach((btn) => {
+          const isActive = btn.getAttribute("data-kbdtab") === target;
+          btn.classList.toggle("active", isActive);
+          btn.setAttribute("aria-selected", isActive ? "true" : "false");
+        });
+        kbdPanels.forEach((panel) => {
+          panel.classList.toggle(
+            "active",
+            panel.getAttribute("data-kbdpanel") === target,
+          );
+        });
+      }
+
+      function detectPreferredKeyboardTab() {
+        const savedPref = localStorage.getItem(KBD_TAB_PREF_KEY);
+        if (savedPref === "win" || savedPref === "mac") {
+          return savedPref;
+        }
+        const ua = (navigator.userAgent || "").toLowerCase();
+        const platform = (navigator.platform || "").toLowerCase();
+        const isMac = /mac|iphone|ipad|ipod/.test(ua + " " + platform);
+        return isMac ? "mac" : "win";
+      }
+
+      kbdTabBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-kbdtab");
+          const nextTarget = target || "win";
+          setKeyboardTab(nextTarget);
+          localStorage.setItem(KBD_TAB_PREF_KEY, nextTarget);
+        });
+      });
+
+      function setTypingOutput() {
+        if (!typingPracticeOutput || !typingPracticeInput) return;
+        const value = typingPracticeInput.value.trim();
+        typingPracticeOutput.textContent =
+          value || "អត្ថបទ preview នឹងបង្ហាញទីនេះ...";
+      }
+
+      typingPracticeInput?.addEventListener("input", () => {
+        setTypingOutput();
+      });
+
+      typingCopyBtn?.addEventListener("click", async () => {
+        const value = typingPracticeInput?.value?.trim() || "";
+        if (!value) {
+          if (typingCopyStatus) {
+            typingCopyStatus.textContent = "សូមវាយអត្ថបទមុនសិន";
+          }
+          return;
+        }
+
+        try {
+          await navigator.clipboard.writeText(value);
+          if (typingCopyStatus) {
+            typingCopyStatus.textContent = "បានចម្លងអត្ថបទរួចរាល់";
+          }
+        } catch (error) {
+          if (typingCopyStatus) {
+            typingCopyStatus.textContent =
+              "មិនអាចចម្លងដោយស្វ័យប្រវត្តិ សូមចម្លងដោយដៃ";
+          }
+        }
+      });
+
+      typingClearBtn?.addEventListener("click", () => {
+        if (typingPracticeInput) {
+          typingPracticeInput.value = "";
+        }
+        setTypingOutput();
+        if (typingCopyStatus) {
+          typingCopyStatus.textContent = "";
+        }
+      });
+
+      function renderKbdChecklistProgress() {
+        if (!kbdCheckProgress) return;
+        const total = kbdCheckInputs.length;
+        const done = Array.from(kbdCheckInputs).filter(
+          (input) => input.checked,
+        ).length;
+        kbdCheckProgress.textContent = done + "/" + total + " completed";
+      }
+
+      function loadKbdChecklistState() {
+        let saved = {};
+        try {
+          saved = JSON.parse(localStorage.getItem(KBD_CHECKLIST_KEY) || "{}");
+        } catch (error) {
+          saved = {};
+        }
+
+        kbdCheckInputs.forEach((input) => {
+          const key = input.getAttribute("data-kbdcheck");
+          input.checked = Boolean(saved[key]);
+        });
+        renderKbdChecklistProgress();
+      }
+
+      function saveKbdChecklistState() {
+        const nextState = {};
+        kbdCheckInputs.forEach((input) => {
+          const key = input.getAttribute("data-kbdcheck");
+          nextState[key] = input.checked;
+        });
+        localStorage.setItem(KBD_CHECKLIST_KEY, JSON.stringify(nextState));
+        renderKbdChecklistProgress();
+      }
+
+      kbdCheckInputs.forEach((input) => {
+        input.addEventListener("change", saveKbdChecklistState);
+      });
+
+      kbdCheckResetBtn?.addEventListener("click", () => {
+        kbdCheckInputs.forEach((input) => {
+          input.checked = false;
+        });
+        localStorage.removeItem(KBD_CHECKLIST_KEY);
+        renderKbdChecklistProgress();
+      });
+
       fontCards.forEach((card) => {
+        card.addEventListener("mousemove", (event) => {
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            return;
+          }
+          const rect = card.getBoundingClientRect();
+          const x = event.clientX - rect.left;
+          const y = event.clientY - rect.top;
+          const rotateY = (x / rect.width - 0.5) * 8;
+          const rotateX = (0.5 - y / rect.height) * 8;
+          card.style.transform =
+            "translateY(-8px) perspective(900px) rotateX(" +
+            rotateX.toFixed(2) +
+            "deg) rotateY(" +
+            rotateY.toFixed(2) +
+            "deg)";
+        });
+
+        card.addEventListener("mouseleave", () => {
+          card.style.transform = "";
+        });
+
         card.addEventListener("click", (event) => {
           if (event.target.closest("a, button")) return;
+          if (!card.querySelector(".font-price")) return;
           selectFontCard(card);
         });
+
+        const buyBtn = card.querySelector(".btn-buy");
+        buyBtn?.addEventListener("click", (event) => {
+          event.preventDefault();
+          selectFontCard(card);
+          addCardToOrder(card, true);
+        });
+      });
+
+      stickyPrimary?.addEventListener("click", (event) => {
+        if (stickyPrimary.textContent.includes("ទាញយក")) return;
+        event.preventDefault();
+        const selectedCard = document.querySelector(".font-card.selected");
+        if (selectedCard) {
+          addCardToOrder(selectedCard, true);
+        }
+      });
+
+      orderList?.addEventListener("click", (event) => {
+        const removeBtn = event.target.closest("[data-remove-name]");
+        if (!removeBtn) return;
+        const name = removeBtn.getAttribute("data-remove-name");
+        if (!name) return;
+        selectedFonts.delete(name);
+        renderOrderList();
+      });
+
+      orderForm?.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        orderSuccess.style.display = "none";
+        orderError.style.display = "none";
+
+        if (!selectedFonts.size) {
+          orderError.textContent = "សូមជ្រើស Font យ៉ាងហោចណាស់ 1 មុនពេលផ្ញើ។";
+          orderError.style.display = "block";
+          return;
+        }
+
+        try {
+          await window.YOBFormUtils.submitNetlifyForm(orderForm);
+          orderSuccess.style.display = "block";
+          orderForm.reset();
+          selectedFonts.clear();
+          renderOrderList();
+          window.YOBFormUtils.track("form_submit_success", {
+            form: "fonts_order",
+          });
+        } catch (error) {
+          orderError.textContent =
+            "មានបញ្ហាក្នុងការផ្ញើ។ សូមសាកម្តងទៀត ឬទាក់ទង Telegram។";
+          orderError.style.display = "block";
+          window.YOBFormUtils.track("form_submit_error", {
+            form: "fonts_order",
+            reason: "network_or_server",
+          });
+        }
       });
 
       stickyClose?.addEventListener("click", () => {
@@ -1397,11 +3150,20 @@
         featuredCard?.scrollIntoView({ behavior: "smooth", block: "center" });
       });
 
+      applyFontFilters();
+      if (fontHubSize) {
+        applyHubPreviewSize(fontHubSize.value);
+      }
+      setTypingOutput();
+      loadKbdChecklistState();
+      setKeyboardTab(detectPreferredKeyboardTab());
+
       const fontParam = new URLSearchParams(window.location.search).get("font");
       if (fontParam) {
         const normalized = fontParam.toLowerCase();
         const matched = Array.from(fontCards).find((card) => {
-          const name = card.querySelector(".font-name")?.textContent?.toLowerCase() || "";
+          const name =
+            card.querySelector(".font-name")?.textContent?.toLowerCase() || "";
           return name.includes(normalized);
         });
         if (matched) {
@@ -1422,6 +3184,7 @@
         });
       });
     </script>
+    <script src="js/load-components.js"></script>
     <script src="js/load-components.js"></script>
     <script src="js/main.js" defer></script>
   </body>

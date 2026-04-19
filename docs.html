@@ -6,7 +6,7 @@
     <title>Documentation — YOB Digital</title>
     <meta
       name="description"
-      content="YOB Digital Documentation — AI Tools, Digital Strategy, Khmer Typography guides ជាភាសាខ្មែរ។"
+      content="YOB Digital Docs — រៀន AI Tools (Claude, ChatGPT), Facebook Ads, Content Strategy, HTML/CSS, Khmer Typography ជាភាសាខ្មែរ ១០០%។ FREE Guides + Prompt Templates + Step-by-Step Tutorials សម្រាប់ SME ខ្មែរ!"
     />
     <meta property="og:title" content="Documentation — YOB Digital" />
     <meta
@@ -23,6 +23,67 @@
       content="https://yobdigital.netlify.app/images/og-cover.jpg"
     />
     <meta property="og:type" content="website" />
+
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "name": "YOB Digital Documentation",
+      "headline": "YOB Digital Docs — AI Tools, Digital Strategy, Khmer Typography",
+      "description": "រៀន AI Tools (Claude, ChatGPT), Facebook Ads, Content Strategy, HTML/CSS, Khmer Typography ជាភាសាខ្មែរ ១០០%។ FREE Guides + Prompt Templates + Step-by-Step Tutorials សម្រាប់ SME ខ្មែរ!",
+      "url": "https://yobdigital.netlify.app/docs.html",
+      "inLanguage": ["km", "en"],
+      "publisher": {
+        "@type": "Organization",
+        "name": "YOB Digital",
+        "url": "https://yobdigital.netlify.app",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://yobdigital.netlify.app/images/favicon.png"
+        }
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Yeun Savuth",
+        "url": "https://yobdigital.netlify.app/about.html"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Artificial Intelligence" },
+        { "@type": "Thing", "name": "Digital Marketing" },
+        { "@type": "Thing", "name": "Khmer Typography" },
+        { "@type": "Thing", "name": "Web Development" },
+        { "@type": "Thing", "name": "Facebook Ads" },
+        { "@type": "Thing", "name": "Content Strategy" }
+      ],
+      "teaches": [
+        "Claude AI Prompt Engineering",
+        "ChatGPT for Khmer Business",
+        "Facebook Ads Setup",
+        "Content Planning Strategy",
+        "HTML CSS Basics",
+        "GitHub Netlify Deployment",
+        "Khmer Font Installation"
+      ],
+      "hasPart": [
+        { "@type": "WebPageElement", "name": "Getting Started — YOB Digital", "url": "https://yobdigital.netlify.app/docs.html#getting-started" },
+        { "@type": "WebPageElement", "name": "AI Tools — Claude, ChatGPT Prompt Engineering", "url": "https://yobdigital.netlify.app/docs.html#ai-overview" },
+        { "@type": "WebPageElement", "name": "Digital Strategy — Facebook Ads, Content Plan", "url": "https://yobdigital.netlify.app/docs.html#strategy-overview" },
+        { "@type": "WebPageElement", "name": "Web Systems — HTML, GitHub, Netlify", "url": "https://yobdigital.netlify.app/docs.html#web-overview" },
+        { "@type": "WebPageElement", "name": "Khmer Typography — Font Guide", "url": "https://yobdigital.netlify.app/docs.html#fonts-overview" }
+      ],
+      "image": "https://yobdigital.netlify.app/images/og-cover.jpg",
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-04-19",
+      "isAccessibleForFree": true,
+      "educationalLevel": "Beginner to Intermediate",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Khmer SME, Startup, Creator, Freelancer"
+      }
+    }
+    </script>
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <link rel="apple-touch-icon" href="images/favicon.png" />
     <!-- DNS Prefetch -->
@@ -33,7 +94,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
 
@@ -54,9 +115,6 @@
       />
     </noscript>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-      defer
     ></script>
     <link rel="stylesheet" href="css/style.min.css" />
 
@@ -66,14 +124,11 @@
        Dark + Pink #e52c67
     ═══════════════════════════════════════ */
 
-      /* Docs has its own header + sidebar nav — hide shared site nav */
-      #nav-placeholder,
-      .mobile-drawer {
-        display: none !important;
-      }
+      /* blob hidden on docs page — clean layout */
       .blob {
         display: none !important;
       }
+
       :root {
         --dark: #080b10;
         --dark2: #0d1117;
@@ -85,12 +140,13 @@
         --gold: #e52c67;
         --gold2: #ff8ab0;
         --glass: rgba(255, 255, 255, 0.03);
-        --fh: "Bebas Neue", "Kantumruy Pro", sans-serif;
+        --fh: "Kantumruy Pro", sans-serif;
         --fk: "Kantumruy Pro", sans-serif;
-        --fb: "Kantumruy Pro", "DM Sans", sans-serif;
+        --fb: "Kantumruy Pro", sans-serif;
+        --font-mono: "Kantumruy Pro", sans-serif;
         --sidebar-w: 280px;
-        --header-h: 60px;
-        --toc-w: 220px;
+        --header-h: 68px;
+        --toc-w: 260px;
         --t: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       }
       *,
@@ -102,7 +158,7 @@
       }
       html {
         scroll-behavior: smooth;
-        font-size: 15px;
+        font-size: 16px;
       }
       body {
         background: var(--dark);
@@ -116,80 +172,34 @@
         text-decoration: none !important;
       }
 
-      /* ── HEADER ── */
-      .docs-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: var(--header-h);
-        z-index: 100;
-        background: rgba(8, 11, 16, 0.9);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        padding: 0 24px;
-        gap: 20px;
-      }
-      .docs-logo {
-        font-family: var(--fh);
-        font-size: 22px;
-        font-weight: 800;
-        background: linear-gradient(135deg, #fff 30%, var(--gold));
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        white-space: nowrap;
-      }
-      .docs-logo span {
-        color: var(--gold);
-        -webkit-text-fill-color: var(--gold);
-      }
-      .header-divider {
-        width: 1px;
-        height: 24px;
-        background: var(--border);
-        flex-shrink: 0;
-      }
-      .docs-badge {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        color: var(--gold);
-        background: rgba(229, 44, 103, 0.1);
-        border: 1px solid rgba(229, 44, 103, 0.2);
-        padding: 3px 10px;
-        border-radius: 20px;
-      }
-      /* Search bar */
+      /* ── SEARCH BOX (in docs nav center) ── */
       .docs-search {
-        flex: 1;
-        max-width: 360px;
-        margin-left: auto;
+        position: relative;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
+        width: 100%;
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid var(--border);
         border-radius: 10px;
-        padding: 8px 14px;
-        cursor: pointer;
+        padding: 8px 12px;
+        cursor: text;
         transition: all var(--t);
       }
       .docs-search:hover {
-        border-color: rgba(229, 44, 103, 0.3);
+        border-color: rgba(229, 44, 103, 0.25);
         background: rgba(255, 255, 255, 0.07);
       }
       .docs-search input {
         background: none;
         border: none;
         outline: none;
-        color: var(--gray);
+        color: var(--white);
         font-family: var(--fb);
-        font-size: 13px;
+        font-size: 14px;
         flex: 1;
-        cursor: pointer;
+        cursor: text;
+        min-width: 0;
       }
       .docs-search input::placeholder {
         color: var(--gray);
@@ -198,8 +208,9 @@
         display: flex;
         gap: 3px;
         align-items: center;
-        font-size: 10px;
+        font-size: 11px;
         color: var(--gray);
+        flex-shrink: 0;
       }
       .kbd {
         background: rgba(255, 255, 255, 0.08);
@@ -207,151 +218,153 @@
         border-radius: 4px;
         padding: 2px 5px;
         font-family: var(--font-mono);
-        font-size: 10px;
+        font-size: 11px;
       }
-      .header-nav {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        margin-left: 8px;
+      /* ── SEARCH DROPDOWN ── */
+      .docs-search.active {
+        border-color: rgba(229, 44, 103, 0.5) !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        box-shadow: 0 0 0 3px rgba(229, 44, 103, 0.1);
       }
-      .header-nav a {
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--gray);
-        padding: 5px 12px;
-        border-radius: 8px;
-        transition: all var(--t);
-        white-space: nowrap;
-      }
-      .header-nav a:hover {
-        color: var(--white);
-        background: rgba(255, 255, 255, 0.06);
-      }
-      .header-nav a.active {
-        color: var(--gold);
-      }
-      /* Header dropdown */
-      .hdr-dropdown {
-        position: relative;
-        display: flex;
-        align-items: center;
-      }
-      .hdr-trigger {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--gray);
-        padding: 5px 12px;
-        border-radius: 8px;
-        transition: all var(--t);
-        white-space: nowrap;
-        cursor: pointer;
-      }
-      .hdr-trigger:hover {
-        color: var(--white);
-        background: rgba(255, 255, 255, 0.06);
-      }
-      .hdr-trigger.active {
-        color: var(--gold);
-      }
-      .hdr-trigger .fa-chevron-down {
-        font-size: 9px;
-        transition: transform 0.3s ease;
-      }
-      .hdr-dropdown:hover .fa-chevron-down {
-        transform: rotate(180deg);
-      }
-      .hdr-menu {
-        position: absolute;
-        top: 100%;
-        padding-top: 10px;
+      .search-dropdown {
+        position: fixed;
+        top: calc(var(--header-h) + 6px);
         left: 50%;
-        transform: translateX(-50%) translateY(-6px);
-        background: rgba(8, 11, 16, 0.96);
-        backdrop-filter: blur(24px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        transform: translateX(-50%);
+        width: min(560px, calc(100vw - 40px));
+        background: rgba(8, 11, 16, 0.98);
+        backdrop-filter: blur(32px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 14px;
-        padding: 8px;
-        min-width: 190px;
-        list-style: none;
-        opacity: 0;
-        pointer-events: none;
-        transition:
-          opacity 0.25s ease,
-          transform 0.25s ease;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        z-index: 200;
+        box-shadow:
+          0 24px 64px rgba(0, 0, 0, 0.7),
+          0 0 0 1px rgba(229, 44, 103, 0.08);
+        z-index: 500;
+        overflow: hidden;
+        max-height: 420px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
       }
-      .hdr-dropdown:hover .hdr-menu {
-        opacity: 1;
-        pointer-events: all;
-        transform: translateX(-50%) translateY(0);
-      }
-      .hdr-menu li a {
+      .search-result-item {
         display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 9px 14px;
-        border-radius: 9px;
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--gray);
-        transition: all 0.2s ease;
-        white-space: nowrap;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 13px 18px;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        transition: background 0.15s;
       }
-      .hdr-menu li a:hover {
+      .search-result-item:last-child {
+        border-bottom: none;
+      }
+      .search-result-item:hover,
+      .search-result-item.focused {
         background: rgba(229, 44, 103, 0.08);
-        color: var(--white);
       }
-      .hdr-menu li a i {
-        color: var(--gold);
-        width: 15px;
+      .search-result-icon {
+        font-size: 18px;
+        flex-shrink: 0;
+        width: 28px;
         text-align: center;
+        margin-top: 2px;
+      }
+      .search-result-body {
+        flex: 1;
+        min-width: 0;
+      }
+      .search-result-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .search-result-title mark {
+        background: rgba(229, 44, 103, 0.3);
+        color: var(--gold);
+        border-radius: 3px;
+        padding: 0 2px;
+      }
+      .search-result-crumb {
+        font-size: 11px;
+        color: var(--gray);
+      }
+      .search-result-snippet {
+        font-size: 12px;
+        color: var(--gray);
+        line-height: 1.5;
+        margin-top: 3px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .search-result-snippet mark {
+        background: rgba(229, 44, 103, 0.2);
+        color: var(--gold2);
+        border-radius: 2px;
+        padding: 0 2px;
+      }
+      .search-no-result {
+        padding: 32px 20px;
+        text-align: center;
+        color: var(--gray);
+        font-size: 14px;
+      }
+      .search-no-result i {
+        font-size: 28px;
+        display: block;
+        margin-bottom: 10px;
+        opacity: 0.4;
+      }
+      .search-header-row {
+        padding: 10px 18px 6px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        color: var(--gray);
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .search-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 499;
+      }
+
+      /* ── MOBILE SIDEBAR FAB ── */
+      .sidebar-fab {
+        display: none;
+        position: fixed;
+        bottom: 24px;
+        left: 20px;
+        z-index: 200;
+        background: var(--gold);
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        padding: 10px 16px;
+        font-family: var(--fb);
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        gap: 8px;
+        align-items: center;
+        box-shadow: 0 4px 20px rgba(229, 44, 103, 0.4);
+        transition: all var(--t);
+      }
+      .sidebar-fab:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(229, 44, 103, 0.5);
       }
       @media (max-width: 900px) {
-        .header-nav {
-          display: none;
+        .sidebar-fab {
+          display: flex;
         }
-      }
-      .header-actions {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        margin-left: 16px;
-      }
-      .header-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 8px;
-        background: var(--glass);
-        border: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--gray);
-        font-size: 15px;
-        transition: all var(--t);
-      }
-      .header-icon:hover {
-        color: var(--white);
-        border-color: var(--border2);
-      }
-      /* Hamburger (mobile) */
-      .sidebar-toggle {
-        display: none;
-        background: none;
-        border: none;
-        color: var(--gray);
-        font-size: 18px;
-        cursor: pointer;
-        padding: 6px;
-        border-radius: 6px;
-      }
-      .sidebar-toggle:hover {
-        color: var(--white);
       }
 
       /* ── LAYOUT ── */
@@ -396,13 +409,13 @@
       }
       .s-tab {
         flex: 1;
-        padding: 7px 8px;
+        padding: 8px 9px;
         border-radius: 8px;
         background: none;
         border: 1px solid transparent;
         color: var(--gray);
         font-family: var(--fb);
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 600;
         cursor: pointer;
         transition: all var(--t);
@@ -423,7 +436,7 @@
         margin-bottom: 6px;
       }
       .nav-group-label {
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 700;
         letter-spacing: 1.5px;
         text-transform: uppercase;
@@ -434,8 +447,8 @@
         display: flex;
         align-items: center;
         gap: 9px;
-        padding: 7px 20px;
-        font-size: 13.5px;
+        padding: 9px 20px;
+        font-size: 14.5px;
         font-weight: 400;
         color: var(--gray);
         transition: all var(--t);
@@ -455,16 +468,16 @@
         border-left-color: var(--gold);
       }
       .nav-link i {
-        width: 16px;
+        width: 18px;
         text-align: center;
-        font-size: 12px;
+        font-size: 13px;
         flex-shrink: 0;
       }
       .nav-badge {
         margin-left: auto;
-        font-size: 9px;
+        font-size: 10px;
         font-weight: 700;
-        padding: 1px 6px;
+        padding: 2px 7px;
         border-radius: 10px;
         background: rgba(229, 44, 103, 0.15);
         color: var(--gold);
@@ -605,7 +618,7 @@
       }
       .code-block pre {
         padding: 20px;
-        font-family: "Courier New", monospace;
+        font-family: var(--font-mono);
         font-size: 13px;
         line-height: 1.7;
         overflow-x: auto;
@@ -767,7 +780,7 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 5px;
         padding: 2px 7px;
-        font-family: "Courier New", monospace;
+        font-family: var(--font-mono);
         font-size: 12.5px;
         color: var(--gold2);
       }
@@ -826,7 +839,7 @@
         border-left: 1px solid var(--border);
       }
       .toc-title {
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 700;
         letter-spacing: 1.5px;
         text-transform: uppercase;
@@ -835,7 +848,7 @@
       }
       .toc-link {
         display: block;
-        font-size: 13px;
+        font-size: 14px;
         color: var(--gray);
         padding: 5px 0 5px 12px;
         border-left: 2px solid transparent;
@@ -852,7 +865,7 @@
       }
       .toc-link.h3 {
         padding-left: 24px;
-        font-size: 12px;
+        font-size: 13px;
       }
       .toc-contribute {
         margin-top: 32px;
@@ -872,6 +885,217 @@
         color: var(--white);
       }
 
+      .kpi-panel {
+        margin-top: 18px;
+        padding: 16px;
+        border: 1px solid var(--border2);
+        border-radius: 16px;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(229, 44, 103, 0.08) 0%,
+            rgba(255, 255, 255, 0.02) 44%
+          ),
+          rgba(255, 255, 255, 0.02);
+      }
+      .kpi-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .kpi-sub {
+        font-size: 12px;
+        color: var(--gray);
+        line-height: 1.35;
+      }
+      .kpi-badge {
+        border: 1px solid rgba(229, 44, 103, 0.35);
+        background: rgba(229, 44, 103, 0.16);
+        color: var(--white);
+        font-size: 12px;
+        font-weight: 700;
+        border-radius: 999px;
+        padding: 5px 10px;
+        white-space: nowrap;
+      }
+      .kpi-title {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.72);
+        margin-bottom: 4px;
+      }
+      .kpi-rate-wrap {
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+      .kpi-ratebar {
+        width: 100%;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+      }
+      .kpi-ratebar > span {
+        display: block;
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--gold), #ff8ab0);
+      }
+      .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .kpi-chip {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 10px 8px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .kpi-chip-wide {
+        grid-column: 1 / -1;
+      }
+      .kpi-val {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.1;
+      }
+      .kpi-label {
+        font-size: 12.5px;
+        color: var(--gray);
+        margin-top: 3px;
+        white-space: nowrap;
+      }
+      .kpi-low {
+        margin-top: 12px;
+        padding-top: 11px;
+        border-top: 1px solid var(--border);
+      }
+      .kpi-section-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      .kpi-section-title {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.75);
+        font-weight: 600;
+      }
+      .kpi-count {
+        font-size: 11px;
+        color: var(--gray);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 2px 8px;
+      }
+      .kpi-low-item {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        font-size: 13px;
+        color: var(--white);
+        padding: 5px 0;
+        cursor: pointer;
+        line-height: 1.45;
+      }
+      .kpi-low-meta {
+        font-size: 11.5px;
+        color: var(--gray);
+      }
+      .kpi-low-item:hover {
+        color: var(--gold2);
+      }
+      .kpi-suggest {
+        margin-top: 10px;
+        padding-top: 9px;
+        border-top: 1px solid var(--border);
+      }
+      .kpi-suggest-title {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 6px;
+      }
+      .kpi-suggest-item {
+        font-size: 11px;
+        color: var(--gray);
+        line-height: 1.5;
+        padding: 3px 0;
+      }
+      .kpi-low-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        align-items: center;
+        padding: 6px 0;
+      }
+      .kpi-review-btn {
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--gray);
+        border-radius: 10px;
+        font-size: 11.5px;
+        font-weight: 600;
+        padding: 7px 10px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .kpi-review-btn:hover {
+        color: var(--white);
+        border-color: var(--border2);
+      }
+      .kpi-review-btn.done {
+        color: #4ade80;
+        border-color: rgba(74, 222, 128, 0.35);
+        background: rgba(74, 222, 128, 0.08);
+      }
+      .kpi-actions {
+        margin-top: 12px;
+        display: flex;
+        gap: 9px;
+        flex-direction: column;
+        padding-top: 10px;
+        border-top: 1px solid var(--border);
+      }
+      .kpi-action-btn {
+        width: 100%;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--gray);
+        border-radius: 10px;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 9px 10px;
+        cursor: pointer;
+        text-align: left;
+      }
+      .kpi-action-btn:hover {
+        color: var(--white);
+        border-color: rgba(229, 44, 103, 0.35);
+        background: rgba(229, 44, 103, 0.1);
+      }
+      .nav-link.low-score {
+        color: var(--gold2);
+        border-left-color: var(--gold2);
+        background: rgba(255, 138, 176, 0.08);
+      }
+      .nav-link.low-score::after {
+        content: "!";
+        margin-left: auto;
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--gold2);
+      }
+
       /* ── RESPONSIVE ── */
       @media (max-width: 1200px) {
         .docs-toc {
@@ -879,6 +1103,28 @@
         }
         .docs-main {
           margin-right: 0;
+        }
+      }
+      @media (max-width: 1100px) and (min-width: 901px) {
+        .docs-sidebar {
+          width: 250px;
+        }
+        .docs-main {
+          margin-left: 250px;
+          padding: clamp(30px, 4.5vw, 36px) clamp(28px, 4.5vw, 36px);
+        }
+        .search-dropdown {
+          width: min(480px, calc(100vw - 32px));
+          top: calc(var(--header-h) + 4px);
+          max-height: 380px;
+        }
+        .nav-link {
+          padding: 8px 16px;
+          font-size: 14px;
+          margin-right: 6px;
+        }
+        .nav-group-label {
+          padding: 10px 16px 6px;
         }
       }
       @media (max-width: 900px) {
@@ -920,6 +1166,265 @@
           flex-direction: column;
         }
       }
+
+      /* ═══════════════════════════════════════
+         DOCS NAV — Custom fixed header for docs
+         Replaces shared nav (docs has 3-col layout)
+      ═══════════════════════════════════════ */
+      .docs-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--header-h);
+        background: rgba(8, 11, 16, 0.92);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-bottom: 1px solid var(--border);
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        gap: 12px;
+      }
+      /* LEFT */
+      .docs-nav-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+      .docs-nav-sidebar-toggle {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        color: var(--gray);
+        font-size: 15px;
+        cursor: pointer;
+        padding: 7px 9px;
+        border-radius: 8px;
+        transition: all var(--t);
+      }
+      .docs-nav-sidebar-toggle:hover {
+        color: var(--white);
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .docs-nav-logo {
+        font-family: var(--fk);
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--white);
+        white-space: nowrap;
+      }
+      .docs-nav-logo span {
+        color: var(--gold);
+      }
+      .docs-nav-divider {
+        width: 1px;
+        height: 18px;
+        background: var(--border2);
+        flex-shrink: 0;
+      }
+      .docs-nav-badge {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        background: rgba(229, 44, 103, 0.12);
+        border: 1px solid rgba(229, 44, 103, 0.25);
+        color: var(--gold);
+        padding: 3px 8px;
+        border-radius: 6px;
+        white-space: nowrap;
+      }
+      /* CENTER — search */
+      .docs-nav-center {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        min-width: 0;
+      }
+      .docs-nav-center .docs-search {
+        width: 100%;
+        max-width: 380px;
+      }
+      /* RIGHT — links */
+      .docs-nav-right {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        flex-shrink: 0;
+      }
+      .dn-link {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 6px 10px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--gray);
+        border-radius: 8px;
+        transition: all var(--t);
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-family: var(--fb);
+        white-space: nowrap;
+        line-height: 1;
+      }
+      .dn-link:hover,
+      .dn-link.dn-active {
+        color: var(--white);
+        background: rgba(255, 255, 255, 0.05);
+      }
+      .dn-link i {
+        font-size: 9px;
+        transition: transform 0.2s;
+      }
+      /* Dropdown wrapper */
+      .dn-has-dropdown {
+        position: relative;
+      }
+      .dn-has-dropdown:hover > .dn-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .dn-has-dropdown:hover > .dn-link i {
+        transform: rotate(180deg);
+      }
+      .dn-dropdown {
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        min-width: 190px;
+        list-style: none;
+        background: rgba(8, 11, 16, 0.98);
+        backdrop-filter: blur(32px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 8px;
+        box-shadow:
+          0 16px 48px rgba(0, 0, 0, 0.65),
+          0 0 0 1px rgba(229, 44, 103, 0.06);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition:
+          opacity 0.18s,
+          transform 0.18s,
+          visibility 0.18s;
+        z-index: 300;
+      }
+      .dn-dd-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 12px;
+        font-size: 13px;
+        color: var(--gray);
+        border-radius: 8px;
+        transition: all var(--t);
+        font-family: var(--fb);
+        white-space: nowrap;
+      }
+      .dn-dd-item:hover {
+        color: var(--white);
+        background: rgba(255, 255, 255, 0.05);
+      }
+      .dn-dd-item.active {
+        color: var(--gold);
+        background: rgba(229, 44, 103, 0.08);
+      }
+      .dn-dd-item i {
+        width: 14px;
+        text-align: center;
+        font-size: 11px;
+        flex-shrink: 0;
+        color: inherit;
+      }
+      /* CTA */
+      .dn-cta {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 14px;
+        margin-left: 4px;
+        background: var(--gold);
+        color: #fff !important;
+        border-radius: 50px;
+        font-size: 13px;
+        font-weight: 600;
+        font-family: var(--fb);
+        transition: all var(--t);
+        white-space: nowrap;
+      }
+      .dn-cta:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(229, 44, 103, 0.4);
+      }
+      .dn-cta i {
+        font-size: 10px;
+      }
+      /* Hamburger override for docs nav breakpoint */
+      .docs-nav .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 8px;
+        transition: background var(--t);
+        margin-left: 2px;
+      }
+      .docs-nav .hamburger:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .docs-nav .hamburger span {
+        display: block;
+        width: 18px;
+        height: 1.5px;
+        background: var(--white);
+        border-radius: 2px;
+        transition: all 0.25s;
+      }
+      /* Responsive docs nav */
+      @media (max-width: 900px) {
+        .docs-nav-sidebar-toggle {
+          display: flex;
+        }
+        .docs-nav-right .dn-has-dropdown,
+        .docs-nav-right > .dn-link,
+        .docs-nav-right > .dn-cta {
+          display: none;
+        }
+        .docs-nav .hamburger {
+          display: flex;
+        }
+      }
+      /* 2-row nav on small screens — search stays accessible */
+      @media (max-width: 560px) {
+        :root { --header-h: 116px; }
+        .docs-nav {
+          flex-wrap: wrap;
+          height: auto;
+          padding: 10px 16px;
+          gap: 8px;
+        }
+        .docs-nav-left { flex: 1; }
+        .docs-nav-center {
+          order: 10;
+          flex: 0 0 100%;
+          justify-content: stretch;
+          padding-bottom: 2px;
+        }
+        .docs-nav-center .docs-search { max-width: 100%; }
+        .docs-nav-badge, .docs-nav-divider { display: none; }
+      }
     </style>
   </head>
   <body>
@@ -929,91 +1434,145 @@
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
 
-    <!-- ══ HEADER ══ -->
-    <div id="nav-placeholder"></div>
+    <!-- ══ DOCS NAV ══ Custom nav designed for 3-column docs layout -->
+    <header class="docs-nav" id="docsNav">
+      <!-- Left: sidebar toggle + logo + badge -->
+      <div class="docs-nav-left">
+        <button
+          class="docs-nav-sidebar-toggle"
+          id="navSidebarToggle"
+          aria-label="Toggle sidebar"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <a href="index.html" class="docs-nav-logo">យប់<span>.</span>ឌីជីថល</a>
+        <div class="docs-nav-divider"></div>
+        <span class="docs-nav-badge">DOCS</span>
+      </div>
 
-    <!-- Mobile Drawer -->
+      <!-- Center: search -->
+      <div class="docs-nav-center">
+        <div
+          class="docs-search"
+          id="docsSearchBox"
+          onclick="document.getElementById('searchInput').focus()"
+        >
+          <i
+            class="fas fa-search"
+            style="color: var(--gray); font-size: 12px; flex-shrink: 0"
+          ></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="ស្វែងរក... (Ctrl+K)"
+            autocomplete="off"
+          />
+          <div class="search-kbd" id="searchKbd">
+            <span class="kbd">⌘K</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: site links + CTA + mobile hamburger -->
+      <div class="docs-nav-right">
+        <a href="grow.html" class="dn-link">Grow</a>
+        <div class="dn-has-dropdown">
+          <button class="dn-link">
+            Learn <i class="fas fa-chevron-down"></i>
+          </button>
+          <ul class="dn-dropdown">
+            <li>
+              <a href="index.html#videos" class="dn-dd-item"
+                ><i class="fas fa-play-circle"></i> Tutorial</a
+              >
+            </li>
+            <li>
+              <a href="yob-learning.html" class="dn-dd-item"
+                ><i class="fas fa-graduation-cap"></i> YOB Learning</a
+              >
+            </li>
+            <li>
+              <a href="docs.html" class="dn-dd-item active"
+                ><i class="fas fa-book"></i> Documentation</a
+              >
+            </li>
+            <li>
+              <a href="case-studies.html" class="dn-dd-item"
+                ><i class="fas fa-briefcase"></i> Case Studies</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="dn-has-dropdown">
+          <button class="dn-link">
+            Products <i class="fas fa-chevron-down"></i>
+          </button>
+          <ul class="dn-dropdown">
+            <li>
+              <a href="fonts.html" class="dn-dd-item"
+                ><i class="fas fa-font"></i> YOB Fonts</a
+              >
+            </li>
+            <li>
+              <a href="resources.html" class="dn-dd-item"
+                ><i class="fas fa-toolbox"></i> Free Resources</a
+              >
+            </li>
+          </ul>
+        </div>
+        <a href="contact.html" class="dn-cta"
+          >សាកសួរ <i class="fas fa-paper-plane"></i
+        ></a>
+        <!-- id="hamburger" → main.js wires this to open mobile drawer automatically -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Drawer (CLAUDE.md standard) -->
     <div class="mobile-drawer" id="mobileDrawer">
       <button class="drawer-close" id="drawerClose">
         <i class="fas fa-times"></i>
       </button>
-      <a href="grow.html" onclick="closeDrawer()">Yob ដើម្បីអាជីវកម្ម</a>
+      <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
       <div class="drawer-group">
         <button class="drawer-group-toggle">
-          រៀនជាមួយ Yob <i class="fas fa-chevron-down"></i>
+          Learn <i class="fas fa-chevron-down"></i>
         </button>
         <div class="drawer-group-items">
-          <a href="yob-learning.html" onclick="closeDrawer()">ជំនាញឌីជីថល</a>
-          <a href="docs.html" onclick="closeDrawer()">ឯកសារមេរៀន</a>
-          <a href="case-studies.html" onclick="closeDrawer()">កម្រងស្នាដៃ</a>
+          <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+          <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+          <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
         </div>
       </div>
       <div class="drawer-group">
         <button class="drawer-group-toggle">
-          តូបឌីជីថល <i class="fas fa-chevron-down"></i>
+          Products <i class="fas fa-chevron-down"></i>
         </button>
         <div class="drawer-group-items">
-          <a href="fonts.html" onclick="closeDrawer()">YOB អក្ខរា</a>
-          <a href="resources.html" onclick="closeDrawer()">កាដូឌីជីថល</a>
+          <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+          <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
         </div>
       </div>
       <a href="about.html" onclick="closeDrawer()">About YOB</a>
       <a href="index.html#contact" onclick="closeDrawer()" class="d-cta"
-        >សាកសួរ</a
+        >ទំនាក់ទំនង</a
       >
     </div>
 
-    <header class="docs-header">
-      <button class="sidebar-toggle" id="sidebarToggle">
-        <i class="fas fa-bars"></i>
-      </button>
-      <a href="index.html" class="docs-logo">YOB<span>.</span>DIGITAL</a>
-      <div class="header-divider"></div>
-      <span class="docs-badge">DOCS v1.0</span>
+    <!-- Search Dropdown (global fixed position) -->
+    <div
+      id="searchDropdown"
+      class="search-dropdown"
+      style="display: none"
+    ></div>
 
-      <div
-        class="docs-search"
-        onclick="document.getElementById('searchInput').focus()"
-      >
-        <i
-          class="fas fa-search"
-          style="color: var(--gray); font-size: 13px"
-        ></i>
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search docs..."
-          readonly
-        />
-        <div class="search-kbd">
-          <span class="kbd">Ctrl</span><span class="kbd">K</span>
-        </div>
-      </div>
-
-      <div class="header-actions">
-        <a
-          href="https://t.me/yobdigital"
-          class="header-icon"
-          title="Telegram"
-          target="_blank"
-          rel="noopener"
-        >
-          <i class="fab fa-telegram-plane"></i>
-        </a>
-        <a
-          href="https://github.com/yobdigital"
-          class="header-icon"
-          title="GitHub"
-          target="_blank"
-          rel="noopener"
-        >
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="index.html" class="header-icon" title="Back to site">
-          <i class="fas fa-home"></i>
-        </a>
-      </div>
-    </header>
+    <!-- Mobile sidebar FAB -->
+    <button class="sidebar-fab" id="sidebarFab">
+      <i class="fas fa-bars"></i> Docs Menu
+    </button>
 
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
@@ -1060,6 +1619,10 @@
           <a class="nav-link" onclick="loadPage('automation')">
             <i class="fas fa-cogs"></i> Automation Setup
           </a>
+          <a class="nav-link" onclick="loadPage('ai-workflow')">
+            <i class="fas fa-project-diagram"></i> AI Workflow for SME
+            <span class="nav-badge">NEW</span>
+          </a>
         </div>
 
         <!-- Digital Strategy -->
@@ -1080,6 +1643,9 @@
           <a class="nav-link" onclick="loadPage('analytics')">
             <i class="fas fa-chart-bar"></i> Analytics & Data
           </a>
+          <a class="nav-link" onclick="loadPage('customer-persona')">
+            <i class="fas fa-user-check"></i> Customer Persona
+          </a>
         </div>
 
         <!-- Web & Systems -->
@@ -1097,6 +1663,9 @@
           <a class="nav-link" onclick="loadPage('lms-setup')">
             <i class="fas fa-graduation-cap"></i> LMS Setup
           </a>
+          <a class="nav-link" onclick="loadPage('landing-page-blueprint')">
+            <i class="fas fa-columns"></i> Landing Page Blueprint
+          </a>
         </div>
 
         <!-- Khmer Typography -->
@@ -1110,6 +1679,9 @@
           </a>
           <a class="nav-link" onclick="loadPage('font-license')">
             <i class="fas fa-file-contract"></i> License Guide
+          </a>
+          <a class="nav-link" onclick="loadPage('font-setup')">
+            <i class="fas fa-keyboard"></i> Khmer Keyboard Setup
           </a>
         </div>
 
@@ -1131,13 +1703,120 @@
 
       <!-- ══ MAIN CONTENT ══ -->
       <main class="docs-main" id="docsMain">
-        <!-- Content loads here via JS -->
+        <!-- Static HTML for SEO indexing — JS replaces on navigation -->
+        <p class="doc-lead">
+          ស្វាគមន៍មកកាន់ <strong>YOB Digital Documentation</strong>! 🎉 នៅទីនេះ
+          អ្នកនឹងរៀន AI Tools, Digital Strategy, Web Systems និង Khmer
+          Typography ជាភាសាខ្មែរ ១០០%។
+        </p>
+        <div class="doc-section">
+          <h2 id="what-is-yob">What is YOB Digital?</h2>
+          <p>
+            YOB Digital គឺជា
+            <strong>Digital Growth Platform</strong> ដែលស្ថាបនាដោយ Yeun Savuth
+            (Babu) ដើម្បីជួយ SMEs, Startups, Creators ខ្មែរ transform business
+            ក្នុង AI era ។ រៀន Claude AI, ChatGPT, Facebook Ads, Content
+            Strategy, HTML/CSS ជាភាសាខ្មែរ — Apply ភ្លាម!
+          </p>
+          <div class="card-grid">
+            <div class="doc-card" onclick="loadPage('ai-overview')">
+              <div class="doc-card-icon">🤖</div>
+              <h4>AI Tools</h4>
+              <p>
+                Claude, ChatGPT, Gemini — Prompt Engineering, Content AI,
+                Automation
+              </p>
+            </div>
+            <div class="doc-card" onclick="loadPage('strategy-overview')">
+              <div class="doc-card-icon">📢</div>
+              <h4>Digital Strategy</h4>
+              <p>
+                Facebook Ads, Content Plan, Social Media Growth, Analytics &
+                ROAS
+              </p>
+            </div>
+            <div class="doc-card" onclick="loadPage('web-overview')">
+              <div class="doc-card-icon">🌐</div>
+              <h4>Web & Systems</h4>
+              <p>HTML/CSS Basics, GitHub + Netlify Deploy, LMS Setup</p>
+            </div>
+            <div class="doc-card" onclick="loadPage('fonts-overview')">
+              <div class="doc-card-icon">🔤</div>
+              <h4>Khmer Typography</h4>
+              <p>
+                Premium Unicode Fonts, Installation Guide, Commercial License
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="doc-section">
+          <h2 id="quick-start">Quick Start — ចាប់ផ្ដើម ៣ ជំហាន</h2>
+          <div class="steps">
+            <div class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h4>ជ្រើស Learning Path</h4>
+                <p>
+                  🤖 AI Tools → 📢 Digital Strategy → 🌐 Web & Systems → ជ្រើស
+                  Path ដែល match goal !
+                </p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h4>រៀន + Apply ភ្លាម</h4>
+                <p>
+                  Guides ជាភាសាខ្មែរ + Templates + Code Snippets Copy-Ready —
+                  Apply business ថ្ងៃនេះ!
+                </p>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h4>ស្នើ FREE Strategy Call</h4>
+                <p>
+                  <a href="grow.html#contact">grow.html#contact</a> → YOB ធ្វើ
+                  Digital Check + Action Plan ឥតគិតថ្លៃ!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="doc-section">
+          <h2 id="community">Community & Support</h2>
+          <ul>
+            <li>
+              <strong>Telegram:</strong>
+              <a href="https://t.me/yobdigital" target="_blank"
+                >t.me/yobdigital</a
+              >
+              — Daily tips, Q&A, Updates
+            </li>
+            <li>
+              <strong>Facebook:</strong>
+              <a href="https://facebook.com/yobdigital" target="_blank"
+                >facebook.com/yobdigital</a
+              >
+              — Tutorials, Case studies
+            </li>
+            <li>
+              <strong>YouTube:</strong>
+              <a href="https://youtube.com/@yobdigital" target="_blank"
+                >youtube.com/@yobdigital</a
+              >
+              — Free video masterclasses
+            </li>
+          </ul>
+        </div>
       </main>
 
       <!-- ══ RIGHT TOC ══ -->
       <aside class="docs-toc" id="docsToc">
         <div class="toc-title">On this page</div>
         <div id="tocLinks"></div>
+        <div class="kpi-panel" id="kpiPanel"></div>
         <div class="toc-contribute">
           <a href="https://t.me/yobdigital" target="_blank">
             <i class="fas fa-edit"></i> Suggest edit
@@ -1150,6 +1829,7 @@
     </div>
     <!-- end layout -->
 
+    <script>
     <script>
       // ══════════════════════════════════════════
       // YOB DOCS — Content Pages
@@ -1170,7 +1850,8 @@
           <p class="doc-lead">
             ស្វាគមន៍មកកាន់ <strong>YOB Digital Documentation</strong>! 🎉
             នៅទីនេះ Bong Savuth នឹងរៀន AI Tools, Digital Strategy, Web Systems
-            និង Khmer Typography ជាភាសាខ្មែរ ១០០%។
+            និង Khmer Typography ជាភាសាខ្មែរ ១០០%។ គោលដៅគឺឱ្យអ្នកយល់សេវាកម្ម YOB
+            ឱ្យច្បាស់ រួចអនុវត្តបានភ្លាម។
           </p>
 
           <div class="doc-section">
@@ -1223,7 +1904,7 @@
                 <div class="step-num">3</div>
                 <div class="step-body">
                   <h4>ស្នើសុំការពិគ្រោះ 30 នាទីឥតគិតថ្លៃ</h4>
-                  <p>ផ្ញើ Telegram @yobdigital — Babu recommend strategy ត្រង់ based on your business</p>
+                  <p>ផ្ញើ Telegram @yobdigital ឬ Contact page — ក្រុម YOB នឹងធ្វើ Digital Check ហើយណែនាំជំហានបន្ទាប់ឱ្យសមនឹងអាជីវកម្មអ្នក</p>
                 </div>
               </div>
             </div>
@@ -1518,14 +2199,1928 @@ Tone: Educational, practical, actionable — "show don't tell"</pre>
           </div>
         `,
         },
+
+        "yob-ecosystem": {
+          title: "YOB ECOSYSTEM",
+          breadcrumb: "ចាប់ផ្ដើម → YOB Ecosystem",
+          toc: [
+            "Ecosystem Overview",
+            "AI Tools",
+            "Digital Strategy",
+            "Web & Systems",
+            "Khmer Typography",
+            "How They Connect",
+          ],
+          content: `
+          <p class="doc-lead">YOB Digital = Ecosystem ពេញលេញ ៤ សសរ ជួយ SME · Creator · Student ខ្មែរ Grow ក្នុង AI Era ។</p>
+          <div class="doc-section">
+            <h2 id="overview">Ecosystem Overview</h2>
+            <p>YOB Digital មិនមែនជា Course ធម្មតា — វាជា <strong>Digital Growth Ecosystem</strong> ដែលរួមមាន:</p>
+            <div class="card-grid">
+              <div class="doc-card"><div class="doc-card-icon">🤖</div><h4>AI Tools</h4><p>Learn Claude, ChatGPT, Gemini — Save 10+ Hours/Week</p></div>
+              <div class="doc-card"><div class="doc-card-icon">📢</div><h4>Digital Strategy</h4><p>Content + Ads + Analytics — 3x ROAS Proven</p></div>
+              <div class="doc-card"><div class="doc-card-icon">🌐</div><h4>Web & Systems</h4><p>Website + Automation — Leads 24/7</p></div>
+              <div class="doc-card"><div class="doc-card-icon">🔤</div><h4>Khmer Typography</h4><p>Premium Unicode Fonts — Professional Brand</p></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="connect">How They Connect</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>រៀន AI Tools</h4><p>ប្រើ AI save time → create content faster → more output, less effort</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Apply Digital Strategy</h4><p>AI-powered content + smart Ads = higher ROAS, more Leads</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Build Web System</h4><p>Website + Automation captures Leads 24/7 while you sleep</p></div></div>
+              <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Professional Brand</h4><p>Khmer Typography = Unique brand that stands out in Cambodia market</p></div></div>
+            </div>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>YOB Tip:</strong> ចាប់ផ្ដើមពី AI Tools → Strategy → Web → Typography ជា sequence ល្អបំផុតសម្រាប់ SME ខ្មែរ!</div></div>
+          </div>
+          `,
+        },
+
+        "ai-overview": {
+          title: "AI TOOLS — OVERVIEW",
+          breadcrumb: "AI Tools → Overview",
+          toc: [
+            "AI Tools ជាអ្វី?",
+            "Claude vs ChatGPT vs Gemini",
+            "ចាប់ផ្ដើម Free",
+            "Use Cases សម្រាប់ SME",
+            "Common Mistakes",
+          ],
+          content: `
+          <p class="doc-lead">AI Tools = Assistant ឆ្លាត ២៤ ម៉ោង ដែលជួយ Write, Plan, Analyze, Create — FREE ឬ ថ្លៃទាប ។ SME ខ្មែរ Apply ភ្លាមមានលទ្ធផល!</p>
+          <div class="doc-section">
+            <h2 id="what-is">AI Tools ជាអ្វី?</h2>
+            <p>AI Tools = Software ដែលប្រើ Artificial Intelligence ជួយ:</p>
+            <ul>
+              <li><strong>Write</strong> — Caption, Blog, Email, Script ជាភាសាខ្មែរ + English</li>
+              <li><strong>Plan</strong> — Marketing strategy, Content calendar, Business plan</li>
+              <li><strong>Analyze</strong> — Competitor research, Audience insight, Trend</li>
+              <li><strong>Create</strong> — Image, Video script, Graphic concept</li>
+              <li><strong>Automate</strong> — Reply DM, Schedule post, Follow-up sequence</li>
+            </ul>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>Simple:</strong> AI Tool = Employee ឆ្លាត ដែលធ្វើការ ២៤ ម៉ោង, ១ ខែ តម្លៃ $0–$20 ។ Human employee ១ ខែ $200–$600+</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="compare">Claude vs ChatGPT vs Gemini</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">🤖</div><div class="step-body"><h4>Claude (Anthropic) — YOB Recommended</h4><p>ល្អបំផុតសម្រាប់: Long-form writing, Analysis, Khmer content, Safe & Accurate · Free plan: claude.ai · ប្រើ Document upload</p></div></div>
+              <div class="step-item"><div class="step-num">💬</div><div class="step-body"><h4>ChatGPT (OpenAI)</h4><p>ល្អសម្រាប់: General tasks, Code, Image creation (GPT-4o) · Free plan: chatgpt.com · Plugin ecosystem ធំ</p></div></div>
+              <div class="step-item"><div class="step-num">✨</div><div class="step-body"><h4>Gemini (Google)</h4><p>ល្អសម្រាប់: Google Workspace integration, Real-time web search · Free plan: gemini.google.com · Connect Gmail, Docs, Sheets</p></div></div>
+            </div>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>YOB Strategy:</strong> ប្រើ <strong>Claude</strong> សម្រាប់ write + analyze, <strong>Gemini</strong> សម្រាប់ research + Google Workspace, <strong>ChatGPT</strong> សម្រាប់ image generation ។ ទាំង ៣ FREE!</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="free-start">ចាប់ផ្ដើម Free</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Claude.ai</h4><p>claude.ai → Sign up → Free ប្រើបាន 5 messages/hour · <a href="docs.html" onclick="loadPage('prompt-engineering')">រៀន Prompt Engineering →</a></p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>ChatGPT</h4><p>chatgpt.com → Sign up → Free GPT-4o (limited) · ល្អសម្រាប់ Image + Web browse</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Gemini</h4><p>gemini.google.com → Google account → Free 1.5 Flash · Connect Google Workspace ភ្លាម</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="use-cases">Use Cases សម្រាប់ SME ខ្មែរ</h2>
+            <ul>
+              <li>📝 <strong>Write 30 days of captions</strong> ក្នុង ២ ម៉ោង — Save 20+ hours</li>
+              <li>📊 <strong>Analyze competitor</strong> strategy ក្នុង 15 នាទី</li>
+              <li>📧 <strong>Write follow-up emails</strong> automatically</li>
+              <li>🎯 <strong>Build Facebook Ad copy</strong> — A/B test 5 versions ភ្លាម</li>
+              <li>📋 <strong>Create SOP</strong> (Standard Operating Procedure) ដើម្បី delegate ការងារ</li>
+              <li>🔍 <strong>SEO research</strong> — Find keywords for Khmer market</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="mistakes">Common Mistakes</h2>
+            <div class="callout warn"><i class="fas fa-exclamation-triangle callout-icon"></i><div class="callout-body"><strong>❌ Mistake 1:</strong> Prompt ខ្លីពេក → "Write caption" → Output generic, unusable ។ <strong>Fix:</strong> ប្រើ RTFT Framework — Role + Task + Format + Tone</div></div>
+            <div class="callout warn"><i class="fas fa-exclamation-triangle callout-icon"></i><div class="callout-body"><strong>❌ Mistake 2:</strong> Copy AI output ១០០% without editing → Sounds robotic ។ <strong>Fix:</strong> ប្រើ AI ជា draft → Edit 20% ដើម្បីបន្ថែម voice ផ្ទាល់ខ្លួន</div></div>
+            <div class="callout warn"><i class="fas fa-exclamation-triangle callout-icon"></i><div class="callout-body"><strong>❌ Mistake 3:</strong> ប្រើ AI ១ tool ប៉ុណ្ណោះ → Limit capability ។ <strong>Fix:</strong> Claude + Gemini + ChatGPT = Ecosystem ពេញ</div></div>
+          </div>
+          `,
+        },
+
+        "ai-content": {
+          title: "AI CONTENT CREATION",
+          breadcrumb: "AI Tools → AI Content Creation",
+          toc: [
+            "Strategy Overview",
+            "Caption Writing",
+            "Blog & Article",
+            "Video Script",
+            "Email Marketing",
+            "30-Day AI Content System",
+          ],
+          content: `
+          <p class="doc-lead">ប្រើ AI Create Content ៣០ ថ្ងៃ ក្នុង ២ ម៉ោង! YOB AI Content System ជួយ SME ខ្មែរ post consistently ដោយ quality ខ្ពស់ — without burning out ។</p>
+          <div class="doc-section">
+            <h2 id="strategy">Strategy Overview</h2>
+            <p>AI Content Creation ត្រឹមត្រូវ = <strong>3 ជំហាន</strong>:</p>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Plan ជាមួយ AI</h4><p>ប្រើ Claude plan 30-day content calendar → Topics, Hooks, Format ក្នុង 30 នាទី</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Draft ជាមួយ AI</h4><p>Prompt ដើម្បី generate caption, blog, script → Get 5 variations → ជ្រើស best 1</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Edit + Publish</h4><p>Edit 20% — add personal touch, Khmer local context → Schedule + Post</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="caption">Caption Writing — Facebook/Instagram</h2>
+            <p>Copy prompt ខាងក្រោម → Paste ក្នុង Claude → Replace brackets:</p>
+            <div class="code-block"><div class="code-header"><span class="code-lang">CLAUDE PROMPT — CAPTION</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre>Act as a <span class="v">Khmer social media copywriter</span> for SMEs in Cambodia.
+
+Write <span class="n">5</span> Facebook captions for:
+- Business: <span class="s">[ឈ្មោះអាជីវកម្ម + ប្រភេទ]</span>
+- Post goal: <span class="s">[Awareness / Leads / Sales / Engagement]</span>
+- Product/offer: <span class="s">[ផលិតផល ឬ Promotion]</span>
+- Target audience: <span class="s">[SME / Young adults / Parents / etc.]</span>
+
+Format each caption:
+Line 1: Hook (attention-grabbing, question or bold statement)
+Line 2–4: Body (benefit-focused, ១-២ pain points addressed)
+Line 5: CTA (clear action)
+Length: 80–150 words each
+Tone: Friendly, casual, mix Khmer + English naturally, include 2-3 emoji</pre></div>
+            <div class="callout good"><i class="fas fa-star callout-icon"></i><div class="callout-body"><strong>Pro Result:</strong> ជំនួស ៣ ម៉ោងនៃការ think + write ជា ៥ នាទី generate + ១០ នាទី edit !</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="blog">Blog & Article Writing</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">CLAUDE PROMPT — BLOG</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre>Act as a <span class="v">Khmer digital marketing educator</span>.
+
+Write a complete blog post:
+- Topic: <span class="s">[ចំណងជើង / Topic]</span>
+- Audience: <span class="s">[SME Owner / Creator / Beginner]</span>
+- Word count: <span class="n">600–900</span> words
+- Language: Mix Khmer + English (70% Khmer, 30% English terms)
+
+Structure:
+H1: SEO title (include main keyword)
+Intro: Hook + Problem (100 words)
+H2 sections: 4–5 sections with actionable tips
+Each H2: 100–150 words + 1 practical example
+Conclusion: Summary + CTA to follow YOB Digital
+
+Include: 1 "YOB Tip" callout box per article</pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="video">Video Script (YouTube/TikTok/Reels)</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">CLAUDE PROMPT — VIDEO SCRIPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre>Act as a <span class="v">Khmer YouTube/TikTok scriptwriter</span>.
+
+Write a video script:
+- Video length: <span class="n">[60s / 3 min / 10 min]</span>
+- Topic: <span class="s">[Topic]</span>
+- Platform: <span class="s">[TikTok / YouTube / Instagram Reels]</span>
+
+Script format:
+[0:00–0:05] HOOK — Bold statement ឬ question
+[0:05–0:45] CONTENT — Main points (bullet by bullet)
+[0:45–0:55] EXAMPLE — Quick real case
+[0:55–1:00] CTA — Subscribe / Follow / Comment
+
+Add: [B-ROLL SUGGESTION] ជា comment under each section
+Tone: Energetic, conversational, Khmer youth-friendly</pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="system">30-Day AI Content System</h2>
+            <p>YOB ប្រើ System នេះ generate content calendar ១ ខែ ក្នុង ២ ម៉ោង:</p>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Week 1 — Generate Topics</h4><p>Prompt Claude: "Give me 30 content topics for [business type] targeting [audience] — mix Education/Entertainment/Promotion 70/20/10"</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Week 2 — Batch Write</h4><p>Write ២ weeks of captions at once → Save as Google Doc → Edit ១ ម្ដង</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Week 3 — Schedule</h4><p>ប្រើ Meta Business Suite schedule posts → Mon/Wed/Fri/Sat = optimal for Khmer audience</p></div></div>
+              <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Week 4 — Analyze + Repeat</h4><p>Check which post got most Reach/Engagement → create more of that type → month 2</p></div></div>
+            </div>
+          </div>
+          `,
+        },
+
+        "ai-tools-list": {
+          title: "AI TOOLS DIRECTORY",
+          breadcrumb: "AI Tools → Tools Directory",
+          toc: [
+            "Writing & Content",
+            "Image & Design",
+            "Video & Audio",
+            "Automation",
+            "Productivity",
+            "Free vs Paid",
+          ],
+          content: `
+          <p class="doc-lead">YOB AI Tools Directory — Tools ល្អបំផុតសម្រាប់ SME ខ្មែរ, ចាត់ប្រភេទតាម Use Case ។ ទាំងអស់ Free plan available!</p>
+          <div class="doc-section">
+            <h2 id="writing">✍️ Writing & Content Tools</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">🤖</div><div class="step-body"><h4>Claude.ai — YOB #1 Pick</h4><p><strong>Best for:</strong> Caption writing, Blog, Analysis, Long-form · <strong>Free:</strong> claude.ai (5 messages/hour) · <strong>Paid:</strong> $20/mo unlimited · Language: Khmer ✅</p></div></div>
+              <div class="step-item"><div class="step-num">💬</div><div class="step-body"><h4>ChatGPT</h4><p><strong>Best for:</strong> General writing, Code, Plugins · <strong>Free:</strong> GPT-4o (limited) · <strong>Paid:</strong> $20/mo · ប្រើ Custom Instructions set Khmer context</p></div></div>
+              <div class="step-item"><div class="step-num">✨</div><div class="step-body"><h4>Gemini</h4><p><strong>Best for:</strong> Google Workspace, Real-time search · <strong>Free:</strong> gemini.google.com · Connect Gmail, Docs, Sheets FREE</p></div></div>
+              <div class="step-item"><div class="step-num">📝</div><div class="step-body"><h4>Notion AI</h4><p><strong>Best for:</strong> Note-taking + AI writing in one app · <strong>Free trial</strong> · ល្អសម្រាប់ organize content + SOP</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="image">🎨 Image & Design Tools</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">🎨</div><div class="step-body"><h4>Canva AI</h4><p><strong>Best for:</strong> Social media graphics, Presentations · <strong>Free:</strong> canva.com · Magic Write + Magic Design built-in · Khmer font support ✅</p></div></div>
+              <div class="step-item"><div class="step-num">🖼️</div><div class="step-body"><h4>Adobe Firefly</h4><p><strong>Best for:</strong> Generative AI images, Background removal · <strong>Free:</strong> firefly.adobe.com · ប្រើ text-to-image ក្នុង Khmer description</p></div></div>
+              <div class="step-item"><div class="step-num">⚡</div><div class="step-body"><h4>Microsoft Designer</h4><p><strong>Best for:</strong> Quick social posts, Logos · <strong>Free:</strong> designer.microsoft.com · DALL-E 3 powered, integrated with Office 365</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="video">🎬 Video & Audio Tools</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">🎬</div><div class="step-body"><h4>CapCut AI</h4><p><strong>Best for:</strong> TikTok/Reels edit, Auto-caption, Auto-translate · <strong>Free:</strong> capcut.com · ✅ Khmer caption supported · YOB #1 for video</p></div></div>
+              <div class="step-item"><div class="step-num">🎙️</div><div class="step-body"><h4>ElevenLabs</h4><p><strong>Best for:</strong> AI Voice, Text-to-Speech · <strong>Free:</strong> 10,000 chars/mo · ប្រើ voiceover video ដោយ voice ខ្លួនឯង cloned</p></div></div>
+              <div class="step-item"><div class="step-num">📹</div><div class="step-body"><h4>Descript</h4><p><strong>Best for:</strong> Edit video by editing transcript · <strong>Free plan:</strong> descript.com · Cut filler words "uh, um" automatically</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="automation">🤖 Automation Tools</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">💬</div><div class="step-body"><h4>ManyChat</h4><p><strong>Best for:</strong> Facebook/Instagram DM automation · <strong>Free:</strong> up to 1,000 contacts · Auto-reply, Lead capture, Flow bot · <a onclick="loadPage('automation')">Full Guide →</a></p></div></div>
+              <div class="step-item"><div class="step-num">🔗</div><div class="step-body"><h4>Zapier</h4><p><strong>Best for:</strong> Connect apps (Form → Sheet → Email) · <strong>Free:</strong> 100 tasks/mo · No-code workflow automation</p></div></div>
+              <div class="step-item"><div class="step-num">📋</div><div class="step-body"><h4>Make (Integromat)</h4><p><strong>Best for:</strong> Advanced automation, cheaper than Zapier · <strong>Free:</strong> 1,000 ops/mo · Better for complex multi-step flows</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="free-vs-paid">Free vs Paid — Decision Guide</h2>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>YOB Rule:</strong> ប្រើ Free ១–២ ខែ → ប្រើបានច្រើន = Upgrade ។ ចំណាយ $20/mo AI tool បង្កើន output ៥x = ROI ១០x !</div></div>
+            <ul>
+              <li><strong>Start FREE:</strong> Claude + Gemini + Canva + CapCut + ManyChat = $0/mo</li>
+              <li><strong>Upgrade first:</strong> Claude Pro ($20) = best value for SME content creation</li>
+              <li><strong>Next upgrade:</strong> Canva Pro ($13) = unlimited assets + Brand Kit</li>
+              <li><strong>Power user:</strong> Claude + Canva Pro + ManyChat Pro = $45/mo → replace $500/mo agency</li>
+            </ul>
+          </div>
+          `,
+        },
+
+        automation: {
+          title: "AI AUTOMATION GUIDE",
+          breadcrumb: "AI Tools → Automation",
+          toc: [
+            "What is Automation?",
+            "ManyChat Setup",
+            "DM Auto-Reply",
+            "Lead Capture Flow",
+            "Zapier Basics",
+            "Real Examples",
+          ],
+          content: `
+          <p class="doc-lead">Automation = ធ្វើការ ២៤ ម៉ោង ដោយ System ។ YOB Automation Guide ជួយ SME ខ្មែរ capture Leads + Reply DM + Follow-up — Automatic, no manual work!</p>
+          <div class="doc-section">
+            <h2 id="what">What is Automation?</h2>
+            <p>Automation ក្នុង Business = ប្រើ Tool/Software ធ្វើ repetitive tasks ដោយ automatic:</p>
+            <ul>
+              <li>🤖 <strong>DM Auto-Reply</strong> — Reply "Price?" ភ្លាម ២ វិនាទី, ២៤ ម៉ោង</li>
+              <li>📋 <strong>Lead Capture</strong> — Comment → Bot sends message → Get contact info</li>
+              <li>📧 <strong>Follow-up Sequence</strong> — Contact ថ្ងៃ ១, ៣, ៧ automatic</li>
+              <li>📊 <strong>Data Collection</strong> — Form → Google Sheet automatic</li>
+            </ul>
+            <div class="callout good"><i class="fas fa-star callout-icon"></i><div class="callout-body"><strong>Real Impact:</strong> YOB Client "Café ដារ៉ា" — ប្រើ ManyChat auto-reply → Response time 2 mins → Conversion rate ×2.5 ក្នុង ១ ខែ!</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="manychat">ManyChat Setup — Step by Step</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Create Account</h4><p>manychat.com → Sign up → Connect Facebook Page → Free plan (1,000 contacts)</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Set Default Reply</h4><p>Automation → Default Reply → "ជំរាបសួរ! 🙏 YOB Digital — ចង់ដឹង Price ឬ Info? Reply 'YES' ដើម្បីទទួល Catalog!"</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Create Keyword Trigger</h4><p>Automation → Keywords → Add "price", "ថ្លៃ", "info", "catalog" → Send Product Info message automatic</p></div></div>
+              <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Set Working Hours Reply</h4><p>After Hours: "YOB ឥឡូវជិត ហើយ! 🌙 Team នឹង Reply ព្រឹក ៨ ម៉ោង ។ ចុច Subscribe ដើម្បី Notify!"</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="lead-flow">Lead Capture Flow</h2>
+            <p>Flow ដែល YOB recommend ជំហានដំបូង:</p>
+            <div class="code-block"><div class="code-header"><span class="code-lang">MANYCHAT FLOW</span></div>
+            <pre>User comments on Post: "ចង់ដឹង!"
+  ↓
+Bot sends DM: "ជំរាបសួរ [Name]! 🙏
+  តើ Bong/Oun ចង់ដឹងអំពី..."
+  [Button A] Product Info
+  [Button B] Consultation
+  [Button C] Price List
+  ↓
+User clicks → Send relevant info
+  ↓
+Bot: "YOB Team នឹង Contact ក្នុង ២ ម៉ោង!
+  ហើយ Join Telegram ↓"
+  → Link to t.me/yobdigital</pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="zapier">Zapier Basics — Form → Sheet → Email</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Create Zap</h4><p>zapier.com → Create → Trigger: "Google Forms / Netlify Form / Typeform"</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Add Action: Google Sheets</h4><p>Action → Google Sheets → Add Row → Map: Name, Email, Phone, Message → Done!</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Add Action: Send Email</h4><p>Action 2 → Gmail → Send email to yourself → "New Lead: [Name] — [Message]" → Notify ភ្លាម</p></div></div>
+            </div>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>Free Zapier:</strong> 100 tasks/month = ~100 leads/mo notification ។ ចំពោះ SME ចាប់ផ្ដើម គ្រប់គ្រាន់!</div></div>
+          </div>
+          `,
+        },
+
+        "ai-workflow": {
+          title: "AI WORKFLOW FOR SME",
+          breadcrumb: "AI Tools → AI Workflow for SME",
+          toc: [
+            "Workflow Overview",
+            "Step 1: Research",
+            "Step 2: Planning",
+            "Step 3: Production",
+            "Step 4: Review & Publish",
+            "Weekly Operating System",
+          ],
+          content: `
+          <p class="doc-lead">មេរៀននេះបង្ហាញ Workflow មួយដែលអាចធ្វើបានពិតសម្រាប់ SME ខ្មែរ: Research → Plan → Produce → Review → Publish ក្នុងរយៈពេលតែ 90 នាទី/សប្តាហ៍។</p>
+          <div class="doc-section">
+            <h2 id="workflow-overview">Workflow Overview</h2>
+            <p>ក្រុមហ៊ុនតូចៗភាគច្រើនខាតពេលនៅលើការសរសេរ content ព្រោះគ្មានប្រព័ន្ធច្បាស់។ ប្រើ Workflow ខាងក្រោមដើម្បីឲ្យ AI ជួយការងារដែល repetitive ហើយអ្នក focus លើ strategy និង quality control។</p>
+            <div class="code-block"><div class="code-header"><span class="code-lang">90-MINUTE WORKFLOW</span></div>
+            <pre>Monday (20 mins): Research
+Tuesday (20 mins): Planning
+Wednesday (25 mins): Production
+Thursday (15 mins): Review
+Friday (10 mins): Publish + schedule</pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="step-1-research">Step 1: Research</h2>
+            <p>ប្រើ Gemini ឬ Claude ដើម្បីប្រមូល pain points របស់អតិថិជន។</p>
+            <div class="code-block"><div class="code-header"><span class="code-lang">RESEARCH PROMPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre>Act as a Cambodia market researcher.
+Business: [your business type]
+Audience: [target audience]
+
+List:
+1) Top 10 customer pains
+2) Top 10 customer goals
+3) Top 10 objections before buying
+
+Format as table with columns: Pain | Goal | Objection | Suggested content angle</pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="step-2-planning">Step 2: Planning</h2>
+            <p>យក output ពី Research មករៀបចំជា Content Plan 7 ថ្ងៃ។</p>
+            <ul>
+              <li>ថ្ងៃច័ន្ទ: Educational tip</li>
+              <li>ថ្ងៃអង្គារ: Story/Behind the scenes</li>
+              <li>ថ្ងៃពុធ: FAQ post</li>
+              <li>ថ្ងៃព្រហស្បតិ៍: Case study</li>
+              <li>ថ្ងៃសុក្រ: Soft CTA</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="step-3-production">Step 3: Production</h2>
+            <p>បង្កើត caption 5-7 post ម្តងតែ១ batch ហើយរក្សា brand voice ដូចគ្នា។</p>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>YOB Tip:</strong> Generate 3 versions per post ហើយជ្រើស version ល្អបំផុត 1 ដើម្បីកាត់បន្ថយ repetitive editing។</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="step-4-review-publish">Step 4: Review & Publish</h2>
+            <ul>
+              <li>ពិនិត្យ fact និងលេខសំខាន់ៗមុន publish</li>
+              <li>ធានា CTA មួយច្បាស់ក្នុង post មួយ</li>
+              <li>Schedule តាមម៉ោងល្អបំផុត: 7-9am, 12-1pm, 7-9pm</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="weekly-operating-system">Weekly Operating System</h2>
+            <div class="callout good"><i class="fas fa-check-circle callout-icon"></i><div class="callout-body"><strong>Outcome:</strong> ប្រព័ន្ធនេះធ្វើឲ្យអ្នកបាន content សប្តាហ៍មួយចប់ក្នុង 90 នាទី ហើយមាន consistency ខ្ពស់ជាង post random រាល់ថ្ងៃ។</div></div>
+          </div>
+          `,
+        },
+
+        "strategy-overview": {
+          title: "DIGITAL STRATEGY — OVERVIEW",
+          breadcrumb: "Digital Strategy → Overview",
+          toc: [
+            "Digital Strategy ជាអ្វី?",
+            "3 Pillars",
+            "Cambodia Market",
+            "SME Strategy Framework",
+            "30-Day Quick Win",
+          ],
+          content: `
+          <p class="doc-lead">Digital Strategy = Plan ច្បាស់ ដើម្បី Grow Business Online ។ មិនមែន boost post random — ប៉ុន្តែ System ដែលបង្កើត Leads, Sales, Brand Awareness ជានិច្ច!</p>
+          <div class="doc-section">
+            <h2 id="what">Digital Strategy ជាអ្វី?</h2>
+            <p>Digital Strategy = ការគិត + Plan + Execute Online Marketing ដោយ System:</p>
+            <ul>
+              <li><strong>WHO</strong> — Target Audience ជានរណា? (Age, Location, Pain, Goals)</li>
+              <li><strong>WHERE</strong> — Platform ណា? (Facebook, TikTok, YouTube, Website)</li>
+              <li><strong>WHAT</strong> — Content ប្រភេទណា? (Education, Entertainment, Promotion)</li>
+              <li><strong>HOW</strong> — Budget, Frequency, Format, Measure</li>
+            </ul>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>YOB Insight:</strong> 85% Cambodian SMEs post ដោយ Guess — no clear target, no strategy ។ Result: Effort ×10, Revenue ÷3 ។ Strategy solves this!</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="pillars">3 Pillars of Digital Strategy</h2>
+            <div class="card-grid">
+              <div class="doc-card"><div class="doc-card-icon">📢</div><h4>Content Marketing</h4><p>Educate + Entertain audience → Build trust → Convert to customers (Long-term play)</p></div>
+              <div class="doc-card"><div class="doc-card-icon">🎯</div><h4>Paid Ads (Facebook/Google)</h4><p>Target specific audience → Immediate Leads → Scale what works (Short-term ROI)</p></div>
+              <div class="doc-card"><div class="doc-card-icon">🌐</div><h4>Web & SEO</h4><p>Website = 24/7 Salesperson → SEO = Free Google traffic → Long-term lead machine</p></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="cambodia">Cambodia Market — Key Facts</h2>
+            <ul>
+              <li>📱 <strong>Facebook first</strong> — 10M+ Cambodian users on Facebook (highest penetration)</li>
+              <li>🎵 <strong>TikTok growing fast</strong> — 18–35 age group moving to TikTok/Reels</li>
+              <li>💬 <strong>Messenger is key</strong> — Khmer buyers prefer DM before purchasing</li>
+              <li>🇰🇭 <strong>Khmer language converts better</strong> — 30–50% higher engagement vs English</li>
+              <li>⏰ <strong>Best posting times</strong> — 7–9am (commute), 12–1pm (lunch), 7–10pm (evening)</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="framework">YOB SME Strategy Framework</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Define Audience (Week 1)</h4><p>ប្រើ Claude: "Define target audience profile for [business] in Cambodia — Age, Income, Pain, Goals, Content they like" → Save as reference doc</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Content Mix (Week 2)</h4><p>70% Education (Tips, How-to) + 20% Entertainment (Story, BTS) + 10% Promotion (Offer, CTA) = OPTIMAL for Khmer audience</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Platform Priority (Week 3)</h4><p>Facebook Page + Group (primary) → Instagram (secondary) → TikTok (growth hack) → Website (lead capture)</p></div></div>
+              <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Measure & Optimize (Week 4)</h4><p>Track: Reach, Engagement Rate, Cost per Lead, ROAS → Double down on top 3 performing content types</p></div></div>
+            </div>
+          </div>
+          `,
+        },
+
+        "customer-persona": {
+          title: "CUSTOMER PERSONA WORKSHOP",
+          breadcrumb: "Digital Strategy → Customer Persona",
+          toc: [
+            "Why Persona Matters",
+            "Persona Template",
+            "Data Sources",
+            "Build Your First Persona",
+            "How to Use Persona in Content",
+            "Common Mistakes",
+          ],
+          content: `
+          <p class="doc-lead">មេរៀននេះជួយអ្នកស្គាល់អតិថិជនគោលដៅឲ្យច្បាស់ ដើម្បីសរសេរ content និង ads ដែលប៉ះត្រង់ pain point ពិត។</p>
+          <div class="doc-section">
+            <h2 id="why-persona-matters">Why Persona Matters</h2>
+            <p>បើមិនស្គាល់អតិថិជនគោលដៅ អ្នកនឹង post ទៅកាន់ "មនុស្សគ្រប់គ្នា" ដែលស្មើនឹងមិនប៉ះអ្នកណាម្នាក់ទេ។ Persona ជួយឲ្យ message ច្បាស់ និង CTR ខ្ពស់ឡើង។</p>
+          </div>
+          <div class="doc-section">
+            <h2 id="persona-template">Persona Template</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">PERSONA CANVAS</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre>Name: [Persona name]
+Age: [range]
+Location: [city/province]
+Job/Role: [role]
+Monthly income: [range]
+
+Top 3 pains:
+1)
+2)
+3)
+
+Top 3 goals:
+1)
+2)
+3)
+
+Buying objections:
+1)
+2)
+3)
+
+Preferred platforms: [Facebook/TikTok/Telegram]
+Preferred content format: [video/carousel/text]
+Decision trigger: [what makes them buy]</pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="data-sources">Data Sources</h2>
+            <ul>
+              <li>Comment/DM FAQ ពិតៗពី page របស់អ្នក</li>
+              <li>សំណួរពី sales call និង chat history</li>
+              <li>Poll នៅ Story ឬ group</li>
+              <li>Insights ពី top-performing posts</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="build-your-first-persona">Build Your First Persona</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Collect 20 real questions</h4><p>យកសំណួរដដែលៗពី comment/DM ដើម្បីរក pattern។</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Group by pain</h4><p>ដាក់ជា category ដូចជា price, trust, time, knowledge។</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Write one primary persona</h4><p>ចាប់ផ្តើមពី persona មួយសិន មិនចាំបាច់ច្រើនពេក។</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="how-to-use-persona-in-content">How to Use Persona in Content</h2>
+            <p>មុនសរសេររាល់ post សួរខ្លួនឯង 3 សំណួរ:</p>
+            <ul>
+              <li>Post នេះដោះស្រាយ pain មួយណា?</li>
+              <li>Post នេះជួយអោយ persona ទៅជិត goal មួយណា?</li>
+              <li>CTA នេះសមនឹងកម្រិត readiness របស់ persona ទេ?</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="common-mistakes">Common Mistakes</h2>
+            <div class="callout warn"><i class="fas fa-exclamation-triangle callout-icon"></i><div class="callout-body"><strong>Mistake:</strong> ប្រើ persona ដែលគិតឡើងដោយអារម្មណ៍។ <strong>Fix:</strong> អាចយកបានតែទិន្នន័យពិតពី audience interaction។</div></div>
+          </div>
+          `,
+        },
+
+        "social-media": {
+          title: "SOCIAL MEDIA GROWTH",
+          breadcrumb: "Digital Strategy → Social Media Growth",
+          toc: [
+            "Facebook Page Optimization",
+            "Content Formula",
+            "Hook Writing",
+            "Posting Schedule",
+            "Engagement Tactics",
+            "Growing Followers Organically",
+          ],
+          content: `
+          <p class="doc-lead">Social Media Growth = ការ post ត្រូវ content ត្រូវ ពេលត្រូវ — ដើម្បី Reach ×3 Engagement ×5 ។ YOB Guide ជួយ SME ខ្មែរ grow organically ។</p>
+          <div class="doc-section">
+            <h2 id="page">Facebook Page Optimization</h2>
+            <p>ការ Optimize Page ល្អ = Impression +40% ។ ជំហានសំខាន់:</p>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Profile + Cover Photo</h4><p>Profile: Logo ១:១ clear background · Cover: Tagline + Phone + Product/Service · Update ជារៀងរាល់ Season</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>About Section Complete</h4><p>Category → Website → Phone → Hours → Story (what/why/how) → All fields filled = better reach</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>CTA Button</h4><p>Settings → Page Button → "Send Message" ឬ "Call Now" ឬ "Shop Now" = direct action for visitors</p></div></div>
+              <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Pin Top Post</h4><p>Pin best post (offer, intro, testimonial) as first post visitors see → Immediate credibility</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="formula">Content Formula — 70/20/10</h2>
+            <div class="card-grid">
+              <div class="doc-card"><div class="doc-card-icon">📚</div><h4>70% Education</h4><p>Tips, How-to, Tutorial, FAQ → Build trust, Position as expert, Save + Share rate high</p></div>
+              <div class="doc-card"><div class="doc-card-icon">🎭</div><h4>20% Entertainment</h4><p>Behind-the-scenes, Story, Meme, Poll → Human connection, Comment rate high</p></div>
+              <div class="doc-card"><div class="doc-card-icon">🛒</div><h4>10% Promotion</h4><p>Offer, Discount, New product, CTA → Direct sales (don't overdo! kills organic reach)</p></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="hooks">Hook Writing — ១ វិនាទីដំបូង</h2>
+            <p>Hook = ២ ប្រយោគដំបូង ដែលទាក់ Attention ។ ប្រើ formula:</p>
+            <div class="code-block"><div class="code-header"><span class="code-lang">HOOK FORMULAS — Copy & Customize</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre><span class="k">Formula 1 — Shocking Stat:</span>
+"Business ខ្មែរ <span class="n">78%</span> post ជារៀងរាល់ថ្ងៃ — ប៉ុន្តែ <span class="v">Leads មិនមក</span> ។ ហេតុអ្វី?"
+
+<span class="k">Formula 2 — Direct Question:</span>
+"ចាំ​ boost $50 ហើយ <span class="v">បានតែ 3 Likes</span>? នេះជា Mistake ១ ដែលអ្នកធ្វើ..."
+
+<span class="k">Formula 3 — Relatable Pain:</span>
+"ខ្ញុំ post <span class="n">7 ថ្ងៃ</span> continuous — Reach <span class="v">500 ប៉ុណ្ណោះ</span> ។ ពេលខ្ញុំ Stop = 2,000+ ..."
+
+<span class="k">Formula 4 — Promise + Specifics:</span>
+"<span class="n">5</span> Tip ជួយ <span class="n">3x</span> Reach — <span class="v">FREE, No Ads</span> needed ។"</pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="schedule">Optimal Posting Schedule — Cambodia</h2>
+            <ul>
+              <li>📅 <strong>Frequency:</strong> 4–5 posts/week (more consistent > more quantity)</li>
+              <li>⏰ <strong>Best times:</strong> 7–9am · 12–1:30pm · 7–9:30pm (Cambodia timezone)</li>
+              <li>📆 <strong>Best days:</strong> Tuesday, Wednesday, Friday, Saturday</li>
+              <li>🔄 <strong>Story:</strong> Daily 1–2 Stories = keep audience warm between posts</li>
+            </ul>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>Shortcut:</strong> ប្រើ Meta Business Suite Schedule post ២ weeks at once → Post free time ✅</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="engagement">Engagement Tactics</h2>
+            <ul>
+              <li>💬 <strong>Reply ALL comments</strong> ក្នុង ១ ម៉ោងដំបូង → Algorithm boost ×2</li>
+              <li>❓ <strong>End every post with question</strong> → Comment = free reach</li>
+              <li>🔁 <strong>Share to relevant Groups</strong> ២–៣ groups/post → ×3 organic reach</li>
+              <li>📌 <strong>Cross-post to Story</strong> every post → 2x touchpoints same audience</li>
+              <li>👥 <strong>Tag relevant people</strong> (with permission) → their network sees your post</li>
+            </ul>
+          </div>
+          `,
+        },
+
+        "content-plan": {
+          title: "30-DAY CONTENT PLAN",
+          breadcrumb: "Digital Strategy → 30-Day Content Plan",
+          toc: [
+            "Overview",
+            "Week 1 — Foundation",
+            "Week 2 — Value",
+            "Week 3 — Social Proof",
+            "Week 4 — Conversion",
+            "Content Calendar Template",
+          ],
+          content: `
+          <p class="doc-lead">YOB 30-Day Content Plan = System ដែល SME ខ្មែរ ប្រើ grow Facebook Page ពី 0 → Consistent Leads ។ Follow step-by-step, Apply ភ្លាម!</p>
+          <div class="doc-section">
+            <h2 id="overview">Overview</h2>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>Goal ៣០ ថ្ងៃ:</strong> Build audience trust → Demonstrate expertise → Convert followers to paying customers ។ Result typical: Engagement +200%, Leads +50%</div></div>
+            <p>Month structure:</p>
+            <ul>
+              <li><strong>Week 1</strong> — Foundation: Who are you + Why trust you</li>
+              <li><strong>Week 2</strong> — Value: Teach + Help audience</li>
+              <li><strong>Week 3</strong> — Social Proof: Results + Testimonials</li>
+              <li><strong>Week 4</strong> — Conversion: Offer + CTA</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="week1">Week 1 — Foundation Posts</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">D1</div><div class="step-body"><h4>Introduction Post</h4><p>"ជំរាបសួរ! 👋 ខ្ញុំ [Name] — ម្ចាស់ [Business] ។ [Story + Mission] ។ Follow ប្រសិនបើ Bong/Oun ចង់ [Benefit] !"</p></div></div>
+              <div class="step-item"><div class="step-num">D3</div><div class="step-body"><h4>Problem Post</h4><p>"Business ខ្មែរ ៧០% ជួបបញ្ហានេះ..." [Describe pain] → Hook audience who relate</p></div></div>
+              <div class="step-item"><div class="step-num">D5</div><div class="step-body"><h4>Behind The Scenes</h4><p>Photo/Video: ការងារប្រចាំថ្ងៃ, Process, Team → Human connection builds trust fast</p></div></div>
+              <div class="step-item"><div class="step-num">D7</div><div class="step-body"><h4>FAQ Post</h4><p>"Top 5 Questions ដែលអ្នក DM ខ្ញុំ..." → Shows you listen, positions as expert</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="week2">Week 2 — Value Posts</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">D9</div><div class="step-body"><h4>Tips Post (3-5-7 format)</h4><p>"5 Tip [Topic] ជួយ [Audience] [Result]" — Numbered list = Save rate ×3 !</p></div></div>
+              <div class="step-item"><div class="step-num">D11</div><div class="step-body"><h4>How-To Tutorial</h4><p>Step-by-step guide ជួយ audience solve 1 specific problem — Video ឬ Carousel</p></div></div>
+              <div class="step-item"><div class="step-num">D13</div><div class="step-body"><h4>Tool/Resource Recommendation</h4><p>"Tool ១ ដែលខ្ញុំ Save X Hours/Week..." → Valuable + shareable</p></div></div>
+              <div class="step-item"><div class="step-num">D14</div><div class="step-body"><h4>Poll/Question Post</h4><p>"Bong/Oun ជួបបញ្ហា ណាខ្លាំងជាង?" + 2 options → Comment flood + insight on audience</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="week3">Week 3 — Social Proof</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">D16</div><div class="step-body"><h4>Client Testimonial</h4><p>Screenshot DM/review + Story = most powerful trust builder ។ "Client [Name] share..."</p></div></div>
+              <div class="step-item"><div class="step-num">D18</div><div class="step-body"><h4>Before/After Case Study</h4><p>"[Client] — Before: [Problem] → After [X weeks]: [Result]" → Proof your service works</p></div></div>
+              <div class="step-item"><div class="step-num">D21</div><div class="step-body"><h4>Numbers Post</h4><p>"[X months] of [effort] → [Specific results]: +[followers], +[revenue], [ROAS]" — concrete proof</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="week4">Week 4 — Conversion</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">D23</div><div class="step-body"><h4>Soft Offer</h4><p>"ចង់ [Result]? DM ខ្ញុំ 'INFO' → ខ្ញុំ share Free [Checklist/Template]"</p></div></div>
+              <div class="step-item"><div class="step-num">D25</div><div class="step-body"><h4>Limited Offer</h4><p>"ពេលនេះ YOB ទទួល [X] clients ថ្មី — ចន្លោះ [Date]" → Urgency + Scarcity</p></div></div>
+              <div class="step-item"><div class="step-num">D28</div><div class="step-body"><h4>Direct CTA</h4><p>"Ready to [Result]? Link in bio → Free Strategy Call 30 mins — ឥតគិតថ្លៃ !"</p></div></div>
+              <div class="step-item"><div class="step-num">D30</div><div class="step-body"><h4>Month Recap + Month 2 Preview</h4><p>Share this month's win + what's coming next month → Retention + anticipation</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="template">Content Calendar Template</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">COPY TO GOOGLE SHEET</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre>Date | Day | Topic | Format | Hook (Line 1) | Goal | Status
+----|-----|-------|--------|----------------|------|-------
+D1  | Mon | Intro | Photo  | "ជំរាបសួរ! 👋..." | Awareness | ✅ Done
+D3  | Wed | Problem| Video | "Business ខ្មែរ..." | Engagement| ⏳
+D5  | Fri | BTS   | Story  | "ពីក្រោយ scenes..." | Trust | ⏳</pre></div>
+            <a href="https://t.me/yobdigital" target="_blank" class="btn-primary" style="margin-top:16px"><i class="fas fa-download"></i> ទាញ Full Template ក្នុង Telegram</a>
+          </div>
+          `,
+        },
+
+        "ads-setup": {
+          title: "FACEBOOK ADS SETUP",
+          breadcrumb: "Digital Strategy → Facebook Ads Setup",
+          toc: [
+            "ហេតុអ្វីបាន Ads?",
+            "Account Setup",
+            "Campaign Structure",
+            "Audience Targeting",
+            "Ad Creative",
+            "Budget & Bidding",
+            "Reading Results",
+          ],
+          content: `
+          <p class="doc-lead">Facebook Ads = ដំណើរការ Leads ដោយ Target ។ YOB Guide ចាប់ពី Account Setup → First Campaign → Read Results — ជាភាសាខ្មែរ ១០០%!</p>
+          <div class="doc-section">
+            <h2 id="why">ហេតុអ្វីបាន Facebook Ads?</h2>
+            <ul>
+              <li>🎯 <strong>Target ជាក់លាក់</strong> — Age, Location (Phnom Penh, Siem Reap...), Interest, Behavior</li>
+              <li>💰 <strong>Budget control</strong> — ចាប់ពី $1/day ជ្រើសបាន</li>
+              <li>📊 <strong>Measurable</strong> — ឃើញ Cost/Lead, ROAS, Reach ច្បាស់</li>
+              <li>🚀 <strong>Fast results</strong> — Leads ក្នុង ២៤ ម៉ោងដំបូង</li>
+            </ul>
+            <div class="callout warn"><i class="fas fa-exclamation-triangle callout-icon"></i><div class="callout-body"><strong>Warning:</strong> "Boost Post" ≠ Real Ads ។ Boost = ខ្ជះខ្ជាយ budget ។ Meta Ads Manager = ប្រសិទ្ធភាព ×5 !</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="setup">Account Setup</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Meta Business Suite</h4><p>business.facebook.com → Create Business Account → Add Facebook Page → Add Instagram (optional)</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Ads Manager</h4><p>adsmanager.facebook.com → Add Payment Method (Visa/MasterCard/PayPal) → Set spending limit ជាមុន</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Facebook Pixel</h4><p>Events Manager → Create Pixel → Install on website → Track: PageView, Lead, Purchase ។ Critical!</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="structure">Campaign Structure — ABC</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">STRUCTURE</span></div>
+            <pre><span class="k">CAMPAIGN</span> — Goal (Leads / Traffic / Sales / Awareness)
+  └── <span class="v">AD SET</span> — Who sees it (Audience, Budget, Schedule)
+        └── <span class="n">AD</span> — What they see (Creative: Image/Video + Copy)</pre></div>
+            <p>YOB ណែនាំ: Campaign ១ → Ad Sets ២–៣ (different audiences) → Ads ២ per Ad Set (A/B test)</p>
+          </div>
+          <div class="doc-section">
+            <h2 id="audience">Audience Targeting — Cambodia SME</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">🎯</div><div class="step-body"><h4>Core Audience (ចាប់ផ្ដើម)</h4><p>Location: Cambodia (ឬ City ជាក់លាក់) · Age: 22–45 · Interest: [Business type related] · Budget: $5–10/day</p></div></div>
+              <div class="step-item"><div class="step-num">👥</div><div class="step-body"><h4>Lookalike Audience (ក្រោយ 100+ customers)</h4><p>Upload customer list → Create 1% Lookalike → Facebook finds similar people = highest conversion</p></div></div>
+              <div class="step-item"><div class="step-num">🔁</div><div class="step-body"><h4>Retargeting (Advanced)</h4><p>Target: Website visitors / Video watchers 50%+ / Page engagers → Already warm = cost less!</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="results">Reading Results — Key Metrics</h2>
+            <ul>
+              <li><strong>CTR (Click Through Rate)</strong> — Good: >1.5% · Excellent: >3% · Low = change creative</li>
+              <li><strong>CPL (Cost per Lead)</strong> — Khmer SME avg: $1–5 · Too high = change audience ឬ creative</li>
+              <li><strong>ROAS</strong> — Revenue ÷ Ad Spend · Good: >2x · Excellent: >4x</li>
+              <li><strong>Frequency</strong> — How many times same person sees ad · >3 = refresh creative</li>
+            </ul>
+            <div class="callout good"><i class="fas fa-star callout-icon"></i><div class="callout-body"><strong>YOB Rule:</strong> Run Ads ៧ ថ្ងៃ before making changes ។ Algorithm ត្រូវ learning phase ។ Change too fast = waste budget!</div></div>
+          </div>
+          `,
+        },
+
+        analytics: {
+          title: "ANALYTICS & ROAS",
+          breadcrumb: "Digital Strategy → Analytics",
+          toc: [
+            "ហេតុអ្វីត្រូវវាស់?",
+            "Facebook Insights",
+            "Ads Manager Metrics",
+            "ROAS Explained",
+            "Google Analytics Basics",
+            "Monthly Reporting",
+          ],
+          content: `
+          <p class="doc-lead">Analytics = ការអានលទ្ធផល ដើម្បីដឹងថា Content/Ads ណា Work — ហើយ Double Down ។ No analytics = flying blind!</p>
+          <div class="doc-section">
+            <h2 id="why">ហេតុអ្វីត្រូវវាស់?</h2>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>YOB Principle:</strong> "What gets measured gets improved." ។ SME ដែល track data = grow 2x faster than those who don't!</div></div>
+            <p>Metrics ដែលត្រូវ Track:</p>
+            <ul>
+              <li>📊 <strong>Organic:</strong> Reach, Engagement Rate, Follower Growth</li>
+              <li>💰 <strong>Paid:</strong> CPL, ROAS, CTR, Conversion Rate</li>
+              <li>🌐 <strong>Website:</strong> Sessions, Bounce Rate, Lead submissions</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="insights">Facebook Page Insights</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">📱</div><div class="step-body"><h4>Post Reach</h4><p>ចំនួន unique people ដែលឃើញ post ។ Organic Reach good = 5–10% of followers · Down = change content type</p></div></div>
+              <div class="step-item"><div class="step-num">❤️</div><div class="step-body"><h4>Engagement Rate</h4><p>(Likes + Comments + Shares) ÷ Reach × 100 = % · Good: >3% · Excellent: >6% · Low = boring content</p></div></div>
+              <div class="step-item"><div class="step-num">👥</div><div class="step-body"><h4>Audience Demographics</h4><p>Check: Age, Gender, Location, Active hours → Use to optimize posting time + content tone</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="roas">ROAS Explained — Cambodia Context</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">ROAS FORMULA</span></div>
+            <pre><span class="k">ROAS</span> = Revenue generated from Ads ÷ Ad Spend
+
+Example:
+Ad Spend: <span class="n">$100</span>
+Revenue from those Ads: <span class="v">$400</span>
+ROAS = $400 ÷ $100 = <span class="k">4x</span>
+
+<span class="s">Target for Cambodian SMEs:</span>
+- Starter: 2x (break even + some profit)
+- Good: 3x
+- Excellent: 5x+</pre></div>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>Improve ROAS:</strong> 1) Better targeting → right audience · 2) Better creative → higher CTR · 3) Better landing page → higher conversion rate</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="reporting">Monthly Reporting Template</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">MONTHLY REPORT TEMPLATE</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre><span class="k">Month:</span> [Month Year]
+
+<span class="v">ORGANIC (Page)</span>
+- Followers: [X] → [Y] (+Z%)
+- Best post reach: [X] — Topic: "[Topic]"
+- Avg engagement rate: [X]%
+
+<span class="n">PAID ADS</span>
+- Total spend: $[X]
+- Total leads: [X] — CPL: $[X]
+- Revenue attributed: $[X] — ROAS: [X]x
+
+<span class="s">NEXT MONTH PLAN</span>
+- Do more: [what worked]
+- Stop: [what didn't work]
+- Test: [new idea]</pre></div>
+          </div>
+          `,
+        },
+
+        "web-overview": {
+          title: "WHY YOUR BUSINESS NEEDS A WEBSITE",
+          breadcrumb: "Web & Systems → Overview",
+          toc: [
+            "Facebook Page vs Website",
+            "What Website Does",
+            "YOB Web Stack",
+            "Cost Breakdown",
+            "Getting Started",
+          ],
+          content: `
+          <p class="doc-lead">Facebook Page = rented land ។ Website = ដី + ផ្ទះ ខ្លួនឯង ។ SME ខ្មែរ ដែល Website = more credibility, more leads, more control!</p>
+          <div class="doc-section">
+            <h2 id="fb-vs-web">Facebook Page vs Website</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">📱</div><div class="step-body"><h4>Facebook Page (Rented)</h4><p>✅ Free + Easy · ❌ Algorithm controls reach · ❌ Data not yours · ❌ Looks same as every competitor · ❌ Can be disabled any time</p></div></div>
+              <div class="step-item"><div class="step-num">🌐</div><div class="step-body"><h4>Website (Owned)</h4><p>✅ Full control · ✅ SEO = free traffic · ✅ Unique brand · ✅ Collect leads (email/phone) · ✅ Works 24/7 · ✅ Professional credibility</p></div></div>
+            </div>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>Cambodia Fact:</strong> Only ~15% of SMEs have a working website ។ Having one = instant competitive advantage!</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="what-it-does">What Website Does for SME</h2>
+            <ul>
+              <li>🔍 <strong>Google Search</strong> — Customer search "ហាងលក់ [product] Phnom Penh" → find you FREE</li>
+              <li>📞 <strong>Lead Form 24/7</strong> — Contact form = leads while you sleep</li>
+              <li>💼 <strong>Portfolio/Case Studies</strong> — Show work → credibility → higher price point</li>
+              <li>🛒 <strong>Online Shop</strong> — Sell directly, no middleman</li>
+              <li>📧 <strong>Email Capture</strong> — Build list you own, market forever for free</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="stack">YOB Web Stack — Free Setup</h2>
+            <div class="card-grid">
+              <div class="doc-card"><div class="doc-card-icon">📝</div><h4>HTML + CSS</h4><p>Build website pages — YOB teaches this FREE · <a onclick="loadPage('html-basics')">Learn HTML Basics →</a></p></div>
+              <div class="doc-card"><div class="doc-card-icon">🐙</div><h4>GitHub</h4><p>Store website files FREE · Version control · Deploy button · <a onclick="loadPage('github-netlify')">Setup Guide →</a></p></div>
+              <div class="doc-card"><div class="doc-card-icon">🚀</div><h4>Netlify</h4><p>Host website FREE forever · HTTPS auto · Deploy in 30s · Custom domain support</p></div>
+              <div class="doc-card"><div class="doc-card-icon">💬</div><h4>ManyChat</h4><p>Add chat widget to website · Capture leads · Auto-reply · <a onclick="loadPage('automation')">Automation Guide →</a></p></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="cost">Cost Breakdown — YOB Stack vs Agency</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">COST COMPARISON</span></div>
+            <pre><span class="k">Agency Website:</span>  $500–$3,000 setup + $50–200/mo hosting
+<span class="v">YOB DIY Stack:</span>   $0 (HTML+GitHub+Netlify) + $10/mo domain (optional)
+
+<span class="n">Save: $490–$2,990 setup cost · $40–190/mo ongoing</span>
+
+Domain (.com): $10/year via Namecheap
+Netlify host:  FREE forever (custom domain included)
+GitHub:        FREE forever (public repos)</pre></div>
+          </div>
+          `,
+        },
+
+        "landing-page-blueprint": {
+          title: "LANDING PAGE BLUEPRINT",
+          breadcrumb: "Web & Systems → Landing Page Blueprint",
+          toc: [
+            "What Makes a Good Landing Page",
+            "Section Order",
+            "Copy Formula",
+            "Trust Elements",
+            "Mobile Optimization",
+            "Launch Checklist",
+          ],
+          content: `
+          <p class="doc-lead">Landing page មួយល្អ មិនត្រឹមតែស្អាតទេ តែត្រូវបង្កើន conversion។ មេរៀននេះផ្តល់ blueprint ដែលអ្នកអាចយកទៅបង្កើតបានភ្លាម។</p>
+          <div class="doc-section">
+            <h2 id="what-makes-a-good-landing-page">What Makes a Good Landing Page</h2>
+            <ul>
+              <li>Headline ច្បាស់: offer អ្វី និងសម្រាប់នរណា</li>
+              <li>Benefit-first copy: មិនសរសេរ feature ច្រើនពេក</li>
+              <li>CTA មួយចម្បងច្បាស់</li>
+              <li>Proof/Trust គ្រប់គ្រាន់ (testimonial, result, logo)</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="section-order">Section Order</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">CONVERSION FLOW</span></div>
+            <pre>1) Hero: Headline + Subheadline + CTA
+2) Problem: pain points that user feels
+3) Solution: your method/product
+4) Proof: testimonials/case studies/numbers
+5) Offer: what they get + pricing/bonus
+6) FAQ: remove buying objections
+7) Final CTA: repeat core action</pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="copy-formula">Copy Formula</h2>
+            <p>ប្រើ formula PAS + CTA:</p>
+            <ul>
+              <li>P (Problem): បញ្ហាដែល audience កំពុងជួប</li>
+              <li>A (Agitate): អ្វីកើតឡើងបើមិនដោះស្រាយ</li>
+              <li>S (Solution): offer របស់អ្នកដោះស្រាយយ៉ាងដូចម្តេច</li>
+              <li>CTA: ចុច/ផ្ញើសារ/ចុះឈ្មោះ</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="trust-elements">Trust Elements</h2>
+            <ul>
+              <li>លេខលទ្ធផលជាក់លាក់ (ឧ. 120+ clients, 3x ROAS)</li>
+              <li>Screenshot testimonials ពិត</li>
+              <li>Before/after case summary ខ្លី</li>
+              <li>Guarantee ឬ risk-reversal statement</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="mobile-optimization">Mobile Optimization</h2>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>Cambodia Context:</strong> Traffic ភាគច្រើនមកពី mobile ដូច្នេះ CTA ត្រូវមើលឃើញនៅលើអេក្រង់ដំបូង និង button size ត្រូវងាយចុច។</div></div>
+            <ul>
+              <li>Font size body យ៉ាងតិច 15px</li>
+              <li>Button ទទឹងគ្រប់គ្រាន់សម្រាប់មេដៃ</li>
+              <li>កាត់ paragraph វែងជាប្លុកខ្លីៗ</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="launch-checklist">Launch Checklist</h2>
+            <ul>
+              <li>☐ Hero មាន value proposition ច្បាស់</li>
+              <li>☐ CTA ចម្បង 1 មាននៅ top + bottom</li>
+              <li>☐ Testimonial យ៉ាងតិច 3</li>
+              <li>☐ Form ឬ CTA link ធ្វើការត្រឹមត្រូវ</li>
+              <li>☐ Mobile view test on real phone</li>
+            </ul>
+          </div>
+          `,
+        },
+
+        "html-basics": {
+          title: "HTML & CSS BASICS",
+          breadcrumb: "Web & Systems → HTML & CSS",
+          toc: [
+            "HTML ជាអ្វី?",
+            "Structure មូលដ្ឋាន",
+            "Tags សំខាន់",
+            "CSS Styling",
+            "Your First Webpage",
+            "Practice Project",
+          ],
+          content: `
+          <p class="doc-lead">HTML + CSS = ភាសា ២ ដែលប្រើ build website ។ HTML = Structure (skeleton), CSS = Design (clothes) ។ រៀន ១ សប្ដាហ៍ = Build Website ផ្ទាល់!</p>
+          <div class="doc-section">
+            <h2 id="what">HTML ជាអ្វី?</h2>
+            <p>HTML (HyperText Markup Language) = ភាសា ប្រើ define structure ឬ content នៃ webpage ។</p>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>Simple Analogy:</strong> HTML = skeleton of body (bones/structure) · CSS = appearance (skin, clothes, style) · JavaScript = movement (muscles, behavior)</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="structure">Structure មូលដ្ឋាន</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">HTML — Basic Structure</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre><span class="k">&lt;!DOCTYPE html&gt;</span>
+<span class="v">&lt;html</span> lang="km"<span class="v">&gt;</span>
+  <span class="n">&lt;head&gt;</span>
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;<span class="s">ឈ្មោះ Page</span>&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css" /&gt;
+  <span class="n">&lt;/head&gt;</span>
+  <span class="v">&lt;body&gt;</span>
+    &lt;!-- Content goes here --&gt;
+    &lt;h1&gt;ស្វាគមន៍!&lt;/h1&gt;
+    &lt;p&gt;នេះជា paragraph ដំបូង ។&lt;/p&gt;
+  <span class="v">&lt;/body&gt;</span>
+<span class="k">&lt;/html&gt;</span></pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="tags">Tags សំខាន់ — ចាំ ១០ Tag នេះ</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">HTML TAGS REFERENCE</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre><span class="k">&lt;h1&gt;</span> ដល់ <span class="k">&lt;h6&gt;</span>  — Headings (h1 ធំ, h6 តូច)
+<span class="v">&lt;p&gt;</span>           — Paragraph
+<span class="n">&lt;a href=""&gt;</span>  — Link
+<span class="s">&lt;img src=""&gt;</span> — Image
+<span class="k">&lt;div&gt;</span>         — Container block
+<span class="v">&lt;span&gt;</span>        — Container inline
+<span class="n">&lt;ul&gt;</span>/<span class="n">&lt;li&gt;</span>    — Bullet list
+<span class="s">&lt;button&gt;</span>      — Button
+<span class="k">&lt;form&gt;</span>        — Form container
+<span class="v">&lt;input&gt;</span>       — Text input field</pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="css">CSS Styling — ពណ៌ + Font + Layout</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">style.css — BASICS</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre><span class="k">/* Body — overall page */</span>
+body {
+  background: <span class="v">#080b10</span>;    <span class="s">/* background color */</span>
+  color: <span class="v">#ffffff</span>;          <span class="s">/* text color */</span>
+  font-family: 'Kantumruy Pro', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+<span class="k">/* Heading */</span>
+h1 {
+  font-size: <span class="n">48px</span>;
+  color: <span class="v">#e52c67</span>;         <span class="s">/* YOB pink */</span>
+  text-align: center;
+}
+
+<span class="k">/* Button */</span>
+.btn {
+  background: <span class="v">#e52c67</span>;
+  color: white;
+  padding: <span class="n">12px 28px</span>;
+  border-radius: <span class="n">50px</span>;
+  border: none;
+  cursor: pointer;
+}</pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="first-page">Your First Webpage — Practice!</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Open Notepad / VS Code</h4><p>Windows: Notepad ++ ឬ install VS Code (free) · Mac: TextEdit (set Plain Text)</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Paste HTML Template</h4><p>Copy structure ខាងលើ → Paste → Change Title + Content ជា Khmer → Save as "index.html"</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Open in Browser</h4><p>Double-click index.html → Opens in Chrome/Firefox → ឃើញ webpage !</p></div></div>
+              <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Add CSS</h4><p>Create "style.css" same folder → Paste CSS → Refresh browser → ឃើញ styled !</p></div></div>
+              <div class="step-item"><div class="step-num">5</div><div class="step-body"><h4>Deploy FREE</h4><p>UpLoad to GitHub → Connect Netlify → Live website ក្នុង ៣០ វិនាទី! <a onclick="loadPage('github-netlify')">Full Deploy Guide →</a></p></div></div>
+            </div>
+          </div>
+          `,
+        },
+
+        "lms-setup": {
+          title: "LMS SETUP — ONLINE COURSE",
+          breadcrumb: "Web & Systems → LMS Setup",
+          toc: [
+            "LMS ជាអ្វី?",
+            "Free LMS Options",
+            "Teachable Setup",
+            "Sell on Telegram",
+            "Payment Integration",
+            "Launch Checklist",
+          ],
+          content: `
+          <p class="doc-lead">LMS (Learning Management System) = Platform ដែល Host + Sell Online Courses ។ YOB Guide ជួយ Creator/Educator ខ្មែរ Launch Course ក្នុង ១ សប្ដាហ៍!</p>
+          <div class="doc-section">
+            <h2 id="what">LMS ជាអ្វី?</h2>
+            <p>LMS = Website ពិសេស ដែលអ្នក:</p>
+            <ul>
+              <li>📹 Upload Video lessons (structured, protected)</li>
+              <li>👤 Student enrollment + Progress tracking</li>
+              <li>💳 Accept payment automatically</li>
+              <li>📜 Issue certificates upon completion</li>
+              <li>💬 Community forum / Q&A</li>
+            </ul>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>Cambodia Context:</strong> Online courses selling $29–$199 each ។ 20 students/month × $49 = $980/mo passive income — consistent!</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="options">Free LMS Options</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1️⃣</div><div class="step-body"><h4>Teachable (Recommended)</h4><p>Free plan: 1 course, unlimited students, 10% transaction fee · teachable.com · Easy setup, no code</p></div></div>
+              <div class="step-item"><div class="step-num">2️⃣</div><div class="step-body"><h4>Thinkific</h4><p>Free plan: 1 course, 0% transaction fee · thinkific.com · Good Khmer font support, clean design</p></div></div>
+              <div class="step-item"><div class="step-num">3️⃣</div><div class="step-body"><h4>Telegram + Google Drive</h4><p>FREE 100% · Telegram private channel = students + Google Drive = videos · Simple but effective for Cambodia market!</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="telegram-lms">Telegram-Based LMS (Cambodia Favorite)</h2>
+            <p>YOB sees many successful Khmer educators use this system:</p>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Create Private Telegram Channel</h4><p>New Channel → Private → Name: "[Course Name] — Students Only" → Link: generate invite link</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Host Videos on Google Drive</h4><p>Upload lesson videos to Drive → Share link → Paste in Telegram (numbered, organized by module)</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Payment via KHQR / ABA</h4><p>Generate KHQR payment → Student pays → You add to private channel manually ឬ use Bot</p></div></div>
+              <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Support via Group</h4><p>Separate Telegram Group for Q&A → Students help each other → Community feeling → Better retention</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="checklist">Launch Checklist</h2>
+            <ul>
+              <li>☐ Course outline (Modules + Lessons) finalized</li>
+              <li>☐ At least 3 lessons recorded (pre-launch)</li>
+              <li>☐ Sales page / Landing page live</li>
+              <li>☐ Payment method working (test yourself first)</li>
+              <li>☐ Welcome message prepared for new students</li>
+              <li>☐ Beta students (5–10 free) → get testimonials</li>
+              <li>☐ Launch post → countdown → Launch day CTA</li>
+            </ul>
+            <div class="callout good"><i class="fas fa-star callout-icon"></i><div class="callout-body"><strong>YOB Tip:</strong> Launch with minimum 5 lessons ។ Perfect is the enemy of "launched" ។ Students learn from imperfect content — but never learn from content you didn't publish!</div></div>
+          </div>
+          `,
+        },
+
+        "fonts-overview": {
+          title: "KHMER TYPOGRAPHY — OVERVIEW",
+          breadcrumb: "Khmer Typography → Overview",
+          toc: [
+            "ហេតុអ្វីត្រូវ Khmer Font?",
+            "YOB Font Collection",
+            "Unicode vs Legacy",
+            "Font Pairing Guide",
+            "Brand Typography",
+          ],
+          content: `
+          <p class="doc-lead">Khmer Typography = Professional Brand Identity ។ YOB Premium Fonts ជួយ Business ខ្មែរ Stand Out — Unique, Modern, Unicode-Correct!</p>
+          <div class="doc-section">
+            <h2 id="why">ហេតុអ្វីត្រូវ Khmer Font?</h2>
+            <div class="card-grid">
+              <div class="doc-card"><div class="doc-card-icon">👁️</div><h4>First Impression</h4><p>Typography = 60% of brand impression ។ Wrong font = unprofessional immediately</p></div>
+              <div class="doc-card"><div class="doc-card-icon">🔤</div><h4>Readability</h4><p>Correct Unicode font = properly rendered Khmer text across all devices</p></div>
+              <div class="doc-card"><div class="doc-card-icon">💼</div><h4>Brand Consistency</h4><p>1–2 signature fonts = instantly recognizable brand identity</p></div>
+              <div class="doc-card"><div class="doc-card-icon">⚡</div><h4>Digital-Ready</h4><p>Web-optimized formats: WOFF2 · Web, App, Print ready · SEO-friendly</p></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="collection">YOB Font Collection</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">🔤</div><div class="step-body"><h4>YOB Kantum Series</h4><p>Modern Khmer sans-serif · Display + Body weights · ល្អសម្រាប់: Tech, Modern Brand, App UI</p></div></div>
+              <div class="step-item"><div class="step-num">📜</div><div class="step-body"><h4>YOB Heritage Series</h4><p>Traditional Khmer + modern refinement · ល្អសម្រាប់: NGO, Government, Heritage brand, Print</p></div></div>
+              <div class="step-item"><div class="step-num">✨</div><div class="step-body"><h4>YOB Display Series</h4><p>Bold, impactful, attention-grabbing · ល្អសម្រាប់: Poster, Billboard, Hero headline, Packaging</p></div></div>
+            </div>
+            <a href="fonts.html" class="btn-primary" style="margin-top:8px"><i class="fas fa-font"></i> ចូលទិញ Fonts →</a>
+          </div>
+          <div class="doc-section">
+            <h2 id="pairing">Font Pairing Guide</h2>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>Rule of 2:</strong> ប្រើ font ២ ប្រភេទ maximum per brand — Display (Heading) + Body ។ More than 2 = confusing design!</div></div>
+            <ul>
+              <li>🏢 <strong>Corporate / Finance:</strong> YOB Heritage Display + Kantumruy Pro Body</li>
+              <li>🛍️ <strong>Retail / Fashion:</strong> YOB Kantum Bold Display + DM Sans Body</li>
+              <li>📱 <strong>Tech / App:</strong> YOB Kantum Display + Inter/DM Sans Body</li>
+              <li>🎨 <strong>Creative / Agency:</strong> YOB Display Series + Open Sans Body</li>
+            </ul>
+          </div>
+          `,
+        },
+
+        "font-install": {
+          title: "FONT INSTALLATION GUIDE",
+          breadcrumb: "Khmer Typography → Installation",
+          toc: [
+            "Windows Installation",
+            "Mac Installation",
+            "Web Font (CSS)",
+            "Google Docs",
+            "Canva",
+            "Photoshop / Illustrator",
+          ],
+          content: `
+          <p class="doc-lead">Install YOB Fonts ក្នុង ២ នាទី — Windows, Mac, Web, Canva, Photoshop ។ Guide ជាភាសាខ្មែរ ១០០%!</p>
+          <div class="doc-section">
+            <h2 id="windows">Windows Installation</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Download Font File</h4><p>Download ZIP → Extract → You'll see .ttf ឬ .otf files</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Install</h4><p>Right-click on .ttf file → "Install" ឬ "Install for all users" → Done!</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Verify</h4><p>Open Word / Canva → Font list → Search font name → ✅ Appears = installed!</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="mac">Mac Installation</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Download + Extract</h4><p>Download ZIP → Double-click to extract → .ttf / .otf files appear</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Install via Font Book</h4><p>Double-click .ttf → Font Book opens → Click "Install Font" → Done!</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="web">Web Font — CSS Integration</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">CSS — Add to your stylesheet</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre><span class="k">/* Upload font files to your server first */</span>
+@font-face {
+  font-family: <span class="s">'YOB-Kantum'</span>;
+  src: url(<span class="v">'fonts/YOB-Kantum.woff2'</span>) format('woff2'),
+       url(<span class="v">'fonts/YOB-Kantum.woff'</span>) format('woff');
+  font-weight: <span class="n">400</span>;
+  font-display: swap; <span class="s">/* important for performance */</span>
+}
+
+<span class="k">/* Use it */</span>
+body {
+  font-family: <span class="s">'YOB-Kantum'</span>, 'Kantumruy Pro', sans-serif;
+}</pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="canva">Canva — Upload Custom Font</h2>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>Requirement:</strong> Canva Pro ឬ Canva for Teams ដើម្បី upload custom fonts ។ Free plan = ប្រើ Google Fonts only</div></div>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Brand Hub</h4><p>Canva Pro → Brand Hub → Brand Kit → Upload a font</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Upload .ttf</h4><p>Select .ttf file → Upload → Font appears in Brand Fonts section</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Use in Design</h4><p>Text → Font dropdown → "Brand Fonts" section → Select YOB font ✅</p></div></div>
+            </div>
+          </div>
+          `,
+        },
+
+        "font-license": {
+          title: "FONT LICENSE",
+          breadcrumb: "Khmer Typography → License",
+          toc: [
+            "License Types",
+            "What You Can Do",
+            "What You Cannot Do",
+            "Commercial Use",
+            "FAQ",
+          ],
+          content: `
+          <p class="doc-lead">YOB Font License — ច្បាស់ · Simple · Fair ។ ទិញ ១ ដង Use ជានិច្ច ។</p>
+          <div class="doc-section">
+            <h2 id="types">License Types</h2>
+            <div class="card-grid">
+              <div class="doc-card"><div class="doc-card-icon">👤</div><h4>Personal License</h4><p>1 user · Personal projects · Social media personal · Non-commercial · Included FREE with some fonts</p></div>
+              <div class="doc-card"><div class="doc-card-icon">💼</div><h4>Commercial License</h4><p>1 business · Unlimited projects · Client work included · Logo, Print, Web, App · Most popular!</p></div>
+              <div class="doc-card"><div class="doc-card-icon">🏢</div><h4>Extended License</h4><p>Unlimited users · SaaS products · Resale included · Large team · Enterprise</p></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="can-do">✅ What You CAN Do</h2>
+            <ul>
+              <li>✅ Use in unlimited designs for your business</li>
+              <li>✅ Use in client projects (Commercial License)</li>
+              <li>✅ Use on websites (unlimited pageviews)</li>
+              <li>✅ Use in print: Business cards, Brochures, Packaging</li>
+              <li>✅ Use in apps and software (Commercial License)</li>
+              <li>✅ Modify for your own use</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="cannot">❌ What You CANNOT Do</h2>
+            <ul>
+              <li>❌ Resell or redistribute the font files</li>
+              <li>❌ Share download link publicly</li>
+              <li>❌ Include font in a product you sell (Extended License required)</li>
+              <li>❌ Use for competing font products</li>
+            </ul>
+            <div class="callout warn"><i class="fas fa-exclamation-triangle callout-icon"></i><div class="callout-body"><strong>Important:</strong> YOB Fonts are protected by copyright ។ Piracy = Legal action + Loss of quality fonts for Cambodia design community!</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="faq-lic">License FAQ</h2>
+            <ul>
+              <li><strong>Q: ១ Commercial License cover ក្រុមហ៊ុន ១?</strong> → Yes, unlimited projects within that company</li>
+              <li><strong>Q: ប្រើ Client work?</strong> → Yes with Commercial License — client can use in final product</li>
+              <li><strong>Q: Web + Print same License?</strong> → Yes, Commercial covers both</li>
+              <li><strong>Q: Update font future?</strong> → Yes, free updates for same font version</li>
+              <li><strong>ចំណុចសង្ស័យ?</strong> → <a href="https://t.me/yobdigital" target="_blank">DM t.me/yobdigital</a></li>
+            </ul>
+          </div>
+          `,
+        },
+
+        "font-setup": {
+          title: "KHMER KEYBOARD SETUP",
+          breadcrumb: "Khmer Typography → Keyboard Setup",
+          toc: [
+            "Windows Setup",
+            "macOS Setup",
+            "Install Checklist",
+            "Troubleshooting",
+            "Typing Practice",
+          ],
+          content: `
+          <p class="doc-lead">ដំឡើង Khmer Unicode Keyboard នៅ Windows ឬ macOS ក្នុង 5 ជំហានសាមញ្ញ — ហើយ វាយអក្សរខ្មែរបានភ្លាម!</p>
+          <div class="doc-section">
+            <h2 id="windows">Windows Setup</h2>
+            <div class="callout tip"><i class="fas fa-windows callout-icon"></i><div class="callout-body"><strong>Windows 10 / 11</strong> — Built-in Khmer Unicode support, no extra software needed!</div></div>
+            <ol>
+              <li>បើក <strong>Settings</strong> → <strong>Time &amp; Language</strong></li>
+              <li>ចូល <strong>Language &amp; region</strong> → ចុច <strong>Add a language</strong></li>
+              <li>ស្វែងរក <strong>Khmer</strong> → ចុច <strong>Next &gt; Install</strong></li>
+              <li>ចូល Khmer options → បើក <strong>Khmer keyboard layout (Unicode)</strong></li>
+              <li>ប្តូរភាសា: <kbd>Win + Space</kbd> ឬ <kbd>Alt + Shift</kbd></li>
+            </ol>
+            <div style="margin-top:16px">
+              <a href="https://drive.google.com/drive/folders/1HqH6oS5WpIvWds4H9kfJ2Cp4phV_LvX2?usp=sharing" class="btn-outline" target="_blank" rel="noopener">
+                <i class="fas fa-download"></i> ទាញយក Khmer Unicode Pack
+              </a>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="macos">macOS Setup</h2>
+            <div class="callout tip"><i class="fab fa-apple callout-icon"></i><div class="callout-body"><strong>macOS</strong> — Built-in Khmer support via System Settings Input Sources.</div></div>
+            <ol>
+              <li>បើក <strong>System Settings</strong> (ឬ System Preferences)</li>
+              <li>ចូល <strong>Keyboard &gt; Input Sources</strong></li>
+              <li>ចុច <strong>+</strong> → ស្វែងរក <strong>Khmer</strong></li>
+              <li>ជ្រើស <strong>Khmer Unicode keyboard</strong> → ចុច <strong>Add</strong></li>
+              <li>ប្តូរភាសា: <kbd>Control + Space</kbd> ឬពី menu bar</li>
+            </ol>
+            <div style="margin-top:16px">
+              <a href="https://drive.google.com/drive/folders/1HqH6oS5WpIvWds4H9kfJ2Cp4phV_LvX2?usp=sharing" class="btn-outline" target="_blank" rel="noopener">
+                <i class="fas fa-download"></i> ទាញយក Khmer Unicode Pack
+              </a>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="checklist">Install Checklist</h2>
+            <ul>
+              <li>✅ បានបើក Google Drive link និងទាញយក package</li>
+              <li>✅ បានបន្ថែម Khmer keyboard នៅក្នុង OS settings</li>
+              <li>✅ បានសាកប្តូរភាសា (Win+Space ឬ Control+Space)</li>
+              <li>✅ បានសាកវាយអក្សរខ្មែរ នៅ Typing Practice ខាងក្រោម</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="troubleshooting">Troubleshooting</h2>
+            <ul>
+              <li><strong>អក្សរបែក ឬចេញជា ▢:</strong> សាកល្បង font Khmer Unicode ដូចជា Kantumruy Pro, Noto Sans Khmer, Battambang</li>
+              <li><strong>មិនឃើញ Khmer keyboard:</strong> restart ម្តង ហើយពិនិត្យ Input Source ឡើងវិញ</li>
+              <li><strong>ចង់រៀនការវាយលឿន:</strong> ចាប់ផ្តើមពី Khmer layout មួយ ហើយប្រើ key combo ដដែលរៀងរាល់ថ្ងៃ</li>
+            </ul>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body">ត្រូវការជំនួយ? DM យើងនៅ <a href="https://t.me/yobdigital" target="_blank">t.me/yobdigital</a></div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="practice">Typing Practice</h2>
+            <p>សាកវាយអត្ថបទខ្មែរខ្លះៗ ដើម្បីប្រាកដថា Keyboard ដំណើរការ:</p>
+            <div style="margin-top:12px">
+              <textarea id="kbdPracticeInput" style="width:100%;min-height:100px;background:rgba(255,255,255,0.04);border:1px solid var(--border2);border-radius:12px;padding:14px 16px;color:var(--white);font-family:var(--fk);font-size:16px;line-height:1.8;resize:vertical;outline:none" placeholder="វាយអត្ថបទខ្មែរ​នៅទីនេះ ប្រើ Khmer Keyboard..."></textarea>
+              <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+                <button type="button" class="btn-outline" onclick="(function(){const t=document.getElementById('kbdPracticeInput');if(!t||!t.value)return;navigator.clipboard?.writeText(t.value).catch(()=>{const ta=document.createElement('textarea');ta.value=t.value;ta.style.cssText='position:fixed;top:-9999px;opacity:0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(_){}document.body.removeChild(ta)})})()"><i class="fas fa-copy"></i> ចម្លង</button>
+                <button type="button" class="btn-primary" onclick="const t=document.getElementById('kbdPracticeInput');if(t)t.value=''"><i class="fas fa-eraser"></i> សម្អាត</button>
+              </div>
+            </div>
+            <div class="callout tip" style="margin-top:20px"><i class="fas fa-star callout-icon"></i><div class="callout-body">ហើយ! បានដំឡើង Keyboard ជោគជ័យ? ចូល <a onclick="loadPage('fonts-overview')" style="cursor:pointer;color:var(--gold)">Fonts Overview</a> ដើម្បីជ្រើស Font ដំបូង!</div></div>
+          </div>
+          `,
+        },
+
+        faq: {
+          title: "FAQ — សំណួរញឹកញាប់",
+          breadcrumb: "Resources → FAQ",
+          toc: [
+            "YOB Digital",
+            "Courses & Learning",
+            "Pricing",
+            "Payments",
+            "Technical",
+            "Contact",
+          ],
+          content: `
+          <p class="doc-lead">FAQ ពេញលេញ — YOB Digital ។ ប្រសិនបើ ស្វែងរក Answer ពុំឃើញ → DM Telegram !</p>
+          <div class="doc-section">
+            <h2 id="yob">YOB Digital FAQ</h2>
+            <ul>
+              <li><strong>Q: YOB Digital ជានរណា?</strong><br>A: YOB Digital ស្ថាបនាដោយ Yeun Savuth (Babu) ។ Platform ជួយ SME, Creator, Student ខ្មែរ Grow ដោយ AI + Digital Skills ជាភាសាខ្មែរ ១០០%!</li>
+              <li><strong>Q: ភាសា ណា ប្រើ?</strong><br>A: ១០០% ភាសាខ្មែរ + English Technical Terms ។ ចូលរៀន ឬ ប្រឹក្សាជាភាសាខ្មែរបាន!</li>
+              <li><strong>Q: YOB Service ចម្លែក ពី Agency ធម្មតាដូចម្ដេច?</strong><br>A: YOB = Partner មិន Vendor ។ Babu ធ្វើការជាមួយ Client — ជំរុញ skills + ធ្វើ execution ។ Agency ធ្វើឱ្យ → YOB ធ្វើជាមួយ + teach!</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="courses">Courses & Learning FAQ</h2>
+            <ul>
+              <li><strong>Q: Course FREE មាន ប៉ុន្មាន?</strong><br>A: ប្រចាំពេល ៤+ FREE Courses: Claude AI, HTML/CSS, GitHub Deploy, Social Media Basics ។ ច្រើនទៀត Coming Soon!</li>
+              <li><strong>Q: ចាំបាច់ Background tech ទេ?</strong><br>A: មិនចាំបាច់! YOB Design For Beginner ។ ចាប់ពី ០ → Apply ក្នុង ៣០ ថ្ងៃ!</li>
+              <li><strong>Q: Course Video ប៉ុន្មានម៉ោង?</strong><br>A: ១ Course = 1.5–5 ម៉ោង video ។ Short focused lessons — watch at your pace!</li>
+              <li><strong>Q: Course Certificate ទទួលបានទេ?</strong><br>A: Coming Soon! YOB Certificate Program in development ។</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="pricing">Pricing FAQ</h2>
+            <ul>
+              <li><strong>Q: Strategy Call FREE ពិតទេ?</strong><br>A: ពិតប្រាកដ! ៣០ Minutes FREE ។ No obligation ។ Babu ធ្វើ Digital Check + recommend strategy ។</li>
+              <li><strong>Q: Package តម្លៃ ប៉ុន្មាន?</strong><br>A: Packages ចាប់ពី $99/mo ។ ជ្រើស scope → ហើយ custom based on your goals ។ Contact ដើម្បី quote!</li>
+              <li><strong>Q: Contract Lock-in ទេ?</strong><br>A: NO lock-in ។ Month-to-month ។ Cancel anytime ។</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="contact-faq">Contact FAQ</h2>
+            <ul>
+              <li><strong>Q: Response time ប៉ុន្មាន?</strong><br>A: Telegram: ២–4 ម៉ោង (business hours) ។ After hours: Next morning !</li>
+              <li><strong>Q: ជ្រើសរើស YOB ចាប់ផ្ដើមបែបណា?</strong><br>A: ១) DM Telegram @yobdigital ឬ ២) Fill form grow.html#contact ។ FREE Strategy Call ៣០ min ជំហានទី ១ !</li>
+            </ul>
+            <a href="https://t.me/yobdigital" target="_blank" class="btn-primary" style="margin-top:12px"><i class="fab fa-telegram"></i> DM YOB ឥឡូវ</a>
+          </div>
+          `,
+        },
+
+        changelog: {
+          title: "CHANGELOG — WHAT'S NEW",
+          breadcrumb: "Resources → Changelog",
+          toc: ["April 2026", "March 2026", "February 2026", "Coming Soon"],
+          content: `
+          <p class="doc-lead">YOB Digital Changelog — Updates, New Content, Fixes ។ Subscribe Telegram ដើម្បី Notify ថ្មីៗ!</p>
+          <div class="doc-section">
+            <h2 id="apr-2026">🟢 April 2026</h2>
+            <div class="callout good"><i class="fas fa-star callout-icon"></i><div class="callout-body"><strong>Major Update:</strong> YOB Docs v2 — Full content across all 18 pages · Real lessons · Khmer + English!</div></div>
+            <ul>
+              <li>✅ <strong>Docs Rewrite</strong> — All 18 doc pages now have real educational content</li>
+              <li>✅ <strong>YOB Learning page</strong> — UX redesign, Pain points, Social proof, CTA steps</li>
+              <li>✅ <strong>Grow page</strong> — Social proof section, Mission Fork CTA, Contact clarity</li>
+              <li>✅ <strong>Fonts page</strong> — Font QA improvements</li>
+              <li>✅ <strong>SEO</strong> — Static default content for search indexing</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="mar-2026">📋 March 2026</h2>
+            <ul>
+              <li>✅ <strong>grow.html</strong> — Constellation Wormhole Roadmap redesign</li>
+              <li>✅ <strong>yob-learning.html</strong> — Eternity Version launch</li>
+              <li>✅ <strong>All pages</strong> — Hanuman font removed, Kantumruy Pro unified</li>
+              <li>✅ <strong>nav.html</strong> — Tutorial link added to Learn dropdown</li>
+              <li>✅ <strong>index.html</strong> — Black Hole ecosystem animation</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="feb-2026">📋 February 2026</h2>
+            <ul>
+              <li>✅ <strong>docs.html</strong> — Astro-style docs layout launch</li>
+              <li>✅ <strong>about.html</strong> — Full redesign</li>
+              <li>✅ <strong>resources.html</strong> — Content Hub launch</li>
+              <li>✅ <strong>Mobile drawer</strong> — Standardized across all pages</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="coming">🔜 Coming Soon</h2>
+            <ul>
+              <li>⏳ <strong>YOB Courses v2</strong> — Full video lessons with progress tracking</li>
+              <li>⏳ <strong>Case Studies</strong> — 5 detailed Khmer SME case studies</li>
+              <li>⏳ <strong>YOB Certificate</strong> — Verified completion certificates</li>
+              <li>⏳ <strong>Community Forum</strong> — Khmer Digital Community on-platform</li>
+              <li>⏳ <strong>Prompt Library</strong> — 200+ tested prompts for Khmer SMEs</li>
+            </ul>
+            <a href="https://t.me/yobdigital" target="_blank" class="btn-primary" style="margin-top:12px"><i class="fab fa-telegram"></i> Follow Updates on Telegram</a>
+          </div>
+          `,
+        },
       };
 
       // Default page on load
       let currentPage = "getting-started";
+      const DOCS_ANALYTICS_KEY = "yobDocsAnalytics_v1";
+      const REVIEW_HIDE_MS = 7 * 24 * 60 * 60 * 1000;
+      let showReviewedInQueue = false;
+
+      function normalizeReviewedState(state) {
+        if (!state.reviewed || typeof state.reviewed !== "object") {
+          state.reviewed = {};
+          return;
+        }
+        for (const [pageId, entry] of Object.entries(state.reviewed)) {
+          if (entry === true) {
+            state.reviewed[pageId] = { reviewedAt: Date.now() };
+          } else if (typeof entry === "number") {
+            state.reviewed[pageId] = { reviewedAt: entry };
+          }
+        }
+      }
+
+      function getReviewedTimestamp(entry) {
+        if (!entry) return 0;
+        if (typeof entry === "object" && typeof entry.reviewedAt === "number") {
+          return entry.reviewedAt;
+        }
+        return 0;
+      }
+
+      function getReviewedDaysLeft(entry) {
+        const ts = getReviewedTimestamp(entry);
+        if (!ts) return 0;
+        const expiresAt = ts + REVIEW_HIDE_MS;
+        const msLeft = expiresAt - Date.now();
+        return msLeft > 0 ? Math.ceil(msLeft / (24 * 60 * 60 * 1000)) : 0;
+      }
+
+      function isReviewedActive(entry) {
+        return getReviewedDaysLeft(entry) > 0;
+      }
+
+      function readDocsAnalytics() {
+        try {
+          const raw = localStorage.getItem(DOCS_ANALYTICS_KEY);
+          const state = raw
+            ? JSON.parse(raw)
+            : {
+                totals: {},
+                pageViews: {},
+                feedback: {},
+                reviewed: {},
+                events: [],
+                sessionStartedAt: Date.now(),
+              };
+          normalizeReviewedState(state);
+          return state;
+        } catch (_) {
+          return {
+            totals: {},
+            pageViews: {},
+            feedback: {},
+            reviewed: {},
+            events: [],
+            sessionStartedAt: Date.now(),
+          };
+        }
+      }
+
+      function saveDocsAnalytics(state) {
+        localStorage.setItem(DOCS_ANALYTICS_KEY, JSON.stringify(state));
+      }
+
+      function getHelpfulStats(state) {
+        const feedbackEntries = Object.values(state.feedback || {});
+        const totals = feedbackEntries.reduce(
+          (acc, fb) => {
+            acc.yes += fb.yes || 0;
+            acc.no += fb.no || 0;
+            return acc;
+          },
+          { yes: 0, no: 0 },
+        );
+        const total = totals.yes + totals.no;
+        return {
+          yes: totals.yes,
+          no: totals.no,
+          total,
+          rate: total ? Math.round((totals.yes / total) * 100) : 0,
+        };
+      }
+
+      function trackDocsEvent(eventName, payload = {}) {
+        const state = readDocsAnalytics();
+        state.totals[eventName] = (state.totals[eventName] || 0) + 1;
+        state.events.push({
+          event: eventName,
+          pageId: currentPage,
+          ts: Date.now(),
+          ...payload,
+        });
+        if (state.events.length > 400) state.events = state.events.slice(-400);
+        saveDocsAnalytics(state);
+      }
+
+      function buildLessonSuggestion(item) {
+        const suggestions = [];
+        if (item.rate < 40) {
+          suggestions.push("កែ Intro 3 ប្រយោគដំបូងឲ្យសាមញ្ញ និងច្បាស់ជាងមុន");
+          suggestions.push("បន្ថែមឧទាហរណ៍ខ្មែរ 1 ករណីនៅផ្នែកដំបូង");
+        } else if (item.rate < 60) {
+          suggestions.push("បន្ថែម Action Checklist ឲ្យជាក់លាក់ជំហាន 1-2-3");
+          suggestions.push("កាត់ពាក្យទ្រឹស្តីវែងៗ ហើយដាក់ជាប៊ូលេតខ្លីៗ");
+        }
+
+        if (item.viewsForPage >= 25) {
+          suggestions.push("ប្តូរ CTA ចុងមេរៀនឲ្យមាន Next Step តែមួយច្បាស់");
+        }
+
+        if (item.total < 5) {
+          suggestions.push("ប្រមូល feedback បន្ថែម មុនសម្រេចចិត្តកែធំ");
+        }
+
+        return suggestions.slice(0, 2);
+      }
+
+      function updateKpiPanel() {
+        const panel = document.getElementById("kpiPanel");
+        if (!panel) return;
+
+        const state = readDocsAnalytics();
+        const views = Object.values(state.pageViews || {}).reduce(
+          (sum, v) => sum + v,
+          0,
+        );
+        const helpful = getHelpfulStats(state);
+
+        const queueCandidates = Object.entries(state.feedback || {})
+          .map(([id, fb]) => {
+            const total = (fb.yes || 0) + (fb.no || 0);
+            const rate = total ? Math.round(((fb.yes || 0) / total) * 100) : 0;
+            const viewsForPage = state.pageViews?.[id] || 0;
+            const priority =
+              total >= 3 ? (100 - rate) * Math.max(viewsForPage, 1) : 0;
+            const page = pages[id];
+            const label = page
+              ? (page.breadcrumb || page.title || id).split("→").pop().trim()
+              : id;
+            return {
+              id,
+              label,
+              total,
+              rate,
+              viewsForPage,
+              priority,
+              reviewed: isReviewedActive(state.reviewed?.[id]),
+              reviewedDaysLeft: getReviewedDaysLeft(state.reviewed?.[id]),
+              suggestion: buildLessonSuggestion({
+                id,
+                label,
+                total,
+                rate,
+                viewsForPage,
+              }),
+            };
+          })
+          .filter((item) => item.total >= 3 && item.rate < 60);
+
+        const hiddenReviewedCount = queueCandidates.filter(
+          (item) => item.reviewed,
+        ).length;
+
+        const lowLessons = queueCandidates
+          .filter((item) => showReviewedInQueue || !item.reviewed)
+          .sort((a, b) => b.priority - a.priority)
+          .slice(0, 3);
+
+        const helpfulBarWidth = Math.max(
+          helpful.rate || 0,
+          helpful.total ? 8 : 0,
+        );
+
+        panel.innerHTML = `
+          <div class="kpi-head">
+            <div>
+              <div class="kpi-title">Docs KPI</div>
+              <div class="kpi-sub">Live lesson quality snapshot</div>
+            </div>
+            <div class="kpi-badge">${helpful.rate}% Helpful</div>
+          </div>
+          <div class="kpi-rate-wrap">
+            <div class="kpi-ratebar"><span style="width:${helpfulBarWidth}%;"></span></div>
+          </div>
+          <div class="kpi-grid">
+            <div class="kpi-chip"><div class="kpi-val">${views}</div><div class="kpi-label">Views</div></div>
+            <div class="kpi-chip"><div class="kpi-val">${helpful.total}</div><div class="kpi-label">Feedback</div></div>
+            <div class="kpi-chip kpi-chip-wide"><div class="kpi-val">${helpful.rate}%</div><div class="kpi-label">Helpful</div></div>
+          </div>
+          <div class="kpi-low">
+            <div class="kpi-section-head">
+              <div class="kpi-section-title">Need Update</div>
+              <div class="kpi-count">${lowLessons.length}</div>
+            </div>
+            ${
+              lowLessons.length
+                ? lowLessons
+                    .map(
+                      (item) =>
+                        `<div class="kpi-low-row"><a class="kpi-low-item" onclick="loadPage('${item.id}')">${item.label}<span class="kpi-low-meta">${item.rate}% helpful · ${item.viewsForPage} views${item.reviewed ? ` · hidden ${item.reviewedDaysLeft}d` : ""}</span></a><button class="kpi-review-btn ${item.reviewed ? "done" : ""}" data-review-toggle="${item.id}">${item.reviewed ? "Reviewed" : "Mark"}</button></div>`,
+                    )
+                    .join("")
+                : '<div class="kpi-low-item" style="cursor:default;">No low-score lessons yet</div>'
+            }
+          </div>
+          <div class="kpi-actions">
+            <button class="kpi-action-btn" data-kpi-action="copy-weekly-summary">Copy Weekly Summary</button>
+            <button class="kpi-action-btn" data-kpi-action="toggle-reviewed-visibility">${showReviewedInQueue ? "Hide Reviewed" : "Show Reviewed"}${hiddenReviewedCount ? ` (${hiddenReviewedCount})` : ""}</button>
+          </div>
+        `;
+      }
+
+      function updateLowScoreMarkers() {
+        const state = readDocsAnalytics();
+
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.classList.remove("low-score");
+          const onclick = link.getAttribute("onclick") || "";
+          const match = onclick.match(/loadPage\('([^']+)'\)/);
+          if (!match) return;
+          const pageId = match[1];
+          const fb = state.feedback?.[pageId];
+          if (!fb) return;
+
+          const total = (fb.yes || 0) + (fb.no || 0);
+          const rate = total ? Math.round(((fb.yes || 0) / total) * 100) : 0;
+          const reviewedActive = isReviewedActive(state.reviewed?.[pageId]);
+          if (total >= 3 && rate < 60 && !reviewedActive) {
+            link.classList.add("low-score");
+            link.title = `Helpful rate ${rate}% (${total} feedback)`;
+          }
+        });
+      }
+
+      function renderFeedbackWidget(pageId) {
+        return `
+        <div class="callout good" style="margin-top: 10px; margin-bottom: 24px;">
+          <i class="fas fa-comment-dots callout-icon"></i>
+          <div class="callout-body">
+            <strong>Quick Feedback:</strong> មេរៀននេះជួយអ្នកបានកម្រិតណា?<br>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+              <button class="btn-outline" type="button" data-feedback="helpful" data-feedback-score="1" data-page-id="${pageId}">មានប្រយោជន៍</button>
+              <button class="btn-outline" type="button" data-feedback="helpful" data-feedback-score="0" data-page-id="${pageId}">មិនទាន់ច្បាស់</button>
+            </div>
+          </div>
+        </div>
+        `;
+      }
+
+      const LESSON_BLUEPRINT = {
+        default: {
+          outcome:
+            "យល់គោលគំនិតស្នូលរបស់មេរៀននេះ ហើយអាចយកទៅអនុវត្តបាន ១ ករណីជាក់ស្តែង។",
+          time: "12-18 នាទី",
+          prereq: "មិនទាមទារ background បច្ចេកទេសខ្ពស់",
+          actions: [
+            "អាន section ទាំងអស់តាមលំដាប់",
+            "Copy template ឬ framework មួយទៅសាកល្បង",
+            "អនុវត្តលើ project របស់អ្នក ១ ដង",
+            "កត់ចំណុចដែល work និងមិន work ដើម្បីកែលម្អ",
+          ],
+        },
+        "getting-started": {
+          outcome: "ដឹងផ្លូវរៀនត្រឹមត្រូវសម្រាប់គោលដៅរបស់អ្នក។",
+          time: "8-12 នាទី",
+          prereq: "គ្រាន់តែមានគោលដៅច្បាស់ថាចង់អភិវឌ្ឍផ្នែកណា",
+        },
+        "prompt-engineering": {
+          outcome:
+            "សរសេរ Prompt ត្រឹមត្រូវតាម RTFT និងបាន output ដែលយកទៅប្រើការងារបានភ្លាម។",
+          time: "15-20 នាទី",
+          prereq: "មាន Claude, ChatGPT ឬ Gemini account",
+        },
+        "ai-content": {
+          outcome:
+            "បង្កើត Content batch មួយសប្តាហ៍បានលឿន និងមានគុណភាពស្មើគ្នា។",
+          time: "15-22 នាទី",
+          prereq: "យល់ RTFT basics ឬ Prompt Engineering មុន",
+        },
+        "strategy-overview": {
+          outcome:
+            "យល់ Digital Strategy framework និងអាចរៀប plan 30 ថ្ងៃដំបូងបាន។",
+          time: "12-16 នាទី",
+          prereq: "ស្គាល់អាជីវកម្ម និង customer របស់អ្នកជាមូលដ្ឋាន",
+        },
+        "ads-setup": {
+          outcome: "អាចបើក campaign ដំបូងបានត្រឹមត្រូវក្នុង Ads Manager។",
+          time: "18-25 នាទី",
+          prereq: "មាន Facebook Page និង Meta Business account",
+        },
+        "html-basics": {
+          outcome: "យល់ HTML/CSS មូលដ្ឋាន និងអាចបង្កើត webpage ដំបូងបាន។",
+          time: "18-25 នាទី",
+          prereq: "មាន text editor ឬ VS Code",
+        },
+        "github-netlify": {
+          outcome: "អាច deploy website ឲ្យ live បានដោយខ្លួនឯង។",
+          time: "12-18 នាទី",
+          prereq: "មាន files website រួច និង GitHub account",
+        },
+        "customer-persona": {
+          outcome:
+            "បង្កើត persona ពិតមួយដែលអាចប្រើសរសេរ content និង ads បានត្រឹមត្រូវ។",
+          time: "12-16 នាទី",
+          prereq: "មាន comment/DM data ឬ FAQ ពិតពី audience",
+        },
+        "landing-page-blueprint": {
+          outcome:
+            "រៀប landing page structure ដែលផ្តោតលើ conversion មិនមែនស្អាតតែប៉ុណ្ណោះ។",
+          time: "14-20 នាទី",
+          prereq: "យល់ offer និង audience របស់អ្នក",
+        },
+      };
+
+      const LEARNING_TRACKS = {
+        beginner: [
+          "getting-started",
+          "why-yob",
+          "yob-ecosystem",
+          "ai-overview",
+          "prompt-engineering",
+          "ai-content",
+          "ai-tools-list",
+          "free-toolkit",
+        ],
+        "business-growth": [
+          "strategy-overview",
+          "customer-persona",
+          "social-media",
+          "content-plan",
+          "ads-setup",
+          "analytics",
+          "landing-page-blueprint",
+        ],
+        implementation: [
+          "web-overview",
+          "html-basics",
+          "github-netlify",
+          "automation",
+          "lms-setup",
+          "fonts-overview",
+          "font-install",
+          "font-license",
+        ],
+      };
+
+      const TRACK_LABELS = {
+        beginner: "Beginner Track",
+        "business-growth": "Business Growth Track",
+        implementation: "Implementation Track",
+      };
+
+      function getTrackContext(pageId) {
+        for (const [trackId, lessons] of Object.entries(LEARNING_TRACKS)) {
+          const index = lessons.indexOf(pageId);
+          if (index !== -1) {
+            return {
+              trackId,
+              label: TRACK_LABELS[trackId] || trackId,
+              index,
+              total: lessons.length,
+              nextId: index < lessons.length - 1 ? lessons[index + 1] : null,
+            };
+          }
+        }
+        return null;
+      }
+
+      function renderTrackGuide(pageId, getPageLabel) {
+        const context = getTrackContext(pageId);
+        if (!context) return "";
+
+        const nextStepHtml = context.nextId
+          ? `<a class="btn-outline" style="margin-top:10px;display:inline-flex;" onclick="loadPage('${context.nextId}')"><i class="fas fa-route"></i>&nbsp;ជំហានបន្ទាប់: ${getPageLabel(context.nextId)}</a>`
+          : `<div style="margin-top:10px;color:var(--gray);font-size:13px;">អ្នកដល់ចុង Track នេះហើយ។ សូមអនុវត្ត checklist រួចទៅ Track បន្ទាប់។</div>`;
+
+        return `
+        <div class="callout tip" style="margin-top: 8px; margin-bottom: 22px;">
+          <i class="fas fa-compass callout-icon"></i>
+          <div class="callout-body">
+            <strong>Learning Flow:</strong> ${context.label}<br>
+            <strong>ដំណាក់កាលបច្ចុប្បន្ន:</strong> ជំហាន ${context.index + 1} / ${context.total}<br>
+            <strong>គោលការណ៍:</strong> រៀនតាមលំដាប់ track មួយឲ្យចប់ មុនលោតទៅ track ផ្សេង
+            ${nextStepHtml}
+          </div>
+        </div>
+        `;
+      }
+
+      function renderLessonBlueprint(pageId) {
+        if (pageId === "changelog") return "";
+
+        const base = LESSON_BLUEPRINT.default;
+        const custom = LESSON_BLUEPRINT[pageId] || {};
+        const data = {
+          outcome: custom.outcome || base.outcome,
+          time: custom.time || base.time,
+          prereq: custom.prereq || base.prereq,
+          actions: custom.actions || base.actions,
+        };
+
+        return `
+        <div class="callout note" style="margin-top: 6px; margin-bottom: 24px;">
+          <i class="fas fa-map-signs callout-icon"></i>
+          <div class="callout-body">
+            <strong>ផែនទីមេរៀន (Lesson Roadmap)</strong><br>
+            <strong>លទ្ធផលដែលនឹងទទួលបាន (Outcome):</strong> ${data.outcome}<br>
+            <strong>ពេលវេលាប៉ាន់ស្មាន (Estimated Time):</strong> ${data.time}<br>
+            <strong>ត្រូវដឹងមុន (Prerequisite):</strong> ${data.prereq}
+          </div>
+        </div>
+        <div class="doc-section" style="margin-bottom: 28px;">
+          <h3 id="action-checklist">បញ្ជីអនុវត្ត (Action Checklist)</h3>
+          <ul>
+            ${data.actions.map((item) => `<li>☐ ${item}</li>`).join("")}
+          </ul>
+        </div>
+        `;
+      }
+
+      function normalizeLessonCopy(rawHtml) {
+        const replacements = [
+          [/\bBong Savuth\b/g, "អ្នក"],
+          [
+            /Document នេះ reference ពេលណាបំភ្លេច!/g,
+            "មេរៀននេះអាចប្រើជាឯកសារយោងពេលអនុវត្ត។",
+          ],
+          [/Already Done This!/g, "Example Already Implemented!"],
+        ];
+
+        return replacements.reduce(
+          (html, [pattern, value]) => html.replace(pattern, value),
+          rawHtml,
+        );
+      }
+
+      function renderEvidenceNote(pageId, html) {
+        const explicitPages = new Set([
+          "why-yob",
+          "ai-overview",
+          "strategy-overview",
+          "content-plan",
+          "free-toolkit",
+        ]);
+
+        const hasNumericClaim =
+          /\b\d+%\b|\b\d+x\b|\b\d+,?\d*\+\b|YOB Research|Result typical/i.test(
+            html,
+          );
+
+        if (!explicitPages.has(pageId) && !hasNumericClaim) return "";
+
+        return `
+        <div class="callout note" style="margin-top: 8px;">
+          <i class="fas fa-clipboard-check callout-icon"></i>
+          <div class="callout-body">
+            <strong>ចំណាំអំពីទិន្នន័យ (Data Note):</strong>
+            លេខស្ថិតិ និងលទ្ធផលនៅក្នុងមេរៀននេះគួរតែយកជាគោលការណ៍ណែនាំសម្រាប់ការអនុវត្តដំបូង។
+            សូមវាស់លទ្ធផលជាក់ស្តែងរបស់អាជីវកម្មអ្នកដោយផ្ទាល់ (Insights, Ads Manager, Analytics) មុនសម្រេចចិត្តវិនិយោគបន្ថែម។
+          </div>
+        </div>
+        `;
+      }
 
       function loadPage(pageId) {
         const page = pages[pageId] || pages["getting-started"];
         currentPage = pageId;
+        const normalizedContent = normalizeLessonCopy(page.content);
+        const contentWithNote = `${normalizedContent}${renderEvidenceNote(pageId, normalizedContent)}`;
+        const analyticsState = readDocsAnalytics();
+        analyticsState.pageViews[pageId] =
+          (analyticsState.pageViews[pageId] || 0) + 1;
+        saveDocsAnalytics(analyticsState);
+        trackDocsEvent("page_view", { pageId });
+
+        const orderedPageIds = [
+          ...new Set(
+            Array.from(document.querySelectorAll(".nav-link"))
+              .map((link) => {
+                const onclick = link.getAttribute("onclick") || "";
+                const match = onclick.match(/loadPage\('([^']+)'\)/);
+                return match ? match[1] : null;
+              })
+              .filter(Boolean),
+          ),
+        ];
+
+        const currentIndex = orderedPageIds.indexOf(pageId);
+        const prevId =
+          currentIndex > 0 ? orderedPageIds[currentIndex - 1] : null;
+        const nextId =
+          currentIndex >= 0 && currentIndex < orderedPageIds.length - 1
+            ? orderedPageIds[currentIndex + 1]
+            : null;
+
+        const getPageLabel = (id) => {
+          const target = pages[id];
+          if (!target) return id;
+          const crumb = target.breadcrumb || target.title || id;
+          const parts = crumb.split("→");
+          return (parts[parts.length - 1] || crumb).trim();
+        };
+
+        const trackGuideHtml = renderTrackGuide(pageId, getPageLabel);
+
+        const prevHtml = prevId
+          ? `<div class="page-nav-btn prev" onclick="loadPage('${prevId}')">
+              <div class="pnb-label">Previous</div>
+              <div class="pnb-title"><i class="fas fa-arrow-left"></i> ${getPageLabel(prevId)}</div>
+            </div>`
+          : `<div></div>`;
+
+        const nextHtml = nextId
+          ? `<div class="page-nav-btn next" onclick="loadPage('${nextId}')">
+              <div class="pnb-label">Next</div>
+              <div class="pnb-title">${getPageLabel(nextId)} <i class="fas fa-arrow-right"></i></div>
+            </div>`
+          : `<div></div>`;
 
         // Update active nav link
         document.querySelectorAll(".nav-link").forEach((l) => {
@@ -1537,37 +4132,43 @@ Tone: Educational, practical, actionable — "show don't tell"</pre>
 
         // Render content
         const main = document.getElementById("docsMain");
+        const mins = readingTime(page.content);
         main.innerHTML = `
         <div class="breadcrumb">
           <a onclick="loadPage('getting-started')" style="cursor:pointer;color:var(--gold)">Docs</a>
           <i class="fas fa-chevron-right"></i>
           <span>${page.breadcrumb}</span>
+          <span style="margin-left:auto;font-size:11px;color:var(--gray);display:flex;align-items:center;gap:5px">
+            <i class="fas fa-clock"></i> ${mins} min read
+          </span>
         </div>
         <h1 class="doc-title">${page.title}</h1>
-        ${page.content}
+        ${renderLessonBlueprint(pageId)}
+        ${trackGuideHtml}
+        ${contentWithNote}
+        ${renderFeedbackWidget(pageId)}
         <div class="page-nav">
-          <div class="page-nav-btn prev" onclick="loadPage('getting-started')">
-            <div class="pnb-label">Previous</div>
-            <div class="pnb-title"><i class="fas fa-arrow-left"></i> Getting Started</div>
-          </div>
-          <div class="page-nav-btn next" onclick="loadPage('prompt-engineering')">
-            <div class="pnb-label">Next</div>
-            <div class="pnb-title">Prompt Engineering <i class="fas fa-arrow-right"></i></div>
-          </div>
+          ${prevHtml}
+          ${nextHtml}
         </div>
       `;
 
         // Render TOC
         const toc = document.getElementById("tocLinks");
-        toc.innerHTML = page.toc
-          .map((item) => {
-            const id = item
-              .toLowerCase()
-              .replace(/[^a-z0-9]+/g, "-")
-              .replace(/^-|-$/g, "");
-            return `<a class="toc-link" href="#${id}" onclick="highlightToc(this)">${item}</a>`;
-          })
-          .join("");
+        const headingNodes = Array.from(
+          main.querySelectorAll(".doc-section h2, .doc-section h3"),
+        ).filter((h) => h.id);
+
+        if (headingNodes.length) {
+          toc.innerHTML = headingNodes
+            .map(
+              (h) =>
+                `<a class="toc-link" href="#${h.id}" onclick="highlightToc(this)">${h.textContent.trim()}</a>`,
+            )
+            .join("");
+        } else {
+          toc.innerHTML = "";
+        }
 
         // Scroll to top
         main.scrollTop = 0;
@@ -1575,6 +4176,9 @@ Tone: Educational, practical, actionable — "show don't tell"</pre>
 
         // Close sidebar on mobile
         if (window.innerWidth <= 900) closeSidebar();
+
+        updateKpiPanel();
+        updateLowScoreMarkers();
       }
 
       function highlightToc(el) {
@@ -1584,16 +4188,41 @@ Tone: Educational, practical, actionable — "show don't tell"</pre>
         el.classList.add("active");
       }
 
+      function readingTime(content) {
+        const text = content.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+        const words = text.split(/\s+/).filter(Boolean).length;
+        return Math.max(1, Math.ceil(words / 180));
+      }
+
       function copyCode(btn) {
         const pre = btn.closest(".code-block").querySelector("pre");
-        navigator.clipboard.writeText(pre.innerText).then(() => {
+        const text = pre.innerText;
+        const finish = () => {
+          trackDocsEvent("code_copy", { pageId: currentPage });
           btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
           btn.style.color = "#4ade80";
           setTimeout(() => {
             btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
             btn.style.color = "";
           }, 2000);
-        });
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(finish).catch(() => {
+            fallbackCopy(text); finish();
+          });
+        } else {
+          fallbackCopy(text); finish();
+        }
+      }
+
+      function fallbackCopy(text) {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.cssText = "position:fixed;top:-9999px;left:-9999px;opacity:0";
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); } catch (_) {}
+        document.body.removeChild(ta);
       }
 
       // Sidebar mobile
@@ -1606,7 +4235,10 @@ Tone: Educational, practical, actionable — "show don't tell"</pre>
         document.getElementById("sidebarOverlay").classList.remove("show");
       }
       document
-        .getElementById("sidebarToggle")
+        .getElementById("sidebarFab")
+        .addEventListener("click", openSidebar);
+      document
+        .getElementById("navSidebarToggle")
         .addEventListener("click", openSidebar);
       document
         .getElementById("sidebarOverlay")
@@ -1637,8 +4269,454 @@ Tone: Educational, practical, actionable — "show don't tell"</pre>
         });
       });
 
-      // Load default page
-      loadPage("getting-started");
+      // Event instrumentation for KPI tracking
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        const navBtn = target.closest(".page-nav-btn");
+        const tocLink = target.closest(".toc-link");
+        const sideNav = target.closest(".nav-link");
+        const feedbackBtn = target.closest("[data-feedback='helpful']");
+        const reviewBtn = target.closest("[data-review-toggle]");
+        const kpiActionBtn = target.closest("[data-kpi-action]");
+
+        if (reviewBtn) {
+          const pageId = reviewBtn.getAttribute("data-review-toggle");
+          const state = readDocsAnalytics();
+          if (!state.reviewed) state.reviewed = {};
+          if (isReviewedActive(state.reviewed[pageId])) {
+            delete state.reviewed[pageId];
+          } else {
+            state.reviewed[pageId] = { reviewedAt: Date.now() };
+          }
+          saveDocsAnalytics(state);
+          trackDocsEvent("lesson_review_toggle", {
+            pageId,
+            reviewed: isReviewedActive(state.reviewed[pageId]),
+            reviewed_days_left: getReviewedDaysLeft(state.reviewed[pageId]),
+          });
+          updateKpiPanel();
+          updateLowScoreMarkers();
+          return;
+        }
+
+        if (kpiActionBtn) {
+          const action = kpiActionBtn.getAttribute("data-kpi-action");
+          if (action === "copy-weekly-summary") {
+            const summary = window.yobDocsWeeklySummary();
+            if (navigator.clipboard?.writeText) {
+              navigator.clipboard.writeText(summary);
+            }
+            kpiActionBtn.textContent = "Copied";
+            setTimeout(() => {
+              kpiActionBtn.textContent = "Copy Weekly Summary";
+            }, 1500);
+            trackDocsEvent("weekly_summary_copy", { pageId: currentPage });
+          }
+          if (action === "open-priority-report") {
+            window.yobDocsAnalyticsReport();
+          }
+          if (action === "toggle-reviewed-visibility") {
+            showReviewedInQueue = !showReviewedInQueue;
+            updateKpiPanel();
+          }
+          return;
+        }
+
+        if (navBtn) {
+          trackDocsEvent("page_nav_click", {
+            direction: navBtn.classList.contains("next") ? "next" : "prev",
+          });
+        }
+
+        if (tocLink) {
+          const href = tocLink.getAttribute("href") || "";
+          trackDocsEvent("toc_click", { target: href.replace("#", "") });
+        }
+
+        if (sideNav) {
+          trackDocsEvent("sidebar_nav_click", {
+            label: sideNav.textContent.trim(),
+          });
+        }
+
+        if (feedbackBtn) {
+          const score = Number(feedbackBtn.getAttribute("data-feedback-score"));
+          const pageId =
+            feedbackBtn.getAttribute("data-page-id") || currentPage;
+          const state = readDocsAnalytics();
+          if (!state.feedback[pageId]) {
+            state.feedback[pageId] = { yes: 0, no: 0 };
+          }
+          if (score === 1) state.feedback[pageId].yes += 1;
+          else state.feedback[pageId].no += 1;
+          saveDocsAnalytics(state);
+          trackDocsEvent("lesson_feedback", { pageId, score });
+
+          feedbackBtn.textContent = score === 1 ? "អរគុណ!" : "យល់ហើយ";
+          feedbackBtn.disabled = true;
+
+          updateKpiPanel();
+          updateLowScoreMarkers();
+        }
+      });
+
+      // Console helpers for quick KPI review
+      window.yobDocsAnalyticsReport = function () {
+        const state = readDocsAnalytics();
+        const pageRows = Object.entries(state.pageViews)
+          .map(([pageId, views]) => {
+            const fb = state.feedback[pageId] || { yes: 0, no: 0 };
+            const totalFb = fb.yes + fb.no;
+            const helpfulRate = totalFb
+              ? Math.round((fb.yes / totalFb) * 100)
+              : 0;
+            const priority =
+              totalFb >= 3 ? (100 - helpfulRate) * Math.max(views, 1) : 0;
+            const suggestion = buildLessonSuggestion({
+              id: pageId,
+              rate: helpfulRate,
+              viewsForPage: views,
+              total: totalFb,
+            }).join(" | ");
+            return {
+              pageId,
+              views,
+              helpful_yes: fb.yes,
+              helpful_no: fb.no,
+              helpful_rate_percent: helpfulRate,
+              improvement_priority: priority,
+              action_hint: suggestion,
+              reviewed: isReviewedActive(state.reviewed?.[pageId]),
+              reviewed_days_left: getReviewedDaysLeft(state.reviewed?.[pageId]),
+            };
+          })
+          .sort((a, b) => b.improvement_priority - a.improvement_priority);
+
+        console.table(pageRows);
+        console.log("Event totals:", state.totals);
+        return { pageRows, totals: state.totals, raw: state };
+      };
+
+      window.yobDocsWeeklySummary = function () {
+        const state = readDocsAnalytics();
+        const report = Object.entries(state.pageViews || {})
+          .map(([pageId, views]) => {
+            const fb = state.feedback?.[pageId] || { yes: 0, no: 0 };
+            const totalFb = (fb.yes || 0) + (fb.no || 0);
+            const helpfulRate = totalFb
+              ? Math.round(((fb.yes || 0) / totalFb) * 100)
+              : 0;
+            const priority =
+              totalFb >= 3 ? (100 - helpfulRate) * Math.max(views, 1) : 0;
+            const page = pages[pageId];
+            const label = page
+              ? (page.breadcrumb || page.title || pageId)
+                  .split("→")
+                  .pop()
+                  .trim()
+              : pageId;
+            return {
+              pageId,
+              label,
+              views,
+              helpfulRate,
+              totalFb,
+              priority,
+              reviewed: isReviewedActive(state.reviewed?.[pageId]),
+              reviewedDaysLeft: getReviewedDaysLeft(state.reviewed?.[pageId]),
+              hint: buildLessonSuggestion({
+                id: pageId,
+                rate: helpfulRate,
+                viewsForPage: views,
+                total: totalFb,
+              }).join("; "),
+            };
+          })
+          .filter((r) => r.priority > 0)
+          .sort((a, b) => b.priority - a.priority)
+          .slice(0, 5);
+
+        const totalViews = Object.values(state.pageViews || {}).reduce(
+          (sum, v) => sum + v,
+          0,
+        );
+        const helpful = getHelpfulStats(state);
+
+        const lines = [
+          "សង្ខេបប្រចាំសប្តាហ៍ - YOB Docs",
+          `សរុប Views: ${totalViews}`,
+          `Feedback: ${helpful.total} | Helpful Rate: ${helpful.rate}%`,
+          "",
+          "អាទិភាពកែលម្អសប្តាហ៍នេះ:",
+          ...(report.length
+            ? report.map(
+                (r, i) =>
+                  `${i + 1}. ${r.label} (${r.pageId}) - ${r.helpfulRate}% helpful, ${r.views} views, reviewed: ${r.reviewed ? `yes (${r.reviewedDaysLeft}d left)` : "no"}. Next: ${r.hint || "កែ Intro + Checklist"}`,
+              )
+            : ["1. មិនទាន់មាន lesson អាទិភាពខ្ពស់សម្រាប់កែលម្អ"]),
+        ];
+
+        const summary = lines.join("\n");
+        console.log(summary);
+        return summary;
+      };
+
+      window.yobDocsAnalyticsExportCsv = function () {
+        const state = readDocsAnalytics();
+        const rows = Object.entries(state.pageViews || {}).map(
+          ([pageId, views]) => {
+            const fb = state.feedback?.[pageId] || { yes: 0, no: 0 };
+            const totalFb = (fb.yes || 0) + (fb.no || 0);
+            const helpfulRate = totalFb
+              ? Math.round(((fb.yes || 0) / totalFb) * 100)
+              : 0;
+            const priority =
+              totalFb >= 3 ? (100 - helpfulRate) * Math.max(views, 1) : 0;
+            return {
+              pageId,
+              views,
+              helpfulYes: fb.yes || 0,
+              helpfulNo: fb.no || 0,
+              helpfulRate,
+              priority,
+              reviewed: isReviewedActive(state.reviewed?.[pageId]),
+              reviewedDaysLeft: getReviewedDaysLeft(state.reviewed?.[pageId]),
+            };
+          },
+        );
+
+        const header = [
+          "page_id",
+          "views",
+          "helpful_yes",
+          "helpful_no",
+          "helpful_rate_percent",
+          "improvement_priority",
+          "reviewed_active",
+          "reviewed_days_left",
+        ];
+
+        const csvLines = [
+          header.join(","),
+          ...rows.map((r) =>
+            [
+              r.pageId,
+              r.views,
+              r.helpfulYes,
+              r.helpfulNo,
+              r.helpfulRate,
+              r.priority,
+              r.reviewed ? 1 : 0,
+              r.reviewedDaysLeft,
+            ].join(","),
+          ),
+        ];
+
+        const csv = csvLines.join("\n");
+        console.log(csv);
+        return csv;
+      };
+
+      window.yobDocsAnalyticsReset = function () {
+        localStorage.removeItem(DOCS_ANALYTICS_KEY);
+        console.log("YOB docs analytics reset completed.");
+        updateKpiPanel();
+        updateLowScoreMarkers();
+      };
+
+      // Load page — respect URL hash (e.g. docs.html#font-setup)
+      (function () {
+        const hash = location.hash.replace("#", "");
+        loadPage(hash && pages[hash] ? hash : "getting-started");
+      })();
+
+      // ══════════════════════════════════════════
+      // SEARCH SYSTEM
+      // ══════════════════════════════════════════
+      (function () {
+        const PAGE_META = {
+          "getting-started": { icon: "🚀", label: "ចាប់ផ្ដើម" },
+          "why-yob": { icon: "💡", label: "ចាប់ផ្ដើម" },
+          "yob-ecosystem": { icon: "🌌", label: "ចាប់ផ្ដើម" },
+          "ai-overview": { icon: "🤖", label: "AI Tools" },
+          "prompt-engineering": { icon: "⚡", label: "AI Tools" },
+          "ai-content": { icon: "✍️", label: "AI Tools" },
+          "ai-tools-list": { icon: "📋", label: "AI Tools" },
+          automation: { icon: "🔗", label: "AI Tools" },
+          "ai-workflow": { icon: "🧭", label: "AI Tools" },
+          "strategy-overview": { icon: "📢", label: "Digital Strategy" },
+          "customer-persona": { icon: "🧍", label: "Digital Strategy" },
+          "social-media": { icon: "📱", label: "Digital Strategy" },
+          "content-plan": { icon: "📅", label: "Digital Strategy" },
+          "ads-setup": { icon: "🎯", label: "Digital Strategy" },
+          analytics: { icon: "📊", label: "Digital Strategy" },
+          "web-overview": { icon: "🌐", label: "Web & Systems" },
+          "landing-page-blueprint": { icon: "🧱", label: "Web & Systems" },
+          "html-basics": { icon: "💻", label: "Web & Systems" },
+          "github-netlify": { icon: "🚀", label: "Web & Systems" },
+          "lms-setup": { icon: "🎓", label: "Web & Systems" },
+          "fonts-overview": { icon: "🔤", label: "Khmer Typography" },
+          "font-install": { icon: "⬇️", label: "Khmer Typography" },
+          "font-license": { icon: "📜", label: "Khmer Typography" },
+          "font-setup": { icon: "⌨️", label: "Khmer Typography" },
+          "free-toolkit": { icon: "🎁", label: "Resources" },
+          faq: { icon: "❓", label: "Resources" },
+          changelog: { icon: "📝", label: "Resources" },
+        };
+
+        // Build search index from pages object
+        function buildIndex() {
+          return Object.entries(pages).map(([id, page]) => {
+            // Strip HTML tags for plain text snippet
+            const plain = page.content
+              .replace(/<[^>]+>/g, " ")
+              .replace(/\s+/g, " ")
+              .trim();
+            return {
+              id,
+              title: page.title,
+              breadcrumb: page.breadcrumb,
+              text: plain,
+            };
+          });
+        }
+
+        function highlight(str, q) {
+          if (!q) return str;
+          const re = new RegExp(
+            "(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")",
+            "gi",
+          );
+          return str.replace(re, "<mark>$1</mark>");
+        }
+
+        function getSnippet(text, q) {
+          if (!q) return text.slice(0, 100) + "…";
+          const idx = text.toLowerCase().indexOf(q.toLowerCase());
+          if (idx === -1) return text.slice(0, 100) + "…";
+          const start = Math.max(0, idx - 40);
+          const end = Math.min(text.length, idx + q.length + 80);
+          return (
+            (start > 0 ? "…" : "") +
+            text.slice(start, end) +
+            (end < text.length ? "…" : "")
+          );
+        }
+
+        const index = buildIndex();
+        const input = document.getElementById("searchInput");
+        const dropdown = document.getElementById("searchDropdown");
+        const searchBox = document.getElementById("docsSearchBox");
+        const kbd = document.getElementById("searchKbd");
+        let focusedIdx = -1;
+        let overlay = null;
+
+        function showDropdown(results, q) {
+          focusedIdx = -1;
+          if (!results.length) {
+            dropdown.innerHTML = `<div class="search-no-result"><i class="fas fa-search"></i>រកមិនឃើញ "<strong>${q}</strong>"<br><small>ព្យាយាម: AI, Ads, Claude, Facebook, HTML, Fonts...</small></div>`;
+          } else {
+            dropdown.innerHTML =
+              `<div class="search-header-row">លទ្ធផល ${results.length} — ចុចដើម្បីចូល</div>` +
+              results
+                .slice(0, 8)
+                .map((r, i) => {
+                  const meta = PAGE_META[r.id] || { icon: "📄", label: "" };
+                  const snippet = getSnippet(r.text, q);
+                  return `<div class="search-result-item" data-idx="${i}" onclick="loadPage('${r.id}');closeSearch()">
+                  <div class="search-result-icon">${meta.icon}</div>
+                  <div class="search-result-body">
+                    <div class="search-result-title">${highlight(r.title, q)}</div>
+                    <div class="search-result-crumb">${meta.label} › ${r.breadcrumb}</div>
+                    <div class="search-result-snippet">${highlight(snippet, q)}</div>
+                  </div>
+                </div>`;
+                })
+                .join("");
+          }
+          dropdown.style.display = "block";
+          if (!overlay) {
+            overlay = document.createElement("div");
+            overlay.className = "search-overlay";
+            overlay.onclick = closeSearch;
+            document.body.appendChild(overlay);
+          }
+        }
+
+        function closeSearch() {
+          dropdown.style.display = "none";
+          searchBox.classList.remove("active");
+          kbd.style.display = "";
+          input.value = "";
+          focusedIdx = -1;
+          if (overlay) {
+            overlay.remove();
+            overlay = null;
+          }
+        }
+
+        function openSearch() {
+          searchBox.classList.add("active");
+          kbd.style.display = "none";
+          input.focus();
+        }
+
+        input.addEventListener("input", function () {
+          const q = this.value.trim();
+          if (!q) {
+            dropdown.style.display = "none";
+            return;
+          }
+          const results = index.filter(
+            (r) =>
+              r.title.toLowerCase().includes(q.toLowerCase()) ||
+              r.text.toLowerCase().includes(q.toLowerCase()) ||
+              r.breadcrumb.toLowerCase().includes(q.toLowerCase()),
+          );
+          showDropdown(results, q);
+        });
+
+        input.addEventListener("focus", function () {
+          openSearch();
+          if (this.value.trim()) this.dispatchEvent(new Event("input"));
+        });
+
+        input.addEventListener("keydown", function (e) {
+          const items = dropdown.querySelectorAll(".search-result-item");
+          if (e.key === "ArrowDown") {
+            e.preventDefault();
+            focusedIdx = Math.min(focusedIdx + 1, items.length - 1);
+            items.forEach((el, i) =>
+              el.classList.toggle("focused", i === focusedIdx),
+            );
+          } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            focusedIdx = Math.max(focusedIdx - 1, 0);
+            items.forEach((el, i) =>
+              el.classList.toggle("focused", i === focusedIdx),
+            );
+          } else if (e.key === "Enter" && focusedIdx >= 0) {
+            items[focusedIdx].click();
+          } else if (e.key === "Escape") {
+            closeSearch();
+          }
+        });
+
+        // Ctrl+K / Cmd+K shortcut
+        document.addEventListener("keydown", function (e) {
+          if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+            e.preventDefault();
+            if (dropdown.style.display === "block") {
+              closeSearch();
+            } else {
+              openSearch();
+            }
+          }
+        });
+
+        // Expose closeSearch globally (used in onclick)
+        window.closeSearch = closeSearch;
+      })();
     </script>
 
     <button
@@ -1650,6 +4728,7 @@ Tone: Educational, practical, actionable — "show don't tell"</pre>
       <i class="fas fa-chevron-up"></i>
     </button>
 
+    <script src="js/load-components.js"></script>
     <script src="js/load-components.js"></script>
     <script src="js/main.js" defer></script>
   </body>
