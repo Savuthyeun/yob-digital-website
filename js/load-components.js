@@ -5,26 +5,26 @@
   const NAV_HTML = `
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo">យប់<span>.</span>ឌីជីថល</a>
+    <a href="/" class="nav-logo">យប់<span>.</span>ឌីជីថល</a>
     <ul class="nav-links">
-      <li><a href="grow.html" data-page="grow">Yob ដើម្បីអាជីវកម្ម</a></li>
+      <li><a href="/grow" data-page="grow">Yob ដើម្បីអាជីវកម្ម</a></li>
       <li class="nav-has-dropdown">
         <a href="#" class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">រៀនជាមួយ Yob <i class="fas fa-chevron-down"></i></a>
         <ul class="nav-dropdown">
-          <li><a href="yob-learning.html" data-page="yob-learning"><i class="fas fa-graduation-cap"></i> ជំនាញឌីជីថល</a></li>
-          <li><a href="docs.html" data-page="docs"><i class="fas fa-book"></i> ឯកសារមេរៀន</a></li>
-          <li><a href="case-studies.html" data-page="case-studies"><i class="fas fa-briefcase"></i> កម្រងស្នាដៃ</a></li>
+          <li><a href="/yob-learning" data-page="yob-learning"><i class="fas fa-graduation-cap"></i> ជំនាញឌីជីថល</a></li>
+          <li><a href="/docs" data-page="docs"><i class="fas fa-book"></i> ឯកសារមេរៀន</a></li>
+          <li><a href="/case-studies" data-page="case-studies"><i class="fas fa-briefcase"></i> កម្រងស្នាដៃ</a></li>
         </ul>
       </li>
       <li class="nav-has-dropdown">
         <a href="#" class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">តូបឌីជីថល <i class="fas fa-chevron-down"></i></a>
         <ul class="nav-dropdown">
-          <li><a href="fonts.html" data-page="fonts"><i class="fas fa-font"></i> YOB អក្ខរា</a></li>
-          <li><a href="resources.html" data-page="resources"><i class="fas fa-toolbox"></i> កាដូឌីជីថល</a></li>
+          <li><a href="/fonts" data-page="fonts"><i class="fas fa-font"></i> YOB អក្ខរា</a></li>
+          <li><a href="/resources" data-page="resources"><i class="fas fa-toolbox"></i> កាដូឌីជីថល</a></li>
         </ul>
       </li>
       <li>
-        <a href="contact.html" class="nav-cta">សាកសួរ
+        <a href="/contact" class="nav-cta">សាកសួរ
           <i class="fas fa-paper-plane" style="margin-left:5px"></i>
         </a>
       </li>
@@ -56,37 +56,37 @@
       <div class="footer-col">
         <h4>ប្រតិបត្តិការ YOB</h4>
         <ul>
-          <li><a href="case-studies.html">កងកម្លាំង AI</a></li>
-          <li><a href="case-studies.html">អ្នកនាំផ្លូវទីផ្សារ</a></li>
-          <li><a href="case-studies.html">ប្រព័ន្ធ Web & Systems</a></li>
-          <li><a href="case-studies.html">វិស្វករពុម្ពអក្សរខ្មែរ</a></li>
+          <li><a href="/case-studies">កងកម្លាំង AI</a></li>
+          <li><a href="/case-studies">អ្នកនាំផ្លូវទីផ្សារ</a></li>
+          <li><a href="/case-studies">ប្រព័ន្ធ Web & Systems</a></li>
+          <li><a href="/case-studies">វិស្វករពុម្ពអក្សរខ្មែរ</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>រៀនជាមួយ YOB</h4>
         <ul>
-          <li><a href="yob-learning.html">សិល្បៈបញ្ជា AI</a></li>
-          <li><a href="yob-learning.html">ក្បួនវាយលុកទីផ្សារ</a></li>
-          <li><a href="yob-learning.html">ស្ថាបត្យកម្ម Web</a></li>
-          <li><a href="yob-learning.html">កាដូ</a></li>
+          <li><a href="/yob-learning">សិល្បៈបញ្ជា AI</a></li>
+          <li><a href="/yob-learning">ក្បួនវាយលុកទីផ្សារ</a></li>
+          <li><a href="/yob-learning">ស្ថាបត្យកម្ម Web</a></li>
+          <li><a href="/yob-learning">កាដូ</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>តូបឌីជីថល</h4>
         <ul>
-          <li><a href="fonts.html">Yob អក្ខរា</a></li>
-          <li><a href="resources.html">កូដបញ្ជា AI</a></li>
-          <li><a href="resources.html">ពុម្ពគំរូការងារ</a></li>
-          <li><a href="resources.html">ក្រាហ្វិក</a></li>
+          <li><a href="/fonts">Yob អក្ខរា</a></li>
+          <li><a href="/resources">កូដបញ្ជា AI</a></li>
+          <li><a href="/resources">ពុម្ពគំរូការងារ</a></li>
+          <li><a href="/resources">ក្រាហ្វិក</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>ទីបញ្ជាការ YOB</h4>
         <ul>
-          <li><a href="about.html">សារបានកម្មករឌីជីថល</a></li>
-          <li><a href="contact.html">បណ្ដាញទំនាក់ទំនង</a></li>
-          <li><a href="docs.html">ឯកសារប្រតិបត្តិការ</a></li>
-          <li><a href="sitemap.html">ផែនទីរុករក</a></li>
+          <li><a href="/about">សារបានកម្មករឌីជីថល</a></li>
+          <li><a href="/contact">បណ្ដាញទំនាក់ទំនង</a></li>
+          <li><a href="/docs">ឯកសារប្រតិបត្តិការ</a></li>
+          <li><a href="/sitemap">ផែនទីរុករក</a></li>
         </ul>
       </div>
     </div>
@@ -105,11 +105,11 @@
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 <span>YOB.DIGITAL</span> — All rights reserved.</div>
       <div class="footer-legal">
-        <a href="privacy.html">Privacy</a>
+        <a href="/privacy">Privacy</a>
         <span class="footer-dot">·</span>
-        <a href="terms.html">Terms</a>
+        <a href="/terms">Terms</a>
         <span class="footer-dot">·</span>
-        <a href="about.html">About</a>
+        <a href="/about">About</a>
       </div>
       <div class="footer-made"><i class="fas fa-heart"></i> Made in Cambodia 🇰🇭</div>
     </div>
