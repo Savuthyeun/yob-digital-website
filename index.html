@@ -99,6 +99,37 @@
         font-family: var(--fb) !important;
         font-size: 14px !important;
       }
+
+      /* ══ SCROLL PROGRESS BAR ══ */
+      #yob-progress {
+        position: fixed;
+        top: 0; left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, var(--gold), #9b6bff, #00f0ff);
+        z-index: 9999;
+        pointer-events: none;
+        box-shadow: 0 0 12px rgba(229,44,103,0.55), 0 0 28px rgba(229,44,103,0.22);
+        transition: width 0.08s linear;
+      }
+
+      /* ══ HERO ENTRANCE STAGGER (works with existing .reveal system) ══ */
+      .hero-badge.visible     { transition-delay: 0s !important; }
+      .hero-headline.visible  { transition-delay: 0.12s !important; }
+      .hero-sub.visible       { transition-delay: 0.22s !important; }
+      .hero-actions.visible   { transition-delay: 0.32s !important; }
+      .hero-stats.visible     { transition-delay: 0.42s !important; }
+
+      /* ══ SECTION HEADER CHILDREN STAGGER ══
+         Parent .section-header.reveal fades in; children slide up inside it.
+         Using transform-only (no opacity conflict with parent fade). */
+      .section-header.reveal .section-tag   { transform: translateY(10px); transition: transform 0.55s cubic-bezier(0.16,1,0.3,1) 0.18s; }
+      .section-header.reveal .section-title { transform: translateY(20px); transition: transform 0.7s  cubic-bezier(0.16,1,0.3,1) 0.32s; }
+      .section-header.visible .section-tag,
+      .section-header.visible .section-title { transform: none; }
+
+      /* ══ COUNTER ══ */
+      .count-num { display: inline; }
       @media (max-width: 768px) {
         .hero-headline {
           font-size: clamp(30px, 8vw, 40px) !important;
@@ -1832,6 +1863,8 @@
     </style>
   </head>
   <body>
+    <!-- Scroll Progress Bar -->
+    <div id="yob-progress" aria-hidden="true"></div>
     <!-- Custom Cursor Elements -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
@@ -4003,54 +4036,118 @@
         var canvas = document.getElementById("home-star-canvas");
         if (!canvas) return;
         var ctx = canvas.getContext("2d");
+        var W, H;
         var stars = [];
-        var NUM = 320;
+        var NUM = 380;
 
         function resize() {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
+          W = canvas.width = window.innerWidth;
+          H = canvas.height = window.innerHeight;
         }
         resize();
         window.addEventListener("resize", resize);
 
         function mkStar() {
+          var depth = 0.2 + Math.random() * 0.8; /* closer = bigger depth */
           return {
             x: Math.random() * window.innerWidth,
             y: Math.random() * window.innerHeight,
-            r: 0.25 + Math.random() * 1.1,
-            base: 0.08 + Math.random() * 0.45,
-            speed: 0.4 + Math.random() * 0.9,
+            r: 0.2 + depth * 1.2,
+            base: 0.06 + depth * 0.4,
+            speed: 0.3 + Math.random() * 0.8,
             phase: Math.random() * Math.PI * 2,
-            // subtle color tint: white / faint pink / faint violet
-            hue: Math.random() < 0.75 ? 0 : Math.random() < 0.5 ? 330 : 265,
+            depth: depth,
+            hue: Math.random() < 0.72 ? 0 : Math.random() < 0.5 ? 330 : 265,
           };
         }
 
         for (var i = 0; i < NUM; i++) stars.push(mkStar());
 
+        /* ── Warp state ── */
+        var scrollVel  = 0;
+        var warpTarget = 0;
+        var warpLevel  = 0;
+        var lastY = window.scrollY;
+        var warpDir = 1; /* +1 = down, -1 = up */
+
+        window.addEventListener("scroll", function () {
+          var cy = window.scrollY;
+          var dv = cy - lastY;
+          lastY = cy;
+          scrollVel = Math.abs(dv);
+          warpDir   = dv >= 0 ? 1 : -1;
+        }, { passive: true });
+
         var t = 0;
         function tick() {
-          if (document.hidden) {
-            requestAnimationFrame(tick);
-            return;
+          if (document.hidden) { requestAnimationFrame(tick); return; }
+
+          /* Lerp warp level */
+          warpTarget = Math.min(scrollVel / 22, 1);
+          warpLevel += (warpTarget - warpLevel) * 0.12;
+          scrollVel *= 0.82; /* decay */
+
+          ctx.clearRect(0, 0, W, H);
+
+          /* Warp overlay: blue-white vignette from center at high warp */
+          if (warpLevel > 0.04) {
+            var vig = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.max(W,H)*0.7);
+            vig.addColorStop(0,   'rgba(130,160,255,' + (warpLevel * 0.18) + ')');
+            vig.addColorStop(0.5, 'rgba(80,100,220,'  + (warpLevel * 0.08) + ')');
+            vig.addColorStop(1,   'rgba(0,0,0,0)');
+            ctx.fillStyle = vig;
+            ctx.fillRect(0, 0, W, H);
           }
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
           t += 0.012;
+          var cx = W / 2, cy2 = H / 2;
+
           for (var i = 0; i < stars.length; i++) {
             var s = stars[i];
-            var twinkle =
-              s.base * (0.45 + 0.55 * Math.sin(t * s.speed + s.phase));
-            ctx.globalAlpha = twinkle;
-            if (s.hue === 0) {
-              ctx.fillStyle = "#ffffff";
-            } else if (s.hue === 330) {
-              ctx.fillStyle = "hsl(330,70%,80%)";
+            var twinkle = s.base * (0.45 + 0.55 * Math.sin(t * s.speed + s.phase));
+            var alpha = twinkle + warpLevel * s.depth * 0.55;
+            ctx.globalAlpha = Math.min(alpha, 0.95);
+
+            if (warpLevel > 0.05) {
+              /* ── WARP STREAK ── */
+              /* direction from vanishing point (center) outward */
+              var dx = s.x - cx;
+              var dy = s.y - cy2;
+              var len = Math.sqrt(dx * dx + dy * dy) || 1;
+              var nx = dx / len, ny = dy / len;
+
+              /* Streak length: deeper stars = longer streak, farther from center = longer */
+              var streakLen = warpLevel * s.depth * (28 + len * 0.22);
+              /* Scroll direction biases the streak slightly vertical */
+              var bx = nx + warpDir * 0 * 0.3;
+              var by = ny + warpDir * 0.35;
+              var blen = Math.sqrt(bx*bx + by*by) || 1;
+              bx /= blen; by /= blen;
+
+              var x1 = s.x, y1 = s.y;
+              var x2 = s.x + bx * streakLen, y2 = s.y + by * streakLen;
+
+              var grad = ctx.createLinearGradient(x1, y1, x2, y2);
+              var col = s.hue === 0 ? '255,255,255' :
+                        s.hue === 330 ? '255,160,200' : '180,150,255';
+              grad.addColorStop(0, 'rgba(' + col + ',' + Math.min(alpha * 1.4, 1) + ')');
+              grad.addColorStop(1, 'rgba(' + col + ',0)');
+
+              ctx.strokeStyle = grad;
+              ctx.lineWidth = s.r * (0.6 + warpLevel * 1.4);
+              ctx.beginPath();
+              ctx.moveTo(x1, y1);
+              ctx.lineTo(x2, y2);
+              ctx.stroke();
             } else {
-              ctx.fillStyle = "hsl(265,60%,80%)";
+              /* ── NORMAL DOT ── */
+              if (s.hue === 0)         ctx.fillStyle = "#ffffff";
+              else if (s.hue === 330)  ctx.fillStyle = "hsl(330,70%,80%)";
+              else                     ctx.fillStyle = "hsl(265,60%,80%)";
+              ctx.beginPath();
+              ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+              ctx.fill();
             }
-            ctx.beginPath();
-            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-            ctx.fill();
           }
           ctx.globalAlpha = 1;
           requestAnimationFrame(tick);
@@ -4139,7 +4236,59 @@
         tick();
       })();
     </script>
-    <script src="js/load-components.js"></script>
+    <script>
+    /* ═════════════════════════════════════════════════════════
+       HOMEPAGE SCROLL EFFECTS
+       1. Scroll Progress Bar
+       2. Word Reveal on Section Titles
+       3. Counter Animation on Stats
+    ═════════════════════════════════════════════════════════ */
+    (function () {
+
+      /* ─ 1. SCROLL PROGRESS BAR ─ */
+      var prog = document.getElementById('yob-progress');
+      function updateProg() {
+        var total = document.documentElement.scrollHeight - window.innerHeight;
+        prog.style.width = (total > 0 ? (window.scrollY / total) * 100 : 0) + '%';
+      }
+      window.addEventListener('scroll', updateProg, { passive: true });
+      updateProg();
+
+      /* ─ 2. COUNTER ANIMATION (Khmer numerals) ─ */
+      var KH = ['០','១','២','៣','៤','៥','៦','៧','៨','៩'];
+      function toKhmer(n) {
+        return String(n).split('').map(function(d){ return KH[+d] !== undefined ? KH[+d] : d; }).join('');
+      }
+      function animCount(el) {
+        var target = parseInt(el.dataset.target, 10);
+        if (!target) return;
+        var countEl = el.querySelector('.count-num');
+        if (!countEl) return;
+        var original = countEl.textContent;
+        var dur = 1600;
+        var startT = performance.now();
+        function tick(now) {
+          var p = Math.min((now - startT) / dur, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          countEl.textContent = toKhmer(Math.round(ease * target));
+          if (p < 1) requestAnimationFrame(tick);
+          else countEl.textContent = original;
+        }
+        requestAnimationFrame(tick);
+      }
+      var cntObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.querySelectorAll('[data-target]').forEach(animCount);
+            cntObs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      var statsEl = document.getElementById('heroStats');
+      if (statsEl) cntObs.observe(statsEl);
+
+    })();
+    </script>
     <script src="js/load-components.js"></script>
     <script src="js/main.js" defer></script>
   </body>
