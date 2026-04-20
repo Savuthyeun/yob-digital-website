@@ -74,6 +74,61 @@
         --purple-accent: #b060ff;
         --green-free: #4ade80;
       }
+
+      /* Homepage hero typography tuning */
+      .hero-badge {
+        font-family: var(--fb) !important;
+        font-size: 13px !important;
+        padding: 9px 18px !important;
+      }
+      .hero-headline {
+        font-size: clamp(36px, 5.4vw, 68px) !important;
+        line-height: 1.32 !important;
+        letter-spacing: 0 !important;
+      }
+      .hero-sub {
+        font-family: var(--fb) !important;
+        font-size: clamp(16px, 1.7vw, 19px) !important;
+        line-height: 1.85 !important;
+        max-width: 640px !important;
+      }
+      .stat-num {
+        font-size: clamp(32px, 3vw, 40px) !important;
+      }
+      .stat-lbl {
+        font-family: var(--fb) !important;
+        font-size: 14px !important;
+      }
+      @media (max-width: 768px) {
+        .hero-headline {
+          font-size: clamp(30px, 8vw, 40px) !important;
+          line-height: 1.28 !important;
+        }
+        .hero-sub {
+          font-size: 16px !important;
+        }
+        .hero-badge {
+          font-size: 12px !important;
+        }
+      }
+
+      /* Ecosystem Khmer title fix */
+      #ecosystem .section-title,
+      #ecosystem .section-title .gradient-text {
+        font-family: var(--fk) !important;
+        line-height: 1.6 !important;
+        letter-spacing: 0 !important;
+      }
+      #ecosystem .section-title .gradient-text {
+        display: inline-block;
+        padding-bottom: 0.18em !important;
+      }
+      #ecosystem .section-bg-num {
+        font-family: var(--fk) !important;
+        line-height: 1.15 !important;
+        letter-spacing: 0 !important;
+      }
+
       .yt-icon {
         color: var(--yt-red);
       }
@@ -1428,8 +1483,8 @@
           transform 0.8s ease 0.4s;
       }
       .yeva-sublabel {
-        font-size: 8px;
-        letter-spacing: 1.5px;
+        font-size: 10px;
+        letter-spacing: 1.2px;
         color: rgba(229, 44, 103, 0.5);
         text-transform: uppercase;
         font-family: var(--fb);
@@ -3805,8 +3860,12 @@
           o3.stop(t + 0.42);
         }
 
-        /* ── JARVIS Greeting Voice ── */
-        function speakGreeting() {
+        /* ── Uploaded Moon Voice + fallback ── */
+        const moonVoice = new Audio("audio/moon-voice.wav");
+        moonVoice.preload = "auto";
+        moonVoice.volume = 1.0;
+
+        function speakGreetingFallback() {
           if (!window.speechSynthesis) return;
           window.speechSynthesis.cancel();
 
@@ -3814,7 +3873,6 @@
             const voices = window.speechSynthesis.getVoices();
             const utter = new SpeechSynthesisUtterance();
 
-            // Priority: Khmer voice → female English → any
             const km = voices.find((v) => v.lang.startsWith("km"));
             const female = voices.find((v) =>
               /samantha|karen|victoria|zira|moira|fiona|ava|allison|google uk english female/i.test(
@@ -3840,12 +3898,21 @@
             window.speechSynthesis.speak(utter);
           }
 
-          // Voices list may not load until requested
           const v = window.speechSynthesis.getVoices();
-          if (v.length) {
-            speak();
-          } else {
-            window.speechSynthesis.onvoiceschanged = speak;
+          if (v.length) speak();
+          else window.speechSynthesis.onvoiceschanged = speak;
+        }
+
+        function playMoonVoice() {
+          try {
+            moonVoice.pause();
+            moonVoice.currentTime = 0;
+            const playPromise = moonVoice.play();
+            if (playPromise && typeof playPromise.catch === "function") {
+              playPromise.catch(() => speakGreetingFallback());
+            }
+          } catch (e) {
+            speakGreetingFallback();
           }
         }
 
@@ -3853,11 +3920,11 @@
         let activated = false;
         let hoverCooldown = false;
 
-        // CLICK → unlock AudioContext + ping + voice
+        // CLICK → unlock AudioContext + ping + uploaded voice
         moon.addEventListener("click", function () {
           activated = true;
           ping();
-          setTimeout(speakGreeting, 220);
+          setTimeout(playMoonVoice, 120);
           moon.style.cursor = "pointer";
         });
 
