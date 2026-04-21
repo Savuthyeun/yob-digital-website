@@ -1,0 +1,1219 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOB Skills — AI & Digital Learning Platform</title>
+    <meta
+      name="description"
+      content="YOB Skills — Platform សម្រាប់រៀន AI Tools, Digital Strategy, Web Development, Khmer Typography ជាភាសាខ្មែរ ១០០%! FREE Lessons, Guided Paths, Community Support"
+    />
+
+    <!-- SEO -->
+    <link rel="canonical" href="https://yobdigital.netlify.app/yobskills.html" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="YOB Skills — AI & Digital Learning Platform" />
+    <meta property="og:description" content="Platform សម្រាប់រៀន AI Tools, Digital Strategy, Web Development, Khmer Typography ជាភាសាខ្មែរ ១០០%! FREE Lessons" />
+    <meta property="og:image" content="https://yobdigital.netlify.app/images/og-cover.jpg" />
+    <meta property="og:url" content="https://yobdigital.netlify.app/yobskills.html" />
+    <meta property="og:type" content="website" />
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome (async — non-render-blocking) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+
+    <!-- YOB Shared Styles — ALWAYS LAST before page styles -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      /* ═══════════════════════════════════════
+         YOB SKILLS — Page Styles
+         Inspired by skills.google layout
+         prefix: ysk-* (no conflicts with style.css)
+      ═══════════════════════════════════════ */
+
+      /* ── Color tokens for category badges ── */
+      :root {
+        --ysk-ai:    #e52c67;
+        --ysk-strat: #4f82ff;
+        --ysk-web:   #00f0ff;
+        --ysk-type:  #9b6bff;
+        --ysk-res:   #ff9800;
+        --ysk-free:  #00e676;
+      }
+
+      /* ════════════════════
+         HERO
+      ════════════════════ */
+      .ysk-hero {
+        position: relative;
+        min-height: 96vh;
+        display: flex;
+        align-items: center;
+        padding: 120px 0 100px;
+        overflow: hidden;
+      }
+
+      /* Ambient glow layers */
+      .ysk-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 80% 55% at 50% -5%,  rgba(229,44,103,0.14) 0%, transparent 58%),
+          radial-gradient(ellipse 45% 50% at 85% 45%,  rgba(79,130,255,0.07) 0%, transparent 52%),
+          radial-gradient(ellipse 40% 45% at 15% 60%,  rgba(155,107,255,0.06) 0%, transparent 52%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* Subtle grid overlay */
+      .ysk-hero::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+        background-size: 52px 52px;
+        mask-image: radial-gradient(ellipse 85% 75% at 50% 50%, black 15%, transparent 72%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .ysk-hero .container {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+
+      .ysk-hero-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        background: rgba(229,44,103,0.1);
+        border: 1px solid rgba(229,44,103,0.22);
+        border-radius: 50px;
+        padding: 6px 18px;
+        font-family: var(--fb);
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--gold);
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 28px;
+      }
+
+      .ysk-hero-title {
+        font-family: var(--fh);
+        font-size: clamp(52px, 9vw, 96px);
+        line-height: 0.98;
+        color: var(--white);
+        margin-bottom: 24px;
+        letter-spacing: -1px;
+      }
+
+      .ysk-hero-title .sub-line {
+        display: block;
+        font-family: var(--fb);
+        font-size: 0.25em;
+        font-weight: 500;
+        color: var(--gray);
+        letter-spacing: 0.01em;
+        line-height: 1;
+        margin-bottom: 10px;
+        text-transform: none;
+      }
+
+      .ysk-hero-sub {
+        font-family: var(--fb);
+        font-size: clamp(14px, 2vw, 17px);
+        color: var(--gray);
+        max-width: 560px;
+        margin: 0 auto 40px;
+        line-height: 1.8;
+      }
+
+      /* ── Pill bar ── */
+      .ysk-pills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 44px;
+      }
+
+      .ysk-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 18px;
+        border-radius: 50px;
+        border: 1px solid var(--border2);
+        background: rgba(255,255,255,0.04);
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+        cursor: pointer;
+        transition: var(--t);
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .ysk-pill:hover,
+      .ysk-pill.active {
+        border-color: var(--gold);
+        color: var(--white);
+        background: rgba(229,44,103,0.1);
+      }
+
+      .ysk-pdot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .ysk-hero-btns {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      /* Scroll indicator */
+      .ysk-scroll {
+        position: absolute;
+        bottom: 36px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        color: var(--gray);
+        font-family: var(--fb);
+        font-size: 10px;
+        letter-spacing: 0.5px;
+        opacity: 0.4;
+        animation: ysk-bob 2.2s ease-in-out infinite;
+      }
+
+      @keyframes ysk-bob {
+        0%, 100% { transform: translateX(-50%) translateY(0); }
+        50%       { transform: translateX(-50%) translateY(7px); }
+      }
+
+      /* ════════════════════
+         FEATURED PATHS
+      ════════════════════ */
+      .ysk-paths-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 48px;
+      }
+
+      .ysk-path-card {
+        background: var(--dark2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        transition: var(--t);
+      }
+
+      .ysk-path-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--border2);
+        box-shadow: 0 20px 48px rgba(0,0,0,0.45);
+      }
+
+      .ysk-path-accent { height: 3px; width: 100%; }
+
+      .ysk-path-emoji {
+        padding: 24px 24px 0;
+        font-size: 38px;
+        line-height: 1;
+      }
+
+      .ysk-path-body {
+        padding: 16px 24px 26px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .ysk-path-badge {
+        display: inline-block;
+        padding: 3px 11px;
+        border-radius: 50px;
+        font-family: var(--fb);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        margin-bottom: 12px;
+      }
+
+      .ysk-path-title {
+        font-family: var(--fb);
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.35;
+        margin-bottom: 10px;
+      }
+
+      .ysk-path-desc {
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+        line-height: 1.68;
+        flex: 1;
+        margin-bottom: 20px;
+      }
+
+      .ysk-path-meta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 18px;
+      }
+
+      .ysk-path-meta span {
+        font-family: var(--fb);
+        font-size: 11px;
+        color: var(--gray);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .ysk-path-meta i { font-size: 10px; }
+
+      .ysk-path-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--fb);
+        font-size: 13px;
+        font-weight: 600;
+        transition: gap var(--t);
+      }
+
+      .ysk-path-card:hover .ysk-path-cta { gap: 10px; }
+
+      /* ════════════════════
+         STATS ROW
+      ════════════════════ */
+      .ysk-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        margin-top: 48px;
+      }
+
+      .ysk-stat {
+        background: var(--dark2);
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .ysk-stat-n {
+        font-family: var(--fh);
+        font-size: clamp(40px, 5.5vw, 60px);
+        color: var(--white);
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .ysk-stat-n .hi { color: var(--gold); }
+      .ysk-stat-n .free-hi { color: var(--ysk-free); }
+
+      .ysk-stat-l {
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+        line-height: 1.5;
+      }
+
+      /* ════════════════════
+         LEARN YOUR WAY
+      ════════════════════ */
+      .ysk-formats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 48px;
+      }
+
+      .ysk-fmt-card {
+        background: var(--dark2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 36px 28px;
+        transition: var(--t);
+      }
+
+      .ysk-fmt-card:hover {
+        border-color: var(--gold);
+        background: rgba(229,44,103,0.03);
+      }
+
+      .ysk-fmt-ico {
+        width: 54px;
+        height: 54px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .ysk-fmt-title {
+        font-family: var(--fb);
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 10px;
+      }
+
+      .ysk-fmt-desc {
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+        line-height: 1.68;
+      }
+
+      /* ════════════════════
+         CATALOG PREVIEW
+      ════════════════════ */
+      .ysk-cat-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 32px;
+      }
+
+      .ysk-c-card {
+        background: var(--dark2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        cursor: pointer;
+        transition: var(--t);
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+      }
+
+      .ysk-c-card:hover {
+        border-color: var(--border2);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      }
+
+      .ysk-c-thumb {
+        height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        flex-shrink: 0;
+      }
+
+      .ysk-c-body {
+        padding: 14px 16px 18px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .ysk-c-cat {
+        font-family: var(--fb);
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+        margin-bottom: 6px;
+      }
+
+      .ysk-c-title {
+        font-family: var(--fb);
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--white);
+        line-height: 1.42;
+        flex: 1;
+        margin-bottom: 10px;
+      }
+
+      .ysk-c-meta {
+        font-family: var(--fb);
+        font-size: 11px;
+        color: var(--gray);
+        display: flex;
+        gap: 10px;
+      }
+
+      /* ════════════════════
+         COMMUNITY
+      ════════════════════ */
+      .ysk-comm-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: center;
+        padding: 20px 0 40px;
+      }
+
+      .ysk-comm-text .section-tag {
+        margin-bottom: 18px;
+        display: inline-block;
+      }
+
+      .ysk-comm-text h2 {
+        font-family: var(--fh);
+        font-size: clamp(34px, 4.5vw, 52px);
+        color: var(--white);
+        line-height: 1.08;
+        margin-bottom: 18px;
+      }
+
+      .ysk-comm-text p {
+        font-family: var(--fb);
+        font-size: 15px;
+        color: var(--gray);
+        line-height: 1.75;
+        margin-bottom: 28px;
+      }
+
+      .ysk-comm-btns {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      /* Community visual — pulsing rings */
+      .ysk-comm-vis {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 300px;
+      }
+
+      .ysk-ring {
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid rgba(229,44,103,0.12);
+        animation: ysk-pulse-ring 3.2s ease-in-out infinite;
+      }
+
+      .ysk-ring:nth-child(1) { width: 170px; height: 170px; }
+      .ysk-ring:nth-child(2) { width: 250px; height: 250px; animation-delay: 0.9s; }
+      .ysk-ring:nth-child(3) { width: 330px; height: 330px; animation-delay: 1.8s; }
+
+      @keyframes ysk-pulse-ring {
+        0%, 100% { opacity: 0.45; }
+        50%       { opacity: 0.1; transform: scale(1.03); }
+      }
+
+      .ysk-hub {
+        width: 115px;
+        height: 115px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(229,44,103,0.18), rgba(79,130,255,0.12));
+        border: 2px solid rgba(229,44,103,0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 42px;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 0 48px rgba(229,44,103,0.12), 0 0 0 18px rgba(229,44,103,0.04);
+      }
+
+      /* Community floating avatar chips */
+      .ysk-chip {
+        position: absolute;
+        background: var(--dark3);
+        border: 1px solid var(--border2);
+        border-radius: 50px;
+        padding: 6px 12px;
+        font-family: var(--fb);
+        font-size: 11px;
+        color: var(--gray);
+        white-space: nowrap;
+        z-index: 3;
+      }
+
+      .ysk-chip:nth-child(4) { top: 18%; left: 5%; }
+      .ysk-chip:nth-child(5) { top: 18%; right: 8%; }
+      .ysk-chip:nth-child(6) { bottom: 22%; left: 2%; }
+      .ysk-chip:nth-child(7) { bottom: 22%; right: 4%; }
+
+      /* ════════════════════
+         CREDENTIALS
+      ════════════════════ */
+      .ysk-cred-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-top: 48px;
+      }
+
+      .ysk-cred {
+        background: var(--dark2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 40px 36px;
+        position: relative;
+        overflow: hidden;
+        transition: var(--t);
+      }
+
+      .ysk-cred:hover { border-color: var(--border2); }
+
+      .ysk-cred::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+      }
+
+      .ysk-cred.cert::before { background: linear-gradient(90deg, var(--gold), #ff8ab0); }
+      .ysk-cred.badge::before { background: linear-gradient(90deg, var(--ysk-strat), var(--ysk-type)); }
+
+      .ysk-cred-soon {
+        display: inline-block;
+        padding: 3px 11px;
+        background: rgba(255,152,0,0.1);
+        border: 1px solid rgba(255,152,0,0.2);
+        border-radius: 50px;
+        font-family: var(--fb);
+        font-size: 10px;
+        font-weight: 600;
+        color: #ff9800;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .ysk-cred-ico { font-size: 40px; display: block; margin-bottom: 16px; }
+
+      .ysk-cred-title {
+        font-family: var(--fb);
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 10px;
+      }
+
+      .ysk-cred-desc {
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+        line-height: 1.7;
+      }
+
+      /* ════════════════════
+         FINAL CTA
+      ════════════════════ */
+      .ysk-cta {
+        text-align: center;
+        padding: 110px 0;
+        position: relative;
+      }
+
+      .ysk-cta::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 65% 75% at 50% 50%, rgba(229,44,103,0.07) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      .ysk-cta .container { position: relative; z-index: 1; }
+
+      .ysk-cta-title {
+        font-family: var(--fh);
+        font-size: clamp(40px, 7vw, 80px);
+        color: var(--white);
+        line-height: 1.05;
+        margin-bottom: 18px;
+      }
+
+      .ysk-cta-sub {
+        font-family: var(--fb);
+        font-size: 16px;
+        color: var(--gray);
+        max-width: 460px;
+        margin: 0 auto 40px;
+        line-height: 1.65;
+      }
+
+      .ysk-cta-btns {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      /* ════════════════════
+         RESPONSIVE
+      ════════════════════ */
+      @media (max-width: 900px) {
+        .ysk-paths-grid,
+        .ysk-formats,
+        .ysk-cred-grid { grid-template-columns: 1fr; }
+
+        .ysk-cat-grid { grid-template-columns: repeat(2, 1fr); }
+
+        .ysk-stats { grid-template-columns: repeat(2, 1fr); }
+
+        .ysk-comm-wrap {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .ysk-comm-vis { display: none; }
+      }
+
+      @media (max-width: 600px) {
+        .ysk-hero { min-height: auto; padding: 90px 0 70px; }
+        .ysk-cat-grid { grid-template-columns: 1fr; }
+        .ysk-stats { grid-template-columns: 1fr 1fr; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Background Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <!-- Nav injected by load-components.js -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button class="drawer-close" id="drawerClose">
+        <i class="fas fa-times"></i>
+      </button>
+      <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">
+          Learn <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="drawer-group-items">
+          <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+          <a href="yobskills.html" onclick="closeDrawer()">YOB Skills</a>
+          <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+          <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
+        </div>
+      </div>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">
+          Products <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="drawer-group-items">
+          <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+          <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
+        </div>
+      </div>
+      <a href="about.html" onclick="closeDrawer()">About YOB</a>
+      <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <section class="ysk-hero">
+      <div class="container">
+
+        <div class="ysk-hero-tag reveal">
+          <i class="fas fa-graduation-cap"></i>
+          YOB Skills Platform
+        </div>
+
+        <h1 class="ysk-hero-title reveal">
+          <span class="sub-line">ពង្រឹងជំនាញ AI & ឌីជីថល</span>
+          ចាប់ផ្ដើម<span class="gradient-text"> ថ្ងៃនេះ</span>
+        </h1>
+
+        <p class="ysk-hero-sub reveal">
+          AI Tools · Digital Strategy · Web & Systems · Khmer Typography<br>
+          ជាភាសាខ្មែរ ១០០% · Apply បានភ្លាម · FREE ទាំងអស់
+        </p>
+
+        <!-- Topic Pills -->
+        <div class="ysk-pills reveal">
+          <a href="#catalog" class="ysk-pill active">ទាំងអស់</a>
+          <a href="#catalog" class="ysk-pill">
+            <span class="ysk-pdot" style="background:var(--ysk-ai)"></span>AI Tools
+          </a>
+          <a href="#catalog" class="ysk-pill">
+            <span class="ysk-pdot" style="background:var(--ysk-strat)"></span>Digital Strategy
+          </a>
+          <a href="#catalog" class="ysk-pill">
+            <span class="ysk-pdot" style="background:var(--ysk-web)"></span>Web & Systems
+          </a>
+          <a href="#catalog" class="ysk-pill">
+            <span class="ysk-pdot" style="background:var(--ysk-type)"></span>Typography
+          </a>
+          <a href="#catalog" class="ysk-pill">
+            <span class="ysk-pdot" style="background:var(--ysk-free)"></span>FREE Resources
+          </a>
+        </div>
+
+        <div class="ysk-hero-btns reveal">
+          <a href="docs.html" class="btn-primary">
+            <i class="fas fa-rocket"></i> ចាប់ផ្ដើមរៀន FREE
+          </a>
+          <a href="#catalog" class="btn-outline">
+            <i class="fas fa-th-large"></i> មើល Catalog
+          </a>
+        </div>
+
+      </div>
+      <!-- Scroll hint -->
+      <div class="ysk-scroll" aria-hidden="true">
+        <i class="fas fa-chevron-down"></i>
+        Scroll
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         FEATURED PATHS — "Skill up on AI today" equivalent
+    ══════════════════════════════════════════ -->
+    <section class="section-dark-alt" id="paths">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">ផ្លូវរៀន</span>
+          <h2 class="section-title">ចាប់ផ្ដើម<span class="gradient-text">ត្រឹមត្រូវ</span></h2>
+          <p class="section-sub">Learning Paths ដែល YOB ណែនាំ — ស្របតាមគោលដៅអ្នក</p>
+          <span class="section-bg-num">PATHS</span>
+        </div>
+
+        <div class="ysk-paths-grid">
+
+          <!-- Path 1 — AI Foundations -->
+          <a href="docs.html" class="ysk-path-card reveal">
+            <div class="ysk-path-accent" style="background:linear-gradient(90deg,var(--ysk-ai),#ff8ab0)"></div>
+            <div class="ysk-path-emoji">🤖</div>
+            <div class="ysk-path-body">
+              <span class="ysk-path-badge" style="background:rgba(229,44,103,0.1);color:var(--ysk-ai)">AI Tools</span>
+              <div class="ysk-path-title">AI Foundations<br>for Khmer Business</div>
+              <div class="ysk-path-desc">
+                រៀនប្រើ Claude, ChatGPT, Gemini ត្រឹមត្រូវ · Prompt Engineering · Automation Setup · Save ៣+ ម៉ោង/ថ្ងៃ
+              </div>
+              <div class="ysk-path-meta">
+                <span><i class="fas fa-book-open"></i> 6 Lessons</span>
+                <span><i class="fas fa-clock"></i> 1.5 ម៉ោង</span>
+                <span><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="ysk-path-cta" style="color:var(--ysk-ai)">
+                ចូលរៀន <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+          </a>
+
+          <!-- Path 2 — Digital Marketing -->
+          <a href="docs.html" class="ysk-path-card reveal">
+            <div class="ysk-path-accent" style="background:linear-gradient(90deg,var(--ysk-strat),var(--ysk-web))"></div>
+            <div class="ysk-path-emoji">📢</div>
+            <div class="ysk-path-body">
+              <span class="ysk-path-badge" style="background:rgba(79,130,255,0.1);color:var(--ysk-strat)">Digital Strategy</span>
+              <div class="ysk-path-title">Digital Marketing<br>Blueprint</div>
+              <div class="ysk-path-desc">
+                Full-funnel strategy · Facebook & Google Ads · Content Calendar · Analytics · 3x ROAS method
+              </div>
+              <div class="ysk-path-meta">
+                <span><i class="fas fa-book-open"></i> 8 Lessons</span>
+                <span><i class="fas fa-clock"></i> 2.5 ម៉ោង</span>
+                <span><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+              <div class="ysk-path-cta" style="color:var(--ysk-strat)">
+                ចូលរៀន <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+          </a>
+
+          <!-- Path 3 — Web Presence -->
+          <a href="docs.html" class="ysk-path-card reveal">
+            <div class="ysk-path-accent" style="background:linear-gradient(90deg,var(--ysk-web),var(--ysk-type))"></div>
+            <div class="ysk-path-emoji">🌍</div>
+            <div class="ysk-path-body">
+              <span class="ysk-path-badge" style="background:rgba(0,240,255,0.08);color:var(--ysk-web)">Web & Systems</span>
+              <div class="ysk-path-title">Build Your<br>Digital Presence</div>
+              <div class="ysk-path-desc">
+                HTML basics · Landing Page Blueprint · GitHub version control · Netlify FREE hosting · Custom domain
+              </div>
+              <div class="ysk-path-meta">
+                <span><i class="fas fa-book-open"></i> 5 Lessons</span>
+                <span><i class="fas fa-clock"></i> 3 ម៉ោង</span>
+                <span><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+              <div class="ysk-path-cta" style="color:var(--ysk-web)">
+                ចូលរៀន <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+          </a>
+
+        </div>
+
+        <div style="text-align:center;margin-top:36px" class="reveal">
+          <a href="docs.html" class="btn-outline">
+            <i class="fas fa-th"></i> ម Paths ទាំងអស់
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         STATS — "Hands-on learning" equivalent
+    ══════════════════════════════════════════ -->
+    <section id="why-yob">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">ហេតុអ្វីជ្រើស YOB?</span>
+          <h2 class="section-title">លទ្ធផល<span class="gradient-text">ជាក់ស្ដែង</span></h2>
+          <span class="section-bg-num">WHY</span>
+        </div>
+
+        <div class="ysk-stats reveal">
+          <div class="ysk-stat">
+            <div class="ysk-stat-n"><span class="hi">500</span>+</div>
+            <div class="ysk-stat-l">SMEs & Creators<br>ដែលបានរៀន</div>
+          </div>
+          <div class="ysk-stat">
+            <div class="ysk-stat-n"><span class="hi">27</span></div>
+            <div class="ysk-stat-l">Free Lessons<br>ជាភាសាខ្មែរ</div>
+          </div>
+          <div class="ysk-stat">
+            <div class="ysk-stat-n"><span class="hi">100</span>%</div>
+            <div class="ysk-stat-l">Khmer First<br>Apply បានភ្លាម</div>
+          </div>
+          <div class="ysk-stat">
+            <div class="ysk-stat-n"><span class="free-hi">FREE</span></div>
+            <div class="ysk-stat-l">ឥតគិតថ្លៃ<br>ទាំងស្រុង</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         LEARN YOUR WAY — "Formats" section
+    ══════════════════════════════════════════ -->
+    <section class="section-dark-alt" id="formats">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">របៀបរៀន</span>
+          <h2 class="section-title">រៀន<span class="gradient-text">តាមរបៀបរបស់អ្នក</span></h2>
+          <p class="section-sub">YOB Skills ផ្ដល់ Content ក្នុង ៣ ទម្រង់ — ឱ្យអ្នករៀនបានកាន់តែស្រួល</p>
+          <span class="section-bg-num">HOW</span>
+        </div>
+
+        <div class="ysk-formats">
+          <div class="ysk-fmt-card reveal">
+            <div class="ysk-fmt-ico" style="background:rgba(229,44,103,0.1)">📖</div>
+            <div class="ysk-fmt-title">Guides & Documentation</div>
+            <div class="ysk-fmt-desc">
+              Step-by-step written guides ជាភាសាខ្មែរ · Screenshot + Code Example · Apply ភ្លាមមើលឃើញ · Update ជាប្រចាំ
+            </div>
+          </div>
+          <div class="ysk-fmt-card reveal">
+            <div class="ysk-fmt-ico" style="background:rgba(79,130,255,0.1)">🎯</div>
+            <div class="ysk-fmt-title">Templates & AI Prompts</div>
+            <div class="ysk-fmt-desc">
+              Copy-paste ready · 50+ AI Prompts ខ្មែរ · 30-Day Content Calendar · Ad copy swipe files · Brand templates
+            </div>
+          </div>
+          <div class="ysk-fmt-card reveal">
+            <div class="ysk-fmt-ico" style="background:rgba(0,230,118,0.1)">👥</div>
+            <div class="ysk-fmt-title">Live Community Q&A</div>
+            <div class="ysk-fmt-desc">
+              Telegram community · សួរ YOB ដោយផ្ទាល់ · SME ខ្មែរ 500+ · Share results · Peer-to-peer learning
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         CATALOG PREVIEW
+    ══════════════════════════════════════════ -->
+    <section id="catalog">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Catalog</span>
+          <h2 class="section-title">ជ្រើស<span class="gradient-text">មេរៀន</span>ដែលអ្នកចង់</h2>
+          <p class="section-sub">27 free lessons — ជ្រើសតាម Topic ឬតាមគោលដៅអ្នក</p>
+          <span class="section-bg-num">LEARN</span>
+        </div>
+
+        <!-- Filter pills (catalog) -->
+        <div class="ysk-pills reveal" style="justify-content:flex-start;margin-bottom:28px">
+          <button class="ysk-pill active" onclick="yskCatFilter(this,'all')">ទាំងអស់</button>
+          <button class="ysk-pill" onclick="yskCatFilter(this,'ai')">
+            <span class="ysk-pdot" style="background:var(--ysk-ai)"></span>AI Tools
+          </button>
+          <button class="ysk-pill" onclick="yskCatFilter(this,'strat')">
+            <span class="ysk-pdot" style="background:var(--ysk-strat)"></span>Digital Strategy
+          </button>
+          <button class="ysk-pill" onclick="yskCatFilter(this,'web')">
+            <span class="ysk-pdot" style="background:var(--ysk-web)"></span>Web & Systems
+          </button>
+          <button class="ysk-pill" onclick="yskCatFilter(this,'type')">
+            <span class="ysk-pdot" style="background:var(--ysk-type)"></span>Typography
+          </button>
+          <button class="ysk-pill" onclick="yskCatFilter(this,'res')">
+            <span class="ysk-pdot" style="background:var(--ysk-res)"></span>Resources
+          </button>
+        </div>
+
+        <div class="ysk-cat-grid" id="yskGrid">
+
+          <a href="docs.html" class="ysk-c-card reveal" data-cat="ai">
+            <div class="ysk-c-thumb" style="background:rgba(229,44,103,0.08)">🤖</div>
+            <div class="ysk-c-body">
+              <div class="ysk-c-cat" style="color:var(--ysk-ai)">AI Tools</div>
+              <div class="ysk-c-title">AI Overview — Claude vs ChatGPT vs Gemini</div>
+              <div class="ysk-c-meta"><span>15 min</span><span>Beginner</span></div>
+            </div>
+          </a>
+
+          <a href="docs.html" class="ysk-c-card reveal" data-cat="ai">
+            <div class="ysk-c-thumb" style="background:rgba(229,44,103,0.08)">✍️</div>
+            <div class="ysk-c-body">
+              <div class="ysk-c-cat" style="color:var(--ysk-ai)">AI Tools</div>
+              <div class="ysk-c-title">Prompt Engineering — RTFT Framework</div>
+              <div class="ysk-c-meta"><span>25 min</span><span>Beginner</span></div>
+            </div>
+          </a>
+
+          <a href="docs.html" class="ysk-c-card reveal" data-cat="ai">
+            <div class="ysk-c-thumb" style="background:rgba(229,44,103,0.08)">⚙️</div>
+            <div class="ysk-c-body">
+              <div class="ysk-c-cat" style="color:var(--ysk-ai)">AI Tools</div>
+              <div class="ysk-c-title">Automation Setup — ManyChat + Zapier</div>
+              <div class="ysk-c-meta"><span>35 min</span><span>Intermediate</span></div>
+            </div>
+          </a>
+
+          <a href="docs.html" class="ysk-c-card reveal" data-cat="strat">
+            <div class="ysk-c-thumb" style="background:rgba(79,130,255,0.08)">📢</div>
+            <div class="ysk-c-body">
+              <div class="ysk-c-cat" style="color:var(--ysk-strat)">Digital Strategy</div>
+              <div class="ysk-c-title">Strategy Overview — Full-funnel Blueprint</div>
+              <div class="ysk-c-meta"><span>20 min</span><span>Beginner</span></div>
+            </div>
+          </a>
+
+          <a href="docs.html" class="ysk-c-card reveal" data-cat="strat">
+            <div class="ysk-c-thumb" style="background:rgba(79,130,255,0.08)">🎯</div>
+            <div class="ysk-c-body">
+              <div class="ysk-c-cat" style="color:var(--ysk-strat)">Digital Strategy</div>
+              <div class="ysk-c-title">Facebook & Google Ads — Setup & Optimize</div>
+              <div class="ysk-c-meta"><span>40 min</span><span>Intermediate</span></div>
+            </div>
+          </a>
+
+          <a href="docs.html" class="ysk-c-card reveal" data-cat="strat">
+            <div class="ysk-c-thumb" style="background:rgba(79,130,255,0.08)">📅</div>
+            <div class="ysk-c-body">
+              <div class="ysk-c-cat" style="color:var(--ysk-strat)">Digital Strategy</div>
+              <div class="ysk-c-title">Content Planning — 30-Day Calendar System</div>
+              <div class="ysk-c-meta"><span>22 min</span><span>Beginner</span></div>
+            </div>
+          </a>
+
+          <a href="docs.html" class="ysk-c-card reveal" data-cat="web">
+            <div class="ysk-c-thumb" style="background:rgba(0,240,255,0.06)">🏗️</div>
+            <div class="ysk-c-body">
+              <div class="ysk-c-cat" style="color:var(--ysk-web)">Web & Systems</div>
+              <div class="ysk-c-title">Landing Page Blueprint — Convert Visitors</div>
+              <div class="ysk-c-meta"><span>30 min</span><span>Intermediate</span></div>
+            </div>
+          </a>
+
+          <a href="docs.html" class="ysk-c-card reveal" data-cat="type">
+            <div class="ysk-c-thumb" style="background:rgba(155,107,255,0.08)">🔤</div>
+            <div class="ysk-c-body">
+              <div class="ysk-c-cat" style="color:var(--ysk-type)">Typography</div>
+              <div class="ysk-c-title">Khmer Fonts Overview — Unicode Guide</div>
+              <div class="ysk-c-meta"><span>12 min</span><span>Beginner</span></div>
+            </div>
+          </a>
+
+          <a href="docs.html" class="ysk-c-card reveal" data-cat="res">
+            <div class="ysk-c-thumb" style="background:rgba(255,152,0,0.08)">🎁</div>
+            <div class="ysk-c-body">
+              <div class="ysk-c-cat" style="color:var(--ysk-res)">Resources</div>
+              <div class="ysk-c-title">FREE Toolkit — AI Content Bible + 50 Prompts</div>
+              <div class="ysk-c-meta"><span>5 min</span><span>Beginner</span></div>
+            </div>
+          </a>
+
+        </div>
+
+        <div style="text-align:center;margin-top:36px" class="reveal">
+          <a href="docs.html" class="btn-primary">
+            <i class="fas fa-th-large"></i> ម Catalog ពេញ — 27 Lessons
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         COMMUNITY — "Learn and build with others" equivalent
+    ══════════════════════════════════════════ -->
+    <section class="section-dark-alt" id="community">
+      <div class="container">
+        <div class="ysk-comm-wrap">
+
+          <div class="ysk-comm-text reveal">
+            <span class="section-tag">Community</span>
+            <h2>រៀន<span class="gradient-text">ជាមួយ</span><br>Community ខ្មែរ</h2>
+            <p>
+              ចូលជា YOB Community — SME, Creator, Freelancer ខ្មែរ ៥០០+ នាក់ — Share experience, សួរសំណួរ, get feedback ជារៀងរាល់ថ្ងៃ។ ការរៀនជាមួយគ្នានឹងបង្ហាញ insight ដែលអ្នកនៅម្នាក់ឯងស្ទើររកឃើញ។
+            </p>
+            <div class="ysk-comm-btns">
+              <a href="https://t.me/yobdigital" target="_blank" rel="noopener" class="btn-primary">
+                <i class="fab fa-telegram"></i> ចូល Telegram FREE
+              </a>
+              <a href="https://facebook.com/yobdigital" target="_blank" rel="noopener" class="btn-outline">
+                <i class="fab fa-facebook"></i> Facebook Page
+              </a>
+            </div>
+          </div>
+
+          <!-- Animated visual -->
+          <div class="ysk-comm-vis reveal" aria-hidden="true">
+            <div class="ysk-ring"></div>
+            <div class="ysk-ring"></div>
+            <div class="ysk-ring"></div>
+            <div class="ysk-hub">👥</div>
+            <div class="ysk-chip">🇰🇭 SME ខ្មែរ</div>
+            <div class="ysk-chip">🤖 AI Tools</div>
+            <div class="ysk-chip">📈 Marketing</div>
+            <div class="ysk-chip">💻 Web Dev</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         CREDENTIALS — "Future proof your career" equivalent
+    ══════════════════════════════════════════ -->
+    <section id="credentials">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Credentials</span>
+          <h2 class="section-title">បញ្ជាក់<span class="gradient-text">ជំនាញ</span>របស់អ្នក</h2>
+          <p class="section-sub">YOB Digital ហ្វឹកហ្វឺន · Proof of Skills · Share on LinkedIn & Facebook</p>
+          <span class="section-bg-num">CRED</span>
+        </div>
+
+        <div class="ysk-cred-grid">
+          <div class="ysk-cred cert reveal">
+            <span class="ysk-cred-soon">Coming Soon</span>
+            <span class="ysk-cred-ico">🏅</span>
+            <div class="ysk-cred-title">YOB Digital Certificate</div>
+            <div class="ysk-cred-desc">
+              បញ្ជាក់ការបញ្ចប់ Learning Path · Shareable PDF & LinkedIn badge · Signed by YOB Digital · Recognized by Khmer SME community
+            </div>
+          </div>
+          <div class="ysk-cred badge reveal">
+            <span class="ysk-cred-soon">Coming Soon</span>
+            <span class="ysk-cred-ico">⭐</span>
+            <div class="ysk-cred-title">Topic Skill Badges</div>
+            <div class="ysk-cred-desc">
+              Badge per Topic ដែលបញ្ចប់ · AI Tools Badge · Digital Marketing Badge · Web Builder Badge · Khmer Typography Badge
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         FINAL CTA — "Start building your tomorrow" equivalent
+    ══════════════════════════════════════════ -->
+    <section class="ysk-cta section-dark-alt">
+      <div class="container reveal">
+        <div class="ysk-cta-title">
+          ចាប់ផ្ដើម<span class="gradient-text"> FREE</span><br>
+          ថ្ងៃនេះ
+        </div>
+        <p class="ysk-cta-sub">
+          ជ្រើស AI, Digital Strategy, Web, ឬ Typography<br>
+          27 lessons FREE — ជាភាសាខ្មែរ ១០០%
+        </p>
+        <div class="ysk-cta-btns">
+          <a href="docs.html" class="btn-primary">
+            <i class="fas fa-rocket"></i> ចូលរៀន FREE
+          </a>
+          <a href="index.html#contact" class="btn-outline">
+            <i class="fas fa-paper-plane"></i> ទំនាក់ទំនង YOB
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // ── Catalog section filter ──
+      function yskCatFilter(btn, cat) {
+        document.querySelectorAll('#catalog .ysk-pills button.ysk-pill').forEach(function(p) {
+          p.classList.remove('active');
+        });
+        btn.classList.add('active');
+        document.querySelectorAll('#yskGrid .ysk-c-card').forEach(function(card) {
+          card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+        });
+      }
+
+      // ── Hero pill → active state (visual only, all scroll to #catalog) ──
+      document.querySelectorAll('.ysk-hero .ysk-pill').forEach(function(pill) {
+        pill.addEventListener('click', function() {
+          document.querySelectorAll('.ysk-hero .ysk-pill').forEach(function(p) {
+            p.classList.remove('active');
+          });
+          this.classList.add('active');
+        });
+      });
+    </script>
+
+    <script src="js/load-components.js"></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
