@@ -1,4 +1,4 @@
-// ═══════════════════════════════════════════════
+﻿// ═══════════════════════════════════════════════
 // COMPONENT LOADER — Nav & Footer (inline, no fetch)
 // ═══════════════════════════════════════════════
 (function () {
@@ -7,7 +7,7 @@
   <div class="nav-inner">
     <a href="/" class="nav-logo">យប់<span>.</span>ឌីជីថល</a>
     <ul class="nav-links">
-      <li><a href="/grow" data-page="grow">Yob ដើម្បីអាជីវកម្ម</a></li>
+      <li><a href="/grow" data-page="grow">Yob ដើម្បីអ្នក</a></li>
       <li class="nav-has-dropdown">
         <a href="#" class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">រៀនជាមួយ Yob <i class="fas fa-chevron-down"></i></a>
         <ul class="nav-dropdown">
@@ -42,7 +42,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="f-logo">យប់.ឌីជីថល</div>
-        <p>ដៃគូ Digital &amp; AI ដ៏ទុកចិត្ត សម្រាប់ MSMEs ខ្មែរ — Practical, Khmer Context, Results Driven។</p>
+        <p>ដៃគូ Digital &amp; AI ដ៏ទុកចិត្ត សម្រាប់ Mអ្នក — Practical, Khmer Context, Results Driven។</p>
         <div class="footer-socials">
           <a href="https://facebook.com/yobdigital" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="https://t.me/yobdigital" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>

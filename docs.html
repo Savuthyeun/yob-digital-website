@@ -6,7 +6,7 @@
     <title>Documentation — YOB Digital</title>
     <meta
       name="description"
-      content="YOB Digital Docs — រៀន AI Tools (Claude, ChatGPT), Facebook Ads, Content Strategy, HTML/CSS, Khmer Typography ជាភាសាខ្មែរ ១០០%។ FREE Guides + Prompt Templates + Step-by-Step Tutorials សម្រាប់ SME ខ្មែរ!"
+      content="YOB Digital Docs — រៀន AI Tools (Claude, ChatGPT), Facebook Ads, Content Strategy, HTML/CSS, Khmer Typography ជាភាសាខ្មែរ ១០០%។ FREE Guides + Prompt Templates + Step-by-Step Tutorials សម្រាប់ អ្នក!"
     />
     <meta property="og:title" content="Documentation — YOB Digital" />
     <meta property="og:url" content="https://yobdigital.netlify.app/docs" />
@@ -28,7 +28,7 @@
         "@type": "TechArticle",
         "name": "YOB Digital Documentation",
         "headline": "YOB Digital Docs — AI Tools, Digital Strategy, Khmer Typography",
-        "description": "រៀន AI Tools (Claude, ChatGPT), Facebook Ads, Content Strategy, HTML/CSS, Khmer Typography ជាភាសាខ្មែរ ១០០%។ FREE Guides + Prompt Templates + Step-by-Step Tutorials សម្រាប់ SME ខ្មែរ!",
+        "description": "រៀន AI Tools (Claude, ChatGPT), Facebook Ads, Content Strategy, HTML/CSS, Khmer Typography ជាភាសាខ្មែរ ១០០%។ FREE Guides + Prompt Templates + Step-by-Step Tutorials សម្រាប់ អ្នក!",
         "url": "https://yobdigital.netlify.app/docs",
         "inLanguage": ["km", "en"],
         "publisher": {
@@ -96,7 +96,7 @@
         "educationalLevel": "Beginner to Intermediate",
         "audience": {
           "@type": "Audience",
-          "audienceType": "Khmer SME, Startup, Creator, Freelancer"
+          "audienceType": "Khmer Startup, Creator, Freelancer"
         }
       }
     </script>
@@ -3077,6 +3077,14 @@
       }
       /* ── gs2 Landing (Hero v2 + Paths + Featured) ── */
       .gs2-hero { border-bottom: none; padding-bottom: 20px; }
+
+      /* ── PAGE TRANSITION ── */
+      #docsMain {
+        transition: opacity 0.18s ease;
+      }
+      #docsMain.page-leaving {
+        opacity: 0;
+      }
       .gs2-search-wrap {
         position: relative;
         max-width: 480px;
@@ -3420,7 +3428,7 @@
       .cat-section[data-empty="1"] .cat-sec-hd { border-radius: 12px; border-bottom: 1px solid var(--border); }
       .cat-section[data-empty="1"] .cat-grid { display: none; }
 
-      @media (max-width: 680px) {
+      @media (max-width: 600px) {
         .cat-grid { grid-template-columns: 1fr; }
         .cat-card-desc { display: none; }
       }
@@ -3639,7 +3647,7 @@
             <i class="fas fa-cogs"></i> Automation Setup
           </a>
           <a class="nav-link" onclick="loadPage('ai-workflow')">
-            <i class="fas fa-project-diagram"></i> AI Workflow for SME
+            <i class="fas fa-project-diagram"></i> AI Workflow Daily
             <span class="nav-badge">NEW</span>
           </a>
         </div>
@@ -3789,7 +3797,7 @@
             <div class="cat-grid">
               <div class="cat-card" data-cat="ai" data-title="AI Overview" onclick="loadPage('ai-overview')">
                 <div class="cat-card-thumb" style="background:rgba(229,44,103,0.1)">&#x1F916;</div>
-                <div class="cat-card-body"><div class="cat-card-title">AI Overview</div><div class="cat-card-desc">Claude vs ChatGPT vs Gemini &middot; Free tools &middot; SME use cases</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 15 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <div class="cat-card-body"><div class="cat-card-title">AI Overview</div><div class="cat-card-desc">Claude vs ChatGPT vs Gemini &middot; Free tools &middot; អ្នក use cases</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 15 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
                 <i class="fas fa-chevron-right cat-card-arrow"></i>
               </div>
               <div class="cat-card" data-cat="ai" data-title="Prompt Engineering" onclick="loadPage('prompt-engineering')">
@@ -3812,9 +3820,9 @@
                 <div class="cat-card-body"><div class="cat-card-title">Automation Setup</div><div class="cat-card-desc">ManyChat &middot; Zapier &middot; Auto-reply &middot; Lead automation</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 35 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
                 <i class="fas fa-chevron-right cat-card-arrow"></i>
               </div>
-              <div class="cat-card" data-cat="ai" data-title="AI Workflow for SME" onclick="loadPage('ai-workflow')">
+              <div class="cat-card" data-cat="ai" data-title="AI Workflow Daily" onclick="loadPage('ai-workflow')">
                 <div class="cat-card-thumb" style="background:rgba(229,44,103,0.1)">&#x1F504;</div>
-                <div class="cat-card-body"><div class="cat-card-title">AI Workflow for SME</div><div class="cat-card-desc">Full daily AI workflow &middot; Morning to Evening routine</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 20 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <div class="cat-card-body"><div class="cat-card-title">AI Workflow Daily</div><div class="cat-card-desc">Full daily AI workflow &middot; Morning to Evening routine</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 20 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
                 <i class="fas fa-chevron-right cat-card-arrow"></i>
               </div>
               <div class="cat-sec-empty" id="cat-ai-empty" style="display:none"><i class="fas fa-search" style="margin-right:6px"></i>&#x179A;&#x1780;&#x1798;&#x17B7;&#x1793;&#x1781;&#x17BE;&#x1789;</div>
@@ -3958,7 +3966,7 @@
           <div class="doc-section">
             <h2 id="YOB Digital ជាអ្វី?">YOB Digital ជាអ្វី?</h2>
             <p>YOB Digital គឺជា <strong>Digital Growth Platform</strong> ដែលស្ថាបនាដោយ Yeun Savuth (Babu)
-            ដើម្បីជួយ SMEs, Startups, Creators ខ្មែរ transform business ក្នុង AI era។</p>
+            ដើម្បីជួយ Startups, Creators ខ្មែរ transform business ក្នុង AI era។</p>
           </div>
           <div class="doc-section">
             <h2 id="quick-start">Quick Start</h2>
@@ -4045,7 +4053,7 @@
               <div class="pa-label">🔬 Prompt Anatomy — Visual Breakdown</div>
               <div class="pa-line">
                 <span class="pa-tag role">ROLE</span>
-                <span class="pa-text">Act as a <strong>Khmer business writing expert</strong> with 10 years experience in SME consulting.</span>
+                <span class="pa-text">Act as a <strong>Khmer business writing expert</strong> with 10 years experience in business consulting.</span>
               </div>
               <div class="pa-line">
                 <span class="pa-tag task">TASK</span>
@@ -4478,19 +4486,19 @@ Do NOT: <span class="s">[ចំណុចដែល AI ត្រូវជៀស]</
           toc: ["The Problem", "YOB Solution", "Our Results", "Who is it for?"],
           content: `
           <p class="doc-lead">
-            ហេតុអ្វីបានជា 500+ SMEs & Creators ខ្មែរ ជ្រើស YOB Digital? ឆ្លើយនៅទីនេះ!
+            ហេតុអ្វីបានជា 500+ អ្នករៀន & Creators ខ្មែរ ជ្រើស YOB Digital? ឆ្លើយនៅទីនេះ!
           </p>
           <div class="doc-section">
             <h2 id="problem">The Problem</h2>
-            <p>SMEs ខ្មែរជួបបញ្ហា ៣:</p>
+            <p>អ្នកជួបបញ្ហា ៣:</p>
             <ul>
               <li><strong>Language barrier</strong> — Tools ជា English ទាំងអស់, hard to apply</li>
-              <li><strong>High cost</strong> — Agency fees $500-$2000/month — out of reach for MSMEs</li>
+              <li><strong>High cost</strong> — Agency fees $500-$2000/month — out of reach for everyone</li>
               <li><strong>Theory overload</strong> — Courses teach theory, no practical Cambodian context</li>
             </ul>
             <div class="callout warn">
               <i class="fas fa-exclamation-triangle callout-icon"></i>
-              <div class="callout-body"><strong>Fact:</strong> 78% of Cambodian SMEs use Facebook as primary marketing channel but only 12% have a structured digital strategy. — YOB Research 2024</div>
+              <div class="callout-body"><strong>Fact:</strong> 78% of Cambodian learners use Facebook as primary marketing channel but only 12% have a structured digital strategy. — YOB Research 2024</div>
             </div>
           </div>
           <div class="doc-section">
@@ -4517,7 +4525,7 @@ Do NOT: <span class="s">[ចំណុចដែល AI ត្រូវជៀស]</
           <div class="doc-section">
             <h2 id="results">Our Results</h2>
             <ul>
-              <li>500+ SMEs & Creators trained</li>
+              <li>500+ អ្នករៀន & Creators trained</li>
               <li>80% report revenue growth after 30 days</li>
               <li>Average time to results: 4 weeks</li>
               <li>3x ROAS for Digital Strategy clients</li>
@@ -4591,14 +4599,14 @@ Do NOT: <span class="s">[ចំណុចដែល AI ត្រូវជៀស]</
           ],
           content: `
           <p class="doc-lead">
-            YOB Toolkit ឥតគិតថ្លៃ — resources ដែល Babu ប្រើផ្ទាល់ share ជូន SMEs ខ្មែរ!
+            YOB Toolkit ឥតគិតថ្លៃ — resources ដែល Babu ប្រើផ្ទាល់ share ជូន អ្នក!
           </p>
           <div class="doc-section">
             <h2 id="bible">AI Content Bible</h2>
             <p>Toolkit ដែល YOB ប្រើ generate 30 days of content ក្នុង ២ ម៉ោង — តម្លៃ $49 តែចែកជូនឥតគិតថ្លៃ!</p>
             <div class="callout good">
               <i class="fas fa-gift callout-icon"></i>
-              <div class="callout-body"><strong>1,200+ SMEs</strong> ខ្មែរ download ហើយ! ចូលរួមឥឡូវ!</div>
+              <div class="callout-body"><strong>1,200+ អ្នករៀន</strong> ខ្មែរ download ហើយ! ចូលរួមឥឡូវ!</div>
             </div>
           </div>
           <div class="doc-section">
@@ -4621,7 +4629,7 @@ Do NOT: <span class="s">[ចំណុចដែល AI ត្រូវជៀស]</
             </div>
             <div class="callout tip">
               <i class="fas fa-lightbulb callout-icon"></i>
-              <div class="callout-body"><strong>YOB Tip:</strong> ចាប់ផ្ដើមពី Prompt Sheet → Content Calendar → Hook Formulas — ជា sequence ល្អបំផុតសម្រាប់ SME ខ្មែរ !</div>
+              <div class="callout-body"><strong>YOB Tip:</strong> ចាប់ផ្ដើមពី Prompt Sheet → Content Calendar → Hook Formulas — ជា sequence ល្អបំផុតសម្រាប់ អ្នក !</div>
             </div>
           </div>
           <div class="doc-section">
@@ -4648,7 +4656,7 @@ Do NOT: <span class="s">[ចំណុចដែល AI ត្រូវជៀស]</
             "How They Connect",
           ],
           content: `
-          <p class="doc-lead">YOB Digital = Ecosystem ពេញលេញ ៤ សសរ ជួយ SME · Creator · Student ខ្មែរ Grow ក្នុង AI Era ។</p>
+          <p class="doc-lead">YOB Digital = Ecosystem ពេញលេញ ៤ សសរ ជួយ អ្នករៀន ខ្មែរ Grow ក្នុង AI Era ។</p>
           <div class="doc-section">
             <h2 id="overview">Ecosystem Overview</h2>
             <p>YOB Digital មិនមែនជា Course ធម្មតា — វាជា <strong>Digital Growth Ecosystem</strong> ដែលរួមមាន:</p>
@@ -4667,7 +4675,7 @@ Do NOT: <span class="s">[ចំណុចដែល AI ត្រូវជៀស]</
               <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Build Web System</h4><p>Website + Automation captures Leads 24/7 while you sleep</p></div></div>
               <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Professional Brand</h4><p>Khmer Typography = Unique brand that stands out in Cambodia market</p></div></div>
             </div>
-            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>YOB Tip:</strong> ចាប់ផ្ដើមពី AI Tools → Strategy → Web → Typography ជា sequence ល្អបំផុតសម្រាប់ SME ខ្មែរ!</div></div>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>YOB Tip:</strong> ចាប់ផ្ដើមពី AI Tools → Strategy → Web → Typography ជា sequence ល្អបំផុតសម្រាប់ អ្នក!</div></div>
           </div>
           `,
         },
@@ -4679,7 +4687,7 @@ Do NOT: <span class="s">[ចំណុចដែល AI ត្រូវជៀស]</
             "AI Tools ជាអ្វី?",
             "Claude vs ChatGPT vs Gemini",
             "ចាប់ផ្ដើម Free",
-            "Use Cases សម្រាប់ SME",
+            "Use Cases សម្រាប់ អ្នក",
             "Common Mistakes",
           ],
           content: `
@@ -4879,7 +4887,7 @@ Do NOT: <span class="s">[ចំណុចដែល AI ត្រូវជៀស]</
                   <span class="ca-module-num">MODULE 03</span>
                   <div class="ca-module-info">
                     <div class="ca-module-name">AI Automation — ManyChat · Make.com · Bots</div>
-                    <div class="ca-module-sub">Auto DM · Zapier · Telegram Bot · Full SME Stack</div>
+                    <div class="ca-module-sub">Auto DM · Zapier · Telegram Bot · Full Stack</div>
                   </div>
                   <div class="ca-module-right">
                     <span class="ca-lesson-count">3 Lessons</span>
@@ -4913,7 +4921,7 @@ Do NOT: <span class="s">[ចំណុចដែល AI ត្រូវជៀស]</
                     <div class="ca-lesson" onclick="loadPage('automation')">
                       <div class="ca-lesson-dot locked"></div>
                       <div class="ca-lesson-body">
-                        <div class="ca-lesson-title">12. Full SME Automation Stack — Lead → Convert → Retain</div>
+                        <div class="ca-lesson-title">12. Full Automation Stack — Lead → Convert → Retain</div>
                         <div class="ca-lesson-type"><i class="fas fa-layer-group" style="font-size:10px;margin-right:4px"></i>Capstone</div>
                       </div>
                       <div class="ca-lesson-right">
@@ -4927,7 +4935,7 @@ Do NOT: <span class="s">[ចំណុចដែល AI ត្រូវជៀស]</
             </div>
           </div>
 
-          <p class="doc-lead">AI Tools = Assistant ឆ្លាត ២៤ ម៉ោង — Write, Plan, Analyze, Create ជំនួស ។ SME ខ្មែរ Apply ភ្លាមចេញលទ្ធផល ដោយ FREE !</p>
+          <p class="doc-lead">AI Tools = Assistant ឆ្លាត ២៤ ម៉ោង — Write, Plan, Analyze, Create ជំនួស ។ អ្នក Apply ភ្លាមចេញលទ្ធផល ដោយ FREE !</p>
 
           <!-- Section 1: What is AI -->
           <div class="doc-section">
@@ -5014,7 +5022,7 @@ Do NOT: <span class="s">[ចំណុចដែល AI ត្រូវជៀស]</
                 <div class="step-num">1</div>
                 <div class="step-body">
                   <h4>Sign up Claude.ai</h4>
-                  <p>ចូល <strong>claude.ai</strong> → Sign up ដោយ Google account → ចាប់ផ្ដើម chat ភ្លាម ។ Free plan គ្រប់គ្រាន់សម្រាប់ SME ចាប់ផ្ដើម!</p>
+                  <p>ចូល <strong>claude.ai</strong> → Sign up ដោយ Google account → ចាប់ផ្ដើម chat ភ្លាម ។ Free plan គ្រប់គ្រាន់សម្រាប់ អ្នក ចាប់ផ្ដើម!</p>
                 </div>
               </div>
               <div class="step-item">
@@ -5041,7 +5049,7 @@ Do NOT: <span class="s">[ចំណុចដែល AI ត្រូវជៀស]</
             <p>Copy prompt ខាងក្រោម ដាក់ k Claude ហើយ replace [] ជាមួយ business ខ្លួនឯង:</p>
             <div class="code-block">
               <div class="code-header"><span class="code-lang">PROMPT — COPY ទៅ CLAUDE ភ្លាម</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
-              <pre>Act as a <span class="v">Khmer social media expert</span> for SME businesses.
+              <pre>Act as a <span class="v">Khmer social media expert</span> for you businesses.
 
 Task: Write <span class="n">3</span> Facebook captions for my business:
 - Business: <span class="s">[ឈ្មោះ Business + ប្រភេទ]</span>
@@ -5055,7 +5063,7 @@ Tone: Friendly, casual, mix Khmer + English, add emoji</pre>
 
           <!-- Section 4: Use Cases -->
           <div class="doc-section">
-            <h2 id="use-cases">Use Cases — SME ខ្មែរ Apply បាន</h2>
+            <h2 id="use-cases">Use Cases — អ្នក Apply បាន</h2>
             <div class="concept-grid">
               <div class="concept-card">
                 <span class="concept-card-icon">📅</span>
@@ -5149,7 +5157,7 @@ Tone: Friendly, casual, mix Khmer + English, add emoji</pre>
             "30-Day AI Content System",
           ],
           content: `
-          <p class="doc-lead">ប្រើ AI Create Content ៣០ ថ្ងៃ ក្នុង ២ ម៉ោង! YOB AI Content System ជួយ SME ខ្មែរ post consistently ដោយ quality ខ្ពស់ — without burning out ។</p>
+          <p class="doc-lead">ប្រើ AI Create Content ៣០ ថ្ងៃ ក្នុង ២ ម៉ោង! YOB AI Content System ជួយ អ្នក post consistently ដោយ quality ខ្ពស់ — without burning out ។</p>
           <div class="doc-section">
             <h2 id="strategy">Strategy Overview</h2>
             <p>AI Content Creation ត្រឹមត្រូវ = <strong>3 ជំហាន</strong>:</p>
@@ -5163,10 +5171,10 @@ Tone: Friendly, casual, mix Khmer + English, add emoji</pre>
             <h2 id="caption">Caption Writing — Facebook/Instagram</h2>
             <p>Copy prompt ខាងក្រោម → Paste ក្នុង Claude → Replace brackets:</p>
             <div class="code-block"><div class="code-header"><span class="code-lang">CLAUDE PROMPT — CAPTION</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
-            <pre>Act as a <span class="v">Khmer social media copywriter</span> for SMEs in Cambodia.
+            <pre>Act as a <span class="v">Khmer social media copywriter</span> for yous in Cambodia.
 
 Write <span class="n">5</span> Facebook captions for:
-- Business: <span class="s">[ឈ្មោះអាជីវកម្ម + ប្រភេទ]</span>
+- Business: <span class="s">[ឈ្មោះ + ប្រភេទ]</span>
 - Post goal: <span class="s">[Awareness / Leads / Sales / Engagement]</span>
 - Product/offer: <span class="s">[ផលិតផល ឬ Promotion]</span>
 - Target audience: <span class="s">[SME / Young adults / Parents / etc.]</span>
@@ -5186,7 +5194,7 @@ Tone: Friendly, casual, mix Khmer + English naturally, include 2-3 emoji</pre></
 
 Write a complete blog post:
 - Topic: <span class="s">[ចំណងជើង / Topic]</span>
-- Audience: <span class="s">[SME Owner / Creator / Beginner]</span>
+- Audience: <span class="s">[Creator / Creator / Beginner]</span>
 - Word count: <span class="n">600–900</span> words
 - Language: Mix Khmer + English (70% Khmer, 30% English terms)
 
@@ -5243,7 +5251,7 @@ Tone: Energetic, conversational, Khmer youth-friendly</pre></div>
             "Free vs Paid",
           ],
           content: `
-          <p class="doc-lead">YOB AI Tools Directory — Tools ល្អបំផុតសម្រាប់ SME ខ្មែរ, ចាត់ប្រភេទតាម Use Case ។ ទាំងអស់ Free plan available!</p>
+          <p class="doc-lead">YOB AI Tools Directory — Tools ល្អបំផុតសម្រាប់ អ្នក, ចាត់ប្រភេទតាម Use Case ។ ទាំងអស់ Free plan available!</p>
           <div class="doc-section">
             <h2 id="writing">✍️ Writing & Content Tools</h2>
             <div class="steps">
@@ -5282,7 +5290,7 @@ Tone: Energetic, conversational, Khmer youth-friendly</pre></div>
             <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>YOB Rule:</strong> ប្រើ Free ១–២ ខែ → ប្រើបានច្រើន = Upgrade ។ ចំណាយ $20/mo AI tool បង្កើន output ៥x = ROI ១០x !</div></div>
             <ul>
               <li><strong>Start FREE:</strong> Claude + Gemini + Canva + CapCut + ManyChat = $0/mo</li>
-              <li><strong>Upgrade first:</strong> Claude Pro ($20) = best value for SME content creation</li>
+              <li><strong>Upgrade first:</strong> Claude Pro ($20) = best value for you content creation</li>
               <li><strong>Next upgrade:</strong> Canva Pro ($13) = unlimited assets + Brand Kit</li>
               <li><strong>Power user:</strong> Claude + Canva Pro + ManyChat Pro = $45/mo → replace $500/mo agency</li>
             </ul>
@@ -5302,7 +5310,7 @@ Tone: Energetic, conversational, Khmer youth-friendly</pre></div>
             "Real Examples",
           ],
           content: `
-          <p class="doc-lead">Automation = ធ្វើការ ២៤ ម៉ោង ដោយ System ។ YOB Automation Guide ជួយ SME ខ្មែរ capture Leads + Reply DM + Follow-up — Automatic, no manual work!</p>
+          <p class="doc-lead">Automation = ធ្វើការ ២៤ ម៉ោង ដោយ System ។ YOB Automation Guide ជួយ អ្នក capture Leads + Reply DM + Follow-up — Automatic, no manual work!</p>
           <div class="doc-section">
             <h2 id="what">What is Automation?</h2>
             <p>Automation ក្នុង Business = ប្រើ Tool/Software ធ្វើ repetitive tasks ដោយ automatic:</p>
@@ -5348,7 +5356,7 @@ Bot: "YOB Team នឹង Contact ក្នុង ២ ម៉ោង!
               <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Add Action: Google Sheets</h4><p>Action → Google Sheets → Add Row → Map: Name, Email, Phone, Message → Done!</p></div></div>
               <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Add Action: Send Email</h4><p>Action 2 → Gmail → Send email to yourself → "New Lead: [Name] — [Message]" → Notify ភ្លាម</p></div></div>
             </div>
-            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>Free Zapier:</strong> 100 tasks/month = ~100 leads/mo notification ។ ចំពោះ SME ចាប់ផ្ដើម គ្រប់គ្រាន់!</div></div>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>Free Zapier:</strong> 100 tasks/month = ~100 leads/mo notification ។ ចំពោះ អ្នក ចាប់ផ្ដើម គ្រប់គ្រាន់!</div></div>
           </div>
           `,
         },
@@ -5375,11 +5383,11 @@ Bot: "YOB Team នឹង Contact ក្នុង ២ ម៉ោង!
               <li><strong>Follow-up sequence</strong> — ផ្ញើ Message បន្ទាប់ 24h/48h ដោយ Auto</li>
               <li><strong>Notification</strong> — ទទួល Alert ពេល Lead ថ្មី, Order ថ្មី, Comment ថ្មី</li>
             </ul>
-            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>ROI:</strong> SME ដែលប្រើ ManyChat + Zapier report Response Rate ជា 95%+ (vs 30% manual) ។ Lead capture ដោយ Auto = 0 lead missed !</div></div>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>ROI:</strong> អ្នក ដែលប្រើ ManyChat + Zapier report Response Rate ជា 95%+ (vs 30% manual) ។ Lead capture ដោយ Auto = 0 lead missed !</div></div>
           </div>
           <div class="doc-section">
             <h2 id="manychat">ManyChat — Facebook & Instagram DM Bot</h2>
-            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>Free Plan:</strong> Up to 1,000 contacts ។ ល្អប្រើ SME ចាប់ផ្ដើម !</div></div>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>Free Plan:</strong> Up to 1,000 contacts ។ ល្អប្រើ អ្នក ចាប់ផ្ដើម !</div></div>
             <div class="steps">
               <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Create Account</h4><p>ចូល manychat.com → Sign up with Facebook → Connect Facebook Page / Instagram Account ។</p></div></div>
               <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Setup Default Reply</h4><p>Automation → Default Reply → ដាក់ Message ស្វាគមន៍ + Menu buttons (ឧ. "ចង់ដឹងតម្លៃ", "ចង់ Order", "ទាក់ទងផ្ទាល់") ។</p></div></div>
@@ -5433,7 +5441,7 @@ Bot: "YOB Team នឹង Contact ក្នុង ២ ម៉ោង!
             </div>
           </div>
           <div class="doc-section">
-            <h2 id="checklist">Automation Checklist — SME Starter Kit</h2>
+            <h2 id="checklist">Automation Checklist — Starter Kit</h2>
             <ul>
               <li>☐ ManyChat connected to Facebook Page</li>
               <li>☐ Default Reply + Welcome Message setup</li>
@@ -5449,8 +5457,8 @@ Bot: "YOB Team នឹង Contact ក្នុង ២ ម៉ោង!
         },
 
         "ai-workflow": {
-          title: "AI WORKFLOW FOR SME",
-          breadcrumb: "AI Tools → AI Workflow for SME",
+          title: "AI WORKFLOW DAILY",
+          breadcrumb: "AI Tools → AI Workflow Daily",
           toc: [
             "Workflow Overview",
             "Step 1: Research",
@@ -5460,7 +5468,7 @@ Bot: "YOB Team នឹង Contact ក្នុង ២ ម៉ោង!
             "Weekly Operating System",
           ],
           content: `
-          <p class="doc-lead">មេរៀននេះបង្ហាញ Workflow មួយដែលអាចធ្វើបានពិតសម្រាប់ SME ខ្មែរ: Research → Plan → Produce → Review → Publish ក្នុងរយៈពេលតែ 90 នាទី/សប្តាហ៍។</p>
+          <p class="doc-lead">មេរៀននេះបង្ហាញ Workflow មួយដែលអាចធ្វើបានពិតសម្រាប់ អ្នក: Research → Plan → Produce → Review → Publish ក្នុងរយៈពេលតែ 90 នាទី/សប្តាហ៍។</p>
           <div class="doc-section">
             <h2 id="workflow-overview">Workflow Overview</h2>
             <p>ក្រុមហ៊ុនតូចៗភាគច្រើនខាតពេលនៅលើការសរសេរ content ព្រោះគ្មានប្រព័ន្ធច្បាស់។ ប្រើ Workflow ខាងក្រោមដើម្បីឲ្យ AI ជួយការងារដែល repetitive ហើយអ្នក focus លើ strategy និង quality control។</p>
@@ -5538,7 +5546,7 @@ Format as table with columns: Pain | Goal | Objection | Suggested content angle<
               <li><strong>WHAT</strong> — Content ប្រភេទណា? (Education, Entertainment, Promotion)</li>
               <li><strong>HOW</strong> — Budget, Frequency, Format, Measure</li>
             </ul>
-            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>YOB Insight:</strong> 85% Cambodian SMEs post ដោយ Guess — no clear target, no strategy ។ Result: Effort ×10, Revenue ÷3 ។ Strategy solves this!</div></div>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>YOB Insight:</strong> 85% Cambodian learners post ដោយ Guess — no clear target, no strategy ។ Result: Effort ×10, Revenue ÷3 ។ Strategy solves this!</div></div>
           </div>
           <div class="doc-section">
             <h2 id="pillars">3 Pillars of Digital Strategy</h2>
@@ -5559,7 +5567,7 @@ Format as table with columns: Pain | Goal | Objection | Suggested content angle<
             </ul>
           </div>
           <div class="doc-section">
-            <h2 id="framework">YOB SME Strategy Framework</h2>
+            <h2 id="framework">YOB អ្នក Strategy Framework</h2>
             <div class="steps">
               <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Define Audience (Week 1)</h4><p>ប្រើ Claude: "Define target audience profile for [business] in Cambodia — Age, Income, Pain, Goals, Content they like" → Save as reference doc</p></div></div>
               <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Content Mix (Week 2)</h4><p>70% Education (Tips, How-to) + 20% Entertainment (Story, BTS) + 10% Promotion (Offer, CTA) = OPTIMAL for Khmer audience</p></div></div>
@@ -5660,7 +5668,7 @@ Decision trigger: [what makes them buy]</pre></div>
             "Growing Followers Organically",
           ],
           content: `
-          <p class="doc-lead">Social Media Growth = ការ post ត្រូវ content ត្រូវ ពេលត្រូវ — ដើម្បី Reach ×3 Engagement ×5 ។ YOB Guide ជួយ SME ខ្មែរ grow organically ។</p>
+          <p class="doc-lead">Social Media Growth = ការ post ត្រូវ content ត្រូវ ពេលត្រូវ — ដើម្បី Reach ×3 Engagement ×5 ។ YOB Guide ជួយ អ្នក grow organically ។</p>
           <div class="doc-section">
             <h2 id="page">Facebook Page Optimization</h2>
             <p>ការ Optimize Page ល្អ = Impression +40% ។ ជំហានសំខាន់:</p>
@@ -5730,7 +5738,7 @@ Decision trigger: [what makes them buy]</pre></div>
             "Content Calendar Template",
           ],
           content: `
-          <p class="doc-lead">YOB 30-Day Content Plan = System ដែល SME ខ្មែរ ប្រើ grow Facebook Page ពី 0 → Consistent Leads ។ Follow step-by-step, Apply ភ្លាម!</p>
+          <p class="doc-lead">YOB 30-Day Content Plan = System ដែល អ្នក ប្រើ grow Facebook Page ពី 0 → Consistent Leads ។ Follow step-by-step, Apply ភ្លាម!</p>
           <div class="doc-section">
             <h2 id="overview">Overview</h2>
             <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>Goal ៣០ ថ្ងៃ:</strong> Build audience trust → Demonstrate expertise → Convert followers to paying customers ។ Result typical: Engagement +200%, Leads +50%</div></div>
@@ -5831,7 +5839,7 @@ D5  | Fri | BTS   | Story  | "ពីក្រោយ scenes..." | Trust | ⏳</pr
             <p>YOB ណែនាំ: Campaign ១ → Ad Sets ២–៣ (different audiences) → Ads ២ per Ad Set (A/B test)</p>
           </div>
           <div class="doc-section">
-            <h2 id="audience">Audience Targeting — Cambodia SME</h2>
+            <h2 id="audience">Audience Targeting — Cambodia</h2>
             <div class="steps">
               <div class="step-item"><div class="step-num">🎯</div><div class="step-body"><h4>Core Audience (ចាប់ផ្ដើម)</h4><p>Location: Cambodia (ឬ City ជាក់លាក់) · Age: 22–45 · Interest: [Business type related] · Budget: $5–10/day</p></div></div>
               <div class="step-item"><div class="step-num">👥</div><div class="step-body"><h4>Lookalike Audience (ក្រោយ 100+ customers)</h4><p>Upload customer list → Create 1% Lookalike → Facebook finds similar people = highest conversion</p></div></div>
@@ -5842,7 +5850,7 @@ D5  | Fri | BTS   | Story  | "ពីក្រោយ scenes..." | Trust | ⏳</pr
             <h2 id="results">Reading Results — Key Metrics</h2>
             <ul>
               <li><strong>CTR (Click Through Rate)</strong> — Good: >1.5% · Excellent: >3% · Low = change creative</li>
-              <li><strong>CPL (Cost per Lead)</strong> — Khmer SME avg: $1–5 · Too high = change audience ឬ creative</li>
+              <li><strong>CPL (Cost per Lead)</strong> — Khmer learners avg: $1–5 · Too high = change audience ឬ creative</li>
               <li><strong>ROAS</strong> — Revenue ÷ Ad Spend · Good: >2x · Excellent: >4x</li>
               <li><strong>Frequency</strong> — How many times same person sees ad · >3 = refresh creative</li>
             </ul>
@@ -5866,7 +5874,7 @@ D5  | Fri | BTS   | Story  | "ពីក្រោយ scenes..." | Trust | ⏳</pr
           <p class="doc-lead">Analytics = ការអានលទ្ធផល ដើម្បីដឹងថា Content/Ads ណា Work — ហើយ Double Down ។ No analytics = flying blind!</p>
           <div class="doc-section">
             <h2 id="why">ហេតុអ្វីត្រូវវាស់?</h2>
-            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>YOB Principle:</strong> "What gets measured gets improved." ។ SME ដែល track data = grow 2x faster than those who don't!</div></div>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>YOB Principle:</strong> "What gets measured gets improved." ។ អ្នក ដែល track data = grow 2x faster than those who don't!</div></div>
             <p>Metrics ដែលត្រូវ Track:</p>
             <ul>
               <li>📊 <strong>Organic:</strong> Reach, Engagement Rate, Follower Growth</li>
@@ -5892,7 +5900,7 @@ Ad Spend: <span class="n">$100</span>
 Revenue from those Ads: <span class="v">$400</span>
 ROAS = $400 ÷ $100 = <span class="k">4x</span>
 
-<span class="s">Target for Cambodian SMEs:</span>
+<span class="s">Target for Cambodian learners:</span>
 - Starter: 2x (break even + some profit)
 - Good: 3x
 - Excellent: 5x+</pre></div>
@@ -5937,7 +5945,7 @@ ROAS = $400 ÷ $100 = <span class="k">4x</span>
           <div class="doc-section">
             <h2 id="why-measure">ហេតុអ្វីត្រូវវាស់?</h2>
             <p>Business ភាគច្រើន Post ដោយ Guess — មិនដឹងថា Post ណា Work, Audience ណា Convert, Budget ចំណាយទៅណា ។</p>
-            <div class="callout warn"><i class="fas fa-exclamation-triangle callout-icon"></i><div class="callout-body"><strong>YOB Fact:</strong> 73% Cambodian SMEs ចំណាយ Ads Budget ដោយមិនបាន ROI positive — ព្រោះមិន Track Result ត្រឹមត្រូវ ។</div></div>
+            <div class="callout warn"><i class="fas fa-exclamation-triangle callout-icon"></i><div class="callout-body"><strong>YOB Fact:</strong> 73% Cambodian learners ចំណាយ Ads Budget ដោយមិនបាន ROI positive — ព្រោះមិន Track Result ត្រឹមត្រូវ ។</div></div>
             <p>Analytics ជួយ:</p>
             <ul>
               <li><strong>ដឹងថា Content ណា Engage ច្រើន</strong> → Double down</li>
@@ -6036,17 +6044,17 @@ ROAS = $400 ÷ $100 = <span class="k">4x</span>
             "Getting Started",
           ],
           content: `
-          <p class="doc-lead">Facebook Page = rented land ។ Website = ដី + ផ្ទះ ខ្លួនឯង ។ SME ខ្មែរ ដែល Website = more credibility, more leads, more control!</p>
+          <p class="doc-lead">Facebook Page = rented land ។ Website = ដី + ផ្ទះ ខ្លួនឯង ។ អ្នក ដែល Website = more credibility, more leads, more control!</p>
           <div class="doc-section">
             <h2 id="fb-vs-web">Facebook Page vs Website</h2>
             <div class="steps">
               <div class="step-item"><div class="step-num">📱</div><div class="step-body"><h4>Facebook Page (Rented)</h4><p>✅ Free + Easy · ❌ Algorithm controls reach · ❌ Data not yours · ❌ Looks same as every competitor · ❌ Can be disabled any time</p></div></div>
               <div class="step-item"><div class="step-num">🌐</div><div class="step-body"><h4>Website (Owned)</h4><p>✅ Full control · ✅ SEO = free traffic · ✅ Unique brand · ✅ Collect leads (email/phone) · ✅ Works 24/7 · ✅ Professional credibility</p></div></div>
             </div>
-            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>Cambodia Fact:</strong> Only ~15% of SMEs have a working website ។ Having one = instant competitive advantage!</div></div>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>Cambodia Fact:</strong> Only ~15% of អ្នករៀន have a working website ។ Having one = instant competitive advantage!</div></div>
           </div>
           <div class="doc-section">
-            <h2 id="what-it-does">What Website Does for SME</h2>
+            <h2 id="what-it-does">What Website Does for you</h2>
             <ul>
               <li>🔍 <strong>Google Search</strong> — Customer search "ហាងលក់ [product] Phnom Penh" → find you FREE</li>
               <li>📞 <strong>Lead Form 24/7</strong> — Contact form = leads while you sleep</li>
@@ -6551,7 +6559,7 @@ body {
           <div class="doc-section">
             <h2 id="yob">YOB Digital FAQ</h2>
             <ul>
-              <li><strong>Q: YOB Digital ជានរណា?</strong><br>A: YOB Digital ស្ថាបនាដោយ Yeun Savuth (Babu) ។ Platform ជួយ SME, Creator, Student ខ្មែរ Grow ដោយ AI + Digital Skills ជាភាសាខ្មែរ ១០០%!</li>
+              <li><strong>Q: YOB Digital ជានរណា?</strong><br>A: YOB Digital ស្ថាបនាដោយ Yeun Savuth (Babu) ។ Platform ជួយ អ្នក, Creator, Student ខ្មែរ Grow ដោយ AI + Digital Skills ជាភាសាខ្មែរ ១០០%!</li>
               <li><strong>Q: ភាសា ណា ប្រើ?</strong><br>A: ១០០% ភាសាខ្មែរ + English Technical Terms ។ ចូលរៀន ឬ ប្រឹក្សាជាភាសាខ្មែរបាន!</li>
               <li><strong>Q: YOB Service ចម្លែក ពី Agency ធម្មតាដូចម្ដេច?</strong><br>A: YOB = Partner មិន Vendor ។ Babu ធ្វើការជាមួយ Client — ជំរុញ skills + ធ្វើ execution ។ Agency ធ្វើឱ្យ → YOB ធ្វើជាមួយ + teach!</li>
             </ul>
@@ -6624,10 +6632,10 @@ body {
             <h2 id="coming">🔜 Coming Soon</h2>
             <ul>
               <li>⏳ <strong>YOB Courses v2</strong> — Full video lessons with progress tracking</li>
-              <li>⏳ <strong>Case Studies</strong> — 5 detailed Khmer SME case studies</li>
+              <li>⏳ <strong>Case Studies</strong> — 5 detailed Khmer learners case studies</li>
               <li>⏳ <strong>YOB Certificate</strong> — Verified completion certificates</li>
               <li>⏳ <strong>Community Forum</strong> — Khmer Digital Community on-platform</li>
-              <li>⏳ <strong>Prompt Library</strong> — 200+ tested prompts for Khmer SMEs</li>
+              <li>⏳ <strong>Prompt Library</strong> — 200+ tested prompts for Khmer learnerss</li>
             </ul>
             <a href="https://t.me/yobdigital" target="_blank" class="btn-primary" style="margin-top:12px"><i class="fab fa-telegram"></i> Follow Updates on Telegram</a>
           </div>
@@ -6903,7 +6911,7 @@ body {
           outcome:
             "យល់ Digital Strategy framework និងអាចរៀប plan 30 ថ្ងៃដំបូងបាន។",
           time: "12-16 នាទី",
-          prereq: "ស្គាល់អាជីវកម្ម និង customer របស់អ្នកជាមូលដ្ឋាន",
+          prereq: "ស្គាល់ context និង customer របស់អ្នកជាមូលដ្ឋាន",
         },
         "ads-setup": {
           outcome: "អាចបើក campaign ដំបូងបានត្រឹមត្រូវក្នុង Ads Manager។",
@@ -7075,7 +7083,7 @@ body {
           <div class="callout-body">
             <strong>ចំណាំអំពីទិន្នន័យ (Data Note):</strong>
             លេខស្ថិតិ និងលទ្ធផលនៅក្នុងមេរៀននេះគួរតែយកជាគោលការណ៍ណែនាំសម្រាប់ការអនុវត្តដំបូង។
-            សូមវាស់លទ្ធផលជាក់ស្តែងរបស់អាជីវកម្មអ្នកដោយផ្ទាល់ (Insights, Ads Manager, Analytics) មុនសម្រេចចិត្តវិនិយោគបន្ថែម។
+            សូមវាស់លទ្ធផលជាក់ស្តែងរបស់អ្នកដោយផ្ទាល់ (Insights, Ads Manager, Analytics) មុនសម្រេចចិត្តវិនិយោគបន្ថែម។
           </div>
         </div>
         `;
@@ -7150,57 +7158,65 @@ body {
         const mins = readingTime(page.content);
         const isCatalog = pageId === "getting-started";
         main.classList.toggle("catalog-mode", isCatalog);
-        main.innerHTML = isCatalog
-          ? `${contentWithNote}`
-          : `
-        <div class="breadcrumb">
-          <a onclick="loadPage('getting-started')" style="cursor:pointer;color:var(--gold)">Docs</a>
-          <i class="fas fa-chevron-right"></i>
-          <span>${page.breadcrumb}</span>
-          <span style="margin-left:auto;font-size:11px;color:var(--gray);display:flex;align-items:center;gap:5px">
-            <i class="fas fa-clock"></i> ${mins} min read
-          </span>
-        </div>
-        <h1 class="doc-title">${page.title}</h1>
-        ${renderLessonBlueprint(pageId)}
-        ${trackGuideHtml}
-        ${contentWithNote}
-        ${renderFeedbackWidget(pageId)}
-        <div class="page-nav">
-          ${prevHtml}
-          ${nextHtml}
-        </div>
-      `;
-        if (isCatalog) {
-          initCatalog();
-        }
 
-        // Render TOC
-        const toc = document.getElementById("tocLinks");
-        const headingNodes = Array.from(
-          main.querySelectorAll(".doc-section h2, .doc-section h3"),
-        ).filter((h) => h.id);
+        // Page transition: fade out → swap content → fade in
+        main.classList.add("page-leaving");
+        setTimeout(() => {
+          main.innerHTML = isCatalog
+            ? `${contentWithNote}`
+            : `
+          <div class="breadcrumb">
+            <a onclick="loadPage('getting-started')" style="cursor:pointer;color:var(--gold)">Docs</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>${page.breadcrumb}</span>
+            <span style="margin-left:auto;font-size:11px;color:var(--gray);display:flex;align-items:center;gap:5px">
+              <i class="fas fa-clock"></i> ${mins} min read
+            </span>
+          </div>
+          <h1 class="doc-title">${page.title}</h1>
+          ${renderLessonBlueprint(pageId)}
+          ${trackGuideHtml}
+          ${contentWithNote}
+          ${renderFeedbackWidget(pageId)}
+          <div class="page-nav">
+            ${prevHtml}
+            ${nextHtml}
+          </div>
+        `;
+          if (isCatalog) {
+            initCatalog();
+          }
 
-        if (headingNodes.length) {
-          toc.innerHTML = headingNodes
-            .map(
-              (h) =>
-                `<a class="toc-link" href="#${h.id}" onclick="highlightToc(this)">${h.textContent.trim()}</a>`,
-            )
-            .join("");
-        } else {
-          toc.innerHTML = "";
-        }
+          // Render TOC
+          const toc = document.getElementById("tocLinks");
+          const headingNodes = Array.from(
+            main.querySelectorAll(".doc-section h2, .doc-section h3"),
+          ).filter((h) => h.id);
 
-        // Scroll to top
-        main.scrollTop = 0;
-        window.scrollTo(0, 0);
+          if (headingNodes.length) {
+            toc.innerHTML = headingNodes
+              .map(
+                (h) =>
+                  `<a class="toc-link" href="#${h.id}" onclick="highlightToc(this)">${h.textContent.trim()}</a>`,
+              )
+              .join("");
+          } else {
+            toc.innerHTML = "";
+          }
 
-        // Close sidebar on mobile
-        if (window.innerWidth <= 900) closeSidebar();
+          // Scroll to top
+          main.scrollTop = 0;
+          window.scrollTo(0, 0);
 
-        updateKpiPanel();
-        updateLowScoreMarkers();
+          // Fade back in
+          main.classList.remove("page-leaving");
+
+          // Close sidebar on mobile
+          if (window.innerWidth <= 900) closeSidebar();
+
+          updateKpiPanel();
+          updateLowScoreMarkers();
+        }, 180); // end setTimeout
       }
 
       function highlightToc(el) {
@@ -7373,18 +7389,22 @@ body {
 
       // TOC scroll spy
       window.addEventListener("scroll", () => {
-        const headings = document.querySelectorAll(
-          ".docs-main h2, .docs-main h3",
-        );
-        let current = "";
-        headings.forEach((h) => {
-          if (h.getBoundingClientRect().top < 120) current = h.id;
-        });
+        const headings = Array.from(document.querySelectorAll(
+          ".docs-main h2[id], .docs-main h3[id]",
+        ));
+        if (!headings.length) return;
+        const offset = 140;
+        let current = headings[0].id; // default to first heading
+        for (const h of headings) {
+          if (h.getBoundingClientRect().top <= offset) {
+            current = h.id;
+          }
+        }
         document.querySelectorAll(".toc-link").forEach((l) => {
           const href = l.getAttribute("href");
-          l.classList.toggle("active", href && href === "#" + current);
+          l.classList.toggle("active", href === "#" + current);
         });
-      });
+      }, { passive: true });
 
       // Event instrumentation for KPI tracking
       document.addEventListener("click", (event) => {
@@ -7893,6 +7913,34 @@ body {
         var empty = document.getElementById('catEmpty');
         if (empty) empty.style.display = (q && total === 0) ? '' : 'none';
       };
+
+      // ── Init Catalog: search focus + cat-jump scroll sync ──
+      function initCatalog() {
+        // Focus search input
+        var s = document.getElementById('catSearch');
+        if (s) setTimeout(function () { s.focus(); }, 220);
+
+        // Cat jump scroll sync via IntersectionObserver
+        if (!window.IntersectionObserver) return;
+        var catObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var id = entry.target.id;          // e.g. "cat-ai"
+              var pill = document.querySelector('.cat-jump[href="#' + id + '"]');
+              if (pill) {
+                document.querySelectorAll('.cat-jump').forEach(function (j) {
+                  j.classList.remove('active');
+                });
+                pill.classList.add('active');
+              }
+            }
+          });
+        }, { root: null, rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+        document.querySelectorAll('.cat-section').forEach(function (sec) {
+          catObserver.observe(sec);
+        });
+      }
 
       // ── Init ──
       loadPage('getting-started');
