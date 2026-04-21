@@ -168,6 +168,32 @@
         --header-h: 68px;
         --toc-w: 260px;
         --t: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+        /* ── Font aliases ── */
+        --font-display: "Bebas Neue", sans-serif;
+        --font-kh: "Kantumruy Pro", sans-serif;
+        --font-en: "Kantumruy Pro", sans-serif;
+
+        /* ── Type scale ── */
+        --text-xs:   0.75rem;   /* 12px */
+        --text-sm:   0.875rem;  /* 14px */
+        --text-base: 1rem;      /* 16px */
+        --text-lg:   1.125rem;  /* 18px */
+        --text-xl:   1.25rem;   /* 20px */
+        --text-2xl:  1.5rem;    /* 24px */
+        --text-3xl:  1.875rem;  /* 30px */
+        --text-4xl:  2.25rem;   /* 36px */
+        --text-hero: 3.5rem;    /* 56px */
+
+        /* ── Leading (line-height) ── */
+        --leading-tight:  1.4;
+        --leading-normal: 1.75;
+        --leading-loose:  2.0;
+
+        /* ── Font weights ── */
+        --weight-normal: 400;
+        --weight-medium: 500;
+        --weight-bold:   700;
       }
       *,
       *::before,
@@ -184,7 +210,7 @@
         background: var(--dark);
         color: var(--white);
         font-family: var(--fb);
-        line-height: 1.7;
+        line-height: var(--leading-normal);
         overflow-x: hidden;
       }
       a {
@@ -204,11 +230,66 @@
         border-radius: 10px;
         padding: 8px 12px;
         cursor: text;
-        transition: all var(--t);
+        transition: border-color 0.3s, background 0.3s;
+        overflow: hidden;
       }
       .docs-search:hover {
         border-color: rgba(229, 44, 103, 0.25);
         background: rgba(255, 255, 255, 0.07);
+      }
+      /* ── Shimmer sweep layer ── */
+      .docs-search::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg,
+          transparent 0%,
+          rgba(229, 44, 103, 0.18) 40%,
+          rgba(255, 138, 176, 0.12) 50%,
+          transparent 100%);
+        transform: translateX(-100%);
+        opacity: 0;
+        pointer-events: none;
+        border-radius: 10px;
+        transition: opacity 0.2s;
+      }
+      .docs-search.active::before {
+        opacity: 1;
+        animation: searchds-sweep 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      /* ── Active border + glow ── */
+      .docs-search.active {
+        border-color: rgba(229, 44, 103, 0.75) !important;
+        background: rgba(10, 5, 14, 0.97) !important;
+        animation: searchds-glow 2s ease-in-out infinite;
+      }
+      /* ── Icon turns pink + bounces in ── */
+      .docs-search.active > i.fa-search {
+        color: var(--gold) !important;
+        animation: searchds-iconbounce 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      }
+      @keyframes searchds-sweep {
+        0%   { transform: translateX(-110%); opacity: 0; }
+        15%  { opacity: 1; }
+        85%  { opacity: 1; }
+        100% { transform: translateX(110%); opacity: 0; }
+      }
+      @keyframes searchds-glow {
+        0%, 100% {
+          box-shadow:
+            0 0 0 3px rgba(229, 44, 103, 0.10),
+            0 6px 24px rgba(229, 44, 103, 0.16);
+        }
+        50% {
+          box-shadow:
+            0 0 0 5px rgba(229, 44, 103, 0.18),
+            0 10px 36px rgba(229, 44, 103, 0.28);
+        }
+      }
+      @keyframes searchds-iconbounce {
+        0%   { transform: scale(0.5) rotate(-20deg); opacity: 0.3; }
+        60%  { transform: scale(1.25) rotate(6deg); opacity: 1; }
+        100% { transform: scale(1) rotate(0deg); opacity: 1; }
       }
       .docs-search input {
         background: none;
@@ -241,11 +322,6 @@
         font-size: 11px;
       }
       /* ── SEARCH DROPDOWN ── */
-      .docs-search.active {
-        border-color: rgba(229, 44, 103, 0.5) !important;
-        background: rgba(255, 255, 255, 0.08) !important;
-        box-shadow: 0 0 0 3px rgba(229, 44, 103, 0.1);
-      }
       .search-dropdown {
         position: fixed;
         top: calc(var(--header-h) + 6px);
@@ -419,36 +495,40 @@
         border-radius: 4px;
       }
 
-      /* Tab switcher */
-      .sidebar-tabs {
+      /* Sidebar search shortcut */
+      .sidebar-search-btn {
         display: flex;
-        gap: 4px;
-        padding: 0 16px 20px;
-        border-bottom: 1px solid var(--border);
-        margin-bottom: 20px;
-      }
-      .s-tab {
-        flex: 1;
-        padding: 8px 9px;
-        border-radius: 8px;
-        background: none;
-        border: 1px solid transparent;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        padding: 0;
+        background: var(--dark3);
+        border: 1px solid var(--border2);
+        border-radius: 10px;
         color: var(--gray);
         font-family: var(--fb);
         font-size: 12px;
-        font-weight: 600;
         cursor: pointer;
-        transition: all var(--t);
-        text-align: center;
+        margin-bottom: 18px;
+        transition: border-color var(--t), background var(--t), color var(--t);
       }
-      .s-tab:hover {
-        color: var(--white);
-        background: var(--glass);
-      }
-      .s-tab.active {
-        background: rgba(229, 44, 103, 0.1);
-        border-color: rgba(229, 44, 103, 0.2);
+      .sidebar-search-btn:hover {
+        border-color: var(--gold);
+        background: rgba(229,44,103,0.08);
         color: var(--gold);
+      }
+      .sidebar-search-btn i { font-size: 13px; }
+      .sidebar-search-btn span,
+      .sidebar-kbd { display: none; }
+      .nav-count {
+        margin-left: auto;
+        font-size: 10px;
+        background: rgba(255,255,255,0.06);
+        color: var(--gray);
+        border-radius: 20px;
+        padding: 1px 7px;
+        font-weight: 600;
       }
 
       /* Nav groups */
@@ -508,9 +588,11 @@
         flex: 1;
         margin-left: var(--sidebar-w);
         margin-right: var(--toc-w);
-        padding: clamp(40px, 6vw, 48px) clamp(40px, 8vw, 56px);
+        padding: clamp(40px, 6vw, 48px) clamp(32px, 5vw, 48px);
         min-width: 0;
-        max-width: 860px;
+      }
+      .docs-main.catalog-mode {
+        padding: clamp(28px, 4vw, 36px) clamp(16px, 3vw, 28px);
       }
 
       /* Breadcrumb */
@@ -537,7 +619,7 @@
       }
       .doc-lead {
         font-family: var(--fk);
-        font-size: 17px;
+        font-size: var(--text-lg);
         color: var(--gray);
         line-height: 1.9;
         margin-bottom: 36px;
@@ -549,7 +631,7 @@
       }
       .doc-section h2 {
         font-family: var(--fh);
-        font-size: 28px;
+        font-size: var(--text-3xl);
         font-weight: 700;
         margin-bottom: 16px;
         margin-top: 48px;
@@ -564,7 +646,7 @@
       }
       .doc-section h3 {
         font-family: var(--fb);
-        font-size: 18px;
+        font-size: var(--text-xl);
         font-weight: 700;
         margin-bottom: 12px;
         margin-top: 28px;
@@ -573,15 +655,15 @@
       }
       .doc-section p {
         font-family: var(--fk);
-        font-size: 15px;
+        font-size: var(--text-base);
         color: rgba(255, 255, 255, 0.75);
-        line-height: 1.9;
+        line-height: var(--leading-loose);
         margin-bottom: 16px;
       }
       .doc-section ul,
       .doc-section ol {
         font-family: var(--fk);
-        font-size: 15px;
+        font-size: var(--text-base);
         color: rgba(255, 255, 255, 0.75);
         line-height: 1.9;
         padding-left: 22px;
@@ -700,6 +782,51 @@
           grid-template-columns: 1fr;
         }
       }
+
+      /* Doc section HTML tables */
+      .doc-section table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0 28px;
+        font-size: 13.5px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+      .doc-section thead th {
+        background: rgba(229, 44, 103, 0.1);
+        color: var(--white);
+        font-weight: 700;
+        font-family: var(--fb);
+        padding: 10px 14px;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+      .doc-section td {
+        padding: 9px 14px;
+        color: rgba(255, 255, 255, 0.75);
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+        font-family: var(--fk);
+        line-height: 1.6;
+      }
+      .doc-section tbody tr:last-child td {
+        border-bottom: none;
+      }
+      .doc-section tbody tr:hover {
+        background: rgba(255, 255, 255, 0.025);
+      }
+      @media (max-width: 600px) {
+        .doc-section table {
+          display: block;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+      }
+
       .tool-card {
         border-radius: 16px;
         padding: 22px 18px;
@@ -1011,6 +1138,19 @@
         color: var(--white);
       }
 
+      /* Shorthand tip box (alias for .callout.tip) */
+      .tip-box {
+        border-left: 4px solid var(--gold);
+        background: rgba(229, 44, 103, 0.08);
+        padding: 1rem 1.25rem;
+        border-radius: 0 8px 8px 0;
+        margin: 20px 0;
+        font-family: var(--fk);
+        font-size: var(--text-sm);
+        color: rgba(255, 255, 255, 0.8);
+        line-height: var(--leading-normal);
+      }
+
       /* Card grid */
       .card-grid {
         display: grid;
@@ -1055,6 +1195,8 @@
         counter-reset: step;
         margin: 20px 0;
       }
+      /* .step is an alias for .step-item */
+      .step,
       .step-item {
         display: flex;
         gap: 18px;
@@ -1202,18 +1344,46 @@
         color: var(--white);
       }
 
-      .kpi-panel {
-        margin-top: 18px;
-        padding: 16px;
-        border: 1px solid var(--border2);
-        border-radius: 16px;
-        background:
-          linear-gradient(
-            180deg,
-            rgba(229, 44, 103, 0.08) 0%,
-            rgba(255, 255, 255, 0.02) 44%
-          ),
-          rgba(255, 255, 255, 0.02);
+      .kpi-panel { margin-top: 4px; }
+      .kpi-sep {
+        height: 1px;
+        background: var(--border);
+        margin: 16px 0 14px;
+      }
+      .kpi-label-head {
+        font-family: var(--fb);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gray);
+        margin-bottom: 10px;
+      }
+      .kpi-stat-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+      }
+      .kpi-stat-row:last-of-type { border-bottom: none; }
+      .kpi-stat-icon { font-size: 11px; color: var(--gray); width: 14px; text-align: center; flex-shrink: 0; }
+      .kpi-stat-name { font-family: var(--fb); font-size: 12px; color: var(--gray); flex: 1; }
+      .kpi-stat-val { font-family: var(--fb); font-size: 13px; color: var(--white); font-weight: 700; }
+      .kpi-good { color: #00e676 !important; }
+      .kpi-low-r { color: var(--gold) !important; }
+      .kpi-helpbar {
+        height: 3px;
+        background: rgba(255,255,255,0.06);
+        border-radius: 2px;
+        margin-top: 10px;
+        overflow: hidden;
+      }
+      .kpi-helpbar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--gold), #00e676);
+        border-radius: 2px;
+        transition: width 0.6s ease;
       }
       .kpi-head {
         display: flex;
@@ -1834,6 +2004,20 @@
         .docs-main {
           padding: clamp(24px, 5vw, 30px) clamp(18px, 5vw, 22px);
         }
+        .doc-section h2 { font-size: var(--text-2xl); }
+        .doc-section h3 { font-size: var(--text-lg); }
+        .doc-title { font-size: clamp(28px, 6vw, 40px); }
+        .docs-toc { display: none; }
+        .docs-main { margin-right: 0; }
+      }
+      @media (max-width: 480px) {
+        .doc-section h2 { font-size: var(--text-xl); }
+        .doc-section h3 { font-size: var(--text-base); font-weight: var(--weight-bold); }
+        .doc-section p,
+        .doc-section ul,
+        .doc-section ol { font-size: 0.9375rem; }
+        .doc-title { font-size: clamp(24px, 7vw, 32px); }
+        .doc-lead { font-size: var(--text-base); }
       }
       @media (max-width: 600px) {
         .docs-main {
@@ -2560,6 +2744,7 @@
         padding: 36px 0 28px;
         border-bottom: 1px solid var(--border);
         margin-bottom: 0;
+        text-align: center;
       }
       .gsk-hero-tag {
         display: inline-flex;
@@ -2594,12 +2779,13 @@
         color: var(--gray);
         line-height: 1.6;
         max-width: 500px;
-        margin-bottom: 20px;
+        margin: 0 auto 20px;
       }
       .gsk-stats {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+        justify-content: center;
       }
       .gsk-stat {
         display: flex;
@@ -2889,6 +3075,140 @@
           color 0.2s,
           transform 0.2s;
       }
+      /* ── gs2 Landing (Hero v2 + Paths + Featured) ── */
+      .gs2-hero { border-bottom: none; padding-bottom: 20px; }
+      .gs2-search-wrap {
+        position: relative;
+        max-width: 480px;
+        margin: 20px auto 0;
+      }
+      .gs2-search-wrap i {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gray);
+        font-size: 13px;
+        pointer-events: none;
+      }
+      .gs2-search-wrap .gsk-search {
+        max-width: 100%;
+        padding-left: 38px;
+        height: 44px;
+        font-size: 14px;
+        border-radius: 50px;
+      }
+      .gs2-section-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--fb);
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--gray);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin: 28px 0 14px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+      .gs2-section-label i { color: var(--gold); font-size: 11px; }
+      .gs2-section-label .gsk-result-count { margin-left: auto; text-transform: none; letter-spacing: 0; }
+      .gs2-paths {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-bottom: 4px;
+      }
+      .gs2-path-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 14px 14px 12px;
+        background: var(--dark2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: border-color var(--t), background var(--t), transform var(--t);
+      }
+      .gs2-path-card:hover {
+        border-color: var(--gold);
+        background: rgba(229,44,103,0.04);
+        transform: translateY(-2px);
+      }
+      .gs2-path-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+      .gs2-path-body { flex: 1; min-width: 0; }
+      .gs2-path-title { font-family: var(--fb); font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 2px; }
+      .gs2-path-desc { font-family: var(--fb); font-size: 11px; color: var(--gray); margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .gs2-path-meta { font-family: var(--fb); font-size: 10px; color: var(--gold); font-weight: 600; }
+      .gs2-path-arrow { color: var(--border2); font-size: 12px; flex-shrink: 0; transition: color var(--t), transform var(--t); }
+      .gs2-path-card:hover .gs2-path-arrow { color: var(--gold); transform: translateX(3px); }
+      .gs2-featured {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-bottom: 4px;
+      }
+      .gs2-feat-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px;
+        background: var(--dark2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: border-color var(--t), background var(--t), transform var(--t);
+      }
+      .gs2-feat-card:hover { border-color: var(--gold); background: rgba(229,44,103,0.04); transform: translateY(-2px); }
+      .gs2-feat-thumb {
+        width: 54px;
+        height: 54px;
+        border-radius: 12px;
+        background: rgba(229,44,103,0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        flex-shrink: 0;
+      }
+      .gs2-feat-body { flex: 1; min-width: 0; }
+      .gs2-feat-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+      .gs2-feat-hot {
+        font-family: var(--fb);
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--gold);
+        background: rgba(229,44,103,0.1);
+        border-radius: 20px;
+        padding: 2px 8px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .gs2-feat-title { font-family: var(--fb); font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+      .gs2-feat-desc { font-family: var(--fb); font-size: 12px; color: var(--gray); margin-bottom: 8px; line-height: 1.5; }
+      .gs2-feat-foot { display: flex; align-items: center; gap: 12px; font-family: var(--fb); font-size: 11px; color: var(--gray); }
+      .gs2-feat-free { color: #00e676; font-weight: 700; }
+      /* Responsive */
+      @media (max-width: 900px) {
+        .gs2-paths { grid-template-columns: repeat(2, 1fr); }
+        .gs2-featured { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 560px) {
+        .gs2-paths { grid-template-columns: 1fr 1fr; gap: 8px; }
+        .gs2-path-desc { display: none; }
+      }
+
       .gsk-empty {
         text-align: center;
         padding: 56px 20px;
@@ -2902,6 +3222,207 @@
         margin-bottom: 10px;
         color: var(--border2);
         display: block;
+      }
+
+      /* ══════════════════════════════════════════
+         CATALOG v2 — Grouped by Category
+      ══════════════════════════════════════════ */
+
+      /* Jump nav pills */
+      .cat-jumps {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        padding: 14px 0 16px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 4px;
+      }
+      .cat-jump {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 13px;
+        border-radius: 50px;
+        border: 1px solid var(--border2);
+        background: transparent;
+        font-family: var(--fb);
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--gray);
+        cursor: pointer;
+        transition: all 0.2s;
+        white-space: nowrap;
+        text-decoration: none !important;
+      }
+      .cat-jump:hover {
+        border-color: rgba(229, 44, 103, 0.45);
+        color: var(--white);
+        background: rgba(229, 44, 103, 0.06);
+      }
+      .cat-jump.active {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: #fff;
+        font-weight: 600;
+      }
+      .cat-jump-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      /* Category section */
+      .cat-section {
+        margin-top: 32px;
+        scroll-margin-top: calc(var(--header-h) + 16px);
+      }
+      .cat-section.cat-hidden { display: none; }
+
+      /* Section header */
+      .cat-sec-hd {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 16px;
+        border-radius: 12px 12px 0 0;
+        border: 1px solid var(--border);
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+      .cat-sec-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+      .cat-sec-info { flex: 1; }
+      .cat-sec-title {
+        font-family: var(--fb);
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.2;
+      }
+      .cat-sec-meta {
+        font-family: var(--fb);
+        font-size: 11px;
+        color: var(--gray);
+        margin-top: 2px;
+      }
+      .cat-sec-badge {
+        font-family: var(--fb);
+        font-size: 11px;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.06);
+        color: var(--gray);
+        flex-shrink: 0;
+      }
+
+      /* Card grid */
+      .cat-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        border-radius: 0 0 12px 12px;
+        overflow: hidden;
+        margin-bottom: 8px;
+      }
+
+      /* Individual card */
+      .cat-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 16px;
+        background: var(--dark2);
+        cursor: pointer;
+        transition: background 0.18s;
+        text-decoration: none !important;
+      }
+      .cat-card:hover {
+        background: rgba(229, 44, 103, 0.05);
+      }
+      .cat-card:hover .cat-card-arrow { color: var(--gold); transform: translateX(3px); }
+      .cat-card-thumb {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+      .cat-card-body { flex: 1; min-width: 0; }
+      .cat-card-title {
+        font-family: var(--fb);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--white);
+        line-height: 1.35;
+        margin-bottom: 3px;
+      }
+      .cat-card-desc {
+        font-family: var(--fb);
+        font-size: 11px;
+        color: var(--gray);
+        line-height: 1.45;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .cat-card-foot {
+        display: flex;
+        gap: 8px;
+        margin-top: 5px;
+        flex-wrap: wrap;
+      }
+      .cat-card-foot span {
+        font-family: var(--fb);
+        font-size: 10px;
+        color: var(--gray);
+        display: flex;
+        align-items: center;
+        gap: 3px;
+      }
+      .cat-card-arrow {
+        font-size: 11px;
+        color: var(--border2);
+        flex-shrink: 0;
+        transition: color 0.2s, transform 0.2s;
+      }
+      /* hidden during search */
+      .cat-card.cat-hidden { display: none; }
+
+      /* Search no-result per section */
+      .cat-sec-empty {
+        display: none;
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 24px;
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gray);
+        background: var(--dark2);
+      }
+
+      /* Section hidden when all cards hidden */
+      .cat-section[data-empty="1"] .cat-grid { border-top: 1px solid var(--border); }
+      .cat-section[data-empty="1"] .cat-sec-hd { border-radius: 12px; border-bottom: 1px solid var(--border); }
+      .cat-section[data-empty="1"] .cat-grid { display: none; }
+
+      @media (max-width: 680px) {
+        .cat-grid { grid-template-columns: 1fr; }
+        .cat-card-desc { display: none; }
       }
 
       @media (max-width: 600px) {
@@ -3082,28 +3603,24 @@
     <div class="docs-layout">
       <!-- ══ SIDEBAR ══ -->
       <aside class="docs-sidebar" id="docsSidebar">
-        <div class="sidebar-tabs">
-          <button class="s-tab active">ចាប់ផ្ដើម</button>
-          <button class="s-tab">Guides</button>
-          <button class="s-tab">Reference</button>
-        </div>
 
-        <!-- Getting Started -->
-        <div class="nav-group" data-tab="start">
-          <div class="nav-group-label">ចាប់ផ្ដើម</div>
+        <!-- Search shortcut -->
+        <button class="sidebar-search-btn" id="sidebarSearchBtn" title="Search (Ctrl+K)">
+          <i class="fas fa-search"></i>
+          <span>ស្វែងរក...</span>
+          <kbd class="sidebar-kbd">⌘K</kbd>
+        </button>
+
+        <!-- Catalog -->
+        <div class="nav-group">
           <a class="nav-link active" onclick="loadPage('getting-started')">
-            <i class="fas fa-rocket"></i> ចាប់ផ្ដើម
-          </a>
-          <a class="nav-link" onclick="loadPage('why-yob')">
-            <i class="fas fa-question-circle"></i> Why YOB Digital?
-          </a>
-          <a class="nav-link" onclick="loadPage('yob-ecosystem')">
-            <i class="fas fa-layer-group"></i> YOB Ecosystem
+            <i class="fas fa-th-large"></i> Catalog
+            <span class="nav-count">22</span>
           </a>
         </div>
 
         <!-- AI Tools -->
-        <div class="nav-group" data-tab="guides">
+        <div class="nav-group">
           <div class="nav-group-label">AI Tools</div>
           <a class="nav-link" onclick="loadPage('ai-overview')">
             <i class="fas fa-robot"></i> AI Overview
@@ -3128,7 +3645,7 @@
         </div>
 
         <!-- Digital Strategy -->
-        <div class="nav-group" data-tab="guides">
+        <div class="nav-group">
           <div class="nav-group-label">Digital Strategy</div>
           <a class="nav-link" onclick="loadPage('strategy-overview')">
             <i class="fas fa-chess"></i> Strategy Overview
@@ -3151,7 +3668,7 @@
         </div>
 
         <!-- Web & Systems -->
-        <div class="nav-group" data-tab="reference">
+        <div class="nav-group">
           <div class="nav-group-label">Web & Systems</div>
           <a class="nav-link" onclick="loadPage('web-overview')">
             <i class="fas fa-globe"></i> Web Overview
@@ -3171,7 +3688,7 @@
         </div>
 
         <!-- Khmer Typography -->
-        <div class="nav-group" data-tab="reference">
+        <div class="nav-group">
           <div class="nav-group-label">Khmer Typography</div>
           <a class="nav-link" onclick="loadPage('fonts-overview')">
             <i class="fas fa-font"></i> Fonts Overview
@@ -3188,7 +3705,7 @@
         </div>
 
         <!-- Resources -->
-        <div class="nav-group" data-tab="reference">
+        <div class="nav-group">
           <div class="nav-group-label">Resources</div>
           <a class="nav-link" onclick="loadPage('free-toolkit')">
             <i class="fas fa-gift"></i> Toolkit ឥតគិតថ្លៃ
@@ -3237,195 +3754,190 @@
           toc: [],
           content: `
           <!-- HERO -->
-          <div class="gsk-hero">
+          <div class="gsk-hero gs2-hero">
             <div class="gsk-hero-tag"><i class="fas fa-graduation-cap"></i> YOB Digital Docs</div>
-            <h1>Explore <em>Training</em> Your Way</h1>
-            <p class="gsk-hero-sub">AI Tools · Digital Strategy · Web &amp; Systems · Khmer Typography — ជាភាសាខ្មែរ ១០០% · Apply បានភ្លាម</p>
+            <h1>&#x1798;&#x17C1;&#x179A;&#x17C0;&#x1793; <em>Free</em> &middot; Proven &middot; <span style="color:var(--gold)">&#x1796;&#x17B6;&#x1797;&#x17B6;&#x179F;&#x17B6;&#x1781;&#x17D2;&#x1798;&#x17C2;&#x179A;</span></h1>
+            <p class="gsk-hero-sub">&#x1780;&#x17B6;&#x179A;&#x179F;&#x17D2;&#x179A;&#x17B6;&#x179C;&#x1787;&#x17D2;&#x179A;&#x17B6;&#x179C; &#x1793;&#x17B7;&#x1784; &#x17A2;&#x1793;&#x17BB;&#x179C;&#x178F;&#x17D2;&#x178F;&#x1793;&#x17CD; &#x178F;&#x178F;&#x17BB;&#x179B;&#x1794;&#x17B6;&#x1793;&#x1787;&#x17C4;&#x1782;&#x1787;&#x17C1;&#x1799; &mdash; 100% FREE &middot; Apply &#x1794;&#x17B6;&#x1793;&#x1797;&#x17D2;&#x179B;&#x17B6;&#x1798;</p>
             <div class="gsk-stats">
-              <div class="gsk-stat"><strong>27</strong>&nbsp;Lessons</div>
-              <div class="gsk-stat"><strong>5</strong>&nbsp;Categories</div>
-              <div class="gsk-stat"><strong>FREE</strong>&nbsp;ទាំងអស់</div>
-              <div class="gsk-stat">🇰🇭&nbsp;<strong>Khmer First</strong></div>
+              <div class="gsk-stat"><strong>22</strong>&nbsp;Lessons</div>
+              <div class="gsk-stat"><strong>4</strong>&nbsp;Categories</div>
+              <div class="gsk-stat"><strong>FREE</strong>&nbsp;&#x178F;&#x17B6;&#x17C6;&#x1784;&#x17A2;&#x179F;&#x17CB;</div>
+              <div class="gsk-stat">&#x1F1F0;&#x1F1ED;&nbsp;<strong>Khmer First</strong></div>
             </div>
-          </div>
-
-          <!-- TOOLBAR -->
-          <div class="gsk-toolbar">
-            <div class="gsk-search-wrap">
+            <div class="gs2-search-wrap" style="margin-top:16px">
               <i class="fas fa-search"></i>
-              <input class="gsk-search" id="catSearch" type="text" placeholder="ស្វែងរក lesson..." oninput="filterCatalog()" />
-            </div>
-            <span class="gsk-result-count" id="catCount">27 results</span>
-          </div>
-
-          <!-- FILTER PILLS -->
-          <div class="gsk-filter-bar">
-            <button class="gsk-fpill active" onclick="setCatFilter(this,'all')">ទាំងអស់ <span class="gsk-fpill-n">27</span></button>
-            <button class="gsk-fpill" onclick="setCatFilter(this,'start')"><span class="gsk-fdot" style="background:#00e676"></span> ចាប់ផ្ដើម <span class="gsk-fpill-n">3</span></button>
-            <button class="gsk-fpill" onclick="setCatFilter(this,'ai')"><span class="gsk-fdot" style="background:var(--gold)"></span> AI Tools <span class="gsk-fpill-n">6</span></button>
-            <button class="gsk-fpill" onclick="setCatFilter(this,'strat')"><span class="gsk-fdot" style="background:#4f82ff"></span> Digital Strategy <span class="gsk-fpill-n">6</span></button>
-            <button class="gsk-fpill" onclick="setCatFilter(this,'web')"><span class="gsk-fdot" style="background:#00f0ff"></span> Web &amp; Systems <span class="gsk-fpill-n">5</span></button>
-            <button class="gsk-fpill" onclick="setCatFilter(this,'type')"><span class="gsk-fdot" style="background:#9b6bff"></span> Typography <span class="gsk-fpill-n">4</span></button>
-            <button class="gsk-fpill" onclick="setCatFilter(this,'res')"><span class="gsk-fdot" style="background:#ff9800"></span> Resources <span class="gsk-fpill-n">3</span></button>
-          </div>
-
-          <!-- CARD LIST -->
-          <div class="gsk-list" id="catGrid">
-
-            <!-- ── ចាប់ផ្ដើម ── -->
-            <div class="gsk-card" data-cat="start" data-title="ចាប់ផ្ដើម YOB Docs" onclick="loadPage('getting-started-intro')">
-              <div class="gsk-thumb start">🚀</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge start">ចាប់ផ្ដើម</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">ចាប់ផ្ដើម YOB Docs</div><div class="gsk-card-desc">YOB Docs ជាអ្វី · Quick Start · Choose Your Path</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 5 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="start" data-title="Why YOB Digital" onclick="loadPage('why-yob')">
-              <div class="gsk-thumb start">💡</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge start">ចាប់ផ្ដើម</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Why YOB Digital?</div><div class="gsk-card-desc">ហេតុអ្វីត្រូវប្រើ YOB · Value Proposition · Success Stories</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 8 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="start" data-title="YOB Ecosystem" onclick="loadPage('yob-ecosystem')">
-              <div class="gsk-thumb start">🌐</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge start">ចាប់ផ្ដើម</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">YOB Ecosystem</div><div class="gsk-card-desc">LEARN · GROW · PRODUCTS · CONNECT — full overview</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 10 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-
-            <!-- ── AI Tools ── -->
-            <div class="gsk-card" data-cat="ai" data-title="AI Overview" onclick="loadPage('ai-overview')">
-              <div class="gsk-thumb ai">🤖</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge ai">AI Tools</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">AI Overview</div><div class="gsk-card-desc">Claude vs ChatGPT vs Gemini · Free tools · SME use cases</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 15 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="ai" data-title="Prompt Engineering" onclick="loadPage('prompt-engineering')">
-              <div class="gsk-thumb ai">✍️</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge ai">AI Tools</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Prompt Engineering</div><div class="gsk-card-desc">RTFT Framework · Templates ការងារ/ការសិក្សា/Design · Advanced techniques</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 25 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="ai" data-title="AI Content Creation" onclick="loadPage('ai-content')">
-              <div class="gsk-thumb ai">📝</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge ai">AI Tools</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">AI Content Creation</div><div class="gsk-card-desc">Caption · Blog · Video Script · Email · 30-Day content system</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 30 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="ai" data-title="AI Tools Directory" onclick="loadPage('ai-tools-list')">
-              <div class="gsk-thumb ai">🗂️</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge ai">AI Tools</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Tools Directory</div><div class="gsk-card-desc">Top 20+ AI tools categorized · Free vs Paid · YOB recommendations</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 20 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="ai" data-title="Automation Setup" onclick="loadPage('automation')">
-              <div class="gsk-thumb ai">⚙️</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge ai">AI Tools</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Automation Setup</div><div class="gsk-card-desc">ManyChat · Zapier · Auto-reply · Facebook Lead automation</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 35 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Intermediate</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="ai" data-title="AI Workflow for SME" onclick="loadPage('ai-workflow')">
-              <div class="gsk-thumb ai">🔄</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge ai">AI Tools</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">AI Workflow for SME</div><div class="gsk-card-desc">Full daily AI workflow · Morning → Evening routine · Systems thinking</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 20 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Intermediate</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-
-            <!-- ── Digital Strategy ── -->
-            <div class="gsk-card" data-cat="strat" data-title="Strategy Overview" onclick="loadPage('strategy-overview')">
-              <div class="gsk-thumb strat">📢</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge strat">Digital Strategy</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Strategy Overview</div><div class="gsk-card-desc">Full-funnel marketing framework · 3x ROAS blueprint · YOB method</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 20 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="strat" data-title="Customer Persona" onclick="loadPage('customer-persona')">
-              <div class="gsk-thumb strat">👤</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge strat">Digital Strategy</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Customer Persona</div><div class="gsk-card-desc">Define ideal customer · Pain points · Buying behavior in Cambodia</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 18 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="strat" data-title="Social Media Strategy" onclick="loadPage('social-media')">
-              <div class="gsk-thumb strat">📱</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge strat">Digital Strategy</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Social Media Strategy</div><div class="gsk-card-desc">Facebook · TikTok · Telegram · Platform strategy for Khmer market</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 25 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="strat" data-title="Content Planning" onclick="loadPage('content-plan')">
-              <div class="gsk-thumb strat">📅</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge strat">Digital Strategy</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Content Planning</div><div class="gsk-card-desc">30-Day content calendar · Content pillars · Batch creation system</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 22 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="strat" data-title="Facebook Google Ads" onclick="loadPage('ads-setup')">
-              <div class="gsk-thumb strat">🎯</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge strat">Digital Strategy</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Facebook &amp; Google Ads</div><div class="gsk-card-desc">Campaign setup · Targeting · Budget optimization · Tracking pixels</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 40 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Intermediate</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="strat" data-title="Analytics and Data" onclick="loadPage('analytics')">
-              <div class="gsk-thumb strat">📊</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge strat">Digital Strategy</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Analytics &amp; Data</div><div class="gsk-card-desc">Meta Business Suite · GA4 · KPIs · Reading data to make decisions</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 28 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Intermediate</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-
-            <!-- ── Web & Systems ── -->
-            <div class="gsk-card" data-cat="web" data-title="Web Overview" onclick="loadPage('web-overview')">
-              <div class="gsk-thumb web">🌍</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge web">Web &amp; Systems</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Web Overview</div><div class="gsk-card-desc">Website types · When you need a site · Tech stack for SME Cambodia</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 15 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="web" data-title="Landing Page Blueprint" onclick="loadPage('landing-page-blueprint')">
-              <div class="gsk-thumb web">🏗️</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge web">Web &amp; Systems</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Landing Page Blueprint</div><div class="gsk-card-desc">High-converting structure · Hero · CTA · Trust signals · Mobile first</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 30 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Intermediate</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="web" data-title="HTML Basics" onclick="loadPage('html-basics')">
-              <div class="gsk-thumb web">💻</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge web">Web &amp; Systems</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">HTML Basics</div><div class="gsk-card-desc">Tags · Structure · Semantic HTML · Khmer text in HTML</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 20 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="web" data-title="LMS Setup" onclick="loadPage('lms-setup')">
-              <div class="gsk-thumb web">🎓</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge web">Web &amp; Systems</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">LMS Setup</div><div class="gsk-card-desc">Online course platform · Telegram LMS · Sell knowledge in Cambodia</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 35 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Intermediate</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="web" data-title="GitHub and Netlify" onclick="loadPage('github-netlify')">
-              <div class="gsk-thumb web">🐙</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge web">Web &amp; Systems</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">GitHub + Netlify</div><div class="gsk-card-desc">Deploy website FREE · Version control · Custom domain setup</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 25 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Intermediate</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-
-            <!-- ── Khmer Typography ── -->
-            <div class="gsk-card" data-cat="type" data-title="Fonts Overview" onclick="loadPage('fonts-overview')">
-              <div class="gsk-thumb type">🔤</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge type">Typography</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Fonts Overview</div><div class="gsk-card-desc">Khmer typography basics · Unicode vs legacy · YOB font collection</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 12 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="type" data-title="Install Fonts" onclick="loadPage('font-install')">
-              <div class="gsk-thumb type">⬇️</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge type">Typography</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Install Fonts</div><div class="gsk-card-desc">Windows · Mac · Mobile install guides · App compatibility check</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 10 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="type" data-title="License Guide" onclick="loadPage('font-license')">
-              <div class="gsk-thumb type">📄</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge type">Typography</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">License Guide</div><div class="gsk-card-desc">Personal vs Commercial · SIL OFL · How to credit YOB fonts</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 8 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="type" data-title="Khmer Keyboard Setup" onclick="loadPage('font-setup')">
-              <div class="gsk-thumb type">⌨️</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge type">Typography</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Khmer Keyboard Setup</div><div class="gsk-card-desc">NiDA layout · Windows/Mac/Android/iOS setup · Practice exercises</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 15 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-
-            <!-- ── Resources ── -->
-            <div class="gsk-card" data-cat="res" data-title="Free Toolkit" onclick="loadPage('free-toolkit')">
-              <div class="gsk-thumb res">🎁</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge res">Resources</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Toolkit ឥតគិតថ្លៃ</div><div class="gsk-card-desc">AI Content Bible · 50+ Prompts · Templates · Swipe files</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 5 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="res" data-title="FAQ" onclick="loadPage('faq')">
-              <div class="gsk-thumb res">❓</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge res">Resources</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">FAQ</div><div class="gsk-card-desc">Common questions · Pricing · Contact · Community access</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 5 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-            <div class="gsk-card" data-cat="res" data-title="Changelog" onclick="loadPage('changelog')">
-              <div class="gsk-thumb res">📋</div>
-              <div class="gsk-body"><div class="gsk-body-top"><span class="gsk-badge res">Resources</span><span class="gsk-free-tag">FREE</span></div><div class="gsk-card-title">Changelog</div><div class="gsk-card-desc">Version history · New lessons · Updates · Coming soon</div><div class="gsk-card-foot"><span class="gsk-dur"><i class="fas fa-clock"></i> 3 min</span><span class="gsk-lvl"><i class="fas fa-signal"></i> Beginner</span></div></div>
-              <div class="gsk-card-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-
-            <!-- Empty state -->
-            <div class="gsk-empty" id="catEmpty">
-              <i class="fas fa-search"></i>
-              រកមិនឃើញ lesson ដែលត្រូវការ — សាកល្បងពាក្យផ្សេង
+              <input class="gsk-search" id="catSearch" type="text" placeholder="&#x179F;&#x17D2;&#x179C;&#x17C2;&#x1784;&#x179A;&#x1780; lesson..." oninput="filterCatalog()" />
             </div>
           </div>
-          `,
+
+          <!-- CATEGORY JUMP NAV -->
+          <div class="cat-jumps" id="catJumps">
+            <button class="cat-jump active" onclick="catJumpAll(this)">&#x178F;&#x17B6;&#x17C6;&#x1784;&#x17A2;&#x179F;&#x17CB; <span style="font-size:10px;opacity:.7">22</span></button>
+            <a class="cat-jump" href="#cat-ai" onclick="catJumpActivate(this)"><span class="cat-jump-dot" style="background:var(--gold)"></span> AI Tools</a>
+            <a class="cat-jump" href="#cat-strat" onclick="catJumpActivate(this)"><span class="cat-jump-dot" style="background:#4f82ff"></span> Digital Strategy</a>
+            <a class="cat-jump" href="#cat-web" onclick="catJumpActivate(this)"><span class="cat-jump-dot" style="background:#00f0ff"></span> Web &amp; Systems</a>
+            <a class="cat-jump" href="#cat-type" onclick="catJumpActivate(this)"><span class="cat-jump-dot" style="background:#9b6bff"></span> Typography</a>
+          </div>
+
+          <!-- == AI Tools == -->
+          <div class="cat-section" id="cat-ai" data-cat="ai">
+            <div class="cat-sec-hd" style="background:rgba(229,44,103,0.06);border-color:rgba(229,44,103,0.2)">
+              <div class="cat-sec-icon" style="background:rgba(229,44,103,0.12);color:var(--gold)">&#x1F916;</div>
+              <div class="cat-sec-info"><div class="cat-sec-title">AI Tools</div><div class="cat-sec-meta">Claude &middot; ChatGPT &middot; Gemini &middot; Automation &middot; Workflow</div></div>
+              <span class="cat-sec-badge" style="background:rgba(229,44,103,0.12);color:var(--gold)">6 lessons</span>
+            </div>
+            <div class="cat-grid">
+              <div class="cat-card" data-cat="ai" data-title="AI Overview" onclick="loadPage('ai-overview')">
+                <div class="cat-card-thumb" style="background:rgba(229,44,103,0.1)">&#x1F916;</div>
+                <div class="cat-card-body"><div class="cat-card-title">AI Overview</div><div class="cat-card-desc">Claude vs ChatGPT vs Gemini &middot; Free tools &middot; SME use cases</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 15 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="ai" data-title="Prompt Engineering" onclick="loadPage('prompt-engineering')">
+                <div class="cat-card-thumb" style="background:rgba(229,44,103,0.1)">&#x270F;&#xFE0F;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Prompt Engineering</div><div class="cat-card-desc">RTFT Framework &middot; Templates &middot; Advanced techniques</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 25 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="ai" data-title="AI Content Creation" onclick="loadPage('ai-content')">
+                <div class="cat-card-thumb" style="background:rgba(229,44,103,0.1)">&#x1F4DD;</div>
+                <div class="cat-card-body"><div class="cat-card-title">AI Content Creation</div><div class="cat-card-desc">Caption &middot; Blog &middot; Video Script &middot; 30-Day system</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 30 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="ai" data-title="AI Tools Directory" onclick="loadPage('ai-tools-list')">
+                <div class="cat-card-thumb" style="background:rgba(229,44,103,0.1)">&#x1F5C2;&#xFE0F;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Tools Directory</div><div class="cat-card-desc">Top 20+ AI tools &middot; Free vs Paid &middot; YOB picks</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 20 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="ai" data-title="Automation Setup" onclick="loadPage('automation')">
+                <div class="cat-card-thumb" style="background:rgba(229,44,103,0.1)">&#x2699;&#xFE0F;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Automation Setup</div><div class="cat-card-desc">ManyChat &middot; Zapier &middot; Auto-reply &middot; Lead automation</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 35 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="ai" data-title="AI Workflow for SME" onclick="loadPage('ai-workflow')">
+                <div class="cat-card-thumb" style="background:rgba(229,44,103,0.1)">&#x1F504;</div>
+                <div class="cat-card-body"><div class="cat-card-title">AI Workflow for SME</div><div class="cat-card-desc">Full daily AI workflow &middot; Morning to Evening routine</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 20 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-sec-empty" id="cat-ai-empty" style="display:none"><i class="fas fa-search" style="margin-right:6px"></i>&#x179A;&#x1780;&#x1798;&#x17B7;&#x1793;&#x1781;&#x17BE;&#x1789;</div>
+            </div>
+          </div>
+
+          <!-- == Digital Strategy == -->
+          <div class="cat-section" id="cat-strat" data-cat="strat">
+            <div class="cat-sec-hd" style="background:rgba(79,130,255,0.06);border-color:rgba(79,130,255,0.2)">
+              <div class="cat-sec-icon" style="background:rgba(79,130,255,0.12);color:#4f82ff">&#x1F4E2;</div>
+              <div class="cat-sec-info"><div class="cat-sec-title">Digital Strategy</div><div class="cat-sec-meta">Ads &middot; Content &middot; Facebook &middot; Analytics &middot; SEO</div></div>
+              <span class="cat-sec-badge" style="background:rgba(79,130,255,0.12);color:#4f82ff">6 lessons</span>
+            </div>
+            <div class="cat-grid">
+              <div class="cat-card" data-cat="strat" data-title="Strategy Overview" onclick="loadPage('strategy-overview')">
+                <div class="cat-card-thumb" style="background:rgba(79,130,255,0.1)">&#x1F4E2;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Strategy Overview</div><div class="cat-card-desc">Full-funnel framework &middot; 3x ROAS blueprint</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 20 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="strat" data-title="Customer Persona" onclick="loadPage('customer-persona')">
+                <div class="cat-card-thumb" style="background:rgba(79,130,255,0.1)">&#x1F464;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Customer Persona</div><div class="cat-card-desc">Define ideal customer &middot; Buying behavior Cambodia</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 18 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="strat" data-title="Social Media Strategy" onclick="loadPage('social-media')">
+                <div class="cat-card-thumb" style="background:rgba(79,130,255,0.1)">&#x1F4F1;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Social Media Strategy</div><div class="cat-card-desc">Facebook &middot; TikTok &middot; Telegram &middot; Khmer market</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 25 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="strat" data-title="Content Planning" onclick="loadPage('content-plan')">
+                <div class="cat-card-thumb" style="background:rgba(79,130,255,0.1)">&#x1F4C5;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Content Planning</div><div class="cat-card-desc">30-Day calendar &middot; Pillars &middot; Batch creation</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 22 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="strat" data-title="Facebook Google Ads" onclick="loadPage('ads-setup')">
+                <div class="cat-card-thumb" style="background:rgba(79,130,255,0.1)">&#x1F3AF;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Facebook &amp; Google Ads</div><div class="cat-card-desc">Campaign setup &middot; Targeting &middot; Tracking pixels</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 40 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="strat" data-title="Analytics and Data" onclick="loadPage('analytics')">
+                <div class="cat-card-thumb" style="background:rgba(79,130,255,0.1)">&#x1F4CA;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Analytics &amp; Data</div><div class="cat-card-desc">Meta Business Suite &middot; GA4 &middot; KPIs &middot; Decisions</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 28 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-sec-empty" id="cat-strat-empty" style="display:none"><i class="fas fa-search" style="margin-right:6px"></i>&#x179A;&#x1780;&#x1798;&#x17B7;&#x1793;&#x1781;&#x17BE;&#x1789;</div>
+            </div>
+          </div>
+
+          <!-- == Web & Systems == -->
+          <div class="cat-section" id="cat-web" data-cat="web">
+            <div class="cat-sec-hd" style="background:rgba(0,240,255,0.05);border-color:rgba(0,240,255,0.18)">
+              <div class="cat-sec-icon" style="background:rgba(0,240,255,0.1);color:#00f0ff">&#x1F310;</div>
+              <div class="cat-sec-info"><div class="cat-sec-title">Web &amp; Systems</div><div class="cat-sec-meta">Landing Page &middot; HTML &middot; GitHub &middot; LMS &middot; Deploy</div></div>
+              <span class="cat-sec-badge" style="background:rgba(0,240,255,0.1);color:#00f0ff">5 lessons</span>
+            </div>
+            <div class="cat-grid">
+              <div class="cat-card" data-cat="web" data-title="Web Overview" onclick="loadPage('web-overview')">
+                <div class="cat-card-thumb" style="background:rgba(0,240,255,0.08)">&#x1F30D;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Web Overview</div><div class="cat-card-desc">Website types &middot; When you need a site &middot; Tech stack</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 15 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="web" data-title="Landing Page Blueprint" onclick="loadPage('landing-page-blueprint')">
+                <div class="cat-card-thumb" style="background:rgba(0,240,255,0.08)">&#x1F3D7;&#xFE0F;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Landing Page Blueprint</div><div class="cat-card-desc">High-converting structure &middot; CTA &middot; Mobile first</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 30 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="web" data-title="HTML Basics" onclick="loadPage('html-basics')">
+                <div class="cat-card-thumb" style="background:rgba(0,240,255,0.08)">&#x1F4BB;</div>
+                <div class="cat-card-body"><div class="cat-card-title">HTML Basics</div><div class="cat-card-desc">Tags &middot; Structure &middot; Semantic HTML &middot; Khmer text</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 20 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="web" data-title="LMS Setup" onclick="loadPage('lms-setup')">
+                <div class="cat-card-thumb" style="background:rgba(0,240,255,0.08)">&#x1F393;</div>
+                <div class="cat-card-body"><div class="cat-card-title">LMS Setup</div><div class="cat-card-desc">Online course platform &middot; Telegram LMS &middot; Sell knowledge</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 35 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="web" data-title="GitHub and Netlify" onclick="loadPage('github-netlify')">
+                <div class="cat-card-thumb" style="background:rgba(0,240,255,0.08)">&#x1F419;</div>
+                <div class="cat-card-body"><div class="cat-card-title">GitHub + Netlify</div><div class="cat-card-desc">Deploy FREE &middot; Version control &middot; Custom domain</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 25 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-sec-empty" id="cat-web-empty" style="display:none"><i class="fas fa-search" style="margin-right:6px"></i>&#x179A;&#x1780;&#x1798;&#x17B7;&#x1793;&#x1781;&#x17BE;&#x1789;</div>
+            </div>
+          </div>
+
+          <!-- == Khmer Typography == -->
+          <div class="cat-section" id="cat-type" data-cat="type">
+            <div class="cat-sec-hd" style="background:rgba(155,107,255,0.06);border-color:rgba(155,107,255,0.2)">
+              <div class="cat-sec-icon" style="background:rgba(155,107,255,0.12);color:#9b6bff">&#x1F524;</div>
+              <div class="cat-sec-info"><div class="cat-sec-title">Khmer Typography</div><div class="cat-sec-meta">Fonts &middot; Design &middot; Brand Identity &middot; Keyboard</div></div>
+              <span class="cat-sec-badge" style="background:rgba(155,107,255,0.12);color:#9b6bff">4 lessons</span>
+            </div>
+            <div class="cat-grid">
+              <div class="cat-card" data-cat="type" data-title="Fonts Overview" onclick="loadPage('fonts-overview')">
+                <div class="cat-card-thumb" style="background:rgba(155,107,255,0.1)">&#x1F524;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Fonts Overview</div><div class="cat-card-desc">Khmer typography &middot; Unicode vs legacy &middot; YOB fonts</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 12 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="type" data-title="Install Fonts" onclick="loadPage('font-install')">
+                <div class="cat-card-thumb" style="background:rgba(155,107,255,0.1)">&#x2B07;&#xFE0F;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Install Fonts</div><div class="cat-card-desc">Windows &middot; Mac &middot; Mobile &middot; App compatibility</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 10 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="type" data-title="License Guide" onclick="loadPage('font-license')">
+                <div class="cat-card-thumb" style="background:rgba(155,107,255,0.1)">&#x1F4C4;</div>
+                <div class="cat-card-body"><div class="cat-card-title">License Guide</div><div class="cat-card-desc">Personal vs Commercial &middot; SIL OFL &middot; Credit YOB fonts</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 8 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="type" data-title="Khmer Keyboard Setup" onclick="loadPage('font-setup')">
+                <div class="cat-card-thumb" style="background:rgba(155,107,255,0.1)">&#x2328;&#xFE0F;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Khmer Keyboard Setup</div><div class="cat-card-desc">NiDA layout &middot; Win/Mac/Android/iOS &middot; Practice</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 15 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-sec-empty" id="cat-type-empty" style="display:none"><i class="fas fa-search" style="margin-right:6px"></i>&#x179A;&#x1780;&#x1798;&#x17B7;&#x1793;&#x1781;&#x17BE;&#x1789;</div>
+            </div>
+          </div>
+
+          <!-- Global empty state -->
+          <div class="gsk-empty" id="catEmpty" style="display:none">
+            <i class="fas fa-search"></i>
+            &#x179A;&#x1780;&#x1798;&#x17B7;&#x1793;&#x1781;&#x17BE;&#x1789; lesson &#x178F;&#x17D2;&#x179C;&#x17B6;&#x178F;&#x17D2;&#x179A;&#x17BC;&#x179C;&#x1780;&#x17B6;&#x179A; &mdash; &#x179F;&#x17B6;&#x1780;&#x179B;&#x17D2;&#x1794;&#x1784;&#x1796;&#x17B6;&#x1780;&#x17D2;&#x1799;&#x1795;&#x179F;&#x17C1;&#x1784;
+          </div>
+          `
         },
 
         "getting-started-intro": {
@@ -6289,56 +6801,34 @@ body {
           })
           .filter((item) => item.total >= 3 && item.rate < 60);
 
-        const hiddenReviewedCount = queueCandidates.filter(
-          (item) => item.reviewed,
-        ).length;
-
-        const lowLessons = queueCandidates
-          .filter((item) => showReviewedInQueue || !item.reviewed)
-          .sort((a, b) => b.priority - a.priority)
-          .slice(0, 3);
-
-        const helpfulBarWidth = Math.max(
-          helpful.rate || 0,
-          helpful.total ? 8 : 0,
-        );
+        const isCatalog = currentPage === "getting-started";
+        const pageViews = isCatalog ? views : ((state.pageViews || {})[currentPage] || 0);
+        const pageFb = isCatalog ? null : ((state.feedback || {})[currentPage] || { yes: 0, no: 0 });
+        const pageFbTotal = pageFb ? (pageFb.yes || 0) + (pageFb.no || 0) : helpful.total;
+        const pageFbRate = pageFb ? (pageFbTotal ? Math.round(((pageFb.yes || 0) / pageFbTotal) * 100) : null) : helpful.rate;
 
         panel.innerHTML = `
-          <div class="kpi-head">
-            <div>
-              <div class="kpi-title">Docs KPI</div>
-              <div class="kpi-sub">Live lesson quality snapshot</div>
-            </div>
-            <div class="kpi-badge">${helpful.rate}% Helpful</div>
+          <div class="kpi-sep"></div>
+          <div class="kpi-label-head">Docs KPI</div>
+          <div class="kpi-stat-row">
+            <i class="fas fa-eye kpi-stat-icon"></i>
+            <span class="kpi-stat-name">Views</span>
+            <strong class="kpi-stat-val">${pageViews}</strong>
           </div>
-          <div class="kpi-rate-wrap">
-            <div class="kpi-ratebar"><span style="width:${helpfulBarWidth}%;"></span></div>
+          <div class="kpi-stat-row">
+            <i class="fas fa-comment-alt kpi-stat-icon"></i>
+            <span class="kpi-stat-name">Feedback</span>
+            <strong class="kpi-stat-val">${pageFbTotal}</strong>
           </div>
-          <div class="kpi-grid">
-            <div class="kpi-chip"><div class="kpi-val">${views}</div><div class="kpi-label">Views</div></div>
-            <div class="kpi-chip"><div class="kpi-val">${helpful.total}</div><div class="kpi-label">Feedback</div></div>
-            <div class="kpi-chip kpi-chip-wide"><div class="kpi-val">${helpful.rate}%</div><div class="kpi-label">Helpful</div></div>
+          <div class="kpi-stat-row">
+            <i class="fas fa-thumbs-up kpi-stat-icon"></i>
+            <span class="kpi-stat-name">Helpful</span>
+            <strong class="kpi-stat-val ${pageFbRate !== null ? (pageFbRate >= 70 ? 'kpi-good' : 'kpi-low-r') : ''}">${pageFbRate !== null ? pageFbRate + '%' : '—'}</strong>
           </div>
-          <div class="kpi-low">
-            <div class="kpi-section-head">
-              <div class="kpi-section-title">Need Update</div>
-              <div class="kpi-count">${lowLessons.length}</div>
-            </div>
-            ${
-              lowLessons.length
-                ? lowLessons
-                    .map(
-                      (item) =>
-                        `<div class="kpi-low-row"><a class="kpi-low-item" onclick="loadPage('${item.id}')">${item.label}<span class="kpi-low-meta">${item.rate}% helpful · ${item.viewsForPage} views${item.reviewed ? ` · hidden ${item.reviewedDaysLeft}d` : ""}</span></a><button class="kpi-review-btn ${item.reviewed ? "done" : ""}" data-review-toggle="${item.id}">${item.reviewed ? "Reviewed" : "Mark"}</button></div>`,
-                    )
-                    .join("")
-                : '<div class="kpi-low-item" style="cursor:default;">No low-score lessons yet</div>'
-            }
-          </div>
-          <div class="kpi-actions">
-            <button class="kpi-action-btn" data-kpi-action="copy-weekly-summary">Copy Weekly Summary</button>
-            <button class="kpi-action-btn" data-kpi-action="toggle-reviewed-visibility">${showReviewedInQueue ? "Hide Reviewed" : "Show Reviewed"}${hiddenReviewedCount ? ` (${hiddenReviewedCount})` : ""}</button>
-          </div>
+          ${!isCatalog ? `
+          <div class="kpi-helpbar">
+            <div class="kpi-helpbar-fill" style="width:${pageFbRate || 0}%"></div>
+          </div>` : ''}
         `;
       }
 
@@ -6447,13 +6937,10 @@ body {
       const LEARNING_TRACKS = {
         beginner: [
           "getting-started",
-          "why-yob",
-          "yob-ecosystem",
           "ai-overview",
           "prompt-engineering",
           "ai-content",
           "ai-tools-list",
-          "free-toolkit",
         ],
         "business-growth": [
           "strategy-overview",
@@ -6662,6 +7149,7 @@ body {
         const main = document.getElementById("docsMain");
         const mins = readingTime(page.content);
         const isCatalog = pageId === "getting-started";
+        main.classList.toggle("catalog-mode", isCatalog);
         main.innerHTML = isCatalog
           ? `${contentWithNote}`
           : `
@@ -6781,6 +7269,17 @@ body {
       document
         .getElementById("sidebarFab")
         .addEventListener("click", openSidebar);
+
+      // Sidebar search button → focus top search bar
+      document.getElementById("sidebarSearchBtn").addEventListener("click", function () {
+        const inp = document.getElementById("searchInput");
+        if (!inp) return;
+        inp.focus();
+        inp.select();
+        inp.dispatchEvent(new Event("input"));
+        // On mobile: close sidebar first
+        closeSidebar();
+      });
       document
         .getElementById("navSidebarToggle")
         .addEventListener("click", openSidebar);
@@ -6788,21 +7287,7 @@ body {
         .getElementById("sidebarOverlay")
         .addEventListener("click", closeSidebar);
 
-      // ── TAB SWITCHER — Functional filtering ──
-      const TAB_MAP = ["start", "guides", "reference"];
-      document.querySelectorAll(".s-tab").forEach((tab, i) => {
-        tab.addEventListener("click", () => {
-          document
-            .querySelectorAll(".s-tab")
-            .forEach((t) => t.classList.remove("active"));
-          tab.classList.add("active");
-          const activeTab = TAB_MAP[i];
-          document.querySelectorAll(".nav-group[data-tab]").forEach((g) => {
-            const match = !activeTab || g.dataset.tab === activeTab;
-            g.classList.toggle("tab-hidden", !match);
-          });
-        });
-      });
+      // ── All nav groups visible always (tabs removed) ──
 
       // ── READING PROGRESS BAR ──
       const progressBar = document.getElementById("docsProgressBar");
@@ -7168,8 +7653,6 @@ body {
       (function () {
         const PAGE_META = {
           "getting-started": { icon: "🚀", label: "ចាប់ផ្ដើម" },
-          "why-yob": { icon: "💡", label: "ចាប់ផ្ដើម" },
-          "yob-ecosystem": { icon: "🌌", label: "ចាប់ផ្ដើម" },
           "ai-overview": { icon: "🤖", label: "AI Tools" },
           "prompt-engineering": { icon: "⚡", label: "AI Tools" },
           "ai-content": { icon: "✍️", label: "AI Tools" },
@@ -7280,6 +7763,8 @@ body {
           searchBox.classList.remove("active");
           kbd.style.display = "";
           input.value = "";
+          input.placeholder = "ស្វែងរក... (Ctrl+K)";
+          clearInterval(searchBox._phTimer);
           focusedIdx = -1;
           if (overlay) {
             overlay.remove();
@@ -7291,6 +7776,23 @@ body {
           searchBox.classList.add("active");
           kbd.style.display = "none";
           input.focus();
+          // Cycle placeholder suggestions
+          var _phTexts = [
+            "ស្វែងរក Prompt Engineering...",
+            "ស្វែងរក AI Tools...",
+            "ស្វែងរក Digital Strategy...",
+            "ស្វែងរក Web Setup...",
+            "ស្វែងរក Khmer Fonts...",
+            "ស្វែងរក Automation...",
+          ];
+          var _phIdx = 0;
+          clearInterval(searchBox._phTimer);
+          searchBox._phTimer = setInterval(function () {
+            if (!input.value) {
+              _phIdx = (_phIdx + 1) % _phTexts.length;
+              input.placeholder = _phTexts[_phIdx];
+            }
+          }, 1600);
         }
 
         input.addEventListener("input", function () {
@@ -7351,50 +7853,45 @@ body {
       })();
 
       // ══════════════════════════════════════════
-      // CATALOG FILTER & SEARCH
+      // CATALOG JUMP NAV & SEARCH
       // ══════════════════════════════════════════
-      var _catActiveFilter = "all";
-
-      function initCatalog() {
-        _catActiveFilter = "all";
-      }
-
-      window.setCatFilter = function (btn, filter) {
-        document.querySelectorAll(".gsk-fpill").forEach(function (c) {
-          c.classList.remove("active");
-        });
-        btn.classList.add("active");
-        _catActiveFilter = filter;
+      window.catJumpAll = function (btn) {
+        document.querySelectorAll('.cat-jump').forEach(function (j) { j.classList.remove('active'); });
+        btn.classList.add('active');
+        document.querySelectorAll('.cat-section').forEach(function (s) { s.style.display = ''; });
         filterCatalog();
       };
 
+      window.catJumpActivate = function (btn) {
+        document.querySelectorAll('.cat-jump').forEach(function (j) { j.classList.remove('active'); });
+        btn.classList.add('active');
+      };
+
+      // Legacy alias kept in case any sidebar links call filterByPath
+      window.filterByPath = function (cat) {
+        var btn = document.querySelector('.cat-jump[href="#cat-' + cat + '"]');
+        if (btn) { catJumpActivate(btn); btn.click(); }
+      };
+
       window.filterCatalog = function () {
-        var q = (
-          document.getElementById("catSearch")
-            ? document.getElementById("catSearch").value
-            : ""
-        ).toLowerCase();
-        var cards = document.querySelectorAll("#catGrid .gsk-card");
-        var count = 0;
-        cards.forEach(function (c) {
-          var cat = c.dataset.cat || "";
-          var title = (c.dataset.title || "").toLowerCase();
-          var desc = (
-            c.querySelector(".gsk-card-desc")
-              ? c.querySelector(".gsk-card-desc").textContent
-              : ""
-          ).toLowerCase();
-          var matchFilter =
-            _catActiveFilter === "all" || cat === _catActiveFilter;
-          var matchSearch = !q || title.includes(q) || desc.includes(q);
-          var show = matchFilter && matchSearch;
-          c.style.display = show ? "" : "none";
-          if (show) count++;
+        var q = ((document.getElementById('catSearch') || {}).value || '').toLowerCase();
+        var total = 0;
+        document.querySelectorAll('.cat-section').forEach(function (sec) {
+          var cards = sec.querySelectorAll('.cat-card');
+          var visible = 0;
+          cards.forEach(function (c) {
+            var title = (c.dataset.title || '').toLowerCase();
+            var desc = ((c.querySelector('.cat-card-desc') || {}).textContent || '').toLowerCase();
+            var show = !q || title.includes(q) || desc.includes(q);
+            c.style.display = show ? '' : 'none';
+            if (show) visible++;
+          });
+          total += visible;
+          var secEmpty = sec.querySelector('.cat-sec-empty');
+          if (secEmpty) secEmpty.style.display = (q && visible === 0) ? '' : 'none';
         });
-        var empty = document.getElementById("catEmpty");
-        if (empty) empty.style.display = count === 0 ? "" : "none";
-        var countEl = document.getElementById("catCount");
-        if (countEl) countEl.textContent = count + " results";
+        var empty = document.getElementById('catEmpty');
+        if (empty) empty.style.display = (q && total === 0) ? '' : 'none';
       };
 
       // ── Init ──

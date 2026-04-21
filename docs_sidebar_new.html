@@ -1,0 +1,167 @@
+      <!-- ══ SIDEBAR ══ -->
+      <aside class="docs-sidebar" id="docsSidebar">
+
+        <!-- Search -->
+        <div class="sb-search-wrap">
+          <i class="fas fa-search sb-search-icon"></i>
+          <input type="text" id="sidebarSearchInput" class="sb-search-input"
+            placeholder="&#x179F;&#x17D2;&#x179C;&#x17C2;&#x1784;&#x179A;&#x1780;... (Ctrl+K)"
+            autocomplete="off" />
+        </div>
+
+        <!-- Catalog -->
+        <div class="sb-catalog-link">
+          <a class="nav-link nav-link-catalog active" onclick="loadPage('getting-started')">
+            <i class="fas fa-th-large"></i>
+            <span>Catalog</span>
+            <span class="nav-count">22</span>
+          </a>
+        </div>
+
+        <nav class="sb-nav">
+
+          <!-- &#x1785;&#x17B6;&#x1794;&#x1795;&#x17D2;&#x178A;&#x17BE;&#x1798; -->
+          <div class="sb-group" data-open="true">
+            <button class="sb-group-toggle" onclick="toggleSbGroup(this)">
+              <span>&#x1785;&#x17B6;&#x1794;&#x1795;&#x17D2;&#x178A;&#x17BE;&#x1798;</span>
+              <i class="fas fa-chevron-down sb-chevron"></i>
+            </button>
+            <div class="sb-group-items">
+              <a class="nav-link" onclick="loadPage('getting-started-intro')">
+                <i class="fas fa-rocket"></i> How to Use YOB Docs
+              </a>
+              <a class="nav-link" onclick="loadPage('why-yob')">
+                <i class="fas fa-question-circle"></i> Why YOB Digital?
+              </a>
+              <a class="nav-link" onclick="loadPage('yob-ecosystem')">
+                <i class="fas fa-layer-group"></i> YOB Ecosystem
+              </a>
+            </div>
+          </div>
+
+          <!-- AI Tools -->
+          <div class="sb-group" data-open="true">
+            <button class="sb-group-toggle" onclick="toggleSbGroup(this)">
+              <span>AI Tools</span>
+              <i class="fas fa-chevron-down sb-chevron"></i>
+            </button>
+            <div class="sb-group-items">
+              <a class="nav-link" onclick="loadPage('ai-overview')">
+                <i class="fas fa-robot"></i> AI Overview
+              </a>
+              <a class="nav-link" onclick="loadPage('prompt-engineering')">
+                <i class="fas fa-terminal"></i> Prompt Engineering
+                <span class="nav-badge">NEW</span>
+              </a>
+              <a class="nav-link" onclick="loadPage('ai-content')">
+                <i class="fas fa-pen-nib"></i> AI Content Creation
+              </a>
+              <a class="nav-link" onclick="loadPage('ai-tools-list')">
+                <i class="fas fa-toolbox"></i> Tools Directory
+              </a>
+              <a class="nav-link" onclick="loadPage('automation')">
+                <i class="fas fa-cogs"></i> Automation Setup
+              </a>
+              <a class="nav-link" onclick="loadPage('ai-workflow')">
+                <i class="fas fa-project-diagram"></i> AI Workflow for SME
+                <span class="nav-badge">NEW</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Digital Strategy -->
+          <div class="sb-group" data-open="true">
+            <button class="sb-group-toggle" onclick="toggleSbGroup(this)">
+              <span>Digital Strategy</span>
+              <i class="fas fa-chevron-down sb-chevron"></i>
+            </button>
+            <div class="sb-group-items">
+              <a class="nav-link" onclick="loadPage('strategy-overview')">
+                <i class="fas fa-chess"></i> Strategy Overview
+              </a>
+              <a class="nav-link" onclick="loadPage('social-media')">
+                <i class="fas fa-share-alt"></i> Social Media
+              </a>
+              <a class="nav-link" onclick="loadPage('content-plan')">
+                <i class="fas fa-calendar-alt"></i> Content Planning
+              </a>
+              <a class="nav-link" onclick="loadPage('ads-setup')">
+                <i class="fas fa-bullhorn"></i> Facebook &amp; Google Ads
+              </a>
+              <a class="nav-link" onclick="loadPage('analytics')">
+                <i class="fas fa-chart-bar"></i> Analytics &amp; Data
+              </a>
+              <a class="nav-link" onclick="loadPage('customer-persona')">
+                <i class="fas fa-user-check"></i> Customer Persona
+              </a>
+            </div>
+          </div>
+
+          <!-- Web & Systems -->
+          <div class="sb-group" data-open="true">
+            <button class="sb-group-toggle" onclick="toggleSbGroup(this)">
+              <span>Web &amp; Systems</span>
+              <i class="fas fa-chevron-down sb-chevron"></i>
+            </button>
+            <div class="sb-group-items">
+              <a class="nav-link" onclick="loadPage('web-overview')">
+                <i class="fas fa-globe"></i> Web Overview
+              </a>
+              <a class="nav-link" onclick="loadPage('html-basics')">
+                <i class="fab fa-html5"></i> HTML Basics
+              </a>
+              <a class="nav-link" onclick="loadPage('github-netlify')">
+                <i class="fab fa-github"></i> GitHub + Netlify
+              </a>
+              <a class="nav-link" onclick="loadPage('lms-setup')">
+                <i class="fas fa-graduation-cap"></i> LMS Setup
+              </a>
+              <a class="nav-link" onclick="loadPage('landing-page-blueprint')">
+                <i class="fas fa-columns"></i> Landing Page Blueprint
+              </a>
+            </div>
+          </div>
+
+          <!-- Khmer Typography -->
+          <div class="sb-group" data-open="true">
+            <button class="sb-group-toggle" onclick="toggleSbGroup(this)">
+              <span>Khmer Typography</span>
+              <i class="fas fa-chevron-down sb-chevron"></i>
+            </button>
+            <div class="sb-group-items">
+              <a class="nav-link" onclick="loadPage('fonts-overview')">
+                <i class="fas fa-font"></i> Fonts Overview
+              </a>
+              <a class="nav-link" onclick="loadPage('font-install')">
+                <i class="fas fa-download"></i> Install Fonts
+              </a>
+              <a class="nav-link" onclick="loadPage('font-license')">
+                <i class="fas fa-file-contract"></i> License Guide
+              </a>
+              <a class="nav-link" onclick="loadPage('font-setup')">
+                <i class="fas fa-keyboard"></i> Khmer Keyboard Setup
+              </a>
+            </div>
+          </div>
+
+        </nav>
+
+        <!-- Divider + Resources -->
+        <div class="sb-divider"></div>
+        <div class="sb-resources">
+          <a class="sb-res-link" onclick="loadPage('free-toolkit')">
+            <i class="fas fa-gift"></i>
+            <span>Toolkit &#x1A5;&#x17B6;&#x178F;&#x1782;&#x17B7;&#x178F;&#x1790;&#x17D2;&#x179B;&#x17BE;</span>
+          </a>
+          <a class="sb-res-link" onclick="loadPage('faq')">
+            <i class="fas fa-question-circle"></i>
+            <span>FAQ</span>
+          </a>
+          <a class="sb-res-link" onclick="loadPage('changelog')">
+            <i class="fas fa-list-ul"></i>
+            <span>Changelog</span>
+          </a>
+        </div>
+
+      </aside>
+
