@@ -19,10 +19,10 @@
     />
     <meta
       property="og:url"
-      content="https://yobdigital.netlify.app/fonts"
+      content="https://yobdigital.netlify.app/fonts.html"
     />
     <meta property="og:type" content="website" />
-    <link rel="canonical" href="https://yobdigital.netlify.app/fonts" />
+    <link rel="canonical" href="https://yobdigital.netlify.app/fonts.html" />
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <link rel="apple-touch-icon" href="images/favicon.png" />
 
@@ -55,7 +55,6 @@
       />
     </noscript>
 
-    ></script>
     <!-- Shared styles from main site -->
     <link rel="stylesheet" href="css/style.min.css" />
 
@@ -1676,11 +1675,393 @@
         .fsr-cta { width: 100%; text-align: center; }
       }
 
-      /* Responsive additions */
+      /* ── CATEGORY SECTION DIVIDER (inside fonts-grid) ── */
+      .font-section-divider {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 32px 0 8px;
+        margin-top: 8px;
+      }
+      .font-section-divider-line {
+        flex: 1;
+        height: 1px;
+        background: rgba(255,255,255,0.07);
+      }
+      .font-section-divider-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--fb);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gray);
+      }
+      .font-section-divider-label i { color: #4ade80; font-size: 10px; }
+      .font-section-divider-count {
+        font-family: var(--fb);
+        font-size: 11px;
+        color: rgba(139,148,158,0.5);
+      }
+
+      /* ── GLYPH MODAL ── */
+      .glyph-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.75);
+        backdrop-filter: blur(8px);
+        z-index: 9000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+      .glyph-modal-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .glyph-modal {
+        background: var(--dark2);
+        border: 1px solid rgba(229,44,103,0.3);
+        border-radius: 20px;
+        width: 100%;
+        max-width: 640px;
+        max-height: 88vh;
+        overflow-y: auto;
+        padding: 32px;
+        transform: translateY(16px) scale(0.97);
+        transition: transform 0.25s ease;
+      }
+      .glyph-modal-overlay.open .glyph-modal {
+        transform: translateY(0) scale(1);
+      }
+      .glyph-modal-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 24px;
+      }
+      .glyph-modal-title {
+        font-family: var(--fh);
+        font-size: 22px;
+        color: var(--white);
+      }
+      .glyph-modal-subtitle {
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gray);
+        margin-top: 4px;
+      }
+      .glyph-modal-close {
+        width: 36px; height: 36px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.04);
+        color: var(--gray);
+        cursor: pointer;
+        font-size: 14px;
+        flex-shrink: 0;
+        display: flex; align-items: center; justify-content: center;
+        transition: all var(--t);
+      }
+      .glyph-modal-close:hover { color: var(--white); border-color: rgba(229,44,103,0.4); }
+      .glyph-section-label {
+        font-family: var(--fb);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin: 16px 0 8px;
+        opacity: 0.7;
+      }
+      .glyph-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+      .glyph-char {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 10px;
+        font-size: 22px;
+        color: var(--white);
+        cursor: default;
+        transition: all var(--t);
+        user-select: all;
+      }
+      .glyph-char:hover {
+        background: rgba(229,44,103,0.1);
+        border-color: rgba(229,44,103,0.3);
+      }
+      .glyph-modal-preview {
+        margin-top: 20px;
+        padding: 16px;
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 12px;
+        font-size: 28px;
+        color: var(--white);
+        line-height: 1.7;
+        text-align: center;
+        min-height: 72px;
+      }
+      .btn-glyph {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 13px;
+        border-radius: 50px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: var(--gray);
+        font-family: var(--fb);
+        font-size: 12px;
+        cursor: pointer;
+        transition: all var(--t);
+      }
+      .btn-glyph:hover {
+        border-color: rgba(229,44,103,0.3);
+        color: var(--white);
+      }
+      .font-footer { flex-wrap: wrap; gap: 8px; }
+
+      /* ══ FONT LIST LAYOUT (Google Fonts style) ══ */
+      .fonts-list {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--dark2);
+        margin-bottom: 60px;
+      }
+      .font-row {
+        border-bottom: 1px solid var(--border);
+        transition: background var(--t);
+        position: relative;
+      }
+      .font-row:last-child { border-bottom: none; }
+      .font-row:hover { background: rgba(255,255,255,0.025); }
+      .font-row.row-selected {
+        background: rgba(229,44,103,0.05);
+        border-left: 3px solid var(--gold);
+      }
+      .font-row.featured::before {
+        content: "⭐ លក់ដាច់";
+        position: absolute; top: 14px; right: 16px;
+        background: var(--gold); color: #fff;
+        font-family: var(--fb); font-size: 9px; font-weight: 700;
+        letter-spacing: 1.5px; padding: 3px 10px; border-radius: 20px;
+        pointer-events: none;
+      }
+      .fr-head {
+        display: flex; align-items: center; gap: 10px;
+        padding: 14px 24px; flex-wrap: wrap;
+      }
+      .fr-name {
+        font-family: var(--fb); font-size: 14px; font-weight: 700;
+        color: var(--white); min-width: 160px;
+      }
+      .fr-badge {
+        font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+        text-transform: uppercase; color: var(--gold);
+        background: rgba(229,44,103,0.08);
+        border: 1px solid rgba(229,44,103,0.18);
+        padding: 2px 9px; border-radius: 20px; white-space: nowrap;
+      }
+      .fr-badge.fr-google { color: #4ade80; background: rgba(74,222,128,0.07); border-color: rgba(74,222,128,0.2); }
+      .fr-meta { font-family: var(--fb); font-size: 11px; color: var(--gray); white-space: nowrap; }
+      .fr-price-wrap { margin-left: auto; }
+      .fr-price { font-family: var(--fb); font-size: 15px; font-weight: 700; color: var(--white); white-space: nowrap; }
+      .fr-price.free-price { color: #4ade80; font-size: 13px; }
+      .fr-btns { display: flex; align-items: center; gap: 6px; }
+      .fr-icon-btn {
+        width: 30px; height: 30px; border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.03);
+        color: var(--gray); cursor: pointer; font-size: 11px;
+        display: flex; align-items: center; justify-content: center;
+        transition: all var(--t); font-family: var(--fb); font-weight: 700;
+      }
+      .fr-icon-btn:hover { color: var(--white); border-color: rgba(229,44,103,0.35); background: rgba(229,44,103,0.07); }
+      .fr-buy-btn {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 7px 16px; border-radius: 50px;
+        background: linear-gradient(135deg, var(--gold), #ff6b9d);
+        color: #fff; font-family: var(--fb); font-size: 12px; font-weight: 700;
+        border: none; cursor: pointer; text-decoration: none;
+        transition: all 0.25s ease; white-space: nowrap;
+      }
+      .fr-buy-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(229,44,103,0.4); }
+      .fr-dl-btn {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 7px 14px; border-radius: 50px;
+        background: rgba(74,222,128,0.1); color: #4ade80;
+        font-family: var(--fb); font-size: 12px; font-weight: 700;
+        border: 1px solid rgba(74,222,128,0.3); cursor: pointer;
+        text-decoration: none; transition: all 0.25s ease; white-space: nowrap;
+      }
+      .fr-dl-btn:hover { background: #4ade80; color: var(--dark); }
+      .fr-preview { padding: 0 24px 22px; }
+      .fr-preview .preview-text {
+        animation: none !important;
+        color: rgba(255,255,255,0.82);
+        line-height: 1.35;
+      }
+      .font-row:hover .fr-preview .preview-text { color: var(--white); }
+      /* Section divider inside list */
+      .fonts-list .font-section-divider {
+        grid-column: unset;
+        display: flex; padding: 18px 24px 12px;
+        background: rgba(0,0,0,0.15);
+        border-bottom: 1px solid var(--border);
+      }
+
+      /* ── FONT PLAYGROUND ── */
+      .font-playground {
+        background: rgba(255,255,255,0.025);
+        border: 1px solid var(--border2);
+        border-radius: 20px;
+        padding: 28px 28px 20px;
+        margin-bottom: 20px;
+      }
+      .playground-label {
+        font-family: var(--fb);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin: 0 0 12px;
+      }
+      .playground-main-input {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid rgba(255,255,255,0.1);
+        color: var(--white);
+        font-family: var(--fk);
+        font-size: clamp(22px, 3.5vw, 42px);
+        font-weight: 700;
+        padding: 0 0 14px;
+        outline: none;
+        transition: border-color var(--t);
+        margin-bottom: 20px;
+        display: block;
+      }
+      .playground-main-input::placeholder {
+        color: rgba(255,255,255,0.18);
+        font-weight: 400;
+        font-size: clamp(16px, 2.5vw, 28px);
+      }
+      .playground-main-input:focus { border-bottom-color: var(--gold); }
+      .playground-controls-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .pg-search-wrap {
+        position: relative;
+        flex: 0 0 190px;
+      }
+      .pg-search-wrap i {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gray);
+        font-size: 12px;
+        pointer-events: none;
+      }
+      .pg-search-input {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 50px;
+        color: var(--white);
+        font-family: var(--fb);
+        font-size: 12px;
+        padding: 8px 14px 8px 32px;
+        width: 100%;
+        outline: none;
+        transition: border-color var(--t);
+      }
+      .pg-search-input:focus { border-color: rgba(229,44,103,0.45); box-shadow: 0 0 0 3px rgba(229,44,103,0.1); }
+      .pg-slider-wrap { display: flex; align-items: center; gap: 7px; flex: 0 0 auto; }
+      .pg-label { font-family: var(--fb); font-size: 11px; color: var(--gray); white-space: nowrap; }
+      .pg-range { width: 90px; accent-color: var(--gold); cursor: pointer; }
+      .pg-val { font-family: var(--fb); font-size: 11px; color: var(--gold); min-width: 34px; }
+      .pg-weight-wrap { display: flex; align-items: center; gap: 7px; }
+      .weight-pills { display: flex; gap: 3px; flex-wrap: wrap; }
+      .weight-pill {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px;
+        color: var(--gray);
+        font-family: var(--fb);
+        font-size: 11px;
+        padding: 4px 11px;
+        cursor: pointer;
+        transition: all var(--t);
+        line-height: 1;
+      }
+      .weight-pill:hover { border-color: rgba(229,44,103,0.3); color: var(--white); }
+      .weight-pill.active { background: rgba(229,44,103,0.12); border-color: rgba(229,44,103,0.4); color: var(--gold); }
+      .pg-bg-toggle {
+        width: 34px; height: 34px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.04);
+        color: var(--gray);
+        cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 13px;
+        transition: all var(--t);
+        flex-shrink: 0;
+        margin-left: auto;
+      }
+      .pg-bg-toggle:hover, .pg-bg-toggle.active { border-color: rgba(229,44,103,0.4); color: var(--white); background: rgba(229,44,103,0.08); }
+      /* Light preview mode */
+      .fonts-list.preview-light .fr-preview { background: #f0f0f5; border-radius: 0 0 8px 8px; }
+      .fonts-list.preview-light .fr-preview .preview-text { color: #111 !important; }
+      /* License tier tags */
+      .fr-lic { display: flex; align-items: center; gap: 4px; }
+      .lic-tag {
+        font-family: var(--fb);
+        font-size: 10px;
+        color: rgba(255,255,255,0.35);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 20px;
+        padding: 2px 7px;
+        white-space: nowrap;
+      }
+      .lic-tag.lic-free { color: #4ade80; border-color: rgba(74,222,128,0.2); background: rgba(74,222,128,0.05); }
+      /* Responsive */
       @media (max-width: 768px) {
-        .font-hub-controls-row { gap: 12px; }
-        .font-hub-range { width: 80px; }
+        .font-playground { padding: 20px 16px 16px; }
+        .pg-slider-wrap { display: none; }
+        .pg-weight-wrap { display: none; }
+        .pg-search-wrap { flex: 1; }
+        .pg-bg-toggle { margin-left: 0; }
         .font-filter-sticky { margin: 16px -16px 0; padding: 10px 16px; }
+      }
+      @media (max-width: 600px) {
+        .fr-head { padding: 12px 16px; gap: 8px; }
+        .fr-preview { padding: 0 16px 16px; }
+        .fr-name { min-width: 0; flex: 1; }
+        .fr-meta, .fr-lic { display: none; }
+        .fr-buy-btn, .fr-dl-btn { padding: 6px 12px; font-size: 11px; }
       }
     </style>
   </head>
@@ -1696,26 +2077,25 @@
     <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
       <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
-      <a href="/grow" onclick="closeDrawer()">Grow with Yob</a>
+      <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
       <div class="drawer-group">
         <button class="drawer-group-toggle">Learn <i class="fas fa-chevron-down"></i></button>
         <div class="drawer-group-items">
-          <a href="/#videos" onclick="closeDrawer()">Tutorial</a>
-          <a href="/yob-learning" onclick="closeDrawer()">YOB Learning</a>
-          <a href="/yobskills" onclick="closeDrawer()">YOB Skills</a>
-          <a href="/docs" onclick="closeDrawer()">Documentation</a>
-          <a href="/case-studies" onclick="closeDrawer()">Case Studies</a>
+          <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+          <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+          <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
         </div>
       </div>
       <div class="drawer-group">
         <button class="drawer-group-toggle">Products <i class="fas fa-chevron-down"></i></button>
         <div class="drawer-group-items">
-          <a href="/fonts" onclick="closeDrawer()">Yob Fonts</a>
-          <a href="/resources" onclick="closeDrawer()">Free Resources</a>
+          <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+          <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
         </div>
       </div>
-      <a href="/about" onclick="closeDrawer()">About YOB</a>
-      <a href="/#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
+      <a href="about.html" onclick="closeDrawer()">About YOB</a>
+      <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
     </div>
 
     <!-- ══ PAGE HERO ══ -->
@@ -1762,383 +2142,190 @@
     <!-- ══ FONT SHOP ══ -->
     <section style="padding: 20px 0 80px">
       <div class="container">
-        <div class="font-hub-toolbar reveal">
-          <!-- Row 1: Search (Google Fonts style — big, prominent) -->
-          <div class="font-hub-search-row">
-            <div class="font-hub-search-wrap" style="flex:1">
+        <!-- Font Playground -->
+        <div class="font-playground reveal">
+          <p class="playground-label"><i class="fas fa-pen-nib"></i> Try Before You Buy — វាយអក្សររបស់អ្នក ហើយឃើញ Font ប្រែភ្លាម</p>
+          <input
+            id="fontHubPreview"
+            class="playground-main-input"
+            type="text"
+            placeholder="ឧ. YOB Digital, ម៉ាករបស់ខ្ញុំ, ១២៣ ← វាយ ហើយឃើញភ្លាម!"
+            aria-label="Preview text — type your brand name"
+            maxlength="60"
+          />
+          <div class="playground-controls-row">
+            <div class="pg-search-wrap">
               <i class="fas fa-search"></i>
-              <input
-                id="fontHubSearch"
-                class="font-hub-input search-big"
-                style="width:100%"
-                type="text"
-                placeholder="ស្វែងរក Font... ឧ. Heading, Serif, Display"
-                aria-label="Search Khmer fonts"
-              />
+              <input id="fontHubSearch" class="pg-search-input" type="text" placeholder="ស្វែងរក Font..." aria-label="Search Khmer fonts" />
             </div>
-          </div>
-          <!-- Row 2: Preview text + size -->
-          <div class="font-hub-controls-row">
-            <div class="font-hub-search-wrap" style="flex:1">
-              <i class="fas fa-pen" style="left:16px"></i>
-              <input
-                id="fontHubPreview"
-                class="font-hub-input search-big"
-                style="width:100%;font-size:14px;height:40px"
-                type="text"
-                placeholder=" វាយអត្ថបទខ្មែររបស់អ្នក ដើម្បី preview..."
-                aria-label="Global preview text"
-                maxlength="120"
-              />
+            <div class="pg-slider-wrap">
+              <span class="pg-label">ទំហំ</span>
+              <input id="fontHubSize" class="pg-range" type="range" min="70" max="200" value="100" aria-label="Preview size" />
+              <span class="pg-val" id="fontHubSizeLabel">100%</span>
             </div>
-            <div class="font-hub-size-wrap">
-              <span class="font-hub-size-label-text">ទំហំ</span>
-              <input
-                id="fontHubSize"
-                class="font-hub-range"
-                type="range"
-                min="70"
-                max="160"
-                value="100"
-                aria-label="Preview size scale"
-              />
-              <span class="font-hub-size-val" id="fontHubSizeLabel">100%</span>
+            <div class="pg-slider-wrap">
+              <span class="pg-label">គម្លាត</span>
+              <input id="fontTracking" class="pg-range" type="range" min="-2" max="15" value="0" step="0.5" aria-label="Letter spacing" />
+              <span class="pg-val" id="fontTrackingLabel">0px</span>
             </div>
-          </div>
-          <!-- Row 3: Quick chips -->
-          <div class="font-hub-shortcuts" style="margin-top:14px">
-            <a href="#fonts-grid" class="font-hub-chip"><i class="fas fa-star"></i> YOB Premium</a>
-            <a href="#google-khmer-free" class="font-hub-chip"><i class="fas fa-globe"></i> Google Khmer Free</a>
-            <a href="docs.html#font-setup" class="font-hub-chip"><i class="fas fa-keyboard"></i> ដំឡើង Keyboard</a>
+            <div class="pg-weight-wrap">
+              <span class="pg-label">កម្រាស់</span>
+              <div class="weight-pills">
+                <button class="weight-pill" data-weight="300">Light</button>
+                <button class="weight-pill active" data-weight="400">Regular</button>
+                <button class="weight-pill" data-weight="700">Bold</button>
+                <button class="weight-pill" data-weight="900">Black</button>
+              </div>
+            </div>
+            <button class="pg-bg-toggle" id="previewBgToggle" title="ប្ដូរ Background Preview"><i class="fas fa-circle-half-stroke"></i></button>
           </div>
         </div>
 
-        <!-- Sticky Filter Bar -->
-        <div class="font-filter-sticky">
-          <div class="filter-bar">
-            <button class="filter-btn active" data-filter="all">ទាំងអស់</button>
-            <button class="filter-btn" data-filter="display"><i class="fas fa-heading" style="font-size:10px;margin-right:4px"></i>ចំណងជើង</button>
-            <button class="filter-btn" data-filter="sans"><i class="fas fa-align-left" style="font-size:10px;margin-right:4px"></i>អានងាយ</button>
-            <button class="filter-btn" data-filter="script"><i class="fas fa-signature" style="font-size:10px;margin-right:4px"></i>ហត្ថលេខា</button>
-            <button class="filter-btn" data-filter="free"><i class="fas fa-gift" style="font-size:10px;margin-right:4px;color:#4ade80"></i>ឥតគិតថ្លៃ</button>
-          </div>
-        </div>
+        <!-- Font List -->
+        <div class="fonts-list" id="fonts-grid" aria-label="Khmer Fonts List">
 
-        <!-- Fonts Grid -->
-        <div class="fonts-grid" id="fonts-grid">
           <!-- 1. YOB Heading Pro -->
-          <div class="font-card featured reveal" data-category="display">
-            <div class="font-preview-area" data-letter="ស">
-              <div class="preview-text style-heavy">សិល្បៈ<br />ឌីជីថល</div>
-            </div>
-            <div class="font-info">
-              <div class="font-info-top">
-                <div class="font-name">YOB Heading Pro</div>
-                <span class="font-cat">ចំណងជើង</span>
-              </div>
-              <div class="font-meta">
-                អក្សរដិតសម្រាប់ចំណងជើង ផ្ទាំងផ្សព្វផ្សាយ និងអត្តសញ្ញាណម៉ាក
-              </div>
-              <div class="font-weights">
-                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot"></div><div class="fw-dot"></div>
-                <span class="fw-label">3 Weights · Bold Focus</span>
-              </div>
-              <div class="font-usecase">
-                <span class="uc-chip"><i class="fas fa-paint-brush"></i> Brand</span>
-                <span class="uc-chip"><i class="fas fa-print"></i> Print</span>
-                <span class="uc-chip"><i class="fas fa-ad"></i> Social Ads</span>
-              </div>
-              <div class="font-footer">
-                <div class="font-price">$15.00</div>
-                <a
-                  href="index.html?service=Font%20Purchase&font=YOB%20Heading%20Pro&price=15&type=paid&source=fonts#contact"
-                  class="btn-buy"
-                  ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
-                >
+          <div class="font-row featured reveal" data-category="display">
+            <div class="fr-head">
+              <span class="font-name fr-name">YOB Heading Pro</span>
+              <span class="font-cat fr-badge">ចំណងជើង</span>
+              <span class="fr-meta">3 Weights · Bold Focus</span>
+              <div class="fr-lic"><span class="lic-tag">Desktop</span><span class="lic-tag">Web</span><span class="lic-tag">App</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price">$15.00</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Heading Pro" data-font-css="'YOB Heading Pro', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Heading Pro', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
+                <a href="index.html?service=Font%20Purchase&font=YOB%20Heading%20Pro&price=15&type=paid&source=fonts#contact" class="fr-buy-btn btn-buy"><i class="fas fa-shopping-cart"></i> ទិញ</a>
               </div>
             </div>
+            <div class="fr-preview"><div class="preview-text style-heavy">សិល្បៈ​ឌីជីថល</div></div>
           </div>
 
           <!-- 2. YOB Modern Serif -->
-          <div class="font-card reveal" data-category="display">
-            <div class="font-preview-area" data-letter="ភ">
-              <div class="preview-text style-display">ភាព​ស្រស់ស្អាត</div>
-            </div>
-            <div class="font-info">
-              <div class="font-info-top">
-                <div class="font-name">YOB Modern Serif</div>
-                <span class="font-cat">ប្រណិត</span>
-              </div>
-              <div class="font-meta">
-                អក្សរ Serif សម្រាប់ម៉ាកប្រណិត ការបោះពុម្ព និងទស្សនាវដ្តី
-              </div>
-              <div class="font-weights">
-                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot"></div>
-                <span class="fw-label">4 Weights · Serif</span>
-              </div>
-              <div class="font-usecase">
-                <span class="uc-chip"><i class="fas fa-gem"></i> Luxury Brand</span>
-                <span class="uc-chip"><i class="fas fa-book-open"></i> Editorial</span>
-                <span class="uc-chip"><i class="fas fa-print"></i> Print</span>
-              </div>
-              <div class="font-footer">
-                <div class="font-price">$18.00</div>
-                <a
-                  href="index.html?service=Font%20Purchase&font=YOB%20Modern%20Serif&price=18&type=paid&source=fonts#contact"
-                  class="btn-buy"
-                  ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
-                >
+          <div class="font-row reveal" data-category="display">
+            <div class="fr-head">
+              <span class="font-name fr-name">YOB Modern Serif</span>
+              <span class="font-cat fr-badge">ប្រណិត</span>
+              <span class="fr-meta">4 Weights · Serif</span>
+              <div class="fr-lic"><span class="lic-tag">Desktop</span><span class="lic-tag">Web</span><span class="lic-tag">App</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price">$18.00</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Modern Serif" data-font-css="'YOB Modern Serif', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Modern Serif', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
+                <a href="index.html?service=Font%20Purchase&font=YOB%20Modern%20Serif&price=18&type=paid&source=fonts#contact" class="fr-buy-btn btn-buy"><i class="fas fa-shopping-cart"></i> ទិញ</a>
               </div>
             </div>
+            <div class="fr-preview"><div class="preview-text style-display">ភាព​ស្រស់ស្អាត</div></div>
           </div>
 
           <!-- 3. YOB Signature -->
-          <div class="font-card reveal" data-category="script">
-            <div class="font-preview-area" data-letter="ហ">
-              <div class="preview-text style-italic">ហត្ថលេខា​ប្រណិត</div>
-            </div>
-            <div class="font-info">
-              <div class="font-info-top">
-                <div class="font-name">YOB Signature</div>
-                <span class="font-cat">ហត្ថលេខា</span>
-              </div>
-              <div class="font-meta">
-                អក្សរហត្ថលេខាសម្រាប់ការអញ្ជើញ កាតអាពាហ៍ពិពាហ៍ និងម៉ាកផ្ទាល់ខ្លួន
-              </div>
-              <div class="font-weights">
-                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot"></div><div class="fw-dot"></div><div class="fw-dot"></div>
-                <span class="fw-label">2 Weights · Script</span>
-              </div>
-              <div class="font-usecase">
-                <span class="uc-chip"><i class="fas fa-ring"></i> Wedding</span>
-                <span class="uc-chip"><i class="fas fa-envelope-open-text"></i> Invitation</span>
-                <span class="uc-chip"><i class="fas fa-store"></i> Personal Brand</span>
-              </div>
-              <div class="font-footer">
-                <div class="font-price">$20.00</div>
-                <a
-                  href="index.html?service=Font%20Purchase&font=YOB%20Signature&price=20&type=paid&source=fonts#contact"
-                  class="btn-buy"
-                  ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
-                >
+          <div class="font-row reveal" data-category="script">
+            <div class="fr-head">
+              <span class="font-name fr-name">YOB Signature</span>
+              <span class="font-cat fr-badge">ហត្ថលេខា</span>
+              <span class="fr-meta">2 Weights · Script</span>
+              <div class="fr-lic"><span class="lic-tag">Desktop</span><span class="lic-tag">Web</span><span class="lic-tag">App</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price">$20.00</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Signature" data-font-css="'YOB Signature', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Signature', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
+                <a href="index.html?service=Font%20Purchase&font=YOB%20Signature&price=20&type=paid&source=fonts#contact" class="fr-buy-btn btn-buy"><i class="fas fa-shopping-cart"></i> ទិញ</a>
               </div>
             </div>
+            <div class="fr-preview"><div class="preview-text style-italic">ហត្ថលេខា​ប្រណិត</div></div>
           </div>
 
           <!-- 4. YOB Poster Black -->
-          <div class="font-card reveal" data-category="display">
-            <div class="font-preview-area" data-letter="ប">
-              <div class="preview-text style-bold">បញ្ចុះ​តម្លៃ ៥០%</div>
-            </div>
-            <div class="font-info">
-              <div class="font-info-top">
-                <div class="font-name">YOB Poster Black</div>
-                <span class="font-cat">ដិតខ្លាំង</span>
-              </div>
-              <div class="font-meta">
-                អក្សរដិតខ្លាំង សម្រាប់ប្រូម៉ូសិន ពាណិជ្ជកម្ម និងបណ្ដាញសង្គម
-              </div>
-              <div class="font-weights">
-                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div>
-                <span class="fw-label">1 Weight · Ultra Bold</span>
-              </div>
-              <div class="font-usecase">
-                <span class="uc-chip"><i class="fab fa-facebook"></i> Social Media</span>
-                <span class="uc-chip"><i class="fas fa-percentage"></i> Promotion</span>
-                <span class="uc-chip"><i class="fas fa-bullhorn"></i> Ads</span>
-              </div>
-              <div class="font-footer">
-                <div class="font-price">$12.00</div>
-                <a
-                  href="index.html?service=Font%20Purchase&font=YOB%20Poster%20Black&price=12&type=paid&source=fonts#contact"
-                  class="btn-buy"
-                  ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
-                >
+          <div class="font-row reveal" data-category="display">
+            <div class="fr-head">
+              <span class="font-name fr-name">YOB Poster Black</span>
+              <span class="font-cat fr-badge">ដិតខ្លាំង</span>
+              <span class="fr-meta">1 Weight · Ultra Bold</span>
+              <div class="fr-lic"><span class="lic-tag">Desktop</span><span class="lic-tag">Web</span><span class="lic-tag">App</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price">$12.00</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Poster Black" data-font-css="'YOB Poster Black', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Poster Black', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
+                <a href="index.html?service=Font%20Purchase&font=YOB%20Poster%20Black&price=12&type=paid&source=fonts#contact" class="fr-buy-btn btn-buy"><i class="fas fa-shopping-cart"></i> ទិញ</a>
               </div>
             </div>
+            <div class="fr-preview"><div class="preview-text style-bold">បញ្ចុះ​តម្លៃ ៥០%</div></div>
           </div>
 
           <!-- 5. YOB Kbach Retro -->
-          <div class="font-card reveal" data-category="display">
-            <div class="font-preview-area" data-letter="ក">
-              <div class="preview-text style-display">ក្បាច់​ខ្មែរ​បុរាណ</div>
-            </div>
-            <div class="font-info">
-              <div class="font-info-top">
-                <div class="font-name">YOB Kbach Retro</div>
-                <span class="font-cat">បុរាណ</span>
-              </div>
-              <div class="font-meta">
-                រចនាដោយយកក្បាច់ខ្មែរបុរាណ បញ្ចូលជាមួយរចនាប័ទ្មទំនើប
-              </div>
-              <div class="font-weights">
-                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot"></div><div class="fw-dot"></div>
-                <span class="fw-label">3 Weights · Decorative</span>
-              </div>
-              <div class="font-usecase">
-                <span class="uc-chip"><i class="fas fa-landmark"></i> Heritage</span>
-                <span class="uc-chip"><i class="fas fa-scroll"></i> Poster</span>
-                <span class="uc-chip"><i class="fas fa-hotel"></i> Hospitality</span>
-              </div>
-              <div class="font-footer">
-                <div class="font-price">$25.00</div>
-                <a
-                  href="index.html?service=Font%20Purchase&font=YOB%20Kbach%20Retro&price=25&type=paid&source=fonts#contact"
-                  class="btn-buy"
-                  ><i class="fas fa-shopping-cart"></i> ទិញ Font នេះ</a
-                >
+          <div class="font-row reveal" data-category="display">
+            <div class="fr-head">
+              <span class="font-name fr-name">YOB Kbach Retro</span>
+              <span class="font-cat fr-badge">បុរាណ</span>
+              <span class="fr-meta">3 Weights · Decorative</span>
+              <div class="fr-lic"><span class="lic-tag">Desktop</span><span class="lic-tag">Web</span><span class="lic-tag">App</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price">$25.00</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Kbach Retro" data-font-css="'YOB Kbach Retro', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Kbach Retro', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
+                <a href="index.html?service=Font%20Purchase&font=YOB%20Kbach%20Retro&price=25&type=paid&source=fonts#contact" class="fr-buy-btn btn-buy"><i class="fas fa-shopping-cart"></i> ទិញ</a>
               </div>
             </div>
+            <div class="fr-preview"><div class="preview-text style-display">ក្បាច់​ខ្មែរ​បុរាណ</div></div>
           </div>
 
           <!-- 6. YOB Tech Mono -->
-          <div class="font-card reveal" data-category="sans">
-            <div class="font-preview-area" data-letter="ប">
-              <div class="preview-text style-mono">បច្ចេក​វិទ្យា AI</div>
-            </div>
-            <div class="font-info">
-              <div class="font-info-top">
-                <div class="font-name">YOB Tech Mono</div>
-                <span class="font-cat">បច្ចេកវិទ្យា</span>
-              </div>
-              <div class="font-meta">
-                អក្សរ Monospace សម្រាប់ UI ឧបករណ៍កូដ និង app បច្ចេកវិទ្យា
-              </div>
-              <div class="font-weights">
-                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot"></div><div class="fw-dot"></div><div class="fw-dot"></div>
-                <span class="fw-label">2 Weights · Monospace</span>
-              </div>
-              <div class="font-usecase">
-                <span class="uc-chip"><i class="fas fa-mobile-alt"></i> App UI</span>
-                <span class="uc-chip"><i class="fas fa-code"></i> Tech</span>
-                <span class="uc-chip"><i class="fas fa-robot"></i> AI Product</span>
-              </div>
-              <div class="font-footer">
-                <div class="font-price free-price">FREE</div>
-                <a href="/#resources" class="btn-free"
-                  ><i class="fas fa-download"></i> ទាញយក Font នេះ</a
-                >
+          <div class="font-row reveal" data-category="sans free">
+            <div class="fr-head">
+              <span class="font-name fr-name">YOB Tech Mono</span>
+              <span class="font-cat fr-badge">បច្ចេកវិទ្យា</span>
+              <span class="fr-meta">2 Weights · Monospace</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Personal Free</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Tech Mono" data-font-css="'YOB Tech Mono', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Tech Mono', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
+                <a href="index.html#resources" class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
               </div>
             </div>
+            <div class="fr-preview"><div class="preview-text style-mono">បច្ចេក​វិទ្យា AI</div></div>
           </div>
 
           <!-- 7. YOB Content Sans -->
-          <div class="font-card reveal" data-category="sans free">
-            <div class="font-preview-area" data-letter="អ">
-              <div class="preview-text style-sans">អានងាយ​ស្រួល​យល់</div>
-            </div>
-            <div class="font-info">
-              <div class="font-info-top">
-                <div class="font-name">YOB Content Sans</div>
-                <span class="font-cat">មូលដ្ឋាន</span>
-              </div>
-              <div class="font-meta">
-                អក្សរអានស្រួល សម្រាប់អត្ថបទវែង ខ្លឹមសារវេបសាយ និង app
-              </div>
-              <div class="font-weights">
-                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot"></div>
-                <span class="fw-label">4 Weights · Readable</span>
-              </div>
-              <div class="font-usecase">
-                <span class="uc-chip"><i class="fas fa-globe"></i> Website</span>
-                <span class="uc-chip"><i class="fas fa-newspaper"></i> Blog</span>
-                <span class="uc-chip"><i class="fas fa-mobile-alt"></i> App</span>
-              </div>
-              <div class="font-footer">
-                <div class="font-price free-price">FREE</div>
-                <a href="/#resources" class="btn-free"
-                  ><i class="fas fa-download"></i> ទាញយក Font នេះ</a
-                >
+          <div class="font-row reveal" data-category="sans free">
+            <div class="fr-head">
+              <span class="font-name fr-name">YOB Content Sans</span>
+              <span class="font-cat fr-badge">មូលដ្ឋាន</span>
+              <span class="fr-meta">4 Weights · Readable</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Personal Free</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Content Sans" data-font-css="'YOB Content Sans', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Content Sans', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
+                <a href="index.html#resources" class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
               </div>
             </div>
+            <div class="fr-preview"><div class="preview-text style-sans">អានងាយ​ស្រួល​យល់</div></div>
           </div>
 
           <!-- 8. YOB Minimal UI -->
-          <div class="font-card reveal" data-category="sans free">
-            <div class="font-preview-area" data-letter="រ">
-              <div class="preview-text style-sans">រចនា​បថ​សាមញ្ញ</div>
-            </div>
-            <div class="font-info">
-              <div class="font-info-top">
-                <div class="font-name">YOB Minimal UI</div>
-                <span class="font-cat">រចនាវេប</span>
-              </div>
-              <div class="font-meta">
-                រចនាប័ទ្មសាមញ្ញស្អាត សម្រាប់វេបទំនើប ផលិតផល SaaS និង dashboard
-              </div>
-              <div class="font-weights">
-                <div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div><div class="fw-dot on"></div>
-                <span class="fw-label">5 Weights · Geometric</span>
-              </div>
-              <div class="font-usecase">
-                <span class="uc-chip"><i class="fas fa-chart-bar"></i> Dashboard</span>
-                <span class="uc-chip"><i class="fas fa-cloud"></i> SaaS</span>
-                <span class="uc-chip"><i class="fas fa-layer-group"></i> UI Kit</span>
-              </div>
-              <div class="font-footer">
-                <div class="font-price free-price">FREE</div>
-                <a href="/#resources" class="btn-free"
-                  ><i class="fas fa-download"></i> ទាញយក Font នេះ</a
-                >
+          <div class="font-row reveal" data-category="sans free">
+            <div class="fr-head">
+              <span class="font-name fr-name">YOB Minimal UI</span>
+              <span class="font-cat fr-badge">រចនាវេប</span>
+              <span class="fr-meta">5 Weights · Geometric</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Personal Free</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Minimal UI" data-font-css="'YOB Minimal UI', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Minimal UI', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
+                <a href="index.html#resources" class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
               </div>
             </div>
+            <div class="fr-preview"><div class="preview-text style-sans">រចនា​បថ​សាមញ្ញ</div></div>
           </div>
+
         </div>
         <!-- end fonts-grid -->
 
-        <div class="gkhmer-section-wrap reveal" id="google-khmer-free">
-          <div class="gkhmer-section-tag"><i class="fas fa-globe"></i> FREE · Google Fonts</div>
-          <div class="gkhmer-section-title">Google Khmer Fonts</div>
-          <div class="gkhmer-section-desc">អក្សរខ្មែរឥតគិតថ្លៃ ត្រឹមត្រូវ — ប្រើបាន Web + Print + App ដោយស្របច្បាប់ (Open Font License)</div>
-        <div class="gkhmer-section-head" style="margin-top:0">
-          <h3 class="gkhmer-title" style="display:none">Google Khmer Fonts (Free)</h3>
-          <div class="gkhmer-controls">
-            <button
-              class="gkhmer-control-btn active"
-              data-gpreview="អក្សរខ្មែរ"
-            >
-              អក្សរខ្មែរ
-            </button>
-            <button
-              class="gkhmer-control-btn"
-              data-gpreview="សួស្តី អ្នកទាំងអស់គ្នា"
-            >
-              សួស្តី
-            </button>
-            <button
-              class="gkhmer-control-btn"
-              data-gpreview="យប់មានតម្លៃដូចពន្លឺ"
-            >
-              ស្លោកម៉ាក
-            </button>
-            <div class="gkhmer-custom">
-              <input
-                type="text"
-                id="gkhmerCustomInput"
-                class="gkhmer-custom-input"
-                placeholder="វាយពាក្យខ្មែរ ដើម្បីសាកល្បង..."
-                maxlength="80"
-                aria-label="Custom Khmer preview text"
-              />
-              <button
-                type="button"
-                id="gkhmerResetBtn"
-                class="gkhmer-control-btn gkhmer-reset-btn"
-              >
-                កំណត់ឡើងវិញ
-              </button>
-            </div>
-          </div>
-          <div class="gkhmer-note">
-            បញ្ជីសរុប Khmer families ពី Google Fonts — អាចប្រើឥតគិតថ្លៃ
-            និងប្ដូរពាក្យសាកល្បងបាន
-          </div>
-        </div>
-        <div class="gkhmer-grid" id="googleKhmerGrid"></div>
-        </div><!-- end gkhmer-section-wrap -->
-        <div class="filter-empty" id="fontFilterEmpty">
-          មិនឃើញលទ្ធផលតាមពាក្យស្វែងរកនេះទេ។ សាកល្បងពាក្យផ្សេង ឬចុច
-          <strong>អក្សរទាំងអស់</strong> ដើម្បី reset filter។
+
+        <div class="filter-empty" id="fontFilterEmpty" style="display:none">
+          មិនឃើញ Font ស្វែងរក។ សាកល្បងពាក្យផ្សេង ឬលុបចោល keyword។
         </div>
       </div>
     </section>
@@ -2470,8 +2657,8 @@
             Babu នឹងផ្តល់ quote ក្នុង ២ ម៉ោង!
           </p>
           <div class="prefooter-actions">
-            <a href="/contact" class="btn-primary"
-              ><i class="fas fa-paper-plane"></i> ស្នើរចនា Font ផ្ទាល់ខ្លួន</a
+            <a href="index.html#contact" class="btn-primary"
+              ><i class="fas fa-paper-plane"></i> ស្នើរចនា Font ផ្ទាល់ខ្លួន</
             >
             <a
               href="https://t.me/yobdigital"
@@ -2483,6 +2670,31 @@
         </div>
       </div>
     </section>
+
+    <!-- ══ GLYPH MODAL ══ -->
+    <div class="glyph-modal-overlay" id="glyphModalOverlay" role="dialog" aria-modal="true" aria-label="Glyph Viewer">
+      <div class="glyph-modal">
+        <div class="glyph-modal-header">
+          <div>
+            <div class="glyph-modal-title" id="glyphModalFontName">YOB Font</div>
+            <div class="glyph-modal-subtitle">Khmer Character Set — ចុចលើតួអក្សរ ដើម្បីចម្លង</div>
+          </div>
+          <button class="glyph-modal-close" id="glyphModalClose" aria-label="Close"><i class="fas fa-times"></i></button>
+        </div>
+
+        <div class="glyph-section-label">ព្យញ្ជនៈ (Consonants)</div>
+        <div class="glyph-grid" id="glyphConsonants"></div>
+
+        <div class="glyph-section-label">ស្រៈ (Vowels)</div>
+        <div class="glyph-grid" id="glyphVowels"></div>
+
+        <div class="glyph-section-label">លេខខ្មែរ (Khmer Digits)</div>
+        <div class="glyph-grid" id="glyphDigits"></div>
+
+        <div class="glyph-section-label">Preview</div>
+        <div class="glyph-modal-preview" id="glyphPreview">អក្សរ​ខ្មែរ​យប់ ១២៣</div>
+      </div>
+    </div>
 
     <div class="font-sticky-cta" id="fontStickyCta" aria-live="polite">
       <div class="font-sticky-inner">
@@ -2539,178 +2751,8 @@
     </button>
 
     <script src="js/form-utils.js" defer></script>
-    <script src="js/form-utils.js" defer></script>
     <script>
-      const googleKhmerFamilies = [
-        "Angkor",
-        "Battambang",
-        "Bayon",
-        "Bokor",
-        "Chenla",
-        "Content",
-        "Dangrek",
-        "Fasthand",
-        "Freehand",
-        "Google Sans",
-        "Kantumruy Pro",
-        "Kdam Thmor Pro",
-        "Khmer",
-        "Koh Santepheap",
-        "Konkhmer Sleokchher",
-        "Koulen",
-        "Metal",
-        "Moul",
-        "Moulpali",
-        "Nokora",
-        "Noto Sans Khmer",
-        "Noto Serif Khmer",
-        "Odor Mean Chey",
-        "Preahvihear",
-        "Siemreap",
-        "Suwannaphum",
-        "Taprom",
-      ];
-
-      const googleKhmerGrid = document.getElementById("googleKhmerGrid");
-      const googlePreviewBtns = document.querySelectorAll("[data-gpreview]");
-      const gkhmerCustomInput = document.getElementById("gkhmerCustomInput");
-      const gkhmerResetBtn = document.getElementById("gkhmerResetBtn");
-      const googleKhmerCssUrl =
-        "https://fonts.googleapis.com/css2?" +
-        googleKhmerFamilies
-          .map(
-            (family) =>
-              "family=" + encodeURIComponent(family).replace(/%20/g, "+"),
-          )
-          .join("&") +
-        "&display=swap";
-
-      let googleKhmerFontsLoaded = false;
-      function loadGoogleKhmerFonts() {
-        if (googleKhmerFontsLoaded) return;
-        googleKhmerFontsLoaded = true;
-
-        const googleKhmerFontLink = document.createElement("link");
-        googleKhmerFontLink.rel = "preload";
-        googleKhmerFontLink.as = "style";
-        googleKhmerFontLink.href = googleKhmerCssUrl;
-        googleKhmerFontLink.onload = function () {
-          this.onload = null;
-          this.rel = "stylesheet";
-        };
-        document.head.appendChild(googleKhmerFontLink);
-      }
-
-      if (googleKhmerGrid) {
-        googleKhmerFamilies.forEach((family) => {
-          const card = document.createElement("div");
-          card.className = "font-card reveal";
-          card.setAttribute("data-category", "free google");
-
-          const slug = encodeURIComponent(family).replace(/%20/g, "+");
-          const specimenUrl =
-            "https://fonts.google.com/specimen/" +
-            slug +
-            "?preview.script=Khmr&preview.lang=km_Khmr";
-
-          card.innerHTML =
-            '<div class="gkhmer-card">' +
-            '<div class="gkhmer-preview" style="font-family:\'' +
-            family.replace(/'/g, "\\'") +
-            "', var(--fk), sans-serif;\">អក្សរខ្មែរ</div>" +
-            '<div class="gkhmer-name">' +
-            family +
-            "</div>" +
-            '<div class="gkhmer-meta">ឥតគិតថ្លៃ • Google Fonts</div>' +
-            '<div class="gkhmer-actions">' +
-            '<a class="gkhmer-link" href="' +
-            specimenUrl +
-            '" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> មើលលម្អិត</a>' +
-            '<a class="gkhmer-link" href="' +
-            specimenUrl +
-            '#about" target="_blank" rel="noopener"><i class="fas fa-download"></i> ទាញយក</a>' +
-            "</div>" +
-            "</div>";
-
-          googleKhmerGrid.appendChild(card);
-        });
-
-        const gridObserver = new IntersectionObserver(
-          (entries, observer) => {
-            if (entries.some((entry) => entry.isIntersecting)) {
-              loadGoogleKhmerFonts();
-              observer.disconnect();
-            }
-          },
-          { rootMargin: "280px 0px" },
-        );
-        gridObserver.observe(googleKhmerGrid);
-      }
-
-      function updateGooglePreviewText(text) {
-        document.querySelectorAll(".gkhmer-preview").forEach((el) => {
-          el.textContent = text;
-        });
-      }
-
-      function clearGooglePresetActive() {
-        googlePreviewBtns.forEach((btn) => btn.classList.remove("active"));
-      }
-
-      googlePreviewBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          clearGooglePresetActive();
-          btn.classList.add("active");
-          const previewText = btn.getAttribute("data-gpreview") || "អក្សរខ្មែរ";
-          updateGooglePreviewText(previewText);
-          if (gkhmerCustomInput) {
-            gkhmerCustomInput.value = "";
-          }
-          loadGoogleKhmerFonts();
-        });
-      });
-
-      if (gkhmerCustomInput) {
-        gkhmerCustomInput.addEventListener("input", () => {
-          const value = gkhmerCustomInput.value.trim();
-          if (!value) {
-            const activePreset = document.querySelector(
-              ".gkhmer-control-btn.active[data-gpreview]",
-            );
-            const fallbackText =
-              activePreset?.getAttribute("data-gpreview") || "អក្សរខ្មែរ";
-            updateGooglePreviewText(fallbackText);
-            return;
-          }
-          clearGooglePresetActive();
-          updateGooglePreviewText(value);
-          loadGoogleKhmerFonts();
-        });
-      }
-
-      if (gkhmerResetBtn) {
-        gkhmerResetBtn.addEventListener("click", () => {
-          if (gkhmerCustomInput) {
-            gkhmerCustomInput.value = "";
-          }
-          clearGooglePresetActive();
-          const firstPreset = document.querySelector(
-            ".gkhmer-control-btn[data-gpreview]",
-          );
-          if (firstPreset) {
-            firstPreset.classList.add("active");
-            updateGooglePreviewText(
-              firstPreset.getAttribute("data-gpreview") || "អក្សរខ្មែរ",
-            );
-          } else {
-            updateGooglePreviewText("អក្សរខ្មែរ");
-          }
-        });
-      }
-
-      // Filter functionality
-      const filterBtns = document.querySelectorAll(".filter-btn");
-      const fontCards = document.querySelectorAll(".font-card");
+      const fontCards = document.getElementsByClassName("font-row");
       const fontHubSearch = document.getElementById("fontHubSearch");
       const fontHubPreview = document.getElementById("fontHubPreview");
       const fontHubSize = document.getElementById("fontHubSize");
@@ -2749,20 +2791,16 @@
       const KBD_CHECKLIST_KEY = "yob_khmer_keyboard_checklist_v1";
       const KBD_TAB_PREF_KEY = "yob_khmer_keyboard_tab_pref_v1";
 
-      document
-        .querySelectorAll(".preview-text, .gkhmer-preview")
-        .forEach((el) => {
-          if (!el.dataset.defaultText) {
-            el.dataset.defaultText = el.textContent || "";
-          }
+      function initPreviewDefaults(scope) {
+        (scope || document).querySelectorAll(".preview-text, .gkhmer-preview").forEach((el) => {
+          if (!el.dataset.defaultText) el.dataset.defaultText = el.textContent || "";
           if (!el.dataset.baseSize) {
-            const style = window.getComputedStyle(el);
-            const parsedSize = parseFloat(style.fontSize || "0");
-            el.dataset.baseSize = Number.isFinite(parsedSize)
-              ? String(parsedSize)
-              : "24";
+            const parsedSize = parseFloat(window.getComputedStyle(el).fontSize || "0");
+            el.dataset.baseSize = Number.isFinite(parsedSize) ? String(parsedSize) : "24";
           }
         });
+      }
+      initPreviewDefaults();
 
       function getCardSearchText(card) {
         const parts = [
@@ -2776,18 +2814,11 @@
       }
 
       function applyFontFilters() {
-        const activeBtn = document.querySelector(".filter-btn.active");
-        const activeFilter = activeBtn?.dataset.filter || "all";
         const keyword = (fontHubSearch?.value || "").trim().toLowerCase();
         let visibleCount = 0;
 
-        fontCards.forEach((card) => {
-          const category = card.dataset.category || "";
-          const categoryMatch =
-            activeFilter === "all" || category.includes(activeFilter);
-          const textMatch =
-            !keyword || getCardSearchText(card).includes(keyword);
-          const isVisible = categoryMatch && textMatch;
+        Array.from(fontCards).forEach((card) => {
+          const isVisible = !keyword || getCardSearchText(card).includes(keyword);
           card.style.display = isVisible ? "block" : "none";
           if (isVisible) visibleCount += 1;
         });
@@ -2887,8 +2918,8 @@
       function selectFontCard(card) {
         if (!card) return;
         if (!card.querySelector(".font-price")) return;
-        fontCards.forEach((c) => c.classList.remove("selected"));
-        card.classList.add("selected");
+        Array.from(fontCards).forEach((c) => c.classList.remove("row-selected"));
+        card.classList.add("row-selected");
 
         const name =
           card.querySelector(".font-name")?.textContent?.trim() || "YOB Font";
@@ -2907,27 +2938,47 @@
         stickyBar.classList.add("show");
       }
 
-      filterBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          filterBtns.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-          applyFontFilters();
-        });
-      });
-
       fontHubSearch?.addEventListener("input", () => {
         applyFontFilters();
       });
 
       fontHubPreview?.addEventListener("input", () => {
         applyHubPreviewText(fontHubPreview.value || "");
-        if ((fontHubPreview.value || "").trim()) {
-          loadGoogleKhmerFonts();
-        }
       });
 
       fontHubSize?.addEventListener("input", () => {
         applyHubPreviewSize(fontHubSize.value);
+      });
+
+      // Tracking (letter-spacing)
+      const fontTracking = document.getElementById("fontTracking");
+      const fontTrackingLabel = document.getElementById("fontTrackingLabel");
+      function applyHubPreviewTracking(value) {
+        document.querySelectorAll(".preview-text, .gkhmer-preview").forEach((el) => {
+          el.style.letterSpacing = value + "px";
+        });
+        if (fontTrackingLabel) fontTrackingLabel.textContent = Number(value).toFixed(1) + "px";
+      }
+      fontTracking?.addEventListener("input", () => applyHubPreviewTracking(fontTracking.value));
+
+      // Weight pills
+      const weightPillBtns = document.querySelectorAll(".weight-pill");
+      weightPillBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          weightPillBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          document.querySelectorAll(".preview-text, .gkhmer-preview").forEach((el) => {
+            el.style.fontWeight = btn.dataset.weight;
+          });
+        });
+      });
+
+      // Light/Dark preview background toggle
+      const previewBgToggle = document.getElementById("previewBgToggle");
+      const fontsListContainer = document.getElementById("fonts-grid");
+      previewBgToggle?.addEventListener("click", () => {
+        previewBgToggle.classList.toggle("active");
+        fontsListContainer?.classList.toggle("preview-light");
       });
 
       function setKeyboardTab(target) {
@@ -3053,46 +3104,25 @@
         renderKbdChecklistProgress();
       });
 
-      fontCards.forEach((card) => {
-        card.addEventListener("mousemove", (event) => {
-          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            return;
-          }
-          const rect = card.getBoundingClientRect();
-          const x = event.clientX - rect.left;
-          const y = event.clientY - rect.top;
-          const rotateY = (x / rect.width - 0.5) * 8;
-          const rotateX = (0.5 - y / rect.height) * 8;
-          card.style.transform =
-            "translateY(-8px) perspective(900px) rotateX(" +
-            rotateX.toFixed(2) +
-            "deg) rotateY(" +
-            rotateY.toFixed(2) +
-            "deg)";
-        });
-
-        card.addEventListener("mouseleave", () => {
-          card.style.transform = "";
-        });
-
-        card.addEventListener("click", (event) => {
-          if (event.target.closest("a, button")) return;
-          if (!card.querySelector(".font-price")) return;
-          selectFontCard(card);
-        });
-
-        const buyBtn = card.querySelector(".btn-buy");
-        buyBtn?.addEventListener("click", (event) => {
+      // Event delegation — works for static YOB cards + dynamically added Google cards
+      const fontsGridEl = document.getElementById("fonts-grid");
+      fontsGridEl?.addEventListener("click", (event) => {
+        const buyBtn = event.target.closest(".btn-buy");
+        if (buyBtn) {
           event.preventDefault();
-          selectFontCard(card);
-          addCardToOrder(card, true);
-        });
+          const card = buyBtn.closest(".font-row");
+          if (card) { selectFontCard(card); addCardToOrder(card, true); }
+          return;
+        }
+        if (event.target.closest("a, button")) return;
+        const card = event.target.closest(".font-row");
+        if (card && card.querySelector(".font-price")) selectFontCard(card);
       });
 
       stickyPrimary?.addEventListener("click", (event) => {
         if (stickyPrimary.textContent.includes("ទាញយក")) return;
         event.preventDefault();
-        const selectedCard = document.querySelector(".font-card.selected");
+        const selectedCard = document.querySelector(".font-row.row-selected");
         if (selectedCard) {
           addCardToOrder(selectedCard, true);
         }
@@ -3140,12 +3170,12 @@
 
       stickyClose?.addEventListener("click", () => {
         stickyBar.classList.remove("show");
-        fontCards.forEach((c) => c.classList.remove("selected"));
+        Array.from(fontCards).forEach((c) => c.classList.remove("row-selected"));
       });
 
       heroPickPopular?.addEventListener("click", (event) => {
         event.preventDefault();
-        const featuredCard = document.querySelector(".font-card.featured");
+        const featuredCard = document.querySelector(".font-row.featured");
         selectFontCard(featuredCard);
         featuredCard?.scrollIntoView({ behavior: "smooth", block: "center" });
       });
@@ -3172,6 +3202,67 @@
         }
       }
 
+      // ── GLYPH MODAL ──
+      const glyphOverlay   = document.getElementById("glyphModalOverlay");
+      const glyphModalClose = document.getElementById("glyphModalClose");
+      const glyphModalFontName = document.getElementById("glyphModalFontName");
+      const glyphPreview   = document.getElementById("glyphPreview");
+      const CONSONANTS = "ក ខ គ ឃ ង ច ឆ ជ ឈ ញ ដ ឋ ឌ ឍ ណ ត ថ ទ ធ ន ប ផ ព ភ ម យ រ ល វ ស ហ ឡ អ".split(" ");
+      const VOWELS     = "ា ិ ី ឹ ឺ ុ ូ ួ ើ ឿ ៀ េ ែ ៃ ោ ៅ ំ ះ ៈ".split(" ");
+      const DIGITS     = "០ ១ ២ ៣ ៤ ៥ ៦ ៧ ៨ ៩".split(" ");
+
+      function buildGlyphGrid(containerId, chars, fontCss) {
+        const el = document.getElementById(containerId);
+        if (!el) return;
+        el.innerHTML = "";
+        chars.forEach(ch => {
+          const span = document.createElement("span");
+          span.className = "glyph-char";
+          span.textContent = ch;
+          span.style.fontFamily = fontCss;
+          span.title = "ចម្លង " + ch;
+          span.addEventListener("click", () => {
+            navigator.clipboard?.writeText(ch).catch(() => {});
+            span.style.background = "rgba(229,44,103,0.25)";
+            setTimeout(() => { span.style.background = ""; }, 500);
+          });
+          el.appendChild(span);
+        });
+      }
+
+      function openGlyphModal(fontName, fontCss) {
+        if (!glyphOverlay) return;
+        glyphModalFontName.textContent = fontName;
+        glyphPreview.style.fontFamily = fontCss;
+        buildGlyphGrid("glyphConsonants", CONSONANTS, fontCss);
+        buildGlyphGrid("glyphVowels",     VOWELS,     fontCss);
+        buildGlyphGrid("glyphDigits",     DIGITS,     fontCss);
+        glyphOverlay.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeGlyphModal() {
+        glyphOverlay?.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      glyphModalClose?.addEventListener("click", closeGlyphModal);
+      glyphOverlay?.addEventListener("click", (e) => {
+        if (e.target === glyphOverlay) closeGlyphModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeGlyphModal();
+      });
+
+      document.querySelectorAll(".btn-open-glyph").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const fontName = btn.dataset.fontName || "YOB Font";
+          const fontCss  = btn.dataset.fontCss  || "var(--fk)";
+          openGlyphModal(fontName, fontCss);
+        });
+      });
+
       // FAQ accordion
       document.querySelectorAll(".faq-q").forEach((q) => {
         q.addEventListener("click", () => {
@@ -3184,7 +3275,6 @@
         });
       });
     </script>
-    <script src="js/load-components.js"></script>
     <script src="js/load-components.js"></script>
     <script src="js/main.js" defer></script>
   </body>

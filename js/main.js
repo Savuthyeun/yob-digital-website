@@ -1,3 +1,214 @@
+// Merge Google Khmer Fonts rendering into main grid only once
+if (window.location.pathname.includes("fonts")) {
+  const googleKhmerFamilies = [
+    "Angkor",
+    "Battambang",
+    "Bayon",
+    "Bokor",
+    "Chenla",
+    "Content",
+    "Dangrek",
+    "Fasthand",
+    "Freehand",
+    "Google Sans",
+    "Kantumruy Pro",
+    "Kdam Thmor Pro",
+    "Khmer",
+    "Koh Santepheap",
+    "Konkhmer Sleokchher",
+    "Koulen",
+    "Metal",
+    "Moul",
+    "Moulpali",
+    "Nokora",
+    "Noto Sans Khmer",
+    "Noto Serif Khmer",
+    "Odor Mean Chey",
+    "Preahvihear",
+    "Siemreap",
+    "Suwannaphum",
+    "Taprom",
+  ];
+  const fontsGrid = document.getElementById("fonts-grid");
+  const googleKhmerCssUrl =
+    "https://fonts.googleapis.com/css2?" +
+    googleKhmerFamilies
+      .map((f) => "family=" + encodeURIComponent(f).replace(/%20/g, "+"))
+      .join("&") +
+    "&display=swap";
+  let googleKhmerFontsLoaded = false;
+  function loadGoogleKhmerFonts() {
+    if (googleKhmerFontsLoaded) return;
+    googleKhmerFontsLoaded = true;
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "style";
+    link.href = googleKhmerCssUrl;
+    link.onload = function () {
+      this.onload = null;
+      this.rel = "stylesheet";
+    };
+    document.head.appendChild(link);
+  }
+  function renderGoogleKhmerCards() {
+    if (!fontsGrid) return;
+    // Prevent duplicate rendering
+    if (fontsGrid.dataset.googleRendered === "1") return;
+    googleKhmerFamilies.forEach((family) => {
+      const card = document.createElement("div");
+      card.className = "font-card reveal";
+      card.setAttribute("data-category", "free google");
+      card.setAttribute("data-source", "google");
+      card.innerHTML = `
+        <div class="font-preview-area" tabindex="0" style="cursor:pointer" data-letter="ក">
+          <div class="preview-text style-sans" style="font-family:'${family}', var(--fk), sans-serif;">អក្សរខ្មែរ</div>
+        </div>
+        <div class="font-info">
+          <div class="font-info-top">
+            <div class="font-name">${family}</div>
+            <span class="font-cat">Google Free</span>
+          </div>
+          <div class="font-meta">Khmer Unicode • Google Fonts</div>
+          <div class="font-tags"><span class="font-tag">Google</span></div>
+          <div class="font-footer">
+            <div class="font-price free-price">FREE</div>
+            <button class="btn-outline btn-copy-css" data-font-css="font-family: '${family}', var(--fk), sans-serif;">Copy CSS</button>
+            <button class="btn-outline btn-compare" aria-label="Add to compare" data-font-name="${family}"><i class="fas fa-balance-scale"></i> Compare</button>
+            <a class="btn-free" href="https://fonts.google.com/specimen/${encodeURIComponent(family).replace(/%20/g, "+")}?preview.script=Khmr&preview.lang=km_Khmr" target="_blank"><i class="fas fa-download"></i> ទាញយក</a>
+          </div>
+        </div>
+      `;
+      fontsGrid.appendChild(card);
+    });
+    fontsGrid.dataset.googleRendered = "1";
+    loadGoogleKhmerFonts();
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", renderGoogleKhmerCards);
+  } else {
+    renderGoogleKhmerCards();
+  }
+}
+// ═══════════════════════════════════════════════
+// FONTS PAGE — Compare Drawer, Copy CSS, Enlarge Preview, Accessibility
+// ═══════════════════════════════════════════════
+(function () {
+  // Only run on fonts.html
+  if (!document.body || !document.getElementById("fonts-grid")) return;
+
+  // Compare Drawer logic
+  const compareDrawer = document.getElementById("compareDrawer");
+  const compareList = document.getElementById("compareList");
+  const compareClose = document.getElementById("compareDrawerClose");
+  let compareFonts = [];
+
+  function renderCompareDrawer() {
+    if (!compareDrawer || !compareList) return;
+    compareList.innerHTML = "";
+    if (!compareFonts.length) {
+      compareList.innerHTML =
+        '<div style="color:var(--gray);padding:24px;text-align:center">No fonts selected for compare.<br>Click <b>Compare</b> on any font card.</div>';
+      compareDrawer.classList.remove("show");
+      return;
+    }
+    compareDrawer.classList.add("show");
+    compareFonts.forEach((font) => {
+      const div = document.createElement("div");
+      div.className = "compare-item";
+      div.innerHTML = `
+        <div class="compare-font-name">${font.name}</div>
+        <div class="compare-preview" style="font-family:${font.css};font-size:2.1rem;">${font.preview}</div>
+        <div class="compare-meta">${font.price}</div>
+        <button class="compare-remove" data-remove="${font.name}" aria-label="Remove from compare"><i class="fas fa-times"></i></button>
+      `;
+      compareList.appendChild(div);
+    });
+  }
+
+  document.body.addEventListener("click", function (e) {
+    // Add to compare
+    if (e.target.closest(".btn-compare")) {
+      const btn = e.target.closest(".btn-compare");
+      const card = btn.closest(".font-card");
+      const name = btn.getAttribute("data-font-name");
+      const css =
+        card.querySelector(".btn-copy-css")?.getAttribute("data-font-css") ||
+        "";
+      const preview =
+        card.querySelector(".preview-text")?.textContent || "សិល្បៈឌីជីថល";
+      const price = card.querySelector(".font-price")?.textContent || "";
+      if (!compareFonts.some((f) => f.name === name)) {
+        compareFonts.push({ name, css, preview, price });
+        renderCompareDrawer();
+      }
+      compareDrawer.focus();
+    }
+    // Remove from compare
+    if (e.target.closest(".compare-remove")) {
+      const btn = e.target.closest(".compare-remove");
+      const name = btn.getAttribute("data-remove");
+      compareFonts = compareFonts.filter((f) => f.name !== name);
+      renderCompareDrawer();
+      compareDrawer.focus();
+    }
+    // Copy CSS
+    if (e.target.closest(".btn-copy-css")) {
+      const btn = e.target.closest(".btn-copy-css");
+      const css = btn.getAttribute("data-font-css");
+      if (css) {
+        navigator.clipboard.writeText(css).then(() => {
+          btn.textContent = "Copied!";
+          setTimeout(() => {
+            btn.textContent = "Copy CSS";
+          }, 1200);
+        });
+      }
+    }
+    // Enlarge preview
+    if (e.target.closest(".font-preview-area")) {
+      const area = e.target.closest(".font-preview-area");
+      area.classList.toggle("enlarge");
+      setTimeout(() => {
+        area.focus();
+      }, 10);
+    }
+  });
+
+  // Close compare drawer
+  if (compareClose) {
+    compareClose.addEventListener("click", () => {
+      compareDrawer.classList.remove("show");
+      compareDrawer.blur();
+    });
+  }
+  // ESC to close compare
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && compareDrawer.classList.contains("show")) {
+      compareDrawer.classList.remove("show");
+      compareDrawer.blur();
+    }
+  });
+  // Accessibility: tab focus
+  if (compareDrawer) {
+    compareDrawer.addEventListener("keydown", (e) => {
+      if (e.key === "Tab") {
+        const focusable = compareDrawer.querySelectorAll(
+          'button, [tabindex]:not([tabindex="-1"])',
+        );
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+  }
+})();
 /* ═══════════════════════════════════════
    YOB Digital — Main JavaScript
    Author: Yeun Savuth (Babu)
@@ -25,7 +236,10 @@ function closeDrawer() {
   if (hamburger) hamburger.setAttribute("aria-expanded", "false");
   if (mobileDrawer) mobileDrawer.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
-  if (lastFocusedBeforeDrawer && typeof lastFocusedBeforeDrawer.focus === "function") {
+  if (
+    lastFocusedBeforeDrawer &&
+    typeof lastFocusedBeforeDrawer.focus === "function"
+  ) {
     lastFocusedBeforeDrawer.focus();
   }
 }
@@ -58,12 +272,10 @@ document.querySelectorAll(".drawer-group-toggle").forEach((btn) => {
     document
       .querySelectorAll(".drawer-group-items")
       .forEach((el) => el.classList.remove("open"));
-    document
-      .querySelectorAll(".drawer-group-toggle")
-      .forEach((el) => {
-        el.classList.remove("open");
-        el.setAttribute("aria-expanded", "false");
-      });
+    document.querySelectorAll(".drawer-group-toggle").forEach((el) => {
+      el.classList.remove("open");
+      el.setAttribute("aria-expanded", "false");
+    });
     if (!isOpen) {
       items.classList.add("open");
       btn.classList.add("open");
@@ -146,7 +358,9 @@ reveals.forEach((el) => observer.observe(el));
 (function () {
   const canvas = document.getElementById("night-canvas");
   if (!canvas) return;
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
   const ctx = canvas.getContext("2d");
   const hero = document.getElementById("hero");
 
