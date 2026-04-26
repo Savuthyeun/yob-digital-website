@@ -75,6 +75,62 @@
        FONTS PAGE — Extra Styles
     ═══════════════════════════════════ */
 
+      /* ── HERO SEARCH BAR ── */
+      .hero-search-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 60px;
+        padding: 7px 7px 7px 22px;
+        max-width: 580px;
+        margin: 32px auto 28px;
+        transition: border-color var(--t), box-shadow var(--t);
+      }
+      .hero-search-bar:focus-within {
+        border-color: rgba(229,44,103,0.5);
+        box-shadow: 0 0 0 5px rgba(229,44,103,0.1);
+      }
+      .hero-search-bar i { color: rgba(255,255,255,0.3); font-size: 14px; flex-shrink: 0; }
+      .hero-search-input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        color: var(--white);
+        font-family: var(--fb);
+        font-size: 15px;
+        outline: none;
+        padding: 8px 0;
+        min-width: 0;
+      }
+      .hero-search-input::placeholder { color: rgba(255,255,255,0.3); }
+      .hero-cat-select {
+        background: linear-gradient(135deg, var(--gold), #ff6b9d);
+        border: none;
+        border-radius: 50px;
+        color: #fff;
+        font-family: var(--fb);
+        font-size: 12px;
+        font-weight: 700;
+        padding: 10px 34px 10px 18px;
+        cursor: pointer;
+        outline: none;
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: linear-gradient(135deg, var(--gold), #ff6b9d),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23fff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat, no-repeat;
+        background-position: 0 0, right 12px center;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .hero-cat-select option { background: #0d1117; color: var(--white); font-weight: 400; }
+      @media (max-width: 600px) {
+        .hero-search-bar { margin: 24px 0 20px; border-radius: 20px; padding: 10px 10px 10px 18px; }
+        .hero-cat-select { font-size: 11px; padding: 9px 28px 9px 14px; }
+      }
+
       /* Page hero */
       .fonts-hero {
         padding: clamp(70px, 8vw, 140px) 0 clamp(40px, 6vw, 80px);
@@ -1977,32 +2033,6 @@
         gap: 16px;
         flex-wrap: wrap;
       }
-      .pg-search-wrap {
-        position: relative;
-        flex: 0 0 190px;
-      }
-      .pg-search-wrap i {
-        position: absolute;
-        left: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: var(--gray);
-        font-size: 12px;
-        pointer-events: none;
-      }
-      .pg-search-input {
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 50px;
-        color: var(--white);
-        font-family: var(--fb);
-        font-size: 12px;
-        padding: 8px 14px 8px 32px;
-        width: 100%;
-        outline: none;
-        transition: border-color var(--t);
-      }
-      .pg-search-input:focus { border-color: rgba(229,44,103,0.45); box-shadow: 0 0 0 3px rgba(229,44,103,0.1); }
       .pg-slider-wrap { display: flex; align-items: center; gap: 7px; flex: 0 0 auto; }
       .pg-label { font-family: var(--fb); font-size: 11px; color: var(--gray); white-space: nowrap; }
       .pg-range { width: 90px; accent-color: var(--gold); cursor: pointer; }
@@ -2037,29 +2067,6 @@
         margin-left: auto;
       }
       .pg-bg-toggle:hover, .pg-bg-toggle.active { border-color: rgba(229,44,103,0.4); color: var(--white); background: rgba(229,44,103,0.08); }
-      /* ── CATEGORY NAV ── */
-      .font-category-nav {
-        display: flex; gap: 8px; flex-wrap: wrap;
-        padding: 18px 0 16px;
-        border-bottom: 1px solid var(--border);
-        margin-bottom: 4px;
-      }
-      .fcat-btn {
-        display: inline-flex; align-items: center; gap: 7px;
-        padding: 8px 18px; border-radius: 50px;
-        border: 1px solid rgba(255,255,255,0.1);
-        background: rgba(255,255,255,0.03);
-        color: var(--gray); font-family: var(--fb); font-size: 13px;
-        cursor: pointer; transition: all var(--t);
-      }
-      .fcat-btn:hover { border-color: rgba(229,44,103,0.3); color: var(--white); }
-      .fcat-btn.active { background: rgba(229,44,103,0.1); border-color: rgba(229,44,103,0.4); color: var(--gold); }
-      .fcat-count {
-        font-size: 10px; font-family: var(--fb);
-        background: rgba(255,255,255,0.07); border-radius: 20px;
-        padding: 1px 7px; color: var(--gray);
-      }
-      .fcat-btn.active .fcat-count { background: rgba(229,44,103,0.15); color: var(--gold); }
       /* ── SHOW MORE ── */
       .font-show-more {
         display: none; text-align: center;
@@ -2095,7 +2102,6 @@
         .font-playground { padding: 20px 16px 16px; }
         .pg-slider-wrap { display: none; }
         .pg-weight-wrap { display: none; }
-        .pg-search-wrap { flex: 1; }
         .pg-bg-toggle { margin-left: 0; }
         .font-filter-sticky { margin: 16px -16px 0; padding: 10px 16px; }
       }
@@ -2154,6 +2160,17 @@
           បើមិនទាន់ច្បាស់ថា Font មួយណាសមនឹងអ្នក ស្នើ Digital Check
           មុនបាន។
         </p>
+        <!-- Hero Search Bar -->
+        <div class="hero-search-bar">
+          <i class="fas fa-search"></i>
+          <input id="fontHubSearch" class="hero-search-input" type="text" placeholder="ស្វែងរក Font ខ្មែរ..." aria-label="Search fonts" />
+          <select id="fontCatSelect" class="hero-cat-select" aria-label="Filter by category">
+            <option value="all">ទាំងអស់</option>
+            <option value="savuth">សាវុទ្ធិ</option>
+            <!-- <option value="google">Google Free</option> -->
+          </select>
+        </div>
+
         <div class="hero-badges">
           <div class="hero-badge-item">
             <i class="fas fa-check-circle"></i> គាំទ្រ Unicode ពេញលេញ
@@ -2197,10 +2214,6 @@
             maxlength="60"
           />
           <div class="playground-controls-row">
-            <div class="pg-search-wrap">
-              <i class="fas fa-search"></i>
-              <input id="fontHubSearch" class="pg-search-input" type="text" placeholder="ស្វែងរក Font..." aria-label="Search Khmer fonts" />
-            </div>
             <div class="pg-slider-wrap">
               <span class="pg-label">ទំហំ</span>
               <input id="fontHubSize" class="pg-range" type="range" min="70" max="200" value="100" aria-label="Preview size" />
@@ -2224,20 +2237,11 @@
           </div>
         </div>
 
-        <!-- Category Nav -->
-        <div class="font-category-nav reveal">
-          <button class="fcat-btn active" data-cat="all">ទាំងអស់ <span class="fcat-count">0</span></button>
-          <button class="fcat-btn" data-cat="display">ចំណងជើង <span class="fcat-count">0</span></button>
-          <button class="fcat-btn" data-cat="sans">អានងាយ <span class="fcat-count">0</span></button>
-          <button class="fcat-btn" data-cat="script">ហត្ថលេខា <span class="fcat-count">0</span></button>
-          <button class="fcat-btn" data-cat="free">ឥតគិតថ្លៃ <span class="fcat-count">0</span></button>
-        </div>
-
         <!-- Font List -->
         <div class="fonts-list" id="fonts-grid" aria-label="Khmer Fonts List">
 
           <!-- 1. Khmer Savuth -->
-          <div class="font-row reveal" data-category="display free">
+          <div class="font-row reveal" data-category="display free savuth">
             <div class="fr-head">
               <span class="font-name fr-name">Khmer Savuth</span>
               <span class="font-cat fr-badge">ចំណងជើង</span>
@@ -2253,7 +2257,7 @@
           </div>
 
           <!-- 2. Savuth Pen -->
-          <div class="font-row reveal" data-category="script free">
+          <div class="font-row reveal" data-category="script free savuth">
             <div class="fr-head">
               <span class="font-name fr-name">Savuth Pen</span>
               <span class="font-cat fr-badge">ហត្ថលិខិត</span>
@@ -2269,7 +2273,7 @@
           </div>
 
           <!-- 3. Savuth Pen 2 -->
-          <div class="font-row reveal" data-category="script free">
+          <div class="font-row reveal" data-category="script free savuth">
             <div class="fr-head">
               <span class="font-name fr-name">Savuth Pen 2</span>
               <span class="font-cat fr-badge">ហត្ថលិខិត</span>
@@ -2285,7 +2289,7 @@
           </div>
 
           <!-- 4. Savuth Brush -->
-          <div class="font-row reveal" data-category="script free">
+          <div class="font-row reveal" data-category="script free savuth">
             <div class="fr-head">
               <span class="font-name fr-name">Savuth Brush</span>
               <span class="font-cat fr-badge">ហត្ថលិខិត</span>
@@ -2301,7 +2305,7 @@
           </div>
 
           <!-- 5. Savuth Romeas -->
-          <div class="font-row reveal" data-category="display free">
+          <div class="font-row reveal" data-category="display free savuth">
             <div class="fr-head">
               <span class="font-name fr-name">Savuth Romeas</span>
               <span class="font-cat fr-badge">ចំណងជើង</span>
@@ -2317,7 +2321,7 @@
           </div>
 
           <!-- 6. Khmer Sharp -->
-          <div class="font-row reveal" data-category="display free">
+          <div class="font-row reveal" data-category="display free savuth">
             <div class="fr-head">
               <span class="font-name fr-name">Khmer Sharp</span>
               <span class="font-cat fr-badge">ចំណងជើង</span>
@@ -2333,7 +2337,7 @@
           </div>
 
           <!-- 7. Sem Sarun -->
-          <div class="font-row reveal" data-category="sans free">
+          <div class="font-row reveal" data-category="sans free savuth">
             <div class="fr-head">
               <span class="font-name fr-name">Sem Sarun</span>
               <span class="font-cat fr-badge">អានងាយ</span>
@@ -2349,7 +2353,7 @@
           </div>
 
           <!-- 8. Khmer Sexy -->
-          <div class="font-row reveal" data-category="display free">
+          <div class="font-row reveal" data-category="display free savuth">
             <div class="fr-head">
               <span class="font-name fr-name">Khmer Sexy</span>
               <span class="font-cat fr-badge">ចំណងជើង</span>
@@ -2365,7 +2369,7 @@
           </div>
 
           <!-- 9. Kompong Chhnang -->
-          <div class="font-row reveal" data-category="display free">
+          <div class="font-row reveal" data-category="display free savuth">
             <div class="fr-head">
               <span class="font-name fr-name">Kompong Chhnang</span>
               <span class="font-cat fr-badge">ចំណងជើង</span>
@@ -2381,7 +2385,7 @@
           </div>
 
           <!-- 10. iKhmer Students -->
-          <div class="font-row reveal" data-category="sans free">
+          <div class="font-row reveal" data-category="sans free savuth">
             <div class="fr-head">
               <span class="font-name fr-name">iKhmer Students</span>
               <span class="font-cat fr-badge">អានងាយ</span>
@@ -2896,9 +2900,9 @@
         return parts.join(" ").toLowerCase();
       }
 
-      // Category nav + show-more
+      // Category dropdown + show-more
       const FONTS_INITIAL_SHOW = 5;
-      const fcatBtns = document.querySelectorAll(".fcat-btn");
+      const fontCatSelect = document.getElementById("fontCatSelect");
       const fontShowMore = document.getElementById("fontShowMore");
       const fontShowMoreBtn = document.getElementById("fontShowMoreBtn");
       const fontHiddenCount = document.getElementById("fontHiddenCount");
@@ -2907,13 +2911,13 @@
 
       function computeCatCounts() {
         const rows = Array.from(fontCards);
-        fcatBtns.forEach((btn) => {
-          const cat = btn.dataset.cat;
+        if (!fontCatSelect) return;
+        Array.from(fontCatSelect.options).forEach((opt) => {
+          const cat = opt.value;
           const count = cat === "all"
             ? rows.length
             : rows.filter((r) => (r.dataset.category || "").includes(cat)).length;
-          const el = btn.querySelector(".fcat-count");
-          if (el) el.textContent = count;
+          opt.textContent = opt.textContent.replace(/\s*\(\d+\)$/, "") + " (" + count + ")";
         });
       }
 
@@ -2949,14 +2953,10 @@
         }
       }
 
-      fcatBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          fcatBtns.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-          currentCat = btn.dataset.cat;
-          showAllFonts = false;
-          applyFontDisplay();
-        });
+      fontCatSelect?.addEventListener("change", () => {
+        currentCat = fontCatSelect.value;
+        showAllFonts = false;
+        applyFontDisplay();
       });
 
       fontShowMoreBtn?.addEventListener("click", () => {
