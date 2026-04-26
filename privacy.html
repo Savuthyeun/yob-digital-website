@@ -22,11 +22,13 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
 
+
+  <link rel="stylesheet" href="css/style.min.css" />
 
   <style>
     /* ═══════════════════════════
@@ -185,9 +187,52 @@
     }
     .pp-back:hover { color: var(--white); }
 
+    /* Table of Contents */
+    .pp-toc {
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 28px;
+    }
+    .pp-toc-title {
+      font-family: var(--fb);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pp-toc-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pp-toc-links a {
+      font-family: var(--fb);
+      font-size: 12px;
+      color: var(--gray);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      transition: all var(--t);
+    }
+    .pp-toc-links a:hover {
+      color: var(--white);
+      border-color: rgba(229,44,103,0.4);
+      background: rgba(229,44,103,0.06);
+    }
+
     @media (max-width: 600px) {
       .pp-section { padding: 24px 20px; }
       .pp-contact-card { padding: 24px 20px; }
+      .pp-toc { padding: 20px; }
     }
   </style>
 </head>
@@ -206,36 +251,37 @@
     <button class="drawer-close" id="drawerClose">
       <i class="fas fa-times"></i>
     </button>
-    <a href="/grow" onclick="closeDrawer()">Yob ដើម្បីអ្នក</a>
+    <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
     <div class="drawer-group">
       <button class="drawer-group-toggle">
-        រៀនជាមួយ Yob <i class="fas fa-chevron-down"></i>
+        Learn <i class="fas fa-chevron-down"></i>
       </button>
       <div class="drawer-group-items">
-        <a href="/yob-learning" onclick="closeDrawer()">ជំនាញឌីជីថល</a>
-        <a href="/docs" onclick="closeDrawer()">ឯកសារមេរៀន</a>
-        <a href="/case-studies" onclick="closeDrawer()">កម្រងស្នាដៃ</a>
+        <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+        <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+        <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+        <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
       </div>
     </div>
     <div class="drawer-group">
       <button class="drawer-group-toggle">
-        តូបឌីជីថល <i class="fas fa-chevron-down"></i>
+        Products <i class="fas fa-chevron-down"></i>
       </button>
       <div class="drawer-group-items">
-        <a href="/fonts" onclick="closeDrawer()">YOB អក្ខរា</a>
-        <a href="/resources" onclick="closeDrawer()">កាដូឌីជីថល</a>
+        <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+        <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
       </div>
     </div>
-    <a href="/about" onclick="closeDrawer()">About YOB</a>
-    <a href="/contact" onclick="closeDrawer()" class="d-cta">សាកសួរ</a>
+    <a href="about.html" onclick="closeDrawer()">About YOB</a>
+    <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
   </div>
 
   <!-- ══ HERO ══ -->
   <div class="pp-hero">
     <div class="pp-badge">
-      <i class="fas fa-shield-alt"></i> Privacy Policy
+      <i class="fas fa-shield-alt"></i> Privacy Policy · គោលការណ៍ភាពឯកជន
     </div>
-    <h1 class="pp-title">Your Privacy <span>Matters</span></h1>
+    <h1 class="pp-title">គោលការណ៍<span>ភាពឯកជន</span></h1>
     <p class="pp-subtitle">YOB Digital ខ្វល់ខ្វាយអំពីភាពឯកជន និងសុវត្ថិភាព Data របស់អ្នក</p>
     <div class="pp-updated">Last updated: March 2026</div>
   </div>
@@ -243,12 +289,27 @@
   <!-- ══ CONTENT ══ -->
   <div class="pp-wrap">
 
-    <a href="/" class="pp-back">
-      <i class="fas fa-arrow-left"></i> Back to Home
+    <a href="index.html" class="pp-back">
+      <i class="fas fa-arrow-left"></i> ← ត្រឡប់ទៅ Homepage
     </a>
 
+    <!-- Table of Contents -->
+    <div class="pp-toc reveal">
+      <div class="pp-toc-title"><i class="fas fa-list"></i> មាតិកា</div>
+      <div class="pp-toc-links">
+        <a href="#sec-01">01 · Overview</a>
+        <a href="#sec-02">02 · Data Collection</a>
+        <a href="#sec-03">03 · How We Use It</a>
+        <a href="#sec-04">04 · Third Parties</a>
+        <a href="#sec-05">05 · Security</a>
+        <a href="#sec-06">06 · Your Rights</a>
+        <a href="#sec-07">07 · Children</a>
+        <a href="#sec-08">08 · Updates</a>
+      </div>
+    </div>
+
     <!-- 1 -->
-    <div class="pp-section reveal">
+    <div id="sec-01" class="pp-section reveal">
       <div class="pp-section-num">01 — Overview</div>
       <h2>តើ Privacy Policy នេះគ្របដណ្ដប់អ្វីខ្លះ?</h2>
       <p>Privacy Policy នេះពន្យល់ពីរបៀបដែល YOB Digital ("យើង", "YOB") ប្រមូល ប្រើប្រាស់ និងការពារ ព័ត៌មានរបស់អ្នកនៅពេលអ្នកចូលមើល Website <strong>yobdigital.netlify.app</strong> ឬ ទំនាក់ទំនងជាមួយយើង។</p>
@@ -258,7 +319,7 @@
     </div>
 
     <!-- 2 -->
-    <div class="pp-section reveal">
+    <div id="sec-02" class="pp-section reveal">
       <div class="pp-section-num">02 — Data Collection</div>
       <h2>ព័ត៌មានដែលយើងប្រមូល</h2>
       <p>យើងប្រមូល Data ពីរប្រភេទ:</p>
@@ -271,7 +332,7 @@
     </div>
 
     <!-- 3 -->
-    <div class="pp-section reveal">
+    <div id="sec-03" class="pp-section reveal">
       <div class="pp-section-num">03 — How We Use It</div>
       <h2>របៀបប្រើប្រាស់ Data</h2>
       <p>Data ដែលប្រមូលបាន ត្រូវបានប្រើប្រាស់ក្នុងគោលបំណងខាងក្រោម:</p>
@@ -285,33 +346,33 @@
     </div>
 
     <!-- 4 -->
-    <div class="pp-section reveal">
+    <div id="sec-04" class="pp-section reveal">
       <div class="pp-section-num">04 — Third Parties</div>
       <h2>Third-Party Services</h2>
       <p>Website YOB Digital ប្រើ Services ខាងក្រោម ដែលអាចទទួលបាន Data Technical មួយចំនួន:</p>
       <ul>
         <li><strong>Netlify</strong> — Website Hosting (Netlify's <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">Privacy Policy</a>)</li>
         <li><strong>Google Fonts</strong> — Typography loading (Google's <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>)</li>
-        <li><strong>Cloudflare CDN</strong> — Font Awesome & GSAP delivery</li>
+        <li><strong>Cloudflare CDN</strong> — Font Awesome delivery</li>
         <li><strong>Telegram</strong> — Optional Channel joining (Telegram's <a href="https://telegram.org/privacy" target="_blank" rel="noopener">Privacy Policy</a>)</li>
       </ul>
       <p style="margin-top:16px;">យើង <strong>មិនប្រើ</strong> Google Analytics, Meta Pixel, TikTok Pixel ឬ Tracking Tools ណាមួយ។</p>
     </div>
 
     <!-- 5 -->
-    <div class="pp-section reveal">
+    <div id="sec-05" class="pp-section reveal">
       <div class="pp-section-num">05 — Data Security</div>
       <h2>ការការពារ Data</h2>
       <p>YOB Digital ចាត់វិធានការការពារ Data ខាងក្រោម:</p>
       <ul>
         <li>HTTPS Encryption — ទំនាក់ទំនងទាំងអស់ ការពារដោយ SSL/TLS</li>
         <li>Limited Access — មានតែ Yeun Savuth (Babu) ប៉ុណ្ណោះ ដែលអាចចូលប្រើ Contact Data</li>
-        <li>No Storage — Contact Form messages មិន Store ក្នុង Database — ផ្ញើ Direct ទៅ Email</li>
+        <li>Netlify Forms — Contact Form submissions ត្រូវបាន Store ដោយ Netlify ក្នុង Dashboard ដែលការពារដោយ Password — Access ត្រូវបានកំណត់តែ Admin YOB ប៉ុណ្ណោះ</li>
       </ul>
     </div>
 
     <!-- 6 -->
-    <div class="pp-section reveal">
+    <div id="sec-06" class="pp-section reveal">
       <div class="pp-section-num">06 — Your Rights</div>
       <h2>សិទ្ធិរបស់អ្នក</h2>
       <p>អ្នកមានសិទ្ធិក្នុង:</p>
@@ -325,14 +386,14 @@
     </div>
 
     <!-- 7 -->
-    <div class="pp-section reveal">
+    <div id="sec-07" class="pp-section reveal">
       <div class="pp-section-num">07 — Children</div>
       <h2>ការការពារក្មេង</h2>
-      <p>Website YOB Digital <strong>មិន</strong>ប្រមូល Data ពី Children ដែលមានអាយុក្រោម 13 ឆ្នាំ ដោយចេតនា។ ប្រសិនបើអ្នកជឿថា Child ណាមួយបានផ្ដល់ Personal Information — សូម <a href="/contact">ទំនាក់ទំនងយើង</a> ភ្លាមៗ ដើម្បី Delete។</p>
+      <p>Website YOB Digital <strong>មិន</strong>ប្រមូល Data ពី Children ដែលមានអាយុក្រោម 13 ឆ្នាំ ដោយចេតនា។ ប្រសិនបើអ្នកជឿថា Child ណាមួយបានផ្ដល់ Personal Information — សូម <a href="contact.html">ទំនាក់ទំនងយើង</a> ភ្លាមៗ ដើម្បី Delete។</p>
     </div>
 
     <!-- 8 -->
-    <div class="pp-section reveal">
+    <div id="sec-08" class="pp-section reveal">
       <div class="pp-section-num">08 — Updates</div>
       <h2>ការផ្លាស់ប្ដូរ Privacy Policy</h2>
       <p>YOB Digital រក្សាសិទ្ធិក្នុងការ Update Privacy Policy នេះ នៅពេលណាក៏បាន។ ការផ្លាស់ប្ដូរ Material នឹងត្រូវ Announce នៅ Website ឬ Telegram Channel។ <strong>Last Updated: March 2026.</strong></p>
@@ -344,14 +405,13 @@
         <i class="fas fa-envelope"></i> ទំនាក់ទំនង
       </div>
       <p>មានសំណួរអំពី Privacy? ទំនាក់ទំនងយើងភ្លាម — Babu នឹងឆ្លើយ</p>
-      <a href="/contact" class="btn-primary">
+      <a href="contact.html" class="btn-primary">
         <i class="fas fa-paper-plane"></i> Send Message
       </a>
     </div>
 
   </div>
 
-  <script src="js/load-components.js"></script>
   <script src="js/load-components.js"></script>
   <script src="js/main.js" defer></script>
 </body>

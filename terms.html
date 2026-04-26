@@ -7,14 +7,14 @@
   <meta name="description" content="លក្ខខណ្ឌប្រើប្រាស់ YOB Digital — Terms of Service សម្រាប់ Website និង Services ទាំងអស់។" />
   <meta name="robots" content="index, follow" />
 
-  <link rel="canonical" href="https://yobdigital.netlify.app/terms" />
+  <link rel="canonical" href="https://yobdigital.netlify.app/terms.html" />
   <link rel="icon" type="image/png" href="images/favicon.png" />
   <link rel="apple-touch-icon" href="images/favicon.png" />
 
   <meta property="og:title" content="Terms of Service — YOB Digital" />
   <meta property="og:description" content="លក្ខខណ្ឌប្រើប្រាស់ YOB Digital — Terms of Service សម្រាប់ Website និង Services ទាំងអស់។" />
   <meta property="og:image" content="https://yobdigital.netlify.app/images/og-cover.jpg" />
-  <meta property="og:url" content="https://yobdigital.netlify.app/terms" />
+  <meta property="og:url" content="https://yobdigital.netlify.app/terms.html" />
   <meta property="og:type" content="website" />
 
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
@@ -22,11 +22,12 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
 
+  <link rel="stylesheet" href="css/style.min.css" />
 
   <style>
     /* ═══════════════════════════
@@ -182,9 +183,52 @@
     }
     .tos-back:hover { color: var(--white); }
 
+    /* Table of Contents */
+    .tos-toc {
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 28px;
+    }
+    .tos-toc-title {
+      font-family: var(--fb);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tos-toc-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tos-toc-links a {
+      font-family: var(--fb);
+      font-size: 12px;
+      color: var(--gray);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 5px 14px;
+      transition: all var(--t);
+    }
+    .tos-toc-links a:hover {
+      color: var(--white);
+      border-color: rgba(229,44,103,0.4);
+      background: rgba(229,44,103,0.06);
+    }
+
     @media (max-width: 600px) {
       .tos-section { padding: 24px 20px; }
       .tos-contact-card { padding: 24px 20px; }
+      .tos-toc { padding: 20px; }
     }
   </style>
 </head>
@@ -203,36 +247,37 @@
     <button class="drawer-close" id="drawerClose">
       <i class="fas fa-times"></i>
     </button>
-    <a href="/grow" onclick="closeDrawer()">Yob ដើម្បីអ្នក</a>
+    <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
     <div class="drawer-group">
       <button class="drawer-group-toggle">
-        រៀនជាមួយ Yob <i class="fas fa-chevron-down"></i>
+        Learn <i class="fas fa-chevron-down"></i>
       </button>
       <div class="drawer-group-items">
-        <a href="/yob-learning" onclick="closeDrawer()">ជំនាញឌីជីថល</a>
-        <a href="/docs" onclick="closeDrawer()">ឯកសារមេរៀន</a>
-        <a href="/case-studies" onclick="closeDrawer()">កម្រងស្នាដៃ</a>
+        <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+        <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+        <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+        <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
       </div>
     </div>
     <div class="drawer-group">
       <button class="drawer-group-toggle">
-        តូបឌីជីថល <i class="fas fa-chevron-down"></i>
+        Products <i class="fas fa-chevron-down"></i>
       </button>
       <div class="drawer-group-items">
-        <a href="/fonts" onclick="closeDrawer()">YOB អក្ខរា</a>
-        <a href="/resources" onclick="closeDrawer()">កាដូឌីជីថល</a>
+        <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+        <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
       </div>
     </div>
-    <a href="/about" onclick="closeDrawer()">About YOB</a>
-    <a href="/contact" onclick="closeDrawer()" class="d-cta">សាកសួរ</a>
+    <a href="about.html" onclick="closeDrawer()">About YOB</a>
+    <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
   </div>
 
   <!-- ══ HERO ══ -->
   <div class="tos-hero">
     <div class="tos-badge">
-      <i class="fas fa-file-contract"></i> Terms of Service
+      <i class="fas fa-file-contract"></i> Terms of Service · លក្ខខណ្ឌប្រើប្រាស់
     </div>
-    <h1 class="tos-title">Rules of the <span>Universe</span></h1>
+    <h1 class="tos-title">លក្ខខណ្ឌ<span>ប្រើប្រាស់</span></h1>
     <p class="tos-subtitle">លក្ខខណ្ឌប្រើប្រាស់ Website និង Services ទាំងអស់របស់ YOB Digital</p>
     <div class="tos-updated">Last updated: March 2026</div>
   </div>
@@ -240,12 +285,28 @@
   <!-- ══ CONTENT ══ -->
   <div class="tos-wrap">
 
-    <a href="/" class="tos-back">
-      <i class="fas fa-arrow-left"></i> Back to Home
+    <a href="index.html" class="tos-back">
+      <i class="fas fa-arrow-left"></i> ← ត្រឡប់ទៅ Homepage
     </a>
 
+    <!-- Table of Contents -->
+    <div class="tos-toc reveal">
+      <div class="tos-toc-title"><i class="fas fa-list"></i> មាតិកា</div>
+      <div class="tos-toc-links">
+        <a href="#sec-01">01 · Acceptance</a>
+        <a href="#sec-02">02 · Services</a>
+        <a href="#sec-03">03 · IP Rights</a>
+        <a href="#sec-04">04 · User Conduct</a>
+        <a href="#sec-05">05 · Free Resources</a>
+        <a href="#sec-06">06 · Disclaimer</a>
+        <a href="#sec-07">07 · Third-Party Links</a>
+        <a href="#sec-08">08 · Governing Law</a>
+        <a href="#sec-09">09 · Changes</a>
+      </div>
+    </div>
+
     <!-- 1 -->
-    <div class="tos-section reveal">
+    <div id="sec-01" class="tos-section reveal">
       <div class="tos-section-num">01 — Acceptance</div>
       <h2>ការព្រមព្រៀង</h2>
       <p>ដោយការចូលមើល ឬ ប្រើប្រាស់ Website <strong>yobdigital.netlify.app</strong> ("Website") ឬ Services ណាមួយរបស់ YOB Digital ("YOB", "យើង") — អ្នកយល់ព្រមទទួលស្គាល់ Terms of Service នេះ។</p>
@@ -255,7 +316,7 @@
     </div>
 
     <!-- 2 -->
-    <div class="tos-section reveal">
+    <div id="sec-02" class="tos-section reveal">
       <div class="tos-section-num">02 — Services</div>
       <h2>Services ដែល YOB Digital ផ្ដល់</h2>
       <p>YOB Digital ផ្ដល់ Services ខាងក្រោម:</p>
@@ -270,7 +331,7 @@
     </div>
 
     <!-- 3 -->
-    <div class="tos-section reveal">
+    <div id="sec-03" class="tos-section reveal">
       <div class="tos-section-num">03 — Intellectual Property</div>
       <h2>កម្មសិទ្ធិបញ្ញា</h2>
       <p>Content ទាំងអស់នៅលើ Website YOB Digital — រួមមាន Design, Text, Graphics, Logos, Fonts, Code, Videos — ជាកម្មសិទ្ធិ <strong>YOB Digital / Yeun Savuth</strong>។</p>
@@ -283,7 +344,7 @@
     </div>
 
     <!-- 4 -->
-    <div class="tos-section reveal">
+    <div id="sec-04" class="tos-section reveal">
       <div class="tos-section-num">04 — User Conduct</div>
       <h2>ការប្រើប្រាស់ Acceptable</h2>
       <p>អ្នកយល់ព្រមមិន:</p>
@@ -297,7 +358,7 @@
     </div>
 
     <!-- 5 -->
-    <div class="tos-section reveal">
+    <div id="sec-05" class="tos-section reveal">
       <div class="tos-section-num">05 — Free Resources</div>
       <h2>Free Resources & Downloads</h2>
       <p>Resource ឥតគិតថ្លៃ (Templates, AI Prompts, Design Assets) ត្រូវបានផ្ដល់ "as-is" ដោយគ្មាន Warranty ណាមួយ។ YOB Digital មិនទទួលខុសត្រូវ ប្រសិនបើ Resource ណាមួយ:</p>
@@ -312,7 +373,7 @@
     </div>
 
     <!-- 6 -->
-    <div class="tos-section reveal">
+    <div id="sec-06" class="tos-section reveal">
       <div class="tos-section-num">06 — Disclaimer</div>
       <h2>Disclaimer & Limitation of Liability</h2>
       <p>YOB Digital ផ្ដល់ Website និង Content "as-is" ដោយ Good Faith ប៉ុន្តែ <strong>មិន Guarantee</strong> ថា:</p>
@@ -325,21 +386,21 @@
     </div>
 
     <!-- 7 -->
-    <div class="tos-section reveal">
+    <div id="sec-07" class="tos-section reveal">
       <div class="tos-section-num">07 — Third-Party Links</div>
       <h2>Links ទៅ Third-Party Websites</h2>
       <p>Website YOB Digital អាចមាន Links ទៅ External Websites (Facebook, Telegram, YouTube, LinkedIn, etc.)។ YOB Digital <strong>មិន</strong>ទទួលខុសត្រូវ ចំពោះ Content, Privacy Practices ឬ Terms របស់ Third-Party Sites ទាំងនោះ។</p>
     </div>
 
     <!-- 8 -->
-    <div class="tos-section reveal">
+    <div id="sec-08" class="tos-section reveal">
       <div class="tos-section-num">08 — Governing Law</div>
       <h2>ច្បាប់ដែលអនុវត្ត</h2>
       <p>Terms of Service នេះ ត្រូវ Govern ដោយ ច្បាប់នៃ <strong>ព្រះរាជាណាចក្រកម្ពុជា</strong>។ វិវាទ (Dispute) ណាមួយដែលកើតឡើង ត្រូវដោះស្រាយ First តាម Amicable Negotiation នៅ Phnom Penh, Cambodia។</p>
     </div>
 
     <!-- 9 -->
-    <div class="tos-section reveal">
+    <div id="sec-09" class="tos-section reveal">
       <div class="tos-section-num">09 — Changes</div>
       <h2>ការផ្លាស់ប្ដូរ Terms</h2>
       <p>YOB Digital រក្សាសិទ្ធិ Update Terms of Service នេះ។ ការផ្លាស់ប្ដូរ Material នឹង Notify នៅ Website ឬ Telegram Channel។ ការបន្ត Access Website បន្ទាប់ពី Changes — ចាត់ទុកជា Accept Terms ថ្មី។ <strong>Last Updated: March 2026.</strong></p>
@@ -351,14 +412,13 @@
         <i class="fas fa-question-circle"></i> មានសំណួរ?
       </div>
       <p>ប្រសិនបើអ្នកមានសំណួរអំពី Terms ទាំងនេះ — Babu នឹងឆ្លើយ</p>
-      <a href="/contact" class="btn-primary">
+      <a href="index.html#contact" class="btn-primary">
         <i class="fas fa-paper-plane"></i> ទំនាក់ទំនងយើង
       </a>
     </div>
 
   </div>
 
-  <script src="js/load-components.js"></script>
   <script src="js/load-components.js"></script>
   <script src="js/main.js" defer></script>
 </body>
