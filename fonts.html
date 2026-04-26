@@ -59,6 +59,18 @@
     <link rel="stylesheet" href="css/style.min.css" />
 
     <style>
+      /* ── SAVUTH FONT FACE ── */
+      @font-face { font-family: 'Khmer Savuth';       src: url('font/Savuth%20Font/khmer%20Savuth.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Savuth Pen';         src: url('font/Savuth%20Font/Khmer%20Savuth%20Pen.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Savuth Pen 2';       src: url('font/Savuth%20Font/Khmer%20Savuth%20Pen2.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Savuth Brush';       src: url('font/Savuth%20Font/khmer%20Savuth%20Brush.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Savuth Romeas';      src: url('font/Savuth%20Font/khmer%20Savuth%20Romeas.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Khmer Sharp';        src: url('font/Savuth%20Font/Khmer%20Sharp.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Sem Sarun';          src: url('font/Savuth%20Font/Khmer%20Sem%20Sarun.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Khmer Sexy';         src: url('font/Savuth%20Font/Khmer%20sexy.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Kompong Chhnang';    src: url('font/Savuth%20Font/kh%20Kompong%20Chhnang.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'iKhmer Students';    src: url('font/Savuth%20Font/khmer%20ikhmerstudents.ttf') format('truetype'); font-display: swap; }
+
       /* ═══════════════════════════════════
        FONTS PAGE — Extra Styles
     ═══════════════════════════════════ */
@@ -1857,14 +1869,7 @@
         background: rgba(229,44,103,0.05);
         border-left: 3px solid var(--gold);
       }
-      .font-row.featured::before {
-        content: "⭐ លក់ដាច់";
-        position: absolute; top: 14px; right: 16px;
-        background: var(--gold); color: #fff;
-        font-family: var(--fb); font-size: 9px; font-weight: 700;
-        letter-spacing: 1.5px; padding: 3px 10px; border-radius: 20px;
-        pointer-events: none;
-      }
+      .font-row.featured::before { display: none; }
       .fr-head {
         display: flex; align-items: center; gap: 10px;
         padding: 14px 24px; flex-wrap: wrap;
@@ -2032,6 +2037,44 @@
         margin-left: auto;
       }
       .pg-bg-toggle:hover, .pg-bg-toggle.active { border-color: rgba(229,44,103,0.4); color: var(--white); background: rgba(229,44,103,0.08); }
+      /* ── CATEGORY NAV ── */
+      .font-category-nav {
+        display: flex; gap: 8px; flex-wrap: wrap;
+        padding: 18px 0 16px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 4px;
+      }
+      .fcat-btn {
+        display: inline-flex; align-items: center; gap: 7px;
+        padding: 8px 18px; border-radius: 50px;
+        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.03);
+        color: var(--gray); font-family: var(--fb); font-size: 13px;
+        cursor: pointer; transition: all var(--t);
+      }
+      .fcat-btn:hover { border-color: rgba(229,44,103,0.3); color: var(--white); }
+      .fcat-btn.active { background: rgba(229,44,103,0.1); border-color: rgba(229,44,103,0.4); color: var(--gold); }
+      .fcat-count {
+        font-size: 10px; font-family: var(--fb);
+        background: rgba(255,255,255,0.07); border-radius: 20px;
+        padding: 1px 7px; color: var(--gray);
+      }
+      .fcat-btn.active .fcat-count { background: rgba(229,44,103,0.15); color: var(--gold); }
+      /* ── SHOW MORE ── */
+      .font-show-more {
+        display: none; text-align: center;
+        padding: 24px 0 4px;
+        border-top: 1px solid var(--border);
+      }
+      .font-show-more.visible { display: block; }
+      .font-show-more-btn {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 50px; color: var(--gray);
+        font-family: var(--fb); font-size: 13px;
+        padding: 11px 32px; cursor: pointer; transition: all var(--t);
+      }
+      .font-show-more-btn:hover { border-color: rgba(229,44,103,0.4); color: var(--white); background: rgba(229,44,103,0.06); }
       /* Light preview mode */
       .fonts-list.preview-light .fr-preview { background: #f0f0f5; border-radius: 0 0 8px 8px; }
       .fonts-list.preview-light .fr-preview .preview-text { color: #111 !important; }
@@ -2181,147 +2224,187 @@
           </div>
         </div>
 
+        <!-- Category Nav -->
+        <div class="font-category-nav reveal">
+          <button class="fcat-btn active" data-cat="all">ទាំងអស់ <span class="fcat-count">0</span></button>
+          <button class="fcat-btn" data-cat="display">ចំណងជើង <span class="fcat-count">0</span></button>
+          <button class="fcat-btn" data-cat="sans">អានងាយ <span class="fcat-count">0</span></button>
+          <button class="fcat-btn" data-cat="script">ហត្ថលេខា <span class="fcat-count">0</span></button>
+          <button class="fcat-btn" data-cat="free">ឥតគិតថ្លៃ <span class="fcat-count">0</span></button>
+        </div>
+
         <!-- Font List -->
         <div class="fonts-list" id="fonts-grid" aria-label="Khmer Fonts List">
 
-          <!-- 1. YOB Heading Pro -->
-          <div class="font-row featured reveal" data-category="display">
+          <!-- 1. Khmer Savuth -->
+          <div class="font-row reveal" data-category="display free">
             <div class="fr-head">
-              <span class="font-name fr-name">YOB Heading Pro</span>
+              <span class="font-name fr-name">Khmer Savuth</span>
               <span class="font-cat fr-badge">ចំណងជើង</span>
-              <span class="fr-meta">3 Weights · Bold Focus</span>
-              <div class="fr-lic"><span class="lic-tag">Desktop</span><span class="lic-tag">Web</span><span class="lic-tag">App</span></div>
-              <div class="fr-price-wrap"><span class="font-price fr-price">$15.00</span></div>
-              <div class="fr-btns">
-                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Heading Pro" data-font-css="'YOB Heading Pro', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
-                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Heading Pro', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
-                <a href="index.html?service=Font%20Purchase&font=YOB%20Heading%20Pro&price=15&type=paid&source=fonts#contact" class="fr-buy-btn btn-buy"><i class="fas fa-shopping-cart"></i> ទិញ</a>
-              </div>
-            </div>
-            <div class="fr-preview"><div class="preview-text style-heavy">សិល្បៈ​ឌីជីថល</div></div>
-          </div>
-
-          <!-- 2. YOB Modern Serif -->
-          <div class="font-row reveal" data-category="display">
-            <div class="fr-head">
-              <span class="font-name fr-name">YOB Modern Serif</span>
-              <span class="font-cat fr-badge">ប្រណិត</span>
-              <span class="fr-meta">4 Weights · Serif</span>
-              <div class="fr-lic"><span class="lic-tag">Desktop</span><span class="lic-tag">Web</span><span class="lic-tag">App</span></div>
-              <div class="fr-price-wrap"><span class="font-price fr-price">$18.00</span></div>
-              <div class="fr-btns">
-                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Modern Serif" data-font-css="'YOB Modern Serif', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
-                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Modern Serif', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
-                <a href="index.html?service=Font%20Purchase&font=YOB%20Modern%20Serif&price=18&type=paid&source=fonts#contact" class="fr-buy-btn btn-buy"><i class="fas fa-shopping-cart"></i> ទិញ</a>
-              </div>
-            </div>
-            <div class="fr-preview"><div class="preview-text style-display">ភាព​ស្រស់ស្អាត</div></div>
-          </div>
-
-          <!-- 3. YOB Signature -->
-          <div class="font-row reveal" data-category="script">
-            <div class="fr-head">
-              <span class="font-name fr-name">YOB Signature</span>
-              <span class="font-cat fr-badge">ហត្ថលេខា</span>
-              <span class="fr-meta">2 Weights · Script</span>
-              <div class="fr-lic"><span class="lic-tag">Desktop</span><span class="lic-tag">Web</span><span class="lic-tag">App</span></div>
-              <div class="fr-price-wrap"><span class="font-price fr-price">$20.00</span></div>
-              <div class="fr-btns">
-                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Signature" data-font-css="'YOB Signature', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
-                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Signature', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
-                <a href="index.html?service=Font%20Purchase&font=YOB%20Signature&price=20&type=paid&source=fonts#contact" class="fr-buy-btn btn-buy"><i class="fas fa-shopping-cart"></i> ទិញ</a>
-              </div>
-            </div>
-            <div class="fr-preview"><div class="preview-text style-italic">ហត្ថលេខា​ប្រណិត</div></div>
-          </div>
-
-          <!-- 4. YOB Poster Black -->
-          <div class="font-row reveal" data-category="display">
-            <div class="fr-head">
-              <span class="font-name fr-name">YOB Poster Black</span>
-              <span class="font-cat fr-badge">ដិតខ្លាំង</span>
-              <span class="fr-meta">1 Weight · Ultra Bold</span>
-              <div class="fr-lic"><span class="lic-tag">Desktop</span><span class="lic-tag">Web</span><span class="lic-tag">App</span></div>
-              <div class="fr-price-wrap"><span class="font-price fr-price">$12.00</span></div>
-              <div class="fr-btns">
-                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Poster Black" data-font-css="'YOB Poster Black', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
-                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Poster Black', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
-                <a href="index.html?service=Font%20Purchase&font=YOB%20Poster%20Black&price=12&type=paid&source=fonts#contact" class="fr-buy-btn btn-buy"><i class="fas fa-shopping-cart"></i> ទិញ</a>
-              </div>
-            </div>
-            <div class="fr-preview"><div class="preview-text style-bold">បញ្ចុះ​តម្លៃ ៥០%</div></div>
-          </div>
-
-          <!-- 5. YOB Kbach Retro -->
-          <div class="font-row reveal" data-category="display">
-            <div class="fr-head">
-              <span class="font-name fr-name">YOB Kbach Retro</span>
-              <span class="font-cat fr-badge">បុរាណ</span>
-              <span class="fr-meta">3 Weights · Decorative</span>
-              <div class="fr-lic"><span class="lic-tag">Desktop</span><span class="lic-tag">Web</span><span class="lic-tag">App</span></div>
-              <div class="fr-price-wrap"><span class="font-price fr-price">$25.00</span></div>
-              <div class="fr-btns">
-                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Kbach Retro" data-font-css="'YOB Kbach Retro', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
-                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Kbach Retro', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
-                <a href="index.html?service=Font%20Purchase&font=YOB%20Kbach%20Retro&price=25&type=paid&source=fonts#contact" class="fr-buy-btn btn-buy"><i class="fas fa-shopping-cart"></i> ទិញ</a>
-              </div>
-            </div>
-            <div class="fr-preview"><div class="preview-text style-display">ក្បាច់​ខ្មែរ​បុរាណ</div></div>
-          </div>
-
-          <!-- 6. YOB Tech Mono -->
-          <div class="font-row reveal" data-category="sans free">
-            <div class="fr-head">
-              <span class="font-name fr-name">YOB Tech Mono</span>
-              <span class="font-cat fr-badge">បច្ចេកវិទ្យា</span>
-              <span class="fr-meta">2 Weights · Monospace</span>
-              <div class="fr-lic"><span class="lic-tag lic-free">Personal Free</span></div>
+              <span class="fr-meta">Display · Savuth Collection</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
               <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
               <div class="fr-btns">
-                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Tech Mono" data-font-css="'YOB Tech Mono', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
-                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Tech Mono', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
-                <a href="index.html#resources" class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Khmer Savuth', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/khmer%20Savuth.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
               </div>
             </div>
-            <div class="fr-preview"><div class="preview-text style-mono">បច្ចេក​វិទ្យា AI</div></div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Khmer Savuth',var(--fk),sans-serif">ខ្មែរ​ស្អាត​ស្រស់</div></div>
           </div>
 
-          <!-- 7. YOB Content Sans -->
-          <div class="font-row reveal" data-category="sans free">
+          <!-- 2. Savuth Pen -->
+          <div class="font-row reveal" data-category="script free">
             <div class="fr-head">
-              <span class="font-name fr-name">YOB Content Sans</span>
-              <span class="font-cat fr-badge">មូលដ្ឋាន</span>
-              <span class="fr-meta">4 Weights · Readable</span>
-              <div class="fr-lic"><span class="lic-tag lic-free">Personal Free</span></div>
+              <span class="font-name fr-name">Savuth Pen</span>
+              <span class="font-cat fr-badge">ហត្ថលិខិត</span>
+              <span class="fr-meta">Script · Pen Style</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
               <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
               <div class="fr-btns">
-                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Content Sans" data-font-css="'YOB Content Sans', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
-                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Content Sans', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
-                <a href="index.html#resources" class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Savuth Pen', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/Khmer%20Savuth%20Pen.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
               </div>
             </div>
-            <div class="fr-preview"><div class="preview-text style-sans">អានងាយ​ស្រួល​យល់</div></div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Savuth Pen',var(--fk),sans-serif">ហត្ថលេខា​ស្រស់</div></div>
           </div>
 
-          <!-- 8. YOB Minimal UI -->
-          <div class="font-row reveal" data-category="sans free">
+          <!-- 3. Savuth Pen 2 -->
+          <div class="font-row reveal" data-category="script free">
             <div class="fr-head">
-              <span class="font-name fr-name">YOB Minimal UI</span>
-              <span class="font-cat fr-badge">រចនាវេប</span>
-              <span class="fr-meta">5 Weights · Geometric</span>
-              <div class="fr-lic"><span class="lic-tag lic-free">Personal Free</span></div>
+              <span class="font-name fr-name">Savuth Pen 2</span>
+              <span class="font-cat fr-badge">ហត្ថលិខិត</span>
+              <span class="fr-meta">Script · Pen Style v2</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
               <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
               <div class="fr-btns">
-                <button class="fr-icon-btn btn-open-glyph" data-font-name="YOB Minimal UI" data-font-css="'YOB Minimal UI', var(--fk), sans-serif" title="Glyphs"><i class="fas fa-font"></i></button>
-                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'YOB Minimal UI', var(--fk), sans-serif;" title="Copy CSS">CSS</button>
-                <a href="index.html#resources" class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Savuth Pen 2', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/Khmer%20Savuth%20Pen2.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
               </div>
             </div>
-            <div class="fr-preview"><div class="preview-text style-sans">រចនា​បថ​សាមញ្ញ</div></div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Savuth Pen 2',var(--fk),sans-serif">ហត្ថលេខា​ប្រណិត</div></div>
+          </div>
+
+          <!-- 4. Savuth Brush -->
+          <div class="font-row reveal" data-category="script free">
+            <div class="fr-head">
+              <span class="font-name fr-name">Savuth Brush</span>
+              <span class="font-cat fr-badge">ហត្ថលិខិត</span>
+              <span class="fr-meta">Script · Brush Style</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Savuth Brush', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/khmer%20Savuth%20Brush.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Savuth Brush',var(--fk),sans-serif">ហស្ថ​លិខិត​ច្នៃ</div></div>
+          </div>
+
+          <!-- 5. Savuth Romeas -->
+          <div class="font-row reveal" data-category="display free">
+            <div class="fr-head">
+              <span class="font-name fr-name">Savuth Romeas</span>
+              <span class="font-cat fr-badge">ចំណងជើង</span>
+              <span class="fr-meta">Display · Romeas Style</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Savuth Romeas', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/khmer%20Savuth%20Romeas.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Savuth Romeas',var(--fk),sans-serif">អក្សរ​ខ្មែរ​ស្វែង</div></div>
+          </div>
+
+          <!-- 6. Khmer Sharp -->
+          <div class="font-row reveal" data-category="display free">
+            <div class="fr-head">
+              <span class="font-name fr-name">Khmer Sharp</span>
+              <span class="font-cat fr-badge">ចំណងជើង</span>
+              <span class="fr-meta">Display · Sharp Style</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Khmer Sharp', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/Khmer%20Sharp.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Khmer Sharp',var(--fk),sans-serif">ស្រួច​ពត​ច្បាស់</div></div>
+          </div>
+
+          <!-- 7. Sem Sarun -->
+          <div class="font-row reveal" data-category="sans free">
+            <div class="fr-head">
+              <span class="font-name fr-name">Sem Sarun</span>
+              <span class="font-cat fr-badge">អានងាយ</span>
+              <span class="fr-meta">Sans · Readable Body</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Sem Sarun', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/Khmer%20Sem%20Sarun.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Sem Sarun',var(--fk),sans-serif">អានស្រួល​យល់ច្បាស់</div></div>
+          </div>
+
+          <!-- 8. Khmer Sexy -->
+          <div class="font-row reveal" data-category="display free">
+            <div class="fr-head">
+              <span class="font-name fr-name">Khmer Sexy</span>
+              <span class="font-cat fr-badge">ចំណងជើង</span>
+              <span class="fr-meta">Display · Decorative</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Khmer Sexy', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/Khmer%20sexy.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Khmer Sexy',var(--fk),sans-serif">ក្បាច់​ស្រស់​ស្អាត</div></div>
+          </div>
+
+          <!-- 9. Kompong Chhnang -->
+          <div class="font-row reveal" data-category="display free">
+            <div class="fr-head">
+              <span class="font-name fr-name">Kompong Chhnang</span>
+              <span class="font-cat fr-badge">ចំណងជើង</span>
+              <span class="fr-meta">Display · Regional Style</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Kompong Chhnang', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/kh%20Kompong%20Chhnang.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Kompong Chhnang',var(--fk),sans-serif">កំពង់ឆ្នាំង​ស្អាត</div></div>
+          </div>
+
+          <!-- 10. iKhmer Students -->
+          <div class="font-row reveal" data-category="sans free">
+            <div class="fr-head">
+              <span class="font-name fr-name">iKhmer Students</span>
+              <span class="font-cat fr-badge">អានងាយ</span>
+              <span class="fr-meta">Sans · Education Style</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'iKhmer Students', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/khmer%20ikhmerstudents.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'iKhmer Students',var(--fk),sans-serif">សិស្ស​ខ្មែរ​រៀន</div></div>
           </div>
 
         </div>
         <!-- end fonts-grid -->
+
+        <!-- Show More -->
+        <div class="font-show-more" id="fontShowMore">
+          <button class="font-show-more-btn" id="fontShowMoreBtn">
+            <i class="fas fa-chevron-down"></i> មើល Font ទាំងអស់ · នៅសល់ <span id="fontHiddenCount">0</span> ទៀត
+          </button>
+        </div>
 
 
         <div class="filter-empty" id="fontFilterEmpty" style="display:none">
@@ -2813,20 +2896,73 @@
         return parts.join(" ").toLowerCase();
       }
 
-      function applyFontFilters() {
-        const keyword = (fontHubSearch?.value || "").trim().toLowerCase();
-        let visibleCount = 0;
+      // Category nav + show-more
+      const FONTS_INITIAL_SHOW = 5;
+      const fcatBtns = document.querySelectorAll(".fcat-btn");
+      const fontShowMore = document.getElementById("fontShowMore");
+      const fontShowMoreBtn = document.getElementById("fontShowMoreBtn");
+      const fontHiddenCount = document.getElementById("fontHiddenCount");
+      let currentCat = "all";
+      let showAllFonts = false;
 
-        Array.from(fontCards).forEach((card) => {
-          const isVisible = !keyword || getCardSearchText(card).includes(keyword);
-          card.style.display = isVisible ? "block" : "none";
-          if (isVisible) visibleCount += 1;
+      function computeCatCounts() {
+        const rows = Array.from(fontCards);
+        fcatBtns.forEach((btn) => {
+          const cat = btn.dataset.cat;
+          const count = cat === "all"
+            ? rows.length
+            : rows.filter((r) => (r.dataset.category || "").includes(cat)).length;
+          const el = btn.querySelector(".fcat-count");
+          if (el) el.textContent = count;
+        });
+      }
+
+      function applyFontDisplay() {
+        const keyword = (fontHubSearch?.value || "").trim().toLowerCase();
+        const rows = Array.from(fontCards);
+
+        const filtered = rows.filter((card) => {
+          const cat = card.dataset.category || "";
+          const catMatch = currentCat === "all" || cat.includes(currentCat);
+          const textMatch = !keyword || getCardSearchText(card).includes(keyword);
+          return catMatch && textMatch;
         });
 
+        const hiddenCount = Math.max(0, filtered.length - FONTS_INITIAL_SHOW);
+
+        rows.forEach((card) => { card.style.display = "none"; });
+        filtered.forEach((card, i) => {
+          card.style.display = (showAllFonts || i < FONTS_INITIAL_SHOW) ? "block" : "none";
+        });
+
+        if (fontShowMore) {
+          if (!showAllFonts && hiddenCount > 0) {
+            fontShowMore.classList.add("visible");
+            if (fontHiddenCount) fontHiddenCount.textContent = hiddenCount;
+          } else {
+            fontShowMore.classList.remove("visible");
+          }
+        }
+
         if (fontFilterEmpty) {
-          fontFilterEmpty.style.display = visibleCount ? "none" : "block";
+          fontFilterEmpty.style.display = filtered.length ? "none" : "block";
         }
       }
+
+      fcatBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          fcatBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          currentCat = btn.dataset.cat;
+          showAllFonts = false;
+          applyFontDisplay();
+        });
+      });
+
+      fontShowMoreBtn?.addEventListener("click", () => {
+        showAllFonts = true;
+        applyFontDisplay();
+      });
 
       function applyHubPreviewText(value) {
         const normalized = value.trim();
@@ -2939,7 +3075,8 @@
       }
 
       fontHubSearch?.addEventListener("input", () => {
-        applyFontFilters();
+        showAllFonts = false;
+        applyFontDisplay();
       });
 
       fontHubPreview?.addEventListener("input", () => {
@@ -3180,7 +3317,8 @@
         featuredCard?.scrollIntoView({ behavior: "smooth", block: "center" });
       });
 
-      applyFontFilters();
+      computeCatCounts();
+      applyFontDisplay();
       if (fontHubSize) {
         applyHubPreviewSize(fontHubSize.value);
       }
