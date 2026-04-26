@@ -661,7 +661,7 @@
 
       /* ID badge — CSS art, no photo */
       .tva-id-card {
-        width: 220px;
+        width: 240px;
         flex-shrink: 0;
         border: 2px solid var(--tva-border);
         background: var(--tva-panel);
@@ -680,7 +680,7 @@
         justify-content: space-between;
       }
       .tva-id-photo {
-        height: 180px;
+        height: 260px;
         background:
           linear-gradient(
             160deg,
@@ -1153,12 +1153,16 @@
       }
 
       /* ── RESPONSIVE ── */
+
+      /* Tablet — 900px */
       @media (max-width: 900px) {
         .tva-hero-grid,
-        .tva-origin-grid,
         .tva-subject-file {
           grid-template-columns: 1fr;
-          gap: 40px;
+          gap: 36px;
+        }
+        .tva-readout {
+          width: 100%;
         }
         .tva-team-grid {
           grid-template-columns: 1fr 1fr;
@@ -1170,36 +1174,97 @@
         .tva-personnel-card:nth-child(odd) {
           border-right: 1px solid var(--tva-border);
         }
-      }
-      @media (max-width: 768px) {
-        .tva-hero {
-          padding: clamp(40px, 8vw, 70px) 0 clamp(35px, 7vw, 50px);
+        .tva-header-ref {
+          display: none;
         }
-        .tva-origin {
-          padding: clamp(35px, 8vw, 55px) 0;
+      }
+
+      /* Mobile — 768px */
+      @media (max-width: 768px) {
+        .tva-wrap {
+          padding: 0 18px;
+        }
+        .tva-hero {
+          padding: 48px 0 36px;
         }
         .tva-founder {
-          padding: clamp(35px, 8vw, 55px) 0;
+          padding: 36px 0;
         }
         .tva-team {
-          padding: clamp(35px, 8vw, 55px) 0;
+          padding: 36px 0;
         }
         .tva-mission {
-          padding: clamp(40px, 8vw, 70px) 0 clamp(35px, 8vw, 55px);
+          padding: 48px 0 40px;
         }
-        .tva-team-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: 540px) {
         .tva-team-grid {
           grid-template-columns: 1fr;
         }
         .tva-personnel-card {
           border-right: none !important;
         }
+        .tva-id-card {
+          width: 200px;
+          margin: 0 auto;
+        }
+        .tva-id-photo {
+          height: 220px;
+        }
+        .tva-founder-name {
+          font-size: 36px;
+        }
+        .tva-body {
+          font-size: 14px;
+        }
+        .tva-mission-btns {
+          flex-direction: column;
+          align-items: center;
+        }
+        .tva-btn {
+          width: 100%;
+          max-width: 320px;
+          justify-content: center;
+        }
+      }
+
+      /* Small mobile — 480px */
+      @media (max-width: 480px) {
+        .tva-wrap {
+          padding: 0 16px;
+        }
         .tva-hero-title {
-          font-size: 42px;
+          font-size: 38px;
+        }
+        .tva-hero-khmer {
+          font-size: 15px;
+        }
+        .tva-header-inner {
+          padding: 0 16px;
+        }
+        .tva-readout-val {
+          font-size: 16px;
+        }
+        .tva-readout-key {
+          font-size: 8px;
+        }
+        .tva-skills {
+          gap: 6px;
+        }
+        .tva-skill {
+          font-size: 9px;
+          padding: 5px 10px;
+        }
+        .tva-social-link {
+          font-size: 9px;
+          padding: 8px 12px;
+        }
+        .tva-mission-big {
+          font-size: clamp(26px, 8vw, 40px);
+        }
+        .tva-mission-sub {
+          font-size: 14px;
+        }
+        .tva-personnel-bio {
+          font-size: 12px;
         }
       }
     </style>
@@ -1210,6 +1275,10 @@
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
     <!-- TVA noise layer -->
     <div class="tva-noise" aria-hidden="true"></div>
@@ -1320,9 +1389,17 @@
                 ><span class="tva-cursor" aria-hidden="true"></span>
               </h1>
               <p class="tva-hero-khmer">
+<<<<<<< Updated upstream
                 YOB Digital ជាដៃគូជួយ អ្នក<br />
                 យល់សេវាកម្មឌីជីថលឱ្យច្បាស់<br />
                 <strong>ហើយអនុវត្តបានពិតដើម្បីបង្កើនលទ្ធផលលក់</strong>
+=======
+                យប់ ឌីជីថល គឺជាដៃគូយុទ្ធសាស្ត្រ ដែលយក
+                <strong>"ការច្នៃប្រឌិត (Creativity)"</strong>
+                បូកជាមួយ
+                <strong>"បច្ចេកវិទ្យា (Technology)"</strong>
+                មកដោះស្រាយបញ្ហាជាក់ស្តែងរបស់អតិថិជន។
+>>>>>>> Stashed changes
               </p>
             </div>
             <!-- Data readout -->
@@ -1358,6 +1435,7 @@
         <!-- RULE -->
         <hr class="tva-rule" />
         <span class="tva-rule-label"
+<<<<<<< Updated upstream
           >SECTION-02 // ORIGIN_LOG // HOW YOB DIGITAL WAS CREATED</span
         >
 
@@ -1489,6 +1567,9 @@
         <hr class="tva-rule" />
         <span class="tva-rule-label"
           >SECTION-03 // SUBJECT_FILE // FOUNDER PROFILE</span
+=======
+          >SECTION-02 // SUBJECT_FILE // FOUNDER PROFILE</span
+>>>>>>> Stashed changes
         >
 
         <!-- ── SUBJECT FILE: FOUNDER ── -->
@@ -1505,7 +1586,7 @@
                 <span>#YOB-001</span>
               </div>
               <div class="tva-id-photo">
-                <span class="tva-id-initial">B</span>
+                <img src="images/founder-bio.jpg" alt="Yeun Savuth — Founder & CEO, YOB Digital" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
                 <div class="tva-id-overlay"></div>
                 <div class="tva-approved-stamp">FOUNDER</div>
               </div>
@@ -1524,16 +1605,33 @@
                 <span class="tva-founder-khmer">យឺន សាវុទ្ធិ</span>
               </h2>
               <p class="tva-body">
+<<<<<<< Updated upstream
                 <strong>Babu</strong> ជាអ្នកបង្កើត YOB Digital — ចាប់ផ្ដើមឆ្នាំ
                 2020 ដោយ Mission ច្បាស់: <strong>ជួយ អ្នក</strong> ចេះ
                 Master Digital ដូច Professional។ Trained
                 <strong>500+ Business Owners</strong> ក្នុង Workshop, Course,
                 និង 1-on-1 Consulting។
+=======
+                Babu គឺជា<strong>អ្នកអនុវត្ត និងធ្វើតេស្តផ្ទាល់ (Hands-on Practitioner)</strong>
+                នៅក្នុងពិភពបច្ចេកវិទ្យា។ ចំណង់ចំណូលចិត្តពិតប្រាកដរបស់គាត់
+                គឺការចំណាយពេលរាប់ពាន់ម៉ោង ដើម្បី
+                <strong>"តេស្ត និង ទាញយកសក្តានុពល (Unleash)"</strong>
+                ពីបច្ចេកវិទ្យា AI ថ្មីៗដែលកំពុងផ្លាស់ប្តូររបៀបធ្វើការរបស់យើង។
+>>>>>>> Stashed changes
               </p>
               <p class="tva-body">
-                ជឿជាក់ថា <strong>ភាសា, Culture, និង Context</strong> ជា
-                Foundation ក្នុងការ Build Marketing ដែល Connect ពិតជាមួយ
-                Cambodian Audience។
+                បេសកកម្មរបស់គាត់នៅ YOB Digital គឺការយកភាពស្មុគស្មាញនៃបច្ចេកវិទ្យាទាំងនោះ
+                មក <strong>"បំប្លែង និង ច្នៃ (Demystify &amp; Craft)"</strong>
+                ឱ្យទៅជាឧបករណ៍ដែលសាមញ្ញ និងងាយស្រួលប្រើបំផុត។
+              </p>
+              <p class="tva-body">
+                តាមរយៈការចែករំលែកជាមេរៀន និងការបង្កើតជា
+                <strong>"ធនធានឌីជីថល (Digital Assets)"</strong>
+                (ដូចជាហ្វុនអក្សរខ្មែរ និង Templates ផ្សេងៗ)
+                Babu មិនត្រឹមតែបង្ហាញផ្លូវអ្នកឱ្យស្គាល់ AI នោះទេ
+                តែគាត់កំពុង <strong>"បំពាក់អាវុធ (Equip)"</strong>
+                ឱ្យអ្នកមានសមត្ថភាពអាចទាញយកបច្ចេកវិទ្យាទាំងនេះ
+                មកបង្កើតលទ្ធផលជាក់ស្តែង និងឈានមុខគេក្នុងទីផ្សារ។
               </p>
               <div class="tva-skills">
                 <span class="tva-skill">DIGITAL STRATEGY</span>
@@ -1547,7 +1645,7 @@
               </div>
               <div class="tva-social-row">
                 <a
-                  href="https://facebook.com/yobdigital"
+                  href="https://web.facebook.com/yobdigitals"
                   class="tva-social-link"
                   target="_blank"
                   rel="noopener"
@@ -1561,14 +1659,14 @@
                   ><i class="fab fa-telegram-plane"></i> TELEGRAM</a
                 >
                 <a
-                  href="https://youtube.com/@yobdigital"
+                  href="https://www.youtube.com/@yeunsavuth"
                   class="tva-social-link"
                   target="_blank"
                   rel="noopener"
                   ><i class="fab fa-youtube"></i> YOUTUBE</a
                 >
                 <a
-                  href="https://linkedin.com/in/yobdigital"
+                  href="https://www.linkedin.com/company/yobdigital/"
                   class="tva-social-link"
                   target="_blank"
                   rel="noopener"
@@ -1653,9 +1751,13 @@
             >OPERATIONAL DIRECTIVE · TOP PRIORITY</span
           >
           <h2 class="tva-mission-big">
+<<<<<<< Updated upstream
             ជួយ <span class="accent">អ្នក</span><br />
             ឱ្យចូល DIGITAL<br />
             ដោយ CONFIDENCE
+=======
+            សូមធ្វើការ<br /><span class="accent">ស្វែងយល់</span><br />បន្ថែម
+>>>>>>> Stashed changes
           </h2>
           <p class="tva-mission-sub">
             ផ្ដល់ Knowledge, Tools, & Strategy ជាភាសាខ្មែរ —<br />
@@ -1663,9 +1765,14 @@
             និងវាស់លទ្ធផលបានច្បាស់
           </p>
           <div class="tva-mission-btns">
+<<<<<<< Updated upstream
             <a href="/contact" class="tva-btn">
               <i class="fas fa-paper-plane"></i> ស្នើ Consultation + Digital
               Check
+=======
+            <a href="contact.html" class="tva-btn">
+              <i class="fas fa-paper-plane"></i> ស្នើ Consultation
+>>>>>>> Stashed changes
             </a>
             <a href="/grow" class="tva-btn tva-btn-outline">
               <i class="fas fa-seedling"></i> GROW WITH YOB
