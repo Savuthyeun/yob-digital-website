@@ -230,130 +230,6 @@
         font-size: 11px;
       }
 
-      /* Filter tabs */
-      .filter-bar {
-        display: flex;
-        gap: 8px;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-bottom: 48px;
-      }
-      .filter-btn {
-        padding: 9px 20px;
-        border-radius: 50px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: var(--gray);
-        font-family: var(--fb);
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all var(--t);
-      }
-      .filter-btn:hover,
-      .filter-btn.active {
-        background: rgba(229, 44, 103, 0.12);
-        border-color: rgba(229, 44, 103, 0.3);
-        color: var(--white);
-      }
-      .filter-btn.active {
-        color: var(--gold);
-      }
-
-      .font-hub-toolbar {
-        margin: 0 auto 24px;
-        max-width: 1080px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 18px;
-        background: linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.05),
-          rgba(255, 255, 255, 0.015)
-        );
-        padding: 18px;
-      }
-      .font-hub-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        margin-bottom: 14px;
-        flex-wrap: wrap;
-      }
-      .font-hub-title {
-        font-family: var(--fb);
-        font-size: 16px;
-        font-weight: 700;
-        color: var(--white);
-      }
-      .font-hub-sub {
-        font-family: var(--fk);
-        font-size: 12px;
-        color: var(--gray);
-      }
-      .font-hub-tools {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-      }
-      .font-hub-field {
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 14px;
-        padding: 10px 12px;
-        background: rgba(255, 255, 255, 0.02);
-      }
-      .font-hub-label {
-        font-family: var(--fb);
-        font-size: 11px;
-        color: var(--gray);
-        margin-bottom: 6px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-      .font-hub-input,
-      .font-hub-range {
-        width: 100%;
-      }
-      .font-hub-input {
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.03);
-        color: var(--white);
-        font-family: var(--fk);
-        font-size: 14px;
-        padding: 10px 12px;
-      }
-      .font-hub-input::placeholder {
-        color: rgba(255, 255, 255, 0.4);
-      }
-      .font-hub-meter {
-        margin-top: 7px;
-        font-family: var(--fb);
-        font-size: 12px;
-        color: var(--gray);
-      }
-      .font-hub-shortcuts {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 12px;
-      }
-      .font-hub-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 999px;
-        padding: 6px 12px;
-        color: var(--gray);
-        font-family: var(--fb);
-        font-size: 12px;
-      }
-      .font-hub-chip:hover {
-        border-color: rgba(229, 44, 103, 0.4);
-        color: var(--white);
-      }
-
       .filter-empty {
         display: none;
         margin: 10px 0 24px;
@@ -365,100 +241,6 @@
         background: rgba(229, 44, 103, 0.06);
       }
 
-      /* Font cards grid */
-      .fonts-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 24px;
-        margin-bottom: 80px;
-      }
-      .font-card {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 20px;
-        overflow: hidden;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        position: relative;
-        transform-style: preserve-3d;
-        will-change: transform;
-      }
-      .font-card:hover {
-        border-color: rgba(229, 44, 103, 0.3);
-        transform: translateY(-8px);
-        box-shadow:
-          0 24px 60px rgba(0, 0, 0, 0.5),
-          0 0 0 1px rgba(229, 44, 103, 0.1);
-      }
-      .font-card.selected {
-        border-color: rgba(229, 44, 103, 0.55);
-        box-shadow:
-          0 28px 70px rgba(0, 0, 0, 0.55),
-          0 0 0 2px rgba(229, 44, 103, 0.28);
-      }
-      .font-card.featured {
-        border-color: rgba(229, 44, 103, 0.25);
-        background: rgba(229, 44, 103, 0.05);
-      }
-      .font-card.featured::before {
-        content: "⭐ លក់ដាច់";
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        background: var(--gold);
-        color: #fff;
-        font-size: 9px;
-        font-weight: 700;
-        letter-spacing: 1.5px;
-        padding: 4px 10px;
-        border-radius: 20px;
-      }
-      .font-card::after {
-        content: "";
-        position: absolute;
-        inset: -120% -30%;
-        background: linear-gradient(
-          115deg,
-          transparent 30%,
-          rgba(255, 255, 255, 0.1) 48%,
-          transparent 66%
-        );
-        transform: translateX(-60%) rotate(8deg);
-        transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-        pointer-events: none;
-      }
-      .font-card:hover::after {
-        transform: translateX(58%) rotate(8deg);
-      }
-
-      /* Font preview area */
-      .font-preview-area {
-        padding: 40px 28px 28px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        min-height: 140px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(
-          135deg,
-          rgba(229, 44, 103, 0.04),
-          transparent
-        );
-        position: relative;
-        overflow: hidden;
-      }
-      .font-preview-area::after {
-        content: attr(data-letter);
-        position: absolute;
-        right: -10px;
-        bottom: -20px;
-        font-family: var(--fk);
-        font-size: 120px;
-        color: rgba(229, 44, 103, 0.05);
-        pointer-events: none;
-        line-height: 1;
-        font-weight: 900;
-      }
       .preview-text {
         font-family: var(--fk);
         color: var(--white);
@@ -468,39 +250,6 @@
         position: relative;
         z-index: 1;
         animation: fontsPreviewFloat 4.8s ease-in-out infinite;
-      }
-      .font-card:hover .preview-text {
-        color: #ffd0df;
-      }
-      .preview-text.style-bold {
-        font-size: 38px;
-        font-weight: 900;
-      }
-      .preview-text.style-display {
-        font-family: var(--fh);
-        font-size: 44px;
-        font-weight: 700;
-        letter-spacing: 0;
-      }
-      .preview-text.style-sans {
-        font-size: 28px;
-        font-weight: 400;
-        letter-spacing: 0;
-      }
-      .preview-text.style-italic {
-        font-size: 32px;
-        font-style: italic;
-        font-weight: 300;
-      }
-      .preview-text.style-mono {
-        font-size: 24px;
-        letter-spacing: 3px;
-        font-weight: 500;
-      }
-      .preview-text.style-heavy {
-        font-family: var(--fh);
-        font-size: 50px;
-        font-weight: 900;
       }
       @keyframes fontsPreviewFloat {
         0%,
@@ -540,24 +289,8 @@
         .hero-badge-item {
           animation: none !important;
         }
-        .font-card {
-          transition: none !important;
-        }
-        .font-card::after {
-          display: none;
-        }
       }
 
-      /* Font card info */
-      .font-info {
-        padding: 22px 24px;
-      }
-      .font-info-top {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        margin-bottom: 10px;
-      }
       .font-name {
         font-family: var(--fh);
         font-size: 22px;
@@ -575,33 +308,6 @@
         padding: 3px 9px;
         border-radius: 20px;
       }
-      .font-meta {
-        font-family: var(--fk);
-        font-size: 13px;
-        color: var(--gray);
-        margin-bottom: 16px;
-        line-height: 1.7;
-      }
-      .font-tags {
-        display: flex;
-        gap: 6px;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-      }
-      .font-tag {
-        font-size: 10px;
-        font-weight: 600;
-        padding: 3px 10px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: var(--gray);
-      }
-      .font-footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
       .font-price {
         font-family: var(--fh);
         font-size: 26px;
@@ -610,34 +316,6 @@
       }
       .font-price.free-price {
         color: #4ade80;
-      }
-      .font-price .orig {
-        font-size: 14px;
-        color: var(--gray);
-        text-decoration: line-through;
-        margin-right: 6px;
-        font-family: var(--fb);
-      }
-      .btn-buy {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 11px 22px;
-        border-radius: 50px;
-        background: linear-gradient(135deg, var(--gold), #ff6b9d);
-        color: #fff;
-        font-family: var(--fb);
-        font-size: 13px;
-        font-weight: 700;
-        border: none;
-        cursor: pointer;
-        box-shadow: 0 6px 20px rgba(229, 44, 103, 0.35);
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        text-decoration: none !important;
-      }
-      .btn-buy:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 28px rgba(229, 44, 103, 0.5);
       }
       .btn-free {
         display: inline-flex;
@@ -659,146 +337,6 @@
         background: #4ade80;
         color: var(--dark);
         transform: translateY(-2px);
-      }
-
-      .gkhmer-section-head {
-        margin: 14px 0 18px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-      .gkhmer-title {
-        font-family: var(--fh);
-        font-size: clamp(24px, 3vw, 34px);
-        letter-spacing: 0.5px;
-      }
-      .gkhmer-note {
-        font-family: var(--fk);
-        font-size: 13px;
-        color: var(--gray);
-      }
-      .gkhmer-controls {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-      .gkhmer-custom {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-      .gkhmer-custom-input {
-        min-width: min(320px, 80vw);
-        height: 36px;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        background: rgba(255, 255, 255, 0.04);
-        color: var(--white);
-        font-family: var(--fk);
-        font-size: 13px;
-        padding: 0 14px;
-        outline: none;
-        transition:
-          border-color var(--t),
-          box-shadow var(--t);
-      }
-      .gkhmer-custom-input::placeholder {
-        color: rgba(255, 255, 255, 0.45);
-      }
-      .gkhmer-custom-input:focus {
-        border-color: rgba(229, 44, 103, 0.5);
-        box-shadow: 0 0 0 3px rgba(229, 44, 103, 0.16);
-      }
-      .gkhmer-control-btn {
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        background: rgba(255, 255, 255, 0.03);
-        color: var(--gray);
-        border-radius: 999px;
-        padding: 6px 12px;
-        font-family: var(--fb);
-        font-size: 12px;
-        cursor: pointer;
-      }
-      .gkhmer-control-btn:hover {
-        color: var(--white);
-        border-color: rgba(229, 44, 103, 0.35);
-      }
-      .gkhmer-control-btn.active {
-        color: var(--gold);
-        border-color: rgba(229, 44, 103, 0.45);
-        background: rgba(229, 44, 103, 0.12);
-      }
-      .gkhmer-reset-btn {
-        border: 1px solid rgba(74, 222, 128, 0.35);
-        background: rgba(74, 222, 128, 0.08);
-        color: #4ade80;
-      }
-      .gkhmer-reset-btn:hover {
-        border-color: #4ade80;
-        color: #9ef6bc;
-      }
-      .gkhmer-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 14px;
-      }
-      .gkhmer-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 14px;
-        padding: 14px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        transition: all var(--t);
-      }
-      .gkhmer-card:hover {
-        transform: translateY(-3px);
-        border-color: rgba(229, 44, 103, 0.35);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.28);
-      }
-      .gkhmer-preview {
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 10px;
-        background: rgba(229, 44, 103, 0.04);
-        color: var(--white);
-        font-size: 21px;
-        line-height: 1.35;
-        padding: 12px;
-      }
-      .gkhmer-name {
-        font-family: var(--fb);
-        font-weight: 700;
-        font-size: 14px;
-        color: var(--white);
-      }
-      .gkhmer-meta {
-        font-size: 12px;
-        color: #4ade80;
-      }
-      .gkhmer-actions {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-      .gkhmer-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 999px;
-        color: var(--gray);
-        padding: 7px 12px;
-        font-size: 12px;
-        font-weight: 600;
-      }
-      .gkhmer-link:hover {
-        color: var(--white);
-        border-color: rgba(229, 44, 103, 0.45);
       }
 
       .keyboard-guide {
@@ -1076,7 +614,6 @@
 
       html[lang="km"] .font-name,
       html[lang="km"] .preview-text,
-      html[lang="km"] .btn-buy,
       html[lang="km"] .btn-free {
         letter-spacing: 0;
       }
@@ -1457,9 +994,6 @@
         .license-grid {
           grid-template-columns: 1fr;
         }
-        .fonts-grid {
-          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-        }
       }
       @media (max-width: 720px) {
         .fonts-hero {
@@ -1469,14 +1003,6 @@
       @media (max-width: 600px) {
         .fonts-hero {
           padding: clamp(50px, 7vw, 100px) 0 clamp(30px, 5vw, 60px);
-        }
-        .hero-cta-row .btn-primary,
-        .hero-cta-row .btn-outline {
-          width: 100%;
-          justify-content: center;
-        }
-        .fonts-grid {
-          grid-template-columns: 1fr;
         }
         .bundle-card {
           padding: 32px 20px;
@@ -1492,9 +1018,6 @@
         .font-order-grid {
           grid-template-columns: 1fr;
         }
-        .font-hub-tools {
-          grid-template-columns: 1fr;
-        }
         .kbd-grid {
           grid-template-columns: 1fr;
         }
@@ -1505,188 +1028,7 @@
           width: 100%;
           justify-content: center;
         }
-        .gkhmer-custom {
-          width: 100%;
-        }
-        .gkhmer-custom-input {
-          min-width: 0;
-          width: 100%;
-        }
       }
-      /* ── TOOLBAR REDESIGN (Google Fonts style) ── */
-      .font-hub-toolbar {
-        border-radius: 20px;
-        border: 1px solid rgba(255,255,255,0.08);
-        background: rgba(255,255,255,0.03);
-        padding: 20px 24px;
-        margin-bottom: 0;
-      }
-      .font-hub-search-row {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 16px;
-      }
-      .font-hub-search-wrap {
-        flex: 1;
-        position: relative;
-        display: flex;
-        align-items: center;
-      }
-      .font-hub-search-wrap i {
-        position: absolute;
-        left: 16px;
-        color: var(--gray);
-        font-size: 14px;
-        pointer-events: none;
-      }
-      .font-hub-input.search-big {
-        padding-left: 42px;
-        font-size: 15px;
-        height: 48px;
-        border-radius: 14px;
-        border: 1px solid rgba(255,255,255,0.1);
-        background: rgba(255,255,255,0.04);
-        color: var(--white);
-        font-family: var(--fk);
-        transition: border-color var(--t), box-shadow var(--t);
-      }
-      .font-hub-input.search-big:focus {
-        border-color: rgba(229,44,103,0.45);
-        box-shadow: 0 0 0 3px rgba(229,44,103,0.12);
-        outline: none;
-      }
-      .font-hub-controls-row {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-      .font-hub-size-wrap {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-shrink: 0;
-      }
-      .font-hub-size-label-text {
-        font-size: 11px;
-        color: var(--gray);
-        font-family: var(--fb);
-        white-space: nowrap;
-      }
-      .font-hub-range {
-        width: 120px;
-        accent-color: var(--gold);
-        cursor: pointer;
-      }
-      .font-hub-size-val {
-        font-size: 11px;
-        color: var(--gold);
-        font-family: var(--fb);
-        min-width: 36px;
-      }
-
-      /* ── STICKY FILTER BAR ── */
-      .font-filter-sticky {
-        position: sticky;
-        top: 68px;
-        z-index: 90;
-        background: rgba(8,11,16,0.94);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(255,255,255,0.06);
-        margin: 16px -20px 0;
-        padding: 12px 20px;
-      }
-      .font-filter-sticky .filter-bar {
-        margin-bottom: 0;
-        padding: 0;
-      }
-
-      /* ── USE CASE CHIPS on font cards ── */
-      .font-usecase {
-        display: flex;
-        gap: 6px;
-        flex-wrap: wrap;
-        margin-bottom: 16px;
-      }
-      .uc-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        font-size: 10px;
-        font-weight: 600;
-        font-family: var(--fb);
-        padding: 3px 10px;
-        border-radius: 20px;
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.08);
-        color: rgba(255,255,255,0.5);
-        transition: all var(--t);
-      }
-      .uc-chip i { font-size: 9px; color: var(--gold); }
-      .font-card:hover .uc-chip {
-        border-color: rgba(229,44,103,0.15);
-        color: var(--gray);
-      }
-
-      /* ── FONT WEIGHT INDICATOR ── */
-      .font-weights {
-        display: flex;
-        gap: 5px;
-        align-items: center;
-        margin-bottom: 12px;
-      }
-      .fw-dot {
-        height: 3px;
-        border-radius: 3px;
-        background: rgba(255,255,255,0.15);
-        transition: background var(--t);
-        flex: 1;
-      }
-      .fw-dot.on { background: var(--gold); }
-      .fw-label {
-        font-size: 10px;
-        color: var(--gray);
-        font-family: var(--fb);
-        white-space: nowrap;
-      }
-
-      /* ── GOOGLE KHMER SECTION HEADER ── */
-      .gkhmer-section-wrap {
-        margin-top: 60px;
-        padding-top: 60px;
-        border-top: 1px solid rgba(255,255,255,0.06);
-      }
-      .gkhmer-section-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(74,222,128,0.08);
-        border: 1px solid rgba(74,222,128,0.2);
-        padding: 5px 14px;
-        border-radius: 50px;
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: #4ade80;
-        margin-bottom: 12px;
-      }
-      .gkhmer-section-title {
-        font-family: var(--fh);
-        font-size: clamp(26px, 3.5vw, 40px);
-        margin-bottom: 6px;
-        line-height: 1.1;
-      }
-      .gkhmer-section-desc {
-        font-family: var(--fk);
-        font-size: 14px;
-        color: var(--gray);
-        margin-bottom: 24px;
-        line-height: 1.8;
-      }
-
       /* ── KEYBOARD SETUP REFERRAL CARD ── */
       .font-setup-referral {
         display: flex;
@@ -1741,38 +1083,6 @@
       @media (max-width: 768px) {
         .font-setup-referral { flex-direction: column; align-items: flex-start; padding: 24px; }
         .fsr-cta { width: 100%; text-align: center; }
-      }
-
-      /* ── CATEGORY SECTION DIVIDER (inside fonts-grid) ── */
-      .font-section-divider {
-        grid-column: 1 / -1;
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 32px 0 8px;
-        margin-top: 8px;
-      }
-      .font-section-divider-line {
-        flex: 1;
-        height: 1px;
-        background: rgba(255,255,255,0.07);
-      }
-      .font-section-divider-label {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-family: var(--fb);
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: var(--gray);
-      }
-      .font-section-divider-label i { color: #4ade80; font-size: 10px; }
-      .font-section-divider-count {
-        font-family: var(--fb);
-        font-size: 11px;
-        color: rgba(139,148,158,0.5);
       }
 
       /* ── GLYPH MODAL ── */
@@ -1904,8 +1214,6 @@
         border-color: rgba(229,44,103,0.3);
         color: var(--white);
       }
-      .font-footer { flex-wrap: wrap; gap: 8px; }
-
       /* ══ FONT LIST LAYOUT (Google Fonts style) ══ */
       .fonts-list {
         border: 1px solid var(--border);
@@ -1981,14 +1289,6 @@
         line-height: 1.35;
       }
       .font-row:hover .fr-preview .preview-text { color: var(--white); }
-      /* Section divider inside list */
-      .fonts-list .font-section-divider {
-        grid-column: unset;
-        display: flex; padding: 18px 24px 12px;
-        background: rgba(0,0,0,0.15);
-        border-bottom: 1px solid var(--border);
-      }
-
       /* ── FONT PLAYGROUND ── */
       .font-playground {
         background: rgba(255,255,255,0.025);
@@ -2103,7 +1403,6 @@
         .pg-slider-wrap { display: none; }
         .pg-weight-wrap { display: none; }
         .pg-bg-toggle { margin-left: 0; }
-        .font-filter-sticky { margin: 16px -16px 0; padding: 10px 16px; }
       }
       @media (max-width: 600px) {
         .fr-head { padding: 12px 16px; gap: 8px; }
@@ -2834,26 +2133,11 @@
       const fontHubSize = document.getElementById("fontHubSize");
       const fontHubSizeLabel = document.getElementById("fontHubSizeLabel");
       const fontFilterEmpty = document.getElementById("fontFilterEmpty");
-      const kbdTabBtns = document.querySelectorAll("[data-kbdtab]");
-      const kbdPanels = document.querySelectorAll("[data-kbdpanel]");
-      const typingPracticeInput = document.getElementById(
-        "typingPracticeInput",
-      );
-      const typingPracticeOutput = document.getElementById(
-        "typingPracticeOutput",
-      );
-      const typingCopyBtn = document.getElementById("typingCopyBtn");
-      const typingClearBtn = document.getElementById("typingClearBtn");
-      const typingCopyStatus = document.getElementById("typingCopyStatus");
-      const kbdCheckInputs = document.querySelectorAll("[data-kbdcheck]");
-      const kbdCheckProgress = document.getElementById("kbdCheckProgress");
-      const kbdCheckResetBtn = document.getElementById("kbdCheckResetBtn");
       const stickyBar = document.getElementById("fontStickyCta");
       const stickyName = document.getElementById("fontStickyName");
       const stickyPrice = document.getElementById("fontStickyPrice");
       const stickyPrimary = document.getElementById("fontStickyPrimary");
       const stickyClose = document.getElementById("fontStickyClose");
-      const heroPickPopular = document.getElementById("heroPickPopular");
       const orderSection = document.getElementById("fontOrderSection");
       const orderList = document.getElementById("fontOrderList");
       const orderTotal = document.getElementById("fontOrderTotal");
@@ -2864,11 +2148,9 @@
       const orderSelectedTotal = document.getElementById("orderSelectedTotal");
       const orderSelectedCount = document.getElementById("orderSelectedCount");
       const selectedFonts = new Map();
-      const KBD_CHECKLIST_KEY = "yob_khmer_keyboard_checklist_v1";
-      const KBD_TAB_PREF_KEY = "yob_khmer_keyboard_tab_pref_v1";
 
       function initPreviewDefaults(scope) {
-        (scope || document).querySelectorAll(".preview-text, .gkhmer-preview").forEach((el) => {
+        (scope || document).querySelectorAll(".preview-text").forEach((el) => {
           if (!el.dataset.defaultText) el.dataset.defaultText = el.textContent || "";
           if (!el.dataset.baseSize) {
             const parsedSize = parseFloat(window.getComputedStyle(el).fontSize || "0");
@@ -2882,9 +2164,7 @@
         const parts = [
           card.dataset.category || "",
           card.querySelector(".font-name")?.textContent || "",
-          card.querySelector(".gkhmer-name")?.textContent || "",
-          card.querySelector(".font-meta")?.textContent || "",
-          card.querySelector(".gkhmer-meta")?.textContent || "",
+          card.querySelector(".fr-meta")?.textContent || "",
         ];
         return parts.join(" ").toLowerCase();
       }
@@ -2955,22 +2235,18 @@
 
       function applyHubPreviewText(value) {
         const normalized = value.trim();
-        document
-          .querySelectorAll(".preview-text, .gkhmer-preview")
-          .forEach((el) => {
-            el.textContent = normalized || el.dataset.defaultText || "";
-          });
+        document.querySelectorAll(".preview-text").forEach((el) => {
+          el.textContent = normalized || el.dataset.defaultText || "";
+        });
       }
 
       function applyHubPreviewSize(percentValue) {
         const scale = Number(percentValue) / 100;
-        document
-          .querySelectorAll(".preview-text, .gkhmer-preview")
-          .forEach((el) => {
-            const baseSize = parseFloat(el.dataset.baseSize || "24");
-            const size = Math.max(14, baseSize * scale);
-            el.style.fontSize = size.toFixed(2) + "px";
-          });
+        document.querySelectorAll(".preview-text").forEach((el) => {
+          const baseSize = parseFloat(el.dataset.baseSize || "24");
+          const size = Math.max(14, baseSize * scale);
+          el.style.fontSize = size.toFixed(2) + "px";
+        });
         if (fontHubSizeLabel) {
           fontHubSizeLabel.textContent = percentValue + "%";
         }
@@ -3050,8 +2326,7 @@
           card.querySelector(".font-name")?.textContent?.trim() || "YOB Font";
         const price =
           card.querySelector(".font-price")?.textContent?.trim() || "";
-        const ctaLink = card.querySelector(".btn-buy, .btn-free");
-        const isFree = ctaLink?.classList.contains("btn-free");
+        const isFree = !!card.querySelector(".btn-free");
 
         stickyName.textContent = name;
         stickyPrice.textContent = price;
@@ -3080,7 +2355,7 @@
       const fontTracking = document.getElementById("fontTracking");
       const fontTrackingLabel = document.getElementById("fontTrackingLabel");
       function applyHubPreviewTracking(value) {
-        document.querySelectorAll(".preview-text, .gkhmer-preview").forEach((el) => {
+        document.querySelectorAll(".preview-text").forEach((el) => {
           el.style.letterSpacing = value + "px";
         });
         if (fontTrackingLabel) fontTrackingLabel.textContent = Number(value).toFixed(1) + "px";
@@ -3093,7 +2368,7 @@
         btn.addEventListener("click", () => {
           weightPillBtns.forEach((b) => b.classList.remove("active"));
           btn.classList.add("active");
-          document.querySelectorAll(".preview-text, .gkhmer-preview").forEach((el) => {
+          document.querySelectorAll(".preview-text").forEach((el) => {
             el.style.fontWeight = btn.dataset.weight;
           });
         });
@@ -3107,139 +2382,9 @@
         fontsListContainer?.classList.toggle("preview-light");
       });
 
-      function setKeyboardTab(target) {
-        kbdTabBtns.forEach((btn) => {
-          const isActive = btn.getAttribute("data-kbdtab") === target;
-          btn.classList.toggle("active", isActive);
-          btn.setAttribute("aria-selected", isActive ? "true" : "false");
-        });
-        kbdPanels.forEach((panel) => {
-          panel.classList.toggle(
-            "active",
-            panel.getAttribute("data-kbdpanel") === target,
-          );
-        });
-      }
-
-      function detectPreferredKeyboardTab() {
-        const savedPref = localStorage.getItem(KBD_TAB_PREF_KEY);
-        if (savedPref === "win" || savedPref === "mac") {
-          return savedPref;
-        }
-        const ua = (navigator.userAgent || "").toLowerCase();
-        const platform = (navigator.platform || "").toLowerCase();
-        const isMac = /mac|iphone|ipad|ipod/.test(ua + " " + platform);
-        return isMac ? "mac" : "win";
-      }
-
-      kbdTabBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const target = btn.getAttribute("data-kbdtab");
-          const nextTarget = target || "win";
-          setKeyboardTab(nextTarget);
-          localStorage.setItem(KBD_TAB_PREF_KEY, nextTarget);
-        });
-      });
-
-      function setTypingOutput() {
-        if (!typingPracticeOutput || !typingPracticeInput) return;
-        const value = typingPracticeInput.value.trim();
-        typingPracticeOutput.textContent =
-          value || "អត្ថបទ preview នឹងបង្ហាញទីនេះ...";
-      }
-
-      typingPracticeInput?.addEventListener("input", () => {
-        setTypingOutput();
-      });
-
-      typingCopyBtn?.addEventListener("click", async () => {
-        const value = typingPracticeInput?.value?.trim() || "";
-        if (!value) {
-          if (typingCopyStatus) {
-            typingCopyStatus.textContent = "សូមវាយអត្ថបទមុនសិន";
-          }
-          return;
-        }
-
-        try {
-          await navigator.clipboard.writeText(value);
-          if (typingCopyStatus) {
-            typingCopyStatus.textContent = "បានចម្លងអត្ថបទរួចរាល់";
-          }
-        } catch (error) {
-          if (typingCopyStatus) {
-            typingCopyStatus.textContent =
-              "មិនអាចចម្លងដោយស្វ័យប្រវត្តិ សូមចម្លងដោយដៃ";
-          }
-        }
-      });
-
-      typingClearBtn?.addEventListener("click", () => {
-        if (typingPracticeInput) {
-          typingPracticeInput.value = "";
-        }
-        setTypingOutput();
-        if (typingCopyStatus) {
-          typingCopyStatus.textContent = "";
-        }
-      });
-
-      function renderKbdChecklistProgress() {
-        if (!kbdCheckProgress) return;
-        const total = kbdCheckInputs.length;
-        const done = Array.from(kbdCheckInputs).filter(
-          (input) => input.checked,
-        ).length;
-        kbdCheckProgress.textContent = done + "/" + total + " completed";
-      }
-
-      function loadKbdChecklistState() {
-        let saved = {};
-        try {
-          saved = JSON.parse(localStorage.getItem(KBD_CHECKLIST_KEY) || "{}");
-        } catch (error) {
-          saved = {};
-        }
-
-        kbdCheckInputs.forEach((input) => {
-          const key = input.getAttribute("data-kbdcheck");
-          input.checked = Boolean(saved[key]);
-        });
-        renderKbdChecklistProgress();
-      }
-
-      function saveKbdChecklistState() {
-        const nextState = {};
-        kbdCheckInputs.forEach((input) => {
-          const key = input.getAttribute("data-kbdcheck");
-          nextState[key] = input.checked;
-        });
-        localStorage.setItem(KBD_CHECKLIST_KEY, JSON.stringify(nextState));
-        renderKbdChecklistProgress();
-      }
-
-      kbdCheckInputs.forEach((input) => {
-        input.addEventListener("change", saveKbdChecklistState);
-      });
-
-      kbdCheckResetBtn?.addEventListener("click", () => {
-        kbdCheckInputs.forEach((input) => {
-          input.checked = false;
-        });
-        localStorage.removeItem(KBD_CHECKLIST_KEY);
-        renderKbdChecklistProgress();
-      });
-
-      // Event delegation — works for static YOB cards + dynamically added Google cards
+      // Event delegation
       const fontsGridEl = document.getElementById("fonts-grid");
       fontsGridEl?.addEventListener("click", (event) => {
-        const buyBtn = event.target.closest(".btn-buy");
-        if (buyBtn) {
-          event.preventDefault();
-          const card = buyBtn.closest(".font-row");
-          if (card) { selectFontCard(card); addCardToOrder(card, true); }
-          return;
-        }
         if (event.target.closest("a, button")) return;
         const card = event.target.closest(".font-row");
         if (card && card.querySelector(".font-price")) selectFontCard(card);
@@ -3299,21 +2444,11 @@
         Array.from(fontCards).forEach((c) => c.classList.remove("row-selected"));
       });
 
-      heroPickPopular?.addEventListener("click", (event) => {
-        event.preventDefault();
-        const featuredCard = document.querySelector(".font-row.featured");
-        selectFontCard(featuredCard);
-        featuredCard?.scrollIntoView({ behavior: "smooth", block: "center" });
-      });
-
       computeCatCounts();
       applyFontDisplay();
       if (fontHubSize) {
         applyHubPreviewSize(fontHubSize.value);
       }
-      setTypingOutput();
-      loadKbdChecklistState();
-      setKeyboardTab(detectPreferredKeyboardTab());
 
       const fontParam = new URLSearchParams(window.location.search).get("font");
       if (fontParam) {
