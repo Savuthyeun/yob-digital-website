@@ -193,94 +193,12 @@
         filter: blur(80px) !important;
       }
 
-      /* Ticker badge → glass pill */
-      .hero-ticker {
-        background: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        box-shadow:
-          0 2px 16px rgba(0, 0, 0, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-
-      /* Trust row → glass pill */
-      .trust-row {
-        background: rgba(255, 255, 255, 0.04) !important;
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        border: 1px solid rgba(255, 255, 255, 0.07) !important;
-        border-radius: 40px;
-        padding: 10px 24px !important;
-        display: inline-flex !important;
-        gap: 6px;
-        flex-wrap: wrap;
-        box-shadow:
-          0 4px 24px rgba(0, 0, 0, 0.4),
-          inset 0 1px 0 rgba(255, 255, 255, 0.06);
-      }
-
       /* 6 ── Scroll banner → glass */
       .scroll-banner {
         background: rgba(255, 255, 255, 0.02) !important;
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         border-color: rgba(255, 255, 255, 0.05) !important;
-      }
-
-      /* 7 ── Stats band → glass */
-      .stats-band {
-        background: rgba(255, 255, 255, 0.02) !important;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-color: rgba(255, 255, 255, 0.05) !important;
-      }
-      .stats-grid {
-        background: rgba(255, 255, 255, 0.04) !important;
-      }
-      .stat-block {
-        background: rgba(3, 4, 8, 0.6) !important;
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-      }
-      .stat-block:hover {
-        background: rgba(255, 255, 255, 0.05) !important;
-      }
-
-      /* 8 ── Path cards → glass */
-      .path-card {
-        background: rgba(255, 255, 255, 0.03) !important;
-        backdrop-filter: blur(24px) saturate(180%);
-        -webkit-backdrop-filter: blur(24px) saturate(180%);
-        border: 1px solid rgba(255, 255, 255, 0.07) !important;
-        box-shadow:
-          0 8px 32px rgba(0, 0, 0, 0.6),
-          inset 0 1px 0 rgba(255, 255, 255, 0.06);
-      }
-      .path-card:hover {
-        background: rgba(255, 255, 255, 0.05) !important;
-        border-color: rgba(229, 44, 103, 0.25) !important;
-        box-shadow:
-          0 24px 64px rgba(0, 0, 0, 0.7),
-          0 0 48px rgba(229, 44, 103, 0.08),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        transform: translateY(-6px) !important;
-      }
-      .path-footer {
-        border-color: rgba(255, 255, 255, 0.05) !important;
-        background: rgba(0, 0, 0, 0.25);
-      }
-      .path-icon {
-        border-color: rgba(255, 255, 255, 0.1) !important;
-        backdrop-filter: blur(8px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-      .path-glow {
-        opacity: 0.18 !important;
-        filter: blur(50px) !important;
-      }
-      .path-card:hover .path-glow {
-        opacity: 0.32 !important;
       }
 
       /* 9 ── Course cards → glass */
@@ -387,146 +305,6 @@
       /* 14 ── Section courses border override */
       section[style*="border-top"] {
         border-color: rgba(255, 255, 255, 0.05) !important;
-      }
-
-      /* 15 ── WHY section */
-      .yl-why-section {
-        padding: 80px 0 60px;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-      }
-      .yl-why-header {
-        text-align: center;
-        margin-bottom: 48px;
-      }
-      .yl-why-tag {
-        display: inline-block;
-        font-family: var(--fb);
-        font-size: 12px;
-        font-weight: 700;
-        color: var(--gold);
-        text-transform: uppercase;
-        background: rgba(229, 44, 103, 0.1);
-        border: 1px solid rgba(229, 44, 103, 0.2);
-        border-radius: 50px;
-        padding: 5px 16px;
-        margin-bottom: 16px;
-      }
-      .yl-why-title {
-        font-family: var(--fb);
-        font-size: clamp(26px, 4.1vw, 44px);
-        font-weight: 700;
-        color: var(--white);
-        margin-bottom: 12px;
-        line-height: 1.2;
-      }
-      .yl-why-sub {
-        font-family: var(--fb);
-        color: var(--gray);
-        font-size: 15px;
-        max-width: 520px;
-        margin: 0 auto;
-      }
-      .yl-pain-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        margin-bottom: 36px;
-      }
-      .yl-pain-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 20px;
-        padding: 28px;
-        transition: all var(--t);
-        backdrop-filter: blur(12px);
-      }
-      .yl-pain-card:hover {
-        border-color: rgba(229, 44, 103, 0.2);
-        transform: translateY(-4px);
-        box-shadow:
-          0 16px 48px rgba(0, 0, 0, 0.4),
-          0 0 32px rgba(229, 44, 103, 0.06);
-      }
-      .yl-pain-icon {
-        font-size: 36px;
-        margin-bottom: 12px;
-      }
-      .yl-pain-title {
-        font-family: var(--fb);
-        font-size: 17px;
-        font-weight: 700;
-        color: var(--white);
-        margin-bottom: 10px;
-      }
-      .yl-pain-desc {
-        font-family: var(--fb);
-        font-size: 14px;
-        color: var(--gray);
-        line-height: 1.6;
-        margin-bottom: 16px;
-      }
-      .yl-pain-fix {
-        font-family: var(--fb);
-        font-size: 13px;
-        color: #4ade80;
-        background: rgba(74, 222, 128, 0.08);
-        border: 1px solid rgba(74, 222, 128, 0.15);
-        border-radius: 8px;
-        padding: 8px 12px;
-        line-height: 1.5;
-      }
-      .yl-why-cta {
-        text-align: center;
-      }
-      .yl-why-cta-text {
-        font-family: var(--fb);
-        font-size: 16px;
-        color: var(--gray);
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 50px;
-        padding: 12px 28px;
-        display: inline-block;
-      }
-
-      /* 16 ── Path result tag */
-      .path-result-tag {
-        font-family: var(--fb);
-        font-size: 12px;
-        color: var(--gold);
-        background: rgba(229, 44, 103, 0.08);
-        border-top: 1px solid rgba(229, 44, 103, 0.12);
-        padding: 10px 20px;
-        margin: 0 -1px;
-      }
-
-      /* 17 ── Catalog notice */
-      .yl-catalog-notice {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        background: rgba(229, 44, 103, 0.04);
-        border: 1px solid rgba(229, 44, 103, 0.18);
-        border-radius: 12px;
-        padding: 14px 20px;
-        margin-bottom: 28px;
-        font-family: var(--fb);
-        font-size: 14px;
-        color: var(--gray);
-        line-height: 1.6;
-      }
-      .yl-notice-icon {
-        font-size: 18px;
-        flex-shrink: 0;
-        margin-top: 2px;
-      }
-      .yl-notice-link {
-        color: var(--gold);
-        text-decoration: none;
-        font-weight: 600;
-      }
-      .yl-notice-link:hover {
-        text-decoration: underline;
       }
 
       /* 18 ── Social proof */
@@ -692,10 +470,6 @@
 
       /* 20 ── Responsive */
       @media (max-width: 900px) {
-        .yl-pain-grid {
-          grid-template-columns: 1fr;
-          gap: 16px;
-        }
         .yl-proof-grid {
           grid-template-columns: 1fr;
           gap: 16px;
@@ -707,11 +481,50 @@
         .yl-cta-arrow {
           transform: rotate(90deg);
         }
+        .hero-stats {
+          padding: 12px 16px;
+        }
+        .hero-stat {
+          padding: 0 14px;
+        }
+        .hero-stat-num {
+          font-size: 16px;
+        }
       }
       @media (max-width: 600px) {
-        .yl-why-section,
         .yl-proof-section {
           padding: 60px 0 40px;
+        }
+        .hero-eyebrow {
+          font-size: 11px;
+          padding: 5px 14px;
+        }
+        .hero-sub {
+          font-size: 13px;
+        }
+        .hero-search-btn {
+          padding: 10px 16px;
+          font-size: 13px;
+        }
+        .hero-stats {
+          flex-wrap: wrap;
+          justify-content: center;
+          border-radius: 16px;
+          padding: 16px;
+          gap: 0;
+        }
+        .hero-stat {
+          padding: 8px 16px;
+        }
+        .hero-stat-sep {
+          display: none;
+        }
+        .hero-chips {
+          gap: 6px;
+        }
+        .hero-chip {
+          font-size: 12px;
+          padding: 7px 14px;
         }
       }
 
@@ -976,116 +789,342 @@
         }
       }
 
+      /* ══ HERO INNER ══ */
       .hero-inner {
-        max-width: 900px;
+        max-width: 780px;
         margin: 0 auto;
         text-align: center;
         position: relative;
         z-index: 1;
-        padding-bottom: 64px;
+        padding-bottom: 72px;
       }
-      .hero-ticker {
+
+      /* Eyebrow badge */
+      .hero-eyebrow {
         display: inline-flex;
         align-items: center;
-        gap: 10px;
-        background: rgba(229, 44, 103, 0.08);
-        border: 1px solid rgba(229, 44, 103, 0.18);
-        border-radius: 30px;
-        padding: 6px 16px 6px 8px;
+        gap: 8px;
+        font-family: var(--fb);
         font-size: 12px;
         font-weight: 600;
-        color: var(--gold2);
-        margin-bottom: 24px;
-        cursor: pointer;
-        transition: all var(--t);
+        color: var(--gray);
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.09);
+        border-radius: 50px;
+        padding: 6px 16px;
+        margin-bottom: 28px;
+        letter-spacing: 0.03em;
       }
-      .hero-ticker:hover {
-        background: rgba(229, 44, 103, 0.14);
-      }
-      .ticker-dot {
+      .hero-eyebrow-dot {
         width: 6px;
         height: 6px;
         border-radius: 50%;
         background: var(--gold);
-        box-shadow: 0 0 6px var(--gold);
-        animation: pulse-yl 2s ease-in-out infinite;
+        box-shadow: 0 0 8px var(--gold);
+        flex-shrink: 0;
+        animation: eyebrowPulse 2.4s ease-in-out infinite;
       }
-      @keyframes pulse-yl {
-        0%,
-        100% {
-          opacity: 1;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 0.6;
-          transform: scale(1.3);
-        }
-      }
-      .ticker-text {
-        font-family: var(--fk);
-      }
-      .ticker-arr {
-        font-size: 12px;
-        opacity: 0.6;
+      @keyframes eyebrowPulse {
+        0%,100% { opacity:1; transform:scale(1); }
+        50%      { opacity:0.5; transform:scale(1.4); }
       }
 
+      /* Heading */
       .hero-h1 {
         font-family: var(--fb);
-        font-size: clamp(40px, 7vw, 56px);
-        line-height: 1.05;
-        margin-bottom: 24px;
-      }
-      .hero-h1 .row1 {
-        display: block;
-        background: linear-gradient(
-          135deg,
-          var(--white) 50%,
-          rgba(255, 255, 255, 0.5)
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .hero-h1 .row2 {
-        display: block;
-        background: linear-gradient(135deg, var(--gold) 20%, var(--gold3));
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .hero-h1 .row3 {
-        display: block;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.3),
-          rgba(255, 255, 255, 0.1)
-        );
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-size: 70%;
+        font-size: clamp(44px, 7.5vw, 72px);
+        font-weight: 700;
+        line-height: 1.1;
+        color: var(--white);
+        margin-bottom: 16px;
+        letter-spacing: -0.01em;
       }
 
-      .hero-desc {
+      /* Subtitle */
+      .hero-sub {
         font-family: var(--fk);
-        font-size: 15px;
-        color: var(--muted2);
-        line-height: 1.9;
-        max-width: 540px;
+        font-size: clamp(13px, 1.8vw, 15px);
+        color: var(--gray);
+        margin-bottom: 40px;
+        line-height: 1.7;
+      }
+
+      /* ══ HERO SEARCH ══ */
+      .hero-search-wrap {
+        position: relative;
+        max-width: 600px;
         margin: 0 auto 32px;
       }
-      .hero-desc strong {
+      .hero-search-box {
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        border-radius: 50px;
+        padding: 7px 7px 7px 22px;
+        gap: 12px;
+        transition: border-color var(--t), box-shadow var(--t);
+        backdrop-filter: blur(20px);
+      }
+      .hero-search-box:focus-within {
+        border-color: rgba(229, 44, 103, 0.45);
+        box-shadow: 0 0 0 4px rgba(229, 44, 103, 0.07),
+                    0 12px 40px rgba(0,0,0,0.35);
+      }
+      .hero-search-icon {
+        color: var(--gray);
+        font-size: 15px;
+        flex-shrink: 0;
+      }
+      .hero-search-input {
+        flex: 1;
+        background: none;
+        border: none;
+        outline: none;
+        font-family: var(--fk);
+        font-size: 15px;
         color: var(--white);
+        min-width: 0;
+        padding: 4px 0;
+      }
+      .hero-search-input::placeholder { color: var(--gray); }
+      .hero-search-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        background: var(--gold);
+        border: none;
+        border-radius: 40px;
+        padding: 11px 22px;
+        color: #fff;
+        font-family: var(--fk);
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background var(--t), box-shadow var(--t);
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .hero-search-btn:hover {
+        background: var(--gold2);
+        box-shadow: 0 6px 20px rgba(229,44,103,0.3);
       }
 
-      .hero-btns {
+      /* ══ HERO SUGGESTIONS DROPDOWN ══ */
+      .hero-search-wrap {
+        position: relative;
+      }
+      .hero-suggestions {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        background: rgba(13, 17, 23, 0.96);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        overflow: hidden;
+        z-index: 100;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+      }
+      .hero-sug-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 20px;
+        cursor: pointer;
+        transition: background var(--t);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .hero-sug-item:last-child {
+        border-bottom: none;
+      }
+      .hero-sug-item:hover,
+      .hero-sug-item.active {
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .hero-sug-icon {
+        font-size: 22px;
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .hero-sug-text {
+        flex: 1;
+        min-width: 0;
+      }
+      .hero-sug-name {
+        font-family: var(--fb);
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--white);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .hero-sug-name mark {
+        background: none;
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .hero-sug-kh {
+        font-family: var(--fk);
+        font-size: 12px;
+        color: var(--gray);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .hero-sug-badge {
+        font-size: 11px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 20px;
+        flex-shrink: 0;
+        font-family: var(--fb);
+      }
+      .sug-free {
+        background: rgba(16, 185, 129, 0.12);
+        color: #10b981;
+        border: 1px solid rgba(16, 185, 129, 0.25);
+      }
+      .sug-paid {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--gray);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* ══ HERO CHIPS ══ */
+      .hero-chips-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 12px;
-        flex-wrap: wrap;
         margin-bottom: 48px;
       }
+      .hero-chips-label {
+        font-family: var(--fb);
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        opacity: 0.7;
+      }
+      .hero-chips {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        justify-content: center;
+        gap: 8px;
+      }
+      .hero-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border-radius: 50px;
+        padding: 8px 18px;
+        font-family: var(--fk);
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--t);
+        white-space: nowrap;
+        border: 1px solid transparent;
+      }
+      /* AI — purple */
+      .hero-chip--ai {
+        background: rgba(155,109,255,0.08);
+        border-color: rgba(155,109,255,0.2);
+        color: #b89fff;
+      }
+      .hero-chip--ai:hover {
+        background: rgba(155,109,255,0.16);
+        border-color: rgba(155,109,255,0.4);
+        color: #d0bdff;
+        transform: translateY(-2px);
+      }
+      /* Marketing — orange-red */
+      .hero-chip--mkt {
+        background: rgba(232,69,60,0.08);
+        border-color: rgba(232,69,60,0.2);
+        color: #ff9a94;
+      }
+      .hero-chip--mkt:hover {
+        background: rgba(232,69,60,0.16);
+        border-color: rgba(232,69,60,0.4);
+        color: #ffbab7;
+        transform: translateY(-2px);
+      }
+      /* Web — green */
+      .hero-chip--web {
+        background: rgba(16,185,129,0.08);
+        border-color: rgba(16,185,129,0.2);
+        color: #6ee7b7;
+      }
+      .hero-chip--web:hover {
+        background: rgba(16,185,129,0.16);
+        border-color: rgba(16,185,129,0.4);
+        color: #a7f3d0;
+        transform: translateY(-2px);
+      }
+      /* Free — pink/gold */
+      .hero-chip--free {
+        background: rgba(229,44,103,0.08);
+        border-color: rgba(229,44,103,0.25);
+        color: var(--gold2);
+      }
+      .hero-chip--free:hover {
+        background: rgba(229,44,103,0.16);
+        border-color: rgba(229,44,103,0.45);
+        color: var(--gold);
+        transform: translateY(-2px);
+      }
+
+      /* ══ HERO STATS ══ */
+      .hero-stats {
+        display: inline-flex;
+        align-items: center;
+        gap: 0;
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 50px;
+        padding: 14px 32px;
+        backdrop-filter: blur(12px);
+      }
+      .hero-stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 24px;
+      }
+      .hero-stat-num {
+        font-family: var(--fb);
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1;
+      }
+      .hero-stat-lbl {
+        font-family: var(--fk);
+        font-size: 11px;
+        color: var(--gray);
+        margin-top: 4px;
+        white-space: nowrap;
+      }
+      .hero-stat-sep {
+        width: 1px;
+        height: 32px;
+        background: rgba(255,255,255,0.08);
+        flex-shrink: 0;
+      }
+
+      /* ══ CTA BUTTONS (used in cta-card section) ══ */
       .btn-lg {
         padding: 14px 32px;
         border-radius: 12px;
@@ -1118,41 +1157,6 @@
       .btn-outline-lg:hover {
         border-color: var(--gold);
         color: var(--gold);
-      }
-
-      .trust-row {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        flex-wrap: wrap;
-        font-size: 12px;
-        color: var(--muted);
-      }
-      .trust-avatar {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        border: 2px solid var(--dark2);
-        background: var(--dark4);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 13px;
-        margin-left: -6px;
-      }
-      .trust-avatar:first-child {
-        margin-left: 0;
-      }
-      .trust-avatars {
-        display: flex;
-        align-items: center;
-      }
-      .trust-sep {
-        width: 1px;
-        height: 14px;
-        background: var(--bord2);
-        margin: 0 10px;
       }
 
       /* ══ SCROLLING BANNER ══ */
@@ -1242,131 +1246,29 @@
         max-width: 560px;
       }
 
-      /* ══ PATH CARDS ══ */
-      .paths-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-      }
-      .path-card {
-        border-radius: 18px;
-        overflow: hidden;
-        border: 1px solid var(--border);
-        cursor: pointer;
-        transition: all var(--t);
-        background: var(--dark2);
-        text-decoration: none;
-        display: block;
-        position: relative;
-      }
-      .path-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(229, 44, 103, 0.2);
-        box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
-      }
-      .path-header {
-        padding: 28px 24px 20px;
-        position: relative;
-        overflow: hidden;
-      }
-      .path-glow {
-        position: absolute;
-        top: -40px;
-        right: -40px;
-        width: 160px;
-        height: 160px;
-        border-radius: 50%;
-        opacity: 0.12;
-        filter: blur(40px);
-        transition: opacity var(--t);
-      }
-      .path-card:hover .path-glow {
-        opacity: 0.22;
-      }
-      .path-icon {
-        width: 52px;
-        height: 52px;
-        border-radius: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        margin-bottom: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        position: relative;
-        z-index: 1;
-      }
-      .path-title {
-        font-family: var(--fb);
-        font-size: 22px;
-        color: var(--white);
-        margin-bottom: 4px;
-        position: relative;
-        z-index: 1;
-      }
-      .path-title-kh {
-        font-family: var(--fk);
-        font-size: 12px;
-        color: var(--muted2);
-        position: relative;
-        z-index: 1;
-      }
-      .path-body {
-        padding: 0 24px 20px;
-      }
-      .path-desc {
-        font-family: var(--fk);
-        font-size: 13px;
-        color: var(--muted2);
-        line-height: 1.8;
-        margin-bottom: 16px;
-      }
-      .path-items {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-      .path-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 12px;
-        color: var(--muted2);
-      }
-      .path-item-dot {
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        flex-shrink: 0;
-      }
-      .path-footer {
-        padding: 14px 24px;
-        border-top: 1px solid var(--border);
+      /* ══ CATALOG HEADER ══ */
+      .catalog-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 20px;
       }
-      .path-count {
-        font-size: 12px;
-        color: var(--muted);
-        font-weight: 600;
+      .catalog-title {
+        font-family: var(--fb);
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--white);
       }
-      .path-arr {
-        width: 30px;
-        height: 30px;
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      .catalog-count {
+        font-family: var(--fb);
         font-size: 13px;
+        font-weight: 600;
+        color: var(--gray);
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 50px;
+        padding: 5px 14px;
         transition: all var(--t);
-        border: 1px solid var(--border);
-        color: var(--muted2);
-      }
-      .path-card:hover .path-arr {
-        background: var(--gold);
-        color: #fff;
-        border-color: var(--gold);
       }
 
       /* ══ FILTER + COURSE CARDS ══ */
@@ -1574,50 +1476,6 @@
       }
       .btn-cont:hover {
         background: rgba(229, 44, 103, 0.18);
-      }
-
-      /* ══ STATS BAND ══ */
-      .stats-band {
-        background: var(--dark2);
-        border-top: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-        padding: 40px 0;
-      }
-      .stats-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1px;
-        background: var(--border);
-      }
-      .stat-block {
-        background: var(--dark2);
-        padding: 28px 24px;
-        text-align: center;
-        transition: background var(--t);
-        cursor: default;
-      }
-      .stat-block:hover {
-        background: var(--dark3);
-      }
-      .stat-big {
-        font-family: var(--fb);
-        font-size: 48px;
-        background: linear-gradient(135deg, var(--gold), var(--gold3));
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        line-height: 1;
-      }
-      .stat-lbl {
-        font-family: var(--fk);
-        font-size: 13px;
-        color: var(--muted2);
-        margin-top: 5px;
-      }
-      .stat-sub {
-        font-size: 12px;
-        color: var(--muted);
-        margin-top: 2px;
       }
 
       /* ══ SITEMAP FLOW ══ */
@@ -1893,9 +1751,6 @@
         .path-footer {
           padding: 12px 18px;
         }
-        .stats-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
         .footer-top {
           grid-template-columns: 1fr;
         }
@@ -1983,315 +1838,49 @@
       <div class="orb orb2"></div>
 
       <div class="hero-inner">
-        <div class="hero-ticker">
-          <div class="ticker-dot"></div>
-          <span class="ticker-text"
-            >✅ FREE ថ្មី → Claude AI Guide · ចូលរៀនបានភ្លាម!</span
-          >
-          <span class="ticker-arr">→</span>
+
+        <!-- Eyebrow -->
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          YOB Learning · AI & Digital Skills · ១០០% ភាសាខ្មែរ
         </div>
 
+        <!-- Heading -->
         <h1 class="hero-h1">
-          <span class="row1">AI + Digital ជាភាសាខ្មែរ</span>
-          <span class="row2">Apply ភ្លាម · Business Grow</span>
-          <span class="row3">FREE ចាប់ផ្ដើម · 🇰🇭 ១០០%</span>
+          ចង់រៀន <span class="gradient-text">អ្វី</span><br>ថ្ងៃនេះ?
         </h1>
 
-        <p class="hero-desc">
-          អ្នករៀន ខ្មែរ — YOB ជួយអ្នករៀន
-          <strong>AI Tools</strong>, <strong>Digital Marketing</strong> និង
-          <strong>Web Systems</strong> ជាភាសាខ្មែរ ១០០%។ រៀន​ហើយ
-          <strong>Apply ភ្លាម</strong> — មើលឃើញ Result ក្នុង ៣០ ថ្ងៃ!
-        </p>
-
-        <div class="hero-btns">
-          <a href="#paths" class="btn-lg btn-gold-lg"
-            ><i class="fas fa-graduation-cap"></i> ជ្រើស Path ខ្លួនអ្នក</a
-          >
-          <a href="#courses" class="btn-lg btn-outline-lg">✅ មើលវគ្គ FREE</a>
-        </div>
-
-        <div class="trust-row">
-          <div class="trust-avatars">
-            <div class="trust-avatar">👨</div>
-            <div class="trust-avatar">👩</div>
-            <div class="trust-avatar">👨</div>
-            <div class="trust-avatar">🧑</div>
-            <div class="trust-avatar">👩‍💼</div>
+        <!-- Search -->
+        <div class="hero-search-wrap">
+          <div class="hero-search-box">
+            <i class="fas fa-magnifying-glass hero-search-icon"></i>
+            <input id="heroSearchInput" class="hero-search-input" type="text"
+              placeholder="វាយ: claude, html, facebook ads..." aria-label="Search courses"
+              autocomplete="off"
+              onkeydown="heroSearchKeydown(event)"
+              oninput="heroSearchLive(this.value)" />
+            <button class="hero-search-btn" onclick="handleHeroSearch()" aria-label="Search">
+              <i class="fas fa-search"></i> ស្វែងរក
+            </button>
           </div>
-          <span>500+ អ្នករៀន បានជ្រើសរើស YOB រួចហើយ</span>
-          <div class="trust-sep"></div>
-          <span>⭐ 4.9 / 5.0 Rating</span>
-          <div class="trust-sep"></div>
-          <span>🇰🇭 Made for Cambodia</span>
+          <div id="heroSuggestions" class="hero-suggestions" style="display:none"></div>
         </div>
+
+        <!-- Popular chips -->
+        <div class="hero-chips-section">
+<div class="hero-chips">
+            <button class="hero-chip hero-chip--ai"   onclick="heroChipSearch('ai')">🤖 Claude AI</button>
+            <button class="hero-chip hero-chip--ai"   onclick="heroChipSearch('ai')">⚡ Prompt Engineering</button>
+            <button class="hero-chip hero-chip--mkt"  onclick="heroChipSearch('marketing')">📢 Facebook Ads</button>
+            <button class="hero-chip hero-chip--web"  onclick="heroChipSearch('web')">🌐 HTML & CSS</button>
+            <button class="hero-chip hero-chip--web"  onclick="heroChipSearch('web')">🚀 GitHub Deploy</button>
+            <button class="hero-chip hero-chip--free" onclick="heroChipSearch('free')">✅ FREE ទាំងអស់</button>
+          </div>
+        </div>
+
+
       </div>
     </div>
-
-    <!-- STATS BAND -->
-    <div class="stats-band">
-      <div class="wrap">
-        <div class="stats-grid">
-          <div class="stat-block">
-            <div class="stat-big" data-count="500" data-suffix="+">500+</div>
-            <div class="stat-lbl">សិស្សសរុប</div>
-            <div class="stat-sub">Active Learners</div>
-          </div>
-          <div class="stat-block">
-            <div class="stat-big" data-count="4" data-suffix="+">4+</div>
-            <div class="stat-lbl">FREE Courses</div>
-            <div class="stat-sub">ចូលរៀនបានភ្លាម</div>
-          </div>
-          <div class="stat-block">
-            <div class="stat-big" data-count="3" data-suffix="">3</div>
-            <div class="stat-lbl">Learning Paths</div>
-            <div class="stat-sub">AI · Marketing · Web</div>
-          </div>
-          <div class="stat-block">
-            <div
-              class="stat-big"
-              data-count="4.9"
-              data-suffix="/5"
-              data-dec="1"
-            >
-              4.9/5
-            </div>
-            <div class="stat-lbl">⭐ Rating</div>
-            <div class="stat-sub">From 500+ Reviews</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- WHY LEARN — Pain Points -->
-    <section class="yl-why-section">
-      <div class="wrap">
-        <div class="yl-why-header reveal">
-          <span class="yl-why-tag">យប់ YOB ជួយដោះស្រាយ</span>
-          <h2 class="yl-why-title">
-            អ្នកប្រឈមមុខ<span class="gradient-text"> បញ្ហានេះ?</span>
-          </h2>
-          <p class="yl-why-sub">
-            Business ខ្មែរ ភាគច្រើនខំប្រឹង ប៉ុន្តែ Result មិនកើន — ព្រោះ Skills
-            Digital នៅខ្វះ
-          </p>
-        </div>
-        <div class="yl-pain-grid reveal">
-          <div class="yl-pain-card">
-            <div class="yl-pain-icon">📱</div>
-            <h3 class="yl-pain-title">Post ច្រើន · Reach តិច</h3>
-            <p class="yl-pain-desc">
-              Post ជារៀងរាល់ថ្ងៃ ប៉ុន្តែ Engagement ស្ទើរតែ ០ — ព្រោះ Algorithm
-              ថ្មី Content Strategy ខ្វះ
-            </p>
-            <div class="yl-pain-fix">
-              ✅ YOB ជួយ: AI Content + Strategy ជាភាសាខ្មែរ
-            </div>
-          </div>
-          <div class="yl-pain-card">
-            <div class="yl-pain-icon">💸</div>
-            <h3 class="yl-pain-title">Ads ចំណាយ · Return តិច</h3>
-            <p class="yl-pain-desc">
-              Boost Post ដោយ Guess Work — ចំណាយ $50 បាន Leads ២-៣ ប្រហែលជាមិនទិញ
-            </p>
-            <div class="yl-pain-fix">
-              ✅ YOB ជួយ: Facebook Ads Mastery + Analytics
-            </div>
-          </div>
-          <div class="yl-pain-card">
-            <div class="yl-pain-icon">⏰</div>
-            <h3 class="yl-pain-title">ធ្វើអ្វីៗ ១ ម្នាក់ · Burn Out</h3>
-            <p class="yl-pain-desc">
-              គ្មាន System · គ្មាន Automation — ជាប់ Reply, ជាប់ Post, ជាប់
-              Admin ពេញថ្ងៃ
-            </p>
-            <div class="yl-pain-fix">
-              ✅ YOB ជួយ: AI Automation + ManyChat + Web System
-            </div>
-          </div>
-        </div>
-        <div class="yl-why-cta reveal">
-          <span class="yl-why-cta-text"
-            >ជ្រើសរើស Path ដែលត្រូវអ្នក ហើយ Apply ភ្លាម 👇</span
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- LEARNING PATHS -->
-    <section class="section" id="paths">
-      <div class="wrap">
-        <div class="sec-head">
-          <div class="sec-eyebrow">LEARNING PATHS · ជ្រើសតាមគោលដៅ</div>
-          <div class="sec-title">ចង់ Grow — ជ្រើស PATH ខ្លួនអ្នក</div>
-          <p class="sec-sub">
-            ៣ Path · Beginner → Pro · ជាភាសាខ្មែរ · ឥតគិតថ្លៃ ៤+ Courses!
-          </p>
-        </div>
-
-        <div class="paths-grid" id="pathsGrid">
-          <a href="#courses" class="path-card" onclick="filterCourses('ai')">
-            <div class="path-header">
-              <div class="path-glow" style="background: var(--path-ai)"></div>
-              <div class="path-icon icon-ai">🤖</div>
-              <div class="path-title">AI TOOLS</div>
-              <div class="path-title-kh">ជំនាញ AI — ប្រើប្រាស់ AI ឱ្យចេះ</div>
-            </div>
-            <div class="path-body">
-              <p class="path-desc">
-                Learn Claude, ChatGPT, Gemini — ប្រើ AI ជួយការងារ Save 10+
-                Hours/Week និងរៀបចំ Workflow ប្រចាំថ្ងៃឱ្យរលូន!
-              </p>
-              <div class="path-items">
-                <div class="path-item">
-                  <div
-                    class="path-item-dot"
-                    style="background: var(--path-ai)"
-                  ></div>
-                  Claude AI Beginner Guide
-                </div>
-                <div class="path-item">
-                  <div
-                    class="path-item-dot"
-                    style="background: var(--path-ai)"
-                  ></div>
-                  Prompt Engineering Master
-                </div>
-                <div class="path-item">
-                  <div
-                    class="path-item-dot"
-                    style="background: var(--path-ai)"
-                  ></div>
-                  AI for Business Automation
-                </div>
-                <div class="path-item">
-                  <div
-                    class="path-item-dot"
-                    style="background: var(--path-ai)"
-                  ></div>
-                  AI Content Creation Pro
-                </div>
-              </div>
-            </div>
-            <div class="path-result-tag">
-              🎯 លទ្ធផល: Save 10+ Hours/Week · Content ល្អ · Leads ច្រើន
-            </div>
-            <div class="path-footer">
-              <span class="path-count">4 Courses · Beginner → Advanced</span>
-              <div class="path-arr">→</div>
-            </div>
-          </a>
-
-          <a
-            href="#courses"
-            class="path-card"
-            onclick="filterCourses('marketing')"
-          >
-            <div class="path-header">
-              <div class="path-glow" style="background: var(--path-mkt)"></div>
-              <div class="path-icon icon-marketing">📢</div>
-              <div class="path-title">DIGITAL MARKETING</div>
-              <div class="path-title-kh">Strategy + Content + Ads</div>
-            </div>
-            <div class="path-body">
-              <p class="path-desc">
-                Full-funnel Digital Marketing — Content, Ads, Analytics
-                ជាភាសាខ្មែរ ដើម្បីបង្កើន Leads និង ROAS ឱ្យច្បាស់!
-              </p>
-              <div class="path-items">
-                <div class="path-item">
-                  <div
-                    class="path-item-dot"
-                    style="background: var(--path-mkt)"
-                  ></div>
-                  Content Strategy for yous
-                </div>
-                <div class="path-item">
-                  <div
-                    class="path-item-dot"
-                    style="background: var(--path-mkt)"
-                  ></div>
-                  Facebook & Instagram Ads
-                </div>
-                <div class="path-item">
-                  <div
-                    class="path-item-dot"
-                    style="background: var(--path-mkt)"
-                  ></div>
-                  Social Media Growth
-                </div>
-                <div class="path-item">
-                  <div
-                    class="path-item-dot"
-                    style="background: var(--path-mkt)"
-                  ></div>
-                  Analytics & Data Reading
-                </div>
-              </div>
-            </div>
-            <div class="path-result-tag">
-              📈 លទ្ធផល: Reach ×3 · ROAS ×2 · Leads ថ្ងៃនៃថ្ងៃ
-            </div>
-            <div class="path-footer">
-              <span class="path-count">4 Courses · Beginner → Pro</span>
-              <div class="path-arr">→</div>
-            </div>
-          </a>
-
-          <a href="#courses" class="path-card" onclick="filterCourses('web')">
-            <div class="path-header">
-              <div class="path-glow" style="background: var(--path-web)"></div>
-              <div class="path-icon icon-web">🌐</div>
-              <div class="path-title">WEB & SYSTEMS</div>
-              <div class="path-title-kh">Website + LMS + Automation</div>
-            </div>
-            <div class="path-body">
-              <p class="path-desc">
-                Build Website, LMS, Automation System — No Wordpress, No Code
-                ក៏បាន ហើយអាចទទួល Leads 24/7!
-              </p>
-              <div class="path-items">
-                <div class="path-item">
-                  <div
-                    class="path-item-dot"
-                    style="background: var(--path-web)"
-                  ></div>
-                  HTML & CSS Fundamentals
-                </div>
-                <div class="path-item">
-                  <div
-                    class="path-item-dot"
-                    style="background: var(--path-web)"
-                  ></div>
-                  Deploy with GitHub + Netlify
-                </div>
-                <div class="path-item">
-                  <div
-                    class="path-item-dot"
-                    style="background: var(--path-web)"
-                  ></div>
-                  LMS Setup for Courses
-                </div>
-                <div class="path-item">
-                  <div
-                    class="path-item-dot"
-                    style="background: var(--path-web)"
-                  ></div>
-                  ManyChat Automation
-                </div>
-              </div>
-            </div>
-            <div class="path-result-tag">
-              🌐 លទ្ធផល: Website ផ្ទាល់ · Leads 24/7 · System Auto
-            </div>
-            <div class="path-footer">
-              <span class="path-count">4 Courses · Beginner → Builder</span>
-              <div class="path-arr">→</div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
 
     <!-- COURSES CATALOG -->
     <section
@@ -2300,28 +1889,10 @@
       style="border-top: 1px solid var(--border); padding-top: 64px"
     >
       <div class="wrap">
-        <div class="sec-head">
-          <div class="sec-eyebrow">COURSE CATALOG · ជ្រើស Course</div>
-          <div class="sec-title">វគ្គ FREE + COMING SOON</div>
-          <p class="sec-sub">
-            ✅ FREE Courses: ចូលរៀន Claude AI + HTML/CSS + GitHub ភ្លាម · 📅
-            វគ្គថ្មីៗ Coming Soon — Join Telegram ដើម្បី Notify!
-          </p>
+        <div class="catalog-header">
+          <h2 class="catalog-title">វគ្គសិក្សា</h2>
+          <span class="catalog-count" id="catalogCount">8 Courses</span>
         </div>
-        <div class="yl-catalog-notice reveal">
-          <span class="yl-notice-icon">📢</span>
-          <span class="yl-notice-text"
-            >ចុច <strong>✅ ឥតគិតថ្លៃ</strong> ដើម្បីឃើញ Course
-            ដែលចូលរៀនបានភ្លាម · Course ដទៃ Coming Soon —
-            <a
-              href="https://t.me/yobdigital"
-              target="_blank"
-              rel="noopener"
-              class="yl-notice-link"
-              >Join Telegram <i class="fas fa-arrow-right"></i></a
-          ></span>
-        </div>
-
         <div class="filter-row">
           <button class="filt on" onclick="filterCourses('all', this)">
             🎓 គ្រប់ Course
@@ -2449,9 +2020,7 @@
 
     <div id="footer-placeholder"></div>
 
-    <!-- GSAP -->
     <!-- YOB Shared Scripts -->
-    <script src="js/load-components.js"></script>
     <script src="js/load-components.js"></script>
     <script src="js/main.js" defer></script>
 
@@ -2593,6 +2162,7 @@
       ];
 
       let activeCat = "all";
+      let searchQuery = "";
 
       const levelLabel = {
         begin: "Beginner",
@@ -2605,7 +2175,94 @@
         adv: "lv-adv",
       };
 
+      let sugActiveIdx = -1;
+
+      function heroSearchLive(val) {
+        const q = val.trim().toLowerCase();
+        const box = document.getElementById("heroSuggestions");
+        sugActiveIdx = -1;
+        if (!q) { box.style.display = "none"; return; }
+
+        const matches = COURSES.filter(c =>
+          c.name.toLowerCase().includes(q) ||
+          c.nameKh.includes(q) ||
+          c.cat.toLowerCase().includes(q) ||
+          c.meta.toLowerCase().includes(q)
+        ).slice(0, 6);
+
+        if (!matches.length) { box.style.display = "none"; return; }
+
+        box.innerHTML = matches.map((c, i) => {
+          const hl = c.name.replace(new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")})`, "gi"), "<mark>$1</mark>");
+          return `<div class="hero-sug-item" data-idx="${i}" data-id="${c.id}" onclick="heroPickSuggestion('${c.id}')">
+            <div class="hero-sug-icon">${c.icon}</div>
+            <div class="hero-sug-text">
+              <div class="hero-sug-name">${hl}</div>
+              <div class="hero-sug-kh">${c.nameKh}</div>
+            </div>
+            <span class="hero-sug-badge ${c.free ? "sug-free" : "sug-paid"}">${c.free ? "FREE" : "Soon"}</span>
+          </div>`;
+        }).join("");
+        box.style.display = "block";
+      }
+
+      function heroSearchKeydown(e) {
+        const box = document.getElementById("heroSuggestions");
+        const items = box.querySelectorAll(".hero-sug-item");
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          sugActiveIdx = Math.min(sugActiveIdx + 1, items.length - 1);
+          items.forEach((el, i) => el.classList.toggle("active", i === sugActiveIdx));
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          sugActiveIdx = Math.max(sugActiveIdx - 1, -1);
+          items.forEach((el, i) => el.classList.toggle("active", i === sugActiveIdx));
+        } else if (e.key === "Enter") {
+          if (sugActiveIdx >= 0 && items[sugActiveIdx]) {
+            items[sugActiveIdx].click();
+          } else {
+            handleHeroSearch();
+          }
+        } else if (e.key === "Escape") {
+          box.style.display = "none";
+          sugActiveIdx = -1;
+        }
+      }
+
+      function heroPickSuggestion(id) {
+        const c = COURSES.find(x => x.id === id);
+        if (!c) return;
+        document.getElementById("heroSearchInput").value = c.name;
+        document.getElementById("heroSuggestions").style.display = "none";
+        searchQuery = c.name.toLowerCase();
+        activeCat = "all";
+        document.querySelectorAll(".filt").forEach(b => b.classList.remove("on"));
+        renderCourses();
+        document.getElementById("courses").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function handleHeroSearch() {
+        document.getElementById("heroSuggestions").style.display = "none";
+        const q = document.getElementById("heroSearchInput").value.trim().toLowerCase();
+        searchQuery = q;
+        activeCat = "all";
+        document.querySelectorAll(".filt").forEach((b) => b.classList.remove("on"));
+        const allBtn = document.querySelector(".filt[onclick*=\"'all'\"]");
+        if (allBtn) allBtn.classList.add("on");
+        renderCourses();
+        document.getElementById("courses").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function heroChipSearch(cat) {
+        searchQuery = "";
+        const inp = document.getElementById("heroSearchInput");
+        if (inp) inp.value = "";
+        document.getElementById("heroSuggestions").style.display = "none";
+        filterCourses(cat, null);
+      }
+
       function filterCourses(cat, el) {
+        searchQuery = "";
         activeCat = cat;
         document
           .querySelectorAll(".filt")
@@ -2625,10 +2282,31 @@
       function renderCourses() {
         const grid = document.getElementById("coursesGrid");
         const list = COURSES.filter((c) => {
+          if (searchQuery) {
+            const q = searchQuery;
+            return (
+              c.name.toLowerCase().includes(q) ||
+              c.nameKh.includes(q) ||
+              c.cat.toLowerCase().includes(q) ||
+              c.meta.toLowerCase().includes(q)
+            );
+          }
           if (activeCat === "free") return c.free;
           if (activeCat === "all") return true;
           return c.cat === activeCat;
         });
+
+        const countEl = document.getElementById("catalogCount");
+        if (countEl) countEl.textContent = list.length + " Course" + (list.length !== 1 ? "s" : "");
+
+        if (!list.length) {
+          grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:48px 0;font-family:var(--fb);color:var(--gray)">
+            <div style="font-size:32px;margin-bottom:12px">🔍</div>
+            <div style="font-size:15px">រករកមិនឃើញ Course ដែលត្រូវនឹង "<strong style="color:var(--white)">${searchQuery}</strong>"</div>
+            <div style="font-size:13px;margin-top:8px;opacity:0.7">សាកល្បង: <em>claude, prompt, html, facebook, ads</em></div>
+          </div>`;
+          return;
+        }
 
         grid.innerHTML = list
           .map(
@@ -2663,6 +2341,14 @@
           )
           .join("");
       }
+
+      document.addEventListener("click", function(e) {
+        const wrap = document.querySelector(".hero-search-wrap");
+        if (wrap && !wrap.contains(e.target)) {
+          document.getElementById("heroSuggestions").style.display = "none";
+          sugActiveIdx = -1;
+        }
+      });
 
       function startCourse(id) {
         const c = COURSES.find((x) => x.id === id);
@@ -2852,45 +2538,6 @@
           requestAnimationFrame(tick);
         }
         tick();
-      })();
-    </script>
-
-    <!-- Eternity: Stats Counter -->
-    <script>
-      (function () {
-        function countUp(el) {
-          var target = parseFloat(el.dataset.count);
-          var suffix = el.dataset.suffix || "";
-          var dec = parseInt(el.dataset.dec) || 0;
-          var dur = 1600;
-          el.textContent = "0" + suffix;
-          var t0 = performance.now();
-          function frame(now) {
-            var p = Math.min((now - t0) / dur, 1);
-            var e = 1 - Math.pow(1 - p, 3);
-            el.textContent = (target * e).toFixed(dec) + suffix;
-            if (p < 1) requestAnimationFrame(frame);
-          }
-          requestAnimationFrame(frame);
-        }
-
-        var io = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (en) {
-              if (en.isIntersecting) {
-                countUp(en.target);
-                io.unobserve(en.target);
-              }
-            });
-          },
-          { threshold: 0.6 },
-        );
-
-        document
-          .querySelectorAll(".stat-big[data-count]")
-          .forEach(function (el) {
-            io.observe(el);
-          });
       })();
     </script>
 
