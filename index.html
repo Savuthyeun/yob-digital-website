@@ -63,7 +63,7 @@
     </noscript>
     ></script>
 
-    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <style>
       :root {
         --yt-red: #ff0000;
@@ -73,6 +73,16 @@
         --cyan-accent: #00c8ff;
         --purple-accent: #b060ff;
         --green-free: #4ade80;
+      }
+
+      /* Homepage hero layout — gap & column constraints */
+      .hero-container {
+        gap: clamp(48px, 6vw, 96px) !important;
+        align-items: center !important;
+      }
+      .hero-content {
+        flex: 0 1 520px;
+        min-width: 0;
       }
 
       /* Homepage hero typography tuning */
@@ -90,7 +100,7 @@
         font-family: var(--fb) !important;
         font-size: clamp(16px, 1.7vw, 19px) !important;
         line-height: 1.85 !important;
-        max-width: 640px !important;
+        max-width: 480px !important;
       }
       .stat-num {
         font-size: clamp(32px, 3vw, 40px) !important;
@@ -111,6 +121,31 @@
         pointer-events: none;
         box-shadow: 0 0 12px rgba(229,44,103,0.55), 0 0 28px rgba(229,44,103,0.22);
         transition: width 0.08s linear;
+      }
+
+      /* ── HERO SECONDARY CTA — text-link style, clearly subordinate ── */
+      .hero-secondary-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-family: var(--fb);
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--gray);
+        text-decoration: none;
+        padding: 12px 4px;
+        transition: color var(--t), gap var(--t);
+      }
+      .hero-secondary-cta i {
+        font-size: 11px;
+        transition: transform var(--t);
+      }
+      .hero-secondary-cta:hover {
+        color: var(--white);
+        gap: 11px;
+      }
+      .hero-secondary-cta:hover i {
+        transform: translateX(3px);
       }
 
       /* ══ HERO ENTRANCE STAGGER (works with existing .reveal system) ══ */
@@ -339,10 +374,18 @@
       /* Stellar classification */
       .sp-class {
         font-family: var(--fb);
-        font-size: 11px;
-        letter-spacing: 2.5px;
-        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 0;
+        text-transform: none;
         margin-bottom: 2px;
+      }
+      .sp-class small {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        opacity: 0.6;
+        margin-left: 5px;
+        font-weight: 700;
       }
       .sp-panel--1 .sp-class {
         color: rgba(229, 44, 103, 0.7);
@@ -656,6 +699,125 @@
           font-size: 60px;
         }
       }
+
+      /* ── CONTACT FORM UX IMPROVEMENTS ── */
+
+      /* reCAPTCHA — hidden until textarea focus */
+      .cf-captcha-wrap {
+        display: none;
+        margin-bottom: 16px;
+        animation: fadeInUp-cf 0.35s ease;
+      }
+      .cf-captcha-wrap.visible { display: block; }
+      @keyframes fadeInUp-cf {
+        from { opacity: 0; transform: translateY(8px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Textarea label small hint */
+      .cf-label small {
+        font-size: 11px;
+        opacity: 0.6;
+        font-weight: 400;
+      }
+
+      /* Field hint text below textarea */
+      .cf-field-hint {
+        font-family: var(--fk);
+        font-size: 12px;
+        color: var(--gray);
+        margin: 6px 0 0 2px;
+        opacity: 0.7;
+        font-style: italic;
+        line-height: 1.5;
+      }
+
+      /* Enhanced success state */
+      .cf-success-enhanced {
+        text-align: center;
+        padding: 32px 24px !important;
+        border-radius: 16px;
+        background: rgba(74, 222, 128, 0.07) !important;
+        border: 1px solid rgba(74, 222, 128, 0.25) !important;
+        animation: successPop 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      @keyframes successPop {
+        0%   { opacity: 0; transform: scale(0.88); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+      .cf-success-icon {
+        font-size: 52px;
+        line-height: 1;
+        margin-bottom: 14px;
+      }
+      .cf-success-title {
+        font-family: var(--fb);
+        font-size: 20px;
+        font-weight: 700;
+        color: #4ade80;
+        margin-bottom: 8px;
+      }
+      .cf-success-sub {
+        font-family: var(--fk);
+        font-size: 14px;
+        color: var(--gray);
+        margin-bottom: 20px;
+      }
+      .cf-success-sub strong { color: var(--white); }
+      .cf-success-tg {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(0, 136, 204, 0.15);
+        border: 1px solid rgba(0, 136, 204, 0.3);
+        color: #4fc3f7;
+        font-family: var(--fb);
+        font-size: 13px;
+        font-weight: 600;
+        padding: 9px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all var(--t);
+      }
+      .cf-success-tg:hover {
+        background: rgba(0, 136, 204, 0.28);
+        color: #fff;
+      }
+
+      /* ── TESTIMONIALS — featured quote on left panel ── */
+      .testi-featured-quote {
+        margin: 20px 0 28px;
+        padding: 20px 22px;
+        border-left: 3px solid var(--gold);
+        background: rgba(229, 44, 103, 0.05);
+        border-radius: 0 12px 12px 0;
+      }
+      .testi-featured-quote p {
+        font-family: var(--fk);
+        font-size: 15px;
+        color: var(--white);
+        line-height: 1.85;
+        margin: 0 0 12px;
+      }
+      .testi-featured-quote strong {
+        color: var(--gold);
+      }
+      .testi-featured-quote cite {
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+        font-style: normal;
+      }
+
+      /* ── SAVUTH FONTS — loaded for typography teaser panels ── */
+      @font-face { font-family: 'Khmer Savuth'; src: url('font/Savuth%20Font/khmer%20Savuth.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Sem Sarun';    src: url('font/Savuth%20Font/Khmer%20Sem%20Sarun.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Savuth Brush'; src: url('font/Savuth%20Font/khmer%20Savuth%20Brush.ttf') format('truetype'); font-display: swap; }
+
+      /* Panel specimen font overrides */
+      .sp-panel--1 .sp-text { font-family: 'Khmer Savuth', var(--fk), sans-serif; text-transform: none; letter-spacing: 0; }
+      .sp-panel--2 .sp-text { font-family: 'Sem Sarun',    var(--fk), sans-serif; }
+      .sp-panel--3 .sp-text { font-family: 'Savuth Brush', var(--fk), sans-serif; font-style: normal; }
 
       /* ══════════════════════════════════════════════════
          BLACK HOLE — Interstellar Singularity v2
@@ -1926,22 +2088,22 @@
 
           <h1 class="hero-headline reveal">
             <span class="gradient-text"
-              >AI + Digital<br />ដើម្បីបង្កើនការលក់</span
+              >ឈប់ច្របូកច្របល់<br /> ចាប់ផ្តើមលក់ដាច់</span
             >
           </h1>
 
           <p class="hero-sub reveal">
-            ពីភាពច្របូកច្របល់ ទៅផ្លូវលូតលាស់ច្បាស់លាស់។ YOB ជួយអ្នក
-            បង្កើនការលក់ក្នុង 30-90 ថ្ងៃ ដោយ AI + Marketing + Systems
-            ដែលអនុវត្តបានពិត។
+            YOB ជួយអ្នកបង្កើនការលក់ក្នុង ៣០-៩០ ថ្ងៃ
+            ដោយប្រើ <br /> AI + Marketing + Systems
+            ដែលដំណើរការបានពិតប្រាកដ។
           </p>
 
           <div class="hero-actions reveal">
             <a href="#contact" class="btn-primary"
-              ><i class="fas fa-comments"></i> ស្នើសុំការពិគ្រោះឥតគិតថ្លៃ</a
+              ><i class="fas fa-comments"></i> ពិគ្រោះឥតគិតថ្លៃឥឡូវ</a
             >
-            <a href="#ecosystem" class="btn-outline"
-              ><i class="fas fa-layer-group"></i> មើលសេវាកម្មទាំងអស់</a
+            <a href="#ecosystem" class="hero-secondary-cta"
+              ><i class="fas fa-chevron-right"></i> មើលសេវាកម្ម</a
             >
           </div>
 
@@ -1950,19 +2112,19 @@
               <div class="stat-num" data-target="500" data-suffix="+">
                 <span class="count-num">៥០០</span><span class="gold">+</span>
               </div>
-              <div class="stat-lbl">កំពុងរៀនដាច់យប់</div>
+              <div class="stat-lbl">នាក់ កំពុងរៀនជាមួយ YOB</div>
             </div>
             <div class="stat-item">
               <div class="stat-num" data-target="10" data-suffix="+">
                 <span class="count-num">១០</span><span class="gold">+</span>
               </div>
-              <div class="stat-lbl">មេរៀនទល់ភ្លឺ</div>
+              <div class="stat-lbl">មេរៀនឌីជីថល ភាសាខ្មែរ</div>
             </div>
             <div class="stat-item">
               <div class="stat-num" data-target="100" data-suffix="%">
-                <span class="count-num">១00</span><span class="gold">%</span>
+                <span class="count-num">១០០</span><span class="gold">%</span>
               </div>
-              <div class="stat-lbl">ភាសាខ្មែរ</div>
+              <div class="stat-lbl">ខ្លឹមសារជាភាសាខ្មែរ</div>
             </div>
           </div>
         </div>
@@ -2174,7 +2336,7 @@
               <i class="fas fa-globe"></i>
             </div>
             <span class="wiy-flow-label">02 សាងសង់ · Build</span>
-            <h3 class="wiy-pillar-title">សាងសង់ប្រព័ន្ធដែលអនុវត្តបានពិត</h3>
+            <h3 class="wiy-pillar-title">សាងសង់ប្រព័ន្ធដែលដំណើរការបានពិតប្រាកដ</h3>
             <p class="wiy-pillar-desc">
               បន្ទាប់ពីដឹងបញ្ហា យើងរៀបចំ AI Workflow, Content Funnel និង
               Website/System ឲ្យភ្ជាប់គ្នា ដើម្បីឲ្យការលក់ និងប្រតិបត្តិការ
@@ -2218,10 +2380,10 @@
           <p class="wiy-cta-text">
             <strong>YOB Digital</strong>
             ជួយអ្នករៀបចំផែនការលូតលាស់ឌីជីថលពីដំណាក់កាល Free រហូតដល់ Revenue
-            ជាមួយក្រុមការងារដែលអនុវត្តបានពិត។
+            ជាមួយក្រុមការងារដែលដំណើរការបានពិតប្រាកដ។
           </p>
           <a href="#contact" class="btn-primary">
-            <i class="fas fa-comments"></i> ស្នើសុំការពិគ្រោះឥតគិតថ្លៃ
+            <i class="fas fa-comments"></i> ទទួលបានការពិគ្រោះឥតគិតថ្លៃ
           </a>
         </div>
       </div>
@@ -2376,7 +2538,7 @@
               ><i class="fas fa-link"></i> Connected to Core Engine</span
             >
             <a href="#contact" class="eco-service-cta"
-              ><i class="fas fa-comments"></i> ស្នើសុំការពិគ្រោះឥតគិតថ្លៃ</a
+              ><i class="fas fa-comments"></i> ទទួលបានការពិគ្រោះឥតគិតថ្លៃ</a
             >
           </article>
 
@@ -2415,7 +2577,7 @@
               ><i class="fas fa-link"></i> Synced with Tracking Hub</span
             >
             <a href="#contact" class="eco-service-cta"
-              ><i class="fas fa-comments"></i> ស្នើសុំការពិគ្រោះឥតគិតថ្លៃ</a
+              ><i class="fas fa-comments"></i> ទទួលបានការពិគ្រោះឥតគិតថ្លៃ</a
             >
           </article>
 
@@ -2454,7 +2616,7 @@
               ><i class="fas fa-link"></i> Connected to Ops Layer</span
             >
             <a href="#contact" class="eco-service-cta"
-              ><i class="fas fa-comments"></i> ស្នើសុំការពិគ្រោះឥតគិតថ្លៃ</a
+              ><i class="fas fa-comments"></i> ទទួលបានការពិគ្រោះឥតគិតថ្លៃ</a
             >
           </article>
 
@@ -2493,7 +2655,7 @@
               ><i class="fas fa-link"></i> Linked to Brand Memory</span
             >
             <a href="#contact" class="eco-service-cta"
-              ><i class="fas fa-comments"></i> ស្នើសុំការពិគ្រោះឥតគិតថ្លៃ</a
+              ><i class="fas fa-comments"></i> ទទួលបានការពិគ្រោះឥតគិតថ្លៃ</a
             >
           </article>
         </div>
@@ -2533,19 +2695,19 @@
 
         <!-- Stellar Specimen Panels -->
         <div class="stellar-panels reveal">
-          <!-- Panel 1 — YOB Heading Pro · Supergiant Class · Warm Pink/Orange -->
-          <a href="/fonts" class="sp-panel sp-panel--1">
+          <!-- Panel 1 — Khmer Savuth · Display · Warm Pink/Orange -->
+          <a href="fonts.html" class="sp-panel sp-panel--1">
             <div class="sp-nebula"></div>
             <div class="sp-left">
-              <span class="sp-class">✦ SUPERGIANT CLASS</span>
-              <h3 class="sp-name">YOB Heading Pro</h3>
-              <p class="sp-desc">Bold · Display · Khmer Premium</p>
+              <span class="sp-class">កម្រិត Premium <small>DISPLAY</small></span>
+              <h3 class="sp-name">Khmer Savuth</h3>
+              <p class="sp-desc">សម្រាប់ប្រើក្នុង Heading, Logo, Poster</p>
               <div class="sp-meta">
-                <span class="sp-price">$15.00</span>
-                <span class="sp-badge">BEST SELLER</span>
+                <span class="sp-price free">Free</span>
+                <span class="sp-badge">POPULAR</span>
               </div>
               <span class="sp-cta"
-                ><i class="fas fa-shopping-cart"></i> Buy Now →</span
+                ><i class="fas fa-download"></i> ទាញយកឥតគិតថ្លៃ →</span
               >
             </div>
             <div class="sp-specimen">
@@ -2553,16 +2715,16 @@
             </div>
           </a>
 
-          <!-- Panel 2 — YOB Content Sans · Main Sequence · Cool Blue -->
-          <a href="/fonts" class="sp-panel sp-panel--2">
+          <!-- Panel 2 — Sem Sarun · Sans · Cool Blue -->
+          <a href="fonts.html" class="sp-panel sp-panel--2">
             <div class="sp-nebula"></div>
             <div class="sp-left">
-              <span class="sp-class">◈ MAIN SEQUENCE</span>
-              <h3 class="sp-name">YOB Content Sans</h3>
-              <p class="sp-desc">Clean · Readable · Khmer Body</p>
+              <span class="sp-class">កម្រិតធម្មតា <small>BODY SANS</small></span>
+              <h3 class="sp-name">Sem Sarun</h3>
+              <p class="sp-desc">សម្រាប់អានងាយស្រួលក្នុង Website, App</p>
               <div class="sp-meta">
                 <span class="sp-price free">Free</span>
-                <span class="sp-badge outline">BASIC</span>
+                <span class="sp-badge outline">CLEAN</span>
               </div>
               <span class="sp-cta"
                 ><i class="fas fa-download"></i> ទាញយកឥតគិតថ្លៃ →</span
@@ -2573,19 +2735,19 @@
             </div>
           </a>
 
-          <!-- Panel 3 — YOB Signature · Rare Binary · Deep Violet -->
-          <a href="/fonts" class="sp-panel sp-panel--3">
+          <!-- Panel 3 — Savuth Brush · Script · Deep Violet -->
+          <a href="fonts.html" class="sp-panel sp-panel--3">
             <div class="sp-nebula"></div>
             <div class="sp-left">
-              <span class="sp-class">⬡ RARE BINARY</span>
-              <h3 class="sp-name">YOB Signature</h3>
-              <p class="sp-desc">Elegant · Script · Khmer Luxury</p>
+              <span class="sp-class">កម្រិត Creative <small>BRUSH SCRIPT</small></span>
+              <h3 class="sp-name">Savuth Brush</h3>
+              <p class="sp-desc">សម្រាប់ Brand, Card, ហត្ថលិខិតស្អាត</p>
               <div class="sp-meta">
-                <span class="sp-price">$20.00</span>
-                <span class="sp-badge">ELEGANT</span>
+                <span class="sp-price free">Free</span>
+                <span class="sp-badge">CREATIVE</span>
               </div>
               <span class="sp-cta"
-                ><i class="fas fa-shopping-cart"></i> Buy Now →</span
+                ><i class="fas fa-download"></i> ទាញយកឥតគិតថ្លៃ →</span
               >
             </div>
             <div class="sp-specimen">
@@ -2732,11 +2894,13 @@
             <h2 class="section-title" style="margin-top: 16px">
               ការផ្ដល់<br /><span class="gradient-text">កម្លាំងចិត្ត</span>
             </h2>
-            <p class="testi-sub">
-              តាមរយៈ វាយតម្លៃរបស់អ្នកប្រើប្រាស់កម្មករយប់ឌីជីថល គឺពិតជាបានធ្វើឱ្យ
-              ក្រុមការងារ បានមើលឃើញអំពីទំនួសខុសត្រូវកាន់តែធំ
-              និងពោរពេញដោយមោទនភាពបំផុត។
-            </p>
+            <blockquote class="testi-featured-quote">
+              <p>"បន្ទាប់ពីចូលរួម Workshop AI ជាមួយ YOB Digital<br />
+              ខ្ញុំអាចបង្កើត Content ជារៀងរាល់ថ្ងៃ<br />
+              ដោយប្រើ AI ជំនួស — Engagement លើ Facebook Page<br />
+              កើន <strong>៣ ដង!</strong>"</p>
+              <cite>— សុខ ដានី, ម្ចាស់ហាងកាហ្វេ &nbsp;⭐⭐⭐⭐⭐</cite>
+            </blockquote>
             <div class="testi-stat-row">
               <div class="testi-stat">
                 <span class="testi-stat-num">98%</span>
@@ -2756,7 +2920,7 @@
               <p class="testi-quote">
                 បន្ទាប់ពីចូលរួម Workshop AI ជាមួយ YOB Digital ខ្ញុំអាចបង្កើត
                 Content ជារៀងរាល់ថ្ងៃ ដោយប្រើ AI ជំនួស ហើយ Engagement លើ
-                Facebook Page កើន <strong>3 ដង!</strong>
+                Facebook Page កើន <strong>៣ ដង!</strong>
               </p>
               <div class="testi-footer">
                 <div class="testi-author">
@@ -3233,7 +3397,7 @@
             <!-- Online status -->
             <div class="contact-status">
               <span class="contact-status-dot"></span>
-              កម្មករយប់ឌីជីថលកំពុង Online * Reply ក្នុង 2-4 ម៉ោង
+              ក្រុមការងារ YOBកំពុង Online * Reply ក្នុង 2-4 ម៉ោង
             </div>
 
             <!-- Quick channels -->
@@ -3289,7 +3453,7 @@
           <div class="contact-right reveal">
             <div class="contact-form-card">
               <div class="cfc-header">
-                <h3>កម្មករយប់ឌីជីថល</h3>
+                <h3>ក្រុមការងារ YOB</h3>
                 <p>
                   ជ្រើសសេវាកម្ម ហើយបំពេញ Form ខ្លីៗ 3 ជំហាន — ក្រុម YOB
                   នឹងទាក់ទងអ្នកវិញឆាប់បំផុត
@@ -3337,7 +3501,6 @@
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
               >
-                <div data-netlify-recaptcha="true"></div>
                 <input type="hidden" name="form-name" value="contact" />
                 <input
                   type="hidden"
@@ -3373,12 +3536,15 @@
                 <!-- Success/Error Messages -->
                 <div
                   id="contact-success"
-                  class="form-message success"
+                  class="form-message success cf-success-enhanced"
                   style="display: none"
                 >
-                  <i class="fas fa-check-circle"></i>
-                  អរគុណ! សាររបស់អ្នកបានផ្ញើដោយជោគជ័យ ✅<br />
-                  <small>យើងនឹងទាក់ទងអ្នកក្នុងរយៈពេល 2-4 ម៉ោង</small>
+                  <div class="cf-success-icon">✅</div>
+                  <div class="cf-success-title">សាររបស់អ្នកបានផ្ញើ!</div>
+                  <div class="cf-success-sub">ក្រុមការងារ YOB នឹងទាក់ទងអ្នកក្នុង <strong>២-៤ ម៉ោង</strong></div>
+                  <a href="https://t.me/yobdigital" target="_blank" rel="noopener" class="cf-success-tg">
+                    <i class="fab fa-telegram-plane"></i> Chat ផ្ទាល់ Telegram
+                  </a>
                 </div>
                 <div
                   id="contact-error"
@@ -3415,12 +3581,18 @@
                 <div class="cf-field">
                   <textarea
                     name="message"
+                    id="contactMessage"
                     class="cf-input cf-textarea"
                     placeholder=" "
                   ></textarea>
                   <label class="cf-label"
-                    >រៀបរាប់​ពី Business / Project អ្នក</label
+                    >តើអ្នកជួបបញ្ហាអ្វី? <small>(សរសេរខ្លីៗក៏បាន)</small></label
                   >
+                  <p class="cf-field-hint">ឧ. ខ្ញុំចង់បង្កើនលក់តាម Facebook ប៉ុន្តែ Ads ខាត...</p>
+                </div>
+
+                <div class="cf-captcha-wrap" id="cfCaptchaWrap">
+                  <div data-netlify-recaptcha="true"></div>
                 </div>
 
                 <button type="submit" class="cf-submit">
@@ -3441,6 +3613,16 @@
     <script src="js/form-utils.js" defer></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Show reCAPTCHA only when user engages with the message textarea
+        const msgTextarea = document.getElementById("contactMessage");
+        const captchaWrap = document.getElementById("cfCaptchaWrap");
+        if (msgTextarea && captchaWrap) {
+          msgTextarea.addEventListener("focus", function showCaptcha() {
+            captchaWrap.classList.add("visible");
+            msgTextarea.removeEventListener("focus", showCaptcha);
+          }, { once: true });
+        }
+
         const contactForm = document.querySelector(".cf-form");
         const successMsg = document.getElementById("contact-success");
         const errorMsg = document.getElementById("contact-error");
