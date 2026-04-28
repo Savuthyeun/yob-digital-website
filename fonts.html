@@ -56,7 +56,7 @@
     </noscript>
 
     <!-- Shared styles from main site -->
-    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <style>
       /* ── SAVUTH FONT FACE ── */
@@ -1367,6 +1367,9 @@
         margin-left: auto;
       }
       .pg-bg-toggle:hover, .pg-bg-toggle.active { border-color: rgba(229,44,103,0.4); color: var(--white); background: rgba(229,44,103,0.08); }
+      /* ── CSS FALLBACK: hide rows beyond first 5 before JS runs ── */
+      .fonts-list .font-row:nth-child(n+6) { display: none; }
+
       /* ── SHOW MORE ── */
       .font-show-more {
         display: none; text-align: center;
@@ -1692,9 +1695,9 @@
         <!-- end fonts-grid -->
 
         <!-- Show More -->
-        <div class="font-show-more" id="fontShowMore">
+        <div class="font-show-more visible" id="fontShowMore">
           <button class="font-show-more-btn" id="fontShowMoreBtn">
-            <i class="fas fa-chevron-down"></i> មើល Font ទាំងអស់ · នៅសល់ <span id="fontHiddenCount">0</span> ទៀត
+            <i class="fas fa-chevron-down"></i> មើល Font ទាំងអស់ · នៅសល់ <span id="fontHiddenCount">5</span> ទៀត
           </button>
         </div>
 
