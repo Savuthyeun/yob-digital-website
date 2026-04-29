@@ -1,18 +1,73 @@
-<p class="doc-lead">ប្រើ AI Create Content ៣០ ថ្ងៃ ក្នុង ២ ម៉ោង! YOB AI Content System ជួយ អ្នក post consistently ដោយ quality ខ្ពស់ — without burning out ។</p>
-          <div class="doc-section">
-            <h2 id="strategy">Strategy Overview</h2>
-            <p>AI Content Creation ត្រឹមត្រូវ = <strong>3 ជំហាន</strong>:</p>
-            <div class="steps">
-              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Plan ជាមួយ AI</h4><p>ប្រើ Claude plan 30-day content calendar → Topics, Hooks, Format ក្នុង 30 នាទី</p></div></div>
-              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Draft ជាមួយ AI</h4><p>Prompt ដើម្បី generate caption, blog, script → Get 5 variations → ជ្រើស best 1</p></div></div>
-              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Edit + Publish</h4><p>Edit 20% — add personal touch, Khmer local context → Schedule + Post</p></div></div>
-            </div>
-          </div>
-          <div class="doc-section">
-            <h2 id="caption">Caption Writing — Facebook/Instagram</h2>
-            <p>Copy prompt ខាងក្រោម → Paste ក្នុង Claude → Replace brackets:</p>
-            <div class="code-block"><div class="code-header"><span class="code-lang">CLAUDE PROMPT — CAPTION</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
-            <pre>Act as a <span class="v">Khmer social media copywriter</span> for yous in Cambodia.
+<!-- ══ STEP 1: គោលដៅ & ផែនទីផ្លូវ ══ -->
+<div class="lesson-step" data-step="1">
+  <div class="ls-header">
+    <span class="ls-num">01</span>
+    <span class="ls-icon">📍</span>
+    <div class="ls-info">
+      <div class="ls-title">គោលដៅ & ផែនទីផ្លូវ</div>
+      <div class="ls-sub">អ្វីដែលត្រូវរៀន · រយៈពេល · ទីតាំង</div>
+    </div>
+  </div>
+  <div class="ls-body">
+    <p style="font-family:var(--fb);font-size:15px;color:var(--gray);margin:0 0 14px">នៅចប់ Lesson នេះ អ្នកអាច<strong style="color:var(--white)"> Create Content ១ ខែ ក្នុង ២ ម៉ោង</strong> ជាមួយ AI — Caption, Blog, Video Script, និង 30-Day System ។</p>
+    <div class="ls-roadmap">
+      <span class="ls-pill"><i class="fas fa-clock"></i> 30 នាទី</span>
+      <span class="ls-pill"><i class="fas fa-signal"></i> Beginner</span>
+      <span class="ls-pill" style="color:#00ffc8;border-color:rgba(0,255,200,0.25)"><i class="fas fa-pen-nib"></i> Caption Writing</span>
+      <span class="ls-pill" style="color:#4f82ff;border-color:rgba(79,130,255,0.25)"><i class="fas fa-file-alt"></i> Blog & Article</span>
+      <span class="ls-pill" style="color:var(--gold);border-color:rgba(229,44,103,0.25)"><i class="fas fa-video"></i> Video Script</span>
+      <span class="ls-pill" style="color:#9b6bff;border-color:rgba(155,107,255,0.25)"><i class="fas fa-calendar-alt"></i> 30-Day System</span>
+    </div>
+  </div>
+</div>
+
+<div class="ls-connector">↓</div>
+
+<!-- ══ STEP 2: ចំណេះដឹងជាជំហានៗ ══ -->
+<div class="lesson-step" data-step="2">
+  <div class="ls-header">
+    <span class="ls-num">02</span>
+    <span class="ls-icon">📖</span>
+    <div class="ls-info">
+      <div class="ls-title">ចំណេះដឹងជាជំហានៗ</div>
+      <div class="ls-sub">Concept → ឧទាហរណ៍ → គន្លឹះ</div>
+    </div>
+  </div>
+  <div class="ls-body">
+
+    <!-- 2A: AI Content System -->
+    <div class="doc-section">
+      <h2 id="strategy">AI Content System — ២.A</h2>
+
+      <div class="cet-block">
+        <div class="cet-label concept">Concept</div>
+        <p>AI Content Creation ត្រឹមត្រូវ = <strong>3 ជំហាន</strong> ។ មិនមែន Generate ហើយ Post ភ្លាម — ត្រូវ Plan → Draft → Edit:</p>
+        <div class="steps">
+          <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Plan ជាមួយ AI</h4><p>ប្រើ Claude plan 30-day content calendar → Topics, Hooks, Format ក្នុង ៣០ នាទី</p></div></div>
+          <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Draft ជាមួយ AI</h4><p>Prompt → generate ៥ variations → ជ្រើស best ១ → Edit ២០%</p></div></div>
+          <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Edit + Publish</h4><p>Add personal touch + Khmer local context → Schedule → Post</p></div></div>
+        </div>
+      </div>
+
+      <div class="cet-block">
+        <div class="cet-label tip">គន្លឹះ</div>
+        <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>Rule 80/20:</strong> AI Draft ៨០% — អ្នក Edit ២០% ។ កុំ Post ដោយមិន Edit — AI ចេះ Generic, អ្នកចេះ Local context ។</div></div>
+      </div>
+    </div>
+
+    <!-- 2B: Caption Writing -->
+    <div class="doc-section">
+      <h2 id="caption">Caption Writing — ២.B</h2>
+
+      <div class="cet-block">
+        <div class="cet-label concept">Concept</div>
+        <p>Caption ល្អ = <strong>Hook + Body + CTA</strong> ។ ប្រើ Prompt ខាងក្រោម → Claude generate ៥ version → ជ្រើស ១ → Edit ភ្លាម !</p>
+      </div>
+
+      <div class="cet-block">
+        <div class="cet-label example">ឧទាហរណ៍ — Prompt</div>
+        <div class="code-block"><div class="code-header"><span class="code-lang">CLAUDE PROMPT — CAPTION</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+<pre>Act as a <span class="v">Khmer social media copywriter</span> for business in Cambodia.
 
 Write <span class="n">5</span> Facebook captions for:
 - Business: <span class="s">[ឈ្មោះ + ប្រភេទ]</span>
@@ -22,20 +77,35 @@ Write <span class="n">5</span> Facebook captions for:
 
 Format each caption:
 Line 1: Hook (attention-grabbing, question or bold statement)
-Line 2–4: Body (benefit-focused, ១-២ pain points addressed)
+Line 2–4: Body (benefit-focused, ១–២ pain points addressed)
 Line 5: CTA (clear action)
 Length: 80–150 words each
-Tone: Friendly, casual, mix Khmer + English naturally, include 2-3 emoji</pre></div>
-            <div class="callout good"><i class="fas fa-star callout-icon"></i><div class="callout-body"><strong>Pro Result:</strong> ជំនួស ៣ ម៉ោងនៃការ think + write ជា ៥ នាទី generate + ១០ នាទី edit !</div></div>
-          </div>
-          <div class="doc-section">
-            <h2 id="blog">Blog & Article Writing</h2>
-            <div class="code-block"><div class="code-header"><span class="code-lang">CLAUDE PROMPT — BLOG</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
-            <pre>Act as a <span class="v">Khmer digital marketing educator</span>.
+Tone: Friendly, casual, mix Khmer + English naturally, include 2–3 emoji</pre></div>
+      </div>
+
+      <div class="cet-block">
+        <div class="cet-label tip">គន្លឹះ</div>
+        <div class="callout good"><i class="fas fa-star callout-icon"></i><div class="callout-body"><strong>Pro Result:</strong> ជំនួស ៣ ម៉ោងនៃការ think + write → ៥ នាទី generate + ១០ នាទី edit = Caption Ready !</div></div>
+      </div>
+    </div>
+
+    <!-- 2C: Blog Writing -->
+    <div class="doc-section">
+      <h2 id="blog">Blog & Article Writing — ២.C</h2>
+
+      <div class="cet-block">
+        <div class="cet-label concept">Concept</div>
+        <p>Blog ល្អ = SEO Title + Hook Intro + ៤–៥ H2 sections + CTA ។ AI Generate Structure → អ្នក Add real examples ។</p>
+      </div>
+
+      <div class="cet-block">
+        <div class="cet-label example">ឧទាហរណ៍ — Prompt</div>
+        <div class="code-block"><div class="code-header"><span class="code-lang">CLAUDE PROMPT — BLOG</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+<pre>Act as a <span class="v">Khmer digital marketing educator</span>.
 
 Write a complete blog post:
 - Topic: <span class="s">[ចំណងជើង / Topic]</span>
-- Audience: <span class="s">[Creator / Creator / Beginner]</span>
+- Audience: <span class="s">[Creator / SME / Beginner]</span>
 - Word count: <span class="n">600–900</span> words
 - Language: Mix Khmer + English (70% Khmer, 30% English terms)
 
@@ -47,11 +117,27 @@ Each H2: 100–150 words + 1 practical example
 Conclusion: Summary + CTA to follow YOB Digital
 
 Include: 1 "YOB Tip" callout box per article</pre></div>
-          </div>
-          <div class="doc-section">
-            <h2 id="video">Video Script (YouTube/TikTok/Reels)</h2>
-            <div class="code-block"><div class="code-header"><span class="code-lang">CLAUDE PROMPT — VIDEO SCRIPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
-            <pre>Act as a <span class="v">Khmer YouTube/TikTok scriptwriter</span>.
+      </div>
+
+      <div class="cet-block">
+        <div class="cet-label tip">គន្លឹះ</div>
+        <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>Local Touch:</strong> បន្ទាប់ Generate → Add ១ real example ខ្មែរ ក្នុងរៀងរាល់ H2 — reader ជឿជាក់ + Share ច្រើន !</div></div>
+      </div>
+    </div>
+
+    <!-- 2D: Video Script -->
+    <div class="doc-section">
+      <h2 id="video">Video Script — ២.D</h2>
+
+      <div class="cet-block">
+        <div class="cet-label concept">Concept</div>
+        <p>Video Script ល្អ = <strong>[0:00] HOOK → [Body] Points → [End] CTA</strong> ។ Specify platform + length → AI generate timestamp-ready script ។</p>
+      </div>
+
+      <div class="cet-block">
+        <div class="cet-label example">ឧទាហរណ៍ — Prompt</div>
+        <div class="code-block"><div class="code-header"><span class="code-lang">CLAUDE PROMPT — VIDEO SCRIPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+<pre>Act as a <span class="v">Khmer YouTube/TikTok scriptwriter</span>.
 
 Write a video script:
 - Video length: <span class="n">[60s / 3 min / 10 min]</span>
@@ -64,16 +150,153 @@ Script format:
 [0:45–0:55] EXAMPLE — Quick real case
 [0:55–1:00] CTA — Subscribe / Follow / Comment
 
-Add: [B-ROLL SUGGESTION] ជា comment under each section
+Add: [B-ROLL SUGGESTION] as comment under each section
 Tone: Energetic, conversational, Khmer youth-friendly</pre></div>
-          </div>
-          <div class="doc-section">
-            <h2 id="system">30-Day AI Content System</h2>
-            <p>YOB ប្រើ System នេះ generate content calendar ១ ខែ ក្នុង ២ ម៉ោង:</p>
-            <div class="steps">
-              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Week 1 — Generate Topics</h4><p>Prompt Claude: "Give me 30 content topics for [business type] targeting [audience] — mix Education/Entertainment/Promotion 70/20/10"</p></div></div>
-              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Week 2 — Batch Write</h4><p>Write ២ weeks of captions at once → Save as Google Doc → Edit ១ ម្ដង</p></div></div>
-              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Week 3 — Schedule</h4><p>ប្រើ Meta Business Suite schedule posts → Mon/Wed/Fri/Sat = optimal for Khmer audience</p></div></div>
-              <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Week 4 — Analyze + Repeat</h4><p>Check which post got most Reach/Engagement → create more of that type → month 2</p></div></div>
-            </div>
-          </div>
+      </div>
+
+      <div class="cet-block">
+        <div class="cet-label tip">គន្លឹះ</div>
+        <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>Hook = ១ ភាគ ១០ នៃ Video :</strong> ៦០s video → HOOK ត្រូវ capture attention ក្នុង ៥ second ។ ប្រើ Prompt សាកល្បង HOOK ៥ versions → ជ្រើស strongest ១ !</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="ls-connector">↓</div>
+
+<!-- ══ STEP 3: ACTION LAB ══ -->
+<div class="lesson-step" data-step="3">
+  <div class="ls-header">
+    <span class="ls-num">03</span>
+    <span class="ls-icon">🛠️</span>
+    <div class="ls-info">
+      <div class="ls-title">អនុវត្តភ្លាមៗ — Action Lab</div>
+      <div class="ls-sub">Checklist + Template + 30-Day System</div>
+    </div>
+  </div>
+  <div class="ls-body">
+
+    <div class="doc-section">
+      <h2 id="system">30-Day AI Content System</h2>
+      <p>YOB ប្រើ System នេះ generate content calendar ១ ខែ ក្នុង ២ ម៉ោង :</p>
+      <div class="steps">
+        <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Generate Topics (Week 1)</h4><p>Prompt: <em>"Give me 30 content topics for [business type] targeting [audience] — mix Education/Entertainment/Promotion 70/20/10"</em></p></div></div>
+        <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Batch Write (Week 2)</h4><p>Write ២ weeks of captions at once → Save Google Doc → Edit ១ ម្ដង → Done !</p></div></div>
+        <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Schedule (Week 3)</h4><p>ប្រើ Meta Business Suite → Schedule posts → Mon/Wed/Fri/Sat = optimal Khmer audience !</p></div></div>
+        <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Analyze + Repeat (Week 4)</h4><p>Check Reach/Engagement → Create more of top-performing type → Month 2 !</p></div></div>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <h2 id="checklist">Checklist — ធ្វើអ្វីភ្លាម?</h2>
+      <div class="action-checklist">
+        <label class="ac-item"><input type="checkbox"> <span>Open Claude.ai ឬ ChatGPT — Sign up FREE</span></label>
+        <label class="ac-item"><input type="checkbox"> <span>Copy Caption Prompt → Replace brackets → Generate ៥ captions</span></label>
+        <label class="ac-item"><input type="checkbox"> <span>ជ្រើស best caption → Edit ២០% → Add local Khmer example</span></label>
+        <label class="ac-item"><input type="checkbox"> <span>Copy 30-Topic Prompt → Generate topics → Save Google Doc</span></label>
+        <label class="ac-item"><input type="checkbox"> <span>Schedule ១ Post ដំបូង — Post ថ្ងៃស្អែក !</span></label>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="ls-connector">↓</div>
+
+<!-- ══ STEP 4: ពិនិត្យ & ផ្ទៀងផ្ទាត់ ══ -->
+<div class="lesson-step" data-step="4">
+  <div class="ls-header">
+    <span class="ls-num">04</span>
+    <span class="ls-icon">✅</span>
+    <div class="ls-info">
+      <div class="ls-title">ពិនិត្យ & ផ្ទៀងផ្ទាត់</div>
+      <div class="ls-sub">Quiz ខ្លី + ការពន្យល់ភ្លាម + Confidence</div>
+    </div>
+  </div>
+  <div class="ls-body">
+    <div class="ls-quiz">
+
+      <details class="quiz-item">
+        <summary><span class="quiz-num">Q1.</span> AI Content System មាន ៣ ជំហានអ្វីខ្លះ?</summary>
+        <div class="quiz-ans">✅ <strong>Plan → Draft → Edit</strong> ។ Plan ជាមួយ AI (30-day topics), Draft ជាមួយ AI (generate variations), Edit ២០% (add local touch) ។ កុំ Skip Edit — នោះជា human value !</div>
+      </details>
+
+      <details class="quiz-item">
+        <summary><span class="quiz-num">Q2.</span> Caption Prompt ល្អ ត្រូវ Specify អ្វីខ្លះ?</summary>
+        <div class="quiz-ans">✅ ត្រូវ Specify: <strong>Business name + type, Post goal, Product/offer, Target audience, Format, Length, Tone</strong> ។ ពត៌មានច្រើន = AI Output ល្អ + Apply បានភ្លាម !</div>
+      </details>
+
+      <details class="quiz-item">
+        <summary><span class="quiz-num">Q3.</span> ហេតុអ្វីបាន Post Mon/Wed/Fri/Sat ជា Optimal?</summary>
+        <div class="quiz-ans">✅ YOB Data: Khmer audience active <strong>ព្រឹក 7–9AM + ល្ងាច 7–10PM</strong> ក្នុងថ្ងៃ Mon/Wed/Fri/Sat ។ Weekend = high engagement ។ Test ១ ខែ → ពិនិត្យ Analytics → Adjust !</div>
+      </details>
+
+    </div>
+
+    <div class="conf-wrap">
+      <div class="conf-label">💬 អ្នកយល់ Lesson នេះ ហើយអាច Apply បានកម្រិតណា?</div>
+      <div class="conf-btns">
+        <button class="conf-btn" onclick="this.parentNode.querySelectorAll('.conf-btn').forEach(b=>b.style.cssText='');this.style.background='var(--gold)';this.style.color='#fff';this.style.borderColor='var(--gold)'">😕 នៅច្រឡំ</button>
+        <button class="conf-btn" onclick="this.parentNode.querySelectorAll('.conf-btn').forEach(b=>b.style.cssText='');this.style.background='var(--gold)';this.style.color='#fff';this.style.borderColor='var(--gold)'">🤔 យល់ ប៉ុន្តែ Apply មិនទាន់</button>
+        <button class="conf-btn" onclick="this.parentNode.querySelectorAll('.conf-btn').forEach(b=>b.style.cssText='');this.style.background='var(--gold)';this.style.color='#fff';this.style.borderColor='var(--gold)'">💪 យល់ + Apply បានហើយ</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ls-connector">↓</div>
+
+<!-- ══ STEP 5: សង្ខេប & ផ្លូវបន្ត ══ -->
+<div class="lesson-step" data-step="5">
+  <div class="ls-header">
+    <span class="ls-num">05</span>
+    <span class="ls-icon">🗺️</span>
+    <div class="ls-info">
+      <div class="ls-title">សង្ខេប & ផ្លូវបន្ត</div>
+      <div class="ls-sub">Cheat Sheet + CTA ច្បាស់ + ជំនួយ</div>
+    </div>
+  </div>
+  <div class="ls-body">
+
+    <div class="doc-section">
+      <h2 id="cheatsheet">Cheat Sheet — យក Screenshot !</h2>
+      <div class="cheat-sheet">
+        <div class="cs-item">
+          <div class="cs-key">📍 System</div>
+          <div class="cs-val">Plan → Draft → Edit (80% AI, 20% Human)</div>
+        </div>
+        <div class="cs-item">
+          <div class="cs-key">✏️ Caption</div>
+          <div class="cs-val">Hook + Body + CTA · 80–150 words · ២–៣ emoji</div>
+        </div>
+        <div class="cs-item">
+          <div class="cs-key">📝 Blog</div>
+          <div class="cs-val">600–900 words · H1 + ៤ H2 + CTA · 70% Khmer</div>
+        </div>
+        <div class="cs-item">
+          <div class="cs-key">🎬 Video</div>
+          <div class="cs-val">HOOK 5s → Content → Example → CTA · Add B-Roll</div>
+        </div>
+        <div class="cs-item">
+          <div class="cs-key">📅 30-Day</div>
+          <div class="cs-val">Batch topics → Batch write → Schedule → Analyze</div>
+        </div>
+        <div class="cs-item">
+          <div class="cs-key">⏰ Schedule</div>
+          <div class="cs-val">Mon/Wed/Fri/Sat · ព្រឹក 7–9AM · ល្ងាច 7–10PM</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <h2 id="next">ជំហានបន្ត</h2>
+      <div class="callout good"><i class="fas fa-rocket callout-icon"></i><div class="callout-body"><strong>Lesson បន្ទាប់ →</strong> <a onclick="loadPage('ai-tools-list')" style="color:var(--gold);cursor:pointer;font-weight:700">Tools Directory</a> — ស្វែងយល់ AI Tools ២០+ ដែល YOB ប្រើ · Free vs Paid · Picks !</div></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+        <a href="https://t.me/yobdigital" target="_blank" class="btn-outline" style="font-size:14px;padding:8px 18px"><i class="fab fa-telegram"></i> សួរ YOB ផ្ទាល់</a>
+        <a onclick="loadPage('getting-started')" style="cursor:pointer" class="btn-outline" style="font-size:14px;padding:8px 18px"><i class="fas fa-th-large"></i> មើល Catalog ទាំងអស់</a>
+      </div>
+    </div>
+
+  </div>
+</div>

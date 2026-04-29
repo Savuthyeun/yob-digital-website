@@ -102,7 +102,7 @@ h3 {
   line-height: 1.4;
 }
 p {
-  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
   line-height: 1.6;
 }
 
@@ -1080,7 +1080,7 @@ nav {
 }
 
 .f-title {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--white);
   letter-spacing: 1px;
@@ -1604,7 +1604,7 @@ nav {
 .cs-card-desc {
   color: var(--gray);
   font-family: var(--fk);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.65;
   margin-bottom: 20px;
 }
@@ -1687,7 +1687,7 @@ nav {
 .cs-teaser-desc {
   color: var(--gray);
   font-family: var(--fk);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.8;
   margin-bottom: 28px;
 }
@@ -1977,7 +1977,7 @@ nav {
 .resource-content p {
   color: var(--gray);
   font-family: var(--fk);
-  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
   margin-bottom: 30px;
   line-height: 1.6;
 }
@@ -2151,7 +2151,7 @@ nav {
 .about-content p {
   color: var(--gray);
   font-family: var(--fk);
-  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
   line-height: 1.6;
   margin-bottom: 30px;
 }

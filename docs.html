@@ -2067,6 +2067,133 @@
       .cmap-badge.free { background: rgba(74,222,128,0.12); color: #4ade80; }
       .cmap-badge.pro  { background: rgba(229,44,103,0.15); color: var(--gold); }
 
+      /* ── LESSON PHASES (Overview-type lessons) ── */
+      .lesson-phase { border-radius: 14px; overflow: hidden; border: 1px solid var(--border2); border-left-width: 3px; margin-bottom: 6px; }
+      .phase-hook   { border-left-color: var(--gold); }
+      .phase-model  { border-left-color: #4f82ff; }
+      .phase-choose { border-left-color: #00f0ff; }
+      .phase-action { border-left-color: #4ade80; }
+      .phase-apply  { border-left-color: #9b6bff; }
+      .phase-guard  { border-left-color: #fbbf24; }
+      .phase-lock   { border-left-color: #f0dcff; }
+
+      .lph-wrap { display: flex; align-items: center; gap: 13px; padding: 15px 20px; background: rgba(255,255,255,0.025); border-bottom: 1px solid var(--border); }
+      .lph-icon { font-size: 22px; flex-shrink: 0; }
+      .lph-meta { flex: 1; min-width: 0; }
+      .lph-num { font-family: var(--fh); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 2px; }
+      .lph-title { font-family: var(--fb); font-size: 16px; font-weight: 700; color: var(--white); line-height: 1.3; }
+      .lph-purpose { font-family: var(--fb); font-size: 13px; color: var(--gray); margin-top: 2px; }
+      .lph-body { padding: 20px 22px; background: var(--dark2); }
+
+      /* Phase connector arrow */
+      .lp-arrow { display: flex; align-items: center; justify-content: center; height: 30px; color: var(--gray); font-size: 13px; position: relative; }
+      .lp-arrow::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--border2); transform: translateX(-50%); }
+      .lp-arrow i { background: var(--dark); padding: 0 8px; position: relative; z-index: 1; }
+
+      /* Before / After grid */
+      .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+      .ba-col { padding: 14px 15px; border-radius: 10px; }
+      .ba-col.before { background: rgba(248,113,113,0.07); border: 1px solid rgba(248,113,113,0.2); }
+      .ba-col.after  { background: rgba(74,222,128,0.07);  border: 1px solid rgba(74,222,128,0.2); }
+      .ba-lbl { font-family: var(--fb); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 9px; }
+      .ba-col.before .ba-lbl { color: #f87171; }
+      .ba-col.after  .ba-lbl { color: #4ade80; }
+      .ba-row { display: flex; align-items: flex-start; gap: 7px; font-family: var(--fb); font-size: 15px; color: var(--gray); padding: 3px 0; line-height: 1.6; }
+      .ba-row i { font-size: 11px; flex-shrink: 0; margin-top: 2px; }
+      .ba-col.before .ba-row i { color: #f87171; }
+      .ba-col.after  .ba-row i { color: #4ade80; }
+
+      /* Learning promise list */
+      .learn-promise { display: flex; flex-direction: column; gap: 6px; margin: 12px 0; }
+      .lpr-item { display: flex; align-items: center; gap: 10px; font-family: var(--fb); font-size: 15px; color: var(--white); padding: 8px 14px; background: rgba(229,44,103,0.05); border-left: 2px solid var(--gold); border-radius: 0 8px 8px 0; }
+      .lpr-item i { color: var(--gold); font-size: 12px; flex-shrink: 0; }
+
+      /* Tool decision chart */
+      .tool-decision { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-top: 14px; }
+      .tdc-col { border: 1px solid var(--border2); border-radius: 10px; overflow: hidden; }
+      .tdc-head { padding: 10px 13px; font-family: var(--fb); font-size: 14px; font-weight: 700; text-align: center; border-bottom: 1px solid var(--border2); }
+      .tdc-item { padding: 8px 12px; font-family: var(--fb); font-size: 14px; color: var(--gray); border-top: 1px solid rgba(255,255,255,0.04); display: flex; align-items: flex-start; gap: 6px; line-height: 1.55; }
+      .tdc-item i { font-size: 10px; margin-top: 3px; flex-shrink: 0; }
+      .tdc-col.c-claude  .tdc-head { background: rgba(229,44,103,0.1);  color: var(--gold); }
+      .tdc-col.c-chatgpt .tdc-head { background: rgba(79,130,255,0.1);  color: #4f82ff; }
+      .tdc-col.c-gemini  .tdc-head { background: rgba(74,222,128,0.1);  color: #4ade80; }
+      .tdc-col.c-claude  .tdc-item i { color: var(--gold); }
+      .tdc-col.c-chatgpt .tdc-item i { color: #4f82ff; }
+      .tdc-col.c-gemini  .tdc-item i { color: #4ade80; }
+
+      @media (max-width: 600px) {
+        .ba-grid { grid-template-columns: 1fr; }
+        .tool-decision { grid-template-columns: 1fr; }
+        .lph-body { padding: 15px; }
+      }
+
+      /* ── 5-STEP LESSON FRAMEWORK ── */
+      .lesson-step { border: 1px solid var(--border2); border-radius: 16px; overflow: hidden; margin-bottom: 6px; background: var(--dark2); }
+      .ls-connector { display: flex; align-items: center; justify-content: center; height: 36px; color: var(--gray); font-size: 18px; position: relative; }
+      .ls-connector::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--border2), rgba(229,44,103,0.4), var(--border2)); transform: translateX(-50%); }
+      .ls-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: rgba(255,255,255,0.025); border-bottom: 1px solid var(--border); }
+      .ls-num { font-family: var(--fh); font-size: 32px; line-height: 1; min-width: 40px; opacity: 0.6; }
+      .ls-icon { font-size: 20px; }
+      .ls-info { flex: 1; }
+      .ls-title { font-family: var(--fb); font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 2px; }
+      .ls-sub { font-family: var(--fb); font-size: 13px; color: var(--gray); }
+      .ls-body { padding: 20px 24px; }
+      .lesson-step[data-step="1"] .ls-num { color: #00ffc8; }
+      .lesson-step[data-step="2"] .ls-num { color: #4f82ff; }
+      .lesson-step[data-step="3"] .ls-num { color: var(--gold); }
+      .lesson-step[data-step="4"] .ls-num { color: #9b6bff; }
+      .lesson-step[data-step="5"] .ls-num { color: #f0dcff; }
+      .lesson-step[data-step="1"] { border-color: rgba(0,255,200,0.15); }
+      .lesson-step[data-step="2"] { border-color: rgba(79,130,255,0.15); }
+      .lesson-step[data-step="3"] { border-color: rgba(229,44,103,0.15); }
+      .lesson-step[data-step="4"] { border-color: rgba(155,107,255,0.15); }
+      .lesson-step[data-step="5"] { border-color: rgba(240,220,255,0.1); }
+
+      /* Road map / goal pills */
+      .ls-roadmap { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+      .ls-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 13px; border-radius: 20px; font-family: var(--fb); font-size: 13px; font-weight: 600; background: rgba(255,255,255,0.05); border: 1px solid var(--border2); color: var(--white); }
+      .ls-pill i { font-size: 11px; }
+
+      /* Concept → Example → Tip block */
+      .cet-block { margin-bottom: 20px; }
+      .cet-label { display: inline-block; font-family: var(--fb); font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; margin-bottom: 6px; }
+      .cet-label.concept { background: rgba(79,130,255,0.15); color: #4f82ff; }
+      .cet-label.example { background: rgba(229,44,103,0.12); color: var(--gold); }
+      .cet-label.tip     { background: rgba(74,222,128,0.1);  color: #4ade80; }
+
+      /* Action Lab checklist */
+      .action-checklist { display: flex; flex-direction: column; gap: 7px; margin: 12px 0; }
+      .ac-item { display: flex; align-items: flex-start; gap: 10px; padding: 11px 14px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 8px; font-family: var(--fb); font-size: 15px; color: var(--white); cursor: pointer; transition: var(--t); }
+      .ac-item input[type="checkbox"] { accent-color: var(--gold); margin-top: 2px; flex-shrink: 0; }
+      .ac-item:has(input:checked) { color: var(--gray); background: rgba(229,44,103,0.04); border-color: rgba(229,44,103,0.2); }
+
+      /* Quiz (details/summary) */
+      .ls-quiz { display: flex; flex-direction: column; gap: 10px; }
+      .quiz-item { border: 1px solid var(--border2); border-radius: 10px; overflow: hidden; }
+      .quiz-item summary { list-style: none; padding: 14px 16px; font-family: var(--fb); font-size: 15px; font-weight: 600; color: var(--white); background: rgba(255,255,255,0.03); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+      .quiz-item summary::after { content: '▼'; font-size: 10px; color: var(--gray); flex-shrink: 0; transition: transform 0.3s; }
+      .quiz-item[open] summary::after { transform: rotate(180deg); }
+      .quiz-item[open] summary { color: var(--gold); }
+      .quiz-ans { padding: 13px 16px; font-family: var(--fb); font-size: 15px; color: var(--gray); background: rgba(155,107,255,0.05); border-top: 1px solid var(--border); line-height: 1.75; }
+      .quiz-num { font-family: var(--fh); font-size: 14px; color: var(--gray); margin-right: 6px; }
+
+      /* Confidence picker */
+      .conf-wrap { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); }
+      .conf-label { font-family: var(--fb); font-size: 13px; color: var(--gray); margin-bottom: 8px; }
+      .conf-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+      .conf-btn { padding: 7px 16px; border-radius: 20px; border: 1px solid var(--border2); background: transparent; color: var(--gray); font-family: var(--fb); font-size: 14px; cursor: pointer; transition: var(--t); }
+      .conf-btn:hover { border-color: var(--gold); color: var(--white); }
+
+      /* Cheat sheet */
+      .cheat-sheet { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+      .cs-item { background: rgba(255,255,255,0.025); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+      .cs-key { font-family: var(--fb); font-size: 11px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
+      .cs-val { font-family: var(--fb); font-size: 15px; color: var(--white); line-height: 1.6; }
+      @media (max-width: 600px) {
+        .cheat-sheet { grid-template-columns: 1fr; }
+        .ls-body { padding: 16px; }
+      }
+
       /* ── LOADING SPINNER ── */
       .docs-loading {
         display: flex;
@@ -3983,12 +4110,13 @@
           title: "AI CONTENT CREATION",
           breadcrumb: "AI Tools → AI Content Creation",
           toc: [
-            "Strategy Overview",
+            "AI Content System",
             "Caption Writing",
-            "Blog & Article",
+            "Blog & Article Writing",
             "Video Script",
-            "Email Marketing",
-            "30-Day AI Content System",
+            "30-Day System & Checklist",
+            "Quiz",
+            "Cheat Sheet",
           ],
 
         },
