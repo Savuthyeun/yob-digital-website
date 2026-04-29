@@ -1,0 +1,184 @@
+<!-- HERO -->
+          <div class="gsk-hero gs2-hero">
+            <div class="gsk-hero-tag"><i class="fas fa-graduation-cap"></i> YOB Digital Docs</div>
+            <h1>មេរៀន<em>ឥតគិតថ្លៃ</em> &middot; <span style="color:var(--gold)">បានផ្ទៀងផ្ទាត់</span></h1>
+            <p class="gsk-hero-sub">ការស្រាវជ្រាវ + អនុវត្តពិតប្រាកដ ដែលធានាបានលទ្ធផលជោគជ័យ</p>
+            <div class="gsk-stats">
+              <div class="gsk-stat"><strong>22</strong>&nbsp;Lessons</div>
+              <div class="gsk-stat"><strong>4</strong>&nbsp;Categories</div>
+              <div class="gsk-stat"><strong>FREE</strong>&nbsp;&#x178F;&#x17B6;&#x17C6;&#x1784;&#x17A2;&#x179F;&#x17CB;</div>
+              <div class="gsk-stat">&#x1F1F0;&#x1F1ED;&nbsp;<strong>Khmer First</strong></div>
+            </div>
+            <div class="gs2-search-wrap" style="margin-top:16px">
+              <i class="fas fa-search"></i>
+              <input class="gsk-search" id="catSearch" type="text" placeholder="&#x179F;&#x17D2;&#x179C;&#x17C2;&#x1784;&#x179A;&#x1780; lesson..." oninput="filterCatalog()" />
+            </div>
+          </div>
+
+          <!-- CATEGORY JUMP NAV -->
+          <div class="cat-jumps" id="catJumps">
+            <button class="cat-jump active" onclick="catJumpAll(this)">&#x178F;&#x17B6;&#x17C6;&#x1784;&#x17A2;&#x179F;&#x17CB; <span style="font-size:10px;opacity:.7">22</span></button>
+            <a class="cat-jump" href="#cat-ai" onclick="catJumpActivate(this)"><span class="cat-jump-dot" style="background:var(--gold)"></span> AI Tools</a>
+            <a class="cat-jump" href="#cat-strat" onclick="catJumpActivate(this)"><span class="cat-jump-dot" style="background:#4f82ff"></span> Digital Strategy</a>
+            <a class="cat-jump" href="#cat-web" onclick="catJumpActivate(this)"><span class="cat-jump-dot" style="background:#00f0ff"></span> Web &amp; Systems</a>
+            <a class="cat-jump" href="#cat-type" onclick="catJumpActivate(this)"><span class="cat-jump-dot" style="background:#9b6bff"></span> Typography</a>
+          </div>
+
+          <!-- == AI Tools == -->
+          <div class="cat-section" id="cat-ai" data-cat="ai">
+            <div class="cat-sec-hd" style="background:rgba(229,44,103,0.06);border-color:rgba(229,44,103,0.2)">
+              <div class="cat-sec-icon" style="background:rgba(229,44,103,0.12);color:var(--gold)">&#x1F916;</div>
+              <div class="cat-sec-info"><div class="cat-sec-title">AI Tools</div><div class="cat-sec-meta">Claude &middot; ChatGPT &middot; Gemini &middot; Automation &middot; Workflow</div></div>
+              <span class="cat-sec-badge" style="background:rgba(229,44,103,0.12);color:var(--gold)">6 lessons</span>
+            </div>
+            <div class="cat-grid">
+              <div class="cat-card" data-cat="ai" data-title="AI Overview" onclick="loadPage('ai-overview')">
+                <div class="cat-card-thumb" style="background:rgba(229,44,103,0.1)">&#x1F916;</div>
+                <div class="cat-card-body"><div class="cat-card-title">AI Overview</div><div class="cat-card-desc">Claude vs ChatGPT vs Gemini &middot; Free tools &middot; អ្នក use cases</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 15 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="ai" data-title="Prompt Engineering" onclick="loadPage('prompt-engineering')">
+                <div class="cat-card-thumb" style="background:rgba(229,44,103,0.1)">&#x270F;&#xFE0F;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Prompt Engineering</div><div class="cat-card-desc">RTFT Framework &middot; Templates &middot; Advanced techniques</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 25 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="ai" data-title="AI Content Creation" onclick="loadPage('ai-content')">
+                <div class="cat-card-thumb" style="background:rgba(229,44,103,0.1)">&#x1F4DD;</div>
+                <div class="cat-card-body"><div class="cat-card-title">AI Content Creation</div><div class="cat-card-desc">Caption &middot; Blog &middot; Video Script &middot; 30-Day system</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 30 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="ai" data-title="AI Tools Directory" onclick="loadPage('ai-tools-list')">
+                <div class="cat-card-thumb" style="background:rgba(229,44,103,0.1)">&#x1F5C2;&#xFE0F;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Tools Directory</div><div class="cat-card-desc">Top 20+ AI tools &middot; Free vs Paid &middot; YOB picks</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 20 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="ai" data-title="Automation Setup" onclick="loadPage('automation')">
+                <div class="cat-card-thumb" style="background:rgba(229,44,103,0.1)">&#x2699;&#xFE0F;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Automation Setup</div><div class="cat-card-desc">ManyChat &middot; Zapier &middot; Auto-reply &middot; Lead automation</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 35 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="ai" data-title="AI Workflow Daily" onclick="loadPage('ai-workflow')">
+                <div class="cat-card-thumb" style="background:rgba(229,44,103,0.1)">&#x1F504;</div>
+                <div class="cat-card-body"><div class="cat-card-title">AI Workflow Daily</div><div class="cat-card-desc">Full daily AI workflow &middot; Morning to Evening routine</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 20 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-sec-empty" id="cat-ai-empty" style="display:none"><i class="fas fa-search" style="margin-right:6px"></i>&#x179A;&#x1780;&#x1798;&#x17B7;&#x1793;&#x1781;&#x17BE;&#x1789;</div>
+            </div>
+          </div>
+
+          <!-- == Digital Strategy == -->
+          <div class="cat-section" id="cat-strat" data-cat="strat">
+            <div class="cat-sec-hd" style="background:rgba(79,130,255,0.06);border-color:rgba(79,130,255,0.2)">
+              <div class="cat-sec-icon" style="background:rgba(79,130,255,0.12);color:#4f82ff">&#x1F4E2;</div>
+              <div class="cat-sec-info"><div class="cat-sec-title">Digital Strategy</div><div class="cat-sec-meta">Ads &middot; Content &middot; Facebook &middot; Analytics &middot; SEO</div></div>
+              <span class="cat-sec-badge" style="background:rgba(79,130,255,0.12);color:#4f82ff">6 lessons</span>
+            </div>
+            <div class="cat-grid">
+              <div class="cat-card" data-cat="strat" data-title="Strategy Overview" onclick="loadPage('strategy-overview')">
+                <div class="cat-card-thumb" style="background:rgba(79,130,255,0.1)">&#x1F4E2;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Strategy Overview</div><div class="cat-card-desc">Full-funnel framework &middot; 3x ROAS blueprint</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 20 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="strat" data-title="Customer Persona" onclick="loadPage('customer-persona')">
+                <div class="cat-card-thumb" style="background:rgba(79,130,255,0.1)">&#x1F464;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Customer Persona</div><div class="cat-card-desc">Define ideal customer &middot; Buying behavior Cambodia</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 18 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="strat" data-title="Social Media Strategy" onclick="loadPage('social-media')">
+                <div class="cat-card-thumb" style="background:rgba(79,130,255,0.1)">&#x1F4F1;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Social Media Strategy</div><div class="cat-card-desc">Facebook &middot; TikTok &middot; Telegram &middot; Khmer market</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 25 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="strat" data-title="Content Planning" onclick="loadPage('content-plan')">
+                <div class="cat-card-thumb" style="background:rgba(79,130,255,0.1)">&#x1F4C5;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Content Planning</div><div class="cat-card-desc">30-Day calendar &middot; Pillars &middot; Batch creation</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 22 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="strat" data-title="Facebook Google Ads" onclick="loadPage('ads-setup')">
+                <div class="cat-card-thumb" style="background:rgba(79,130,255,0.1)">&#x1F3AF;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Facebook &amp; Google Ads</div><div class="cat-card-desc">Campaign setup &middot; Targeting &middot; Tracking pixels</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 40 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="strat" data-title="Analytics and Data" onclick="loadPage('analytics')">
+                <div class="cat-card-thumb" style="background:rgba(79,130,255,0.1)">&#x1F4CA;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Analytics &amp; Data</div><div class="cat-card-desc">Meta Business Suite &middot; GA4 &middot; KPIs &middot; Decisions</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 28 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-sec-empty" id="cat-strat-empty" style="display:none"><i class="fas fa-search" style="margin-right:6px"></i>&#x179A;&#x1780;&#x1798;&#x17B7;&#x1793;&#x1781;&#x17BE;&#x1789;</div>
+            </div>
+          </div>
+
+          <!-- == Web & Systems == -->
+          <div class="cat-section" id="cat-web" data-cat="web">
+            <div class="cat-sec-hd" style="background:rgba(0,240,255,0.05);border-color:rgba(0,240,255,0.18)">
+              <div class="cat-sec-icon" style="background:rgba(0,240,255,0.1);color:#00f0ff">&#x1F310;</div>
+              <div class="cat-sec-info"><div class="cat-sec-title">Web &amp; Systems</div><div class="cat-sec-meta">Landing Page &middot; HTML &middot; GitHub &middot; LMS &middot; Deploy</div></div>
+              <span class="cat-sec-badge" style="background:rgba(0,240,255,0.1);color:#00f0ff">5 lessons</span>
+            </div>
+            <div class="cat-grid">
+              <div class="cat-card" data-cat="web" data-title="Web Overview" onclick="loadPage('web-overview')">
+                <div class="cat-card-thumb" style="background:rgba(0,240,255,0.08)">&#x1F30D;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Web Overview</div><div class="cat-card-desc">Website types &middot; When you need a site &middot; Tech stack</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 15 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="web" data-title="Landing Page Blueprint" onclick="loadPage('landing-page-blueprint')">
+                <div class="cat-card-thumb" style="background:rgba(0,240,255,0.08)">&#x1F3D7;&#xFE0F;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Landing Page Blueprint</div><div class="cat-card-desc">High-converting structure &middot; CTA &middot; Mobile first</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 30 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="web" data-title="HTML Basics" onclick="loadPage('html-basics')">
+                <div class="cat-card-thumb" style="background:rgba(0,240,255,0.08)">&#x1F4BB;</div>
+                <div class="cat-card-body"><div class="cat-card-title">HTML Basics</div><div class="cat-card-desc">Tags &middot; Structure &middot; Semantic HTML &middot; Khmer text</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 20 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="web" data-title="LMS Setup" onclick="loadPage('lms-setup')">
+                <div class="cat-card-thumb" style="background:rgba(0,240,255,0.08)">&#x1F393;</div>
+                <div class="cat-card-body"><div class="cat-card-title">LMS Setup</div><div class="cat-card-desc">Online course platform &middot; Telegram LMS &middot; Sell knowledge</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 35 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="web" data-title="GitHub and Netlify" onclick="loadPage('github-netlify')">
+                <div class="cat-card-thumb" style="background:rgba(0,240,255,0.08)">&#x1F419;</div>
+                <div class="cat-card-body"><div class="cat-card-title">GitHub + Netlify</div><div class="cat-card-desc">Deploy FREE &middot; Version control &middot; Custom domain</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 25 min</span><span><i class="fas fa-signal"></i> Intermediate</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-sec-empty" id="cat-web-empty" style="display:none"><i class="fas fa-search" style="margin-right:6px"></i>&#x179A;&#x1780;&#x1798;&#x17B7;&#x1793;&#x1781;&#x17BE;&#x1789;</div>
+            </div>
+          </div>
+
+          <!-- == Khmer Typography == -->
+          <div class="cat-section" id="cat-type" data-cat="type">
+            <div class="cat-sec-hd" style="background:rgba(155,107,255,0.06);border-color:rgba(155,107,255,0.2)">
+              <div class="cat-sec-icon" style="background:rgba(155,107,255,0.12);color:#9b6bff">&#x1F524;</div>
+              <div class="cat-sec-info"><div class="cat-sec-title">Khmer Typography</div><div class="cat-sec-meta">Fonts &middot; Design &middot; Brand Identity &middot; Keyboard</div></div>
+              <span class="cat-sec-badge" style="background:rgba(155,107,255,0.12);color:#9b6bff">4 lessons</span>
+            </div>
+            <div class="cat-grid">
+              <div class="cat-card" data-cat="type" data-title="Fonts Overview" onclick="loadPage('fonts-overview')">
+                <div class="cat-card-thumb" style="background:rgba(155,107,255,0.1)">&#x1F524;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Fonts Overview</div><div class="cat-card-desc">Khmer typography &middot; Unicode vs legacy &middot; YOB fonts</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 12 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="type" data-title="Install Fonts" onclick="loadPage('font-install')">
+                <div class="cat-card-thumb" style="background:rgba(155,107,255,0.1)">&#x2B07;&#xFE0F;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Install Fonts</div><div class="cat-card-desc">Windows &middot; Mac &middot; Mobile &middot; App compatibility</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 10 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="type" data-title="License Guide" onclick="loadPage('font-license')">
+                <div class="cat-card-thumb" style="background:rgba(155,107,255,0.1)">&#x1F4C4;</div>
+                <div class="cat-card-body"><div class="cat-card-title">License Guide</div><div class="cat-card-desc">Personal vs Commercial &middot; SIL OFL &middot; Credit YOB fonts</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 8 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-card" data-cat="type" data-title="Khmer Keyboard Setup" onclick="loadPage('font-setup')">
+                <div class="cat-card-thumb" style="background:rgba(155,107,255,0.1)">&#x2328;&#xFE0F;</div>
+                <div class="cat-card-body"><div class="cat-card-title">Khmer Keyboard Setup</div><div class="cat-card-desc">NiDA layout &middot; Win/Mac/Android/iOS &middot; Practice</div><div class="cat-card-foot"><span><i class="fas fa-clock"></i> 15 min</span><span><i class="fas fa-signal"></i> Beginner</span></div></div>
+                <i class="fas fa-chevron-right cat-card-arrow"></i>
+              </div>
+              <div class="cat-sec-empty" id="cat-type-empty" style="display:none"><i class="fas fa-search" style="margin-right:6px"></i>&#x179A;&#x1780;&#x1798;&#x17B7;&#x1793;&#x1781;&#x17BE;&#x1789;</div>
+            </div>
+          </div>
+
+          <!-- Global empty state -->
+          <div class="gsk-empty" id="catEmpty" style="display:none">
+            <i class="fas fa-search"></i>
+            &#x179A;&#x1780;&#x1798;&#x17B7;&#x1793;&#x1781;&#x17BE;&#x1789; lesson &#x178F;&#x17D2;&#x179C;&#x17B6;&#x178F;&#x17D2;&#x179A;&#x17BC;&#x179C;&#x1780;&#x17B6;&#x179A; &mdash; &#x179F;&#x17B6;&#x1780;&#x179B;&#x17D2;&#x1794;&#x1784;&#x1796;&#x17B6;&#x1780;&#x17D2;&#x1799;&#x1795;&#x179F;&#x17C1;&#x1784;
+          </div>

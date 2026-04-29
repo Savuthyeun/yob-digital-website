@@ -1,0 +1,77 @@
+<p class="doc-lead">HTML + CSS = ភាសា ២ ដែលប្រើ build website ។ HTML = Structure (skeleton), CSS = Design (clothes) ។ រៀន ១ សប្ដាហ៍ = Build Website ផ្ទាល់!</p>
+          <div class="doc-section">
+            <h2 id="what">HTML ជាអ្វី?</h2>
+            <p>HTML (HyperText Markup Language) = ភាសា ប្រើ define structure ឬ content នៃ webpage ។</p>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>Simple Analogy:</strong> HTML = skeleton of body (bones/structure) · CSS = appearance (skin, clothes, style) · JavaScript = movement (muscles, behavior)</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="structure">Structure មូលដ្ឋាន</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">HTML — Basic Structure</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre><span class="k">&lt;!DOCTYPE html&gt;</span>
+<span class="v">&lt;html</span> lang="km"<span class="v">&gt;</span>
+  <span class="n">&lt;head&gt;</span>
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;<span class="s">ឈ្មោះ Page</span>&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css" /&gt;
+  <span class="n">&lt;/head&gt;</span>
+  <span class="v">&lt;body&gt;</span>
+    &lt;!-- Content goes here --&gt;
+    &lt;h1&gt;ស្វាគមន៍!&lt;/h1&gt;
+    &lt;p&gt;នេះជា paragraph ដំបូង ។&lt;/p&gt;
+  <span class="v">&lt;/body&gt;</span>
+<span class="k">&lt;/html&gt;</span></pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="tags">Tags សំខាន់ — ចាំ ១០ Tag នេះ</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">HTML TAGS REFERENCE</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre><span class="k">&lt;h1&gt;</span> ដល់ <span class="k">&lt;h6&gt;</span>  — Headings (h1 ធំ, h6 តូច)
+<span class="v">&lt;p&gt;</span>           — Paragraph
+<span class="n">&lt;a href=""&gt;</span>  — Link
+<span class="s">&lt;img src=""&gt;</span> — Image
+<span class="k">&lt;div&gt;</span>         — Container block
+<span class="v">&lt;span&gt;</span>        — Container inline
+<span class="n">&lt;ul&gt;</span>/<span class="n">&lt;li&gt;</span>    — Bullet list
+<span class="s">&lt;button&gt;</span>      — Button
+<span class="k">&lt;form&gt;</span>        — Form container
+<span class="v">&lt;input&gt;</span>       — Text input field</pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="css">CSS Styling — ពណ៌ + Font + Layout</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">style.css — BASICS</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre><span class="k">/* Body — overall page */</span>
+body {
+  background: <span class="v">#080b10</span>;    <span class="s">/* background color */</span>
+  color: <span class="v">#ffffff</span>;          <span class="s">/* text color */</span>
+  font-family: 'Kantumruy Pro', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+<span class="k">/* Heading */</span>
+h1 {
+  font-size: <span class="n">48px</span>;
+  color: <span class="v">#e52c67</span>;         <span class="s">/* YOB pink */</span>
+  text-align: center;
+}
+
+<span class="k">/* Button */</span>
+.btn {
+  background: <span class="v">#e52c67</span>;
+  color: white;
+  padding: <span class="n">12px 28px</span>;
+  border-radius: <span class="n">50px</span>;
+  border: none;
+  cursor: pointer;
+}</pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="first-page">Your First Webpage — Practice!</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Open Notepad / VS Code</h4><p>Windows: Notepad ++ ឬ install VS Code (free) · Mac: TextEdit (set Plain Text)</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Paste HTML Template</h4><p>Copy structure ខាងលើ → Paste → Change Title + Content ជា Khmer → Save as "index.html"</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Open in Browser</h4><p>Double-click index.html → Opens in Chrome/Firefox → ឃើញ webpage !</p></div></div>
+              <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Add CSS</h4><p>Create "style.css" same folder → Paste CSS → Refresh browser → ឃើញ styled !</p></div></div>
+              <div class="step-item"><div class="step-num">5</div><div class="step-body"><h4>Deploy FREE</h4><p>UpLoad to GitHub → Connect Netlify → Live website ក្នុង ៣០ វិនាទី! <a onclick="loadPage('github-netlify')">Full Deploy Guide →</a></p></div></div>
+            </div>
+          </div>

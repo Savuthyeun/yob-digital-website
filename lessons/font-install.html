@@ -1,0 +1,56 @@
+<p class="doc-lead">Install YOB Fonts ក្នុង ២ នាទី — Windows, Mac, Web, Canva, Photoshop ។ Guide ជាភាសាខ្មែរ ១០០%!</p>
+          <div class="doc-section">
+            <h2 id="windows">Windows Installation</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Download Font File</h4><p>Download ZIP → Extract → You'll see .ttf ឬ .otf files</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Install</h4><p>Right-click on .ttf file → "Install" ឬ "Install for all users" → Done!</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Verify</h4><p>Open Word / Canva → Font list → Search font name → ✅ Appears = installed!</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="mac">Mac Installation</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Download + Extract</h4><p>Download ZIP → Double-click to extract → .ttf / .otf files appear</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Install via Font Book</h4><p>Double-click .ttf → Font Book opens → Click "Install Font" → Done!</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="web">Web Font — CSS Integration</h2>
+            <div class="code-block"><div class="code-header"><span class="code-lang">CSS — Add to your stylesheet</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+            <pre><span class="k">/* Upload font files to your server first */</span>
+@font-face {
+  font-family: <span class="s">'YOB-Kantum'</span>;
+  src: url(<span class="v">'fonts/YOB-Kantum.woff2'</span>) format('woff2'),
+       url(<span class="v">'fonts/YOB-Kantum.woff'</span>) format('woff');
+  font-weight: <span class="n">400</span>;
+  font-display: swap; <span class="s">/* important for performance */</span>
+}
+
+<span class="k">/* Use it */</span>
+body {
+  font-family: <span class="s">'YOB-Kantum'</span>, 'Kantumruy Pro', sans-serif;
+}</pre></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="canva">Canva — Upload Custom Font</h2>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>Requirement:</strong> Canva Pro ឬ Canva for Teams ដើម្បី upload custom fonts ។ Free plan = ប្រើ Google Fonts only</div></div>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Brand Hub</h4><p>Canva Pro → Brand Hub → Brand Kit → Upload a font</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Upload .ttf</h4><p>Select .ttf file → Upload → Font appears in Brand Fonts section</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Use in Design</h4><p>Text → Font dropdown → "Brand Fonts" section → Select YOB font ✅</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="troubleshooting">⚠️ Common Issues</h2>
+            <ul>
+              <li><strong>Font មិនឃើញ ក្នុង Word/Canva:</strong> Restart application បន្ទាប់ install · ប្រសិនជានៅ install for current user — try "Install for all users" (right-click → Run as Admin)</li>
+              <li><strong>អក្សរខ្មែរបែក / ចេញ □□□:</strong> Font installed ប៉ុន្តែ app ត្រូវ Unicode support ។ ប្រើ Word 2016+ / LibreOffice / Google Docs — ជំនួស Notepad ។</li>
+              <li><strong>Mac: Font Book showing "Duplicate":</strong> Font Book → Resolve Duplicates → Keep New ។ ឬ delete old version ចេញពី ~/Library/Fonts/ ហើយ reinstall ។</li>
+              <li><strong>Web font @font-face មិន load:</strong> ១) File path incorrect — use DevTools → Network tab · ២) CORS error — host font on same domain · ៣) format() ខុស — check woff2 support</li>
+              <li><strong>Canva: Upload font fails:</strong> File size >2MB → compress ។ Canva accepts .ttf, .otf, .woff ។ .woff2 not accepted in Canva !</li>
+            </ul>
+            <div style="border:2px dashed rgba(255,255,255,0.1);border-radius:12px;padding:28px;text-align:center;color:rgba(255,255,255,0.28);margin-top:16px">
+              <i class="fas fa-camera" style="font-size:22px;display:block;margin-bottom:8px"></i>
+              <span style="font-size:13px">Screenshot — Windows Install Steps + Canva Brand Hub (coming soon)</span>
+            </div>
+          </div>

@@ -1,0 +1,94 @@
+<p class="doc-lead">Automation = ធ្វើការ ២៤ ម៉ោង ដោយមិនចាំបាច់ Online ។ Reply DM ភ្លាម, ផ្ញើ Follow-up ដោយស្វ័យប្រវត្តិ, Save Leads — ដោយ System !</p>
+          <div class="doc-section">
+            <h2 id="what">Automation ជាអ្វី?</h2>
+            <p>Automation = ការដំឡើង System ដែលធ្វើការដោយ Auto ដោយមិនចាំបាច់ Human ទៅ:</p>
+            <ul>
+              <li><strong>Reply DM</strong> — ManyChat ឆ្លើយ Facebook/Instagram Message ភ្លាម</li>
+              <li><strong>Lead capture</strong> — Save ព័ត៌មាន Customer ទៅ Google Sheet ដោយ Auto</li>
+              <li><strong>Follow-up sequence</strong> — ផ្ញើ Message បន្ទាប់ 24h/48h ដោយ Auto</li>
+              <li><strong>Notification</strong> — ទទួល Alert ពេល Lead ថ្មី, Order ថ្មី, Comment ថ្មី</li>
+            </ul>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>ROI:</strong> អ្នក ដែលប្រើ ManyChat + Zapier report Response Rate ជា 95%+ (vs 30% manual) ។ Lead capture ដោយ Auto = 0 lead missed !</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="manychat">ManyChat — Facebook & Instagram DM Bot</h2>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>Free Plan:</strong> Up to 1,000 contacts ។ ល្អប្រើ អ្នក ចាប់ផ្ដើម !</div></div>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Create Account</h4><p>ចូល manychat.com → Sign up with Facebook → Connect Facebook Page / Instagram Account ។</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Setup Default Reply</h4><p>Automation → Default Reply → ដាក់ Message ស្វាគមន៍ + Menu buttons (ឧ. "ចង់ដឹងតម្លៃ", "ចង់ Order", "ទាក់ទងផ្ទាល់") ។</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Keyword Trigger</h4><p>Automation → Keywords → ដាក់ keyword: "តម្លៃ", "price", "order" → Auto-reply ជាមួយ info ។ ១ keyword = ១ auto-flow !</p></div></div>
+              <div class="step-item"><div class="step-num">4</div><div class="step-body"><h4>Collect Lead Info</h4><p>ក្នុង Flow → User Input → ឱ្យ user ផ្ញើ ឈ្មោះ + Phone → Save ទៅ Custom Field → Export ជា CSV ឬ ភ្ជាប់ Google Sheet ។</p></div></div>
+              <div class="step-item"><div class="step-num">5</div><div class="step-body"><h4>Comment Auto-Reply</h4><p>Growth Tools → Comment Growth Tool → Post ណាមួយ → ពេល Comment → Auto-DM user ។ Powerful for giveaway / announcement posts !</p></div></div>
+            </div>
+            <div class="code-block">
+              <div class="code-header"><span class="code-lang">MANYCHAT FLOW TEMPLATE</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+              <pre><span class="c">// Trigger: User DMs "តម្លៃ" or "price"</span>
+<span class="k">Message 1:</span> <span class="s">"សួស្ដី! 👋 YOB Digital ទទួលបានសំណើរបស់អ្នកហើយ!"</span>
+
+<span class="k">Quick Replies:</span>
+→ <span class="v">"ចង់ដឹងតម្លៃ Package"</span>   → Flow: Price Info
+→ <span class="v">"ចង់ Book Free Call"</span>    → Flow: Booking
+→ <span class="v">"សំណួរផ្សេង"</span>           → Flow: Handoff to Human
+
+<span class="k">Message 2 (Price Info):</span>
+<span class="s">"Package YOB ចាប់ពី $99/month 🚀
+✅ Strategy + Execution
+✅ Khmer content
+✅ Weekly Report
+→ [Book Free 30min Call]"</span></pre>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="make">Make.com — No-Code Automation Flows</h2>
+            <p>Make (formerly Integromat) = ភ្ជាប់ Apps ផ្សេងៗ ដោយ visual drag-and-drop ។ Free plan: 1,000 operations/month ។</p>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Use Case: Facebook Lead → Google Sheet</h4><p>Facebook Lead Ads → Make.com → Google Sheets ។ ពេល Lead Fill Form → ព័ត៌មានចូលទៅ Sheet ដោយ Auto !</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Use Case: Telegram Notification</h4><p>Facebook Comment → Make.com → Telegram Bot Message ។ ពេលគេ Comment Post → អ្នកទទួល Notification Telegram ភ្លាម !</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Setup Steps</h4><p>make.com → Create account → New Scenario → Add trigger (Facebook) → Add action (Sheets/Telegram) → Save → Activate ។</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="zapier">Zapier — Quick Automation</h2>
+            <p>Zapier = Easy version of Make ។ Free: 100 tasks/month ។ ល្អសម្រាប់ simple 2-step Zaps:</p>
+            <ul>
+              <li><strong>Typeform → Google Sheets</strong> — Survey responses auto-saved</li>
+              <li><strong>Gmail → Slack/Telegram</strong> — Email notification ភ្លាម</li>
+              <li><strong>Facebook Lead → Gmail</strong> — Lead notification email</li>
+              <li><strong>Calendly → Google Calendar</strong> — Auto booking sync</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="telegram-bot">Telegram Bot Setup</h2>
+            <div class="steps">
+              <div class="step-item"><div class="step-num">1</div><div class="step-body"><h4>Create Bot</h4><p>Telegram → Search <strong>@BotFather</strong> → /newbot → ដាក់ Name + Username → Get Bot Token (save it!)</p></div></div>
+              <div class="step-item"><div class="step-num">2</div><div class="step-body"><h4>Get Chat ID</h4><p>Search <strong>@userinfobot</strong> → /start → Copy Chat ID ។ ប្រើ Group Chat ID ដើម្បី notify ក្រុម!</p></div></div>
+              <div class="step-item"><div class="step-num">3</div><div class="step-body"><h4>Connect to Make/Zapier</h4><p>Make.com → Telegram module → Paste Bot Token + Chat ID → Test → ផ្ញើ notification !</p></div></div>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="checklist">Automation Checklist — Starter Kit</h2>
+            <ul>
+              <li>☐ ManyChat connected to Facebook Page</li>
+              <li>☐ Default Reply + Welcome Message setup</li>
+              <li>☐ ≥3 Keyword triggers active (ឧ. តម្លៃ, order, info)</li>
+              <li>☐ Lead capture flow → save to Google Sheet</li>
+              <li>☐ Telegram Bot created for team notifications</li>
+              <li>☐ Make.com / Zapier: Facebook Lead → Sheet connected</li>
+              <li>☐ Weekly: Export contacts + Review automation performance</li>
+            </ul>
+            <div class="callout good"><i class="fas fa-star callout-icon"></i><div class="callout-body"><strong>YOB Milestone:</strong> Setup ៣ automation ខាងលើ = Business ដំណើរការ ២៤ ម៉ោង ដោយ Auto ។ Free tools ទាំងអស់ !</div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="troubleshooting">⚠️ Common Issues</h2>
+            <ul>
+              <li><strong>ManyChat មិន Reply:</strong> ពិនិត្យ Automation → Default Reply ON/OFF ។ ពិនិត្យថា Facebook Page connected → Settings → Connected Accounts ។</li>
+              <li><strong>Keyword trigger មិនដំណើរការ:</strong> Keyword ត្រូវ exact match (case-insensitive) ។ ព្យាយាម clear bot conversation → test fresh ។ ManyChat keyword test: Automation → Keywords → Preview ។</li>
+              <li><strong>Make.com Scenario stopped:</strong> ១) Operation limit reached (Free: 1,000/month) · ២) Connection expired — Reconnect app · ៣) Error in module — Check error log → Fix data mapping ។</li>
+              <li><strong>Telegram Bot គ្មាន Notification:</strong> ពិនិត្យ Bot Token correct · ពិនិត្យ Chat ID (Group IDs start with -) · Test: send curl request ជាមុន ។</li>
+              <li><strong>Lead មិន Save ទៅ Google Sheet:</strong> ពិនិត្យ Sheet permission — Bot account ត្រូវ Editor access · ពិនិត្យ column mapping ក្នុង Make/Zapier ។</li>
+            </ul>
+            <div style="border:2px dashed rgba(255,255,255,0.1);border-radius:12px;padding:28px;text-align:center;color:rgba(255,255,255,0.28);margin-top:16px">
+              <i class="fas fa-camera" style="font-size:22px;display:block;margin-bottom:8px"></i>
+              <span style="font-size:13px">Screenshot — ManyChat Flow Builder + Make.com Scenario (coming soon)</span>
+            </div>
+          </div>

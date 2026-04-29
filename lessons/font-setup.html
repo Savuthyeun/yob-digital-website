@@ -1,0 +1,63 @@
+<p class="doc-lead">ដំឡើង Khmer Unicode Keyboard នៅ Windows ឬ macOS ក្នុង 5 ជំហានសាមញ្ញ — ហើយ វាយអក្សរខ្មែរបានភ្លាម!</p>
+          <div class="doc-section">
+            <h2 id="windows">Windows Setup</h2>
+            <div class="callout tip"><i class="fas fa-windows callout-icon"></i><div class="callout-body"><strong>Windows 10 / 11</strong> — Built-in Khmer Unicode support, no extra software needed!</div></div>
+            <ol>
+              <li>បើក <strong>Settings</strong> → <strong>Time &amp; Language</strong></li>
+              <li>ចូល <strong>Language &amp; region</strong> → ចុច <strong>Add a language</strong></li>
+              <li>ស្វែងរក <strong>Khmer</strong> → ចុច <strong>Next &gt; Install</strong></li>
+              <li>ចូល Khmer options → បើក <strong>Khmer keyboard layout (Unicode)</strong></li>
+              <li>ប្តូរភាសា: <kbd>Win + Space</kbd> ឬ <kbd>Alt + Shift</kbd></li>
+            </ol>
+            <div style="margin-top:16px">
+              <a href="https://drive.google.com/drive/folders/1HqH6oS5WpIvWds4H9kfJ2Cp4phV_LvX2?usp=sharing" class="btn-outline" target="_blank" rel="noopener">
+                <i class="fas fa-download"></i> ទាញយក Khmer Unicode Pack
+              </a>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="macos">macOS Setup</h2>
+            <div class="callout tip"><i class="fab fa-apple callout-icon"></i><div class="callout-body"><strong>macOS</strong> — Built-in Khmer support via System Settings Input Sources.</div></div>
+            <ol>
+              <li>បើក <strong>System Settings</strong> (ឬ System Preferences)</li>
+              <li>ចូល <strong>Keyboard &gt; Input Sources</strong></li>
+              <li>ចុច <strong>+</strong> → ស្វែងរក <strong>Khmer</strong></li>
+              <li>ជ្រើស <strong>Khmer Unicode keyboard</strong> → ចុច <strong>Add</strong></li>
+              <li>ប្តូរភាសា: <kbd>Control + Space</kbd> ឬពី menu bar</li>
+            </ol>
+            <div style="margin-top:16px">
+              <a href="https://drive.google.com/drive/folders/1HqH6oS5WpIvWds4H9kfJ2Cp4phV_LvX2?usp=sharing" class="btn-outline" target="_blank" rel="noopener">
+                <i class="fas fa-download"></i> ទាញយក Khmer Unicode Pack
+              </a>
+            </div>
+          </div>
+          <div class="doc-section">
+            <h2 id="checklist">Install Checklist</h2>
+            <ul>
+              <li>✅ បានបើក Google Drive link និងទាញយក package</li>
+              <li>✅ បានបន្ថែម Khmer keyboard នៅក្នុង OS settings</li>
+              <li>✅ បានសាកប្តូរភាសា (Win+Space ឬ Control+Space)</li>
+              <li>✅ បានសាកវាយអក្សរខ្មែរ នៅ Typing Practice ខាងក្រោម</li>
+            </ul>
+          </div>
+          <div class="doc-section">
+            <h2 id="troubleshooting">Troubleshooting</h2>
+            <ul>
+              <li><strong>អក្សរបែក ឬចេញជា ▢:</strong> សាកល្បង font Khmer Unicode ដូចជា Kantumruy Pro, Noto Sans Khmer, Battambang</li>
+              <li><strong>មិនឃើញ Khmer keyboard:</strong> restart ម្តង ហើយពិនិត្យ Input Source ឡើងវិញ</li>
+              <li><strong>ចង់រៀនការវាយលឿន:</strong> ចាប់ផ្តើមពី Khmer layout មួយ ហើយប្រើ key combo ដដែលរៀងរាល់ថ្ងៃ</li>
+            </ul>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body">ត្រូវការជំនួយ? DM យើងនៅ <a href="https://t.me/yobdigital" target="_blank">t.me/yobdigital</a></div></div>
+          </div>
+          <div class="doc-section">
+            <h2 id="practice">Typing Practice</h2>
+            <p>សាកវាយអត្ថបទខ្មែរខ្លះៗ ដើម្បីប្រាកដថា Keyboard ដំណើរការ:</p>
+            <div style="margin-top:12px">
+              <textarea id="kbdPracticeInput" style="width:100%;min-height:100px;background:rgba(255,255,255,0.04);border:1px solid var(--border2);border-radius:12px;padding:14px 16px;color:var(--white);font-family:var(--fk);font-size:16px;line-height:1.8;resize:vertical;outline:none" placeholder="វាយអត្ថបទខ្មែរ​នៅទីនេះ ប្រើ Khmer Keyboard..."></textarea>
+              <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap">
+                <button type="button" class="btn-outline" onclick="(function(){const t=document.getElementById('kbdPracticeInput');if(!t||!t.value)return;navigator.clipboard?.writeText(t.value).catch(()=>{const ta=document.createElement('textarea');ta.value=t.value;ta.style.cssText='position:fixed;top:-9999px;opacity:0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(_){}document.body.removeChild(ta)})})()"><i class="fas fa-copy"></i> ចម្លង</button>
+                <button type="button" class="btn-primary" onclick="const t=document.getElementById('kbdPracticeInput');if(t)t.value=''"><i class="fas fa-eraser"></i> សម្អាត</button>
+              </div>
+            </div>
+            <div class="callout tip" style="margin-top:20px"><i class="fas fa-star callout-icon"></i><div class="callout-body">ហើយ! បានដំឡើង Keyboard ជោគជ័យ? ចូល <a onclick="loadPage('fonts-overview')" style="cursor:pointer;color:var(--gold)">Fonts Overview</a> ដើម្បីជ្រើស Font ដំបូង!</div></div>
+          </div>

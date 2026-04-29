@@ -1,0 +1,471 @@
+<!-- Lesson Meta -->
+          <div class="lesson-meta">
+            <span class="lm-badge"><i class="fas fa-clock"></i> 25–35 នាទី</span>
+            <span class="lm-badge pink"><i class="fas fa-signal"></i> Beginner → Intermediate</span>
+            <span class="lm-badge green"><i class="fas fa-users"></i> ការងារ · សិក្សា · Design · បង្រៀន</span>
+            <span class="lm-badge blue"><i class="fas fa-copy"></i> Templates Copy-Ready</span>
+          </div>
+
+          <p class="doc-lead">Prompt Engineering = ជំនាញ <strong>បញ្ជា AI ឱ្យត្រឹមត្រូវ</strong> ។ AI ឆ្លាតប៉ុណ្ណា — Output ល្អ ឬ អន់ អាស្រ័យ ១០០% លើ Prompt ដែលអ្នកសរសេរ ។ រៀនម្តង — Apply គ្រប់ Context !</p>
+
+          <!-- Section 1: What is Prompt Engineering -->
+          <div class="doc-section">
+            <h2 id="what-is">Prompt Engineering ជាអ្វី?</h2>
+            <p>Prompt = instruction ដែលអ្នកផ្ញើទៅ AI ។ Prompt Engineering = ការរៀបចំ instruction នោះ ឱ្យ <strong>ច្បាស់ · ពេញលេញ · មានបរិបទ</strong> ដើម្បីទទួលបាន output ដែល apply បានភ្លាម ។</p>
+            <div class="concept-grid">
+              <div class="concept-card">
+                <span class="concept-card-icon">📥</span>
+                <h4>Prompt អន់</h4>
+                <p>"សរសេរ caption" → AI confused → Output generic → Waste time re-prompt</p>
+              </div>
+              <div class="concept-card">
+                <span class="concept-card-icon">📤</span>
+                <h4>Prompt ល្អ</h4>
+                <p>Role + Task + Context + Format + Tone → AI ឆ្លើយ precise → Apply ភ្លាម!</p>
+              </div>
+              <div class="concept-card">
+                <span class="concept-card-icon">⚡</span>
+                <h4>ហេតុអ្វីសំខាន់?</h4>
+                <p>Prompt ល្អ = Save 70% time re-prompting ។ Output quality ខ្ពស់ ១០x ភ្លាម</p>
+              </div>
+              <div class="concept-card">
+                <span class="concept-card-icon">🧠</span>
+                <h4>AI Model ≠ Magic</h4>
+                <p>AI ល្អតាម instruction ។ Garbage in = Garbage out — rule #1 of AI</p>
+              </div>
+            </div>
+            <div class="callout note"><i class="fas fa-info-circle callout-icon"></i><div class="callout-body"><strong>Insight:</strong> អ្នកដែល Prompt ល្អ ដូចមានជំនួយការ Expert ១ ។ អ្នកដែល Prompt អន់ ដូចទាក់ទងគ្នាមិនយល់ — ២ភាគីធ្វើការ waste time ។</div></div>
+          </div>
+
+          <!-- Section 2: Anatomy -->
+          <div class="doc-section">
+            <h2 id="anatomy">Anatomy of a Great Prompt</h2>
+            <p>Prompt ល្អ = ផ្នែក <strong>៥</strong> ដែល work together ។ មិនចាំបាច់ include ទាំងអស់ — ប៉ុន្តែ ច្រើន = ល្អ :</p>
+            <div class="prompt-anatomy">
+              <div class="pa-label">🔬 Prompt Anatomy — Visual Breakdown</div>
+              <div class="pa-line">
+                <span class="pa-tag role">ROLE</span>
+                <span class="pa-text">Act as a <strong>Khmer business writing expert</strong> with 10 years experience in business consulting.</span>
+              </div>
+              <div class="pa-line">
+                <span class="pa-tag task">TASK</span>
+                <span class="pa-text">Write a <strong>professional business proposal</strong> for a café wanting to partner with a hotel.</span>
+              </div>
+              <div class="pa-line">
+                <span class="pa-tag ctx">CONTEXT</span>
+                <span class="pa-text">Café name: Pailin Coffee · Location: Phnom Penh · Budget: <strong>$500/month</strong> · Target: Premium hotel guests.</span>
+              </div>
+              <div class="pa-line">
+                <span class="pa-tag fmt">FORMAT</span>
+                <span class="pa-text">Return as: <strong>Executive Summary (3 sentences) + 4 sections + Call to Action</strong> · Max 400 words total.</span>
+              </div>
+              <div class="pa-line">
+                <span class="pa-tag tone">TONE</span>
+                <span class="pa-text">Professional, confident, <strong>persuasive</strong> · Formal Khmer mix English terms · No jargon.</span>
+              </div>
+              <div class="pa-legend">
+                <div class="pa-legend-item"><div class="pa-dot" style="background:#e52c67"></div> Role — AI ជាអ្នកជំនាញអ្វី</div>
+                <div class="pa-legend-item"><div class="pa-dot" style="background:#79b8ff"></div> Task — ធ្វើអ្វី?</div>
+                <div class="pa-legend-item"><div class="pa-dot" style="background:#4ade80"></div> Context — ព័ត៌មានផ្ទៃខាងក្រោយ</div>
+                <div class="pa-legend-item"><div class="pa-dot" style="background:#fbbf24"></div> Format — output ជារូបភាពអ្វី</div>
+                <div class="pa-legend-item"><div class="pa-dot" style="background:#c4b5fd"></div> Tone — ស្ទីល + ភាសា</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: RTFT Framework -->
+          <div class="doc-section">
+            <h2 id="rtft">RTFT Framework — YOB Method</h2>
+            <p>YOB ប្រើ Framework <strong>RTFT</strong> ដែលចងចាំបានងាយ · Apply គ្រប់ Context:</p>
+            <div class="steps">
+              <div class="step-item">
+                <div class="step-num" style="background:linear-gradient(135deg,#e52c67,#ff4d94);font-family:var(--fh);font-size:16px">R</div>
+                <div class="step-body">
+                  <h4>Role — AI ជាអ្នកជំនាញអ្វី?</h4>
+                  <p>ប្រាប់ AI ថាត្រូវ play role ណា ។ Role ច្បាស់ = Output professional ជាង ។<br><code>"Act as a [expert title] with [X] years in [field]..."</code></p>
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-num" style="background:linear-gradient(135deg,#4f82ff,#79b8ff);font-family:var(--fh);font-size:16px">T</div>
+                <div class="step-body">
+                  <h4>Task — AI ត្រូវធ្វើអ្វី?</h4>
+                  <p>ប្រាប់ Action ច្បាស់ — Write / Analyze / Summarize / Translate / Compare / Generate ។<br><code>"Write 5 ... · Analyze this ... · Summarize into 3 points..."</code></p>
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-num" style="background:linear-gradient(135deg,#fbbf24,#f59e0b);font-family:var(--fh);font-size:16px">F</div>
+                <div class="step-body">
+                  <h4>Format — Output ដូចម្ដេច?</h4>
+                  <p>ប្រាប់ Structure · Length · Language ។ AI នឹង follow exactly ។<br><code>"Return as: numbered list · max 200 words · mix Khmer+English · use headers"</code></p>
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-num" style="background:linear-gradient(135deg,#a78bfa,#c4b5fd);font-family:var(--fh);font-size:16px">T</div>
+                <div class="step-body">
+                  <h4>Tone — ស្ទីលសរសេរបែបណា?</h4>
+                  <p>ប្រាប់ Voice + Register ។ Tone ខុស = output feel wrong ទោះ content ត្រឹមត្រូវ ។<br><code>"Friendly · Professional · Casual · Formal · Persuasive · Educational..."</code></p>
+                </div>
+              </div>
+            </div>
+            <div class="callout tip"><i class="fas fa-lightbulb callout-icon"></i><div class="callout-body"><strong>Pro Move:</strong> ចាប់ផ្ដើម RTFT ជានិច្ច — បន្ថែម Context (ព័ត៌មាន Background) ក្នុង Task section ដើម្បីទទួលបាន output ដែល specific ជាង generic !</div></div>
+          </div>
+
+          <!-- Section 4: Work Templates -->
+          <div class="doc-section">
+            <h2 id="templates-work">Templates — 💼 ការងារ (Work)</h2>
+            <p>Prompts សម្រាប់ Professional context — Report, Email, Meeting, Analysis :</p>
+
+            <div class="uc-header work"><div class="uc-header-icon">📧</div><div><h3>Professional Email</h3><p>សរសេរ Email ជំនួស ក្នុង ២ នាទី</p></div></div>
+            <div class="uc-body">
+              <div class="code-block" style="margin-top:0"><div class="code-header"><span class="code-lang">EMAIL PROMPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+              <pre>Act as a <span class="v">professional Khmer business writer</span>.
+
+Task: Write a formal email to:
+- Recipient: <span class="s">[Title + Name ឬ Company]</span>
+- Purpose: <span class="s">[ចង់ request / confirm / follow-up / decline]</span>
+- Key points: <span class="s">[ចំណុច ២-៣ ដែលត្រូវ mention]</span>
+
+Format: Subject line + Body (3 paragraphs) + Professional sign-off
+Tone: Polite, direct, formal — mix Khmer + English terms where appropriate</pre></div>
+            </div>
+
+            <div class="uc-header work" style="margin-top:16px"><div class="uc-header-icon">📊</div><div><h3>Report / Analysis</h3><p>វិភាគ Data ឬ Situation ស្ទីល Consultant</p></div></div>
+            <div class="uc-body">
+              <div class="code-block" style="margin-top:0"><div class="code-header"><span class="code-lang">ANALYSIS PROMPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+              <pre>Act as a <span class="v">senior business analyst</span> specializing in Cambodian market.
+
+Task: Analyze the following situation and provide recommendations:
+[Paste your data / situation description here]
+
+Context:
+- Industry: <span class="s">[ប្រភេទ Business]</span>
+- Goal: <span class="s">[ចង់ achieve អ្វី?]</span>
+- Constraint: <span class="s">[Budget / Time / Resources]</span>
+
+Format:
+- Executive Summary (2 sentences)
+- Key Findings (3-5 bullet points)
+- Risks to Watch (2-3 points)
+- Recommended Actions (numbered, priority order)
+
+Tone: Analytical, objective, actionable — no fluff</pre></div>
+            </div>
+
+            <div class="uc-header work" style="margin-top:16px"><div class="uc-header-icon">📝</div><div><h3>Meeting Minutes / Action Items</h3><p>បំប្លែង notes → structured document</p></div></div>
+            <div class="uc-body">
+              <div class="code-block" style="margin-top:0"><div class="code-header"><span class="code-lang">MEETING NOTES PROMPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+              <pre>Act as a <span class="v">professional meeting secretary</span>.
+
+Task: Convert these raw meeting notes into a structured summary:
+[Paste your meeting notes here]
+
+Format:
+- Date + Attendees
+- Key Decisions Made (bullet points)
+- Action Items table: | Who | What | Deadline |
+- Next Meeting (if mentioned)
+
+Tone: Neutral, clear, professional · English + Khmer as in original notes</pre></div>
+            </div>
+          </div>
+
+          <!-- Section 5: Study Templates -->
+          <div class="doc-section">
+            <h2 id="templates-study">Templates — 📚 ការសិក្សា (Study)</h2>
+            <p>Prompts សម្រាប់ Student · Researcher · Self-learner — Summarize, Explain, Practice:</p>
+
+            <div class="uc-header study"><div class="uc-header-icon">🗜️</div><div><h3>Summarize Complex Topic</h3><p>ធ្វើ Any topic ងាយ + ខ្លី ក្នុង level ដែលចង់</p></div></div>
+            <div class="uc-body">
+              <div class="code-block" style="margin-top:0"><div class="code-header"><span class="code-lang">SUMMARIZE PROMPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+              <pre>Act as a <span class="v">brilliant teacher who can explain anything simply</span>.
+
+Task: Explain the concept of: <span class="s">[Topic / Chapter / Article]</span>
+[Paste text OR describe topic here]
+
+Audience: I am a <span class="s">[student year / professional background]</span> with basic knowledge of <span class="s">[related field]</span>
+
+Format:
+- Core Idea in 1 sentence (ELI5 style)
+- Key Points (5 bullet max)
+- Real-world example from Cambodia / daily life
+- What I should understand AFTER reading this
+
+Tone: Simple, clear — explain like I'm 16, no jargon unless explained</pre></div>
+            </div>
+
+            <div class="uc-header study" style="margin-top:16px"><div class="uc-header-icon">🧪</div><div><h3>Practice Quiz Generator</h3><p>បង្កើត Quiz សម្រាប់ Self-test ភ្លាម</p></div></div>
+            <div class="uc-body">
+              <div class="code-block" style="margin-top:0"><div class="code-header"><span class="code-lang">QUIZ PROMPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+              <pre>Act as a <span class="v">strict but fair academic examiner</span>.
+
+Task: Generate a practice quiz for: <span class="s">[Subject / Chapter]</span>
+[Paste study material OR topic description]
+
+Format:
+- <span class="n">5</span> Multiple Choice questions (A/B/C/D)
+- <span class="n">3</span> Short Answer questions
+- <span class="n">2</span> Scenario-based questions
+- Answer key at the END (separate section)
+
+Difficulty: <span class="s">[Easy / Medium / Hard]</span>
+Language: <span class="s">[Khmer / English / Mixed]</span></pre></div>
+            </div>
+
+            <div class="uc-header study" style="margin-top:16px"><div class="uc-header-icon">🗺️</div><div><h3>Study Plan Builder</h3><p>AI ជួយ plan ការរៀន Smart + Efficient</p></div></div>
+            <div class="uc-body">
+              <div class="code-block" style="margin-top:0"><div class="code-header"><span class="code-lang">STUDY PLAN PROMPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+              <pre>Act as a <span class="v">learning coach and education strategist</span>.
+
+Task: Build a study plan for:
+- Subject: <span class="s">[Subject name]</span>
+- Exam/Deadline: <span class="s">[Date ឬ X weeks away]</span>
+- Available time: <span class="s">[X hours/day · X days/week]</span>
+- Current level: <span class="s">[Beginner / Know basics / Intermediate]</span>
+- Weak areas: <span class="s">[Topics ដែលខ្សោយ]</span>
+
+Format:
+- Week-by-week schedule (table format)
+- Daily task breakdown
+- Resources to use
+- Milestone checkpoints
+
+Tone: Motivating, realistic — build confidence, not stress</pre></div>
+            </div>
+          </div>
+
+          <!-- Section 6: Design Templates -->
+          <div class="doc-section">
+            <h2 id="templates-design">Templates — 🎨 Design</h2>
+            <p>Prompts សម្រាប់ Designer · Creative · Brand Builder — Brief, Feedback, Concept:</p>
+
+            <div class="uc-header design"><div class="uc-header-icon">📋</div><div><h3>Design Brief Generator</h3><p>បង្កើត Brief ច្បាស់ ផ្ញើទៅ Designer ឬ AI Image tool</p></div></div>
+            <div class="uc-body">
+              <div class="code-block" style="margin-top:0"><div class="code-header"><span class="code-lang">DESIGN BRIEF PROMPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+              <pre>Act as a <span class="v">senior art director</span> experienced in Cambodian brand design.
+
+Task: Write a detailed design brief for:
+- Project: <span class="s">[Logo / Banner / Social Post / Website / Packaging]</span>
+- Brand: <span class="s">[Brand name + ប្រភេទ Business]</span>
+- Target Audience: <span class="s">[Age / Gender / Income / Location]</span>
+- Brand Feeling: <span class="s">[Modern / Traditional / Playful / Luxury / Minimal]</span>
+
+Format:
+- Project Overview (2 sentences)
+- Visual Direction (colors, style, mood)
+- Typography direction (font feel)
+- Do's and Don'ts (3 each)
+- Reference brands for inspiration
+- Deliverables expected
+
+Tone: Clear, specific, actionable — a designer should start immediately after reading</pre></div>
+            </div>
+
+            <div class="uc-header design" style="margin-top:16px"><div class="uc-header-icon">🔍</div><div><h3>Design Feedback &amp; Critique</h3><p>AI Critique design ដូច Senior Designer</p></div></div>
+            <div class="uc-body">
+              <div class="code-block" style="margin-top:0"><div class="code-header"><span class="code-lang">DESIGN CRITIQUE PROMPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+              <pre>Act as a <span class="v">brutal-but-constructive senior UI/UX designer</span> with brand expertise.
+
+Task: Critique this design. [Describe your design OR paste description]
+
+Design type: <span class="s">[Logo / Landing page / Social post / App screen]</span>
+Brand goal: <span class="s">[ចង់ communicate អ្វី?]</span>
+Target audience: <span class="s">[Who sees this?]</span>
+
+Evaluate:
+1. Visual hierarchy — Does eye flow correctly?
+2. Color usage — On-brand? Accessible?
+3. Typography — Readable? Appropriate?
+4. Message clarity — Does it communicate in 3 seconds?
+5. Improvement priority list (numbered, most impactful first)
+
+Tone: Honest, direct, actionable — no empty praise</pre></div>
+            </div>
+
+            <div class="uc-header design" style="margin-top:16px"><div class="uc-header-icon">💡</div><div><h3>Creative Concept Generator</h3><p>Brainstorm Campaign / Visual ideas ភ្លាម</p></div></div>
+            <div class="uc-body">
+              <div class="code-block" style="margin-top:0"><div class="code-header"><span class="code-lang">CONCEPT PROMPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+              <pre>Act as a <span class="v">creative director at a top Southeast Asia agency</span>.
+
+Task: Generate <span class="n">5</span> creative campaign concepts for:
+- Brand: <span class="s">[Brand + Industry]</span>
+- Campaign Goal: <span class="s">[Awareness / Sales / Launch / Engagement]</span>
+- Budget level: <span class="s">[Low ($) / Medium ($$) / High ($$$)]</span>
+- Platform: <span class="s">[Facebook / TikTok / Instagram / OOH / All]</span>
+- Unique insight about audience: <span class="s">[What do they care about?]</span>
+
+For each concept:
+- Concept name + One-liner
+- Big idea (2 sentences)
+- Key visual direction
+- Hero content piece
+- Why it works for Cambodia market</pre></div>
+            </div>
+          </div>
+
+          <!-- Section 7: Teaching Templates -->
+          <div class="doc-section">
+            <h2 id="templates-teach">Templates — 🎓 បង្រៀន (Teaching)</h2>
+            <p>Prompts សម្រាប់ Teacher · Trainer · Content Educator — Lesson plan, Explain, Assessment:</p>
+
+            <div class="uc-header teach"><div class="uc-header-icon">📐</div><div><h3>Lesson Plan Builder</h3><p>AI ជួយ design មេរៀន structured + engaging</p></div></div>
+            <div class="uc-body">
+              <div class="code-block" style="margin-top:0"><div class="code-header"><span class="code-lang">LESSON PLAN PROMPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+              <pre>Act as a <span class="v">master curriculum designer</span> with experience in adult education.
+
+Task: Create a complete lesson plan for:
+- Topic: <span class="s">[មេរៀន / Subject]</span>
+- Duration: <span class="s">[X minutes / hours]</span>
+- Students: <span class="s">[Age / Level / Background]</span>
+- Learning Objective: By end of class, students will be able to <span class="s">[DO what?]</span>
+
+Format:
+- Warm-up activity (5 min)
+- Core instruction breakdown (with timing)
+- Practice / Activity section
+- Assessment method
+- Homework / Follow-up
+- Materials needed
+
+Tone: Practical, clear — a substitute teacher could run this without briefing</pre></div>
+            </div>
+
+            <div class="uc-header teach" style="margin-top:16px"><div class="uc-header-icon">🗣️</div><div><h3>Explain Difficult Concept to Students</h3><p>AI ធ្វើ Analogy + ការពន្យល់ Level-appropriate</p></div></div>
+            <div class="uc-body">
+              <div class="code-block" style="margin-top:0"><div class="code-header"><span class="code-lang">EXPLAIN TO STUDENTS PROMPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+              <pre>Act as a <span class="v">gifted teacher who makes complex ideas simple</span>.
+
+Task: Explain <span class="s">[Concept]</span> to students who are <span class="s">[Age / Grade / Level]</span>.
+
+Context: Students already understand: <span class="s">[Previous knowledge]</span>
+Common misconception to address: <span class="s">[What do they usually get wrong?]</span>
+
+Format:
+- Start with a relatable analogy from everyday Cambodian life
+- Explain in plain language (avoid jargon · define if must use)
+- Give 2 concrete examples (easy → harder)
+- Common mistake + how to avoid
+- 1 sentence summary they can repeat back
+
+Tone: Warm, encouraging, patient — make students feel "I can do this"</pre></div>
+            </div>
+
+            <div class="uc-header teach" style="margin-top:16px"><div class="uc-header-icon">📊</div><div><h3>Assessment &amp; Rubric Creator</h3><p>បង្កើត Rubric + Grading criteria ច្បាស់</p></div></div>
+            <div class="uc-body">
+              <div class="code-block" style="margin-top:0"><div class="code-header"><span class="code-lang">RUBRIC PROMPT</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+              <pre>Act as a <span class="v">fair and experienced academic assessor</span>.
+
+Task: Create an assessment rubric for:
+- Assignment: <span class="s">[Project / Essay / Presentation / Lab]</span>
+- Level: <span class="s">[Grade / Uni year / Professional cert]</span>
+- Total marks: <span class="s">[X points]</span>
+- Key skills being tested: <span class="s">[List 3-5]</span>
+
+Format: Table with columns:
+| Criteria | Excellent (90-100%) | Good (70-89%) | Acceptable (50-69%) | Needs Work (&lt;50%) | Weight |
+
+Include: Teacher comment prompts for each criteria level
+Tone: Fair, objective, clear — students should know exactly how to get full marks</pre></div>
+            </div>
+          </div>
+
+          <!-- Section 8: Advanced Techniques -->
+          <div class="doc-section">
+            <h2 id="advanced">Advanced Techniques</h2>
+            <p>Master ៤ technique ខាងក្រោម — output quality jump ១ level :</p>
+            <div class="technique-grid">
+              <div class="technique-card">
+                <span class="technique-badge">Core</span>
+                <h4>Chain of Thought</h4>
+                <p>បន្ថែម "Think step by step before answering" ។ AI ធ្វើ reasoning ច្បាស់ → Fewer errors ។ ល្អសម្រាប់ Math, Logic, Analysis ។</p>
+              </div>
+              <div class="technique-card">
+                <span class="technique-badge">Core</span>
+                <h4>Few-Shot Examples</h4>
+                <p>ផ្ដល់ ២-៣ examples ជាមុន ។ AI copy style + format ។ <code>"Here are 2 examples of what I want: [ex1] [ex2] — Now write..."</code></p>
+              </div>
+              <div class="technique-card">
+                <span class="technique-badge">Core</span>
+                <h4>Constraint Prompting</h4>
+                <p>ប្រើ "Do NOT..." ឬ "Only use..." ។ AI ជៀសវាង mistake ។ <code>"Do NOT use marketing jargon · Only write in Khmer"</code></p>
+              </div>
+              <div class="technique-card">
+                <span class="technique-badge adv">Advanced</span>
+                <h4>Iterative Refinement</h4>
+                <p>AI output = Draft ។ Prompt ម្ដងទៀត: "Make it shorter / more formal / add example" — build on same thread ។</p>
+              </div>
+              <div class="technique-card">
+                <span class="technique-badge adv">Advanced</span>
+                <h4>System Persona</h4>
+                <p>Set AI identity ជានិច្ច :<br><code>"For this entire conversation, you are [Expert]. Never break character."</code></p>
+              </div>
+              <div class="technique-card">
+                <span class="technique-badge adv">Advanced</span>
+                <h4>Output Anchoring</h4>
+                <p>ផ្ដល់ partial output ដើម្បី anchor style :<br><code>"Start your response with: 'ការវិភាគ...' and follow this structure: [outline]"</code></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Try It Now -->
+          <div class="try-it-box">
+            <div class="try-it-label"><i class="fas fa-bolt"></i> Try It Now — RTFT Master Prompt</div>
+            <h4>ធ្វើ RTFT Prompt ពេញ · Test ភ្លាម</h4>
+            <p>Copy template ខាងក្រោម → Paste ទៅ Claude → Replace <strong>[...]</strong> → ឃើញ magic !</p>
+            <div class="code-block">
+              <div class="code-header"><span class="code-lang">RTFT MASTER TEMPLATE — UNIVERSAL</span><button class="code-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i> Copy</button></div>
+              <pre><span class="c">// ROLE</span>
+Act as a <span class="v">[Expert title]</span> with <span class="n">[X]</span> years experience in <span class="s">[field/industry]</span>.
+
+<span class="c">// TASK</span>
+Task: <span class="v">[Action verb]</span> a <span class="s">[output type]</span> about/for:
+- Main subject: <span class="s">[Topic / Project / Person]</span>
+- Goal: <span class="s">[ចង់ achieve អ្វី?]</span>
+- Key details: <span class="s">[Context សំខាន់ ២-៣ ចំណុច]</span>
+
+<span class="c">// FORMAT</span>
+Format:
+- Structure: <span class="s">[sections / bullet list / table / paragraphs]</span>
+- Length: Max <span class="n">[X]</span> words
+- Language: <span class="s">[Khmer / English / Mixed]</span>
+
+<span class="c">// TONE</span>
+Tone: <span class="s">[Professional / Friendly / Formal / Casual / Persuasive]</span>
+Do NOT: <span class="s">[ចំណុចដែល AI ត្រូវជៀស]</span></pre>
+            </div>
+          </div>
+
+          <!-- Section 9: Checklist -->
+          <div class="doc-section">
+            <h2 id="checklist">Prompt Quality Checklist</h2>
+            <p>មុន Submit Prompt — Check ៧ ចំណុចនេះ :</p>
+            <div class="prompt-checklist">
+              <div class="pc-item"><i class="fas fa-check-circle pc-icon"></i> <span>Role ច្បាស់ — AI ដឹងថាជា expert ផ្នែកណា?</span></div>
+              <div class="pc-item"><i class="fas fa-check-circle pc-icon"></i> <span>Task = Action verb ច្បាស់ (Write / Analyze / Generate / Summarize)</span></div>
+              <div class="pc-item"><i class="fas fa-check-circle pc-icon"></i> <span>Context ពេញ — Background info ដែល AI ត្រូវដឹងដើម្បីជួយ</span></div>
+              <div class="pc-item"><i class="fas fa-check-circle pc-icon"></i> <span>Format specified — Structure, Length, Language ច្បាស់</span></div>
+              <div class="pc-item"><i class="fas fa-check-circle pc-icon"></i> <span>Tone defined — AI ដឹងថា sound បែបណា?</span></div>
+              <div class="pc-item"><i class="fas fa-check-circle pc-icon"></i> <span>Constraints listed — "Do NOT..." ឬ "Only..." ដើម្បីជៀស mistake</span></div>
+              <div class="pc-item"><i class="fas fa-check-circle pc-icon"></i> <span>Output ដំបូង → Iterate — Prompt ជាការសន្ទនា មិនមែន One-shot!</span></div>
+            </div>
+          </div>
+
+          <!-- Mistake Cards -->
+          <div class="doc-section">
+            <h2 id="mistakes">Mistakes ដែលត្រូវជៀសវាង</h2>
+            <div class="mistake-list">
+              <div class="mistake-item"><span class="mistake-x"><i class="fas fa-times-circle"></i></span><div class="mistake-body"><strong>Too vague — "Help me write something"</strong><span>AI មិនដឹងចង់បានអ្វី ។ Fix: ប្រើ RTFT · ចង់បាន output ជារូបភាពអ្វី?</span></div></div>
+              <div class="mistake-item"><span class="mistake-x"><i class="fas fa-times-circle"></i></span><div class="mistake-body"><strong>Copy output ១០០% — Paste ដោយ review</strong><span>AI ធ្វើ mistake ។ Fix: Review + Edit 20% · AI = Draft, Human = Final editor</span></div></div>
+              <div class="mistake-item"><span class="mistake-x"><i class="fas fa-times-circle"></i></span><div class="mistake-body"><strong>Give up after first bad output</strong><span>Output bad = Prompt ត្រូវ refine ។ Fix: Reply ភ្លាម "Make it [shorter / more formal / focus on X]"</span></div></div>
+              <div class="mistake-item"><span class="mistake-x"><i class="fas fa-times-circle"></i></span><div class="mistake-body"><strong>New conversation ជានិច្ច — AI lose context</strong><span>ក្នុង Claude/ChatGPT — stay in same thread ។ AI remember context → output better each round</span></div></div>
+            </div>
+          </div>
+
+          <!-- Lesson Recap -->
+          <div class="lesson-recap">
+            <div class="lesson-recap-title"><i class="fas fa-flag-checkered"></i> Key Takeaways — Prompt Engineering</div>
+            <div class="recap-item"><i class="fas fa-check"></i> Prompt = Instruction · Output quality = Prompt quality · Garbage in = Garbage out</div>
+            <div class="recap-item"><i class="fas fa-check"></i> RTFT = Role + Task + Format + Tone — framework ជានិច្ច · apply គ្រប់ context</div>
+            <div class="recap-item"><i class="fas fa-check"></i> Templates ការងារ · សិក្សា · Design · បង្រៀន — Copy, Replace [ ], Done!</div>
+            <div class="recap-item"><i class="fas fa-check"></i> Advanced: Chain of Thought · Few-shot · Constraints · Iterate in same thread</div>
+            <div class="recap-item"><i class="fas fa-arrow-right"></i> ជំហានបន្ទាប់: <a href="javascript:void(0)" onclick="loadPage('ai-content')" style="color:var(--gold)">AI Content Creation → ប្រើ Prompt បង្កើត 30-day content →</a></div>
+          </div>
