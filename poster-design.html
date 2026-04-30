@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poster Design — YOB Digital</title>
+    <meta name="description" content="ស្នាដៃ Poster Design របស់ YOB Digital — ការរចនា Online & Offline ដែលជួយ Brand ខ្មែរឱ្យ Professional ភ្លាម។" />
+
+    <link rel="canonical" href="https://yobdigital.netlify.app/poster-design.html" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+
+    <meta property="og:title" content="Poster Design — YOB Digital" />
+    <meta property="og:description" content="ស្នាដៃ Poster Design — Online & Offline Brand Visual System សម្រាប់ SME ខ្មែរ។" />
+    <meta property="og:image" content="https://yobdigital.netlify.app/images/og-cover.jpg" />
+    <meta property="og:url" content="https://yobdigital.netlify.app/poster-design.html" />
+    <meta property="og:type" content="website" />
+
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      /* ── Hero ── */
+      .pd-hero {
+        padding: 130px 0 60px;
+        text-align: center;
+      }
+      .pd-hero-title {
+        font-family: var(--fh);
+        font-size: clamp(3rem, 7vw, 5.5rem);
+        line-height: 1;
+        color: var(--white);
+        margin: 12px 0 16px;
+        letter-spacing: 0.01em;
+      }
+      .pd-hero-sub {
+        font-family: var(--fb);
+        font-size: clamp(1rem, 2.5vw, 1.125rem);
+        color: var(--gray);
+        max-width: 500px;
+        margin: 0 auto 40px;
+        line-height: 1.7;
+      }
+
+      /* ── Filter bar ── */
+      .pd-filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 56px;
+      }
+      .pd-filter-btn {
+        font-family: var(--fb);
+        font-size: 14px;
+        font-weight: 500;
+        padding: 9px 22px;
+        border-radius: var(--radius-btn);
+        border: 1px solid var(--border2);
+        background: transparent;
+        color: var(--gray);
+        cursor: pointer;
+        transition: var(--t);
+      }
+      .pd-filter-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+      .pd-filter-btn.active {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: var(--white);
+      }
+
+      /* ── Client label ── */
+      .pd-client-block { margin-bottom: 60px; }
+      .pd-client-label {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: var(--fb);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gray);
+        margin-bottom: 20px;
+      }
+      .pd-client-label .pd-cl-name { color: var(--gold); font-size: 13px; }
+      .pd-client-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      /* ── Masonry grid ── */
+      .pd-grid {
+        columns: 3;
+        column-gap: 12px;
+      }
+
+      /* ── Card ── */
+      .pd-card {
+        break-inside: avoid;
+        margin-bottom: 12px;
+        position: relative;
+        border-radius: var(--radius);
+        overflow: hidden;
+        cursor: pointer;
+        background: var(--dark2);
+        border: 1px solid var(--border);
+        display: block;
+      }
+      .pd-card img {
+        width: 100%;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .pd-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(8,11,16,0.88) 0%, transparent 55%);
+        display: flex;
+        align-items: flex-end;
+        padding: 18px;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+      .pd-overlay-inner { font-family: var(--fb); }
+      .pd-overlay-client {
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 3px;
+      }
+      .pd-overlay-name {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--white);
+      }
+
+      /* ── FX: zoom (default) ── */
+      .pd-card.fx-zoom:hover { box-shadow: 0 8px 40px var(--gold-glow); }
+      .pd-card.fx-zoom:hover img { transform: scale(1.07); }
+      .pd-card.fx-zoom:hover .pd-overlay { opacity: 1; }
+
+      /* ── FX: reveal (overlay slides up) ── */
+      .pd-card.fx-reveal .pd-overlay {
+        opacity: 1;
+        transform: translateY(100%);
+        transition: transform 0.38s cubic-bezier(0.16,1,0.3,1);
+      }
+      .pd-card.fx-reveal:hover .pd-overlay { transform: translateY(0); }
+
+      /* ── FX: wash (pink tint) ── */
+      .pd-card.fx-wash::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--gold);
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        pointer-events: none;
+      }
+      .pd-card.fx-wash:hover::after { opacity: 0.13; }
+      .pd-card.fx-wash:hover img { transform: scale(1.04); }
+      .pd-card.fx-wash:hover .pd-overlay { opacity: 1; }
+
+      /* ── FX: tilt (JS-driven) ── */
+      .pd-card.fx-tilt {
+        transform-style: preserve-3d;
+        will-change: transform;
+        transition: box-shadow 0.35s ease;
+      }
+      .pd-card.fx-tilt:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.5); }
+      .pd-card.fx-tilt:hover .pd-overlay { opacity: 1; }
+
+      /* ── FX: glitch ── */
+      .pd-card.fx-glitch:hover img { animation: pd-glitch 0.45s steps(2) infinite; }
+      .pd-card.fx-glitch:hover {
+        box-shadow: -3px 0 0 var(--gold), 3px 0 0 rgba(0,255,200,0.7);
+      }
+      .pd-card.fx-glitch:hover .pd-overlay { opacity: 1; }
+      @keyframes pd-glitch {
+        0%   { transform: translateX(0);   filter: hue-rotate(0deg); }
+        25%  { transform: translateX(-3px); filter: hue-rotate(90deg); }
+        50%  { transform: translateX(3px);  filter: hue-rotate(200deg); }
+        75%  { transform: translateX(-2px); filter: hue-rotate(280deg); }
+        100% { transform: translateX(0);   filter: hue-rotate(360deg); }
+      }
+
+      /* ── Lightbox ── */
+      .pd-lb {
+        position: fixed;
+        inset: 0;
+        background: rgba(8,11,16,0.96);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .pd-lb.open { opacity: 1; pointer-events: all; }
+      .pd-lb-inner {
+        position: relative;
+        max-width: min(88vw, 620px);
+        width: 100%;
+      }
+      .pd-lb-img {
+        width: 100%;
+        border-radius: var(--radius);
+        display: block;
+        box-shadow: 0 32px 80px rgba(0,0,0,0.7);
+      }
+      .pd-lb-close {
+        position: absolute;
+        top: -48px;
+        right: 0;
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.2s;
+        padding: 8px;
+      }
+      .pd-lb-close:hover { opacity: 1; }
+      .pd-lb-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255,255,255,0.07);
+        border: 1px solid var(--border2);
+        color: var(--white);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s, border-color 0.2s;
+        font-size: 15px;
+      }
+      .pd-lb-nav:hover { background: var(--gold); border-color: var(--gold); }
+      .pd-lb-prev { left: -58px; }
+      .pd-lb-next { right: -58px; }
+      .pd-lb-counter {
+        position: absolute;
+        bottom: -36px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+        white-space: nowrap;
+      }
+
+      /* ── CTA strip ── */
+      .pd-cta {
+        text-align: center;
+        padding: 64px 0 100px;
+      }
+      .pd-cta h2 {
+        font-family: var(--fh);
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: var(--white);
+        margin-bottom: 12px;
+      }
+      .pd-cta p {
+        font-family: var(--fb);
+        font-size: clamp(1rem, 2.5vw, 1.125rem);
+        color: var(--gray);
+        margin-bottom: 28px;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 900px) {
+        .pd-grid { columns: 2; column-gap: 10px; }
+        .pd-lb-prev { left: -44px; }
+        .pd-lb-next { right: -44px; }
+      }
+      @media (max-width: 600px) {
+        .pd-grid { columns: 2; column-gap: 8px; }
+        .pd-card { margin-bottom: 8px; }
+        .pd-lb-inner { max-width: 92vw; }
+        .pd-lb-prev { left: -36px; }
+        .pd-lb-next { right: -36px; }
+        .pd-lb-nav { width: 36px; height: 36px; font-size: 13px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div id="nav-placeholder"></div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button class="drawer-close" id="drawerClose">
+        <i class="fas fa-times"></i>
+      </button>
+      <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">
+          Learn <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="drawer-group-items">
+          <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+          <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+          <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
+        </div>
+      </div>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">
+          Products <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="drawer-group-items">
+          <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+          <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
+          <a href="poster-design.html" onclick="closeDrawer()">Poster Design</a>
+        </div>
+      </div>
+      <a href="about.html" onclick="closeDrawer()">About YOB</a>
+      <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
+    </div>
+
+    <!-- ══ HERO ══ -->
+    <section class="pd-hero">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-tag">Creative Portfolio</span>
+          <h1 class="pd-hero-title">
+            Poster <span class="gradient-text">Design</span>
+          </h1>
+          <p class="pd-hero-sub">
+            ស្នាដៃ Poster Design ដែល YOB Digital បង្កើតឱ្យ Brand ខ្មែរ
+            — Online & Offline Ready, Professional ភ្លាម។
+          </p>
+          <div class="pd-filter">
+            <button class="pd-filter-btn active" data-pdclient="all">ទាំងអស់</button>
+            <button class="pd-filter-btn" data-pdclient="e-express">E Express</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ GALLERY ══ -->
+    <section class="pd-gallery">
+      <div class="container">
+
+        <!-- E Express block -->
+        <div class="pd-client-block reveal" data-pdblock="e-express">
+          <div class="pd-client-label">
+            <span class="pd-cl-name">E Express</span>
+            <span>Poster Design · Brand Visual System · 2025</span>
+          </div>
+          <div class="pd-grid">
+
+            <div class="pd-card" data-pdclient="e-express" onclick="pdOpenLb(0)">
+              <img src="images/case-studies/e-express/poster-01.jpg" alt="E Express Poster 01" loading="lazy" />
+              <div class="pd-overlay">
+                <div class="pd-overlay-inner">
+                  <div class="pd-overlay-client">E Express</div>
+                  <div class="pd-overlay-name">Poster Design 01</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pd-card" data-pdclient="e-express" onclick="pdOpenLb(1)">
+              <img src="images/case-studies/e-express/poster-02.jpg" alt="E Express Poster 02" loading="lazy" />
+              <div class="pd-overlay">
+                <div class="pd-overlay-inner">
+                  <div class="pd-overlay-client">E Express</div>
+                  <div class="pd-overlay-name">Poster Design 02</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pd-card" data-pdclient="e-express" onclick="pdOpenLb(2)">
+              <img src="images/case-studies/e-express/poster-03.jpg" alt="E Express Poster 03" loading="lazy" />
+              <div class="pd-overlay">
+                <div class="pd-overlay-inner">
+                  <div class="pd-overlay-client">E Express</div>
+                  <div class="pd-overlay-name">Poster Design 03</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pd-card" data-pdclient="e-express" onclick="pdOpenLb(3)">
+              <img src="images/case-studies/e-express/poster-04.jpg" alt="E Express Poster 04" loading="lazy" />
+              <div class="pd-overlay">
+                <div class="pd-overlay-inner">
+                  <div class="pd-overlay-client">E Express</div>
+                  <div class="pd-overlay-name">Poster Design 04</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pd-card" data-pdclient="e-express" onclick="pdOpenLb(4)">
+              <img src="images/case-studies/e-express/poster-05.jpg" alt="E Express Poster 05" loading="lazy" />
+              <div class="pd-overlay">
+                <div class="pd-overlay-inner">
+                  <div class="pd-overlay-client">E Express</div>
+                  <div class="pd-overlay-name">Poster Design 05</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pd-card" data-pdclient="e-express" onclick="pdOpenLb(5)">
+              <img src="images/case-studies/e-express/poster-06.jpg" alt="E Express Poster 06" loading="lazy" />
+              <div class="pd-overlay">
+                <div class="pd-overlay-inner">
+                  <div class="pd-overlay-client">E Express</div>
+                  <div class="pd-overlay-name">Poster Design 06</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pd-card" data-pdclient="e-express" onclick="pdOpenLb(6)">
+              <img src="images/case-studies/e-express/poster-07.jpg" alt="E Express Poster 07" loading="lazy" />
+              <div class="pd-overlay">
+                <div class="pd-overlay-inner">
+                  <div class="pd-overlay-client">E Express</div>
+                  <div class="pd-overlay-name">Poster Design 07</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pd-card" data-pdclient="e-express" onclick="pdOpenLb(7)">
+              <img src="images/case-studies/e-express/poster-08.jpg" alt="E Express Poster 08" loading="lazy" />
+              <div class="pd-overlay">
+                <div class="pd-overlay-inner">
+                  <div class="pd-overlay-client">E Express</div>
+                  <div class="pd-overlay-name">Poster Design 08</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- /e-express block -->
+
+      </div>
+    </section>
+
+    <!-- ══ CTA ══ -->
+    <section class="pd-cta reveal">
+      <div class="container">
+        <h2>ចង់ Design Poster <span class="gradient-text">ស្រដៀងនេះ?</span></h2>
+        <p>YOB Digital បង្កើត Visual System ដែល Online + Offline ប្រើបាន ភ្លាមៗ។</p>
+        <a href="index.html#contact" class="btn-primary">
+          <i class="fas fa-paper-plane"></i> ទំនាក់ទំនង YOB
+        </a>
+      </div>
+    </section>
+
+    <!-- ══ LIGHTBOX ══ -->
+    <div class="pd-lb" id="pdLb" onclick="pdCloseLb()">
+      <div class="pd-lb-inner" onclick="event.stopPropagation()">
+        <button class="pd-lb-close" onclick="pdCloseLb()"><i class="fas fa-times"></i></button>
+        <img class="pd-lb-img" id="pdLbImg" src="" alt="Poster" />
+        <button class="pd-lb-nav pd-lb-prev" onclick="pdLbNav(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="pd-lb-nav pd-lb-next" onclick="pdLbNav(1)"><i class="fas fa-chevron-right"></i></button>
+        <div class="pd-lb-counter" id="pdLbCounter">1 of 8</div>
+      </div>
+    </div>
+
+    <!-- Float -->
+    <div class="float-contact">
+      <a href="https://t.me/yobdigital" class="fl-btn tg" data-tip="Telegram YOB" target="_blank" rel="noopener">
+        <i class="fab fa-telegram-plane"></i>
+      </a>
+    </div>
+    <button class="back-top" id="backTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Back to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+      /* ── Lightbox ── */
+      var pdImages = [
+        "images/case-studies/e-express/poster-01.jpg",
+        "images/case-studies/e-express/poster-02.jpg",
+        "images/case-studies/e-express/poster-03.jpg",
+        "images/case-studies/e-express/poster-04.jpg",
+        "images/case-studies/e-express/poster-05.jpg",
+        "images/case-studies/e-express/poster-06.jpg",
+        "images/case-studies/e-express/poster-07.jpg",
+        "images/case-studies/e-express/poster-08.jpg"
+      ];
+      var pdLbCurrent = 0;
+      var pdLbTotal = pdImages.length;
+
+      function pdLbShow() {
+        document.getElementById("pdLbImg").src = pdImages[pdLbCurrent];
+        document.getElementById("pdLbCounter").textContent = (pdLbCurrent + 1) + " of " + pdLbTotal;
+      }
+
+      window.pdOpenLb = function(idx) {
+        pdLbCurrent = idx;
+        document.getElementById("pdLb").classList.add("open");
+        pdLbShow();
+        document.addEventListener("keydown", pdLbKey);
+      };
+
+      window.pdCloseLb = function() {
+        document.getElementById("pdLb").classList.remove("open");
+        document.removeEventListener("keydown", pdLbKey);
+      };
+
+      window.pdLbNav = function(dir) {
+        pdLbCurrent = pdLbCurrent + dir;
+        if (pdLbCurrent === -1) pdLbCurrent = pdLbTotal - 1;
+        if (pdLbCurrent === pdLbTotal) pdLbCurrent = 0;
+        pdLbShow();
+      };
+
+      function pdLbKey(e) {
+        if (e.key === "Escape") window.pdCloseLb();
+        else if (e.key === "ArrowLeft") window.pdLbNav(-1);
+        else if (e.key === "ArrowRight") window.pdLbNav(1);
+      }
+
+      /* ── Random hover FX (assigned in rotation, not truly random so each card gets a different one) ── */
+      var pdFxPool = ["fx-zoom", "fx-reveal", "fx-wash", "fx-tilt", "fx-glitch"];
+      document.querySelectorAll(".pd-card").forEach(function(card, i) {
+        card.classList.add(pdFxPool[i % pdFxPool.length]);
+      });
+
+      /* ── Tilt FX (mousemove on fx-tilt cards) ── */
+      document.querySelectorAll(".pd-card.fx-tilt").forEach(function(card) {
+        card.addEventListener("mousemove", function(e) {
+          var r = card.getBoundingClientRect();
+          var x = (e.clientX - r.left) / r.width - 0.5;
+          var y = (e.clientY - r.top) / r.height - 0.5;
+          card.style.transform = "perspective(700px) rotateY(" + (x * 14) + "deg) rotateX(" + (-y * 14) + "deg) scale(1.02)";
+        });
+        card.addEventListener("mouseleave", function() {
+          card.style.transform = "";
+        });
+      });
+
+      /* ── Filter ── */
+      var pdFilterBtns = document.querySelectorAll(".pd-filter-btn");
+      var pdBlocks = document.querySelectorAll(".pd-client-block");
+
+      pdFilterBtns.forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          pdFilterBtns.forEach(function(b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          var f = btn.dataset.pdclient;
+          pdBlocks.forEach(function(block) {
+            block.style.display = (f === "all" || block.dataset.pdblock === f) ? "" : "none";
+          });
+        });
+      });
+    </script>
+    <script src="js/load-components.js"></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

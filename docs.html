@@ -160,6 +160,13 @@
         --gold: #e52c67;
         --gold2: #ff8ab0;
         --glass: rgba(255, 255, 255, 0.03);
+
+        /* ── Semantic tokens (theme-aware) ── */
+        --c-text:       rgba(255, 255, 255, 0.78); /* body reading text   */
+        --c-text-muted: rgba(255, 255, 255, 0.55); /* secondary / captions */
+        --c-surface-1:  rgba(255, 255, 255, 0.025);/* subtlest card bg    */
+        --c-surface-2:  rgba(255, 255, 255, 0.04); /* card / row bg       */
+        --c-surface-3:  rgba(255, 255, 255, 0.07); /* hover / active bg   */
         --fh: "Kantumruy Pro", sans-serif;
         --fk: "Kantumruy Pro", sans-serif;
         --fb: "Kantumruy Pro", sans-serif;
@@ -225,7 +232,7 @@
         align-items: center;
         gap: 8px;
         width: 100%;
-        background: rgba(255, 255, 255, 0.05);
+        background: var(--c-surface-2);
         border: 1px solid var(--border);
         border-radius: 10px;
         padding: 8px 12px;
@@ -235,7 +242,7 @@
       }
       .docs-search:hover {
         border-color: rgba(229, 44, 103, 0.25);
-        background: rgba(255, 255, 255, 0.07);
+        background: var(--c-surface-3);
       }
       /* ── Shimmer sweep layer ── */
       .docs-search::before {
@@ -559,7 +566,7 @@
       }
       .nav-link:hover {
         color: var(--white);
-        background: rgba(255, 255, 255, 0.04);
+        background: var(--c-surface-2);
       }
       .nav-link.active {
         color: var(--gold);
@@ -656,7 +663,7 @@
       .doc-section p {
         font-family: var(--fk);
         font-size: var(--text-base);
-        color: rgba(255, 255, 255, 0.75);
+        color: var(--c-text);
         line-height: var(--leading-loose);
         margin-bottom: 16px;
       }
@@ -664,7 +671,7 @@
       .doc-section ol {
         font-family: var(--fk);
         font-size: var(--text-base);
-        color: rgba(255, 255, 255, 0.75);
+        color: var(--c-text);
         line-height: 1.9;
         padding-left: 22px;
         margin-bottom: 16px;
@@ -709,7 +716,7 @@
         font-size: 12px;
         font-weight: 600;
         border: 1px solid var(--border2);
-        background: rgba(255, 255, 255, 0.04);
+        background: var(--c-surface-2);
         color: var(--gray);
       }
       .lm-badge i {
@@ -739,7 +746,7 @@
         margin: 20px 0;
       }
       .concept-card {
-        background: rgba(255, 255, 255, 0.03);
+        background: var(--c-surface-1);
         border: 1px solid var(--border);
         border-radius: 14px;
         padding: 20px 18px;
@@ -807,7 +814,7 @@
       }
       .doc-section td {
         padding: 9px 14px;
-        color: rgba(255, 255, 255, 0.75);
+        color: var(--c-text);
         border-bottom: 1px solid var(--border);
         vertical-align: top;
         font-family: var(--fk);
@@ -817,7 +824,7 @@
         border-bottom: none;
       }
       .doc-section tbody tr:hover {
-        background: rgba(255, 255, 255, 0.025);
+        background: var(--c-surface-1);
       }
       @media (max-width: 600px) {
         .doc-section table {
@@ -831,7 +838,7 @@
         border-radius: 16px;
         padding: 22px 18px;
         border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.03);
+        background: var(--c-surface-1);
         position: relative;
         overflow: hidden;
       }
@@ -876,7 +883,7 @@
         align-items: flex-start;
         gap: 7px;
         font-size: 12.5px;
-        color: rgba(255, 255, 255, 0.7);
+        color: var(--c-text-muted);
         font-family: var(--fk);
         line-height: 1.55;
         margin-bottom: 6px;
@@ -932,7 +939,7 @@
       .try-it-box p {
         font-family: var(--fk);
         font-size: 13.5px;
-        color: rgba(255, 255, 255, 0.65);
+        color: var(--c-text-muted);
         line-height: 1.75;
         margin-bottom: 14px !important;
       }
@@ -967,7 +974,7 @@
         gap: 10px;
         font-family: var(--fk);
         font-size: 14px;
-        color: rgba(255, 255, 255, 0.8);
+        color: var(--c-text);
         line-height: 1.65;
         margin-bottom: 8px;
         padding-bottom: 8px;
@@ -1025,7 +1032,7 @@
 
       /* Code blocks */
       .code-block {
-        background: rgba(255, 255, 255, 0.04);
+        background: var(--c-surface-2);
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 12px;
         overflow: hidden;
@@ -1036,7 +1043,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 10px 16px;
-        background: rgba(255, 255, 255, 0.03);
+        background: var(--c-surface-1);
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         font-size: 12px;
       }
@@ -1066,7 +1073,7 @@
         font-size: 14px;
         line-height: 1.7;
         overflow-x: auto;
-        color: rgba(255, 255, 255, 0.85);
+        color: var(--c-text);
       }
       .code-block pre .c {
         color: #8b949e;
@@ -1147,7 +1154,7 @@
         margin: 20px 0;
         font-family: var(--fk);
         font-size: var(--text-sm);
-        color: rgba(255, 255, 255, 0.8);
+        color: var(--c-text);
         line-height: var(--leading-normal);
       }
 
@@ -1159,7 +1166,7 @@
         margin: 20px 0;
       }
       .doc-card {
-        background: rgba(255, 255, 255, 0.03);
+        background: var(--c-surface-1);
         border: 1px solid rgba(255, 255, 255, 0.07);
         border-radius: 14px;
         padding: 22px 20px;
@@ -1411,7 +1418,7 @@
         font-weight: 700;
         letter-spacing: 1.2px;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.72);
+        color: var(--c-text-muted);
         margin-bottom: 4px;
       }
       .kpi-rate-wrap {
@@ -1472,7 +1479,7 @@
       }
       .kpi-section-title {
         font-size: 12px;
-        color: rgba(255, 255, 255, 0.75);
+        color: var(--c-text);
         font-weight: 600;
       }
       .kpi-count {
@@ -1509,7 +1516,7 @@
         font-weight: 700;
         letter-spacing: 1px;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.5);
+        color: var(--c-text-muted);
         margin-bottom: 6px;
       }
       .kpi-suggest-item {
@@ -1585,7 +1592,7 @@
 
       /* ── PROMPT ANATOMY VISUAL ── */
       .prompt-anatomy {
-        background: rgba(255, 255, 255, 0.03);
+        background: var(--c-surface-1);
         border: 1px solid var(--border);
         border-radius: 16px;
         padding: 24px 22px;
@@ -1644,7 +1651,7 @@
         border: 1px solid rgba(167, 139, 250, 0.25);
       }
       .pa-text {
-        color: rgba(255, 255, 255, 0.75);
+        color: var(--c-text);
         font-size: 13.5px;
       }
       .pa-legend {
@@ -1740,7 +1747,7 @@
         margin: 18px 0;
       }
       .technique-card {
-        background: rgba(255, 255, 255, 0.03);
+        background: var(--c-surface-1);
         border: 1px solid var(--border);
         border-radius: 14px;
         padding: 18px 16px;
@@ -1799,7 +1806,7 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         font-family: var(--fk);
         font-size: 13.5px;
-        color: rgba(255, 255, 255, 0.8);
+        color: var(--c-text);
         line-height: 1.6;
       }
       .pc-item:last-child {
@@ -1945,7 +1952,7 @@
 
       /* ── COURSE MAP (cmap) ── */
       .cmap {
-        background: rgba(255,255,255,0.025);
+        background: var(--c-surface-1);
         border: 1px solid var(--border2);
         border-radius: 14px;
         overflow: hidden;
@@ -1961,7 +1968,7 @@
         gap: 12px;
       }
       .cmap-track-label {
-        font-size: 13px;
+        font-size: 15px;
         font-weight: 700;
         color: var(--white);
         font-family: var(--fb);
@@ -1972,7 +1979,7 @@
       .cmap-stats {
         display: flex;
         gap: 12px;
-        font-size: 11px;
+        font-size: 13px;
         color: var(--gray);
         flex-shrink: 0;
       }
@@ -1980,40 +1987,40 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        padding: 9px 18px;
+        padding: 11px 18px;
         background: rgba(255,255,255,0.02);
         border-bottom: 1px solid var(--border);
         cursor: pointer;
         user-select: none;
         transition: background var(--t);
       }
-      .cmap-mod-head:hover { background: rgba(255,255,255,0.04); }
+      .cmap-mod-head:hover { background: var(--c-surface-2); }
       .cmap-mod-num {
-        font-size: 9px;
+        font-size: 11px;
         font-weight: 800;
         letter-spacing: 1px;
         color: var(--gold);
         background: rgba(229,44,103,0.12);
-        padding: 2px 6px;
+        padding: 3px 7px;
         border-radius: 4px;
         white-space: nowrap;
         flex-shrink: 0;
       }
       .cmap-mod-name {
         flex: 1;
-        font-size: 12.5px;
+        font-size: 15px;
         font-weight: 600;
         color: var(--white);
         font-family: var(--fb);
       }
       .cmap-mod-count {
-        font-size: 11px;
+        font-size: 13px;
         color: var(--gray);
         white-space: nowrap;
         flex-shrink: 0;
       }
       .cmap-mod-chevron {
-        font-size: 9px;
+        font-size: 11px;
         color: var(--gray);
         transition: transform var(--t);
         margin-left: 4px;
@@ -2026,7 +2033,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        padding: 8px 18px 8px 20px;
+        padding: 10px 18px 10px 20px;
         border-bottom: 1px solid rgba(255,255,255,0.035);
         transition: background var(--t);
         cursor: pointer;
@@ -2039,27 +2046,27 @@
       }
       .cmap-row.locked { opacity: 0.4; cursor: default; pointer-events: none; }
       .cmap-row-num {
-        font-size: 11px;
+        font-size: 13px;
         color: var(--gray);
-        min-width: 18px;
+        min-width: 20px;
         font-weight: 600;
         flex-shrink: 0;
       }
       .cmap-row.active .cmap-row-num { color: var(--gold); }
       .cmap-row-title {
         flex: 1;
-        font-size: 13px;
-        color: rgba(255,255,255,0.8);
+        font-size: 15px;
+        color: var(--c-text);
         font-family: var(--fk);
         line-height: 1.4;
       }
       .cmap-row.active .cmap-row-title { color: var(--white); font-weight: 600; }
-      .cmap-row-dur { font-size: 11px; color: var(--gray); white-space: nowrap; flex-shrink: 0; }
+      .cmap-row-dur { font-size: 13px; color: var(--gray); white-space: nowrap; flex-shrink: 0; }
       .cmap-badge {
-        font-size: 9px;
+        font-size: 11px;
         font-weight: 700;
         letter-spacing: 0.3px;
-        padding: 2px 6px;
+        padding: 2px 7px;
         border-radius: 3px;
         white-space: nowrap;
         flex-shrink: 0;
@@ -2077,7 +2084,7 @@
       .phase-guard  { border-left-color: #fbbf24; }
       .phase-lock   { border-left-color: #f0dcff; }
 
-      .lph-wrap { display: flex; align-items: center; gap: 13px; padding: 15px 20px; background: rgba(255,255,255,0.025); border-bottom: 1px solid var(--border); }
+      .lph-wrap { display: flex; align-items: center; gap: 13px; padding: 15px 20px; background: var(--c-surface-1); border-bottom: 1px solid var(--border); }
       .lph-icon { font-size: 22px; flex-shrink: 0; }
       .lph-meta { flex: 1; min-width: 0; }
       .lph-num { font-family: var(--fh); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); margin-bottom: 2px; }
@@ -2131,7 +2138,7 @@
       .lesson-step { border: 1px solid var(--border2); border-radius: 16px; overflow: hidden; margin-bottom: 6px; background: var(--dark2); }
       .ls-connector { display: flex; align-items: center; justify-content: center; height: 36px; color: var(--gray); font-size: 18px; position: relative; }
       .ls-connector::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--border2), rgba(229,44,103,0.4), var(--border2)); transform: translateX(-50%); }
-      .ls-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: rgba(255,255,255,0.025); border-bottom: 1px solid var(--border); }
+      .ls-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: var(--c-surface-1); border-bottom: 1px solid var(--border); }
       .ls-num { font-family: var(--fh); font-size: 32px; line-height: 1; min-width: 40px; opacity: 0.6; }
       .ls-icon { font-size: 20px; }
       .ls-info { flex: 1; }
@@ -2186,7 +2193,7 @@
 
       /* Cheat sheet */
       .cheat-sheet { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
-      .cs-item { background: rgba(255,255,255,0.025); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
+      .cs-item { background: var(--c-surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
       .cs-key { font-family: var(--fb); font-size: 11px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 5px; }
       .cs-val { font-family: var(--fb); font-size: 15px; color: var(--white); line-height: 1.6; }
       @media (max-width: 600px) {
@@ -2369,7 +2376,7 @@
       }
       .docs-nav-sidebar-toggle:hover {
         color: var(--white);
-        background: rgba(255, 255, 255, 0.06);
+        background: var(--c-surface-3);
       }
       .docs-nav-logo {
         font-family: var(--fk);
@@ -2437,7 +2444,7 @@
       .dn-link:hover,
       .dn-link.dn-active {
         color: var(--white);
-        background: rgba(255, 255, 255, 0.05);
+        background: var(--c-surface-2);
       }
       .dn-link i {
         font-size: 9px;
@@ -2492,7 +2499,7 @@
       }
       .dn-dd-item:hover {
         color: var(--white);
-        background: rgba(255, 255, 255, 0.05);
+        background: var(--c-surface-2);
       }
       .dn-dd-item.active {
         color: var(--gold);
@@ -2542,7 +2549,7 @@
         margin-left: 2px;
       }
       .docs-nav .hamburger:hover {
-        background: rgba(255, 255, 255, 0.06);
+        background: var(--c-surface-3);
       }
       .docs-nav .hamburger span {
         display: block;
@@ -2698,7 +2705,7 @@
       }
       .lps-map-btn:hover {
         color: var(--white);
-        background: rgba(255, 255, 255, 0.03);
+        background: var(--c-surface-1);
       }
       .lps-map-btn.open {
         color: var(--gold);
@@ -2808,7 +2815,7 @@
         position: relative;
       }
       .ca-module-btn:hover {
-        background: rgba(255, 255, 255, 0.03);
+        background: var(--c-surface-1);
       }
       .ca-module-btn.open {
         background: rgba(229, 44, 103, 0.05);
@@ -2853,7 +2860,7 @@
         font-family: var(--fb);
         font-size: 11px;
         color: var(--gray);
-        background: rgba(255, 255, 255, 0.05);
+        background: var(--c-surface-2);
         border-radius: 20px;
         padding: 3px 9px;
       }
@@ -2999,7 +3006,7 @@
       .curriculum-progress-bar {
         flex: 1;
         height: 4px;
-        background: rgba(255, 255, 255, 0.07);
+        background: var(--c-surface-3);
         border-radius: 4px;
         overflow: hidden;
       }
@@ -3237,7 +3244,7 @@
         border-top: 1px solid var(--border);
       }
       .gsk-card:hover {
-        background: rgba(255, 255, 255, 0.025);
+        background: var(--c-surface-1);
       }
       .gsk-card:hover .gsk-card-arrow {
         color: var(--gold);
@@ -3751,6 +3758,312 @@
           font-size: 22px;
         }
       }
+
+      /* ── SIDEBAR THEME TOGGLE (sticky bottom) ── */
+      .sidebar-theme-bar {
+        position: sticky;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 20px 18px;
+        background: linear-gradient(to top, var(--dark) 70%, transparent);
+        margin-top: 24px;
+      }
+      .ts-label {
+        font-size: 13px;
+        color: var(--gray);
+        transition: color var(--t);
+        width: 14px;
+        text-align: center;
+      }
+      .ts-pill {
+        width: 44px;
+        height: 24px;
+        border-radius: 12px;
+        background: var(--dark3);
+        border: 1px solid var(--border2);
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+        flex-shrink: 0;
+        transition: background 0.3s, border-color 0.3s;
+      }
+      .ts-thumb {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--gray);
+        transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), background 0.3s;
+        pointer-events: none;
+      }
+      .ts-text {
+        font-size: 12px;
+        color: var(--gray);
+        font-family: var(--fb);
+        min-width: 32px;
+        transition: color var(--t);
+      }
+
+      /* ══════════════════════════════════════
+         LIGHT MODE — flip tokens only (Astro pattern)
+         All text/surface colors auto-update via var()
+         ══════════════════════════════════════ */
+      body.light-mode {
+        /* Layout colors */
+        --dark:    #f0f4f8;
+        --dark2:   #ffffff;
+        --dark3:   #e8ecf2;
+        --border:  rgba(0, 0, 0, 0.08);
+        --border2: rgba(0, 0, 0, 0.13);
+        --gray:    #5a6880;
+        --white:   #0f172a;
+        --glass:   rgba(0, 0, 0, 0.025);
+
+        /* Semantic tokens flip — all elements update automatically */
+        --c-text:       #334155;
+        --c-text-muted: #64748b;
+        --c-surface-1:  rgba(0, 0, 0, 0.025);
+        --c-surface-2:  rgba(0, 0, 0, 0.04);
+        --c-surface-3:  rgba(0, 0, 0, 0.065);
+      }
+
+      /* Toggle pill */
+      body.light-mode .ts-pill { background: rgba(229,44,103,0.15); border-color: rgba(229,44,103,0.3); }
+      body.light-mode .ts-thumb { transform: translateX(20px); background: var(--gold); }
+      body.light-mode #tsLabelSun { color: var(--gold); }
+      body.light-mode .ts-text { color: var(--gold); }
+      body.light-mode .sidebar-theme-bar { background: linear-gradient(to top, #f0f4f8 70%, transparent); }
+
+      /* Structural elements (hardcoded dark bg → need explicit override) */
+      body.light-mode .docs-nav { background: rgba(240,244,248,0.96); border-color: rgba(0,0,0,0.08); }
+      body.light-mode .docs-sidebar { background: #f8fafc; border-color: rgba(0,0,0,0.08); }
+      body.light-mode .docs-toc { background: #f8fafc; border-color: rgba(0,0,0,0.08); }
+      body.light-mode .docs-search { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.1); }
+      body.light-mode #searchInput { color: #0f172a; }
+      body.light-mode #searchInput::placeholder { color: #7a8899; }
+      body.light-mode .search-results-panel { background: #ffffff; border-color: rgba(0,0,0,0.1); }
+      body.light-mode .sidebar-search-btn { background: var(--c-surface-2); border-color: rgba(0,0,0,0.1); }
+
+      /* Code blocks — always dark (readability) */
+      body.light-mode .code-block { background: #1e2430; }
+      body.light-mode pre { color: #e2e8f0; }
+      body.light-mode .code-header { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
+
+      /* ════════════════════════════════════════════
+         MINIMAL CLEAN OVERRIDES — docs.pencil.dev
+         Strip heavy colors, reduce visual noise
+      ════════════════════════════════════════════ */
+
+      /* ── Nav badge (DOCS label) — neutral ── */
+      .docs-nav-badge {
+        background: rgba(255,255,255,0.07) !important;
+        border-color: rgba(255,255,255,0.1) !important;
+        color: rgba(255,255,255,0.5) !important;
+      }
+      .docs-nav-logo span { color: var(--white) !important; opacity: 0.6; }
+
+      /* ── Sidebar nav ── */
+      .nav-link.active {
+        color: var(--white);
+        font-weight: 600;
+        background: transparent;
+        border-left-color: rgba(255,255,255,0.7);
+      }
+      .nav-link:hover { background: rgba(255,255,255,0.04); }
+      .nav-badge {
+        background: rgba(255,255,255,0.07);
+        color: rgba(255,255,255,0.4);
+        font-size: 9px;
+        padding: 1px 6px;
+        border-radius: 6px;
+      }
+      .nav-group-label { color: rgba(255,255,255,0.22); }
+      .nav-count { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.35); }
+
+      /* ── Search box — remove shimmer, keep clean ── */
+      .docs-search::before { display: none; }
+      .docs-search.active {
+        border-color: rgba(255,255,255,0.25) !important;
+        background: var(--c-surface-2) !important;
+        animation: none !important;
+      }
+      .docs-search.active > i.fa-search { animation: none !important; }
+      .docs-search:hover { border-color: rgba(255,255,255,0.18); background: var(--c-surface-2); }
+
+      /* ── Step numbers — neutral ── */
+      .step-num {
+        background: rgba(255,255,255,0.08);
+        color: rgba(255,255,255,0.6);
+        box-shadow: none;
+        font-size: 12px;
+      }
+
+      /* ── Callouts — border-left only, no colored bg ── */
+      .callout {
+        background: rgba(255,255,255,0.02) !important;
+        border: none !important;
+        border-left: 3px solid rgba(255,255,255,0.15) !important;
+        border-radius: 0 8px 8px 0 !important;
+        padding: 14px 18px !important;
+      }
+      .callout.tip  { border-left-color: rgba(229,44,103,0.45) !important; }
+      .callout.note { border-left-color: rgba(99,102,241,0.45) !important; }
+      .callout.warn { border-left-color: rgba(251,191,36,0.45) !important; }
+      .callout.good { border-left-color: rgba(74,222,128,0.45) !important; }
+      .callout-icon { opacity: 0.75; }
+
+      /* ── Tip box ── */
+      .tip-box {
+        border-left-color: rgba(255,255,255,0.18) !important;
+        background: rgba(255,255,255,0.02) !important;
+      }
+
+      /* ── Lesson recap ── */
+      .lesson-recap {
+        background: rgba(255,255,255,0.02) !important;
+        border: 1px solid rgba(255,255,255,0.07) !important;
+        border-left: 3px solid rgba(255,255,255,0.2) !important;
+        border-radius: 0 12px 12px 0 !important;
+      }
+      .lesson-recap-title { color: rgba(255,255,255,0.45) !important; }
+
+      /* ── Lesson meta badges — neutral ── */
+      .lm-badge {
+        background: transparent !important;
+        border-color: rgba(255,255,255,0.1) !important;
+        color: rgba(255,255,255,0.45) !important;
+      }
+      .lm-badge i { opacity: 0.7; }
+
+      /* ── Tables — neutral header ── */
+      .doc-section thead th {
+        background: rgba(255,255,255,0.03) !important;
+        color: rgba(255,255,255,0.55) !important;
+      }
+
+      /* ── Tool cards — remove pink highlight ── */
+      .tool-card.recommended {
+        border-color: rgba(255,255,255,0.1) !important;
+        background: rgba(255,255,255,0.02) !important;
+      }
+      .tool-card.recommended::before {
+        color: rgba(255,255,255,0.45) !important;
+        background: rgba(255,255,255,0.06) !important;
+        border-color: rgba(255,255,255,0.1) !important;
+      }
+      .tool-card:hover {
+        border-color: rgba(255,255,255,0.16) !important;
+        background: rgba(255,255,255,0.04) !important;
+        transform: none !important;
+      }
+      .tool-card-tag { color: rgba(255,255,255,0.4) !important; border-color: rgba(255,255,255,0.1) !important; }
+      .tool-card.recommended .tool-card-tag { color: rgba(255,255,255,0.4) !important; background: transparent !important; border-color: rgba(255,255,255,0.1) !important; }
+      .tool-feature i { color: rgba(255,255,255,0.4) !important; }
+
+      /* ── Concept cards — remove pink hover ── */
+      .concept-card:hover {
+        border-color: rgba(255,255,255,0.14) !important;
+        background: rgba(255,255,255,0.04) !important;
+        transform: none !important;
+      }
+
+      /* ── Doc cards — remove pink hover ── */
+      .doc-card:hover {
+        border-color: rgba(255,255,255,0.14) !important;
+        background: rgba(255,255,255,0.04) !important;
+        transform: none !important;
+      }
+
+      /* ── Mistake items — neutral ── */
+      .mistake-item {
+        background: rgba(255,255,255,0.02) !important;
+        border-color: rgba(255,255,255,0.07) !important;
+      }
+      .mistake-x { color: rgba(255,255,255,0.4) !important; }
+
+      /* ── Docs hero tag — minimal ── */
+      .docs-hero-tag {
+        background: transparent !important;
+        border-color: rgba(255,255,255,0.12) !important;
+        color: rgba(255,255,255,0.4) !important;
+      }
+
+      /* ── Course map (cmap) — neutral ── */
+      .cmap-head { background: rgba(255,255,255,0.02) !important; }
+      .cmap-mod-num {
+        background: transparent !important;
+        color: rgba(255,255,255,0.35) !important;
+        border: 1px solid rgba(255,255,255,0.08) !important;
+      }
+      .cmap-row.active {
+        background: rgba(255,255,255,0.04) !important;
+        border-left-color: rgba(255,255,255,0.4) !important;
+      }
+
+      /* ── Page nav buttons ── */
+      .page-nav-btn:hover {
+        border-color: rgba(255,255,255,0.14) !important;
+        background: rgba(255,255,255,0.04) !important;
+      }
+
+      /* ── TOC active — use white not pink ── */
+      .toc-link.active {
+        color: var(--white);
+        border-left-color: rgba(255,255,255,0.6);
+      }
+
+      /* ── Progress bar — thin neutral ── */
+      .docs-progress-bar { background: rgba(255,255,255,0.15) !important; height: 1px !important; }
+
+      /* ── Sidebar search btn ── */
+      .sidebar-search-btn {
+        background: transparent !important;
+        border-color: rgba(255,255,255,0.08) !important;
+      }
+      .sidebar-search-btn:hover {
+        border-color: rgba(255,255,255,0.2) !important;
+        color: var(--white) !important;
+        background: transparent !important;
+      }
+
+      /* ── Inline code ── */
+      code { color: rgba(255,255,255,0.75) !important; }
+
+      /* ── Sidebar FAB button ── */
+      .sidebar-fab {
+        background: rgba(255,255,255,0.1) !important;
+        color: var(--white) !important;
+        box-shadow: none !important;
+      }
+      .sidebar-fab:hover {
+        background: rgba(255,255,255,0.16) !important;
+        transform: none !important;
+        box-shadow: none !important;
+      }
+
+      /* ── Doc section links — less pink ── */
+      .doc-section a:not(.btn-primary):not(.btn-outline) {
+        color: rgba(255,255,255,0.7) !important;
+        text-decoration: underline !important;
+        text-decoration-color: rgba(255,255,255,0.25) !important;
+      }
+      .doc-section a:not(.btn-primary):not(.btn-outline):hover {
+        color: var(--white) !important;
+        text-decoration-color: rgba(255,255,255,0.5) !important;
+      }
+
+      /* ── Light mode minimal overrides ── */
+      body.light-mode .nav-link.active { border-left-color: rgba(0,0,0,0.6); color: #0f172a; }
+      body.light-mode .toc-link.active { color: #0f172a; border-left-color: rgba(0,0,0,0.5); }
+      body.light-mode .step-num { background: rgba(0,0,0,0.06); color: rgba(0,0,0,0.5); }
+      body.light-mode .lesson-recap { border-left-color: rgba(0,0,0,0.2) !important; }
+      body.light-mode .callout.tip  { border-left-color: rgba(229,44,103,0.5) !important; }
+      body.light-mode .cmap-row.active { background: rgba(0,0,0,0.04) !important; border-left-color: rgba(0,0,0,0.35) !important; }
     </style>
   </head>
   <body>
@@ -3804,10 +4117,10 @@
 
       <!-- Right: site links + CTA + mobile hamburger -->
       <div class="docs-nav-right">
-        <a href="grow.html" class="dn-link">Grow</a>
+        <a href="grow.html" class="dn-link">Yob ដើម្បីអ្នក</a>
         <div class="dn-has-dropdown">
           <button class="dn-link">
-            Learn <i class="fas fa-chevron-down"></i>
+            រៀនជាមួយ Yob <i class="fas fa-chevron-down"></i>
           </button>
           <ul class="dn-dropdown">
             <li>
@@ -3817,34 +4130,34 @@
             </li>
             <li>
               <a href="yob-learning.html" class="dn-dd-item"
-                ><i class="fas fa-graduation-cap"></i> YOB Learning</a
+                ><i class="fas fa-graduation-cap"></i> ជំនាញឌីជីថល</a
               >
             </li>
             <li>
               <a href="docs.html" class="dn-dd-item active"
-                ><i class="fas fa-book"></i> Documentation</a
+                ><i class="fas fa-book"></i> ឯកសារមេរៀន</a
               >
             </li>
             <li>
               <a href="case-studies.html" class="dn-dd-item"
-                ><i class="fas fa-briefcase"></i> Case Studies</a
+                ><i class="fas fa-briefcase"></i> កម្រងស្នាដៃ</a
               >
             </li>
           </ul>
         </div>
         <div class="dn-has-dropdown">
           <button class="dn-link">
-            Products <i class="fas fa-chevron-down"></i>
+            តូបឌីជីថល <i class="fas fa-chevron-down"></i>
           </button>
           <ul class="dn-dropdown">
             <li>
               <a href="fonts.html" class="dn-dd-item"
-                ><i class="fas fa-font"></i> YOB Fonts</a
+                ><i class="fas fa-font"></i> YOB អក្ខរា</a
               >
             </li>
             <li>
               <a href="resources.html" class="dn-dd-item"
-                ><i class="fas fa-toolbox"></i> Free Resources</a
+                ><i class="fas fa-toolbox"></i> កាដូឌីជីថល</a
               >
             </li>
           </ul>
@@ -3884,6 +4197,7 @@
         <div class="drawer-group-items">
           <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
           <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
+          <a href="poster-design.html" onclick="closeDrawer()">Poster Design</a>
         </div>
       </div>
       <a href="about.html" onclick="closeDrawer()">About YOB</a>
@@ -4025,6 +4339,17 @@
           </a>
         </div>
       </nav>
+
+      <!-- Theme Toggle — sticky bottom -->
+      <div class="sidebar-theme-bar">
+        <i class="fas fa-moon ts-label" id="tsLabelMoon"></i>
+        <button class="ts-pill" id="docsThemeToggle" aria-label="Toggle light/dark theme">
+          <span class="ts-thumb" id="tsThumb"></span>
+        </button>
+        <i class="fas fa-sun ts-label" id="tsLabelSun"></i>
+        <span class="ts-text" id="tsText">Dark</span>
+      </div>
+
       </aside>
 
     <!-- ══ MAIN CONTENT ══ -->
@@ -5782,6 +6107,28 @@
       <i class="fas fa-chevron-up"></i>
     </button>
 
+    <script>
+      // ── THEME TOGGLE ──
+      (function () {
+        const btn    = document.getElementById('docsThemeToggle');
+        const tsText = document.getElementById('tsText');
+        const LIGHT  = 'light-mode';
+        const KEY    = 'docs-theme';
+
+        function apply(isLight) {
+          document.body.classList.toggle(LIGHT, isLight);
+          if (tsText) tsText.textContent = isLight ? 'Light' : 'Dark';
+        }
+
+        apply(localStorage.getItem(KEY) === 'light');
+
+        btn.addEventListener('click', function () {
+          const isLight = !document.body.classList.contains(LIGHT);
+          apply(isLight);
+          localStorage.setItem(KEY, isLight ? 'light' : 'dark');
+        });
+      })();
+    </script>
     <script src="js/load-components.js"></script>
     <script src="js/main.js" defer></script>
   </body>

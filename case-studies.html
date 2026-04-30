@@ -59,348 +59,235 @@
       />
     </noscript>
 
-    ></script>
-    <link rel="stylesheet" href="css/style.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <link rel="stylesheet" href="css/style.css" />
 
     <style>
       /* ═══════════════════════════════════════
        CASE STUDIES PAGE
     ═══════════════════════════════════════ */
 
-      /* Page Hero */
-      .cs-hero {
-        padding: clamp(70px, 8vw, 140px) 0 clamp(40px, 6vw, 80px);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
+      /* ── PAGE HEADER ── */
+      .cs-page-header {
+        padding: clamp(80px, 10vw, 130px) 0 40px;
       }
-      .cs-hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        background:
-          radial-gradient(
-            ellipse 70% 60% at 50% 0%,
-            rgba(229, 44, 103, 0.12) 0%,
-            transparent 60%
-          ),
-          radial-gradient(
-            ellipse 50% 40% at 80% 80%,
-            rgba(168, 85, 247, 0.07) 0%,
-            transparent 55%
-          );
-      }
-      .cs-hero > * {
-        position: relative;
-        z-index: 1;
-      }
-      .page-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(229, 44, 103, 0.08);
-        border: 1px solid rgba(229, 44, 103, 0.2);
-        padding: 6px 18px;
-        border-radius: 50px;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 20px;
-      }
-      .cs-hero h1 {
-        font-family: var(--fh);
-        font-size: clamp(48px, 7vw, 96px);
-        line-height: 1.2;
-        letter-spacing: 1px;
-        margin-bottom: 20px;
-      }
-      .cs-hero h1 em {
-        font-style: normal;
-        background: linear-gradient(135deg, #fff 0%, #ff8ab0 40%, #e52c67 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      .cs-hero p {
-        font-family: var(--fk);
-        font-size: 17px;
-        color: var(--gray);
-        max-width: 560px;
-        margin: 0 auto 40px;
-        line-height: 1.9;
-      }
-
-      /* Stats bar */
-      .stats-bar {
+      .cs-page-bar {
         display: flex;
-        justify-content: center;
-        gap: 48px;
-        flex-wrap: wrap;
-        margin-bottom: 16px;
-      }
-      .stat-pill {
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        gap: 4px;
+        justify-content: space-between;
+        gap: 24px;
       }
-      .stat-pill .n {
+      .cs-page-title {
         font-family: var(--fh);
-        font-size: 40px;
-        font-weight: 800;
+        font-size: clamp(40px, 6vw, 72px);
+        font-weight: 900;
         color: var(--white);
         line-height: 1;
+        letter-spacing: 1px;
       }
-      .stat-pill .n span {
-        color: var(--gold);
-      }
-      .stat-pill .l {
-        font-size: 12px;
-        color: var(--gray);
-        font-weight: 500;
-        letter-spacing: 0.5px;
+      .cs-page-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
       }
 
-      /* Filter tabs */
-      .filter-bar {
+      /* Search */
+      .cs-search-wrap {
         display: flex;
-        gap: 8px;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin: 40px 0 56px;
-      }
-      .filter-btn {
-        padding: 9px 20px;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
         border-radius: 50px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 9px 18px;
+        transition: border-color var(--t);
+      }
+      .cs-search-wrap:focus-within {
+        border-color: rgba(255,255,255,0.22);
+      }
+      .cs-search-wrap i {
         color: var(--gray);
+        font-size: 12px;
+        pointer-events: none;
+      }
+      .cs-search {
+        background: none;
+        border: none;
+        outline: none;
+        color: var(--white);
         font-family: var(--fb);
-        font-size: 13px;
+        font-size: 14px;
+        width: 160px;
+      }
+      .cs-search::placeholder { color: var(--gray); }
+
+      /* Dropdown */
+      .cs-dropdown-wrap { position: relative; }
+      .cs-dropdown-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 50px;
+        padding: 9px 18px;
+        color: var(--white);
+        font-family: var(--fb);
+        font-size: 14px;
         font-weight: 600;
         cursor: pointer;
         transition: all var(--t);
+        white-space: nowrap;
       }
-      .filter-btn:hover {
-        background: rgba(255, 255, 255, 0.07);
+      .cs-dropdown-btn:hover {
+        border-color: rgba(255,255,255,0.22);
+        background: rgba(255,255,255,0.08);
+      }
+      .cs-dropdown-btn i {
+        font-size: 10px;
+        color: var(--gray);
+        transition: transform var(--t);
+      }
+      .cs-dropdown-wrap.open .cs-dropdown-btn i { transform: rotate(180deg); }
+      .cs-dropdown-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        background: #111318;
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 14px;
+        padding: 6px;
+        min-width: 180px;
+        list-style: none;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        z-index: 200;
+      }
+      .cs-dropdown-wrap.open .cs-dropdown-menu {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0);
+      }
+      .cs-dropdown-menu li {
+        padding: 9px 14px;
+        border-radius: 8px;
+        color: var(--gray);
+        font-family: var(--fb);
+        font-size: 13px;
+        cursor: pointer;
+        transition: all var(--t);
+      }
+      .cs-dropdown-menu li:hover {
+        background: rgba(255,255,255,0.06);
         color: var(--white);
       }
-      .filter-btn.active {
-        background: rgba(229, 44, 103, 0.12);
-        border-color: rgba(229, 44, 103, 0.3);
+      .cs-dropdown-menu li.active {
         color: var(--gold);
+        background: rgba(229,44,103,0.08);
       }
 
-      /* Case Studies Grid */
-      .cs-section {
-        padding: 0 0 100px;
-      }
+      /* Section + grid */
+      .cs-section { padding: 0 0 100px; }
       .cs-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-        gap: 28px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
       }
 
-      /* Featured (first card — spans 2 cols) */
+      /* Cards — vue-bits flat dark */
       .cs-card {
-        background: rgba(255, 255, 255, 0.03);
+        background: #0a0a0e;
         border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 20px;
+        border-radius: 14px;
         overflow: hidden;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: border-color 0.3s ease, transform 0.3s ease;
         display: flex;
         flex-direction: column;
         cursor: default;
       }
       .cs-card:hover {
-        border-color: rgba(229, 44, 103, 0.3);
-        transform: translateY(-8px);
-        box-shadow:
-          0 24px 60px rgba(0, 0, 0, 0.5),
-          0 0 0 1px rgba(229, 44, 103, 0.1);
-      }
-      .cs-card.featured {
-        grid-column: span 2;
-        flex-direction: row;
-      }
-      .cs-card.featured .cs-thumb {
-        width: 50%;
-        flex-shrink: 0;
-        aspect-ratio: unset;
-      }
-      .cs-card.featured .cs-body {
-        padding: 48px 40px;
-        justify-content: center;
+        border-color: rgba(255, 255, 255, 0.16);
+        transform: translateY(-3px);
       }
 
-      /* Thumbnail */
+      /* Card Header — title + category */
+      .cs-card-head {
+        padding: 16px 18px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .cs-title {
+        font-family: var(--fb);
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--white);
+        transition: color var(--t);
+      }
+      .cs-card:hover .cs-title { color: #ffd0df; }
+      .cs-cat-label {
+        font-family: var(--fb);
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--gold);
+        opacity: 0.85;
+      }
+
+      /* Thumbnail — fills remaining card height */
       .cs-thumb {
-        position: relative;
-        aspect-ratio: 16/9;
+        flex: 1;
+        min-height: 150px;
         overflow: hidden;
-        background: linear-gradient(
-          135deg,
-          rgba(229, 44, 103, 0.08),
-          rgba(0, 0, 0, 0.3)
-        );
+        position: relative;
+        background: rgba(255,255,255,0.03);
       }
       .cs-thumb img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        opacity: 0.85;
+        display: block;
+        transition: transform 0.5s ease;
+        opacity: 0.88;
       }
       .cs-card:hover .cs-thumb img {
-        transform: scale(1.06);
+        transform: scale(1.05);
         opacity: 1;
       }
-      .cs-thumb-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          to top,
-          rgba(8, 11, 16, 0.7) 0%,
-          transparent 50%
-        );
-      }
-      .cs-category {
-        position: absolute;
-        top: 16px;
-        left: 16px;
-        background: rgba(8, 11, 16, 0.8);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        color: var(--gold);
-      }
-      .cs-result-badge {
-        position: absolute;
-        bottom: 16px;
-        right: 16px;
-        background: linear-gradient(135deg, var(--gold), #ff8ab0);
-        padding: 6px 14px;
-        border-radius: 20px;
-        font-family: var(--fh);
-        font-size: 15px;
-        font-weight: 700;
-        color: #fff;
-        box-shadow: 0 4px 16px rgba(229, 44, 103, 0.4);
-      }
 
-      /* Body */
-      .cs-body {
-        padding: 28px 28px 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        flex: 1;
-      }
-      .cs-client {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: var(--gold);
-      }
-      .cs-title {
-        font-family: var(--fh);
-        font-size: 26px;
-        font-weight: 700;
-        line-height: 1.1;
-        color: var(--white);
-        transition: color var(--t);
-      }
-      .cs-card:hover .cs-title {
-        color: #ffd0df;
-      }
-      .cs-card.featured .cs-title {
-        font-size: 36px;
-      }
-      .cs-excerpt {
-        font-family: var(--fk);
-        font-size: 14px;
-        color: var(--gray);
-        line-height: 1.8;
-        flex: 1;
-      }
-
-      /* Metrics row */
-      .cs-metrics {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
-        padding: 16px 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      }
-      .cs-proof {
-        margin-top: 8px;
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.5);
-        line-height: 1.6;
-      }
-      .cs-metric {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-      }
-      .cs-metric .mn {
-        font-family: var(--fh);
-        font-size: 24px;
-        font-weight: 800;
-        color: var(--gold);
-        line-height: 1;
-      }
-      .cs-metric .ml {
-        font-size: 11px;
-        color: var(--gray);
-        font-weight: 500;
-      }
-
-      /* Footer */
-      .cs-footer {
+      /* Card Footer — client + link */
+      .cs-card-foot {
+        padding: 11px 18px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        gap: 8px;
       }
-      .cs-tags {
-        display: flex;
-        gap: 6px;
-        flex-wrap: wrap;
-      }
-      .cs-tag {
-        font-size: 10px;
-        font-weight: 600;
-        padding: 3px 10px;
-        border-radius: 20px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+      .cs-client-name {
+        font-family: var(--fb);
+        font-size: 11px;
         color: var(--gray);
+        font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .cs-link {
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        font-size: 13px;
+        gap: 5px;
+        font-size: 12px;
         font-weight: 700;
         color: var(--gold);
         white-space: nowrap;
         transition: gap var(--t);
         flex-shrink: 0;
       }
-      .cs-card:hover .cs-link {
-        gap: 10px;
-      }
+      .cs-card:hover .cs-link { gap: 8px; }
 
       .filter-empty {
         display: none;
@@ -545,45 +432,9 @@
         flex-wrap: wrap;
       }
 
-      /* ── FEATURED CARD BADGE + GLOW ── */
+      /* ── FEATURED CARD — star indicator only ── */
       .cs-card.featured {
-        border-color: rgba(229, 44, 103, 0.22);
-        box-shadow: inset 4px 0 0 var(--gold), 0 0 48px rgba(229,44,103,0.07);
-      }
-      .cs-featured-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-        background: linear-gradient(135deg, var(--gold), #ff8ab0);
-        color: #fff;
-        font-size: 9px;
-        font-weight: 700;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        padding: 3px 10px;
-        border-radius: 20px;
-        margin-bottom: 6px;
-        align-self: flex-start;
-      }
-
-      /* ── FILTER COUNT BADGE ── */
-      .filter-btn .f-count {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255,255,255,0.1);
-        color: var(--gray);
-        font-size: 9px;
-        font-weight: 700;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        margin-left: 4px;
-        transition: all var(--t);
-      }
-      .filter-btn.active .f-count {
-        background: rgba(229,44,103,0.2);
-        color: var(--gold);
+        border-color: rgba(229, 44, 103, 0.2);
       }
 
       /* ── HOW WE WORK PROCESS ── */
@@ -682,56 +533,135 @@
         transition: color 0.3s;
       }
 
+      /* ── POSTER MASONRY OVERLAY ── */
+      .pm-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(0,0,0,0.7);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        display: flex;
+        align-items: flex-end;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+      .pm-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .pm-panel {
+        width: 100%;
+        max-height: 92vh;
+        background: #0a0a0e;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px 20px 0 0;
+        display: flex;
+        flex-direction: column;
+        transform: translateY(100%);
+        transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+        overflow: hidden;
+      }
+      .pm-overlay.open .pm-panel {
+        transform: translateY(0);
+      }
+      .pm-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 28px 18px;
+        border-bottom: 1px solid rgba(255,255,255,0.07);
+        flex-shrink: 0;
+      }
+      .pm-header-left {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .pm-label {
+        font-family: var(--fb);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gray);
+      }
+      .pm-title {
+        font-family: var(--fh);
+        font-size: clamp(22px,3vw,32px);
+        font-weight: 900;
+        color: var(--white);
+        line-height: 1;
+      }
+      .pm-close {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.07);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: var(--gray);
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+      }
+      .pm-close:hover {
+        background: rgba(255,255,255,0.12);
+        color: var(--white);
+      }
+      .pm-grid {
+        overflow-y: auto;
+        padding: 20px 20px 28px;
+        columns: 3;
+        column-gap: 12px;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255,255,255,0.1) transparent;
+      }
+      .pm-item {
+        break-inside: avoid;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: zoom-in;
+      }
+      .pm-item img {
+        width: 100%;
+        display: block;
+        border-radius: 10px;
+        transition: transform 0.4s ease, opacity 0.2s ease;
+        opacity: 0.9;
+      }
+      .pm-item:hover img {
+        transform: scale(1.02);
+        opacity: 1;
+      }
+      @media (max-width: 640px) {
+        .pm-grid { columns: 2; padding: 14px 14px 24px; }
+        .pm-header { padding: 16px 18px 14px; }
+      }
+      @media (max-width: 380px) {
+        .pm-grid { columns: 1; }
+      }
+
       /* Responsive */
-      @media (max-width: 900px) {
-        .cs-card.featured {
-          grid-column: span 1;
-          flex-direction: column;
-        }
-        .cs-card.featured .cs-thumb {
-          width: 100%;
-          aspect-ratio: 16/9;
-        }
-        .cs-card.featured .cs-body {
-          padding: 28px;
-        }
+      @media (max-width: 780px) {
+        .cs-grid { grid-template-columns: repeat(2, 1fr); }
       }
-      @media (max-width: 768px) {
-        .cs-hero {
-          padding: clamp(60px, 8vw, 120px) 0 clamp(35px, 6vw, 70px);
-        }
-        .testimonials-section {
-          padding: clamp(35px, 8vw, 60px) 0;
-        }
-        .cs-cta {
-          padding: clamp(40px, 8vw, 70px) 0 clamp(50px, 10vw, 80px);
-        }
+      @media (max-width: 860px) {
+        .cs-page-bar { flex-direction: column; align-items: flex-start; gap: 20px; }
+        .cs-search { width: 130px; }
       }
-      @media (max-width: 600px) {
+      @media (max-width: 520px) {
         .cs-grid { grid-template-columns: 1fr; }
-        .stats-bar { gap: 28px; }
+        .cs-page-controls { width: 100%; }
+        .cs-search-wrap { flex: 1; }
+        .cs-search { width: 100%; }
         .cs-cta-box { padding: 40px 24px; }
-        .process-track {
-          flex-direction: column;
-          align-items: center;
-          gap: 32px;
-        }
-        .process-connector {
-          width: 1px;
-          height: 32px;
-          background: linear-gradient(180deg, rgba(229,44,103,0.3), rgba(229,44,103,0.1));
-          margin-top: 0;
-        }
-        .process-connector::after {
-          right: -4px;
-          top: auto;
-          bottom: -5px;
-          border-top: 6px solid rgba(229,44,103,0.35);
-          border-left: 4px solid transparent;
-          border-right: 4px solid transparent;
-          border-bottom: none;
-        }
-        .process-step p { max-width: 260px; }
+        .cs-cta { padding: clamp(40px, 8vw, 70px) 0 clamp(50px, 10vw, 80px); }
       }
     </style>
   </head>
@@ -763,42 +693,37 @@
         <div class="drawer-group-items">
           <a href="/fonts" onclick="closeDrawer()">Yob Fonts</a>
           <a href="/resources" onclick="closeDrawer()">Free Resources</a>
+          <a href="/poster-design" onclick="closeDrawer()">Poster Design</a>
         </div>
       </div>
       <a href="/about" onclick="closeDrawer()">About YOB</a>
       <a href="/#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
     </div>
 
-    <!-- ══ HERO ══ -->
-    <section class="cs-hero">
+    <!-- ══ PAGE HEADER ══ -->
+    <section class="cs-page-header">
       <div class="container">
-        <div class="page-tag">
-          <i class="fas fa-trophy"></i> លទ្ធផលពិត · ករណីពិត
-        </div>
-        <h1>ករណី <em>ជោគជ័យ</em></h1>
-        <p>
-          ស្វែងយល់ពីរបៀបដែល YOB Digital ជួយ SMEs និង Creators ខ្មែរ
-          <strong>បម្លែងជីវិត</strong> ជាមួយ AI, យុទ្ធសាស្ត្រឌីជីថល និង
-          ប្រព័ន្ធវេបសាយ។ ករណីទាំងនេះបង្ហាញពីលទ្ធផលពិត
-          ដើម្បីឱ្យអ្នកយល់ថាគួរចាប់ផ្ដើមពីសេវាកម្មណា។
-        </p>
-
-        <div class="stats-bar reveal">
-          <div class="stat-pill">
-            <div class="n" data-target="500" data-suffix="+">0+</div>
-            <div class="l">សហគ្រាសដែលបានជួយ</div>
-          </div>
-          <div class="stat-pill">
-            <div class="n" data-target="3" data-suffix="x">0x</div>
-            <div class="l">ROAS មធ្យម</div>
-          </div>
-          <div class="stat-pill">
-            <div class="n" data-target="80" data-suffix="%">0%</div>
-            <div class="l">មើលឃើញចំណូលកើន</div>
-          </div>
-          <div class="stat-pill">
-            <div class="n" data-target="4" data-suffix="សប្ដា.">0</div>
-            <div class="l">ពេលមធ្យមដល់លទ្ធផល</div>
+        <div class="cs-page-bar">
+          <h1 class="cs-page-title">កម្រងស្នាដៃ</h1>
+          <div class="cs-page-controls">
+            <div class="cs-search-wrap">
+              <i class="fas fa-search"></i>
+              <input type="text" class="cs-search" id="csSearch" placeholder="Search..." autocomplete="off" />
+            </div>
+            <div class="cs-dropdown-wrap" id="csDropdownWrap">
+              <button class="cs-dropdown-btn" id="csDropdownBtn" aria-haspopup="listbox">
+                <span id="csDropdownLabel">ទាំងអស់</span>
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <ul class="cs-dropdown-menu" id="csDropdownMenu" role="listbox">
+                <li class="active" data-filter="all">ទាំងអស់</li>
+                <li data-filter="ai">ឧបករណ៍ AI</li>
+                <li data-filter="strategy">យុទ្ធសាស្ត្រ</li>
+                <li data-filter="web">វេបសាយ</li>
+                <li data-filter="font">អក្សរខ្មែរ</li>
+                <li data-filter="design">Poster Design</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -807,514 +732,150 @@
     <!-- ══ CASE STUDIES ══ -->
     <section class="cs-section">
       <div class="container">
-        <!-- Filter -->
-        <div class="filter-bar">
-          <button class="filter-btn active" data-filter="all">ទាំងអស់</button>
-          <button class="filter-btn" data-filter="ai">ឧបករណ៍ AI</button>
-          <button class="filter-btn" data-filter="strategy">
-            យុទ្ធសាស្ត្រឌីជីថល
-          </button>
-          <button class="filter-btn" data-filter="web">
-            វេបសាយ & ប្រព័ន្ធ
-          </button>
-          <button class="filter-btn" data-filter="font">អក្សរខ្មែរ</button>
-        </div>
-
         <div class="cs-grid">
-          <!-- ★ FEATURED Case Study 1 -->
+          <!-- Card 1 — DC Fashion -->
           <div class="cs-card featured reveal" data-cat="strategy">
+            <div class="cs-card-head">
+              <div class="cs-title">ពី Boost Post ទៅ 3.8x ROAS ក្នុង ២ ខែ</div>
+              <div class="cs-cat-label">យុទ្ធសាស្ត្រឌីជីថល</div>
+            </div>
             <div class="cs-thumb">
               <img
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=75&w=1200&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=75&w=800&auto=format&fit=crop"
                 alt="DC Fashion Case Study"
                 loading="lazy"
                 decoding="async"
-                srcset="
-                  https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=75&w=800&auto=format&fit=crop   800w,
-                  https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=75&w=1200&auto=format&fit=crop 1200w
-                "
-                sizes="(max-width: 900px) 100vw, 60vw"
               />
-              <div class="cs-thumb-overlay"></div>
-              <span class="cs-category">យុទ្ធសាស្ត្រឌីជីថល</span>
-              <span class="cs-result-badge">3.8x ROAS</span>
             </div>
-            <div class="cs-body">
-              <div class="cs-featured-badge"><i class="fas fa-star"></i> Featured Case Study</div>
-              <div class="cs-client">DC Fashion · Phnom Penh</div>
-              <div class="cs-title">ពី Boost Post ទៅ 3.8x ROAS ក្នុង ២ ខែ</div>
-              <div class="cs-excerpt">
-                DC Fashion ចំណាយ $300/month លើ Boost Post ប៉ុន្តែ ROI មិនច្បាស់។
-                YOB Digital design Full-Funnel Strategy — Hook Content +
-                Retargeting + KHQR checkout — ទទួលបាន ROAS 3.8x ក្នុង ៨ សប្ដាហ៍
-                ជំនួស 1.2x ដូចមុន!
-              </div>
-              <div class="cs-metrics">
-                <div class="cs-metric">
-                  <div class="mn">3.8x</div>
-                  <div class="ml">ROAS</div>
-                </div>
-                <div class="cs-metric">
-                  <div class="mn">+147%</div>
-                  <div class="ml">ចំណូល</div>
-                </div>
-                <div class="cs-metric">
-                  <div class="mn">-60%</div>
-                  <div class="ml">ថ្លៃដើមក្នុងមួយ Lead</div>
-                </div>
-                <div class="cs-metric">
-                  <div class="mn">8សប្ដា.</div>
-                  <div class="ml">ដល់លទ្ធផល</div>
-                </div>
-              </div>
-              <div class="cs-proof">
-                សម្គាល់: លទ្ធផលនេះគិតលើរយៈពេល 8 សប្តាហ៍ និងអាចខុសគ្នាតាម budget
-                និង execution។
-              </div>
-              <div class="cs-footer">
-                <div class="cs-tags">
-                  <span class="cs-tag">Facebook Ads</span>
-                  <span class="cs-tag">Content Strategy</span>
-                  <span class="cs-tag">KHQR</span>
-                </div>
-                <a href="/contact" class="cs-link"
-                  >ពិគ្រោះ Strategy ស្រដៀងនេះ <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
+            <div class="cs-card-foot">
+              <span class="cs-client-name">DC Fashion · Phnom Penh</span>
+              <a href="/contact" class="cs-link">ពិគ្រោះ <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
 
-          <!-- Case Study 2 -->
+          <!-- Card 2 — Sokha Café -->
           <div class="cs-card reveal" data-cat="ai">
+            <div class="cs-card-head">
+              <div class="cs-title">AI Content System ជំនួស Marketing Agency</div>
+              <div class="cs-cat-label">ឧបករណ៍ AI</div>
+            </div>
             <div class="cs-thumb">
               <img
                 src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=75&w=800&auto=format&fit=crop"
-                alt="CR Academy Case Study"
+                alt="Sokha Café AI Case Study"
                 loading="lazy"
                 decoding="async"
-                srcset="
-                  https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=75&w=640&auto=format&fit=crop 640w,
-                  https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=75&w=800&auto=format&fit=crop 800w
-                "
-                sizes="(max-width: 900px) 100vw, 45vw"
               />
-              <div class="cs-thumb-overlay"></div>
-              <span class="cs-category">ឧបករណ៍ AI</span>
-              <span class="cs-result-badge">សន្សំ $250/ខែ</span>
             </div>
-            <div class="cs-body">
-              <div class="cs-client">Sokha Café · Siem Reap</div>
-              <div class="cs-title">
-                AI Content System ជំនួស Marketing Agency
-              </div>
-              <div class="cs-excerpt">
-                Sokha Café ចំណាយ $300/month hire agency ធ្វើ content។ YOB
-                Digital បង្រៀន AI Workflow — ឥឡូវ generate ១ month content ក្នុង
-                ២ ម៉ោង ដោយខ្លួនឯង!
-              </div>
-              <div class="cs-metrics">
-                <div class="cs-metric">
-                  <div class="mn">$250</div>
-                  <div class="ml">សន្សំ/ខែ</div>
-                </div>
-                <div class="cs-metric">
-                  <div class="mn">+32%</div>
-                  <div class="ml">ការចូលរួម</div>
-                </div>
-                <div class="cs-metric">
-                  <div class="mn">2ម៉.</div>
-                  <div class="ml">ខ្លឹមសារ 30 ថ្ងៃ</div>
-                </div>
-              </div>
-              <div class="cs-proof">
-                សម្គាល់: តួលេខនេះវាស់លើខែដំបូងក្រោយ deploy workflow
-                និងអាចខុសគ្នាតាមក្រុមការងារ។
-              </div>
-              <div class="cs-footer">
-                <div class="cs-tags">
-                  <span class="cs-tag">ChatGPT</span>
-                  <span class="cs-tag">Canva AI</span>
-                  <span class="cs-tag">Automation</span>
-                </div>
-                <a href="/contact" class="cs-link"
-                  >ស្នើសុំផែនការ AI ដូចនេះ <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
+            <div class="cs-card-foot">
+              <span class="cs-client-name">Sokha Café · Siem Reap</span>
+              <a href="/contact" class="cs-link">ស្នើ <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
 
-          <!-- Case Study 3 -->
+          <!-- Card 3 — CR Academy -->
           <div class="cs-card reveal" data-cat="web">
+            <div class="cs-card-head">
+              <div class="cs-title">វេបសាយ + AI Workflow → 15 Leads/ថ្ងៃ</div>
+              <div class="cs-cat-label">វេបសាយ & ប្រព័ន្ធ</div>
+            </div>
             <div class="cs-thumb">
               <img
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=800&auto=format&fit=crop"
-                alt="CR Academy"
+                alt="CR Academy Web Case Study"
                 loading="lazy"
                 decoding="async"
-                srcset="
-                  https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=640&auto=format&fit=crop 640w,
-                  https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=800&auto=format&fit=crop 800w
-                "
-                sizes="(max-width: 900px) 100vw, 45vw"
               />
-              <div class="cs-thumb-overlay"></div>
-              <span class="cs-category">វេបសាយ & ប្រព័ន្ធ</span>
-              <span class="cs-result-badge">15 Leads/ថ្ងៃ</span>
             </div>
-            <div class="cs-body">
-              <div class="cs-client">CR Academy · Phnom Penh</div>
-              <div class="cs-title">វេបសាយ + AI Workflow → 15 Leads/ថ្ងៃ</div>
-              <div class="cs-excerpt">
-                CR Academy មាន Facebook Page ប៉ុន្តែ inquiry ចូល ២-៣/ថ្ងៃ។ YOB
-                Digital setup website + booking system + AI auto-reply — ឥឡូវ
-                12-15 qualified leads ចូលរាល់ថ្ងៃ!
-              </div>
-              <div class="cs-metrics">
-                <div class="cs-metric">
-                  <div class="mn">15</div>
-                  <div class="ml">Leads/ថ្ងៃ</div>
-                </div>
-                <div class="cs-metric">
-                  <div class="mn">5x</div>
-                  <div class="ml">Inquiry កើន</div>
-                </div>
-                <div class="cs-metric">
-                  <div class="mn">2សប្ដា.</div>
-                  <div class="ml">ពេល Setup</div>
-                </div>
-              </div>
-              <div class="cs-proof">
-                សម្គាល់: លទ្ធផល leads ត្រូវបានវាស់ក្រោយ setup 2 សប្តាហ៍
-                ដោយគុណភាព content និង ad spend មានឥទ្ធិពល។
-              </div>
-              <div class="cs-footer">
-                <div class="cs-tags">
-                  <span class="cs-tag">Website</span>
-                  <span class="cs-tag">Booking System</span>
-                  <span class="cs-tag">AI Chatbot</span>
-                </div>
-                <a href="/contact" class="cs-link"
-                  >ស្នើសុំ Web + AI setup <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
+            <div class="cs-card-foot">
+              <span class="cs-client-name">CR Academy · Phnom Penh</span>
+              <a href="/contact" class="cs-link">ស្នើ <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
 
-          <!-- Case Study 4 -->
+          <!-- Card 4 — Piseth FMCG -->
           <div class="cs-card reveal" data-cat="ai strategy">
+            <div class="cs-card-head">
+              <div class="cs-title">AI Essentials → សន្សំ 10+ ម៉ោងប្រចាំសប្ដាហ៍</div>
+              <div class="cs-cat-label">AI + យុទ្ធសាស្ត្រ</div>
+            </div>
             <div class="cs-thumb">
               <img
                 src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=75&w=800&auto=format&fit=crop"
-                alt="FMCG Manager"
+                alt="FMCG Manager AI Training"
                 loading="lazy"
                 decoding="async"
-                srcset="
-                  https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=75&w=640&auto=format&fit=crop 640w,
-                  https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=75&w=800&auto=format&fit=crop 800w
-                "
-                sizes="(max-width: 900px) 100vw, 45vw"
               />
-              <div class="cs-thumb-overlay"></div>
-              <span class="cs-category">AI + យុទ្ធសាស្ត្រ</span>
-              <span class="cs-result-badge">សន្សំ 10+ ម៉ោង/សប្ដាហ៍</span>
             </div>
-            <div class="cs-body">
-              <div class="cs-client">Piseth · FMCG Marketing Manager</div>
-              <div class="cs-title">
-                AI Essentials → សន្សំ 10+ ម៉ោងប្រចាំសប្ដាហ៍
-              </div>
-              <div class="cs-excerpt">
-                Piseth ជា Marketing Manager ដែលត្រូវ produce reports,
-                presentations, content weekly។ YOB AI Essentials training ជួយ
-                automate ៨០% tasks — save 10+ ម៉ោង/សប្ដាហ៍!
-              </div>
-              <div class="cs-metrics">
-                <div class="cs-metric">
-                  <div class="mn">10+</div>
-                  <div class="ml">ម៉ោងសន្សំ/សប្ដាហ៍</div>
-                </div>
-                <div class="cs-metric">
-                  <div class="mn">80%</div>
-                  <div class="ml">ការងារអូតូ</div>
-                </div>
-                <div class="cs-metric">
-                  <div class="mn">$250</div>
-                  <div class="ml">សន្សំប្រចាំខែ</div>
-                </div>
-              </div>
-              <div class="cs-proof">
-                សម្គាល់: ការសន្សំថវិកាអាស្រ័យលើបរិមាណការងារ
-                និងរបៀបអនុវត្តរបស់ក្រុមរបស់អ្នក។
-              </div>
-              <div class="cs-footer">
-                <div class="cs-tags">
-                  <span class="cs-tag">AI Training</span>
-                  <span class="cs-tag">Automation</span>
-                  <span class="cs-tag">Productivity</span>
-                </div>
-                <a href="/contact" class="cs-link"
-                  >ពិគ្រោះ Training ផ្ទាល់ខ្លួន
-                  <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
+            <div class="cs-card-foot">
+              <span class="cs-client-name">Piseth · FMCG Manager</span>
+              <a href="/contact" class="cs-link">ពិគ្រោះ <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
 
-          <!-- Case Study 5 -->
+          <!-- Card 5 — Local Startup Fonts -->
           <div class="cs-card reveal" data-cat="font">
+            <div class="cs-card-head">
+              <div class="cs-title">Khmer Font Upgrade → 40% More Brand Trust</div>
+              <div class="cs-cat-label">អក្សរខ្មែរ</div>
+            </div>
             <div class="cs-thumb">
               <img
                 src="https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=75&w=800&auto=format&fit=crop"
-                alt="Brand Relaunch"
+                alt="Khmer Font Brand Case Study"
                 loading="lazy"
                 decoding="async"
-                srcset="
-                  https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=75&w=640&auto=format&fit=crop 640w,
-                  https://images.unsplash.com/photo-1540317580384-e5d43867caa6?q=75&w=800&auto=format&fit=crop 800w
-                "
-                sizes="(max-width: 900px) 100vw, 45vw"
               />
-              <div class="cs-thumb-overlay"></div>
-              <span class="cs-category">អក្សរខ្មែរ</span>
-              <span class="cs-result-badge">+40% ទំនុកចិត្តលើម៉ាក</span>
             </div>
-            <div class="cs-body">
-              <div class="cs-client">Local Startup · Kampong Cham</div>
-              <div class="cs-title">
-                Khmer Font Upgrade → 40% More Brand Trust
-              </div>
-              <div class="cs-excerpt">
-                Startup ប្រើ default Khmer font ក្នុង branding materials ហើយ
-                look unprofessional។ YOB Typography — YOB Heading Pro + YOB
-                Signature — brand perceived trust ឡើង 40% ក្នុង customer survey!
-              </div>
-              <div class="cs-metrics">
-                <div class="cs-metric">
-                  <div class="mn">+40%</div>
-                  <div class="ml">ទំនុកចិត្តលើម៉ាក</div>
-                </div>
-                <div class="cs-metric">
-                  <div class="mn">+25%</div>
-                  <div class="ml">អត្រាបម្លែង</div>
-                </div>
-                <div class="cs-metric">
-                  <div class="mn">1ថ្ងៃ</div>
-                  <div class="ml">ពេលអនុវត្ត</div>
-                </div>
-              </div>
-              <div class="cs-proof">
-                សម្គាល់: តួលេខ trust/conversion មកពី customer feedback និង A/B
-                test ចន្លោះពេល deploy ដំបូង។
-              </div>
-              <div class="cs-footer">
-                <div class="cs-tags">
-                  <span class="cs-tag">YOB Heading Pro</span>
-                  <span class="cs-tag">Branding</span>
-                  <span class="cs-tag">Print</span>
-                </div>
-                <a href="/fonts" class="cs-link"
-                  >មើលអក្សរ <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
+            <div class="cs-card-foot">
+              <span class="cs-client-name">Local Startup · Kampong Cham</span>
+              <a href="/fonts" class="cs-link">មើលអក្សរ <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
 
-          <!-- Case Study 6 -->
+          <!-- Card 6 — Handcraft Store -->
           <div class="cs-card reveal" data-cat="strategy">
+            <div class="cs-card-head">
+              <div class="cs-title">ពី Offline ទៅ Online → កំណើនលក់ 200%</div>
+              <div class="cs-cat-label">យុទ្ធសាស្ត្រឌីជីថល</div>
+            </div>
             <div class="cs-thumb">
               <img
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=800&auto=format&fit=crop"
-                alt="E-commerce Growth"
+                alt="Handcraft Store E-commerce Growth"
                 loading="lazy"
                 decoding="async"
-                srcset="
-                  https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=640&auto=format&fit=crop 640w,
-                  https://images.unsplash.com/photo-1552664730-d307ca884978?q=75&w=800&auto=format&fit=crop 800w
-                "
-                sizes="(max-width: 900px) 100vw, 45vw"
               />
-              <div class="cs-thumb-overlay"></div>
-              <span class="cs-category">យុទ្ធសាស្ត្រឌីជីថល</span>
-              <span class="cs-result-badge">+200% ការលក់អនឡាញ</span>
             </div>
-            <div class="cs-body">
-              <div class="cs-client">Handcraft Store · Battambang</div>
-              <div class="cs-title">ពី Offline ទៅ Online → កំណើនលក់ 200%</div>
-              <div class="cs-excerpt">
-                Handcraft store ពឹងផ្អែកលើ walk-in customers ១០០%។ YOB Digital
-                setup Facebook Shop + TikTok content strategy + Shopee listing —
-                online sales ឡើង 200% ក្នុង ៣ ខែ!
-              </div>
-              <div class="cs-metrics">
-                <div class="cs-metric">
-                  <div class="mn">+200%</div>
-                  <div class="ml">ការលក់អនឡាញ</div>
-                </div>
-                <div class="cs-metric">
-                  <div class="mn">3</div>
-                  <div class="ml">Channel ថ្មី</div>
-                </div>
-                <div class="cs-metric">
-                  <div class="mn">3ខែ</div>
-                  <div class="ml">ដល់ពង្រីក</div>
-                </div>
-              </div>
-              <div class="cs-proof">
-                សម្គាល់: កំណើនលក់ online ត្រូវការការអនុវត្តជាប់លាប់
-                និងគុណភាពសេវាកម្មដឹកជញ្ជូន។
-              </div>
-              <div class="cs-footer">
-                <div class="cs-tags">
-                  <span class="cs-tag">E-Commerce</span>
-                  <span class="cs-tag">TikTok</span>
-                  <span class="cs-tag">Shopee</span>
-                </div>
-                <a href="/contact" class="cs-link"
-                  >ចាប់ផ្តើម Strategy E-commerce
-                  <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
+            <div class="cs-card-foot">
+              <span class="cs-client-name">Handcraft Store · Battambang</span>
+              <a href="/contact" class="cs-link">ចាប់ផ្តើម <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Card 7 — E Express Poster Design -->
+          <div class="cs-card reveal" data-cat="design">
+            <div class="cs-card-head">
+              <div class="cs-title">Brand Poster Series — ១ Brand ១ Story ១ Design</div>
+              <div class="cs-cat-label">Poster Design</div>
+            </div>
+            <div class="cs-thumb">
+              <img
+                src="images/case-studies/e-express/poster-01.jpg"
+                alt="E Express Poster Design by YOB Digital"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="cs-card-foot">
+              <span class="cs-client-name">E Express · Phnom Penh</span>
+              <a href="#" class="cs-link pm-trigger">Gallery <i class="fas fa-images"></i></a>
             </div>
           </div>
         </div>
         <!-- end cs-grid -->
         <div class="filter-empty" id="filterEmpty">
-          មិនទាន់មាន case study សម្រាប់ប្រភេទនេះទេ។ សូមសាកជ្រើសប្រភេទផ្សេងទៀត។
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ HOW WE WORK ══ -->
-    <section class="cs-process">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">របៀបធ្វើការ</span>
-          <h2 class="section-title">
-            ៤ ជំហាន <span class="gradient-text">ទៅកាន់លទ្ធផល</span>
-          </h2>
-        </div>
-        <div class="process-track reveal">
-          <div class="process-step">
-            <div class="ps-num">01</div>
-            <div class="ps-icon-wrap">🔍</div>
-            <h3>Audit & Plan</h3>
-            <p>ស្វែងយល់ business, goal, budget — ចេញ action plan ២ ឆ្នាំ</p>
-          </div>
-          <div class="process-connector"></div>
-          <div class="process-step">
-            <div class="ps-num">02</div>
-            <div class="ps-icon-wrap">⚡</div>
-            <h3>Build & Launch</h3>
-            <p>Setup system, content, ads — Quick Win ក្នុង ២ សប្ដាហ៍</p>
-          </div>
-          <div class="process-connector"></div>
-          <div class="process-step">
-            <div class="ps-num">03</div>
-            <div class="ps-icon-wrap">📈</div>
-            <h3>Optimize & Scale</h3>
-            <p>Track data, កែ, ពង្រីក — ទៅ 3x–5x ROAS ក្នុង ២ ខែ</p>
-          </div>
-          <div class="process-connector"></div>
-          <div class="process-step">
-            <div class="ps-num">04</div>
-            <div class="ps-icon-wrap">🎓</div>
-            <h3>Train & Hand-off</h3>
-            <p>Transfer ចំណេះ ទៅ team — team ដំណើរការ system ដោយខ្លួនឯង</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ TESTIMONIALS ══ -->
-    <section class="testimonials-section">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">សំឡេងពីអតិថិជន</span>
-          <h2 class="section-title">
-            សំឡេង <span class="gradient-text">ពិត</span>
-          </h2>
-        </div>
-        <div class="testimonials-grid">
-          <div class="testi-card reveal">
-            <div class="testi-badge">📈 ការលក់ +32%</div>
-            <div class="testi-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i>
-            </div>
-            <div class="testi-rating-bar"></div>
-            <p class="testi-quote">
-              "ក្រោយ AI Course ១ ខែ ខ្ញុំ save ១២+ ម៉ោង/សប្ដាហ៍ — Sales ឡើង ៣២%!
-              Content ដែល Babu បង្រៀន apply ភ្លាម គ្មាន theory ហួស!"
-            </p>
-            <div class="testi-author">
-              <div class="testi-avatar-initial">SL</div>
-              <div>
-                <div class="testi-name">Sokha Lim</div>
-                <div class="testi-role">ម្ចាស់ហាងកាហ្វេ, ភ្នំពេញ</div>
-              </div>
-            </div>
-          </div>
-          <div class="testi-card reveal">
-            <div class="testi-badge">🚀 ROAS 3.8x</div>
-            <div class="testi-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i>
-            </div>
-            <div class="testi-rating-bar"></div>
-            <p class="testi-quote">
-              "YOB Strategy ជួយ ROAS ពី 1.2x ទៅ 3.8x ក្នុង ២ ខែ! លែង waste
-              budget on Boost Post ហើយ — real ROI!"
-            </p>
-            <div class="testi-author">
-              <div class="testi-avatar-initial">DC</div>
-              <div>
-                <div class="testi-name">Dara Chan</div>
-                <div class="testi-role">ស្ថាបនិក, DC Fashion</div>
-              </div>
-            </div>
-          </div>
-          <div class="testi-card reveal">
-            <div class="testi-badge">👥 15 leads/ថ្ងៃ</div>
-            <div class="testi-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i>
-            </div>
-            <div class="testi-rating-bar"></div>
-            <p class="testi-quote">
-              "YOB setup website + AI workflow ក្នុង ២ សប្ដាហ៍ — Inquiry ចូល
-              ១២-១៥ leads/ថ្ងៃ ជំនួស ២-៣ ដូចមុន!"
-            </p>
-            <div class="testi-author">
-              <div class="testi-avatar-initial">CR</div>
-              <div>
-                <div class="testi-name">Chanthy Ros</div>
-                <div class="testi-role">នាយក, CR Academy</div>
-              </div>
-            </div>
-          </div>
-          <div class="testi-card reveal">
-            <div class="testi-badge">💰 សន្សំ $250/ខែ</div>
-            <div class="testi-stars">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i>
-            </div>
-            <div class="testi-rating-bar"></div>
-            <p class="testi-quote">
-              "AI course save $250/month marketing budget — ឥឡូវខ្ញុំ produce
-              content, design, ads ខ្លួនឯងបានទាំងអស់!"
-            </p>
-            <div class="testi-author">
-              <div class="testi-avatar-initial">PK</div>
-              <div>
-                <div class="testi-name">Piseth Ky</div>
-                <div class="testi-role">ប្រធានម៉ាកេតធីង, FMCG</div>
-              </div>
-            </div>
-          </div>
+          មិនទាន់មាន case study សម្រាប់ប្រភេទនេះទេ។
         </div>
       </div>
     </section>
@@ -1345,6 +906,31 @@
       </div>
     </section>
 
+    <!-- ══ POSTER MASONRY OVERLAY ══ -->
+    <div class="pm-overlay" id="pmOverlay" aria-hidden="true">
+      <div class="pm-panel" id="pmPanel">
+        <div class="pm-header">
+          <div class="pm-header-left">
+            <span class="pm-label">Poster Design</span>
+            <h2 class="pm-title">E Express</h2>
+          </div>
+          <button class="pm-close" id="pmClose" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="pm-grid">
+          <div class="pm-item"><img src="images/case-studies/e-express/poster-01.jpg" alt="E Express Poster 1" loading="lazy" /></div>
+          <div class="pm-item"><img src="images/case-studies/e-express/poster-02.jpg" alt="E Express Poster 2" loading="lazy" /></div>
+          <div class="pm-item"><img src="images/case-studies/e-express/poster-03.jpg" alt="E Express Poster 3" loading="lazy" /></div>
+          <div class="pm-item"><img src="images/case-studies/e-express/poster-04.jpg" alt="E Express Poster 4" loading="lazy" /></div>
+          <div class="pm-item"><img src="images/case-studies/e-express/poster-05.jpg" alt="E Express Poster 5" loading="lazy" /></div>
+          <div class="pm-item"><img src="images/case-studies/e-express/poster-06.jpg" alt="E Express Poster 6" loading="lazy" /></div>
+          <div class="pm-item"><img src="images/case-studies/e-express/poster-07.jpg" alt="E Express Poster 7" loading="lazy" /></div>
+          <div class="pm-item"><img src="images/case-studies/e-express/poster-08.jpg" alt="E Express Poster 8" loading="lazy" /></div>
+        </div>
+      </div>
+    </div>
+
     <!-- ══ MEGA FOOTER ══ -->
     <div id="footer-placeholder"></div>
 
@@ -1370,71 +956,91 @@
     </button>
 
     <script>
-    <script>
-      // ── FILTER with count badges ──
-      const filterBtns = document.querySelectorAll(".filter-btn");
-      const cards = document.querySelectorAll(".cs-card");
-      const filterEmpty = document.getElementById("filterEmpty");
+      // ── POSTER MASONRY OVERLAY ──
+      (function () {
+        var overlay = document.getElementById("pmOverlay");
+        var pmClose = document.getElementById("pmClose");
+        var triggers = document.querySelectorAll(".pm-trigger");
 
-      // Inject count badges into filter buttons
-      filterBtns.forEach((btn) => {
-        const f = btn.dataset.filter;
-        const count = f === "all"
-          ? cards.length
-          : Array.from(cards).filter(c => (c.dataset.cat || "").includes(f)).length;
-        btn.innerHTML += `<span class="f-count">${count}</span>`;
-      });
-
-      filterBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          filterBtns.forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-          const f = btn.dataset.filter;
-          let visibleCount = 0;
-          cards.forEach((card) => {
-            const cat = card.dataset.cat || "";
-            const isVisible = f === "all" || cat.includes(f);
-            card.style.display = isVisible ? "" : "none";
-            if (isVisible) visibleCount++;
-          });
-          if (filterEmpty) filterEmpty.classList.toggle("show", visibleCount === 0);
-        });
-      });
-
-      // ── STAT COUNTER (count-up on scroll) ──
-      function animateCounter(el) {
-        const target = parseInt(el.dataset.target, 10);
-        const suffix = el.dataset.suffix || "";
-        const duration = 1400;
-        const start = performance.now();
-        function step(now) {
-          const progress = Math.min((now - start) / duration, 1);
-          // ease-out cubic
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const current = Math.round(eased * target);
-          el.textContent = current + suffix;
-          if (progress < 1) requestAnimationFrame(step);
-          else el.textContent = target + suffix;
+        function openPm(e) {
+          e.preventDefault();
+          overlay.classList.add("open");
+          overlay.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
         }
-        requestAnimationFrame(step);
-      }
+        function closePm() {
+          overlay.classList.remove("open");
+          overlay.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        }
 
-      const counterEls = document.querySelectorAll(".n[data-target]");
-      if ("IntersectionObserver" in window) {
-        const obs = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              animateCounter(entry.target);
-              obs.unobserve(entry.target);
-            }
+        triggers.forEach(function (t) { t.addEventListener("click", openPm); });
+        pmClose.addEventListener("click", closePm);
+        // Click backdrop (outside panel) to close
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) closePm();
+        });
+        // Esc key
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closePm();
+        });
+      })();
+
+      // ── FILTER + SEARCH ──
+      (function () {
+        const cards = Array.from(document.querySelectorAll(".cs-card"));
+        const filterEmpty = document.getElementById("filterEmpty");
+        const dropdownWrap = document.getElementById("csDropdownWrap");
+        const dropdownBtn  = document.getElementById("csDropdownBtn");
+        const dropdownLabel = document.getElementById("csDropdownLabel");
+        const dropdownItems = document.querySelectorAll("#csDropdownMenu li");
+        const searchInput  = document.getElementById("csSearch");
+
+        let activeFilter = "all";
+        let searchQuery  = "";
+
+        function applyFilters() {
+          let visible = 0;
+          cards.forEach(function (card) {
+            const cat   = card.dataset.cat || "";
+            const title = (card.querySelector(".cs-title") || {}).textContent || "";
+            const matchFilter = activeFilter === "all" || cat.includes(activeFilter);
+            const matchSearch = searchQuery === "" || title.toLowerCase().includes(searchQuery);
+            const show = matchFilter && matchSearch;
+            card.style.display = show ? "" : "none";
+            if (show) visible++;
           });
-        }, { threshold: 0.5 });
-        counterEls.forEach((el) => obs.observe(el));
-      } else {
-        counterEls.forEach(animateCounter);
-      }
+          filterEmpty.classList.toggle("show", visible === 0);
+        }
+
+        // Dropdown toggle
+        dropdownBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          dropdownWrap.classList.toggle("open");
+        });
+        document.addEventListener("click", function () {
+          dropdownWrap.classList.remove("open");
+        });
+
+        // Dropdown item select
+        dropdownItems.forEach(function (item) {
+          item.addEventListener("click", function () {
+            dropdownItems.forEach(function (i) { i.classList.remove("active"); });
+            item.classList.add("active");
+            activeFilter = item.dataset.filter;
+            dropdownLabel.textContent = item.textContent;
+            dropdownWrap.classList.remove("open");
+            applyFilters();
+          });
+        });
+
+        // Search
+        searchInput.addEventListener("input", function () {
+          searchQuery = searchInput.value.trim().toLowerCase();
+          applyFilters();
+        });
+      })();
     </script>
-    <script src="js/load-components.js"></script>
     <script src="js/load-components.js"></script>
     <script src="js/main.js" defer></script>
   </body>
