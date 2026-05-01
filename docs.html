@@ -4064,6 +4064,509 @@
       body.light-mode .lesson-recap { border-left-color: rgba(0,0,0,0.2) !important; }
       body.light-mode .callout.tip  { border-left-color: rgba(229,44,103,0.5) !important; }
       body.light-mode .cmap-row.active { background: rgba(0,0,0,0.04) !important; border-left-color: rgba(0,0,0,0.35) !important; }
+
+      /* ── Light mode: AI concept elements ── */
+      body.light-mode .dm-ai-summary {
+        background: rgba(168,85,247,0.06);
+        border-color: rgba(168,85,247,0.2);
+      }
+      body.light-mode .dm-ai-label { color: rgba(120,50,200,0.85); }
+      body.light-mode .dm-ai-text  { color: #334155; }
+
+      body.light-mode .dm-concept-pills .dm-pill {
+        background: rgba(0,0,0,0.04);
+        border-color: rgba(0,0,0,0.1);
+        color: #475569;
+      }
+      body.light-mode .dm-concept-pills .dm-pill:hover {
+        background: rgba(229,44,103,0.08);
+        border-color: rgba(229,44,103,0.3);
+        color: #1e293b;
+      }
+
+      body.light-mode .dm-explore { border-top-color: rgba(0,0,0,0.08); }
+      body.light-mode .dm-explore-label { color: #94a3b8; }
+      body.light-mode .dm-explore-chip {
+        background: rgba(0,0,0,0.03);
+        border-color: rgba(0,0,0,0.09);
+        color: #475569;
+      }
+      body.light-mode .dm-explore-chip:hover {
+        background: rgba(229,44,103,0.07);
+        border-color: rgba(229,44,103,0.25);
+        color: #1e293b;
+        box-shadow: 0 6px 20px rgba(229,44,103,0.08);
+      }
+
+      body.light-mode .doc-section > h2::before { color: rgba(229,44,103,0.55); }
+
+      /* ═══════════════════════════════════════════
+         VISUAL REFRESH — Minimal · Clean · Friendly
+         For reading & learning — better typography,
+         breathing room, softer sidebar
+      ═══════════════════════════════════════════ */
+
+      /* ── Warmer base background ── */
+      body { background: #07090f; }
+
+      /* ── Sidebar — cleaner, softer ── */
+      .docs-sidebar {
+        background: #08090e;
+        border-right: 1px solid rgba(255,255,255,0.055);
+      }
+      .nav-group-label {
+        font-size: 10px;
+        letter-spacing: 1.4px;
+        color: rgba(255,255,255,0.26);
+        padding: 16px 20px 5px;
+      }
+      .nav-link {
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(255,255,255,0.5);
+        padding: 9px 18px;
+        gap: 10px;
+        border-radius: 0 10px 10px 0;
+        margin-right: 10px;
+        border-left: 2px solid transparent;
+        transition: all 0.2s;
+      }
+      .nav-link:hover {
+        color: rgba(255,255,255,0.88);
+        background: rgba(255,255,255,0.04);
+        border-left-color: rgba(255,255,255,0.1);
+      }
+      .nav-link.active {
+        color: #fff;
+        font-weight: 600;
+        background: rgba(229,44,103,0.09);
+        border-left-color: var(--gold);
+      }
+      .nav-link i { font-size: 12px; color: inherit; }
+      .nav-badge { font-size: 10px; padding: 2px 7px; }
+      .nav-count {
+        font-size: 10px;
+        background: rgba(255,255,255,0.05);
+        color: rgba(139,148,158,0.6);
+        padding: 1px 6px;
+        border-radius: 20px;
+      }
+      .sidebar-search-btn {
+        border-radius: 10px;
+        margin-bottom: 20px;
+        font-size: 13px;
+        color: rgba(139,148,158,0.6);
+        border-color: rgba(255,255,255,0.07);
+        background: rgba(255,255,255,0.025);
+        padding: 0 14px;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 9px;
+        height: 38px;
+      }
+      .sidebar-search-btn:hover {
+        border-color: rgba(229,44,103,0.35);
+        background: rgba(229,44,103,0.05);
+        color: rgba(255,255,255,0.7);
+      }
+
+      /* ── Main content — spacious reading ── */
+      .docs-main {
+        padding: clamp(44px,6vw,60px) clamp(36px,5vw,72px);
+      }
+
+      /* ── Breadcrumb ── */
+      .breadcrumb {
+        font-size: 13px;
+        color: rgba(139,148,158,0.55);
+        margin-bottom: 32px;
+      }
+
+      /* ── Doc title — friendlier ── */
+      .doc-title {
+        font-size: clamp(30px,3.5vw,44px);
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        line-height: 1.18;
+        margin-bottom: 18px;
+      }
+
+      /* ── Doc lead — comfortable reading ── */
+      .doc-lead {
+        font-size: 17px;
+        line-height: 1.88;
+        color: rgba(139,148,158,0.75);
+        margin-bottom: 44px;
+        padding-bottom: 44px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
+
+      /* ── Section headers ── */
+      .doc-section h2 {
+        font-size: clamp(20px,2.5vw,26px);
+        font-weight: 700;
+        letter-spacing: -0.3px;
+        margin-top: 56px;
+        padding-top: 44px;
+        border-top: 1px solid rgba(255,255,255,0.06);
+        scroll-margin-top: 80px;
+      }
+      .doc-section h2:first-child {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+      }
+      .doc-section h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 32px;
+        margin-bottom: 12px;
+      }
+      .doc-section h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      /* ── Body reading text ── */
+      .doc-section p {
+        font-size: 16px;
+        line-height: 1.9;
+        color: rgba(255,255,255,0.72);
+        margin-bottom: 16px;
+      }
+      .doc-section ul li,
+      .doc-section ol li {
+        font-size: 16px;
+        line-height: 1.85;
+        color: rgba(255,255,255,0.72);
+        margin-bottom: 8px;
+      }
+
+      /* ── Callout boxes — softer, rounder ── */
+      .callout {
+        border-radius: 14px;
+        padding: 18px 22px;
+        gap: 15px;
+      }
+      .callout-body {
+        font-size: 15px;
+        line-height: 1.82;
+      }
+      .callout-icon { font-size: 17px; }
+
+      /* ── Concept cards — more breathing room ── */
+      .concept-card {
+        border-radius: 16px;
+        padding: 22px 20px;
+        border-color: rgba(255,255,255,0.07);
+      }
+      .concept-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+      .concept-card p  { font-size: 14px; line-height: 1.72; margin: 0; }
+
+      /* ── Code blocks — warmer, cleaner ── */
+      .code-block {
+        border-radius: 14px;
+        border-color: rgba(255,255,255,0.07);
+        background: rgba(255,255,255,0.03);
+      }
+      .code-block pre {
+        font-size: 14.5px;
+        line-height: 1.78;
+        padding: 22px;
+      }
+      .code-header { font-size: 12px; padding: 11px 18px; }
+      .code-lang   { font-size: 11px; }
+      .code-copy   { font-size: 12px; }
+
+      /* ── Lesson step cards ── */
+      .lesson-step { border-radius: 16px; }
+      .ls-header { padding: 18px 22px; }
+      .ls-title  { font-size: 16px; font-weight: 700; }
+      .ls-sub    { font-size: 14px; }
+      .ls-body   { padding: 22px 26px; }
+      .ls-num    { font-size: 28px; }
+
+      /* ── Action checklist ── */
+      .ac-item {
+        font-size: 15px;
+        border-radius: 10px;
+        padding: 12px 16px;
+        line-height: 1.7;
+      }
+
+      /* ── Lesson meta badges ── */
+      .lm-badge { font-size: 12px; padding: 6px 14px; }
+
+      /* ── Tool cards ── */
+      .tool-card { border-radius: 18px; padding: 24px 20px; }
+      .tool-card h4 { font-size: 16px; }
+
+      /* ── Technique cards ── */
+      .technique-card { border-radius: 16px; padding: 20px 18px; }
+      .technique-card h4 { font-size: 15px; }
+      .technique-card p  { font-size: 14px; line-height: 1.7; }
+
+      /* ── Mistake items ── */
+      .mistake-item { border-radius: 13px; padding: 16px 18px; }
+      .mistake-body strong { font-size: 15px; }
+      .mistake-body span   { font-size: 14px; line-height: 1.7; }
+
+      /* ── Prompt checklist ── */
+      .prompt-checklist { border-radius: 16px; padding: 22px; }
+      .pc-item { font-size: 15px; line-height: 1.75; padding: 10px 0; }
+
+      /* ── TOC — cleaner ── */
+      .docs-toc { padding: 36px 22px; border-left-color: rgba(255,255,255,0.055); }
+      .toc-title { font-size: 10px; letter-spacing: 1.4px; color: rgba(255,255,255,0.28); margin-bottom: 14px; }
+      .toc-link  { font-size: 13.5px; line-height: 1.6; padding: 5px 0 5px 14px; color: rgba(139,148,158,0.65); }
+      .toc-link:hover { color: rgba(255,255,255,0.85); }
+      .toc-link.active { color: var(--gold); border-left-color: var(--gold); }
+      .toc-link.h3 { font-size: 12.5px; padding-left: 26px; }
+
+      /* ── Docs nav — cleaner ── */
+      .docs-nav { border-bottom-color: rgba(255,255,255,0.06); background: rgba(7,9,15,0.94); }
+      .docs-nav-logo { font-size: 17px; }
+      .docs-nav-badge { font-size: 10px; padding: 3px 9px; border-radius: 7px; }
+      .dn-link { font-size: 13.5px; color: rgba(139,148,158,0.7); }
+      .dn-link:hover { color: rgba(255,255,255,0.88); }
+      .dn-link.active { color: #fff; }
+      .dn-cta  { font-size: 13px; padding: 7px 16px; }
+
+      /* ── Reading progress bar — thinner, elegant ── */
+      .docs-progress-bar { height: 2px; }
+
+      /* ── Page nav (prev/next) ── */
+      .page-nav-card { border-radius: 14px; padding: 18px 22px; }
+      .page-nav-label { font-size: 11px; letter-spacing: 1px; }
+      .page-nav-title { font-size: 15px; }
+
+      /* ── Catalog cards ── */
+      .catalog-card { border-radius: 16px; }
+
+      /* ── Smooth general border ── */
+      .doc-section table { border-radius: 14px; }
+      .doc-section thead th { font-size: 12px; padding: 12px 16px; }
+      .doc-section td { font-size: 15px; padding: 11px 16px; line-height: 1.7; }
+
+      /* ── Before/After grid ── */
+      .ba-col { border-radius: 12px; padding: 16px 18px; }
+      .ba-row  { font-size: 15px; }
+
+      /* ── CET labels ── */
+      .cet-label { font-size: 11px; }
+
+      /* ── Responsive adjustments ── */
+      @media (max-width: 900px) {
+        .docs-main { padding: clamp(24px,5vw,36px) clamp(18px,5vw,28px); }
+        .doc-lead  { font-size: 16px; }
+      }
+
+      /* ══════════════════════════════════════════════════
+         LIGHT MODE — Full override for visual refresh CSS
+         (visual refresh uses hardcoded rgba whites that
+          must be flipped explicitly for light mode)
+      ══════════════════════════════════════════════════ */
+      body.light-mode { background: #f0f4f8 !important; }
+
+      /* Sidebar */
+      body.light-mode .docs-sidebar {
+        background: #f8fafc !important;
+        border-right-color: rgba(0,0,0,0.08) !important;
+      }
+      body.light-mode .nav-group-label { color: rgba(0,0,0,0.35) !important; }
+      body.light-mode .nav-link {
+        color: rgba(0,0,0,0.55) !important;
+      }
+      body.light-mode .nav-link:hover {
+        color: rgba(0,0,0,0.85) !important;
+        background: rgba(0,0,0,0.04) !important;
+        border-left-color: rgba(0,0,0,0.15) !important;
+      }
+      body.light-mode .nav-link.active {
+        color: #1e293b !important;
+        background: rgba(229,44,103,0.08) !important;
+        border-left-color: var(--gold) !important;
+      }
+      body.light-mode .nav-count {
+        background: rgba(0,0,0,0.06) !important;
+        color: #64748b !important;
+      }
+      body.light-mode .sidebar-search-btn {
+        background: rgba(0,0,0,0.04) !important;
+        border-color: rgba(0,0,0,0.1) !important;
+        color: #64748b !important;
+      }
+
+      /* Main content — reading text */
+      body.light-mode .doc-lead {
+        color: #475569 !important;
+        border-bottom-color: rgba(0,0,0,0.08) !important;
+      }
+      body.light-mode .doc-section h2 {
+        border-top-color: rgba(0,0,0,0.08) !important;
+        color: #0f172a !important;
+      }
+      body.light-mode .doc-section h3,
+      body.light-mode .doc-section h4 { color: #1e293b !important; }
+      body.light-mode .doc-section p {
+        color: #334155 !important;
+      }
+      body.light-mode .doc-section ul li,
+      body.light-mode .doc-section ol li {
+        color: #334155 !important;
+      }
+      body.light-mode .doc-section strong { color: #0f172a !important; }
+      body.light-mode .breadcrumb { color: #94a3b8 !important; }
+
+      /* Concept cards */
+      body.light-mode .concept-card {
+        border-color: rgba(0,0,0,0.08) !important;
+      }
+
+      /* Code blocks */
+      body.light-mode .code-block {
+        background: #1e2430 !important;
+        border-color: rgba(0,0,0,0.12) !important;
+      }
+
+      /* TOC */
+      body.light-mode .docs-toc {
+        border-left-color: rgba(0,0,0,0.08) !important;
+      }
+      body.light-mode .toc-title { color: rgba(0,0,0,0.3) !important; }
+      body.light-mode .toc-link  { color: #64748b !important; }
+      body.light-mode .toc-link:hover { color: #0f172a !important; }
+
+      /* Docs nav */
+      body.light-mode .docs-nav {
+        background: rgba(240,244,248,0.97) !important;
+        border-bottom-color: rgba(0,0,0,0.08) !important;
+      }
+      body.light-mode .dn-link { color: #64748b !important; }
+      body.light-mode .dn-link:hover { color: #0f172a !important; }
+      body.light-mode .dn-link.active { color: #0f172a !important; }
+
+      /* ═══════════════════════════════════════════════════════════
+         ALL CONCEPTS — AI Tech Layout  (A + B + C combined)
+         A: AI Search + Explore chips  (Perplexity style)
+         B: Reading Beam + Section nums (Linear / Raycast style)
+         C: AI Summary Card + Concept Pills (Notion + AI style)
+      ═══════════════════════════════════════════════════════════ */
+
+      /* ── B: Reading Beam — left edge scroll tracker ── */
+      .dm-read-beam {
+        position: fixed;
+        left: var(--sidebar-w, 280px);
+        top: var(--header-h, 60px);
+        width: 3px;
+        height: 0%;
+        background: linear-gradient(to bottom, #a855f7 0%, #e52c67 50%, #4f82ff 100%);
+        border-radius: 0 2px 2px 0;
+        z-index: 45; pointer-events: none;
+        opacity: 0; transition: opacity .4s;
+      }
+      .dm-read-beam.visible { opacity: 1; }
+      @media (max-width: 900px) { .dm-read-beam { display: none; } }
+
+      /* ── B: Section number counters (Linear style) ── */
+      .doc-section { counter-reset: dm-h2; }
+      .doc-section > h2 { counter-increment: dm-h2; }
+      .doc-section > h2::before {
+        content: counter(dm-h2, decimal-leading-zero);
+        font-size: 10px; letter-spacing: 2px;
+        color: rgba(229,44,103,0.5);
+        display: block; margin-bottom: 5px;
+        font-family: var(--fb); font-weight: 700;
+      }
+
+      /* ── C: AI Summary Card ── */
+      .dm-ai-summary {
+        position: relative; overflow: hidden;
+        display: flex; gap: 16px; align-items: flex-start;
+        background: rgba(168,85,247,0.05);
+        border: 1px solid rgba(168,85,247,0.15);
+        border-radius: 18px; padding: 20px 24px;
+        margin-bottom: 28px;
+      }
+      .dm-ai-summary::before {
+        content: '';
+        position: absolute; top: 0; left: 0;
+        width: 3px; height: 100%;
+        background: linear-gradient(to bottom, #a855f7, #e52c67);
+      }
+      .dm-ai-icon {
+        width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px;
+        background: linear-gradient(135deg, #a855f7, #e52c67);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 15px; color: #fff;
+      }
+      .dm-ai-label {
+        font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+        color: rgba(168,85,247,0.75); font-weight: 700;
+        margin-bottom: 6px; font-family: var(--fb);
+      }
+      .dm-ai-text {
+        font-size: 14.5px; line-height: 1.8;
+        color: rgba(255,255,255,0.67); font-family: var(--fb);
+        margin: 0;
+      }
+
+      /* ── C: Concept Pills ── */
+      .dm-concept-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+      .dm-pill {
+        display: inline-flex; align-items: center; gap: 6px;
+        font-size: 12.5px; font-family: var(--fb);
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.09);
+        border-radius: 50px; padding: 5px 14px;
+        color: rgba(255,255,255,0.55);
+        cursor: pointer; transition: all .2s; text-decoration: none;
+      }
+      .dm-pill i { font-size: 10px; color: rgba(229,44,103,0.6); }
+      .dm-pill:hover {
+        border-color: rgba(229,44,103,0.35);
+        background: rgba(229,44,103,0.07);
+        color: rgba(255,255,255,0.9);
+      }
+
+      /* ── A: You might also explore ── */
+      .dm-explore { margin-top: 52px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.06); }
+      .dm-explore-label {
+        font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+        color: rgba(139,148,158,0.42); margin-bottom: 16px;
+        font-family: var(--fb); font-weight: 600;
+      }
+      .dm-explore-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+      .dm-explore-chip {
+        display: inline-flex; align-items: center; gap: 9px;
+        font-size: 13px; font-family: var(--fb);
+        background: rgba(255,255,255,0.025);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 13px; padding: 10px 18px;
+        color: rgba(255,255,255,0.58); cursor: pointer; transition: all .22s;
+      }
+      .dm-explore-chip i { font-size: 12px; color: rgba(229,44,103,0.55); }
+      .dm-explore-chip:hover {
+        border-color: rgba(229,44,103,0.28);
+        background: rgba(229,44,103,0.06);
+        color: rgba(255,255,255,0.9);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(229,44,103,0.08);
+      }
+
+      /* ── Stream-in animation on lesson load ── */
+      @keyframes dm-stream-in {
+        from { opacity: 0; transform: translateY(10px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      #docsMain > * { animation: dm-stream-in 0.38s ease forwards; }
+
+      /* ── Responsive ── */
+      @media (max-width: 900px) {
+        .dm-search-ai-chip { display: none; }
+        .dm-search-kbd { display: none; }
+        .dm-explore-chip { font-size: 12px; padding: 8px 14px; }
+      }
     </style>
   </head>
   <body>
@@ -4117,34 +4620,9 @@
 
       <!-- Right: site links + CTA + mobile hamburger -->
       <div class="docs-nav-right">
-        <a href="grow.html" class="dn-link">Yob ដើម្បីអ្នក</a>
-        <div class="dn-has-dropdown">
-          <button class="dn-link">
-            រៀនជាមួយ Yob <i class="fas fa-chevron-down"></i>
-          </button>
-          <ul class="dn-dropdown">
-            <li>
-              <a href="index.html#videos" class="dn-dd-item"
-                ><i class="fas fa-play-circle"></i> Tutorial</a
-              >
-            </li>
-            <li>
-              <a href="yob-learning.html" class="dn-dd-item"
-                ><i class="fas fa-graduation-cap"></i> ជំនាញឌីជីថល</a
-              >
-            </li>
-            <li>
-              <a href="docs.html" class="dn-dd-item active"
-                ><i class="fas fa-book"></i> ឯកសារមេរៀន</a
-              >
-            </li>
-            <li>
-              <a href="case-studies.html" class="dn-dd-item"
-                ><i class="fas fa-briefcase"></i> កម្រងស្នាដៃ</a
-              >
-            </li>
-          </ul>
-        </div>
+        <a href="yob-learning.html" class="dn-link">ជំនាញឌីជីថល</a>
+        <a href="docs.html" class="dn-link active">ឯកសារមេរៀន</a>
+        <a href="case-studies.html" class="dn-link">កម្រងស្នាដៃ</a>
         <div class="dn-has-dropdown">
           <button class="dn-link">
             តូបឌីជីថល <i class="fas fa-chevron-down"></i>
@@ -4185,7 +4663,6 @@
         <div class="drawer-group-items">
           <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
           <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
-          <a href="yobskills.html" onclick="closeDrawer()">YOB Skills</a>
           <a href="docs.html" onclick="closeDrawer()">Documentation</a>
           <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
         </div>
@@ -4197,7 +4674,6 @@
         <div class="drawer-group-items">
           <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
           <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
-          <a href="poster-design.html" onclick="closeDrawer()">Poster Design</a>
         </div>
       </div>
       <a href="about.html" onclick="closeDrawer()">About YOB</a>
@@ -4373,6 +4849,9 @@
     </aside>
 
   </div><!-- end layout -->
+
+    <!-- ── B: Reading Beam — left-edge scroll progress ── -->
+    <div id="dmReadBeam" class="dm-read-beam"></div>
 
     <script>
       // ══════════════════════════════════════════
@@ -5291,6 +5770,98 @@
         `;
       }
 
+      // ══════════════════════════════════════════
+      // ALL-CONCEPT AI LAYOUT — Helper data + renderers
+      // ══════════════════════════════════════════
+
+      const dmSummaries = {
+        'ai-overview':        { text: 'AI Tools ជួយ Business ខ្មែរ ២–១០ ដង — ChatGPT, Claude, Gemini, Canva AI ។ មេរៀននេះបង្ហាញ Tools ត្រូវការ + របៀបចាប់ផ្ដើមភ្លាម។', related: ['prompt-engineering','ai-content','automation','ai-workflow'] },
+        'prompt-engineering': { text: 'Prompt Engineering = ជំនាញ​បញ្ជា AI ។ RTFT Framework + Templates Copy-Ready — Generate ល្អ ៥ ដងជាងចាស់ ក្នុង ៥ នាទី។', related: ['ai-overview','ai-content','ai-tools-list','ai-workflow'] },
+        'ai-content':         { text: 'Create Content ខ្មែរ+English ជាមួយ AI ។ Caption, Blog, Script, Email — Generate ភ្លាម Apply ភ្លាម ដោយ Quality ខ្ពស់។', related: ['prompt-engineering','content-plan','social-media','ai-overview'] },
+        'ai-tools-list':      { text: 'Directory AI Tools ២០+ ដែល YOB ប្រើប្រាស់ ។ Free vs Paid · Use Case · ចំណាត់ថ្នាក់ · Links ផ្ទាល់ ។', related: ['ai-overview','prompt-engineering','automation','ai-workflow'] },
+        'automation':         { text: 'Automation Save ១–៣ ម៉ោង/ថ្ងៃ ។ Zapier, Make, n8n — ភ្ជាប់ Apps Zero-Code ។ Workflow ល្អ = Team ធ្វើបានច្រើន ។', related: ['automation-setup','ai-workflow','ai-tools-list','ai-overview'] },
+        'automation-setup':   { text: 'Step-by-step Automation Setup ។ Make/Zapier Workflows + Template Copy-Ready + Testing + Troubleshoot ។', related: ['automation','ai-workflow','ai-tools-list'] },
+        'ai-workflow':        { text: 'Daily AI Workflow — System ប្រើ AI ជា Routine ។ Morning → Content → Review → Auto-Report ។ ធ្វើម្ដង Work ស្ទើរ Auto ។', related: ['automation','prompt-engineering','ai-content','ai-tools-list'] },
+        'strategy-overview':  { text: 'Digital Strategy ១ page = ទិស + Goal + Audience + Channels ។ YOB Framework — Blueprint ពេញ ។ ដំណើរការ Business Online ។', related: ['customer-persona','content-plan','social-media','ads-setup'] },
+        'customer-persona':   { text: 'Persona = Profile លម្អិតនៃ Customer ។ ដឹង Persona ច្បាស់ → Content Hit ១០ ដង → Ads Cost ទាប ។ Template + ខ្មែរ Examples ។', related: ['strategy-overview','content-plan','social-media','ads-setup'] },
+        'content-plan':       { text: 'Content Plan ១ ខែ ក្នុង ២ ម៉ោង — AI-powered ។ Pillar Content + Weekly Schedule + Formats ។ Post consistent = Growth ។', related: ['customer-persona','social-media','ai-content','prompt-engineering'] },
+        'social-media':       { text: 'Social Media Strategy ខ្មែរ — Facebook, TikTok, Instagram ។ Algorithm + Posting Time + Content Format ដែល Work ជាក់ស្ដែង ។', related: ['content-plan','customer-persona','ads-setup','ai-content'] },
+        'ads-setup':          { text: 'Facebook Ads — Campaign · Ad Set · Creative ។ Budget $5–10/day ចាប់ ។ Targeting ខ្មែរ + A/B Test + Scale Strategy ។', related: ['analytics','social-media','customer-persona','strategy-overview'] },
+        'analytics':          { text: 'Analytics = ដឹង Business ពីលេខ ។ Meta Insights, GA4, Ads Manager ។ KPIs + Reports ជារៀងរាល់ Week ។', related: ['ads-setup','strategy-overview','content-plan'] },
+        'web-overview':       { text: 'Web Overview — ហេតុអ្វីត្រូវការ Website ។ Landing Page vs Website · Stack YOB ប្រើ · ប្រៀបធៀប Platform ។', related: ['landing-page-blueprint','html-basics','github-netlify','lms-setup'] },
+        'landing-page-blueprint': { text: 'Blueprint ចំ: Section → Headline → Trust → CTA ។ Structure ដែល Convert + Template HTML + Khmer Copywriting Tips ។', related: ['web-overview','html-basics','github-netlify','ai-content'] },
+        'html-basics':        { text: 'HTML Basics ជាភាសាខ្មែរ — Tags, Structure, Forms ។ ចាប់ Zero + Examples ។ ២ ម៉ោង → Build Page បាន ។', related: ['web-overview','landing-page-blueprint','github-netlify'] },
+        'github-netlify':     { text: 'Deploy Website Free ជាមួយ GitHub + Netlify ។ Step-by-step · Domain Custom · Auto-Deploy ។ ១ ម៉ោង → Site Live ។', related: ['html-basics','web-overview','lms-setup'] },
+        'lms-setup':          { text: 'Setup LMS — Thinkific, Teachable, ឬ Custom HTML ។ Sell Courses Online ជាភាសាខ្មែរ ។', related: ['github-netlify','web-overview','html-basics'] },
+        'fonts-overview':     { text: 'Khmer Typography Overview — ហេតុអ្វី Font ខ្មែរ Matter ។ YOB Fonts Collection + Rules ប្រើ Font ត្រឹមត្រូវ ។', related: ['font-install','font-license','font-setup'] },
+        'font-install':       { text: 'Install Khmer Fonts — Windows, Mac, Canva, Figma ។ Step-by-step + Troubleshoot + Free Download Links ។', related: ['fonts-overview','font-license','font-setup'] },
+      };
+
+      const dmPageMeta = {
+        'ai-overview':        { icon: 'fa-robot',          label: 'AI Overview' },
+        'prompt-engineering': { icon: 'fa-terminal',       label: 'Prompt Engineering' },
+        'ai-content':         { icon: 'fa-pen-nib',        label: 'AI Content' },
+        'ai-tools-list':      { icon: 'fa-toolbox',        label: 'Tools Directory' },
+        'automation':         { icon: 'fa-cogs',           label: 'Automation' },
+        'automation-setup':   { icon: 'fa-sliders-h',      label: 'Automation Setup' },
+        'ai-workflow':        { icon: 'fa-project-diagram',label: 'AI Workflow' },
+        'strategy-overview':  { icon: 'fa-chess',          label: 'Strategy' },
+        'customer-persona':   { icon: 'fa-user-check',     label: 'Persona' },
+        'content-plan':       { icon: 'fa-calendar-alt',   label: 'Content Plan' },
+        'social-media':       { icon: 'fa-share-alt',      label: 'Social Media' },
+        'ads-setup':          { icon: 'fa-bullhorn',        label: 'Facebook Ads' },
+        'analytics':          { icon: 'fa-chart-bar',      label: 'Analytics' },
+        'web-overview':       { icon: 'fa-globe',          label: 'Web Overview' },
+        'landing-page-blueprint': { icon: 'fa-columns',   label: 'Landing Page' },
+        'html-basics':        { icon: 'fa-html5',          label: 'HTML Basics' },
+        'github-netlify':     { icon: 'fa-github',         label: 'GitHub + Netlify' },
+        'lms-setup':          { icon: 'fa-graduation-cap', label: 'LMS Setup' },
+        'fonts-overview':     { icon: 'fa-font',           label: 'Fonts Overview' },
+        'font-install':       { icon: 'fa-download',       label: 'Install Fonts' },
+        'font-license':       { icon: 'fa-file-contract',  label: 'Font License' },
+        'font-setup':         { icon: 'fa-cog',            label: 'Font Setup' },
+        'faq':                { icon: 'fa-question-circle',label: 'FAQ' },
+        'changelog':          { icon: 'fa-history',        label: 'Changelog' },
+      };
+
+      function renderAISummary(pageId, page) {
+        const d = dmSummaries[pageId];
+        const text = d
+          ? d.text
+          : `${page.title} — Follow ជំហានក្នុង Lesson ហើយ Apply ភ្លាម ។ Questions? Telegram: @yobdigital ។`;
+        return `<div class="dm-ai-summary">
+          <div class="dm-ai-icon"><i class="fas fa-robot"></i></div>
+          <div>
+            <div class="dm-ai-label">✦ YOB AI — TL;DR</div>
+            <p class="dm-ai-text">${text}</p>
+          </div>
+        </div>`;
+      }
+
+      function renderConceptPills(pageId) {
+        const d = dmSummaries[pageId];
+        if (!d || !d.related || !d.related.length) return '';
+        const pills = d.related.map(id => {
+          const m = dmPageMeta[id] || { icon: 'fa-file-alt', label: id };
+          return `<span class="dm-pill" onclick="loadPage('${id}')"><i class="fas ${m.icon}"></i> ${m.label}</span>`;
+        }).join('');
+        return `<div class="dm-concept-pills">${pills}</div>`;
+      }
+
+      function renderExplore(pageId) {
+        const d = dmSummaries[pageId];
+        if (!d || !d.related || !d.related.length) return '';
+        const chips = d.related.map(id => {
+          const m = dmPageMeta[id] || { icon: 'fa-file-alt', label: id };
+          const p = pages[id];
+          return `<div class="dm-explore-chip" onclick="loadPage('${id}')"><i class="fas ${m.icon}"></i> ${p ? p.title : m.label}</div>`;
+        }).join('');
+        return `<div class="dm-explore">
+          <div class="dm-explore-label">You might also explore</div>
+          <div class="dm-explore-grid">${chips}</div>
+        </div>`;
+      }
+
       function loadPage(pageId) {
         const page = pages[pageId] || pages["getting-started"];
         currentPage = pageId;
@@ -5358,8 +5929,11 @@
               </span>
              </div>
              <h1 class="doc-title">${page.title}</h1>
+             ${renderAISummary(pageId, page)}
+             ${renderConceptPills(pageId)}
              ${renderCourseMap(pageId)}
              ${contentWithNote}
+             ${renderExplore(pageId)}
              ${renderFeedbackWidget(pageId)}
              <div class="page-nav">${prevHtml}${nextHtml}</div>`;
 
@@ -5477,6 +6051,19 @@
       }
       window.addEventListener("scroll", updateProgress, { passive: true });
       updateProgress();
+
+      // ── B: READING BEAM (left-edge vertical scroll tracker) ──
+      const dmBeam = document.getElementById("dmReadBeam");
+      function updateDmBeam() {
+        if (!dmBeam) return;
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docH > 0 ? Math.min(100, (scrollTop / docH) * 100) : 0;
+        dmBeam.style.height = pct + "%";
+        dmBeam.classList.toggle("visible", pct > 0.5);
+      }
+      window.addEventListener("scroll", updateDmBeam, { passive: true });
+      updateDmBeam();
 
       // ── VISITED PAGE TRACKING ──
       const VISITED_KEY = "yob_docs_visited";

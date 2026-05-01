@@ -1,2573 +1,677 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="km">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YOB Learning — AI & Digital Skills for Cambodia</title>
-    <meta
-      name="description"
-      content="រៀន AI Tools, Digital Marketing, Web Development ជាភាសាខ្មែរ 100% — YOB Digital Learning Hub"
-    />
-    <!-- SEO -->
-    <link
-      rel="canonical"
-      href="https://yobdigital.netlify.app/yob-learning"
-    />
+    <meta name="description" content="រៀន AI Tools, Digital Marketing, Web Development ជាភាសាខ្មែរ ១០០% — YOB Digital Learning Hub" />
+
+    <link rel="canonical" href="https://yobdigital.netlify.app/yob-learning.html" />
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <link rel="apple-touch-icon" href="images/favicon.png" />
 
-    <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="YOB Learning — AI & Digital Skills for Cambodia"
-    />
-    <meta
-      property="og:description"
-      content="រៀន AI Tools, Digital Marketing, Web Development ជាភាសាខ្មែរ 100% — YOB Digital Learning Hub"
-    />
-    <meta
-      property="og:image"
-      content="https://yobdigital.netlify.app/images/og-cover.jpg"
-    />
-    <meta
-      property="og:url"
-      content="https://yobdigital.netlify.app/yob-learning"
-    />
+    <meta property="og:title" content="YOB Learning — AI & Digital Skills for Cambodia" />
+    <meta property="og:description" content="រៀន AI Tools, Digital Marketing, Web Development ជាភាសាខ្មែរ ១០០% — YOB Digital Learning Hub" />
+    <meta property="og:image" content="https://yobdigital.netlify.app/images/og-cover.jpg" />
+    <meta property="og:url" content="https://yobdigital.netlify.app/yob-learning.html" />
     <meta property="og:type" content="website" />
 
-    <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome (async load) -->
-    <link
-      rel="preload"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      as="style"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
-    <noscript
-      ><link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    /></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
 
-    <!-- GSAP -->
-    ></script>
-    <!-- YOB Shared Styles -->
-    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <link rel="stylesheet" href="css/style.css" />
 
     <style>
-      /* ════════════════════════════════════════════════════
-         ETERNITY VERSION — Space & Glass Morphism
-         Concept: លំហអវកាស · Cosmic Nebula · Crystal Glass
-      ════════════════════════════════════════════════════ */
+      /* ═══════════════════════════════════════════
+         YOB LEARNING — AI SEARCH CONCEPT
+         Big Search · Glow Aura · Row List
+      ═══════════════════════════════════════════ */
 
-      /* 1 ── Deep space base */
-      html {
-        background: #030408;
-      }
-      body {
-        background: transparent;
-      }
-
-      /* Cosmic nebula layers fixed behind everything */
       body::before {
         content: "";
-        position: fixed;
-        inset: 0;
-        z-index: -3;
-        background: #030408;
-      }
-      body::after {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: -2;
-        pointer-events: none;
+        position: fixed; inset: 0; z-index: -1;
         background:
-          radial-gradient(
-            ellipse 110% 60% at 15% 20%,
-            rgba(101, 52, 255, 0.1) 0%,
-            transparent 55%
-          ),
-          radial-gradient(
-            ellipse 90% 70% at 85% 80%,
-            rgba(229, 44, 103, 0.08) 0%,
-            transparent 55%
-          ),
-          radial-gradient(
-            ellipse 70% 50% at 50% 50%,
-            rgba(20, 80, 200, 0.06) 0%,
-            transparent 60%
-          ),
-          radial-gradient(
-            ellipse 50% 40% at 75% 12%,
-            rgba(0, 200, 255, 0.04) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            ellipse 40% 60% at 25% 90%,
-            rgba(255, 100, 200, 0.05) 0%,
-            transparent 50%
-          );
+          radial-gradient(ellipse 70% 45% at 20% 0%,   rgba(168,85,247,0.07) 0%, transparent 55%),
+          radial-gradient(ellipse 55% 55% at 85% 100%, rgba(16,185,129,0.04) 0%, transparent 55%);
       }
 
-      /* 2 ── Star canvas */
-      #star-canvas {
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        pointer-events: none;
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
-
-      /* 3 ── Glass helper */
-      .glass {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(20px) saturate(180%);
-        -webkit-backdrop-filter: blur(20px) saturate(180%);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-      }
-
-      /* 4 ── Nav → ultra glass */
-      .learn-nav {
-        background: rgba(3, 4, 8, 0.6) !important;
-        backdrop-filter: blur(40px) saturate(200%) !important;
-        -webkit-backdrop-filter: blur(40px) saturate(200%) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
-        box-shadow:
-          0 1px 0 rgba(255, 255, 255, 0.04),
-          0 8px 32px rgba(0, 0, 0, 0.5);
-      }
-
-      /* 5 ── Hero */
-      .hero {
-        background: transparent !important;
-      }
-      .hero-grid {
-        background-image:
-          linear-gradient(rgba(101, 52, 255, 0.035) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(101, 52, 255, 0.035) 1px, transparent 1px) !important;
-        mask-image: radial-gradient(
-          ellipse 90% 70% at 50% 0%,
-          black 20%,
-          transparent 100%
-        ) !important;
-      }
-      .orb1 {
-        width: 700px !important;
-        height: 700px !important;
-        top: -200px !important;
-        left: 0% !important;
-        background: radial-gradient(
-          circle,
-          rgba(101, 52, 255, 0.11),
-          transparent 65%
-        ) !important;
-        filter: blur(80px) !important;
-      }
-      .orb2 {
-        width: 600px !important;
-        height: 600px !important;
-        top: 80px !important;
-        right: 0% !important;
-        background: radial-gradient(
-          circle,
-          rgba(229, 44, 103, 0.09),
-          transparent 65%
-        ) !important;
-        filter: blur(80px) !important;
-      }
-
-      /* 6 ── Scroll banner → glass */
-      .scroll-banner {
-        background: rgba(255, 255, 255, 0.02) !important;
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border-color: rgba(255, 255, 255, 0.05) !important;
-      }
-
-      /* 9 ── Course cards → glass */
-      .course-card {
-        background: rgba(255, 255, 255, 0.025) !important;
-        backdrop-filter: blur(16px) saturate(160%);
-        -webkit-backdrop-filter: blur(16px) saturate(160%);
-        border: 1px solid rgba(255, 255, 255, 0.06) !important;
-        box-shadow:
-          0 4px 24px rgba(0, 0, 0, 0.5),
-          inset 0 1px 0 rgba(255, 255, 255, 0.04);
-      }
-      .course-card:hover {
-        background: rgba(255, 255, 255, 0.05) !important;
-        border-color: rgba(229, 44, 103, 0.2) !important;
-        box-shadow:
-          0 16px 48px rgba(0, 0, 0, 0.65),
-          0 0 28px rgba(229, 44, 103, 0.06);
-      }
-      .course-footer {
-        border-color: rgba(255, 255, 255, 0.05) !important;
-        background: rgba(0, 0, 0, 0.2);
-      }
-      .progress-bar {
-        background: rgba(255, 255, 255, 0.07) !important;
-      }
-      .course-thumb-bg {
-        opacity: 0.7 !important;
-      }
-      .course-card:hover .course-thumb-bg {
-        opacity: 1 !important;
-      }
-
-      /* 10 ── Filter pills → glass */
-      .filt {
-        background: rgba(255, 255, 255, 0.04) !important;
-        border-color: rgba(255, 255, 255, 0.07) !important;
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-      }
-      .filt:hover {
-        background: rgba(255, 255, 255, 0.07) !important;
-      }
-      .filt.on {
-        background: rgba(229, 44, 103, 0.12) !important;
-        border-color: rgba(229, 44, 103, 0.3) !important;
-        box-shadow: 0 0 16px rgba(229, 44, 103, 0.12);
-      }
-
-      /* 11 ── Flow diagram → glass */
-      .flow-diagram {
-        background: rgba(255, 255, 255, 0.025) !important;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-color: rgba(255, 255, 255, 0.07) !important;
-        box-shadow:
-          0 8px 40px rgba(0, 0, 0, 0.5),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
-      }
-      .flow-node {
-        background: rgba(255, 255, 255, 0.04) !important;
-        border-color: rgba(255, 255, 255, 0.08) !important;
-        backdrop-filter: blur(8px);
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
-      }
-      .flow-node:hover {
-        background: rgba(255, 255, 255, 0.07) !important;
-        border-color: rgba(229, 44, 103, 0.25) !important;
-        box-shadow:
-          0 6px 24px rgba(0, 0, 0, 0.5),
-          0 0 16px rgba(229, 44, 103, 0.08);
-      }
-      .flow-node.root {
-        background: rgba(229, 44, 103, 0.1) !important;
-        box-shadow:
-          0 0 24px rgba(229, 44, 103, 0.12),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-
-      /* 12 ── CTA → cosmic glass + gradient border */
-      .cta-card {
-        background: rgba(255, 255, 255, 0.03) !important;
-        backdrop-filter: blur(32px) saturate(200%);
-        -webkit-backdrop-filter: blur(32px) saturate(200%);
-        border: 1px solid rgba(229, 44, 103, 0.2) !important;
-        box-shadow:
-          0 0 100px rgba(229, 44, 103, 0.08),
-          0 48px 96px rgba(0, 0, 0, 0.65),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-      .cta-card::before {
-        background: radial-gradient(
-          ellipse 70% 50% at 50% 0%,
-          rgba(229, 44, 103, 0.1),
-          transparent 65%
-        ) !important;
-      }
-
-      /* 13 ── Subtle section dividers */
-      .flow-section {
-        border-color: rgba(255, 255, 255, 0.05) !important;
-      }
-
-      /* 14 ── Section courses border override */
-      section[style*="border-top"] {
-        border-color: rgba(255, 255, 255, 0.05) !important;
-      }
-
-      /* 18 ── Social proof */
-      .yl-proof-section {
-        padding: 80px 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-      }
-      .yl-proof-header {
+      /* ── HERO ── */
+      .yl-hero {
+        padding: clamp(110px,13vw,170px) 0 clamp(56px,8vw,88px);
         text-align: center;
-        margin-bottom: 48px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
       }
-      .yl-proof-tag {
-        display: inline-block;
-        font-family: var(--fb);
-        font-size: 12px;
-        font-weight: 700;
-        color: var(--gold);
-        text-transform: uppercase;
-        background: rgba(229, 44, 103, 0.1);
-        border: 1px solid rgba(229, 44, 103, 0.2);
-        border-radius: 50px;
-        padding: 5px 16px;
-        margin-bottom: 16px;
+      .yl-label {
+        display: inline-flex; align-items: center; gap: 8px;
+        font-family: var(--fb); font-size: 13px; font-weight: 600;
+        letter-spacing: 2px; text-transform: uppercase;
+        color: var(--gray); margin-bottom: 22px;
       }
-      .yl-proof-title {
-        font-family: var(--fb);
-        font-size: clamp(26px, 4.1vw, 44px);
-        font-weight: 700;
-        color: var(--white);
-        line-height: 1.38;
+      .yl-label-dot {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: var(--gold); flex-shrink: 0;
+        animation: pulse-yl 2.2s ease-in-out infinite;
       }
-      .yl-proof-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+      @keyframes pulse-yl {
+        0%,100% { opacity: 1; transform: scale(1); }
+        50%      { opacity: 0.35; transform: scale(0.6); }
       }
-      .yl-proof-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 20px;
-        padding: 28px;
-        backdrop-filter: blur(12px);
-        transition: all var(--t);
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+      .yl-hero h1 {
+        font-family: var(--fk);
+        font-size: clamp(32px, 5vw, 62px);
+        font-weight: 700; color: var(--white);
+        line-height: 1.22; margin-bottom: 14px; letter-spacing: -0.5px;
       }
-      .yl-proof-card--featured {
-        border-color: rgba(229, 44, 103, 0.25) !important;
-        box-shadow: 0 0 40px rgba(229, 44, 103, 0.07);
-        background: rgba(229, 44, 103, 0.03) !important;
-      }
-      .yl-proof-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
-      }
-      .yl-proof-stars {
-        font-size: 16px;
-      }
-      .yl-proof-quote {
-        font-family: var(--fb);
-        font-size: 14px;
-        color: var(--gray);
-        line-height: 1.7;
-        flex: 1;
-        font-style: italic;
-      }
-      .yl-proof-quote strong {
-        color: var(--white);
-        font-style: normal;
-      }
-      .yl-proof-person {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .yl-proof-avatar {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 22px;
-        border: 2px solid rgba(255, 255, 255, 0.1);
-        flex-shrink: 0;
-      }
-      .yl-av-1 {
-        background: rgba(155, 109, 255, 0.15);
-        border-color: rgba(155, 109, 255, 0.3);
-      }
-      .yl-av-2 {
-        background: rgba(229, 44, 103, 0.15);
-        border-color: rgba(229, 44, 103, 0.3);
-      }
-      .yl-av-3 {
-        background: rgba(16, 185, 129, 0.15);
-        border-color: rgba(16, 185, 129, 0.3);
-      }
-      .yl-proof-info {
-        flex: 1;
-      }
-      .yl-proof-name {
-        font-family: var(--fb);
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--white);
-      }
-      .yl-proof-role {
-        font-family: var(--fb);
-        font-size: 12px;
-        color: var(--gray);
-      }
-      .yl-proof-result {
-        font-family: var(--fb);
-        font-size: 12px;
-        font-weight: 700;
-        color: var(--gold);
-        background: rgba(229, 44, 103, 0.1);
-        border: 1px solid rgba(229, 44, 103, 0.2);
-        border-radius: 50px;
-        padding: 4px 12px;
-        white-space: nowrap;
-        flex-shrink: 0;
+      .yl-hero h1 em { font-style: normal; color: var(--gold); }
+      .yl-hero-sub {
+        font-family: var(--fb); font-size: 15px; color: var(--gray);
+        margin: 0 auto 38px; max-width: 440px; line-height: 1.7;
       }
 
-      /* 19 ── CTA steps + note */
-      .yl-cta-steps {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        margin: 24px 0;
+      /* Track chooser cards */
+      .yl-paths {
+        display: flex; gap: 10px; justify-content: center;
+        flex-wrap: wrap; margin-bottom: 42px;
       }
-      .yl-cta-step {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 50px;
-        padding: 10px 18px;
-        font-family: var(--fb);
-        font-size: 14px;
-        color: var(--white);
+      .yl-path {
+        display: flex; align-items: center; gap: 12px;
+        padding: 13px 20px; border-radius: 13px;
+        border: 1px solid rgba(255,255,255,0.07);
+        background: rgba(255,255,255,0.025);
+        cursor: pointer;
+        transition: border-color .25s, background .25s, transform .3s cubic-bezier(.34,1.56,.64,1);
+        text-align: left;
       }
-      .yl-cta-step-num {
-        color: var(--gold);
-        font-weight: 700;
+      .yl-path:hover { transform: translateY(-3px); background: rgba(255,255,255,0.045); }
+      .yl-path[data-cat="ai"]:hover       { border-color: rgba(168,85,247,0.5); }
+      .yl-path[data-cat="marketing"]:hover { border-color: rgba(229,44,103,0.45); }
+      .yl-path[data-cat="web"]:hover      { border-color: rgba(16,185,129,0.5); }
+      .yl-path-icon { font-size: 22px; line-height: 1; flex-shrink: 0; }
+      .yl-path-info { display: flex; flex-direction: column; gap: 1px; }
+      .yl-path-name { font-family: var(--fb); font-size: 13px; font-weight: 600; color: var(--white); }
+      .yl-path-count { font-family: var(--fb); font-size: 13px; color: var(--gray); }
+
+      .yl-hero-stats {
+        display: flex; align-items: center; justify-content: center;
+        gap: 20px; flex-wrap: wrap;
+        font-family: var(--fb); font-size: 13px;
+        color: rgba(139,148,158,0.55);
       }
-      .yl-cta-arrow {
-        color: var(--gray);
-        font-size: 18px;
-      }
-      .yl-cta-note {
-        font-family: var(--fb);
-        font-size: 13px;
-        color: var(--gray);
-        margin-top: 16px;
-        opacity: 0.8;
+      .yl-hero-stats strong { color: rgba(255,255,255,0.45); font-weight: 600; }
+      .yl-hero-stats-dot { color: rgba(255,255,255,0.1); }
+
+      /* ══ COURSES SECTION ══ */
+      .yl-courses { padding: clamp(48px,7vw,76px) 0 clamp(64px,12vw,120px); }
+
+      /* ── BIG AI SEARCH BAR ── */
+      .yl-search-section {
+        max-width: 700px;
+        margin: 0 auto 36px;
       }
 
-      /* 20 ── Responsive */
-      @media (max-width: 900px) {
-        .yl-proof-grid {
-          grid-template-columns: 1fr;
-          gap: 16px;
-        }
-        .yl-cta-steps {
-          flex-direction: column;
-          gap: 8px;
-        }
-        .yl-cta-arrow {
-          transform: rotate(90deg);
-        }
-        .hero-stats {
-          padding: 12px 16px;
-        }
-        .hero-stat {
-          padding: 0 14px;
-        }
-        .hero-stat-num {
-          font-size: 16px;
-        }
-      }
-      @media (max-width: 600px) {
-        .yl-proof-section {
-          padding: 60px 0 40px;
-        }
-        .hero-eyebrow {
-          font-size: 11px;
-          padding: 5px 14px;
-        }
-        .hero-sub {
-          font-size: 13px;
-        }
-        .hero-search-btn {
-          padding: 10px 16px;
-          font-size: 13px;
-        }
-        .hero-stats {
-          flex-wrap: wrap;
-          justify-content: center;
-          border-radius: 16px;
-          padding: 16px;
-          gap: 0;
-        }
-        .hero-stat {
-          padding: 8px 16px;
-        }
-        .hero-stat-sep {
-          display: none;
-        }
-        .hero-chips {
-          gap: 6px;
-        }
-        .hero-chip {
-          font-size: 12px;
-          padding: 7px 14px;
-        }
-      }
-
-      /* ════════════════════════════════════════════════════ */
-
-      /* Page-scoped variables not in style.css */
-      :root {
-        --path-ai: #9b6dff;
-        --path-mkt: #e8453c;
-        --path-web: #10b981;
-        --path-ai-bg: rgba(155, 109, 255, 0.1);
-        --path-mkt-bg: rgba(232, 69, 60, 0.1);
-        --path-web-bg: rgba(16, 185, 129, 0.1);
-        --dark4: #1c1d2c;
-        --dark5: #242538;
-        --bord2: rgba(255, 255, 255, 0.1);
-        --muted: #54556c;
-        --muted2: #8889a4;
-        --gold2: #ff8ab0;
-        --gold3: #ffb3cc;
-        --glow: rgba(229, 44, 103, 0.12);
-      }
-
-      /* ══════════════════════════════════════
-   NAV — Google Skills Concept
-   Logo | Sep | Badge | Links | CTA
-══════════════════════════════════════ */
-      .learn-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 200;
-        height: 64px;
-        background: rgba(8, 9, 16, 0.96);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        align-items: stretch;
-        padding: 0 32px;
-      }
-
-      /* Left: Logo + Sep + Badge */
-      .learn-nav-left {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        flex-shrink: 0;
-        margin-right: 8px;
-      }
-      .learn-nav-logo {
-        font-family: var(--fb);
-        font-size: 22px;
-        background: linear-gradient(120deg, var(--white) 30%, var(--gold));
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-decoration: none;
-        white-space: nowrap;
-        line-height: 1;
-      }
-      .learn-nav-sep {
-        width: 1px;
-        height: 20px;
-        background: var(--bord2);
-        flex-shrink: 0;
-      }
-      .learn-nav-badge {
-        font-size: 12px;
-        font-weight: 700;
-        padding: 3px 10px;
-        border-radius: 20px;
-        background: var(--glow);
-        border: 1px solid rgba(229, 44, 103, 0.2);
-        color: var(--gold);
-        white-space: nowrap;
-        text-transform: uppercase;
-      }
-
-      /* Center: Nav links — Google Skills style */
-      .learn-nav-links {
-        display: flex;
-        align-items: stretch;
-        gap: 0;
-        flex: 1;
-      }
-      .learn-nav-links a {
-        display: flex;
-        align-items: center;
-        padding: 0 16px;
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--muted2);
-        text-decoration: none;
-        white-space: nowrap;
+      /* Outer wrap holds the aura + box */
+      .yl-search-wrap {
         position: relative;
-        transition: color var(--t);
-        /* Google Skills: bottom border indicator */
-        border-bottom: 2px solid transparent;
-        margin-bottom: -1px; /* sit on top of nav border */
-      }
-      .learn-nav-links a:hover {
-        color: var(--white);
-        border-bottom-color: rgba(229, 44, 103, 0.35);
-      }
-      .learn-nav-links a.act {
-        color: var(--white);
-        font-weight: 600;
-        border-bottom-color: var(--gold);
+        margin-bottom: 18px;
       }
 
-      /* Right: CTA buttons */
-      .learn-nav-right {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-left: auto;
-        flex-shrink: 0;
+      /* Blurred conic aura — appears on focus */
+      .yl-search-wrap::before {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        border-radius: 22px;
+        background: conic-gradient(from 135deg at 50% 50%,
+          #a855f7 0%, #e52c67 25%, #4f82ff 55%, #10b981 75%, #a855f7 100%);
+        filter: blur(10px);
+        opacity: 0;
+        transition: opacity .45s ease;
+        z-index: 0;
       }
-      .btn-nav-ghost {
-        padding: 7px 16px;
-        border-radius: 8px;
-        font-size: 13px;
-        font-weight: 600;
-        background: none;
-        border: 1px solid var(--bord2);
-        color: var(--muted2);
-        cursor: pointer;
-        transition: all var(--t);
-        white-space: nowrap;
-        font-family: var(--fb);
-        text-decoration: none;
+      .yl-search-wrap:focus-within::before { opacity: 0.45; }
+
+      /* The actual search box */
+      .yl-search-box {
+        position: relative; z-index: 1;
+        display: flex; align-items: center; gap: 14px;
+        padding: 18px 22px;
+        background: #0c0e14;
+        border: 1.5px solid rgba(255,255,255,0.1);
+        border-radius: 20px;
+        transition: border-color .35s, box-shadow .35s;
+        animation: yl-search-idle 4s ease-in-out infinite;
       }
-      .btn-nav-ghost:hover {
+      .yl-search-wrap:focus-within .yl-search-box {
+        animation: none;
+        border-color: rgba(168,85,247,0.55);
+        box-shadow: 0 0 0 4px rgba(168,85,247,0.08), 0 16px 48px rgba(0,0,0,0.4);
+      }
+      @keyframes yl-search-idle {
+        0%,100% { box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+                  border-color: rgba(255,255,255,0.1); }
+        50%     { box-shadow: 0 4px 32px rgba(168,85,247,0.07);
+                  border-color: rgba(255,255,255,0.15); }
+      }
+
+      /* Sparkle / AI icon */
+      .yl-search-icon {
+        font-size: 18px; flex-shrink: 0;
+        color: rgba(139,148,158,0.45);
+        transition: color .35s, transform .35s cubic-bezier(.34,1.56,.64,1);
+      }
+      .yl-search-wrap:focus-within .yl-search-icon {
+        color: #a855f7;
+        transform: scale(1.15) rotate(-8deg);
+      }
+
+      /* Input */
+      .yl-search-input {
+        flex: 1; min-width: 0;
+        background: none; border: none; outline: none;
+        font-family: var(--fk); font-size: 17px;
         color: var(--white);
-        border-color: rgba(255, 255, 255, 0.2);
+        caret-color: #a855f7;
       }
-      .btn-nav-gold {
-        padding: 7px 20px;
-        border-radius: 8px;
-        font-size: 13px;
-        font-weight: 700;
-        background: var(--gold);
-        color: #fff;
-        cursor: pointer;
-        border: none;
-        transition: all var(--t);
-        white-space: nowrap;
-        font-family: var(--fb);
-        text-decoration: none;
+      .yl-search-input::placeholder { color: rgba(139,148,158,0.4); }
+
+      /* Keyboard hint */
+      .yl-search-hint {
+        font-family: var(--fb); font-size: 13px;
+        color: rgba(139,148,158,0.3);
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.07);
+        padding: 3px 8px; border-radius: 6px;
+        flex-shrink: 0; white-space: nowrap;
+        transition: opacity .2s;
       }
-      .btn-nav-gold:hover {
-        background: var(--gold2);
+      .yl-search-wrap:focus-within .yl-search-hint { opacity: 0; pointer-events: none; }
+
+      /* Clear button */
+      .yl-search-clear {
+        background: none; border: none; cursor: pointer;
+        color: rgba(139,148,158,0.45); font-size: 13px;
+        width: 26px; height: 26px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        transition: color .2s, background .2s, opacity .2s, transform .2s;
+        opacity: 0; pointer-events: none;
+      }
+      .yl-search-clear:hover { color: #fff; background: rgba(255,255,255,0.1); transform: scale(1.1); }
+      .yl-search-clear.show  { opacity: 1; pointer-events: auto; }
+
+      /* Filter chips */
+      .yl-chips {
+        display: flex; align-items: center; gap: 7px;
+        flex-wrap: wrap;
+      }
+      .yl-chip {
+        display: inline-flex; align-items: center; gap: 5px;
+        padding: 6px 13px; border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.025);
+        font-family: var(--fb); font-size: 13px; font-weight: 500;
+        color: var(--gray); cursor: pointer; white-space: nowrap;
+        transition: border-color .2s, background .2s, color .2s,
+                    transform .25s cubic-bezier(.34,1.56,.64,1);
+      }
+      .yl-chip:hover {
+        border-color: rgba(255,255,255,0.18);
+        color: rgba(255,255,255,0.85);
         transform: translateY(-1px);
       }
+      .yl-chip.active { border-color: rgba(255,255,255,0.22); background: rgba(255,255,255,0.08); color: #fff; font-weight: 600; }
+      .yl-chip[data-filter="ai"].active        { background: rgba(168,85,247,0.12); border-color: rgba(168,85,247,0.45); color: #c084fc; }
+      .yl-chip[data-filter="marketing"].active { background: rgba(229,44,103,0.1);  border-color: rgba(229,44,103,0.42); color: #fda4af; }
+      .yl-chip[data-filter="web"].active       { background: rgba(16,185,129,0.1);  border-color: rgba(16,185,129,0.42); color: #6ee7b7; }
+      .yl-chip[data-filter="free"].active      { background: rgba(74,222,128,0.1);  border-color: rgba(74,222,128,0.38); color: #4ade80; }
+      .yl-chip-n {
+        font-size: 13px; font-weight: 700;
+        background: rgba(255,255,255,0.06);
+        padding: 0 5px; border-radius: 8px;
+        color: rgba(139,148,158,0.55);
+      }
 
-      /* Mobile hamburger */
-      .learn-nav-hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        background: none;
-        border: none;
+      /* Results count bar */
+      .yl-list-meta {
+        display: flex; align-items: center; gap: 14px;
+        max-width: 700px; margin: 28px auto 14px;
+      }
+      .yl-count-text {
+        font-family: var(--fb); font-size: 13px; font-weight: 700;
+        letter-spacing: 1.2px; text-transform: uppercase;
+        color: rgba(139,148,158,0.38); white-space: nowrap;
+      }
+      .yl-count-line { flex: 1; height: 1px; background: rgba(255,255,255,0.05); }
+
+      /* ── Course List ── */
+      .yl-list {
+        display: flex; flex-direction: column; gap: 5px;
+        max-width: 700px; margin: 0 auto;
+      }
+
+      /* ── Course Row ── */
+      .yl-row {
+        display: flex; align-items: center; gap: 14px;
+        padding: 15px 20px; border-radius: 13px;
+        border: 1px solid rgba(255,255,255,0.05);
+        background: rgba(10,12,16,0.7);
         cursor: pointer;
-        padding: 8px;
-        margin-left: 8px;
-        flex-shrink: 0;
+        transition: border-color .22s, background .22s;
+        position: relative; overflow: hidden;
       }
-      .learn-nav-hamburger span {
-        display: block;
-        width: 22px;
-        height: 2px;
-        background: var(--white);
-        border-radius: 2px;
-        transition: all 0.25s ease;
-      }
+      .yl-row:hover { border-color: rgba(255,255,255,0.1); background: rgba(14,17,24,0.9); }
 
-      /* Mobile: hide links, show hamburger */
-      @media (max-width: 900px) {
-        .learn-nav-links {
-          display: none;
-        }
-        .learn-nav-hamburger {
-          display: flex;
-        }
+      /* Left color stripe slides in on hover */
+      .yl-row-bar {
+        position: absolute; left: 0; top: 0; bottom: 0;
+        width: 0; border-radius: 13px 0 0 13px;
+        transition: width .3s cubic-bezier(.16,1,.3,1);
       }
-      @media (max-width: 600px) {
-        .btn-nav-ghost {
-          display: none;
-        }
-      }
+      .yl-row:hover .yl-row-bar { width: 3px; }
+      .yl-row[data-cat="ai"]:hover       .yl-row-bar { background: #a855f7; }
+      .yl-row[data-cat="marketing"]:hover .yl-row-bar { background: #e52c67; }
+      .yl-row[data-cat="web"]:hover      .yl-row-bar { background: #10b981; }
 
-      /* ══ HERO ══ */
-      .hero {
-        position: relative;
-        z-index: 1;
-        padding: clamp(80px, 8vw, 110px) 32px 0;
-        overflow: hidden;
+      .yl-row-num {
+        font-family: var(--fb); font-size: 13px; font-weight: 700;
+        letter-spacing: 0.5px; color: rgba(139,148,158,0.2);
+        min-width: 22px; flex-shrink: 0; transition: color .2s;
       }
-      .hero-grid {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        background-image:
-          linear-gradient(rgba(229, 44, 103, 0.04) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(229, 44, 103, 0.04) 1px, transparent 1px);
-        background-size: 60px 60px;
-        mask-image: radial-gradient(
-          ellipse 80% 60% at 50% 0%,
-          black 40%,
-          transparent 100%
-        );
-      }
-      .orb {
-        position: absolute;
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 0;
-        filter: blur(60px);
-      }
-      .orb1 {
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(
-          circle,
-          rgba(229, 44, 103, 0.08),
-          transparent 65%
-        );
-        top: -100px;
-        left: 10%;
-        animation: float1 8s ease-in-out infinite;
-      }
-      .orb2 {
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(
-          circle,
-          rgba(99, 102, 241, 0.06),
-          transparent 65%
-        );
-        top: 50px;
-        right: 10%;
-        animation: float2 10s ease-in-out infinite;
-      }
-      @keyframes float1 {
-        0%,
-        100% {
-          transform: translateY(0) scale(1);
-        }
-        50% {
-          transform: translateY(-20px) scale(1.05);
-        }
-      }
-      @keyframes float2 {
-        0%,
-        100% {
-          transform: translateY(0) scale(1);
-        }
-        50% {
-          transform: translateY(20px) scale(0.95);
-        }
-      }
+      .yl-row[data-cat="ai"]:hover       .yl-row-num { color: rgba(168,85,247,0.5); }
+      .yl-row[data-cat="marketing"]:hover .yl-row-num { color: rgba(229,44,103,0.5); }
+      .yl-row[data-cat="web"]:hover      .yl-row-num { color: rgba(16,185,129,0.5); }
 
-      /* ══ HERO INNER ══ */
-      .hero-inner {
-        max-width: 780px;
-        margin: 0 auto;
-        text-align: center;
-        position: relative;
-        z-index: 1;
-        padding-bottom: 72px;
+      .yl-row-icon {
+        font-size: 22px; line-height: 1; flex-shrink: 0;
+        transition: transform .3s cubic-bezier(.34,1.56,.64,1);
       }
+      .yl-row:hover .yl-row-icon { transform: scale(1.12); }
 
-      /* Eyebrow badge */
-      .hero-eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-family: var(--fb);
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--gray);
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.09);
-        border-radius: 50px;
-        padding: 6px 16px;
-        margin-bottom: 28px;
-        letter-spacing: 0.03em;
-      }
-      .hero-eyebrow-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--gold);
-        box-shadow: 0 0 8px var(--gold);
-        flex-shrink: 0;
-        animation: eyebrowPulse 2.4s ease-in-out infinite;
-      }
-      @keyframes eyebrowPulse {
-        0%,100% { opacity:1; transform:scale(1); }
-        50%      { opacity:0.5; transform:scale(1.4); }
-      }
-
-      /* Heading */
-      .hero-h1 {
-        font-family: var(--fb);
-        font-size: clamp(44px, 7.5vw, 72px);
-        font-weight: 700;
-        line-height: 1.1;
-        color: var(--white);
-        margin-bottom: 16px;
-        letter-spacing: -0.01em;
-      }
-
-      /* Subtitle */
-      .hero-sub {
-        font-family: var(--fk);
-        font-size: clamp(13px, 1.8vw, 15px);
-        color: var(--gray);
-        margin-bottom: 40px;
-        line-height: 1.7;
-      }
-
-      /* ══ HERO SEARCH ══ */
-      .hero-search-wrap {
-        position: relative;
-        max-width: 600px;
-        margin: 0 auto 32px;
-      }
-      .hero-search-box {
-        display: flex;
-        align-items: center;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.13);
-        border-radius: 50px;
-        padding: 7px 7px 7px 22px;
-        gap: 12px;
-        transition: border-color var(--t), box-shadow var(--t);
-        backdrop-filter: blur(20px);
-      }
-      .hero-search-box:focus-within {
-        border-color: rgba(229, 44, 103, 0.45);
-        box-shadow: 0 0 0 4px rgba(229, 44, 103, 0.07),
-                    0 12px 40px rgba(0,0,0,0.35);
-      }
-      .hero-search-icon {
-        color: var(--gray);
-        font-size: 15px;
-        flex-shrink: 0;
-      }
-      .hero-search-input {
-        flex: 1;
-        background: none;
-        border: none;
-        outline: none;
-        font-family: var(--fk);
-        font-size: 15px;
-        color: var(--white);
-        min-width: 0;
-        padding: 4px 0;
-      }
-      .hero-search-input::placeholder { color: var(--gray); }
-      .hero-search-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        background: var(--gold);
-        border: none;
-        border-radius: 40px;
-        padding: 11px 22px;
-        color: #fff;
-        font-family: var(--fk);
-        font-size: 14px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: background var(--t), box-shadow var(--t);
-        flex-shrink: 0;
-        white-space: nowrap;
-      }
-      .hero-search-btn:hover {
-        background: var(--gold2);
-        box-shadow: 0 6px 20px rgba(229,44,103,0.3);
-      }
-
-      /* ══ HERO SUGGESTIONS DROPDOWN ══ */
-      .hero-search-wrap {
-        position: relative;
-      }
-      .hero-suggestions {
-        position: absolute;
-        top: calc(100% + 8px);
-        left: 0;
-        right: 0;
-        background: rgba(13, 17, 23, 0.96);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 16px;
-        overflow: hidden;
-        z-index: 100;
-        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
-      }
-      .hero-sug-item {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 12px 20px;
-        cursor: pointer;
-        transition: background var(--t);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      }
-      .hero-sug-item:last-child {
-        border-bottom: none;
-      }
-      .hero-sug-item:hover,
-      .hero-sug-item.active {
-        background: rgba(255, 255, 255, 0.06);
-      }
-      .hero-sug-icon {
-        font-size: 22px;
-        flex-shrink: 0;
-        width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.04);
-      }
-      .hero-sug-text {
-        flex: 1;
-        min-width: 0;
-      }
-      .hero-sug-name {
-        font-family: var(--fb);
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--white);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .hero-sug-name mark {
-        background: none;
-        color: var(--gold);
-        font-weight: 700;
-      }
-      .hero-sug-kh {
-        font-family: var(--fk);
-        font-size: 12px;
-        color: var(--gray);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .hero-sug-badge {
-        font-size: 11px;
-        font-weight: 700;
-        padding: 2px 8px;
-        border-radius: 20px;
-        flex-shrink: 0;
-        font-family: var(--fb);
-      }
-      .sug-free {
-        background: rgba(16, 185, 129, 0.12);
-        color: #10b981;
-        border: 1px solid rgba(16, 185, 129, 0.25);
-      }
-      .sug-paid {
-        background: rgba(255, 255, 255, 0.05);
-        color: var(--gray);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      /* ══ HERO CHIPS ══ */
-      .hero-chips-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 48px;
-      }
-      .hero-chips-label {
-        font-family: var(--fb);
-        font-size: 11px;
-        font-weight: 600;
-        color: var(--gray);
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        opacity: 0.7;
-      }
-      .hero-chips {
-        display: grid;
-        grid-template-columns: repeat(3, auto);
-        justify-content: center;
-        gap: 8px;
-      }
-      .hero-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        border-radius: 50px;
-        padding: 8px 18px;
-        font-family: var(--fk);
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all var(--t);
-        white-space: nowrap;
-        border: 1px solid transparent;
-      }
-      /* AI — purple */
-      .hero-chip--ai {
-        background: rgba(155,109,255,0.08);
-        border-color: rgba(155,109,255,0.2);
-        color: #b89fff;
-      }
-      .hero-chip--ai:hover {
-        background: rgba(155,109,255,0.16);
-        border-color: rgba(155,109,255,0.4);
-        color: #d0bdff;
-        transform: translateY(-2px);
-      }
-      /* Marketing — orange-red */
-      .hero-chip--mkt {
-        background: rgba(232,69,60,0.08);
-        border-color: rgba(232,69,60,0.2);
-        color: #ff9a94;
-      }
-      .hero-chip--mkt:hover {
-        background: rgba(232,69,60,0.16);
-        border-color: rgba(232,69,60,0.4);
-        color: #ffbab7;
-        transform: translateY(-2px);
-      }
-      /* Web — green */
-      .hero-chip--web {
-        background: rgba(16,185,129,0.08);
-        border-color: rgba(16,185,129,0.2);
-        color: #6ee7b7;
-      }
-      .hero-chip--web:hover {
-        background: rgba(16,185,129,0.16);
-        border-color: rgba(16,185,129,0.4);
-        color: #a7f3d0;
-        transform: translateY(-2px);
-      }
-      /* Free — pink/gold */
-      .hero-chip--free {
-        background: rgba(229,44,103,0.08);
-        border-color: rgba(229,44,103,0.25);
-        color: var(--gold2);
-      }
-      .hero-chip--free:hover {
-        background: rgba(229,44,103,0.16);
-        border-color: rgba(229,44,103,0.45);
-        color: var(--gold);
-        transform: translateY(-2px);
-      }
-
-      /* ══ HERO STATS ══ */
-      .hero-stats {
-        display: inline-flex;
-        align-items: center;
-        gap: 0;
-        background: rgba(255,255,255,0.03);
-        border: 1px solid rgba(255,255,255,0.07);
-        border-radius: 50px;
-        padding: 14px 32px;
-        backdrop-filter: blur(12px);
-      }
-      .hero-stat {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0 24px;
-      }
-      .hero-stat-num {
-        font-family: var(--fb);
-        font-size: 18px;
-        font-weight: 700;
-        color: var(--white);
-        line-height: 1;
-      }
-      .hero-stat-lbl {
-        font-family: var(--fk);
-        font-size: 11px;
-        color: var(--gray);
-        margin-top: 4px;
-        white-space: nowrap;
-      }
-      .hero-stat-sep {
-        width: 1px;
-        height: 32px;
-        background: rgba(255,255,255,0.08);
-        flex-shrink: 0;
-      }
-
-      /* ══ CTA BUTTONS (used in cta-card section) ══ */
-      .btn-lg {
-        padding: 14px 32px;
-        border-radius: 12px;
-        font-size: 15px;
-        font-weight: 700;
-        text-decoration: none;
-        transition: all var(--t);
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        border: none;
-        cursor: pointer;
-        font-family: var(--fk);
-      }
-      .btn-gold-lg {
-        background: var(--gold);
-        color: #fff;
-        box-shadow: 0 6px 24px rgba(229, 44, 103, 0.3);
-      }
-      .btn-gold-lg:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 32px rgba(229, 44, 103, 0.4);
-        background: var(--gold2);
-      }
-      .btn-outline-lg {
-        background: none;
-        border: 1px solid var(--bord2);
-        color: var(--muted2);
-      }
-      .btn-outline-lg:hover {
-        border-color: var(--gold);
-        color: var(--gold);
-      }
-
-      /* ══ SCROLLING BANNER ══ */
-      .scroll-banner {
-        border-top: 1px solid var(--border);
-        border-bottom: 1px solid var(--border);
-        padding: 14px 0;
-        overflow: hidden;
-        background: var(--dark2);
-        position: relative;
-        z-index: 1;
-      }
-      .scroll-track {
-        display: flex;
-        gap: 0;
-        animation: scrollLeft 20s linear infinite;
-        width: max-content;
-      }
-      .scroll-track:hover {
-        animation-play-state: paused;
-      }
-      .scroll-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 0 40px;
-        white-space: nowrap;
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--muted);
-      }
-      .scroll-item strong {
-        color: var(--gold2);
-      }
-      .scroll-dot {
-        width: 4px;
-        height: 4px;
-        border-radius: 50%;
-        background: var(--gold);
-        opacity: 0.4;
-      }
-      @keyframes scrollLeft {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-50%);
-        }
-      }
-
-      /* ══ SECTION BASE ══ */
-      .section {
-        position: relative;
-        z-index: 1;
-        padding: clamp(40px, 10vw, 72px) 0;
-      }
-      .wrap {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 32px;
-      }
-      .sec-head {
-        margin-bottom: 40px;
-      }
-      .sec-eyebrow {
-        font-size: 14px;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 8px;
-      }
-      .sec-title {
-        font-family: var(--fh);
-        font-size: clamp(28px, 4.1vw, 44px);
-        line-height: 1;
-        background: linear-gradient(135deg, var(--white), var(--muted2));
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 8px;
-      }
-      .sec-sub {
-        font-family: var(--fk);
-        font-size: 15px;
-        color: var(--muted2);
-        line-height: 1.8;
-        max-width: 560px;
-      }
-
-      /* ══ CATALOG HEADER ══ */
-      .catalog-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 20px;
-      }
-      .catalog-title {
-        font-family: var(--fb);
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--white);
-      }
-      .catalog-count {
-        font-family: var(--fb);
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--gray);
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 50px;
-        padding: 5px 14px;
-        transition: all var(--t);
-      }
-
-      /* ══ FILTER + COURSE CARDS ══ */
-      .filter-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-bottom: 28px;
-      }
-      .filt {
-        padding: 7px 16px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 600;
-        background: var(--dark3);
-        border: 1px solid var(--bord2);
-        color: var(--muted2);
-        cursor: pointer;
-        transition: all var(--t);
-        font-family: var(--fb);
-      }
-      .filt:hover {
-        color: var(--white);
-      }
-      .filt.on {
-        background: var(--glow);
-        border-color: rgba(229, 44, 103, 0.3);
-        color: var(--gold);
-      }
-
-      .courses-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 14px;
-      }
-      .course-card {
-        background: var(--dark2);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        overflow: hidden;
-        transition: all var(--t);
-        cursor: pointer;
-        text-decoration: none;
-        display: block;
-        animation: fadeUp 0.5s ease both;
-      }
-      .course-card:hover {
-        border-color: rgba(229, 44, 103, 0.2);
-        transform: translateY(-3px);
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
-      }
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(12px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .course-thumb {
-        height: 148px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 44px;
-        position: relative;
-        overflow: hidden;
-      }
-      .course-thumb-bg {
-        position: absolute;
-        inset: 0;
-        opacity: 0.6;
-        transition: opacity var(--t);
-      }
-      .course-card:hover .course-thumb-bg {
-        opacity: 0.85;
-      }
-      .course-thumb-icon {
-        position: relative;
-        z-index: 1;
-        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
-        transition: transform var(--t);
-      }
-      .course-card:hover .course-thumb-icon {
-        transform: scale(1.1);
-      }
-
-      .level-badge {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        z-index: 2;
-        font-size: 12px;
-        font-weight: 700;
-        padding: 3px 8px;
-        border-radius: 5px;
-        text-transform: uppercase;
-      }
-      .lv-begin {
-        background: rgba(16, 185, 129, 0.15);
-        border: 1px solid rgba(16, 185, 129, 0.25);
-        color: #34d399;
-      }
-      .lv-inter {
-        background: rgba(245, 158, 11, 0.15);
-        border: 1px solid rgba(245, 158, 11, 0.25);
-        color: #fcd34d;
-      }
-      .lv-adv {
-        background: rgba(239, 68, 68, 0.12);
-        border: 1px solid rgba(239, 68, 68, 0.2);
-        color: #fca5a5;
-      }
-      .lv-free {
-        background: var(--glow);
-        border: 1px solid rgba(229, 44, 103, 0.25);
-        color: var(--gold);
-      }
-
-      .course-body {
-        padding: 16px 18px;
-      }
-      .course-cat {
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        margin-bottom: 6px;
-      }
-      .course-name {
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--white);
-        margin-bottom: 4px;
-        line-height: 1.3;
-      }
-      .course-name-kh {
-        font-family: var(--fk);
-        font-size: 12px;
-        color: var(--muted2);
-        margin-bottom: 10px;
-      }
-      .course-meta {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 12px;
-        color: var(--muted);
-        flex-wrap: wrap;
-      }
-
-      .course-footer {
-        padding: 12px 18px;
-        border-top: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .course-progress-wrap {
-        flex: 1;
-        margin-right: 12px;
-      }
-      .progress-bar {
-        height: 3px;
-        background: var(--dark4);
-        border-radius: 2px;
-        overflow: hidden;
-      }
-      .progress-fill {
-        height: 100%;
-        border-radius: 2px;
-        background: linear-gradient(90deg, var(--gold), var(--gold2));
-        transition: width 0.5s;
-      }
-      .progress-label {
-        font-size: 12px;
-        color: var(--muted);
-        margin-top: 4px;
-      }
-      .course-btn {
-        padding: 6px 14px;
-        border-radius: 7px;
-        font-size: 12px;
-        font-weight: 700;
-        white-space: nowrap;
-        transition: all var(--t);
-        border: none;
-        cursor: pointer;
-        font-family: var(--fb);
-      }
-      .btn-start {
-        background: var(--gold);
-        color: #fff;
-      }
-      .btn-start:hover {
-        background: var(--gold2);
-      }
-      .btn-cont {
-        background: rgba(229, 44, 103, 0.1);
-        border: 1px solid rgba(229, 44, 103, 0.2);
-        color: var(--gold);
-      }
-      .btn-cont:hover {
-        background: rgba(229, 44, 103, 0.18);
-      }
-
-      /* ══ SITEMAP FLOW ══ */
-      .flow-section {
-        padding: clamp(40px, 10vw, 72px) 0;
-        border-top: 1px solid var(--border);
-      }
-      .flow-diagram {
-        background: var(--dark2);
-        border: 1px solid var(--bord2);
-        border-radius: 20px;
-        padding: 40px;
-        overflow-x: auto;
-      }
-      .flow-title {
-        font-family: var(--fb);
-        font-size: 13px;
-        color: var(--muted);
-        text-transform: uppercase;
-        margin-bottom: 28px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .flow-title::after {
-        content: "";
-        flex: 1;
-        height: 1px;
-        background: var(--border);
-      }
-      .flow-node {
-        background: var(--dark3);
-        border: 1px solid var(--bord2);
-        border-radius: 12px;
-        padding: 12px 16px;
-        min-width: 140px;
-        text-align: center;
-        flex-shrink: 0;
-        transition: all var(--t);
-        cursor: pointer;
-        position: relative;
-      }
-      .flow-node:hover {
-        border-color: rgba(229, 44, 103, 0.3);
-        transform: translateY(-2px);
-      }
-      .flow-node.root {
-        background: var(--glow);
-        border-color: rgba(229, 44, 103, 0.3);
-        min-width: 160px;
-      }
-      .flow-node-icon {
-        font-size: 20px;
-        margin-bottom: 4px;
-      }
-      .flow-node-name {
-        font-size: 12px;
-        font-weight: 700;
-        color: var(--white);
-      }
-      .flow-node-kh {
-        font-family: var(--fk);
-        font-size: 12px;
-        color: var(--muted2);
+      .yl-row-info { flex: 1; min-width: 0; }
+      .yl-row-name {
+        font-family: var(--fb); font-size: 15px; font-weight: 600;
+        color: rgba(255,255,255,0.78);
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        transition: color .2s;
+      }
+      .yl-row:hover .yl-row-name { color: #fff; }
+      .yl-row-kh {
+        font-family: var(--fk); font-size: 13px;
+        color: rgba(139,148,158,0.45);
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         margin-top: 2px;
       }
-      .flow-node-count {
-        font-size: 12px;
-        font-weight: 700;
-        padding: 2px 6px;
-        border-radius: 4px;
-        background: var(--dark4);
-        color: var(--muted2);
-        margin-top: 4px;
-        display: inline-block;
-      }
-      .flow-root-label {
-        font-size: 12px;
-        color: var(--gold);
-        font-weight: 700;
-        text-transform: uppercase;
-        margin-bottom: 4px;
-      }
 
-      /* ══ CTA SECTION ══ */
-      .cta-section {
-        padding: clamp(50px, 10vw, 80px) 0;
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
-      }
-      .cta-card {
-        background: linear-gradient(135deg, var(--dark3), var(--dark4));
-        border: 1px solid rgba(229, 44, 103, 0.15);
-        border-radius: 24px;
-        padding: 56px 48px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        max-width: 860px;
-        margin: 0 auto;
-      }
-      .cta-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-          ellipse 60% 40% at 50% 0%,
-          rgba(229, 44, 103, 0.06),
-          transparent 65%
-        );
-      }
-      .cta-title {
-        font-family: var(--fb);
-        font-size: clamp(28px, 4.1vw, 44px);
-        line-height: 1.38;
-        background: linear-gradient(135deg, var(--white), var(--gold2));
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 14px;
-        position: relative;
-        z-index: 1;
-      }
-      .cta-sub {
-        font-family: var(--fk);
-        font-size: 15px;
-        color: var(--muted2);
-        line-height: 1.9;
-        max-width: 480px;
-        margin: 0 auto 32px;
-        position: relative;
-        z-index: 1;
-      }
-      .cta-sub strong {
-        color: var(--white);
-      }
-      .cta-btns {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        position: relative;
-        z-index: 1;
-      }
+      .yl-row-tags { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
+      .yl-row-meta { font-family: var(--fb); font-size: 13px; color: rgba(139,148,158,0.32); white-space: nowrap; }
+      .yl-lv-badge { font-family: var(--fb); font-size: 13px; font-weight: 600; padding: 2px 7px; border-radius: 5px; white-space: nowrap; }
+      .lv-begin { background: rgba(74,222,128,0.07);  color: #6ee7b7; border: 1px solid rgba(74,222,128,0.14); }
+      .lv-inter { background: rgba(251,191,36,0.07);  color: #fcd34d; border: 1px solid rgba(251,191,36,0.14); }
+      .lv-adv   { background: rgba(239,68,68,0.07);   color: #fca5a5; border: 1px solid rgba(239,68,68,0.14); }
 
-      /* ══ FOOTER ══ */
-      footer {
-        border-top: 1px solid var(--border);
-        padding: 40px 32px 32px;
-        position: relative;
-        z-index: 1;
-      }
-      .footer-top {
-        display: grid;
-        grid-template-columns: 1.5fr 1fr 1fr 1fr;
-        gap: 40px;
-        max-width: 1200px;
-        margin: 0 auto 32px;
-      }
-      .footer-brand .logo {
-        font-family: var(--fb);
-        font-size: 22px;
-        background: linear-gradient(120deg, var(--white) 30%, var(--gold));
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 10px;
-        display: block;
-      }
-      .footer-brand p {
-        font-family: var(--fk);
-        font-size: 13px;
-        color: var(--muted2);
-        line-height: 1.8;
-      }
-      .footer-col-title {
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 14px;
-      }
-      .footer-col a {
-        display: block;
-        font-size: 13px;
-        color: var(--muted2);
-        text-decoration: none;
-        padding: 4px 0;
-        transition: color var(--t);
-      }
-      .footer-col a:hover {
-        color: var(--gold);
-      }
-      .footer-bottom {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding-top: 24px;
-        border-top: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-      .footer-copy {
-        font-size: 12px;
-        color: var(--muted);
-      }
-      .footer-socials {
-        display: flex;
-        gap: 8px;
-      }
-      .social-icon {
-        width: 32px;
-        height: 32px;
-        border-radius: 8px;
-        background: var(--dark3);
-        border: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        color: var(--muted2);
-        text-decoration: none;
-        transition: all var(--t);
-      }
-      .social-icon:hover {
-        border-color: var(--gold);
-        color: var(--gold);
-      }
+      .yl-row-status { flex-shrink: 0; }
+      .yl-status-free { font-family: var(--fb); font-size: 13px; font-weight: 700; color: #4ade80; background: rgba(74,222,128,0.09); border: 1px solid rgba(74,222,128,0.18); padding: 2px 8px; border-radius: 5px; }
+      .yl-status-soon { font-family: var(--fb); font-size: 13px; font-weight: 500; color: rgba(139,148,158,0.38); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); padding: 2px 8px; border-radius: 5px; }
 
-      /* Responsive */
-      @media (max-width: 1000px) {
-        .paths-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-        .footer-top {
-          grid-template-columns: 1fr 1fr;
-        }
+      .yl-row-btn {
+        display: inline-flex; align-items: center; gap: 5px;
+        padding: 6px 13px; border-radius: 7px;
+        font-family: var(--fb); font-size: 13px; font-weight: 600;
+        cursor: pointer; white-space: nowrap; flex-shrink: 0;
+        transition: background .2s, border-color .2s, transform .2s cubic-bezier(.34,1.56,.64,1);
       }
-      @media (max-width: 720px) {
-        .wrap {
-          padding: 0 24px;
-        }
-      }
-      @media (max-width: 768px) {
-        .paths-grid {
-          grid-template-columns: 1fr;
-        }
-        .path-header {
-          padding: 22px 18px 14px;
-        }
-        .path-icon {
-          margin-bottom: 10px;
-        }
-        .path-title {
-          font-size: 18px;
-          line-height: 1.25;
-        }
-        .path-title-kh {
-          font-size: 12px;
-          line-height: 1.5;
-        }
-        .path-body {
-          padding: 0 18px 14px;
-        }
-        .path-item {
-          font-size: 12px;
-          line-height: 1.6;
-        }
-        .path-footer {
-          padding: 12px 18px;
-        }
-        .footer-top {
-          grid-template-columns: 1fr;
-        }
-        .wrap {
-          padding: 0 20px;
-        }
-        .hero {
-          padding: clamp(70px, 8vw, 100px) 20px 0;
-        }
-        .section {
-          padding: clamp(35px, 8vw, 60px) 0;
-        }
-        .flow-section {
-          padding: clamp(35px, 8vw, 60px) 0;
-        }
-        .cta-section {
-          padding: clamp(40px, 8vw, 70px) 0;
-        }
-        .cta-card {
-          padding: 36px 24px;
-        }
-        .flow-diagram {
-          padding: 24px 16px;
-        }
-      }
+      .yl-row-btn-go  { background: rgba(229,44,103,0.09); border: 1px solid rgba(229,44,103,0.22); color: #fda4af; }
+      .yl-row-btn-go:hover { background: rgba(229,44,103,0.2); border-color: rgba(229,44,103,0.5); color: #fff; transform: scale(1.05); }
+      .yl-row-btn-wait { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); color: rgba(139,148,158,0.32); }
+      .yl-btn-arrow { font-size: 13px; transition: transform .3s cubic-bezier(.34,1.56,.64,1); }
+      .yl-row-btn-go:hover .yl-btn-arrow { transform: translateX(2px); }
 
-      /* Staggered course card entrance — paused until in-view */
-      #coursesGrid .course-card {
-        animation-play-state: paused;
+      /* Empty */
+      .yl-empty {
+        display: none; max-width: 700px; margin: 0 auto;
+        padding: 56px 20px; text-align: center;
+        color: var(--gray); font-family: var(--fb); font-size: 14px;
       }
-      #coursesGrid.stagger-play .course-card {
-        animation-play-state: running;
+      .yl-empty.show { display: block; }
+
+      /* ── CTA ── */
+      .yl-cta { padding: clamp(60px,10vw,100px) 0; border-top: 1px solid rgba(255,255,255,0.06); }
+      .yl-cta-box { max-width: 520px; margin: 0 auto; text-align: center; }
+      .yl-cta-tag { font-family: var(--fb); font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+      .yl-cta h2 { font-family: var(--fk); font-size: clamp(24px,3.8vw,40px); font-weight: 700; color: var(--white); line-height: 1.28; margin-bottom: 12px; }
+      .yl-cta p  { font-family: var(--fb); font-size: 14px; color: var(--gray); line-height: 1.7; margin-bottom: 28px; }
+
+      /* ── Responsive ── */
+      @media (max-width: 900px) {
+        .yl-row-tags { display: none; }
+      }
+      @media (max-width: 600px) {
+        .yl-row { gap: 10px; padding: 13px 14px; }
+        .yl-row-num { display: none; }
+        .yl-row-status { display: none; }
+        .yl-search-hint { display: none; }
+        .yl-paths { gap: 8px; }
+        .yl-path { padding: 10px 14px; gap: 9px; }
+        .yl-path-icon { font-size: 19px; }
+        .yl-hero-stats-dot { display: none; }
       }
     </style>
   </head>
   <body>
-    <!-- Custom Cursor Elements -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
-
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
-
-    <!-- Eternity: Star field canvas -->
-    <canvas id="star-canvas" aria-hidden="true"></canvas>
 
     <div id="nav-placeholder"></div>
 
     <!-- Mobile Drawer -->
     <div class="mobile-drawer" id="mobileDrawer">
-      <button class="drawer-close" id="drawerClose">
-        <i class="fas fa-times"></i>
-      </button>
-      <a href="/grow" onclick="closeDrawer()">Grow with Yob</a>
+      <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+      <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
       <div class="drawer-group">
-        <button class="drawer-group-toggle">
-          Learn <i class="fas fa-chevron-down"></i>
-        </button>
+        <button class="drawer-group-toggle">Learn <i class="fas fa-chevron-down"></i></button>
         <div class="drawer-group-items">
-          <a href="/#videos" onclick="closeDrawer()">Tutorial</a>
-          <a href="/yob-learning" onclick="closeDrawer()">YOB Learning</a>
-          <a href="/yobskills" onclick="closeDrawer()">YOB Skills</a>
-          <a href="/docs" onclick="closeDrawer()">Documentation</a>
-          <a href="/case-studies" onclick="closeDrawer()">Case Studies</a>
+          <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+          <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+          <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
         </div>
       </div>
       <div class="drawer-group">
-        <button class="drawer-group-toggle">
-          Products <i class="fas fa-chevron-down"></i>
-        </button>
+        <button class="drawer-group-toggle">Products <i class="fas fa-chevron-down"></i></button>
         <div class="drawer-group-items">
-          <a href="/fonts" onclick="closeDrawer()">Yob Fonts</a>
-          <a href="/resources" onclick="closeDrawer()">Free Resources</a>
-          <a href="/poster-design" onclick="closeDrawer()">Poster Design</a>
+          <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+          <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
         </div>
       </div>
-      <a href="/about" onclick="closeDrawer()">About YOB</a>
-      <a href="/#contact" onclick="closeDrawer()" class="d-cta"
-        >ទំនាក់ទំនង</a
-      >
+      <a href="about.html" onclick="closeDrawer()">About YOB</a>
+      <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
     </div>
 
-    <div class="hero">
-      <div class="hero-grid"></div>
-      <div class="orb orb1"></div>
-      <div class="orb orb2"></div>
+    <!-- ══ HERO ══ -->
+    <section class="yl-hero">
+      <div class="container">
 
-      <div class="hero-inner">
-
-        <!-- Eyebrow -->
-        <div class="hero-eyebrow">
-          <span class="hero-eyebrow-dot"></span>
-          YOB Learning · AI & Digital Skills · ១០០% ភាសាខ្មែរ
+        <div class="yl-label reveal">
+          <span class="yl-label-dot"></span>
+          YOB Learning Hub
         </div>
 
-        <!-- Heading -->
-        <h1 class="hero-h1">
-          ចង់រៀន <span class="gradient-text">អ្វី</span><br>ថ្ងៃនេះ?
+        <h1 class="reveal">
+          រៀន <em>Digital Skills</em><br>ជាភាសាខ្មែរ ១០០%
         </h1>
 
-        <!-- Search -->
-        <div class="hero-search-wrap">
-          <div class="hero-search-box">
-            <i class="fas fa-magnifying-glass hero-search-icon"></i>
-            <input id="heroSearchInput" class="hero-search-input" type="text"
-              placeholder="វាយ: claude, html, facebook ads..." aria-label="Search courses"
-              autocomplete="off"
-              onkeydown="heroSearchKeydown(event)"
-              oninput="heroSearchLive(this.value)" />
-            <button class="hero-search-btn" onclick="handleHeroSearch()" aria-label="Search">
-              <i class="fas fa-search"></i> ស្វែងរក
-            </button>
-          </div>
-          <div id="heroSuggestions" class="hero-suggestions" style="display:none"></div>
-        </div>
+        <p class="yl-hero-sub reveal">
+          AI Tools · Marketing · Web Dev<br>
+          ចាប់ពី Beginner ដល់ Pro — ជាមួយ YOB Digital
+        </p>
 
-        <!-- Popular chips -->
-        <div class="hero-chips-section">
-<div class="hero-chips">
-            <button class="hero-chip hero-chip--ai"   onclick="heroChipSearch('ai')">🤖 Claude AI</button>
-            <button class="hero-chip hero-chip--ai"   onclick="heroChipSearch('ai')">⚡ Prompt Engineering</button>
-            <button class="hero-chip hero-chip--mkt"  onclick="heroChipSearch('marketing')">📢 Facebook Ads</button>
-            <button class="hero-chip hero-chip--web"  onclick="heroChipSearch('web')">🌐 HTML & CSS</button>
-            <button class="hero-chip hero-chip--web"  onclick="heroChipSearch('web')">🚀 GitHub Deploy</button>
-            <button class="hero-chip hero-chip--free" onclick="heroChipSearch('free')">✅ FREE ទាំងអស់</button>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
-
-    <!-- COURSES CATALOG -->
-    <section
-      class="section"
-      id="courses"
-      style="border-top: 1px solid var(--border); padding-top: 64px"
-    >
-      <div class="wrap">
-        <div class="catalog-header">
-          <h2 class="catalog-title">វគ្គសិក្សា</h2>
-          <span class="catalog-count" id="catalogCount">8 Courses</span>
-        </div>
-        <div class="filter-row">
-          <button class="filt on" onclick="filterCourses('all', this)">
-            🎓 គ្រប់ Course
+        <!-- Track choosers → click = scroll + filter -->
+        <div class="yl-paths reveal">
+          <button class="yl-path" data-cat="ai">
+            <span class="yl-path-icon">🤖</span>
+            <span class="yl-path-info">
+              <span class="yl-path-name">AI Tools</span>
+              <span class="yl-path-count">4 Courses</span>
+            </span>
           </button>
-          <button class="filt" onclick="filterCourses('ai', this)">
-            🤖 AI Tools
+          <button class="yl-path" data-cat="marketing">
+            <span class="yl-path-icon">📢</span>
+            <span class="yl-path-info">
+              <span class="yl-path-name">Marketing</span>
+              <span class="yl-path-count">4 Courses</span>
+            </span>
           </button>
-          <button class="filt" onclick="filterCourses('marketing', this)">
-            📢 Marketing
-          </button>
-          <button class="filt" onclick="filterCourses('web', this)">
-            🌐 Web
-          </button>
-          <button class="filt" onclick="filterCourses('free', this)">
-            ✅ ឥតគិតថ្លៃ
+          <button class="yl-path" data-cat="web">
+            <span class="yl-path-icon">💻</span>
+            <span class="yl-path-info">
+              <span class="yl-path-name">Web Dev</span>
+              <span class="yl-path-count">2 Courses</span>
+            </span>
           </button>
         </div>
 
-        <div class="courses-grid" id="coursesGrid"></div>
+        <div class="yl-hero-stats reveal">
+          <span><strong>500+</strong> អ្នករៀន</span>
+          <span class="yl-hero-stats-dot">·</span>
+          <span><strong>10</strong> Courses</span>
+          <span class="yl-hero-stats-dot">·</span>
+          <span><strong>5</strong> FREE ភ្លាម</span>
+          <span class="yl-hero-stats-dot">·</span>
+          <span><strong>100%</strong> ភាសាខ្មែរ</span>
+        </div>
+
       </div>
     </section>
 
-    <!-- SOCIAL PROOF -->
-    <section class="yl-proof-section">
-      <div class="wrap">
-        <div class="yl-proof-header reveal">
-          <span class="yl-proof-tag">📣 សិស្ស YOB និយាយ</span>
-          <h2 class="yl-proof-title">
-            លទ្ធផល<span class="gradient-text"> ពិតប្រាកដ</span> ពីសិស្ស
-          </h2>
-        </div>
-        <div class="yl-proof-grid reveal">
-          <div class="yl-proof-card">
-            <div class="yl-proof-stars">⭐⭐⭐⭐⭐</div>
-            <p class="yl-proof-quote">
-              "YOB ជួយខ្ញុំ Learn Claude AI ហើយ Apply ភ្លាម —
-              <strong>ប្រហែល ១ ខែ</strong> Content ខ្ញុំ Reach ×4 Engagement ×3
-              ហើយ Leads ចាប់ផ្ដើមមកដោយ Organic!"
-            </p>
-            <div class="yl-proof-person">
-              <div class="yl-proof-avatar yl-av-1">🎓</div>
-              <div class="yl-proof-info">
-                <div class="yl-proof-name">ស្រីពៅ រ.</div>
-                <div class="yl-proof-role">Online Shop · Phnom Penh</div>
-              </div>
-              <div class="yl-proof-result">Reach ×4</div>
+    <!-- ══ COURSES ══ -->
+    <section class="yl-courses" id="courses">
+      <div class="container">
+
+        <!-- AI Search + Filter chips -->
+        <div class="yl-search-section reveal">
+
+          <!-- Search bar -->
+          <div class="yl-search-wrap">
+            <div class="yl-search-box">
+              <span class="yl-search-icon"><i class="fas fa-wand-magic-sparkles"></i></span>
+              <input
+                type="text"
+                id="ylSearch"
+                class="yl-search-input"
+                placeholder="ស្វែងរក Course..."
+                autocomplete="off"
+              />
+              <span class="yl-search-hint">ស្វែងរកភ្លាម</span>
+              <button class="yl-search-clear" id="ylSearchClear" aria-label="Clear search">
+                <i class="fas fa-times"></i>
+              </button>
             </div>
           </div>
-          <div class="yl-proof-card yl-proof-card--featured">
-            <div class="yl-proof-stars">⭐⭐⭐⭐⭐</div>
-            <p class="yl-proof-quote">
-              "ខ្ញុំចូលរៀន Facebook Ads Path — Apply Ads ដោយ Strategy ថ្មី។
-              <strong>ROAS ពី 1.2x ទៅ 3.8x</strong> ក្នុង ២ ខែ! Recommend ណាស់!"
-            </p>
-            <div class="yl-proof-person">
-              <div class="yl-proof-avatar yl-av-2">💼</div>
-              <div class="yl-proof-info">
-                <div class="yl-proof-name">ដារ៉ា ម.</div>
-                <div class="yl-proof-role">F&B Business · Siem Reap</div>
-              </div>
-              <div class="yl-proof-result">ROAS ×3.8</div>
-            </div>
-          </div>
-          <div class="yl-proof-card">
-            <div class="yl-proof-stars">⭐⭐⭐⭐⭐</div>
-            <p class="yl-proof-quote">
-              "HTML &amp; CSS Path ជួយខ្ញុំ Build Website ផ្ទាល់ in
-              <strong>2 weeks</strong> — Deploy on Netlify FREE! ឥឡូវ Leads មក
-              24/7 ពី Website!"
-            </p>
-            <div class="yl-proof-person">
-              <div class="yl-proof-avatar yl-av-3">🌐</div>
-              <div class="yl-proof-info">
-                <div class="yl-proof-name">មករា ហ.</div>
-                <div class="yl-proof-role">Freelance Dev · Battambang</div>
-              </div>
-              <div class="yl-proof-result">Website ក្នុង 2 weeks</div>
-            </div>
+
+          <!-- Filter chips -->
+          <div class="yl-chips">
+            <button class="yl-chip active" data-filter="all">ទាំងអស់ <span class="yl-chip-n">10</span></button>
+            <button class="yl-chip" data-filter="ai">🤖 AI Tools <span class="yl-chip-n">4</span></button>
+            <button class="yl-chip" data-filter="marketing">📢 Marketing <span class="yl-chip-n">4</span></button>
+            <button class="yl-chip" data-filter="web">💻 Web Dev <span class="yl-chip-n">2</span></button>
+            <button class="yl-chip" data-filter="free">✦ FREE <span class="yl-chip-n">5</span></button>
           </div>
         </div>
+
+        <!-- Count bar -->
+        <div class="yl-list-meta">
+          <span class="yl-count-text" id="ylCount">10 Courses</span>
+          <span class="yl-count-line"></span>
+        </div>
+
+        <!-- Course rows (JS rendered) -->
+        <div class="yl-list" id="ylList"></div>
+        <div class="yl-empty" id="ylEmpty">
+          <i class="fas fa-inbox" style="font-size:26px;display:block;margin-bottom:10px;opacity:0.22"></i>
+          មិនមាន Course ត្រូវនឹង Query នេះទេ
+        </div>
+
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta-section">
-      <div class="wrap">
-        <div class="cta-card">
-          <div class="cta-title">ចាប់ផ្ដើម FREE ថ្ងៃនេះ — Apply ភ្លាម!</div>
-          <p class="cta-sub">
-            រៀន AI + Digital ជាភាសាខ្មែរ · Free Courses + Tools + Community ·
-            <strong>Result ក្នុង ៣០ ថ្ងៃ</strong>
+    <!-- ══ CTA ══ -->
+    <section class="yl-cta">
+      <div class="container">
+        <div class="yl-cta-box reveal">
+          <span class="yl-cta-tag">ចំណាត់ការបន្ទាប់</span>
+          <h2>ចាប់ផ្ដើម FREE ថ្ងៃនេះ</h2>
+          <p>
+            Join 500+ SME ដែលកំពុងរៀន Digital Skills ជាមួយ YOB<br>
+            ទូរស័ព្ទ ឬ Telegram ដើម្បីចាប់ដំណើរការ
           </p>
-          <div class="yl-cta-steps">
-            <div class="yl-cta-step">
-              <span class="yl-cta-step-num">①</span>
-              <span class="yl-cta-step-text">ជ្រើស Path ឬ FREE Course</span>
-            </div>
-            <div class="yl-cta-arrow">→</div>
-            <div class="yl-cta-step">
-              <span class="yl-cta-step-num">②</span>
-              <span class="yl-cta-step-text">រៀន · Apply · ឃើញ Result</span>
-            </div>
-            <div class="yl-cta-arrow">→</div>
-            <div class="yl-cta-step">
-              <span class="yl-cta-step-num">③</span>
-              <span class="yl-cta-step-text">ស្នើ FREE Strategy Call</span>
-            </div>
-          </div>
-          <div class="cta-btns">
-            <a href="#courses" class="btn-lg btn-gold-lg"
-              >✅ ចូលរៀន FREE ភ្លាម</a
-            >
-            <a href="grow.html#contact" class="btn-lg btn-outline-lg"
-              ><i class="fas fa-paper-plane"></i> ស្នើ FREE Strategy Call</a
-            >
-          </div>
-          <p class="yl-cta-note">
-            📞 Strategy Call ឥតគិតថ្លៃ · ១០០% ជាភាសាខ្មែរ · គ្មាន Commitment
-          </p>
+          <a href="index.html#contact" class="btn-primary">
+            ទំនាក់ទំនង YOB <i class="fas fa-paper-plane" style="margin-left:6px"></i>
+          </a>
         </div>
       </div>
     </section>
-
-    <!-- FOOTER -->
 
     <div id="footer-placeholder"></div>
 
-    <!-- YOB Shared Scripts -->
-    <script src="js/load-components.js"></script>
-    <script src="js/main.js" defer></script>
+    <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script>
-      // ════════════════════════
-      // COURSES DATA
-      // ════════════════════════
-      const COURSES = [
-        {
-          id: "claude-ai",
-          cat: "ai",
-          free: true,
-          icon: "🤖",
-          name: "Claude AI Beginner Guide",
-          nameKh: "ណែនាំប្រើប្រាស់ Claude AI",
-          level: "begin",
-          meta: "5 Lessons · 2 hrs · Khmer",
-          progress: 0,
-          bg: "linear-gradient(135deg,#1A0A2E,#2D1B50)",
-          accent: "#9B6DFF",
-        },
-        {
-          id: "prompt-eng",
-          cat: "ai",
-          free: true,
-          icon: "⚡",
-          name: "Prompt Engineering Pro",
-          nameKh: "បច្ចេកទេស Prompt ឱ្យបានពូកែ",
-          level: "inter",
-          meta: "8 Lessons · 3 hrs · Khmer",
-          progress: 0,
-          bg: "linear-gradient(135deg,#0A1020,#1A2A50)",
-          accent: "#4F7FFF",
-        },
-        {
-          id: "ai-content",
-          cat: "ai",
-          free: false,
-          icon: "✨",
-          name: "AI Content Creation",
-          nameKh: "បង្កើត Content ជាមួយ AI",
-          level: "inter",
-          meta: "10 Lessons · 4 hrs · Khmer",
-          progress: 0,
-          bg: "linear-gradient(135deg,#0A0A20,#2A1A40)",
-          accent: "#C084FC",
-        },
-        {
-          id: "ai-marketing",
-          cat: "ai",
-          free: false,
-          icon: "🎯",
-          name: "AI Marketing Strategy",
-          nameKh: "Strategy Marketing ជាមួយ AI",
-          level: "adv",
-          meta: "12 Lessons · 5 hrs · Khmer",
-          progress: 0,
-          bg: "linear-gradient(135deg,#100A20,#30104A)",
-          accent: "#E879F9",
-        },
-        {
-          id: "social-media",
-          cat: "marketing",
-          free: true,
-          icon: "📱",
-          name: "Social Media Growth",
-          nameKh: "បង្កើន Followers ដោយ Organic",
-          level: "begin",
-          meta: "6 Lessons · 2.5 hrs · Khmer",
-          progress: 0,
-          bg: "linear-gradient(135deg,#200A0A,#501020)",
-          accent: "#F87171",
-        },
-        {
-          id: "fb-ads",
-          cat: "marketing",
-          free: false,
-          icon: "📊",
-          name: "Facebook Ads Mastery",
-          nameKh: "ជំនាញ Facebook Ads",
-          level: "inter",
-          meta: "10 Lessons · 4 hrs · Khmer",
-          progress: 0,
-          bg: "linear-gradient(135deg,#0A1428,#1B3060)",
-          accent: "#60A8E8",
-        },
-        {
-          id: "content-strat",
-          cat: "marketing",
-          free: false,
-          icon: "🗓️",
-          name: "Content Strategy 30 Days",
-          nameKh: "Plan Content ៣០ ថ្ងៃ",
-          level: "inter",
-          meta: "8 Lessons · 3 hrs · Khmer",
-          progress: 0,
-          bg: "linear-gradient(135deg,#0A200A,#1A4020)",
-          accent: "#4ADE80",
-        },
-        {
-          id: "html-css",
-          cat: "web",
-          free: true,
-          icon: "💻",
-          name: "HTML & CSS Basics",
-          nameKh: "HTML CSS ចាប់ផ្តើមពីដំបូង",
-          level: "begin",
-          meta: "7 Lessons · 3 hrs · Khmer",
-          progress: 0,
-          bg: "linear-gradient(135deg,#0A1A0A,#1A3A20)",
-          accent: "#34D399",
-        },
-        {
-          id: "github",
-          cat: "web",
-          free: true,
-          icon: "🚀",
-          name: "GitHub + Netlify Deploy",
-          nameKh: "Deploy Website ឥតគិតថ្លៃ",
-          level: "begin",
-          meta: "4 Lessons · 1.5 hrs · Khmer",
-          progress: 0,
-          bg: "linear-gradient(135deg,#0A1210,#1A2820)",
-          accent: "#2DD4BF",
-        },
-        {
-          id: "manychat",
-          cat: "marketing",
-          free: false,
-          icon: "🤖",
-          name: "ManyChat Automation",
-          nameKh: "Automate ជាមួយ ManyChat",
-          level: "inter",
-          meta: "6 Lessons · 2.5 hrs · Khmer",
-          progress: 0,
-          bg: "linear-gradient(135deg,#200A10,#401A30)",
-          accent: "#FB7185",
-        },
+      var COURSES = [
+        { id:"claude-ai",     cat:"ai",        free:true,  icon:"🤖", name:"Claude AI Beginner Guide",    nameKh:"ណែនាំប្រើប្រាស់ Claude AI",       level:"begin", meta:"5 Lessons · 2 hrs" },
+        { id:"prompt-eng",    cat:"ai",        free:true,  icon:"⚡", name:"Prompt Engineering Pro",       nameKh:"បច្ចេកទេស Prompt ឱ្យបានពូកែ",     level:"inter", meta:"8 Lessons · 3 hrs" },
+        { id:"ai-content",    cat:"ai",        free:false, icon:"✨", name:"AI Content Creation",          nameKh:"បង្កើត Content ជាមួយ AI",          level:"inter", meta:"10 Lessons · 4 hrs" },
+        { id:"ai-marketing",  cat:"ai",        free:false, icon:"🎯", name:"AI Marketing Strategy",        nameKh:"Strategy Marketing ជាមួយ AI",      level:"adv",   meta:"12 Lessons · 5 hrs" },
+        { id:"social-media",  cat:"marketing", free:true,  icon:"📱", name:"Social Media Growth",          nameKh:"បង្កើន Followers ដោយ Organic",     level:"begin", meta:"6 Lessons · 2.5 hrs" },
+        { id:"fb-ads",        cat:"marketing", free:false, icon:"📊", name:"Facebook Ads Mastery",         nameKh:"ជំនាញ Facebook Ads",               level:"inter", meta:"10 Lessons · 4 hrs" },
+        { id:"content-strat", cat:"marketing", free:false, icon:"🗓️", name:"Content Strategy 30 Days",    nameKh:"Plan Content ៣០ ថ្ងៃ",            level:"inter", meta:"8 Lessons · 3 hrs" },
+        { id:"manychat",      cat:"marketing", free:false, icon:"💬", name:"ManyChat Automation",          nameKh:"Automate ជាមួយ ManyChat",          level:"inter", meta:"6 Lessons · 2.5 hrs" },
+        { id:"html-css",      cat:"web",       free:true,  icon:"💻", name:"HTML & CSS Basics",            nameKh:"HTML CSS ចាប់ផ្តើមពីដំបូង",       level:"begin", meta:"7 Lessons · 3 hrs" },
+        { id:"github",        cat:"web",       free:true,  icon:"🚀", name:"GitHub + Netlify Deploy",      nameKh:"Deploy Website ឥតគិតថ្លៃ",        level:"begin", meta:"4 Lessons · 1.5 hrs" },
       ];
 
-      let activeCat = "all";
-      let searchQuery = "";
+      var levelLabel = { begin:"Beginner", inter:"Intermediate", adv:"Advanced" };
+      var currentFilter = "all";
+      var currentSearch = "";
 
-      const levelLabel = {
-        begin: "Beginner",
-        inter: "Intermediate",
-        adv: "Advanced",
-      };
-      const levelClass = {
-        begin: "lv-begin",
-        inter: "lv-inter",
-        adv: "lv-adv",
-      };
-
-      let sugActiveIdx = -1;
-
-      function heroSearchLive(val) {
-        const q = val.trim().toLowerCase();
-        const box = document.getElementById("heroSuggestions");
-        sugActiveIdx = -1;
-        if (!q) { box.style.display = "none"; return; }
-
-        const matches = COURSES.filter(c =>
-          c.name.toLowerCase().includes(q) ||
-          c.nameKh.includes(q) ||
-          c.cat.toLowerCase().includes(q) ||
-          c.meta.toLowerCase().includes(q)
-        ).slice(0, 6);
-
-        if (!matches.length) { box.style.display = "none"; return; }
-
-        box.innerHTML = matches.map((c, i) => {
-          const hl = c.name.replace(new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")})`, "gi"), "<mark>$1</mark>");
-          return `<div class="hero-sug-item" data-idx="${i}" data-id="${c.id}" onclick="heroPickSuggestion('${c.id}')">
-            <div class="hero-sug-icon">${c.icon}</div>
-            <div class="hero-sug-text">
-              <div class="hero-sug-name">${hl}</div>
-              <div class="hero-sug-kh">${c.nameKh}</div>
-            </div>
-            <span class="hero-sug-badge ${c.free ? "sug-free" : "sug-paid"}">${c.free ? "FREE" : "Soon"}</span>
-          </div>`;
-        }).join("");
-        box.style.display = "block";
-      }
-
-      function heroSearchKeydown(e) {
-        const box = document.getElementById("heroSuggestions");
-        const items = box.querySelectorAll(".hero-sug-item");
-        if (e.key === "ArrowDown") {
-          e.preventDefault();
-          sugActiveIdx = Math.min(sugActiveIdx + 1, items.length - 1);
-          items.forEach((el, i) => el.classList.toggle("active", i === sugActiveIdx));
-        } else if (e.key === "ArrowUp") {
-          e.preventDefault();
-          sugActiveIdx = Math.max(sugActiveIdx - 1, -1);
-          items.forEach((el, i) => el.classList.toggle("active", i === sugActiveIdx));
-        } else if (e.key === "Enter") {
-          if (sugActiveIdx >= 0 && items[sugActiveIdx]) {
-            items[sugActiveIdx].click();
-          } else {
-            handleHeroSearch();
-          }
-        } else if (e.key === "Escape") {
-          box.style.display = "none";
-          sugActiveIdx = -1;
-        }
-      }
-
-      function heroPickSuggestion(id) {
-        const c = COURSES.find(x => x.id === id);
-        if (!c) return;
-        document.getElementById("heroSearchInput").value = c.name;
-        document.getElementById("heroSuggestions").style.display = "none";
-        searchQuery = c.name.toLowerCase();
-        activeCat = "all";
-        document.querySelectorAll(".filt").forEach(b => b.classList.remove("on"));
-        renderCourses();
-        document.getElementById("courses").scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-
-      function handleHeroSearch() {
-        document.getElementById("heroSuggestions").style.display = "none";
-        const q = document.getElementById("heroSearchInput").value.trim().toLowerCase();
-        searchQuery = q;
-        activeCat = "all";
-        document.querySelectorAll(".filt").forEach((b) => b.classList.remove("on"));
-        const allBtn = document.querySelector(".filt[onclick*=\"'all'\"]");
-        if (allBtn) allBtn.classList.add("on");
-        renderCourses();
-        document.getElementById("courses").scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-
-      function heroChipSearch(cat) {
-        searchQuery = "";
-        const inp = document.getElementById("heroSearchInput");
-        if (inp) inp.value = "";
-        document.getElementById("heroSuggestions").style.display = "none";
-        filterCourses(cat, null);
-      }
-
-      function filterCourses(cat, el) {
-        searchQuery = "";
-        activeCat = cat;
-        document
-          .querySelectorAll(".filt")
-          .forEach((b) => b.classList.remove("on"));
-        if (el) {
-          el.classList.add("on");
-        } else {
-          const match = document.querySelector(`.filt[onclick*="'${cat}'"]`);
-          if (match) match.classList.add("on");
-        }
-        renderCourses();
-        document
-          .getElementById("courses")
-          .scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-
-      function renderCourses() {
-        const grid = document.getElementById("coursesGrid");
-        const list = COURSES.filter((c) => {
-          if (searchQuery) {
-            const q = searchQuery;
-            return (
-              c.name.toLowerCase().includes(q) ||
-              c.nameKh.includes(q) ||
-              c.cat.toLowerCase().includes(q) ||
-              c.meta.toLowerCase().includes(q)
-            );
-          }
-          if (activeCat === "free") return c.free;
-          if (activeCat === "all") return true;
-          return c.cat === activeCat;
+      function applyFilter() {
+        var q = currentSearch.toLowerCase();
+        var filtered = COURSES.filter(function(c) {
+          var matchCat = currentFilter === "all"  ? true
+                       : currentFilter === "free" ? c.free
+                       : c.cat === currentFilter;
+          var matchQ   = !q
+            || c.name.toLowerCase().indexOf(q) !== -1
+            || c.nameKh.indexOf(q) !== -1
+            || c.cat.toLowerCase().indexOf(q) !== -1
+            || c.meta.toLowerCase().indexOf(q) !== -1;
+          return matchCat && matchQ;
         });
+        renderRows(filtered);
+      }
 
-        const countEl = document.getElementById("catalogCount");
-        if (countEl) countEl.textContent = list.length + " Course" + (list.length !== 1 ? "s" : "");
+      function renderRows(filtered) {
+        var list  = document.getElementById("ylList");
+        var empty = document.getElementById("ylEmpty");
+        var count = document.getElementById("ylCount");
+        var n     = filtered.length;
 
-        if (!list.length) {
-          grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:48px 0;font-family:var(--fb);color:var(--gray)">
-            <div style="font-size:32px;margin-bottom:12px">🔍</div>
-            <div style="font-size:15px">រករកមិនឃើញ Course ដែលត្រូវនឹង "<strong style="color:var(--white)">${searchQuery}</strong>"</div>
-            <div style="font-size:13px;margin-top:8px;opacity:0.7">សាកល្បង: <em>claude, prompt, html, facebook, ads</em></div>
-          </div>`;
+        count.textContent = n + " Course" + (n !== 1 ? "s" : "");
+
+        if (!n) {
+          list.innerHTML = "";
+          empty.classList.add("show");
           return;
         }
+        empty.classList.remove("show");
 
-        grid.innerHTML = list
-          .map(
-            (c, i) => `
-    <div class="course-card" style="animation-delay:${i * 0.06}s" onclick="startCourse('${c.id}')">
-      <div class="course-thumb" style="background:${c.bg}">
-        <div class="course-thumb-bg" style="background:${c.bg}"></div>
-        <div class="course-thumb-icon">${c.icon}</div>
-        <div class="level-badge ${c.free ? "lv-free" : levelClass[c.level]}">
-          ${c.free ? "✅ FREE" : levelLabel[c.level]}
-        </div>
-      </div>
-      <div class="course-body">
-        <div class="course-cat" style="color:${c.accent}">${c.cat.toUpperCase()}</div>
-        <h3 class="course-name">${c.name}</h3>
-        <p class="course-name-kh">${c.nameKh}</p>
-        <div class="course-meta"><span>${c.meta}</span></div>
-      </div>
-      <div class="course-footer">
-        <div class="course-progress-wrap">
-          <div class="progress-bar">
-            <div class="progress-fill" style="width:${c.progress}%"></div>
-          </div>
-          <div class="progress-label">${c.progress === 0 ? "មិនទាន់ចាប់ផ្តើម" : c.progress + "% complete"}</div>
-        </div>
-        <button class="course-btn ${c.progress > 0 ? "btn-cont" : "btn-start"}">
-          ${c.progress > 0 ? 'បន្ត <i class="fas fa-arrow-right"></i>' : 'ចាប់ផ្ដើម <i class="fas fa-play"></i>'}
-        </button>
-      </div>
-    </div>
-  `,
-          )
-          .join("");
+        list.innerHTML = filtered.map(function(c, i) {
+          var num = (i + 1 < 10 ? "0" : "") + (i + 1);
+          return '<div class="yl-row reveal" data-cat="' + c.cat + '" onclick="openCourse(\'' + c.id + '\')">'
+            + '<div class="yl-row-bar"></div>'
+            + '<span class="yl-row-num">' + num + '</span>'
+            + '<span class="yl-row-icon">' + c.icon + '</span>'
+            + '<div class="yl-row-info">'
+              + '<div class="yl-row-name">' + c.name + '</div>'
+              + '<div class="yl-row-kh">' + c.nameKh + '</div>'
+            + '</div>'
+            + '<div class="yl-row-tags">'
+              + '<span class="yl-row-meta">' + c.meta + '</span>'
+              + '<span class="yl-lv-badge lv-' + c.level + '">' + levelLabel[c.level] + '</span>'
+            + '</div>'
+            + '<span class="yl-row-status">'
+              + (c.free ? '<span class="yl-status-free">FREE</span>' : '<span class="yl-status-soon">Soon</span>')
+            + '</span>'
+            + (c.free
+              ? '<button class="yl-row-btn yl-row-btn-go">ចាប់ <i class="fas fa-arrow-right yl-btn-arrow"></i></button>'
+              : '<button class="yl-row-btn yl-row-btn-wait">Soon</button>')
+          + '</div>';
+        }).join("");
+
+        if (window._revealObserver) {
+          document.querySelectorAll(".yl-row.reveal").forEach(function(el) {
+            window._revealObserver.observe(el);
+          });
+        }
       }
 
-      document.addEventListener("click", function(e) {
-        const wrap = document.querySelector(".hero-search-wrap");
-        if (wrap && !wrap.contains(e.target)) {
-          document.getElementById("heroSuggestions").style.display = "none";
-          sugActiveIdx = -1;
-        }
+      function openCourse(id) {
+        var c = COURSES.find(function(x) { return x.id === id; });
+        if (c && c.free) window.location.href = "index.html#contact";
+      }
+
+      // Search input
+      var searchEl = document.getElementById("ylSearch");
+      var clearBtn = document.getElementById("ylSearchClear");
+
+      searchEl.addEventListener("input", function() {
+        currentSearch = this.value;
+        clearBtn.classList.toggle("show", currentSearch.length > 0);
+        applyFilter();
+      });
+      clearBtn.addEventListener("click", function() {
+        searchEl.value = "";
+        currentSearch  = "";
+        clearBtn.classList.remove("show");
+        searchEl.focus();
+        applyFilter();
       });
 
-      function startCourse(id) {
-        const c = COURSES.find((x) => x.id === id);
-        if (!c) return;
-        if (c.id === "claude-ai") {
-          window.location.href = "docs.html";
-        } else if (c.free && (c.id === "html-css" || c.id === "github")) {
-          window.open("https://t.me/yobdigital", "_blank", "noopener");
-        } else {
-          showComingSoonModal(c.name);
-        }
-      }
-
-      function showComingSoonModal(name) {
-        const overlay = document.createElement("div");
-        overlay.style.cssText =
-          "position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(8px)";
-        overlay.innerHTML = `
-          <div style="background:#0d1117;border:1px solid rgba(229,44,103,0.3);border-radius:20px;padding:40px;max-width:440px;width:100%;text-align:center;box-shadow:0 0 60px rgba(229,44,103,0.15)">
-            <div style="font-size:48px;margin-bottom:16px">📅</div>
-            <h3 style="font-family:var(--fb);font-size:20px;color:#fff;margin-bottom:12px">Coming Soon!</h3>
-            <p style="font-family:var(--fb);color:#8b949e;font-size:15px;margin-bottom:8px">វគ្គ <strong style="color:#fff">${name}</strong></p>
-            <p style="font-family:var(--fb);color:#8b949e;font-size:14px;margin-bottom:28px">Join Telegram ដើម្បីទទួល Notify ដំបូង ពេល Course Launch!</p>
-            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-              <a href="https://t.me/yobdigital" target="_blank" rel="noopener" style="font-family:var(--fb);background:var(--gold);color:#fff;padding:12px 24px;border-radius:50px;text-decoration:none;font-weight:600;font-size:14px">📣 Join Telegram</a>
-              <button onclick="this.closest('[style*=fixed]').remove()" style="font-family:var(--fb);background:transparent;border:1px solid rgba(255,255,255,0.15);color:#8b949e;padding:12px 24px;border-radius:50px;cursor:pointer;font-size:14px">បិទ</button>
-            </div>
-          </div>`;
-        overlay.addEventListener("click", function (e) {
-          if (e.target === overlay) overlay.remove();
+      // Filter chips
+      document.querySelectorAll(".yl-chip").forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          document.querySelectorAll(".yl-chip").forEach(function(b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          currentFilter = btn.dataset.filter;
+          applyFilter();
         });
-        document.body.appendChild(overlay);
-      }
+      });
+
+      // Hero track cards → scroll + filter
+      document.querySelectorAll(".yl-path").forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          var cat = btn.dataset.filter || btn.dataset.cat;
+          document.querySelectorAll(".yl-chip").forEach(function(b) { b.classList.remove("active"); });
+          var chip = document.querySelector('.yl-chip[data-filter="' + cat + '"]');
+          if (chip) chip.classList.add("active");
+          currentFilter = cat;
+          applyFilter();
+          document.getElementById("courses").scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
+      // Cycling placeholder text
+      var placeholders = [
+        "ស្វែងរក Course...",
+        "Claude AI, ChatGPT...",
+        "Facebook Ads, Marketing...",
+        "HTML, Web Dev...",
+        "FREE Courses ដែលអាចរៀនឥឡូវ...",
+      ];
+      var pi = 0;
+      setInterval(function() {
+        if (document.activeElement !== searchEl && !currentSearch) {
+          pi = (pi + 1) % placeholders.length;
+          searchEl.placeholder = placeholders[pi];
+        }
+      }, 3000);
 
       // Init
-      renderCourses();
+      applyFilter();
     </script>
 
-    <!-- Eternity: Star field + Shooting Stars -->
-    <script>
-      (function () {
-        const canvas = document.getElementById("star-canvas");
-        if (!canvas) return;
-        const ctx = canvas.getContext("2d");
-        let W,
-          H,
-          stars = [],
-          meteors = [];
-        const COUNT = 220;
-
-        function resize() {
-          W = canvas.width = window.innerWidth;
-          H = canvas.height = window.innerHeight;
-        }
-
-        function mkStar() {
-          return {
-            x: Math.random() * W,
-            y: Math.random() * H,
-            r: Math.random() * 1.4 + 0.3,
-            base: Math.random() * 0.6 + 0.2,
-            speed: Math.random() * 0.8 + 0.3,
-            phase: Math.random() * Math.PI * 2,
-            hue:
-              Math.random() < 0.15
-                ? Math.random() < 0.5
-                  ? "180,140,255"
-                  : "255,160,210"
-                : "255,255,255",
-          };
-        }
-
-        function spawnMeteor() {
-          const a = Math.PI / 5 + Math.random() * (Math.PI / 10);
-          meteors.push({
-            x: Math.random() * W * 0.75,
-            y: Math.random() * H * 0.45,
-            len: Math.random() * 140 + 80,
-            speed: Math.random() * 10 + 8,
-            alpha: 0.9,
-            dx: Math.cos(a),
-            dy: Math.sin(a),
-          });
-        }
-
-        function scheduleMeteor() {
-          setTimeout(
-            function () {
-              spawnMeteor();
-              scheduleMeteor();
-            },
-            Math.random() * 5000 + 2500,
-          );
-        }
-
-        function init() {
-          resize();
-          stars = Array.from({ length: COUNT }, mkStar);
-          scheduleMeteor();
-        }
-
-        function draw(ts) {
-          ctx.clearRect(0, 0, W, H);
-          const t = ts * 0.001;
-
-          for (const s of stars) {
-            const alpha = s.base + Math.sin(t * s.speed + s.phase) * 0.35;
-            ctx.beginPath();
-            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${s.hue},${Math.max(0, Math.min(1, alpha))})`;
-            ctx.fill();
-          }
-
-          for (let i = meteors.length - 1; i >= 0; i--) {
-            const m = meteors[i];
-            const g = ctx.createLinearGradient(
-              m.x,
-              m.y,
-              m.x - m.dx * m.len,
-              m.y - m.dy * m.len,
-            );
-            g.addColorStop(0, "rgba(255,255,255," + m.alpha + ")");
-            g.addColorStop(0.4, "rgba(190,150,255," + m.alpha * 0.5 + ")");
-            g.addColorStop(1, "rgba(255,255,255,0)");
-            ctx.beginPath();
-            ctx.moveTo(m.x, m.y);
-            ctx.lineTo(m.x - m.dx * m.len, m.y - m.dy * m.len);
-            ctx.strokeStyle = g;
-            ctx.lineWidth = 1.8;
-            ctx.stroke();
-            m.x += m.dx * m.speed;
-            m.y += m.dy * m.speed;
-            m.alpha -= 0.022;
-            if (m.alpha <= 0 || m.x > W + 60 || m.y > H + 60)
-              meteors.splice(i, 1);
-          }
-
-          requestAnimationFrame(draw);
-        }
-
-        const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-        if (!mq.matches) {
-          init();
-          window.addEventListener("resize", resize);
-          requestAnimationFrame(draw);
-        }
-      })();
-    </script>
-
-    <!-- Eternity: Mouse Parallax Orbs -->
-    <script>
-      (function () {
-        if (window.matchMedia("(hover: none)").matches) return;
-        const orb1 = document.querySelector(".orb1");
-        const orb2 = document.querySelector(".orb2");
-        if (!orb1 || !orb2) return;
-
-        orb1.style.animation = "none";
-        orb2.style.animation = "none";
-
-        var tx = 0,
-          ty = 0,
-          cx = 0,
-          cy = 0;
-
-        window.addEventListener("mousemove", function (e) {
-          tx = e.clientX / window.innerWidth - 0.5;
-          ty = e.clientY / window.innerHeight - 0.5;
-        });
-
-        function tick() {
-          cx += (tx - cx) * 0.04;
-          cy += (ty - cy) * 0.04;
-          var t = Date.now() / 1000;
-          var f1 = Math.sin(t / 8) * 22;
-          var f2 = Math.sin(t / 10 + 1) * 18;
-          orb1.style.transform =
-            "translate(" + cx * 65 + "px, " + (cy * 50 + f1) + "px)";
-          orb2.style.transform =
-            "translate(" +
-            -cx * 50 +
-            "px, " +
-            (-cy * 40 + f2) +
-            "px) scale(" +
-            (1 + Math.sin(t / 10) * 0.04) +
-            ")";
-          requestAnimationFrame(tick);
-        }
-        tick();
-      })();
-    </script>
-
-    <!-- Eternity: Staggered Card Entrance -->
-    <script>
-      (function () {
-        var grid = document.getElementById("coursesGrid");
-        if (!grid) return;
-
-        var io = new IntersectionObserver(
-          function (entries) {
-            if (entries[0].isIntersecting) {
-              grid.classList.add("stagger-play");
-              io.disconnect();
-            }
-          },
-          { threshold: 0.05 },
-        );
-        io.observe(grid);
-
-        new MutationObserver(function () {
-          grid.classList.remove("stagger-play");
-          requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-              grid.classList.add("stagger-play");
-            });
-          });
-        }).observe(grid, { childList: true });
-      })();
-    </script>
+    <script src="js/load-components.js"></script>
+    <script src="js/main.js" defer></script>
   </body>
 </html>

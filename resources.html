@@ -53,8 +53,7 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     /></noscript>
-    ></script>
-    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <style>
       /* ═══════════════════════
@@ -80,407 +79,388 @@
 
       /* ── Hero ── */
       .res-hero {
-        padding: clamp(70px, 8vw, 140px) 0 clamp(40px, 6vw, 80px);
+        padding: clamp(90px, 11vw, 150px) 0 clamp(20px, 3vw, 32px);
         text-align: center;
-        position: relative;
       }
-      .res-hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-          ellipse 80% 60% at 50% 0%,
-          rgba(229, 44, 103, 0.12) 0%,
-          transparent 60%
-        );
-      }
-      .res-hero > * {
-        position: relative;
-        z-index: 1;
-      }
-      .res-eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(229, 44, 103, 0.08);
-        border: 1px solid rgba(229, 44, 103, 0.2);
-        padding: 6px 20px;
-        border-radius: 50px;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 24px;
-        font-family: var(--fb);
-      }
-      .res-hero h1 {
-        font-family: var(--fh);
-        font-size: clamp(52px, 8vw, 100px);
-        line-height: 1.2;
-        margin-bottom: 20px;
-      }
-      .res-hero h1 span {
-        background: linear-gradient(135deg, #fff 0%, #ff8ab0 45%, #e52c67 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        display: block;
-      }
-      .res-hero p {
-        font-family: var(--fk);
-        font-size: 17px;
-        color: var(--gray);
-        max-width: 540px;
-        margin: 0 auto 40px;
-        line-height: 1.8;
-      }
-      .res-hero p strong {
-        color: var(--white);
-      }
-      .res-stats {
-        display: flex;
-        justify-content: center;
-        gap: 40px;
-        flex-wrap: wrap;
-      }
-      .res-stat {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-      }
-      .res-stat-num {
-        font-family: var(--fh);
-        font-size: 36px;
-        line-height: 1;
-        background: linear-gradient(135deg, #fff, #e52c67);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      .res-stat-lbl {
-        font-family: var(--fb);
-        font-size: 12px;
-        color: var(--gray);
-        letter-spacing: 0.5px;
-      }
-
-      /* ── Filter Tabs ── */
-      .res-filters {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-bottom: 48px;
-      }
-      .res-filter-btn {
+      .res-hero-label {
         display: inline-flex;
         align-items: center;
         gap: 7px;
-        padding: 9px 20px;
-        border-radius: 50px;
         font-family: var(--fb);
-        font-size: 13px;
+        font-size: 11px;
         font-weight: 600;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
         color: var(--gray);
-        cursor: pointer;
-        transition: all 0.2s;
+        margin-bottom: 18px;
       }
-      .res-filter-btn:hover {
-        border-color: rgba(229, 44, 103, 0.3);
+      .res-hero-label i { color: var(--gold); font-size: 10px; }
+      .res-hero h1 {
+        font-family: var(--fk);
+        font-size: clamp(28px, 4.5vw, 46px);
+        font-weight: 700;
         color: var(--white);
+        line-height: 1.25;
+        margin-bottom: 12px;
+        letter-spacing: -0.3px;
       }
-      .res-filter-btn.active {
-        background: rgba(229, 44, 103, 0.12);
-        border-color: rgba(229, 44, 103, 0.4);
+      .res-hero h1 em {
+        font-style: normal;
         color: var(--gold);
       }
-      .res-filter-btn .res-count {
-        background: rgba(255, 255, 255, 0.08);
-        padding: 2px 7px;
-        border-radius: 20px;
-        font-size: 11px;
-      }
-      .res-filter-btn.active .res-count {
-        background: rgba(229, 44, 103, 0.2);
-      }
-      .res-filter-feedback {
-        text-align: center;
+      .res-hero p {
         font-family: var(--fb);
-        font-size: 12px;
+        font-size: 14px;
         color: var(--gray);
-        margin: -28px 0 28px;
+        margin: 0 auto 32px;
+        line-height: 1.65;
+        max-width: 420px;
+      }
+
+
+      /* ── Toolbar (Tabs + Search) ── */
+      .res-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        background: rgba(255,255,255,0.025);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 14px;
+        padding: 5px;
+        margin-bottom: 12px;
+        position: relative;
+      }
+
+      /* Tab group with sliding pill */
+      .res-tabs {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        position: relative;
+      }
+      .res-tab-pill {
+        position: absolute;
+        top: 0; left: 0;
+        height: 100%;
+        background: rgba(255,255,255,0.07);
+        border-radius: 9px;
+        transition: left 0.35s cubic-bezier(0.16,1,0.3,1),
+                    width 0.35s cubic-bezier(0.16,1,0.3,1);
+        pointer-events: none;
+        z-index: 0;
+      }
+      .res-tab {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 14px;
+        border-radius: 9px;
+        font-family: var(--fb);
+        font-size: 13px;
+        font-weight: 500;
+        background: none;
+        border: none;
+        color: var(--gray);
+        cursor: pointer;
+        transition: color 0.2s;
+        white-space: nowrap;
+      }
+      .res-tab:hover { color: rgba(255,255,255,0.8); }
+      .res-tab.active { color: var(--white); font-weight: 600; }
+      .res-tab .tab-count {
+        font-size: 10px;
+        background: rgba(255,255,255,0.07);
+        padding: 1px 6px;
+        border-radius: 10px;
+        font-weight: 600;
+        color: var(--gray);
+        transition: background 0.25s, color 0.25s;
+      }
+      .res-tab.active .tab-count {
+        background: rgba(229,44,103,0.2);
+        color: var(--gold);
+      }
+
+      /* Divider */
+      .res-toolbar-divider {
+        width: 1px;
+        height: 20px;
+        background: rgba(255,255,255,0.08);
+        flex-shrink: 0;
+      }
+
+      /* Integrated search */
+      .res-toolbar-search {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 9px;
+        padding: 7px 12px;
+        flex-shrink: 0;
+        min-width: 210px;
+        transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+      }
+      .res-toolbar-search:focus-within {
+        border-color: rgba(229,44,103,0.4);
+        box-shadow: 0 0 0 3px rgba(229,44,103,0.07);
+        background: rgba(229,44,103,0.03);
+      }
+      .res-toolbar-search-icon {
+        color: var(--gray);
+        font-size: 12px;
+        flex-shrink: 0;
+        transition: color 0.2s;
+      }
+      .res-toolbar-search:focus-within .res-toolbar-search-icon { color: var(--gold); }
+      #resSearch {
+        background: none;
+        border: none;
+        outline: none;
+        color: var(--white);
+        font-family: var(--fb);
+        font-size: 13px;
+        width: 100%;
+        min-width: 0;
+      }
+      #resSearch::placeholder { color: var(--gray); }
+      .res-search-clear {
+        background: none;
+        border: none;
+        border-radius: 6px;
+        width: 20px;
+        height: 20px;
+        color: rgba(139,148,158,0.5);
+        font-size: 9px;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: color 0.2s;
+      }
+      .res-search-clear:hover { color: var(--white); }
+      .res-search-clear.show { display: flex; }
+
+      .res-filter-feedback {
+        font-family: var(--fb);
+        font-size: 11px;
+        color: rgba(139,148,158,0.45);
+        margin: 8px 0 24px;
+        text-align: right;
       }
 
       /* ── Resource Grid ── */
       .res-section {
-        padding: clamp(50px, 10vw, 80px) 0 clamp(60px, 15vw, 120px);
+        padding: clamp(40px, 8vw, 70px) 0 clamp(60px, 15vw, 120px);
       }
       .res-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-      }
-      .res-card {
-        background: var(--dark2);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        transition:
-          border-color 0.3s,
-          transform 0.3s,
-          box-shadow 0.3s;
-        position: relative;
-      }
-      .res-card:hover {
-        border-color: rgba(229, 44, 103, 0.35);
-        transform: translateY(-6px);
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
-      }
-      .res-card[data-featured="true"] {
-        grid-column: span 2;
-        flex-direction: row;
-        border-color: rgba(229, 44, 103, 0.3);
-      }
-      /* Featured card top line */
-      .res-card[data-featured="true"]::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: linear-gradient(90deg, #e52c67, #ff7eb3);
+        gap: 16px;
       }
 
-      /* Card cover / visual */
-      .res-cover {
-        aspect-ratio: 16/9;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
+      /* ── Card ── */
+      .res-card {
+        background: #0a0c10;
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 16px;
         overflow: hidden;
-        flex-shrink: 0;
-      }
-      .res-card[data-featured="true"] .res-cover {
-        width: 280px;
-        aspect-ratio: auto;
-        align-self: stretch;
-      }
-      .res-cover-inner {
-        width: 100%;
-        height: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 24px;
+        position: relative;
+        cursor: default;
+        transition: border-color 0.35s, box-shadow 0.35s;
+      }
+
+      /* Spotlight follow-mouse glow */
+      .res-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          500px circle at var(--mx, -200px) var(--my, -200px),
+          rgba(229,44,103,0.07),
+          transparent 50%
+        );
+        opacity: 0;
+        transition: opacity 0.4s;
+        pointer-events: none;
+        z-index: 0;
+        border-radius: inherit;
+      }
+      .res-card:hover::after { opacity: 1; }
+      .res-card:hover {
+        border-color: rgba(255,255,255,0.13);
+        box-shadow: 0 12px 48px rgba(0,0,0,0.5);
+      }
+
+      /* Animated top accent line — sweeps in on hover */
+      .res-card-accent {
+        height: 2px;
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        background: transparent;
+      }
+      .res-card-accent::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        transform: translateX(-100%);
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .res-card:hover .res-card-accent::before { transform: translateX(0); }
+      .res-card[data-cat="ai"]        .res-card-accent::before { background: linear-gradient(90deg, #7c3aed, #a855f7); }
+      .res-card[data-cat="template"]  .res-card-accent::before { background: linear-gradient(90deg, #1d4ed8, #3b82f6); }
+      .res-card[data-cat="marketing"] .res-card-accent::before { background: linear-gradient(90deg, #be123c, #e52c67); }
+      .res-card[data-cat="design"]    .res-card-accent::before { background: linear-gradient(90deg, #047857, #10b981); }
+
+      /* Card inner — keeps content above spotlight */
+      .res-card-inner {
+        padding: 20px 22px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        flex: 1;
         position: relative;
         z-index: 1;
       }
-      .res-cover i {
-        font-size: 40px;
-        color: rgba(255, 255, 255, 0.9);
-        filter: drop-shadow(0 4px 16px rgba(229, 44, 103, 0.5));
-      }
-      .res-card[data-featured="true"] .res-cover i {
-        font-size: 56px;
-      }
-      .res-cover-title {
-        font-family: var(--fh);
-        font-size: 18px;
-        color: #fff;
-        text-align: center;
-        line-height: 1.2;
-        letter-spacing: 1px;
-      }
-      .res-card[data-featured="true"] .res-cover-title {
-        font-size: 24px;
-      }
 
-      /* Cover background color by category */
-      .res-cover[data-cat="ai"] {
-        background: linear-gradient(135deg, #1a0a2e, #3d1060);
-      }
-      .res-cover[data-cat="template"] {
-        background: linear-gradient(135deg, #0a1a2e, #103d60);
-      }
-      .res-cover[data-cat="marketing"] {
-        background: linear-gradient(135deg, #1a0a10, #60103d);
-      }
-      .res-cover[data-cat="design"] {
-        background: linear-gradient(135deg, #0a1a10, #10603d);
-      }
-
-      /* Card body */
-      .res-body {
-        padding: 24px;
+      /* Card top: icon + badge */
+      .res-card-top {
         display: flex;
-        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
         gap: 10px;
-        flex: 1;
       }
-      .res-meta {
+
+      /* Icon box */
+      .res-icon-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
         display: flex;
         align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+        transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
       }
+      .res-card:hover .res-icon-box { transform: scale(1.1) rotate(-4deg); }
+      .res-icon-ai        { background: rgba(168,85,247,0.13);  color: #c084fc; }
+      .res-icon-template  { background: rgba(59,130,246,0.13);   color: #60a5fa; }
+      .res-icon-marketing { background: rgba(229,44,103,0.13);   color: #fb7185; }
+      .res-icon-design    { background: rgba(16,185,129,0.13);   color: #34d399; }
+
+      /* Badge */
       .res-cat-badge {
         font-family: var(--fb);
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 1px;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
         text-transform: uppercase;
-        padding: 3px 10px;
-        border-radius: 20px;
+        padding: 3px 9px;
+        border-radius: 6px;
+        white-space: nowrap;
       }
-      .badge-ai {
-        background: rgba(168, 85, 247, 0.12);
-        color: #c084fc;
-        border: 1px solid rgba(168, 85, 247, 0.25);
-      }
-      .badge-template {
-        background: rgba(59, 130, 246, 0.12);
-        color: #60a5fa;
-        border: 1px solid rgba(59, 130, 246, 0.25);
-      }
-      .badge-marketing {
-        background: rgba(229, 44, 103, 0.12);
-        color: #fb7185;
-        border: 1px solid rgba(229, 44, 103, 0.25);
-      }
-      .badge-design {
-        background: rgba(16, 185, 129, 0.12);
-        color: #34d399;
-        border: 1px solid rgba(16, 185, 129, 0.25);
-      }
+      .badge-ai        { background: rgba(168,85,247,0.09);  color: #a78bfa; border: 1px solid rgba(168,85,247,0.18); }
+      .badge-template  { background: rgba(59,130,246,0.09);  color: #93c5fd; border: 1px solid rgba(59,130,246,0.18); }
+      .badge-marketing { background: rgba(229,44,103,0.09);  color: #fda4af; border: 1px solid rgba(229,44,103,0.18); }
+      .badge-design    { background: rgba(16,185,129,0.09);  color: #6ee7b7; border: 1px solid rgba(16,185,129,0.18); }
 
-      .res-format {
-        font-family: var(--fb);
-        font-size: 11px;
-        color: var(--gray);
+      /* Card body */
+      .res-card-body {
         display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-      .res-free-tag {
-        margin-left: auto;
-        font-family: var(--fb);
-        font-size: 11px;
-        font-weight: 700;
-        color: #4ade80;
-        background: rgba(74, 222, 128, 0.1);
-        border: 1px solid rgba(74, 222, 128, 0.2);
-        padding: 2px 8px;
-        border-radius: 20px;
+        flex-direction: column;
+        gap: 7px;
+        flex: 1;
       }
       .res-title {
         font-family: var(--fk);
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 700;
-        color: var(--white);
-        line-height: 1.4;
+        color: rgba(255,255,255,0.88);
+        line-height: 1.5;
+        transition: color 0.25s;
       }
-      .res-card[data-featured="true"] .res-title {
-        font-size: 20px;
-      }
+      .res-card:hover .res-title { color: #fff; }
       .res-desc {
         font-family: var(--fk);
-        font-size: 13px;
+        font-size: 12px;
         color: var(--gray);
-        line-height: 1.7;
-        flex: 1;
+        line-height: 1.72;
       }
-      .res-includes {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        margin-top: 4px;
-      }
-      .res-includes li {
-        list-style: none;
-        font-family: var(--fk);
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.6);
-        display: flex;
-        align-items: flex-start;
-        gap: 8px;
-      }
-      .res-includes li i {
-        color: var(--gold);
-        font-size: 11px;
-        margin-top: 3px;
-        flex-shrink: 0;
-      }
+
+      /* Footer */
       .res-footer {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 12px;
-        padding-top: 16px;
-        border-top: 1px solid var(--border);
+        gap: 10px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255,255,255,0.05);
         margin-top: auto;
       }
       .res-dl-count {
         font-family: var(--fb);
-        font-size: 12px;
-        color: var(--gray);
+        font-size: 11px;
+        color: rgba(139,148,158,0.7);
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 4px;
       }
-      .res-dl-count i {
-        font-size: 11px;
-        color: var(--gold);
-      }
+      .res-dl-count i { font-size: 10px; color: var(--gold); opacity: 0.7; }
+
+      /* Download button */
       .res-dl-btn {
         display: inline-flex;
         align-items: center;
         gap: 7px;
-        padding: 10px 20px;
-        border-radius: 50px;
+        padding: 7px 15px;
+        border-radius: 8px;
         font-family: var(--fb);
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 600;
-        background: rgba(229, 44, 103, 0.1);
-        border: 1px solid rgba(229, 44, 103, 0.25);
-        color: var(--gold);
-        text-decoration: none !important;
-        transition: all 0.25s;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.09);
+        color: rgba(255,255,255,0.6);
         cursor: pointer;
         white-space: nowrap;
+        transition: background 0.25s, border-color 0.25s, color 0.25s, gap 0.25s;
+        overflow: hidden;
+      }
+      .res-dl-btn .btn-arrow {
+        display: inline-flex;
+        transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+        font-size: 10px;
       }
       .res-dl-btn:hover {
-        background: rgba(229, 44, 103, 0.2);
-        border-color: var(--gold);
-        transform: translateY(-1px);
-      }
-      .res-dl-btn-primary {
-        background: linear-gradient(90deg, #e52c67, #ff4d85);
-        border-color: transparent;
+        background: rgba(229,44,103,0.13);
+        border-color: rgba(229,44,103,0.35);
         color: #fff;
+        gap: 10px;
+      }
+      .res-dl-btn:hover .btn-arrow { transform: translateY(2px); }
+      .res-dl-btn-primary {
+        background: rgba(229,44,103,0.14);
+        border-color: rgba(229,44,103,0.32);
+        color: #fda4af;
       }
       .res-dl-btn-primary:hover {
-        opacity: 0.9;
-        border-color: transparent;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(229, 44, 103, 0.35);
+        background: rgba(229,44,103,0.25);
+        border-color: rgba(229,44,103,0.6);
+        color: #fff;
       }
 
-      /* Hidden cards (filter) */
-      .res-card.hidden {
-        display: none;
-      }
+      /* Hidden */
+      .res-card.hidden { display: none; }
 
-      /* Filter empty state */
+      /* Empty state */
       .res-empty {
         display: none;
         text-align: center;
@@ -488,13 +468,8 @@
         color: var(--gray);
         font-family: var(--fb);
       }
-      .res-empty i {
-        font-size: 36px;
-        margin-bottom: 16px;
-        display: block;
-        opacity: 0.4;
-      }
-      .res-empty p { font-size: 14px; line-height: 1.7; margin-top: 8px; }
+      .res-empty i { font-size: 36px; margin-bottom: 16px; display: block; opacity: 0.3; }
+      .res-empty p { font-size: 13px; line-height: 1.7; margin-top: 8px; }
       .res-empty.show { display: block; }
 
       /* ── Download Modal ── */
@@ -661,106 +636,31 @@
 
       /* ── Responsive ── */
       @media (max-width: 900px) {
-        .res-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-        .res-card[data-featured="true"] {
-          grid-column: span 2;
-        }
+        .res-grid { grid-template-columns: repeat(2, 1fr); }
       }
       @media (max-width: 768px) {
-        .res-hero {
-          padding: clamp(60px, 8vw, 120px) 0 clamp(35px, 6vw, 70px);
-        }
-        .res-hero p {
-          font-size: 16px;
-          line-height: 1.85;
-          max-width: 42ch;
-          margin-bottom: 30px;
-        }
-        .res-stats {
-          gap: 22px;
-        }
-        .res-filter-btn {
-          padding: 10px 14px;
-          font-size: 12px;
-        }
-        .res-filter-feedback {
-          margin: -16px 0 24px;
-        }
-        .res-section {
-          padding: clamp(40px, 8vw, 70px) 0 clamp(50px, 12vw, 100px);
-        }
-        .res-grid {
-          grid-template-columns: 1fr;
-        }
-        .res-card[data-featured="true"] {
-          grid-column: span 1;
-        }
-        .res-body {
-          padding: 22px 20px;
-          gap: 12px;
-        }
-        .res-title,
-        .res-card[data-featured="true"] .res-title {
-          font-size: 18px;
-          line-height: 1.45;
-        }
-        .res-desc {
-          font-size: 14px;
-          line-height: 1.78;
-        }
-        .res-includes li {
-          font-size: 14px;
-          line-height: 1.65;
-        }
+        .res-hero { padding: clamp(70px, 9vw, 110px) 0 clamp(24px, 4vw, 36px); }
+        .res-hero h1 { font-size: clamp(24px, 6vw, 36px); }
+        .res-hero p { font-size: 13px; margin-bottom: 20px; }
+        .res-toolbar { flex-wrap: wrap; }
+        .res-toolbar-search { min-width: 0; flex: 1; order: 2; }
+        .res-toolbar-divider { display: none; }
+        .res-tab { padding: 7px 11px; font-size: 12px; }
+        .res-section { padding: clamp(28px, 6vw, 52px) 0 clamp(50px, 12vw, 100px); }
       }
       @media (max-width: 600px) {
-        .res-grid {
-          grid-template-columns: 1fr;
-        }
-        .res-card[data-featured="true"] {
-          grid-column: span 1;
-          flex-direction: column;
-        }
-        .res-card[data-featured="true"] .res-cover {
-          width: 100%;
-          min-height: 160px;
-        }
-        .res-meta {
-          gap: 10px;
-        }
-        .res-footer {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 10px;
-        }
-        .res-dl-count {
-          font-size: 13px;
-        }
-        .res-dl-btn {
-          width: 100%;
-          justify-content: center;
-          padding: 12px 16px;
-        }
-        .dl-modal-box {
-          padding: 32px 24px;
-        }
-        .dl-modal-sub {
-          font-size: 15px;
-          line-height: 1.7;
-        }
-        .dl-input {
-          font-size: 16px;
-        }
-        .dl-submit {
-          font-size: 16px;
-          min-height: 50px;
-        }
-        .dl-status {
-          font-size: 14px;
-          line-height: 1.6;
-        }
+        .res-toolbar { padding: 5px; gap: 4px; }
+        .res-tabs { flex-wrap: wrap; gap: 2px; }
+        .res-toolbar-search { width: 100%; order: -1; border-radius: 9px; margin-bottom: 4px; }
+        .res-tab-pill { display: none; }
+      }
+      @media (max-width: 540px) {
+        .res-grid { grid-template-columns: 1fr; }
+        .res-footer { flex-wrap: wrap; }
+        .res-dl-btn { flex: 1; justify-content: center; }
+        .dl-modal-box { padding: 32px 24px; }
+        .dl-input { font-size: 16px; }
+        .dl-submit { font-size: 16px; min-height: 50px; }
       }
     </style>
   </head>
@@ -807,112 +707,58 @@
     <!-- ══ HERO ══ -->
     <section class="res-hero">
       <div class="container">
-        <div class="res-eyebrow reveal">
-          <i class="fas fa-gift"></i> កាដូឌីជីថលឥតគិតថ្លៃ
+
+        <div class="res-hero-label reveal">
+          <i class="fas fa-gift"></i> Free Digital Resources
         </div>
-        <h1 class="reveal">
-          មជ្ឈមណ្ឌល
-          <span>កាដូឌីជីថល</span>
-        </h1>
-        <p class="reveal">
-          <strong>Templates, Guides, AI Prompts</strong> និង Checklists
-          ឥតគិតថ្លៃ — ទាញយកភ្លាម ហើយអនុវត្តបានតែម្ដង។
-          មិនដឹងថាឯកសារណាសាក?
-          <a href="/contact" style="color:var(--gold);text-decoration:none;font-weight:700">សាក Digital Check →</a>
-        </p>
-        <div class="res-stats reveal">
-          <div class="res-stat">
-            <span class="res-stat-num">10+</span>
-            <span class="res-stat-lbl">កាដូឌីជីថល</span>
-          </div>
-          <div class="res-stat">
-            <span class="res-stat-num">4</span>
-            <span class="res-stat-lbl">ផ្នែកសំខាន់ៗ</span>
-          </div>
-          <div class="res-stat">
-            <span class="res-stat-num">100%</span>
-            <span class="res-stat-lbl">ឥតគិតថ្លៃជានិច្ច</span>
-          </div>
-        </div>
+
+        <h1 class="reveal">ស្វែងរក <em>ហើយ</em> ទាញយកភ្លាម</h1>
+
+        <p class="reveal">AI Prompts · Templates · Guides · Checklists<br />ឥតគិតថ្លៃ ១០០% — ទាញយក ហើយ អនុវត្តបាន​ភ្លាម</p>
+
       </div>
     </section>
 
     <!-- ══ RESOURCE CATALOG ══ -->
     <section class="res-section">
       <div class="container">
-        <!-- Filter Tabs -->
-        <div class="res-filters reveal">
-          <button class="res-filter-btn active" data-filter="all">
-            <i class="fas fa-th"></i> ទាំងអស់ <span class="res-count">10</span>
-          </button>
-          <button class="res-filter-btn" data-filter="ai">
-            <i class="fas fa-robot"></i> ឧបករណ៍ AI (សន្សំពេល)
-            <span class="res-count">4</span>
-          </button>
-          <button class="res-filter-btn" data-filter="template">
-            <i class="fas fa-table"></i> គំរូត្រៀមប្រើ (អនុវត្តភ្លាម)
-            <span class="res-count">3</span>
-          </button>
-          <button class="res-filter-btn" data-filter="marketing">
-            <i class="fas fa-bullhorn"></i> ទីផ្សារ (បង្កើនលទ្ធផល)
-            <span class="res-count">2</span>
-          </button>
-          <button class="res-filter-btn" data-filter="design">
-            <i class="fas fa-paint-brush"></i> រចនា
-            <span class="res-count">1</span>
-          </button>
+        <!-- Toolbar: Tabs + Search -->
+        <div class="res-toolbar reveal">
+          <div class="res-tabs" id="resTabs">
+            <div class="res-tab-pill" id="resTabPill"></div>
+            <button class="res-tab active" data-filter="all">ទាំងអស់ <span class="tab-count">10</span></button>
+            <button class="res-tab" data-filter="ai">AI Tools <span class="tab-count">4</span></button>
+            <button class="res-tab" data-filter="template">Templates <span class="tab-count">3</span></button>
+            <button class="res-tab" data-filter="marketing">Marketing <span class="tab-count">2</span></button>
+            <button class="res-tab" data-filter="design">Design <span class="tab-count">1</span></button>
+          </div>
+          <div class="res-toolbar-divider"></div>
+          <div class="res-toolbar-search">
+            <i class="fas fa-search res-toolbar-search-icon"></i>
+            <input type="text" id="resSearch" placeholder="ស្វែងរក..." autocomplete="off" />
+            <button class="res-search-clear" id="resSearchClear" aria-label="Clear"><i class="fas fa-times"></i></button>
+          </div>
         </div>
-        <div class="res-filter-feedback" id="resFilterFeedback">
-          បង្ហាញ 10 ឯកសារ
-        </div>
+        <div class="res-filter-feedback" id="resFilterFeedback">បង្ហាញ 10 ឯកសារ</div>
 
         <!-- Grid -->
         <div class="res-grid">
-          <!-- 1. AI Content Bible — FEATURED -->
-          <div class="res-card reveal" data-cat="ai" data-featured="true">
-            <div class="res-cover" data-cat="ai">
-              <div class="res-cover-inner">
-                <i class="fas fa-book-open"></i>
-                <div class="res-cover-title">គម្ពីរ<br />AI Content</div>
+          <!-- 1. AI Content Bible -->
+          <div class="res-card reveal" data-cat="ai">
+            <div class="res-card-accent"></div>
+            <div class="res-card-inner">
+              <div class="res-card-top">
+                <div class="res-icon-box res-icon-ai"><i class="fas fa-book-open"></i></div>
+                <span class="res-cat-badge badge-ai">AI Tools</span>
               </div>
-            </div>
-            <div class="res-body">
-              <div class="res-meta">
-                <span class="res-cat-badge badge-ai">ឧបករណ៍ AI</span>
-                <span class="res-format"
-                  ><i class="fas fa-file-pdf"></i> PDF + គំរូត្រៀមប្រើ</span
-                >
-                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
+              <div class="res-card-body">
+                <div class="res-title">គម្ពីរ AI Content — ប្រតិទិន ៣០ ថ្ងៃ និង Prompt ត្រៀមប្រើ</div>
+                <div class="res-desc">AI Prompts ២០០+ · ប្រតិទិន Content ១ ខែ · Hook Templates — ប្រើ ChatGPT ក្នុង ១០ នាទី</div>
               </div>
-              <div class="res-title">
-                គម្ពីរ AI Content — ប្រតិទិន ៣០ ថ្ងៃ និង Prompt ត្រៀមប្រើ
-              </div>
-              <div class="res-desc">
-                ប្រព័ន្ធ Content ពេញលេញ + AI Prompts ២០០+ សម្រាប់ Mអ្នក
-                ឱ្យបង្កើត Post ជាប្រចាំ និងរក Leads បានលឿនជាងមុន ដោយប្រើ ChatGPT
-                / Gemini ក្នុង ១០ នាទី។
-              </div>
-              <ul class="res-includes">
-                <li>
-                  <i class="fas fa-check"></i> ប្រតិទិន Content ៣០ ថ្ងៃ
-                  ជាស្រេចរួច
-                </li>
-                <li>
-                  <i class="fas fa-check"></i> AI Prompts ២០០+
-                  ជាភាសាខ្មែរ-អង់គ្លេស
-                </li>
-                <li><i class="fas fa-check"></i> រូបមន្ត Hook ៣ វិនាទីដំបូង</li>
-                <li><i class="fas fa-check"></i> គំរូ Caption ១០ រចនាបថ</li>
-              </ul>
               <div class="res-footer">
-                <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> ទាញយក 1,200+ ដង</span
-                >
-                <button
-                  class="res-dl-btn res-dl-btn-primary"
-                  onclick="openModal('គម្ពីរ AI Content', 'fas fa-book-open')"
-                >
-                  <i class="fas fa-download"></i> ទាញយកឥតគិតថ្លៃ
+                <span class="res-dl-count"><i class="fas fa-download"></i> 1,200+</span>
+                <button class="res-dl-btn res-dl-btn-primary" onclick="openModal('គម្ពីរ AI Content', 'fas fa-book-open')">
+                  ទាញយក <i class="fas fa-arrow-down btn-arrow"></i>
                 </button>
               </div>
             </div>
@@ -920,34 +766,20 @@
 
           <!-- 2. AI Prompt Pack -->
           <div class="res-card reveal" data-cat="ai">
-            <div class="res-cover" data-cat="ai">
-              <div class="res-cover-inner">
-                <i class="fas fa-robot"></i>
-                <div class="res-cover-title">AI PROMPT<br />កញ្ចប់</div>
+            <div class="res-card-accent"></div>
+            <div class="res-card-inner">
+              <div class="res-card-top">
+                <div class="res-icon-box res-icon-ai"><i class="fas fa-robot"></i></div>
+                <span class="res-cat-badge badge-ai">AI Tools</span>
               </div>
-            </div>
-            <div class="res-body">
-              <div class="res-meta">
-                <span class="res-cat-badge badge-ai">ឧបករណ៍ AI</span>
-                <span class="res-format"
-                  ><i class="fas fa-file-alt"></i> ឯកសារ​អត្ថបទ</span
-                >
-                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
-              </div>
-              <div class="res-title">AI Prompts ១០០ សម្រាប់អ្នក</div>
-              <div class="res-desc">
-                Prompts ១០០ ត្រៀមប្រើ — Cover​ ពី Content, Ads Copy, Email,
-                Caption, Reply Comment, Product Description ជា​ភាសា​ខ្មែរ។
+              <div class="res-card-body">
+                <div class="res-title">AI Prompts ១០០ សម្រាប់អ្នក</div>
+                <div class="res-desc">Content · Ads Copy · Email · Caption · Reply Comment — Prompts ១០០ ជាភាសាខ្មែរ ត្រៀម Copy-Paste</div>
               </div>
               <div class="res-footer">
-                <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> ទាញយក 850+ ដង</span
-                >
-                <button
-                  class="res-dl-btn"
-                  onclick="openModal('កញ្ចប់ AI Prompts 100', 'fas fa-robot')"
-                >
-                  <i class="fas fa-download"></i> ទាញយក
+                <span class="res-dl-count"><i class="fas fa-download"></i> 850+</span>
+                <button class="res-dl-btn" onclick="openModal('កញ្ចប់ AI Prompts 100', 'fas fa-robot')">
+                  ទាញយក <i class="fas fa-arrow-down btn-arrow"></i>
                 </button>
               </div>
             </div>
@@ -955,41 +787,20 @@
 
           <!-- 3. ChatGPT Beginner Guide -->
           <div class="res-card reveal" data-cat="ai">
-            <div class="res-cover" data-cat="ai">
-              <div class="res-cover-inner">
-                <i class="fas fa-graduation-cap"></i>
-                <div class="res-cover-title">CHATGPT<br />ចាប់ផ្តើម</div>
+            <div class="res-card-accent"></div>
+            <div class="res-card-inner">
+              <div class="res-card-top">
+                <div class="res-icon-box res-icon-ai"><i class="fas fa-graduation-cap"></i></div>
+                <span class="res-cat-badge badge-ai">AI Tools</span>
               </div>
-            </div>
-            <div class="res-body">
-              <div class="res-meta">
-                <span class="res-cat-badge badge-ai">ឧបករណ៍ AI</span>
-                <span class="res-format"
-                  ><i class="fas fa-file-pdf"></i> មគ្គុទ្ទេសក៍ PDF</span
-                >
-                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
-              </div>
-              <div class="res-title">
-                មគ្គុទ្ទេសក៍ចាប់ផ្តើម ChatGPT ជាភាសាខ្មែរ
-              </div>
-              <div class="res-desc">
-                ចាប់ពី Sign Up រហូតដល់ Prompt ដំបូង — Step-by-step Guide ១២
-                ទំព័រ ជួយអ្នកចាប់ AI ក្នុង ១ ម៉ោង។
+              <div class="res-card-body">
+                <div class="res-title">មគ្គុទ្ទេសក៍ចាប់ផ្តើម ChatGPT ជាភាសាខ្មែរ</div>
+                <div class="res-desc">Sign Up → Prompt ដំបូង — Guide ១២ ទំព័រ ជួយចាប់ AI ក្នុង ១ ម៉ោង ដោយមិនចាំបាច់ចេះ English</div>
               </div>
               <div class="res-footer">
-                <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> ទាញយក 620+ ដង</span
-                >
-                <button
-                  class="res-dl-btn"
-                  onclick="
-                    openModal(
-                      'មគ្គុទ្ទេសក៍ចាប់ផ្តើម ChatGPT',
-                      'fas fa-graduation-cap',
-                    )
-                  "
-                >
-                  <i class="fas fa-download"></i> ទាញយក
+                <span class="res-dl-count"><i class="fas fa-download"></i> 620+</span>
+                <button class="res-dl-btn" onclick="openModal('មគ្គុទ្ទេសក៍ចាប់ផ្តើម ChatGPT', 'fas fa-graduation-cap')">
+                  ទាញយក <i class="fas fa-arrow-down btn-arrow"></i>
                 </button>
               </div>
             </div>
@@ -997,73 +808,41 @@
 
           <!-- 4. Hook Secrets PDF -->
           <div class="res-card reveal" data-cat="ai">
-            <div class="res-cover" data-cat="ai">
-              <div class="res-cover-inner">
-                <i class="fas fa-bolt"></i>
-                <div class="res-cover-title">ក្បួន<br />HOOK</div>
+            <div class="res-card-accent"></div>
+            <div class="res-card-inner">
+              <div class="res-card-top">
+                <div class="res-icon-box res-icon-ai"><i class="fas fa-bolt"></i></div>
+                <span class="res-cat-badge badge-ai">AI Tools</span>
               </div>
-            </div>
-            <div class="res-body">
-              <div class="res-meta">
-                <span class="res-cat-badge badge-ai">ឧបករណ៍ AI</span>
-                <span class="res-format"
-                  ><i class="fas fa-file-pdf"></i> PDF</span
-                >
-                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
-              </div>
-              <div class="res-title">
-                ក្បួន Hook — ពី ០ ទៅ Viral ក្នុង ៣ វិនាទី
-              </div>
-              <div class="res-desc">
-                រូបមន្ត Hook ១៥ ប្រភេទ + ឧទាហរណ៍ Video Hook, Text Hook, Photo
-                Hook ជា​ Context ខ្មែរ ដែល Algorithm ចូលចិត្ត។
+              <div class="res-card-body">
+                <div class="res-title">ក្បួន Hook — ពី ០ ទៅ Viral ក្នុង ៣ វិនាទី</div>
+                <div class="res-desc">Hook ១៥ ប្រភេទ · Video · Text · Photo — ក្នុង Context ខ្មែរ ដែល Algorithm ចូលចិត្ត</div>
               </div>
               <div class="res-footer">
-                <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> ទាញយក 540+ ដង</span
-                >
-                <button
-                  class="res-dl-btn"
-                  onclick="openModal('ក្បួន Hook PDF', 'fas fa-bolt')"
-                >
-                  <i class="fas fa-download"></i> ទាញយក
+                <span class="res-dl-count"><i class="fas fa-download"></i> 540+</span>
+                <button class="res-dl-btn" onclick="openModal('ក្បួន Hook PDF', 'fas fa-bolt')">
+                  ទាញយក <i class="fas fa-arrow-down btn-arrow"></i>
                 </button>
               </div>
             </div>
           </div>
 
-          <!-- 5. 30-Day Content Plan Template -->
+          <!-- 5. 30-Day Content Plan -->
           <div class="res-card reveal" data-cat="template">
-            <div class="res-cover" data-cat="template">
-              <div class="res-cover-inner">
-                <i class="fas fa-calendar-alt"></i>
-                <div class="res-cover-title">ផែនការ<br />30 ថ្ងៃ</div>
+            <div class="res-card-accent"></div>
+            <div class="res-card-inner">
+              <div class="res-card-top">
+                <div class="res-icon-box res-icon-template"><i class="fas fa-calendar-alt"></i></div>
+                <span class="res-cat-badge badge-template">Template</span>
               </div>
-            </div>
-            <div class="res-body">
-              <div class="res-meta">
-                <span class="res-cat-badge badge-template">គំរូត្រៀមប្រើ</span>
-                <span class="res-format"
-                  ><i class="fas fa-table"></i> សន្លឹក Google</span
-                >
-                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
-              </div>
-              <div class="res-title">គំរូផែនការ Content ៣០ ថ្ងៃ</div>
-              <div class="res-desc">
-                គំរូសន្លឹក Google សម្រាប់រៀបចំ Content ១ ខែ — ប្រភេទ Post,
-                កាលបរិច្ឆេទ, Caption Draft និងតាមដានស្ថានភាពជាស្រេច។
+              <div class="res-card-body">
+                <div class="res-title">គំរូផែនការ Content ៣០ ថ្ងៃ</div>
+                <div class="res-desc">Google Sheet ត្រៀមប្រើ — ប្រភេទ Post · Caption Draft · Status ក្នុង ១ ខែ មិនត្រូវគិតច្រើន</div>
               </div>
               <div class="res-footer">
-                <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> ទាញយក 780+ ដង</span
-                >
-                <button
-                  class="res-dl-btn"
-                  onclick="
-                    openModal('ផែនការ Content 30 ថ្ងៃ', 'fas fa-calendar-alt')
-                  "
-                >
-                  <i class="fas fa-download"></i> ទាញយក
+                <span class="res-dl-count"><i class="fas fa-download"></i> 780+</span>
+                <button class="res-dl-btn" onclick="openModal('ផែនការ Content 30 ថ្ងៃ', 'fas fa-calendar-alt')">
+                  ទាញយក <i class="fas fa-arrow-down btn-arrow"></i>
                 </button>
               </div>
             </div>
@@ -1071,76 +850,41 @@
 
           <!-- 6. Khmer Caption Templates -->
           <div class="res-card reveal" data-cat="template">
-            <div class="res-cover" data-cat="template">
-              <div class="res-cover-inner">
-                <i class="fas fa-comment-dots"></i>
-                <div class="res-cover-title">CAPTION<br />ខ្មែរ</div>
+            <div class="res-card-accent"></div>
+            <div class="res-card-inner">
+              <div class="res-card-top">
+                <div class="res-icon-box res-icon-template"><i class="fas fa-comment-dots"></i></div>
+                <span class="res-cat-badge badge-template">Template</span>
               </div>
-            </div>
-            <div class="res-body">
-              <div class="res-meta">
-                <span class="res-cat-badge badge-template">គំរូត្រៀមប្រើ</span>
-                <span class="res-format"
-                  ><i class="fas fa-file-word"></i> Word / Docs</span
-                >
-                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
-              </div>
-              <div class="res-title">គំរូ Caption ខ្មែរ ៥០+</div>
-              <div class="res-desc">
-                Caption ជា​ភាសា​ខ្មែរ ៥០+ ទម្រង់ — Flash Sale, New Product,
-                Testimonial, Event, ​Promotion ត្រៀម Copy-Paste ភ្លាមៗ។
+              <div class="res-card-body">
+                <div class="res-title">គំរូ Caption ខ្មែរ ៥០+</div>
+                <div class="res-desc">Flash Sale · Product · Testimonial · Event — ៥០+ Caption ជាខ្មែរ ត្រៀម Paste ហើយ Post ភ្លាម</div>
               </div>
               <div class="res-footer">
-                <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> ទាញយក 910+ ដង</span
-                >
-                <button
-                  class="res-dl-btn"
-                  onclick="
-                    openModal('គំរូ Caption ខ្មែរ 50+', 'fas fa-comment-dots')
-                  "
-                >
-                  <i class="fas fa-download"></i> ទាញយក
+                <span class="res-dl-count"><i class="fas fa-download"></i> 910+</span>
+                <button class="res-dl-btn" onclick="openModal('គំរូ Caption ខ្មែរ 50+', 'fas fa-comment-dots')">
+                  ទាញយក <i class="fas fa-arrow-down btn-arrow"></i>
                 </button>
               </div>
             </div>
           </div>
 
-          <!-- 7. Social Media Audit Template -->
+          <!-- 7. Social Media Audit -->
           <div class="res-card reveal" data-cat="template">
-            <div class="res-cover" data-cat="template">
-              <div class="res-cover-inner">
-                <i class="fas fa-clipboard-check"></i>
-                <div class="res-cover-title">សវនកម្ម<br />សង្គម</div>
+            <div class="res-card-accent"></div>
+            <div class="res-card-inner">
+              <div class="res-card-top">
+                <div class="res-icon-box res-icon-template"><i class="fas fa-clipboard-check"></i></div>
+                <span class="res-cat-badge badge-template">Template</span>
               </div>
-            </div>
-            <div class="res-body">
-              <div class="res-meta">
-                <span class="res-cat-badge badge-template">គំរូត្រៀមប្រើ</span>
-                <span class="res-format"
-                  ><i class="fas fa-table"></i> សន្លឹក Google</span
-                >
-                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
-              </div>
-              <div class="res-title">គំរូសវនកម្មបណ្ដាញសង្គម</div>
-              <div class="res-desc">
-                Rate Account Facebook, Instagram, TikTok, YouTube របស់អ្នក ១ ១ —
-                Score Card ដាក់ Priority Fix មុននឹង Boost Ads។
+              <div class="res-card-body">
+                <div class="res-title">គំរូសវនកម្មបណ្ដាញសង្គម</div>
+                <div class="res-desc">Rate Facebook · Instagram · TikTok · YouTube — Score Card ច្បាស់ ដើម្បី Fix មុន Boost</div>
               </div>
               <div class="res-footer">
-                <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> ទាញយក 430+ ដង</span
-                >
-                <button
-                  class="res-dl-btn"
-                  onclick="
-                    openModal(
-                      'គំរូសវនកម្មបណ្ដាញសង្គម',
-                      'fas fa-clipboard-check',
-                    )
-                  "
-                >
-                  <i class="fas fa-download"></i> ទាញយក
+                <span class="res-dl-count"><i class="fas fa-download"></i> 430+</span>
+                <button class="res-dl-btn" onclick="openModal('គំរូសវនកម្មបណ្ដាញសង្គម', 'fas fa-clipboard-check')">
+                  ទាញយក <i class="fas fa-arrow-down btn-arrow"></i>
                 </button>
               </div>
             </div>
@@ -1148,38 +892,20 @@
 
           <!-- 8. Facebook Ads Checklist -->
           <div class="res-card reveal" data-cat="marketing">
-            <div class="res-cover" data-cat="marketing">
-              <div class="res-cover-inner">
-                <i class="fab fa-facebook-f"></i>
-                <div class="res-cover-title">FB ADS<br />CHECKLIST</div>
+            <div class="res-card-accent"></div>
+            <div class="res-card-inner">
+              <div class="res-card-top">
+                <div class="res-icon-box res-icon-marketing"><i class="fab fa-facebook-f"></i></div>
+                <span class="res-cat-badge badge-marketing">Marketing</span>
               </div>
-            </div>
-            <div class="res-body">
-              <div class="res-meta">
-                <span class="res-cat-badge badge-marketing">ទីផ្សារ</span>
-                <span class="res-format"
-                  ><i class="fas fa-file-pdf"></i> PDF</span
-                >
-                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
-              </div>
-              <div class="res-title">
-                Checklist Facebook Ads — មុនចំណាយ ១ ដុល្លារ
-              </div>
-              <div class="res-desc">
-                រៀបចំ Campaign ត្រឹមត្រូវ មុន Boost — Checklist ២៥ ចំណុច ជួយកាត់
-                Waste ហើយ Improve ROAS តាំងពី Day 1។
+              <div class="res-card-body">
+                <div class="res-title">Checklist Facebook Ads — មុនចំណាយ ១ ដុល្លារ</div>
+                <div class="res-desc">Checklist ២៥ ចំណុច — កាត់ Waste · Improve ROAS · រៀបចំ Campaign ត្រឹមត្រូវ ពី Day 1</div>
               </div>
               <div class="res-footer">
-                <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> ទាញយក 670+ ដង</span
-                >
-                <button
-                  class="res-dl-btn"
-                  onclick="
-                    openModal('Checklist Facebook Ads', 'fab fa-facebook-f')
-                  "
-                >
-                  <i class="fas fa-download"></i> ទាញយក
+                <span class="res-dl-count"><i class="fas fa-download"></i> 670+</span>
+                <button class="res-dl-btn" onclick="openModal('Checklist Facebook Ads', 'fab fa-facebook-f')">
+                  ទាញយក <i class="fas fa-arrow-down btn-arrow"></i>
                 </button>
               </div>
             </div>
@@ -1187,36 +913,20 @@
 
           <!-- 9. Digital Strategy Canvas -->
           <div class="res-card reveal" data-cat="marketing">
-            <div class="res-cover" data-cat="marketing">
-              <div class="res-cover-inner">
-                <i class="fas fa-chess"></i>
-                <div class="res-cover-title">ផែនការ<br />CANVAS</div>
+            <div class="res-card-accent"></div>
+            <div class="res-card-inner">
+              <div class="res-card-top">
+                <div class="res-icon-box res-icon-marketing"><i class="fas fa-chess"></i></div>
+                <span class="res-cat-badge badge-marketing">Marketing</span>
               </div>
-            </div>
-            <div class="res-body">
-              <div class="res-meta">
-                <span class="res-cat-badge badge-marketing">ទីផ្សារ</span>
-                <span class="res-format"
-                  ><i class="fas fa-file-pdf"></i> PDF ១ ទំព័រ</span
-                >
-                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
-              </div>
-              <div class="res-title">
-                Digital Strategy Canvas — ផែនការ ១ ទំព័រ
-              </div>
-              <div class="res-desc">
-                Framework ១ ទំព័រ ជួយគូសផែនការ Digital Strategy — Target,
-                Channel, Budget, KPI, Content Pillar ច្បាស់លាស់ ក្នុង ១ ម៉ោង។
+              <div class="res-card-body">
+                <div class="res-title">Digital Strategy Canvas — ផែនការ ១ ទំព័រ</div>
+                <div class="res-desc">Target · Channel · Budget · KPI · Content Pillar — Framework ១ ទំព័រ ច្បាស់ ក្នុង ១ ម៉ោង</div>
               </div>
               <div class="res-footer">
-                <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> ទាញយក 390+ ដង</span
-                >
-                <button
-                  class="res-dl-btn"
-                  onclick="openModal('Digital Strategy Canvas', 'fas fa-chess')"
-                >
-                  <i class="fas fa-download"></i> ទាញយក
+                <span class="res-dl-count"><i class="fas fa-download"></i> 390+</span>
+                <button class="res-dl-btn" onclick="openModal('Digital Strategy Canvas', 'fas fa-chess')">
+                  ទាញយក <i class="fas fa-arrow-down btn-arrow"></i>
                 </button>
               </div>
             </div>
@@ -1224,35 +934,20 @@
 
           <!-- 10. Branding Checklist -->
           <div class="res-card reveal" data-cat="design">
-            <div class="res-cover" data-cat="design">
-              <div class="res-cover-inner">
-                <i class="fas fa-palette"></i>
-                <div class="res-cover-title">BRANDING<br />CHECKLIST</div>
+            <div class="res-card-accent"></div>
+            <div class="res-card-inner">
+              <div class="res-card-top">
+                <div class="res-icon-box res-icon-design"><i class="fas fa-palette"></i></div>
+                <span class="res-cat-badge badge-design">Design</span>
               </div>
-            </div>
-            <div class="res-body">
-              <div class="res-meta">
-                <span class="res-cat-badge badge-design">រចនា</span>
-                <span class="res-format"
-                  ><i class="fas fa-file-pdf"></i> PDF</span
-                >
-                <span class="res-free-tag">ឥតគិតថ្លៃ</span>
-              </div>
-              <div class="res-title">Branding Checklist — សហគ្រាសខ្មែរ</div>
-              <div class="res-desc">
-                Logo, Color, Font, Tone of Voice, Profile Picture
-                ត្រូវមានស្តង់ដារ ទំនើប — Checklist ៣០ ចំណុច ជួយ Audit Brand
-                ​អ្នកថ្ងៃ​នេះ។
+              <div class="res-card-body">
+                <div class="res-title">Branding Checklist — សហគ្រាសខ្មែរ</div>
+                <div class="res-desc">Logo · Color · Font · Tone of Voice — Checklist ៣០ ចំណុច Audit Brand អ្នកថ្ងៃនេះ</div>
               </div>
               <div class="res-footer">
-                <span class="res-dl-count"
-                  ><i class="fas fa-download"></i> ទាញយក 280+ ដង</span
-                >
-                <button
-                  class="res-dl-btn"
-                  onclick="openModal('Branding Checklist', 'fas fa-palette')"
-                >
-                  <i class="fas fa-download"></i> ទាញយក
+                <span class="res-dl-count"><i class="fas fa-download"></i> 280+</span>
+                <button class="res-dl-btn" onclick="openModal('Branding Checklist', 'fas fa-palette')">
+                  ទាញយក <i class="fas fa-arrow-down btn-arrow"></i>
                 </button>
               </div>
             </div>
@@ -1343,33 +1038,78 @@
     </button>
 
     <script src="js/form-utils.js" defer></script>
-    <script src="js/form-utils.js" defer></script>
     <script>
-      // ── Filter Logic ──
-      const filterBtns = document.querySelectorAll(".res-filter-btn");
-      const cards = document.querySelectorAll(".res-card");
+      // ── Shared state ──
+      const filterBtns = document.querySelectorAll(".res-tab");
+      const cards      = document.querySelectorAll(".res-card");
       const filterFeedback = document.getElementById("resFilterFeedback");
-      const resEmpty = document.getElementById("resEmpty");
+      const resEmpty   = document.getElementById("resEmpty");
+      const searchInput = document.getElementById("resSearch");
+      const searchClear = document.getElementById("resSearchClear");
+      const tabPill    = document.getElementById("resTabPill");
 
-      function updateFilterFeedback(count) {
-        if (filterFeedback) filterFeedback.textContent = `បង្ហាញ ${count} ឯកសារ`;
-        if (resEmpty) resEmpty.classList.toggle("show", count === 0);
+      let activeFilter = "all";
+      let searchQuery  = "";
+
+      // ── Sliding pill indicator ──
+      function updatePill() {
+        var active = document.querySelector(".res-tab.active");
+        if (active && tabPill) {
+          tabPill.style.left   = active.offsetLeft + "px";
+          tabPill.style.top    = active.offsetTop  + "px";
+          tabPill.style.width  = active.offsetWidth  + "px";
+          tabPill.style.height = active.offsetHeight + "px";
+        }
+      }
+      updatePill();
+      window.addEventListener("resize", updatePill);
+
+      function applyFilters() {
+        var visible = 0;
+        cards.forEach(function (card) {
+          var catMatch   = activeFilter === "all" || card.dataset.cat === activeFilter;
+          var cardText   = card.textContent.toLowerCase();
+          var searchMatch = searchQuery === "" || cardText.includes(searchQuery);
+          var show = catMatch && searchMatch;
+          card.classList.toggle("hidden", !show);
+          if (show) visible++;
+        });
+        if (filterFeedback) {
+          filterFeedback.textContent = searchQuery
+            ? "រកឃើញ " + visible + " លទ្ធផល"
+            : "បង្ហាញ " + visible + " ឯកសារ";
+        }
+        if (resEmpty) resEmpty.classList.toggle("show", visible === 0);
       }
 
-      filterBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          filterBtns.forEach((b) => b.classList.remove("active"));
+      // ── Tab filter ──
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          filterBtns.forEach(function (b) { b.classList.remove("active"); });
           btn.classList.add("active");
-          const f = btn.dataset.filter;
-          let visibleCount = 0;
-          cards.forEach((card) => {
-            const match = f === "all" || card.dataset.cat === f;
-            card.classList.toggle("hidden", !match);
-            if (match) visibleCount += 1;
-          });
-          updateFilterFeedback(visibleCount);
+          activeFilter = btn.dataset.filter;
+          updatePill();
+          applyFilters();
         });
       });
+
+      // ── Search ──
+      if (searchInput) {
+        searchInput.addEventListener("input", function () {
+          searchQuery = searchInput.value.trim().toLowerCase();
+          searchClear.classList.toggle("show", searchQuery.length > 0);
+          applyFilters();
+        });
+      }
+      if (searchClear) {
+        searchClear.addEventListener("click", function () {
+          searchInput.value = "";
+          searchQuery = "";
+          searchClear.classList.remove("show");
+          applyFilters();
+          searchInput.focus();
+        });
+      }
 
       // ── Modal Logic ──
       function openModal(title, icon) {
@@ -1433,8 +1173,16 @@
         .addEventListener("click", function (e) {
           if (e.target === this) closeModal();
         });
+
+      // Mouse spotlight per card
+      document.querySelectorAll(".res-card").forEach(function(card) {
+        card.addEventListener("mousemove", function(e) {
+          var r = card.getBoundingClientRect();
+          card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+          card.style.setProperty("--my", (e.clientY - r.top) + "px");
+        });
+      });
     </script>
-    <script src="js/load-components.js"></script>
     <script src="js/load-components.js"></script>
     <script src="js/main.js" defer></script>
   </body>
