@@ -1119,6 +1119,31 @@
 
     <canvas id="sm-stars" aria-hidden="true"></canvas>
 
+    <div id="nav-placeholder"></div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">Learn <i class="fas fa-chevron-down"></i></button>
+        <div class="drawer-group-items">
+          <a href="/#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="/yob-learning" onclick="closeDrawer()">YOB Learning</a>
+          <a href="/docs" onclick="closeDrawer()">Documentation</a>
+          <a href="/case-studies" onclick="closeDrawer()">Case Studies</a>
+        </div>
+      </div>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">Products <i class="fas fa-chevron-down"></i></button>
+        <div class="drawer-group-items">
+          <a href="/fonts" onclick="closeDrawer()">Yob Fonts</a>
+          <a href="/resources" onclick="closeDrawer()">Free Resources</a>
+          <a href="/poster-design" onclick="closeDrawer()">Poster Design</a>
+        </div>
+      </div>
+      <a href="/about" onclick="closeDrawer()">About YOB</a>
+      <a href="/#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
+    </div>
+
     <!-- ════════════════════════════════════════
        PAGE CONTENT
   ════════════════════════════════════════ -->
@@ -1167,7 +1192,7 @@
               <div class="nxt-desc">
                 Digital Growth — Phase 00 to 04, step-by-step in Khmer
               </div>
-              <a href="/grow" class="nxt-link">Launch ➔</a>
+              <a href="/contact" class="nxt-link">Launch ➔</a>
             </div>
           </div>
 
@@ -1349,9 +1374,9 @@
               <div class="sm-m-icon icon-core">⬡</div>
               <span class="sm-m-name">Home</span>
             </a>
-            <a href="/grow" class="sm-m-card">
-              <div class="sm-m-icon icon-grow">↑</div>
-              <span class="sm-m-name">Grow</span>
+            <a href="/contact" class="sm-m-card">
+              <div class="sm-m-icon icon-grow">✉</div>
+              <span class="sm-m-name">Contact</span>
             </a>
             <a href="/about" class="sm-m-card">
               <div class="sm-m-icon icon-core">◎</div>
@@ -1860,6 +1885,7 @@
       })();
     </script>
 
+    <script src="js/load-components.js"></script>
     <script src="js/main.js" defer></script>
   </body>
 </html>

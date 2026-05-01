@@ -1,411 +1,419 @@
-﻿<!DOCTYPE html>
-<html lang="km" xml:lang="km">
+<!DOCTYPE html>
+<html lang="km">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>System Forging — YOB Digital</title>
-  <meta name="description" content="YOB Digital is assembling new weapons. Something powerful is being forged. Stay locked." />
+  <title>System Initializing — YOB Digital</title>
+  <meta name="description" content="Something powerful is being assembled. Stay locked." />
   <meta name="robots" content="noindex, nofollow" />
-
   <link rel="icon" type="image/png" href="images/favicon.png" />
-  <link rel="apple-touch-icon" href="images/favicon.png" />
-
-  <meta property="og:title" content="System Forging — YOB Digital" />
-  <meta property="og:description" content="YOB Digital is assembling. Something powerful is coming." />
+  <meta property="og:title" content="System Initializing — YOB Digital" />
   <meta property="og:image" content="https://yobdigital.netlify.app/images/og-cover.jpg" />
   <meta property="og:type" content="website" />
-
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
-
+  <link rel="stylesheet" href="css/style.css" />
   <style>
-    /* ═══════════════════════════════════════
-       THE COSMIC FORGE — Under Construction
-    ═══════════════════════════════════════ */
     :root {
-      --uc-cyan:   #00f0ff;
-      --uc-pink:   #e52c67;
-      --uc-purple: #7b4fff;
-      --uc-bg:     #050a1f;
-      --uc-mono:   var(--fb);
+      --uc-bg:  #030816;
+      --uc-c:   #00f0ff;
+      --uc-p:   #e52c67;
+      --uc-pu:  #7b4fff;
     }
-
     html, body { background: var(--uc-bg) !important; }
-    .blob-1, .blob-2 { display: none !important; }
-    #nav-placeholder { display: none !important; }
-    .mobile-drawer  { display: none !important; }
+    .blob-1,.blob-2,#nav-placeholder,.mobile-drawer { display: none !important; }
 
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: -2;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 0%,   rgba(0,240,255,0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 10% 80%,  rgba(123,79,255,0.06) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 60% at 90% 50%,  rgba(229,44,103,0.05) 0%, transparent 55%);
-      pointer-events: none;
+    /* ── Network canvas ── */
+    #uc-canvas {
+      position: fixed; inset: 0; width: 100%; height: 100%;
+      z-index: 0; pointer-events: none;
     }
 
-    /* 3D Perspective Grid — scrolling floor */
+    /* ── Perspective grid floor ── */
     .uc-grid {
-      position: fixed; inset: 0; z-index: -1;
-      overflow: hidden; pointer-events: none;
+      position: fixed; bottom: 0; left: -50%; right: -50%; height: 55%;
+      z-index: 1; pointer-events: none; overflow: hidden;
     }
     .uc-grid::after {
       content: '';
-      position: absolute;
-      left: -50%; right: -50%;
-      top: 30%; bottom: -40%;
+      position: absolute; inset: 0;
       background-image:
-        linear-gradient(rgba(0,240,255,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,240,255,0.07) 1px, transparent 1px);
-      background-size: 48px 48px;
-      transform: perspective(600px) rotateX(55deg);
-      animation: uc-gridScroll 12s linear infinite;
+        linear-gradient(rgba(0,240,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,240,255,0.06) 1px, transparent 1px);
+      background-size: 52px 52px;
+      transform: perspective(500px) rotateX(60deg);
+      transform-origin: bottom center;
+      animation: uc-grid-scroll 14s linear infinite;
     }
-    @keyframes uc-gridScroll {
+    .uc-grid::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(to bottom, var(--uc-bg) 0%, transparent 40%);
+    }
+    @keyframes uc-grid-scroll {
       from { background-position: 0 0; }
-      to   { background-position: 0 48px; }
+      to   { background-position: 0 52px; }
     }
 
-    /* Page layout */
+    /* ── HUD corners ── */
+    .uc-hud {
+      position: fixed; width: 44px; height: 44px;
+      z-index: 5; pointer-events: none;
+    }
+    .uc-hud::before,.uc-hud::after {
+      content:''; position:absolute; background:var(--uc-c); opacity:0.3;
+    }
+    .uc-hud.tl{top:20px;left:20px;}
+    .uc-hud.tl::before{top:0;left:0;width:22px;height:2px;}
+    .uc-hud.tl::after {top:0;left:0;width:2px;height:22px;}
+    .uc-hud.tr{top:20px;right:20px;}
+    .uc-hud.tr::before{top:0;right:0;width:22px;height:2px;}
+    .uc-hud.tr::after {top:0;right:0;width:2px;height:22px;}
+    .uc-hud.bl{bottom:20px;left:20px;}
+    .uc-hud.bl::before{bottom:0;left:0;width:22px;height:2px;}
+    .uc-hud.bl::after {bottom:0;left:0;width:2px;height:22px;}
+    .uc-hud.br{bottom:20px;right:20px;}
+    .uc-hud.br::before{bottom:0;right:0;width:22px;height:2px;}
+    .uc-hud.br::after {bottom:0;right:0;width:2px;height:22px;}
+
+    /* ── Logo ── */
+    .uc-logo {
+      position: fixed; top: 28px; left: 32px; z-index: 20;
+      font-family: "Bebas Neue", sans-serif; font-size: 18px;
+      color: rgba(255,255,255,0.28); letter-spacing: 2px; text-decoration: none;
+    }
+    .uc-logo span { color: var(--uc-p); }
+
+    /* ── Page layout ── */
     .uc-page {
+      position: relative; z-index: 10;
       min-height: 100vh;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      padding: 100px 24px 60px;
-      text-align: center;
-      position: relative; z-index: 10;
+      padding: 80px 24px 60px; text-align: center;
     }
 
-    /* Status badge */
-    .uc-badge {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: var(--uc-mono); font-size: 10px;
-      letter-spacing: 3px; text-transform: uppercase;
-      color: var(--uc-pink);
-      border: 1px solid rgba(229,44,103,0.3);
-      background: rgba(229,44,103,0.05);
-      padding: 6px 18px; border-radius: 4px;
-      margin-bottom: 48px;
-    }
-
-    /* Blueprint Hologram */
-    .uc-forge {
+    /* ── SVG Progress Ring ── */
+    .uc-ring-wrap {
       position: relative;
-      width: 220px; height: 220px;
-      margin: 0 auto 48px;
+      width: clamp(240px, 40vw, 320px);
+      height: clamp(240px, 40vw, 320px);
+      margin: 0 auto 40px;
       display: flex; align-items: center; justify-content: center;
     }
-
-    /* Outer dashed orbit */
-    .uc-ring-outer {
-      position: absolute; inset: 0;
-      border: 2px dashed rgba(0,240,255,0.35);
-      border-radius: 50%;
-      animation: uc-spin 18s linear infinite;
+    .uc-ring-svg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      transform: rotate(-90deg);
     }
-    /* Tick marks on outer ring */
-    .uc-ring-outer::before, .uc-ring-outer::after {
-      content: '';
-      position: absolute;
-      width: 8px; height: 8px;
-      background: var(--uc-cyan);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--uc-cyan);
-      top: 50%; left: -4px;
-      transform: translateY(-50%);
+    /* Track */
+    .uc-ring-track {
+      fill: none;
+      stroke: rgba(0,240,255,0.08);
+      stroke-width: 3;
     }
-    .uc-ring-outer::after { left: auto; right: -4px; background: var(--uc-pink); box-shadow: 0 0 8px var(--uc-pink); }
-
-    /* Middle ring */
-    .uc-ring-mid {
-      position: absolute; inset: 24px;
-      border: 1px solid rgba(0,240,255,0.2);
-      border-radius: 50%;
-      animation: uc-spinR 10s linear infinite;
+    /* Progress arc */
+    .uc-ring-prog {
+      fill: none;
+      stroke: url(#ucGrad);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-dasharray: 880;
+      stroke-dashoffset: 880;
+      animation: uc-fill 4s cubic-bezier(0.16,1,0.3,1) forwards 0.6s;
+      filter: drop-shadow(0 0 6px rgba(0,240,255,0.5));
     }
-
-    /* Core hexagon */
-    .uc-core {
-      position: absolute; inset: 50px;
-      border: 2px solid var(--uc-pink);
-      border-radius: 24px;
-      box-shadow:
-        0 0 24px rgba(229,44,103,0.4),
-        inset 0 0 20px rgba(229,44,103,0.15);
-      animation: uc-spinR 8s linear infinite, uc-pulse 2.5s ease-in-out infinite alternate;
-      display: flex; align-items: center; justify-content: center;
+    @keyframes uc-fill {
+      to { stroke-dashoffset: 198; } /* 880 * (1 - 0.775) = fills 77.5% */
     }
-    .uc-core-icon {
-      font-family: var(--fh);
-      font-size: 28px; color: rgba(229,44,103,0.7);
-      animation: uc-spinR 8s linear infinite; /* counter-rotate to stay upright */
+    /* Orbit dot */
+    .uc-orbit-dot {
+      position: absolute; width: 8px; height: 8px;
+      background: var(--uc-c); border-radius: 50%;
+      box-shadow: 0 0 12px var(--uc-c), 0 0 24px rgba(0,240,255,0.4);
+      top: 50%; left: 50%;
+      transform-origin: 0 0;
+      animation: uc-orbit 6s linear infinite;
+    }
+    .uc-orbit-dot:nth-child(2) {
+      background: var(--uc-p);
+      box-shadow: 0 0 12px var(--uc-p), 0 0 24px rgba(229,44,103,0.4);
+      animation: uc-orbit 6s linear infinite -3s;
+    }
+    @keyframes uc-orbit {
+      from { transform: translate(-50%,-50%) rotate(0deg) translateX(calc(clamp(120px,20vw,160px))) rotate(0deg); }
+      to   { transform: translate(-50%,-50%) rotate(360deg) translateX(calc(clamp(120px,20vw,160px))) rotate(-360deg); }
     }
 
-    /* Laser scanner */
-    .uc-scanner {
-      position: absolute; inset: 0;
-      border-radius: 50%;
-      overflow: hidden;
-      pointer-events: none;
+    /* Inner content */
+    .uc-ring-inner {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 2px;
     }
-    .uc-scanner::after {
-      content: '';
-      position: absolute;
-      left: -10%; right: -10%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--uc-cyan), transparent);
-      box-shadow: 0 0 12px var(--uc-cyan), 0 16px 24px rgba(0,240,255,0.15);
-      animation: uc-scan 3s ease-in-out infinite;
+    .uc-ring-logo {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(36px, 7vw, 56px);
+      letter-spacing: 6px; line-height: 1;
+      color: #fff;
+      text-shadow: 0 0 30px rgba(255,255,255,0.2);
     }
-    @keyframes uc-scan {
-      0%   { top: -4%; opacity: 0; }
-      8%   { opacity: 1; }
-      92%  { opacity: 1; }
-      100% { top: 104%; opacity: 0; }
+    .uc-ring-pct {
+      font-family: var(--fb); font-size: 11px;
+      letter-spacing: 3px; color: rgba(0,240,255,0.6);
     }
 
-    /* Corner brackets — HUD feel */
-    .uc-hud {
-      position: absolute; inset: -12px;
-      pointer-events: none;
+    /* ── Boot log ── */
+    .uc-boot {
+      display: flex; flex-direction: column; gap: 6px;
+      margin-bottom: 40px; min-width: 260px;
     }
-    .uc-hud::before, .uc-hud::after {
-      content: '';
-      position: absolute;
-      width: 20px; height: 20px;
-      border-color: rgba(0,240,255,0.5);
-      border-style: solid;
+    .uc-log {
+      font-family: var(--fb); font-size: 11px;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
+      display: flex; align-items: center; gap: 10px;
+      opacity: 0; transform: translateX(-8px);
+      animation: uc-log-in 0.4s ease forwards;
     }
-    .uc-hud::before { top: 0; left: 0; border-width: 2px 0 0 2px; }
-    .uc-hud::after  { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+    .uc-log.ok  { color: rgba(0,240,255,0.55); }
+    .uc-log.done{ color: rgba(255,255,255,0.4); }
+    .uc-log .dot {
+      width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0;
+      background: rgba(255,255,255,0.2);
+    }
+    .uc-log.ok .dot  { background: var(--uc-c); box-shadow: 0 0 6px var(--uc-c); }
+    .uc-log.done .dot{ background: rgba(0,240,255,0.3); }
+    .uc-log:nth-child(1){ animation-delay: 1.0s; }
+    .uc-log:nth-child(2){ animation-delay: 1.6s; }
+    .uc-log:nth-child(3){ animation-delay: 2.2s; }
+    .uc-log:nth-child(4){ animation-delay: 2.8s; }
+    @keyframes uc-log-in {
+      to { opacity: 1; transform: none; }
+    }
 
-    /* Typography */
-    .uc-title {
-      font-family: var(--fh);
-      font-size: clamp(48px, 8vw, 96px);
-      line-height: 0.9; letter-spacing: 4px;
-      color: var(--white);
-      margin-bottom: 20px;
-      text-shadow: 0 0 40px rgba(255,255,255,0.1);
-    }
-    .uc-title .uc-accent { color: var(--uc-pink); }
-
-    .uc-desc {
-      font-family: var(--fb);
-      font-size: 16px; color: rgba(255,255,255,0.5);
-      max-width: 480px; line-height: 1.85;
-      margin-bottom: 48px;
-    }
-    .uc-desc strong { color: rgba(255,255,255,0.85); }
-
-    /* Radar form */
-    .uc-form {
+    /* ── Email form ── */
+    .uc-form-wrap {
       display: flex; gap: 10px;
-      max-width: 420px; width: 100%;
-      margin: 0 auto 32px;
+      max-width: 400px; width: 100%;
+      margin: 0 auto 24px;
     }
     .uc-input {
       flex: 1;
-      background: rgba(0,240,255,0.04);
-      border: 1px solid rgba(0,240,255,0.25);
-      padding: 13px 20px;
-      border-radius: 50px;
-      color: var(--white);
-      font-family: var(--uc-mono); font-size: 12px;
-      letter-spacing: 1px;
-      outline: none;
-      transition: border-color 0.3s, box-shadow 0.3s;
+      background: rgba(0,240,255,0.03);
+      border: 1px solid rgba(0,240,255,0.2);
+      padding: 12px 20px; border-radius: 50px;
+      color: #fff; font-family: var(--fb); font-size: 13px;
+      outline: none; transition: border-color 0.3s, box-shadow 0.3s;
     }
-    .uc-input::placeholder { color: rgba(255,255,255,0.3); }
+    .uc-input::placeholder { color: rgba(255,255,255,0.28); }
     .uc-input:focus {
-      border-color: var(--uc-cyan);
-      box-shadow: 0 0 16px rgba(0,240,255,0.15);
+      border-color: var(--uc-c);
+      box-shadow: 0 0 20px rgba(0,240,255,0.12);
     }
     .uc-btn {
-      background: transparent;
-      border: 1px solid var(--uc-cyan);
-      color: var(--uc-cyan);
-      padding: 13px 22px;
-      border-radius: 50px;
-      font-family: var(--uc-mono); font-size: 11px;
-      font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: none;
-      transition: all 0.25s;
-      white-space: nowrap;
+      background: transparent; cursor: pointer;
+      border: 1px solid rgba(0,240,255,0.5); color: rgba(0,240,255,0.85);
+      padding: 12px 22px; border-radius: 50px;
+      font-family: var(--fb); font-size: 11px;
+      font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      transition: all 0.25s; white-space: nowrap;
     }
     .uc-btn:hover {
-      background: var(--uc-cyan);
-      color: var(--uc-bg);
-      box-shadow: 0 0 24px rgba(0,240,255,0.4);
+      background: var(--uc-c); color: var(--uc-bg);
+      box-shadow: 0 0 28px rgba(0,240,255,0.35);
     }
-
-    /* Success message */
     .uc-success {
-      display: none;
-      font-family: var(--uc-mono); font-size: 12px;
-      letter-spacing: 2px; color: var(--uc-cyan);
-      text-shadow: 0 0 10px rgba(0,240,255,0.5);
-      margin-bottom: 32px;
+      display: none; font-family: var(--fb); font-size: 11px;
+      letter-spacing: 2px; color: var(--uc-c);
+      text-shadow: 0 0 10px rgba(0,240,255,0.4);
+      margin-bottom: 24px;
     }
     .uc-success.show { display: block; }
 
-    /* Back home link */
+    /* ── Back home ── */
     .uc-home {
-      font-family: var(--fb); font-size: 12px;
+      font-family: var(--fb); font-size: 11px;
       letter-spacing: 2px; text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-      text-decoration: none;
+      color: rgba(255,255,255,0.25); text-decoration: none;
       display: inline-flex; align-items: center; gap: 8px;
       transition: color 0.25s;
     }
-    .uc-home:hover { color: rgba(255,255,255,0.7); }
+    .uc-home:hover { color: rgba(255,255,255,0.65); }
 
-    /* Keyframes */
-    @keyframes uc-spin  { to { transform: rotate(360deg); } }
-    @keyframes uc-spinR { to { transform: rotate(-360deg); } }
-    @keyframes uc-pulse {
-      from { box-shadow: 0 0 24px rgba(229,44,103,0.4), inset 0 0 20px rgba(229,44,103,0.15); }
-      to   { box-shadow: 0 0 40px rgba(229,44,103,0.65), inset 0 0 30px rgba(229,44,103,0.25); }
-    }
-
-    /* Responsive */
-    @media (max-width: 540px) {
-      .uc-form { flex-direction: column; }
-      .uc-forge { width: 180px; height: 180px; }
+    @media (max-width: 480px) {
+      .uc-form-wrap { flex-direction: column; }
+      .uc-orbit-dot { display: none; }
     }
   </style>
 </head>
 <body>
-
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
 
+  <canvas id="uc-canvas" aria-hidden="true"></canvas>
   <div class="uc-grid" aria-hidden="true"></div>
 
   <div id="nav-placeholder"></div>
   <div class="mobile-drawer" id="mobileDrawer">
     <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
-    <a href="/grow" onclick="closeDrawer()">Grow with Yob</a>
-    <div class="drawer-group">
-      <button class="drawer-group-toggle">Learn <i class="fas fa-chevron-down"></i></button>
-      <div class="drawer-group-items">
-        <a href="/#videos" onclick="closeDrawer()">Tutorial</a>
-        <a href="/yob-learning" onclick="closeDrawer()">YOB Learning</a>
-        <a href="/docs" onclick="closeDrawer()">Documentation</a>
-        <a href="/case-studies" onclick="closeDrawer()">Case Studies</a>
-      </div>
-    </div>
-    <div class="drawer-group">
-      <button class="drawer-group-toggle">Products <i class="fas fa-chevron-down"></i></button>
-      <div class="drawer-group-items">
-        <a href="/fonts" onclick="closeDrawer()">Yob Fonts</a>
-        <a href="/resources" onclick="closeDrawer()">កាដូឌីជីថល</a>
-      </div>
-    </div>
-    <a href="/about" onclick="closeDrawer()">About YOB</a>
-    <a href="/contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
+    <a href="index.html" onclick="closeDrawer()">Home</a>
   </div>
 
-  <main class="uc-page">
+  <div class="uc-hud tl"></div>
+  <div class="uc-hud tr"></div>
+  <div class="uc-hud bl"></div>
+  <div class="uc-hud br"></div>
+  <a href="index.html" class="uc-logo">យប់<span>.</span>ឌីជីថល</a>
 
-    <div class="uc-badge">
-      <i class="fas fa-cog fa-spin"></i>
-      SYSTEM FORGING IN PROGRESS
-    </div>
+  <div class="uc-page">
 
-    <div class="uc-forge" aria-hidden="true">
-      <div class="uc-hud"></div>
-      <div class="uc-scanner"></div>
-      <div class="uc-ring-outer"></div>
-      <div class="uc-ring-mid"></div>
-      <div class="uc-core">
-        <span class="uc-core-icon">⬡</span>
+    <!-- Progress ring -->
+    <div class="uc-ring-wrap" aria-hidden="true">
+      <svg class="uc-ring-svg" viewBox="0 0 300 300">
+        <defs>
+          <linearGradient id="ucGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#7b4fff" />
+            <stop offset="50%"  stop-color="#00f0ff" />
+            <stop offset="100%" stop-color="#e52c67" />
+          </linearGradient>
+        </defs>
+        <circle class="uc-ring-track" cx="150" cy="150" r="140" />
+        <circle class="uc-ring-prog"  cx="150" cy="150" r="140" />
+      </svg>
+      <div class="uc-orbit-dot"></div>
+      <div class="uc-orbit-dot"></div>
+      <div class="uc-ring-inner">
+        <div class="uc-ring-logo">YOB</div>
+        <div class="uc-ring-pct" id="ucPct">0%</div>
       </div>
     </div>
 
-    <h1 class="uc-title">ASSEMBLING THE <span class="uc-accent">ARSENAL</span></h1>
+    <!-- Boot log -->
+    <div class="uc-boot" aria-live="polite">
+      <div class="uc-log done"><span class="dot"></span>Core system loaded</div>
+      <div class="uc-log done"><span class="dot"></span>AI modules linked</div>
+      <div class="uc-log ok">  <span class="dot"></span>Assembling weapons</div>
+      <div class="uc-log">    <span class="dot"></span>Deployment pending...</div>
+    </div>
 
-    <p class="uc-desc">
-      ទំព័រនេះកំពុងស្ថិតនៅក្នុង<strong>រោងជាងអវកាស</strong>របស់ YOB។<br>
-      យើងកំពុងលត់ដុំដែក និងតំឡើងប្រព័ន្ធ ដើម្បីនាំយក<strong>អាវុធឌីជីថលថ្មី</strong>មកកាន់អ្នកឆាប់ៗនេះ។
-    </p>
-
-    <form
-      class="uc-form"
-      id="radarForm"
-      name="radar-waitlist"
-      method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-    >
+    <!-- Email form -->
+    <form class="uc-form-wrap" id="radarForm" name="radar-waitlist"
+      method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="radar-waitlist" />
       <input type="hidden" name="bot-field" />
-      <input
-        type="email"
-        name="email"
-        class="uc-input"
-        placeholder="Email — Lock Radar Signal..."
-        required
-        aria-label="Email address"
-        autocomplete="email"
-      />
-      <button type="submit" class="uc-btn">Lock Radar</button>
+      <input type="email" name="email" class="uc-input"
+        placeholder="Email — lock your signal" required autocomplete="email" />
+      <button type="submit" class="uc-btn">Lock In</button>
     </form>
 
-    <p class="uc-success" id="radarSuccess">
-      ◈ RADAR LOCKED — Signal received. We'll reach you.
-    </p>
+    <p class="uc-success" id="radarSuccess">◈ Signal locked. We'll reach you.</p>
 
-    <a href="/" class="uc-home">
+    <a href="index.html" class="uc-home">
       <i class="fas fa-arrow-left"></i> ត្រលប់ទៅទីបញ្ជាការ
     </a>
 
-  </main>
+  </div>
 
-  <script src="js/form-utils.js" defer></script>
+  <script>
+  // Network node canvas
+  (function () {
+    const c = document.getElementById('uc-canvas');
+    const ctx = c.getContext('2d');
+    let W, H, nodes = [];
+    const MAX_DIST = 160;
+
+    function resize() { W = c.width = window.innerWidth; H = c.height = window.innerHeight; }
+
+    function mkNodes() {
+      nodes = [];
+      const n = Math.min(Math.floor((W * H) / 18000), 40);
+      for (let i = 0; i < n; i++) nodes.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        r: Math.random() * 2 + 1.2
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      // Move
+      nodes.forEach(n => {
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > W) n.vx *= -1;
+        if (n.y < 0 || n.y > H) n.vy *= -1;
+      });
+      // Connections
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const d = Math.sqrt(dx*dx + dy*dy);
+          if (d < MAX_DIST) {
+            const a = (1 - d / MAX_DIST) * 0.25;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.strokeStyle = `rgba(0,240,255,${a})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+      }
+      // Dots
+      nodes.forEach(n => {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0,240,255,0.45)';
+        ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    }
+
+    resize(); mkNodes(); draw();
+    window.addEventListener('resize', () => { resize(); mkNodes(); });
+  })();
+
+  // Percent counter
+  (function () {
+    const el = document.getElementById('ucPct');
+    let v = 0;
+    const target = 77;
+    const step = () => {
+      if (v < target) {
+        v += 1; el.textContent = v + '%';
+        setTimeout(step, 40 + Math.random() * 20);
+      }
+    };
+    setTimeout(step, 700);
+  })();
+  </script>
+
   <script src="js/form-utils.js" defer></script>
   <script>
   document.getElementById('radarForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const form = this;
-    const submitBtn = form.querySelector('.uc-btn');
-    const originalText = submitBtn.textContent;
-
-    if (submitBtn.disabled) return;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Locking...';
-
+    const btn = form.querySelector('.uc-btn');
+    if (btn.disabled) return;
+    btn.disabled = true; btn.textContent = 'Locking...';
     try {
       await window.YOBFormUtils.submitNetlifyForm(form);
-      window.YOBFormUtils.track('form_submit_success', {
-        form: 'under_construction_waitlist'
-      });
-
       form.style.display = 'none';
       document.getElementById('radarSuccess').classList.add('show');
-    } catch (error) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      window.YOBFormUtils.track('form_submit_error', {
-        form: 'under_construction_waitlist',
-        reason: 'network_or_server'
-      });
-      alert('Submission failed. Please try again later.');
+    } catch {
+      btn.disabled = false; btn.textContent = 'Lock In';
+      alert('Submission failed. Please try again.');
     }
   });
   </script>
-  <script src="js/load-components.js"></script>
   <script src="js/load-components.js"></script>
   <script src="js/main.js" defer></script>
 </body>
