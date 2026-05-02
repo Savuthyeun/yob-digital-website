@@ -5601,3 +5601,142 @@ footer {
     --icon-badge-radius: 10px;
   }
 }
+
+/* ══════════════════════════════════════════════
+   FOOTER — Pulse Line + Falling Text
+══════════════════════════════════════════════ */
+
+/* ── Falling text physics zone ── */
+.ft-fall-wrap {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  cursor: grab;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 20%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 20%, #000 100%);
+}
+.ft-fall-wrap:active { cursor: grabbing; }
+.ft-fall-word {
+  position: absolute;
+  font-family: var(--fk);
+  font-size: clamp(22px, 3.5vw, 42px);
+  font-weight: 700;
+  letter-spacing: 1px;
+  user-select: none;
+  white-space: nowrap;
+  will-change: transform;
+  transform-origin: center center;
+  line-height: 1.1;
+}
+@media (max-width: 640px) {
+  .ft-fall-wrap { height: 120px; }
+  .ft-fall-word { font-size: clamp(20px, 6vw, 32px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ft-fall-wrap { display: none; }
+}
+
+footer.ft {
+  position: relative;
+  background: var(--dark);
+  padding: 0;
+  overflow: hidden;
+}
+/* Centered pink pulse line at top */
+footer.ft::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 140px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  box-shadow: 0 0 24px rgba(229,44,103,0.45), 0 0 60px rgba(229,44,103,0.15);
+}
+/* Very subtle pink ambient glow behind logo */
+footer.ft::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -60px;
+  width: 320px; height: 160px;
+  background: radial-gradient(ellipse, rgba(229,44,103,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.ft-inner {
+  position: relative; z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+/* Logo — gradient white → pink */
+.ft-logo {
+  font-family: var(--fh);
+  font-size: 22px;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #ffffff 30%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+/* Tagline — italic whisper */
+.ft-tagline {
+  font-family: var(--fk);
+  font-size: 11px;
+  font-style: italic;
+  color: rgba(255,255,255,0.28);
+  margin: 0 0 5px;
+  letter-spacing: 0.3px;
+}
+/* Copyright — barely visible */
+.ft-copy {
+  font-family: var(--fb);
+  font-size: 10px;
+  color: rgba(255,255,255,0.14);
+  margin: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+/* Links — pipe-separated, dim → gold on hover */
+.ft-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.ft-links a {
+  font-family: var(--fb);
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  padding: 4px 20px;
+  position: relative;
+  transition: color var(--t);
+  white-space: nowrap;
+}
+.ft-links a + a::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 1px; height: 12px;
+  background: rgba(255,255,255,0.1);
+}
+.ft-links a:hover { color: var(--gold); }
+/* Mobile */
+@media (max-width: 640px) {
+  .ft-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .ft-links { flex-wrap: wrap; gap: 4px 0; }
+  .ft-links a { padding: 4px 14px; }
+  .ft-links a:first-child { padding-left: 0; }
+  .ft-links a:first-child::before { display: none; }
+}

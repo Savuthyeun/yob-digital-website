@@ -30,82 +30,18 @@
 </nav>`;
 
   const FOOTER_HTML = `
-<footer>
-  <div class="footer-topbar"></div>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="f-logo">យប់.ឌីជីថល</div>
-        <p>ដៃគូ Digital &amp; AI ដ៏ទុកចិត្ត សម្រាប់ Mអ្នក — Practical, Khmer Context, Results Driven។</p>
-        <div class="footer-socials">
-          <a href="https://facebook.com/yobdigital" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://t.me/yobdigital" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-          <a href="https://youtube.com/@yobdigital" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-          <a href="https://linkedin.com/in/yobdigital" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <div class="footer-tagline-brand">
-          <span class="footer-quote-mark">"</span>យប់ មានតម្លៃ ដូចពន្លឺ<span class="footer-quote-mark">"</span>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>ប្រតិបត្តិការ YOB</h4>
-        <ul>
-          <li><a href="/case-studies">កងកម្លាំង AI</a></li>
-          <li><a href="/case-studies">អ្នកនាំផ្លូវទីផ្សារ</a></li>
-          <li><a href="/case-studies">ប្រព័ន្ធ Web & Systems</a></li>
-          <li><a href="/case-studies">វិស្វករពុម្ពអក្សរខ្មែរ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>រៀនជាមួយ YOB</h4>
-        <ul>
-          <li><a href="/yob-learning">សិល្បៈបញ្ជា AI</a></li>
-          <li><a href="/yob-learning">ក្បួនវាយលុកទីផ្សារ</a></li>
-          <li><a href="/yob-learning">ស្ថាបត្យកម្ម Web</a></li>
-          <li><a href="/yob-learning">កាដូ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>តូបឌីជីថល</h4>
-        <ul>
-          <li><a href="/fonts">Yob អក្ខរា</a></li>
-          <li><a href="/resources">កូដបញ្ជា AI</a></li>
-          <li><a href="/resources">ពុម្ពគំរូការងារ</a></li>
-          <li><a href="/resources">ក្រាហ្វិក</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>ទីបញ្ជាការ YOB</h4>
-        <ul>
-          <li><a href="/about">សារបានកម្មករឌីជីថល</a></li>
-          <li><a href="/contact">បណ្ដាញទំនាក់ទំនង</a></li>
-          <li><a href="/docs">ឯកសារប្រតិបត្តិការ</a></li>
-          <li><a href="/sitemap">ផែនទីរុករក</a></li>
-        </ul>
-      </div>
+<footer class="ft">
+  <div class="ft-fall-wrap" id="ftFallWrap" aria-hidden="true"></div>
+  <div class="ft-inner">
+    <div class="ft-left">
+      <a href="/" class="ft-logo">យប់<span>.</span>ឌីជីថល</a>
+      <p class="ft-tagline">"យប់ មានតម្លៃ ដូចពន្លឺ"</p>
+      <p class="ft-copy">© 2026 YOB Digital</p>
     </div>
-    <div class="footer-subscribe">
-      <div class="footer-sub-left">
-        <div class="footer-sub-icon"><i class="fab fa-telegram-plane"></i></div>
-        <div>
-          <strong>ចូលរួម Telegram Channel</strong>
-          <p>ទទួល Tips Digital Marketing + AI Strategy ឥតគិតថ្លៃ ជារៀងរាល់សប្ដាហ៍</p>
-        </div>
-      </div>
-      <a href="https://t.me/yobdigital" target="_blank" rel="noopener" class="footer-sub-btn">
-        ចូលរួមឥតគិតថ្លៃ <i class="fas fa-arrow-right"></i>
-      </a>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 <span>YOB.DIGITAL</span> — All rights reserved.</div>
-      <div class="footer-legal">
-        <a href="/privacy">Privacy</a>
-        <span class="footer-dot">·</span>
-        <a href="/terms">Terms</a>
-        <span class="footer-dot">·</span>
-        <a href="/about">About</a>
-      </div>
-      <div class="footer-made"><i class="fas fa-heart"></i> Made in Cambodia 🇰🇭</div>
+    <div class="ft-links">
+      <a href="/sitemap">ផែនទីរុករក</a>
+      <a href="/contact">បណ្ដាញទំនាក់ទំនង</a>
+      <a href="/about">សារបានកម្មករឌីជីថល</a>
     </div>
   </div>
 </footer>`;
@@ -155,4 +91,105 @@
       }
     });
   });
+
+  // ── Footer Falling Text (Matter.js physics) ──
+  (function () {
+    var wrap = document.getElementById("ftFallWrap");
+    if (!wrap) return;
+
+    function loadMatter(cb) {
+      if (window.Matter) { cb(); return; }
+      var s = document.createElement("script");
+      s.src = "https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js";
+      s.onload = cb;
+      document.head.appendChild(s);
+    }
+
+    function boot() {
+      var M   = Matter;
+      var W   = wrap.offsetWidth  || 1200;
+      var H   = wrap.offsetHeight || 160;
+
+      var WORDS = [
+        { text: "យប់",      color: "rgba(255,255,255,0.55)" },
+        { text: "មានតម្លៃ", color: "#e52c67"                },
+        { text: "ដូចពន្លឺ", color: "rgba(255,255,255,0.55)" }
+      ];
+
+      // Create + measure DOM words
+      var items = WORDS.map(function (w) {
+        var el = document.createElement("span");
+        el.className   = "ft-fall-word";
+        el.textContent = w.text;
+        el.style.color      = w.color;
+        el.style.visibility = "hidden";
+        el.style.left = "0px";
+        el.style.top  = "0px";
+        wrap.appendChild(el);
+        return { el: el };
+      });
+
+      var sizes = items.map(function (item) {
+        return {
+          w: Math.max(item.el.offsetWidth,  40) + 18,
+          h: Math.max(item.el.offsetHeight, 28) + 10
+        };
+      });
+
+      items.forEach(function (item) { item.el.style.visibility = "visible"; });
+
+      // Physics engine
+      var engine = M.Engine.create({ gravity: { y: 1.1 } });
+
+      var bods = items.map(function (item, i) {
+        var x = (W / (items.length + 1)) * (i + 1);
+        var y = -sizes[i].h - i * 55;
+        var b = M.Bodies.rectangle(x, y, sizes[i].w, sizes[i].h, {
+          restitution: 0.5,
+          frictionAir: 0.018,
+          friction: 0.3
+        });
+        M.Body.setVelocity(b, { x: (Math.random() - 0.5) * 4, y: 0 });
+        M.Body.setAngularVelocity(b, (Math.random() - 0.5) * 0.08);
+        return { b: b, el: item.el, hw: sizes[i].w / 2, hh: sizes[i].h / 2 };
+      });
+
+      var floor = M.Bodies.rectangle(W / 2,    H + 30,  W + 200, 60, { isStatic: true });
+      var wL    = M.Bodies.rectangle(-30,       H / 2,   60, H * 3,  { isStatic: true });
+      var wR    = M.Bodies.rectangle(W + 30,    H / 2,   60, H * 3,  { isStatic: true });
+
+      M.Composite.add(engine.world, bods.map(function (d) { return d.b; }).concat([floor, wL, wR]));
+
+      // Mouse drag
+      var mouse = M.Mouse.create(wrap);
+      var mc    = M.MouseConstraint.create(engine, {
+        mouse: mouse,
+        constraint: { stiffness: 0.2, render: { visible: false } }
+      });
+      M.Composite.add(engine.world, mc);
+      mouse.element.removeEventListener("mousewheel",     mouse.mousewheel);
+      mouse.element.removeEventListener("DOMMouseScroll", mouse.mousewheel);
+
+      // Render loop
+      function tick() {
+        M.Engine.update(engine, 1000 / 60);
+        bods.forEach(function (d) {
+          d.el.style.left      = (d.b.position.x - d.hw) + "px";
+          d.el.style.top       = (d.b.position.y - d.hh) + "px";
+          d.el.style.transform = "rotate(" + d.b.angle + "rad)";
+        });
+        requestAnimationFrame(tick);
+      }
+      tick();
+    }
+
+    // Lazy-load Matter.js on scroll into view
+    var obs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        obs.disconnect();
+        loadMatter(boot);
+      }
+    }, { threshold: 0.05 });
+    obs.observe(wrap);
+  })();
 })();
