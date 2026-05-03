@@ -54,9 +54,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     /></noscript>
 
-    ></script>
-
-    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <style>
       /* ══════════════════════════════════════════════════
@@ -68,7 +66,7 @@
         --ct-cyan: #00f0ff;
         --ct-cyan-dim: rgba(0, 240, 255, 0.18);
         --ct-cyan-glow: rgba(0, 240, 255, 0.5);
-        --ct-gold-flash: #ffcc00;
+        --ct-gold-flash: #e52c67;
       }
 
       html,
@@ -385,9 +383,9 @@
       .ct-input-group label {
         display: block;
         font-family: var(--fb);
-        font-size: 9px;
-        letter-spacing: 3px;
-        color: rgba(255, 255, 255, 0.35);
+        font-size: 11px;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.45);
         text-transform: uppercase;
         margin-bottom: 10px;
         transition: color 0.3s;
@@ -432,9 +430,9 @@
       }
       .ct-svc-label {
         font-family: var(--fb);
-        font-size: 9px;
-        letter-spacing: 3px;
-        color: rgba(255, 255, 255, 0.35);
+        font-size: 11px;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.45);
         text-transform: uppercase;
         margin-bottom: 12px;
         display: block;
@@ -752,6 +750,87 @@
         font-size: 12px;
       }
 
+      /* ── Keyboard shortcut hint ── */
+      .ct-shortcut-hint {
+        text-align: center;
+        margin-top: 14px;
+        font-family: var(--fb);
+        font-size: 11px;
+        color: rgba(255,255,255,0.2);
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+      .ct-kbd {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 5px;
+        padding: 2px 7px;
+        font-size: 10px;
+        color: rgba(255,255,255,0.35);
+        letter-spacing: 0;
+      }
+
+      /* ── Quick contact shortcut bar ── */
+      .ct-quick-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: 0 auto 40px;
+        padding: 0 24px;
+        max-width: 680px;
+        flex-wrap: wrap;
+      }
+      .ct-quick-label {
+        font-family: var(--fb);
+        font-size: 11px;
+        color: rgba(255,255,255,0.25);
+        letter-spacing: 1px;
+        flex-shrink: 0;
+      }
+      .ct-quick-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 16px;
+        border-radius: 20px;
+        font-family: var(--fb);
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1px solid rgba(255,255,255,0.1);
+        color: rgba(255,255,255,0.5);
+        transition: all 0.25s;
+        background: rgba(255,255,255,0.03);
+      }
+      .ct-quick-btn:hover {
+        border-color: var(--ct-cyan);
+        color: var(--ct-cyan);
+        background: rgba(0,240,255,0.05);
+      }
+      .ct-quick-btn.tg:hover {
+        border-color: #29a0d8;
+        color: #29a0d8;
+        background: rgba(41,160,216,0.07);
+      }
+      .ct-quick-btn.fb:hover {
+        border-color: #4f82ff;
+        color: #4f82ff;
+        background: rgba(79,130,255,0.07);
+      }
+      .ct-quick-divider {
+        width: 1px;
+        height: 14px;
+        background: rgba(255,255,255,0.1);
+        flex-shrink: 0;
+      }
+
       /* ── Responsive ── */
       @media (max-width: 768px) {
         .ct-hero-sub,
@@ -921,6 +1000,18 @@
         </div>
       </div>
 
+      <!-- ── Quick contact shortcuts ── -->
+      <div class="ct-quick-bar reveal">
+        <span class="ct-quick-label">ទំនាក់ទំនងរហ័ស →</span>
+        <a href="https://t.me/yobdigital" class="ct-quick-btn tg" target="_blank" rel="noopener">
+          <i class="fab fa-telegram-plane"></i> Telegram ភ្លាម
+        </a>
+        <div class="ct-quick-divider"></div>
+        <a href="https://facebook.com/yobdigital" class="ct-quick-btn fb" target="_blank" rel="noopener">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+      </div>
+
       <!-- ── Terminal form ── -->
       <div class="ct-terminal-wrap">
         <div class="ct-terminal reveal" id="ctTerminal">
@@ -1018,6 +1109,16 @@
               <i class="fas fa-paper-plane"></i>
               <span class="btn-kh">ផ្ញើ​ → Babu</span>
             </button>
+            <div class="ct-shortcut-hint">
+              <span class="ct-kbd"><i class="fas fa-keyboard" style="font-size:9px"></i> Ctrl</span>
+              <span style="opacity:0.25">+</span>
+              <span class="ct-kbd">Enter</span>
+              <span style="opacity:0.25">·</span>
+              <span class="ct-kbd">⌘</span>
+              <span style="opacity:0.25">+</span>
+              <span class="ct-kbd">Enter</span>
+              <span style="opacity:0.2; margin-left:2px">ដើម្បីផ្ញើ</span>
+            </div>
             <div class="ct-inline-error" id="ctErrorBox">
               មានបញ្ហាក្នុងការបញ្ជូនសារ។ សូមសាកម្តងទៀត ឬទាក់ទង Telegram
               ដោយផ្ទាល់។
@@ -1117,6 +1218,14 @@
           ctServiceInput.value = preferred.dataset.svc || "Other";
         }
       }
+
+      // ─── Ctrl/Cmd+Enter shortcut ──────────────
+      document.addEventListener("keydown", function (e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+          const btn = document.getElementById("ctSubmitBtn");
+          if (btn && !btn.disabled) btn.click();
+        }
+      });
 
       // ─── Form submit — Photon Blast ────────────
       document

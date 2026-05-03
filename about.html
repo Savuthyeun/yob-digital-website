@@ -230,7 +230,7 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     /></noscript>
-    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <style>
       /* ═══════════════════════════════════════
@@ -1144,10 +1144,30 @@
         background: rgba(224, 123, 8, 0.08) !important;
       }
 
-      /* ── Shared nav removed on About page ── */
-      #nav-placeholder,
-      #mobileDrawer {
+      /* ── Shared desktop nav hidden — page has own TVA header ── */
+      #nav-placeholder {
         display: none !important;
+      }
+
+      /* ── Mobile menu button (TVA header) ── */
+      .tva-mobile-menu-btn {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .tva-status-desktop { display: none; }
+        .tva-mobile-menu-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 34px;
+          height: 34px;
+          background: transparent;
+          border: 1px solid var(--tva-border);
+          color: var(--tva-orange);
+          cursor: pointer;
+          font-size: 12px;
+          flex-shrink: 0;
+        }
       }
 
       /* ── HERO STATS ROW ── */
@@ -1295,6 +1315,7 @@
         .tva-wrap { padding: 0 16px; }
         .tva-hero-title { font-size: 38px; }
         .tva-hero-tagline { font-size: 14px; }
+        .tva-hero-sub { white-space: normal; animation: none; overflow: visible; }
         .tva-header-inner { padding: 0 16px; }
         .tva-photo-col { min-height: 280px; }
         .tva-stat-box { flex: 0 0 50%; }
@@ -1313,6 +1334,37 @@
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
 
+    <!-- Nav injected by load-components.js (hidden by CSS — page has own TVA header) -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Mobile Drawer — shared navigation for mobile users -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button class="drawer-close" id="drawerClose">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">
+          Learn <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="drawer-group-items">
+          <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+          <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+          <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
+        </div>
+      </div>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">
+          Products <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="drawer-group-items">
+          <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+          <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
+        </div>
+      </div>
+      <a href="about.html" onclick="closeDrawer()">About YOB</a>
+      <a href="contact.html" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
+    </div>
 
     <!-- TVA noise layer -->
     <div class="tva-noise" aria-hidden="true"></div>
@@ -1373,7 +1425,7 @@
           >YOB.DIGITAL <span>// RECORDS</span></a
         >
         <div class="tva-header-ref">REF-KH-2020-001 · PHNOM PENH SECTOR</div>
-        <div style="display: flex; align-items: center; gap: 20px">
+        <div style="display: flex; align-items: center; gap: 14px">
           <a
             href="/"
             style="
@@ -1396,7 +1448,10 @@
             "
             >← HOMEPAGE</a
           >
-          <div class="tva-status-dot">SYSTEM ONLINE</div>
+          <div class="tva-status-dot tva-status-desktop">SYSTEM ONLINE</div>
+          <button class="tva-mobile-menu-btn" id="tvaMobileMenu" aria-label="Open menu">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
       </div>
     </header>
@@ -1566,21 +1621,20 @@
           { passive: true },
         );
 
-        /* ── Counter animation on stats ── */
+        /* ── Counter animation on stat boxes ── */
         const counters = [
-          { el: null, target: 500, suffix: "+", key: "BUSINESSES" },
-          { el: null, target: 4, suffix: " YRS", key: "EXPERIENCE" },
-          { el: null, target: 10, suffix: "+", key: "COURSES" },
-          { el: null, target: 100, suffix: "%", key: "KH CONTEXT" },
+          { el: null, target: 500, suffix: "+" },
+          { el: null, target: 4,   suffix: "+" },
+          { el: null, target: 10,  suffix: "+" },
+          { el: null, target: 100, suffix: "%" },
         ];
-        document.querySelectorAll(".tva-readout-val").forEach((el, i) => {
+        document.querySelectorAll(".tva-stat-num").forEach((el, i) => {
           if (counters[i]) counters[i].el = el;
         });
 
         function animateCount(obj) {
           if (!obj.el || obj.done) return;
           obj.done = true;
-          const original = obj.el.textContent;
           let start = null;
           const duration = 1400;
           (function step(ts) {
@@ -1593,8 +1647,8 @@
           })(performance.now());
         }
 
-        const readout = document.querySelector(".tva-readout");
-        if (readout) {
+        const statsRow = document.querySelector(".tva-stats-inline");
+        if (statsRow) {
           const obs = new IntersectionObserver(
             (entries) => {
               if (entries[0].isIntersecting) {
@@ -1604,7 +1658,18 @@
             },
             { threshold: 0.4 },
           );
-          obs.observe(readout);
+          obs.observe(statsRow);
+        }
+
+        /* ── Mobile menu button ── */
+        const tvaMobileMenuBtn = document.getElementById("tvaMobileMenu");
+        if (tvaMobileMenuBtn) {
+          tvaMobileMenuBtn.addEventListener("click", function () {
+            const drawer = document.getElementById("mobileDrawer");
+            if (!drawer) return;
+            drawer.classList.add("open");
+            document.body.style.overflow = "hidden";
+          });
         }
 
         /* ── Timestamp ── */
