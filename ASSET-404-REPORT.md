@@ -1,4 +1,4 @@
-# Asset 404 Cleanup Report
+﻿# Asset 404 Cleanup Report
 
 Date: 2026-04-19
 Scope: Identify and fix broken asset requests after typography standardization.
@@ -20,7 +20,7 @@ Result:
 2. Runtime request-failure capture (Playwright):
 - Reloaded sampled pages and listened for `requestfailed` events.
 - Sampled pages included:
-  - grow.html
+  - 
   - yob-learning.html
   - case-studies.html (local)
 

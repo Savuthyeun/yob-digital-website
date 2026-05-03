@@ -1,4 +1,4 @@
-# ══════════════════════════════════════════════════════════
+﻿# ══════════════════════════════════════════════════════════
 
 # YOB DIGITAL — Netlify Redirects & Pretty URL Rewrites
 
@@ -8,8 +8,6 @@
 
 /index.html / 301!
 /about.html /about 301!
-/grow.html /grow 301!
-/fonts.html /yobfont 301!
 /yobfont.html /yobfont 301!
 /docs.html /docs 301!
 /case-studies.html /case-studies 301!
@@ -23,7 +21,6 @@
 # ── 2. Serve clean URLs from .html files (200 rewrites) ──
 
 /about /about.html 200
-/grow /grow.html 200
 /fonts /yobfont.html 301!
 /yobfont /yobfont.html 200
 /docs /docs.html 200

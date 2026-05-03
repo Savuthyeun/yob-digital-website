@@ -1,4 +1,4 @@
-# YOB Digital CTA Map (Simple)
+﻿# YOB Digital CTA Map (Simple)
 
 Goal: help users move fast between Learn -> Trust -> Buy/Contact with clear CTA paths.
 
@@ -8,9 +8,9 @@ Primary CTA:
 
 Secondary CTA:
 - ស្នើសុំការពិគ្រោះឥតគិតថ្លៃ -> `#contact` (In-page)
-- មើល Font ទាំងអស់ -> `fonts.html` (Cross-page)
+- មើល Font ទាំងអស់ -> `yobfont.html` (Cross-page)
 
-## 2) Grow (`grow.html`)
+## 2) Grow (``)
 Primary CTA:
 - ចាប់ផ្តើម Free / Strategy Call -> `index.html#contact` (Cross-page)
 
@@ -18,7 +18,7 @@ Secondary CTA:
 - Free resources / toolkit -> `resources.html` (Cross-page)
 - Learn hub -> `yob-learning.html` (Cross-page)
 
-## 3) Fonts (`fonts.html`)
+## 3) Fonts (`yobfont.html`)
 Primary CTA:
 - ទិញ Font / Buy Now -> payment/contact action (In-page button flow)
 
@@ -52,7 +52,7 @@ Primary CTA:
 
 Secondary CTA:
 - Read documentation -> `docs.html` (Cross-page)
-- Explore fonts/products -> `fonts.html` / `resources.html` (Cross-page)
+- Explore fonts/products -> `yobfont.html` / `resources.html` (Cross-page)
 
 ## 7) Docs (`docs.html`)
 Primary CTA:

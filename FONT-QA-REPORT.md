@@ -1,4 +1,4 @@
-# Font QA Report
+﻿# Font QA Report
 
 Date: 2026-04-19
 Scope: Enforce and verify Kantumruy Pro for English + Khmer across all pages.
@@ -40,8 +40,8 @@ Result: PASS (14/14 pages)
 - case-studies.html: True
 - contact.html: True
 - docs.html: True
-- fonts.html: True
-- grow.html: True
+- yobfont.html: True
+- : True
 - index.html: True
 - privacy.html: True
 - resources.html: True
@@ -55,7 +55,7 @@ Result: PASS (14/14 pages)
 Result: PASS
 
 Checked pages and body font-family:
-- grow.html -> "Kantumruy Pro", sans-serif
+-  -> "Kantumruy Pro", sans-serif
 - index.html -> "Kantumruy Pro", sans-serif
 - contact.html -> "Kantumruy Pro", sans-serif
 - resources.html -> "Kantumruy Pro", sans-serif
@@ -75,10 +75,10 @@ Additional non-visual performance hardening was validated after this report:
 
 - `js/form-utils.js` switched to deferred loading on:
 	- `index.html`
-	- `grow.html`
+	- ``
 	- `contact.html`
 	- `resources.html`
-	- `fonts.html`
+	- `yobfont.html`
 	- `under-construction.html`
 
 Runtime smoke checks confirmed `window.YOBFormUtils` remained available and submit/track flows still executed.

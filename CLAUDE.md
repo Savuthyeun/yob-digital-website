@@ -1,4 +1,4 @@
-# YOB DIGITAL — Claude Code Project Memory
+﻿# YOB DIGITAL — Claude Code Project Memory
 > Auto-loaded by Claude Code on every session. DO NOT delete this file.
 > Last updated: 2026-03-28 | Site: https://yobdigital.netlify.app
 
@@ -20,8 +20,8 @@
 yob-digital-website/
 ├── CLAUDE.md                    ← You are here
 ├── index.html                   ← Homepage (main)
-├── grow.html                    ← Growth Roadmap (Cosmic/Marvel theme)
-├── fonts.html                   ← Khmer Font Shop
+├──                     ← Growth Roadmap (Cosmic/Marvel theme)
+├── yobfont.html                   ← Khmer Font Shop
 ├── docs.html                    ← Documentation (has own sidebar nav — no shared nav)
 ├── about.html                   ← About YOB
 ├── case-studies.html            ← Case Studies
@@ -43,8 +43,8 @@ yob-digital-website/
 ### Page Titles Pattern
 ```
 index.html        → YOB Digital — AI & Digital Skills for Cambodia
-grow.html         → Grow with YOB — Your Digital Growth Roadmap
-fonts.html        → Khmer Font Shop — YOB Digital
+         → Grow with YOB — Your Digital Growth Roadmap
+yobfont.html        → Khmer Font Shop — YOB Digital
 docs.html         → Documentation — YOB Digital
 about.html        → YOB Digital | យប់មានតម្លៃដូចពន្លឺ
 case-studies.html → Case Studies — YOB Digital
@@ -54,14 +54,14 @@ yob-learning.html → YOB Learning — AI & Digital Skills for Cambodia
 
 ### Nav Drawer Links (MASTER — must match in ALL pages)
 ```
-Grow with Yob → grow.html
+Grow with Yob → 
 Learn ▾
   Tutorial      → index.html#videos
   YOB Learning  → yob-learning.html
   Documentation → docs.html
   Case Studies  → case-studies.html
 Products ▾
-  Yob Fonts     → fonts.html
+  Yob Fonts     → yobfont.html
   Free Resources→ resources.html
 About YOB     → about.html
 ទំនាក់ទំនង  → #contact (same page) or index.html#contact
@@ -190,7 +190,7 @@ Case Studies  → case-studies.html
     <button class="drawer-close" id="drawerClose">
       <i class="fas fa-times"></i>
     </button>
-    <a href="grow.html" onclick="closeDrawer()">Grow with Yob</a>
+    <a href="" onclick="closeDrawer()">Grow with Yob</a>
     <div class="drawer-group">
       <button class="drawer-group-toggle">
         Learn <i class="fas fa-chevron-down"></i>
@@ -207,7 +207,7 @@ Case Studies  → case-studies.html
         Products <i class="fas fa-chevron-down"></i>
       </button>
       <div class="drawer-group-items">
-        <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+        <a href="yobfont.html" onclick="closeDrawer()">Yob Fonts</a>
         <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
       </div>
     </div>
@@ -299,7 +299,7 @@ section-dark-alt    → slightly lighter background var(--dark3) + subtle border
 
 ---
 
-## 🌌 GROW.HTML — SECTION ORDER & SPECIAL FEATURES (updated 2026-03-28)
+## 🌌  — SECTION ORDER & SPECIAL FEATURES (updated 2026-03-28)
 
 ### Section Order
 ```
@@ -344,7 +344,7 @@ z-index -1 → #grow-canvas  — 3D parallax starfield (3 layers: FAR/MID/NEAR)
 - Nodes activate when `nodeRect.top < window.innerHeight * 0.68`
 - 5 phases: 00 (FREE) → 01 (AI) → 02 (Strategy) → 03 (Web) → 04 (Brand)
 
-### Smallest font sizes in grow.html (pending review)
+### Smallest font sizes in  (pending review)
 - 7px → `.node-phase-label` mobile only
 - 8px → hub label, ng-signal, node-phase-label, hero stat label (4 places)
 - User flagged these as potentially too small — review pending
@@ -412,18 +412,18 @@ z-index -1 → #grow-canvas  — 3D parallax starfield (3 layers: FAR/MID/NEAR)
 | `docs.html` | Has own sidebar nav — shared nav/drawer intentionally hidden via CSS | ⚠️ By design, needs full restructure eventually |
 | `style.css` | `will-change` missing on `.track-card`, `.pillar` | Pending |
 | `index.html` `#videos` | `href="#"` placeholder links — need real YouTube URLs | Pending |
-| `grow.html` | Font sizes 7–8px in some labels — user flagged as potentially too small | Pending review |
+| `` | Font sizes 7–8px in some labels — user flagged as potentially too small | Pending review |
 | `footer.html` | Privacy Policy / Terms of Service `href="#"` — pages not created yet | Pending |
 
 ### Previously Fixed ✅ (2026-03-28 session)
 - **Fonts**: Hanuman completely removed from ALL .html files + style.css + docs.html local :root
 - **Fonts**: Google Fonts link updated across all 8 pages (no Hanuman)
 - **Fonts**: `--fh/--fk/--fb` vars updated in style.css + docs.html local :root
-- **grow.html**: 18 card-level elements changed from `var(--fh)` → `var(--fb)` (Kantumruy Pro)
-- **grow.html**: S3 redesigned — Constellation Wormhole Roadmap (scroll-activated)
-- **grow.html**: S2 WHO section — node graph aspect-ratio fixed (760/560), nodes at top:53.6%
-- **grow.html**: `<canvas>` moved to after blob-2 (cursor-dot now correctly first in body)
-- **grow.html**: Render-blocking Font Awesome sync link removed
+- ****: 18 card-level elements changed from `var(--fh)` → `var(--fb)` (Kantumruy Pro)
+- ****: S3 redesigned — Constellation Wormhole Roadmap (scroll-activated)
+- ****: S2 WHO section — node graph aspect-ratio fixed (760/560), nodes at top:53.6%
+- ****: `<canvas>` moved to after blob-2 (cursor-dot now correctly first in body)
+- ****: Render-blocking Font Awesome sync link removed
 - **yob-learning.html**: `<canvas>` moved to after blob-2
 - **yob-learning.html**: 3 hardcoded `rgba()` in `style=""` → `var(--path-ai-bg/mkt-bg/web-bg)`
 - **yob-learning.html**: `@keyframes pulse` renamed `pulse-yl` (eliminated clash with style.css)
@@ -433,7 +433,7 @@ z-index -1 → #grow-canvas  — 3D parallax starfield (3 layers: FAR/MID/NEAR)
 - **index.html**: YouTube red hardcoded colors → CSS vars (`--yt-red`, `--yt-red-dim`, etc.)
 - **resources.html**: Missing `og:type` meta added
 - **nav.html**: `Tutorial → index.html#videos` added to Learn dropdown
-- **fonts.html**: Inline `<script>` moved before `load-components.js`
+- **yobfont.html**: Inline `<script>` moved before `load-components.js`
 - **case-studies.html**: Inline `<script>` moved before `load-components.js`
 - **resources.html**: Inline `<script>` moved before `load-components.js`
 
@@ -494,7 +494,7 @@ z-index -1 → #grow-canvas  — 3D parallax starfield (3 layers: FAR/MID/NEAR)
 ✅ og:title must match <title> exactly
 ✅ Use gradient-text class for accent words in h2 headings
 ✅ Test on mobile after every change
-✅ All internal links: relative paths (grow.html NOT /grow.html)
+✅ All internal links: relative paths ( NOT /)
 ✅ Kantumruy Pro as var(--fb) for any element with mixed EN+KH text
 ✅ Bebas Neue (var(--fh)) only for large display-level headings ≥32px
 ✅ When editing HTML files with PowerShell: use [System.IO.File]::ReadAllText / WriteAllText with UTF-8 encoding — never Get-Content / Set-Content
@@ -531,7 +531,7 @@ z-index -1 → #grow-canvas  — 3D parallax starfield (3 layers: FAR/MID/NEAR)
 
 ### Update nav links across all pages
 Update mobile drawer in ALL these files simultaneously:
-`index.html`, `grow.html`, `fonts.html`, `docs.html`, `about.html`,
+`index.html`, ``, `yobfont.html`, `docs.html`, `about.html`,
 `case-studies.html`, `resources.html`, `yob-learning.html`
 AND update `components/nav.html` dropdown
 

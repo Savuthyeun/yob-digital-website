@@ -1,4 +1,4 @@
-# YOB Digital — 3-Week Production Checklist
+﻿# YOB Digital — 3-Week Production Checklist
 
 **Timeline:** April 13-May 4, 2026  
 **Goal:** Launch production-ready website with confidence
@@ -56,9 +56,9 @@ Test on: Chrome, Firefox, Safari (if available), Edge
 **Pages to Test:**
 
 - [ ] index.html
-- [ ] grow.html
+- [ ] 
 - [ ] yob-learning.html
-- [ ] fonts.html
+- [ ] yobfont.html
 - [ ] about.html
 - [ ] case-studies.html
 - [ ] resources.html

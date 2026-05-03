@@ -4446,6 +4446,130 @@
       body.light-mode .dn-link:hover { color: #0f172a !important; }
       body.light-mode .dn-link.active { color: #0f172a !important; }
 
+      /* ── Light mode: fix hardcoded rgba(white) elements that don't auto-flip ── */
+      body.light-mode .nav-badge {
+        background: rgba(0,0,0,0.05) !important;
+        color: #64748b !important;
+      }
+      body.light-mode .step-num {
+        background: rgba(0,0,0,0.05) !important;
+        color: rgba(0,0,0,0.45) !important;
+      }
+      body.light-mode .lesson-recap {
+        background: rgba(0,0,0,0.015) !important;
+        border-color: rgba(0,0,0,0.07) !important;
+        border-left-color: rgba(0,0,0,0.18) !important;
+      }
+      body.light-mode .lesson-recap-title { color: rgba(0,0,0,0.4) !important; }
+      body.light-mode .lm-badge {
+        background: transparent !important;
+        border-color: rgba(0,0,0,0.12) !important;
+        color: #64748b !important;
+      }
+      body.light-mode .doc-section thead th {
+        background: rgba(0,0,0,0.03) !important;
+        color: #475569 !important;
+      }
+      body.light-mode .tool-card-tag { color: #64748b !important; border-color: rgba(0,0,0,0.1) !important; }
+      body.light-mode .tool-card.recommended .tool-card-tag { color: #64748b !important; background: transparent !important; }
+      body.light-mode .tool-feature i { color: rgba(0,0,0,0.35) !important; }
+      body.light-mode .tool-card:hover {
+        border-color: rgba(0,0,0,0.12) !important;
+        background: rgba(0,0,0,0.03) !important;
+      }
+      body.light-mode .concept-card:hover {
+        border-color: rgba(0,0,0,0.1) !important;
+        background: rgba(0,0,0,0.02) !important;
+      }
+      body.light-mode .doc-card:hover {
+        border-color: rgba(0,0,0,0.1) !important;
+        background: rgba(0,0,0,0.02) !important;
+      }
+      body.light-mode .cmap-head { background: rgba(0,0,0,0.02) !important; }
+      body.light-mode .cmap-mod-num {
+        color: rgba(0,0,0,0.3) !important;
+        border-color: rgba(0,0,0,0.08) !important;
+        background: transparent !important;
+      }
+      body.light-mode .cmap-row.active {
+        background: rgba(0,0,0,0.03) !important;
+        border-left-color: rgba(0,0,0,0.3) !important;
+      }
+      body.light-mode .docs-progress-bar { background: rgba(0,0,0,0.1) !important; }
+      body.light-mode code:not(.hljs) { color: #be123c !important; background: rgba(190,18,60,0.07) !important; }
+      body.light-mode .callout {
+        background: rgba(0,0,0,0.015) !important;
+        border-left-color: rgba(0,0,0,0.15) !important;
+      }
+      body.light-mode .callout.tip  { border-left-color: rgba(229,44,103,0.45) !important; }
+      body.light-mode .callout.note { border-left-color: rgba(99,102,241,0.45) !important; }
+      body.light-mode .callout.warn { border-left-color: rgba(251,191,36,0.55) !important; }
+      body.light-mode .callout.good { border-left-color: rgba(22,163,74,0.55) !important; }
+      body.light-mode .tip-box {
+        border-left-color: rgba(0,0,0,0.12) !important;
+        background: rgba(0,0,0,0.01) !important;
+      }
+      body.light-mode .docs-hero-tag {
+        background: rgba(0,0,0,0.04) !important;
+        border-color: rgba(0,0,0,0.1) !important;
+        color: #64748b !important;
+      }
+      body.light-mode .mistake-item {
+        background: rgba(0,0,0,0.02) !important;
+        border-color: rgba(0,0,0,0.07) !important;
+      }
+      body.light-mode .mistake-x { color: rgba(0,0,0,0.3) !important; }
+      body.light-mode .toc-link.active {
+        color: #1e293b !important;
+        border-left-color: var(--gold) !important;
+      }
+      body.light-mode .nav-link.active { border-left-color: var(--gold) !important; }
+      body.light-mode .docs-search.active {
+        border-color: rgba(229,44,103,0.55) !important;
+        background: rgba(255,255,255,0.9) !important;
+      }
+      body.light-mode .docs-search:hover {
+        border-color: rgba(0,0,0,0.15) !important;
+        background: rgba(0,0,0,0.04) !important;
+      }
+      body.light-mode .sidebar-fab {
+        background: rgba(0,0,0,0.07) !important;
+        color: #1e293b !important;
+      }
+      body.light-mode .sidebar-fab:hover { background: rgba(0,0,0,0.12) !important; }
+      body.light-mode .doc-section a:not(.btn-primary):not(.btn-outline) {
+        color: #1d4ed8 !important;
+        text-decoration-color: rgba(29,78,216,0.3) !important;
+      }
+      body.light-mode .doc-section a:not(.btn-primary):not(.btn-outline):hover {
+        color: #1e3a8a !important;
+        text-decoration-color: rgba(30,58,138,0.5) !important;
+      }
+      body.light-mode .page-nav-btn:hover {
+        border-color: rgba(0,0,0,0.12) !important;
+        background: rgba(0,0,0,0.03) !important;
+      }
+      body.light-mode .docs-search input { color: #0f172a !important; }
+      body.light-mode .ls-pill {
+        background: rgba(0,0,0,0.04) !important;
+        border-color: rgba(0,0,0,0.1) !important;
+        color: #334155 !important;
+      }
+      body.light-mode .ac-item {
+        background: rgba(0,0,0,0.02) !important;
+        border-color: rgba(0,0,0,0.07) !important;
+        color: #334155 !important;
+      }
+      body.light-mode .quiz-item summary {
+        background: rgba(0,0,0,0.02) !important;
+        color: #1e293b !important;
+      }
+      body.light-mode .cs-val { color: #334155 !important; }
+      body.light-mode .lpr-item { color: #334155 !important; }
+      body.light-mode .lph-title { color: #1e293b !important; }
+      body.light-mode .ls-title { color: #1e293b !important; }
+      body.light-mode .kpi-stat-val { color: #1e293b !important; }
+
       /* ═══════════════════════════════════════════════════════════
          ALL CONCEPTS — AI Tech Layout  (A + B + C combined)
          A: AI Search + Explore chips  (Perplexity style)

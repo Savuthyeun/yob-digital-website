@@ -1,4 +1,4 @@
-# Typography Regression Report
+﻿# Typography Regression Report
 
 Date: 2026-04-19
 Scope: Post-standardization regression QA for font consistency, spacing, and horizontal overflow risk.
@@ -16,7 +16,7 @@ PASS (with minor non-blocking notes)
 Computed body font-family:
 
 - index.html -> "Kantumruy Pro", sans-serif
-- grow.html -> "Kantumruy Pro", sans-serif
+-  -> "Kantumruy Pro", sans-serif
 - contact.html -> "Kantumruy Pro", sans-serif
 - resources.html -> "Kantumruy Pro", sans-serif
 - yob-learning.html -> "Kantumruy Pro", sans-serif
@@ -66,21 +66,21 @@ Status: PASS
 
 - Deferred loading applied to `js/form-utils.js` on six pages:
 	- `index.html`
-	- `grow.html`
+	- ``
 	- `contact.html`
 	- `resources.html`
-	- `fonts.html`
+	- `yobfont.html`
 	- `under-construction.html`
 - Post-change runtime checks verified:
 	- `window.YOBFormUtils` present
 	- Submit helpers callable
-	- Interactive form flows still successful on `resources.html`, `fonts.html`, and `under-construction.html` (mocked submit path)
+	- Interactive form flows still successful on `resources.html`, `yobfont.html`, and `under-construction.html` (mocked submit path)
 
 ## Grow Readability Micro-Tweak (2026-04-19)
 
 Status: PASS
 
-- Increased tiny label sizing in `grow.html` for better legibility while preserving layout intent:
+- Increased tiny label sizing in `` for better legibility while preserving layout intent:
 	- `.tele-ch`: `10px` -> `11px`
 	- `.node-step`: `11px` -> `12px`
 	- `.node-badge`: `10px` -> `11px`
@@ -89,7 +89,7 @@ Status: PASS
 
 Status: PASS
 
-- Additional micro-labels in `grow.html` were raised from `10px` to `11px` to improve readability on small/medium screens while keeping the same visual language:
+- Additional micro-labels in `` were raised from `10px` to `11px` to improve readability on small/medium screens while keeping the same visual language:
 	- `.pc-num-label`
 	- `.pc-tag`
 	- `.pc-badge`
