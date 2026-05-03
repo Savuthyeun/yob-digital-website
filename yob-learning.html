@@ -66,14 +66,14 @@
       }
       .yl-hero h1 {
         font-family: var(--fk);
-        font-size: clamp(32px, 5vw, 62px);
+        font-size: clamp(42px, 6.5vw, 84px);
         font-weight: 700; color: var(--white);
-        line-height: 1.22; margin-bottom: 14px; letter-spacing: -0.5px;
+        line-height: 1.15; margin-bottom: 18px; letter-spacing: -1px;
       }
       .yl-hero h1 em { font-style: normal; color: var(--gold); }
       .yl-hero-sub {
-        font-family: var(--fb); font-size: 15px; color: var(--gray);
-        margin: 0 auto 38px; max-width: 440px; line-height: 1.7;
+        font-family: var(--fb); font-size: 16px; color: var(--gray);
+        margin: 0 auto 42px; max-width: 560px; line-height: 1.75;
       }
 
       /* Track chooser cards */
@@ -113,7 +113,7 @@
 
       /* ── BIG AI SEARCH BAR ── */
       .yl-search-section {
-        max-width: 700px;
+        max-width: 920px;
         margin: 0 auto 36px;
       }
 
@@ -242,7 +242,7 @@
       /* Results count bar */
       .yl-list-meta {
         display: flex; align-items: center; gap: 14px;
-        max-width: 700px; margin: 28px auto 14px;
+        max-width: 920px; margin: 28px auto 14px;
       }
       .yl-count-text {
         font-family: var(--fb); font-size: 13px; font-weight: 700;
@@ -253,14 +253,14 @@
 
       /* ── Course List ── */
       .yl-list {
-        display: flex; flex-direction: column; gap: 5px;
-        max-width: 700px; margin: 0 auto;
+        display: flex; flex-direction: column; gap: 8px;
+        max-width: 920px; margin: 0 auto;
       }
 
       /* ── Course Row ── */
       .yl-row {
-        display: flex; align-items: center; gap: 14px;
-        padding: 15px 20px; border-radius: 13px;
+        display: flex; align-items: center; gap: 18px;
+        padding: 20px 26px; border-radius: 14px;
         border: 1px solid rgba(255,255,255,0.05);
         background: rgba(10,12,16,0.7);
         cursor: pointer;
@@ -290,22 +290,22 @@
       .yl-row[data-cat="web"]:hover      .yl-row-num { color: rgba(16,185,129,0.5); }
 
       .yl-row-icon {
-        font-size: 22px; line-height: 1; flex-shrink: 0;
+        font-size: 28px; line-height: 1; flex-shrink: 0;
         transition: transform .3s cubic-bezier(.34,1.56,.64,1);
       }
       .yl-row:hover .yl-row-icon { transform: scale(1.12); }
 
       .yl-row-info { flex: 1; min-width: 0; }
       .yl-row-name {
-        font-family: var(--fb); font-size: 15px; font-weight: 600;
-        color: rgba(255,255,255,0.78);
+        font-family: var(--fb); font-size: 16px; font-weight: 600;
+        color: rgba(255,255,255,0.82);
         white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         transition: color .2s;
       }
       .yl-row:hover .yl-row-name { color: #fff; }
       .yl-row-kh {
-        font-family: var(--fk); font-size: 13px;
-        color: rgba(139,148,158,0.45);
+        font-family: var(--fk); font-size: 14px;
+        color: rgba(139,148,158,0.5);
         white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         margin-top: 2px;
       }
@@ -336,7 +336,7 @@
 
       /* Empty */
       .yl-empty {
-        display: none; max-width: 700px; margin: 0 auto;
+        display: none; max-width: 920px; margin: 0 auto;
         padding: 56px 20px; text-align: center;
         color: var(--gray); font-family: var(--fb); font-size: 14px;
       }
@@ -344,17 +344,17 @@
 
       /* ── CTA ── */
       .yl-cta { padding: clamp(60px,10vw,100px) 0; border-top: 1px solid rgba(255,255,255,0.06); }
-      .yl-cta-box { max-width: 520px; margin: 0 auto; text-align: center; }
+      .yl-cta-box { max-width: 680px; margin: 0 auto; text-align: center; }
       .yl-cta-tag { font-family: var(--fb); font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
-      .yl-cta h2 { font-family: var(--fk); font-size: clamp(24px,3.8vw,40px); font-weight: 700; color: var(--white); line-height: 1.28; margin-bottom: 12px; }
-      .yl-cta p  { font-family: var(--fb); font-size: 14px; color: var(--gray); line-height: 1.7; margin-bottom: 28px; }
+      .yl-cta h2 { font-family: var(--fk); font-size: clamp(28px,4.5vw,52px); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 14px; }
+      .yl-cta p  { font-family: var(--fb); font-size: 15px; color: var(--gray); line-height: 1.75; margin-bottom: 32px; }
 
       /* ── Responsive ── */
       @media (max-width: 900px) {
         .yl-row-tags { display: none; }
       }
       @media (max-width: 600px) {
-        .yl-row { gap: 10px; padding: 13px 14px; }
+        .yl-row { gap: 10px; padding: 15px 16px; }
         .yl-row-num { display: none; }
         .yl-row-status { display: none; }
         .yl-search-hint { display: none; }
