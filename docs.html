@@ -4803,6 +4803,20 @@
       <a href="/contact" onclick="closeDrawer()" class="d-cta">សាកសួរ</a>
     </div>
 
+    <!-- ══ DOCS LAYOUT ══ -->
+    <div class="docs-layout">
+
+      <!-- Sidebar -->
+      <aside class="docs-sidebar" id="docsSidebar">
+        <div class="sidebar-nav">
+
+        <!-- Search shortcut button -->
+        <div style="padding: 16px 16px 0;">
+          <button class="sidebar-search-btn" id="sidebarSearchBtn" title="ស្វែងរក (Ctrl+K)">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+
         <!-- AI Tools -->
         <div class="nav-group">
           <div class="nav-group-label">AI Tools</div>
@@ -4901,7 +4915,7 @@
             <i class="fas fa-list"></i> Changelog
           </a>
         </div>
-      </nav>
+      </div><!-- end sidebar-nav -->
 
       <!-- Theme Toggle — sticky bottom -->
       <div class="sidebar-theme-bar">
@@ -4935,7 +4949,14 @@
       </div>
     </aside>
 
+      <!-- Sidebar overlay for mobile (tap outside to close) -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
   </div><!-- end layout -->
+
+    <!-- Sidebar FAB — mobile open button -->
+    <button class="sidebar-fab" id="sidebarFab" aria-label="Open sidebar">
+      <i class="fas fa-bars"></i> Menu
+    </button>
 
     <!-- ── B: Reading Beam — left-edge scroll progress ── -->
     <div id="dmReadBeam" class="dm-read-beam"></div>
