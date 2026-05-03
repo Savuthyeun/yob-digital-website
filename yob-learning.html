@@ -27,7 +27,7 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=2" />
 
     <style>
       /* ═══════════════════════════════════════════
@@ -82,8 +82,8 @@
         flex-wrap: wrap; margin-bottom: 42px;
       }
       .yl-path {
-        display: flex; align-items: center; gap: 12px;
-        padding: 13px 20px; border-radius: 13px;
+        display: flex; align-items: center; gap: 14px;
+        padding: 16px 24px; border-radius: 14px;
         border: 1px solid rgba(255,255,255,0.07);
         background: rgba(255,255,255,0.025);
         cursor: pointer;
@@ -94,18 +94,18 @@
       .yl-path[data-cat="ai"]:hover       { border-color: rgba(168,85,247,0.5); }
       .yl-path[data-cat="marketing"]:hover { border-color: rgba(229,44,103,0.45); }
       .yl-path[data-cat="web"]:hover      { border-color: rgba(16,185,129,0.5); }
-      .yl-path-icon { font-size: 22px; line-height: 1; flex-shrink: 0; }
-      .yl-path-info { display: flex; flex-direction: column; gap: 1px; }
-      .yl-path-name { font-family: var(--fb); font-size: 13px; font-weight: 600; color: var(--white); }
+      .yl-path-icon { font-size: 26px; line-height: 1; flex-shrink: 0; }
+      .yl-path-info { display: flex; flex-direction: column; gap: 3px; }
+      .yl-path-name { font-family: var(--fb); font-size: 15px; font-weight: 600; color: var(--white); }
       .yl-path-count { font-family: var(--fb); font-size: 13px; color: var(--gray); }
 
       .yl-hero-stats {
         display: flex; align-items: center; justify-content: center;
-        gap: 20px; flex-wrap: wrap;
-        font-family: var(--fb); font-size: 13px;
-        color: rgba(139,148,158,0.55);
+        gap: 24px; flex-wrap: wrap;
+        font-family: var(--fb); font-size: 15px;
+        color: rgba(139,148,158,0.6);
       }
-      .yl-hero-stats strong { color: rgba(255,255,255,0.45); font-weight: 600; }
+      .yl-hero-stats strong { color: rgba(255,255,255,0.55); font-weight: 700; }
       .yl-hero-stats-dot { color: rgba(255,255,255,0.1); }
 
       /* ══ COURSES SECTION ══ */
@@ -176,7 +176,7 @@
       .yl-search-input {
         flex: 1; min-width: 0;
         background: none; border: none; outline: none;
-        font-family: var(--fk); font-size: 17px;
+        font-family: var(--fk); font-size: 18px;
         color: var(--white);
         caret-color: #a855f7;
       }
@@ -213,11 +213,11 @@
         flex-wrap: wrap;
       }
       .yl-chip {
-        display: inline-flex; align-items: center; gap: 5px;
-        padding: 6px 13px; border-radius: 20px;
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 8px 16px; border-radius: 20px;
         border: 1px solid rgba(255,255,255,0.08);
         background: rgba(255,255,255,0.025);
-        font-family: var(--fb); font-size: 13px; font-weight: 500;
+        font-family: var(--fb); font-size: 14px; font-weight: 500;
         color: var(--gray); cursor: pointer; white-space: nowrap;
         transition: border-color .2s, background .2s, color .2s,
                     transform .25s cubic-bezier(.34,1.56,.64,1);
@@ -312,19 +312,19 @@
 
       .yl-row-tags { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
       .yl-row-meta { font-family: var(--fb); font-size: 13px; color: rgba(139,148,158,0.32); white-space: nowrap; }
-      .yl-lv-badge { font-family: var(--fb); font-size: 13px; font-weight: 600; padding: 2px 7px; border-radius: 5px; white-space: nowrap; }
+      .yl-lv-badge { font-family: var(--fb); font-size: 13px; font-weight: 600; padding: 3px 9px; border-radius: 6px; white-space: nowrap; }
       .lv-begin { background: rgba(74,222,128,0.07);  color: #6ee7b7; border: 1px solid rgba(74,222,128,0.14); }
       .lv-inter { background: rgba(251,191,36,0.07);  color: #fcd34d; border: 1px solid rgba(251,191,36,0.14); }
       .lv-adv   { background: rgba(239,68,68,0.07);   color: #fca5a5; border: 1px solid rgba(239,68,68,0.14); }
 
       .yl-row-status { flex-shrink: 0; }
-      .yl-status-free { font-family: var(--fb); font-size: 13px; font-weight: 700; color: #4ade80; background: rgba(74,222,128,0.09); border: 1px solid rgba(74,222,128,0.18); padding: 2px 8px; border-radius: 5px; }
-      .yl-status-soon { font-family: var(--fb); font-size: 13px; font-weight: 500; color: rgba(139,148,158,0.38); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); padding: 2px 8px; border-radius: 5px; }
+      .yl-status-free { font-family: var(--fb); font-size: 13px; font-weight: 700; color: #4ade80; background: rgba(74,222,128,0.09); border: 1px solid rgba(74,222,128,0.18); padding: 3px 10px; border-radius: 6px; }
+      .yl-status-soon { font-family: var(--fb); font-size: 13px; font-weight: 500; color: rgba(139,148,158,0.38); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); padding: 3px 10px; border-radius: 6px; }
 
       .yl-row-btn {
-        display: inline-flex; align-items: center; gap: 5px;
-        padding: 6px 13px; border-radius: 7px;
-        font-family: var(--fb); font-size: 13px; font-weight: 600;
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 8px 16px; border-radius: 8px;
+        font-family: var(--fb); font-size: 14px; font-weight: 600;
         cursor: pointer; white-space: nowrap; flex-shrink: 0;
         transition: background .2s, border-color .2s, transform .2s cubic-bezier(.34,1.56,.64,1);
       }
@@ -670,7 +670,7 @@
       applyFilter();
     </script>
 
-    <script src="js/load-components.js"></script>
-    <script src="js/main.js" defer></script>
+    <script src="js/load-components.js?v=2"></script>
+    <script src="js/main.js?v=2" defer></script>
   </body>
 </html>
