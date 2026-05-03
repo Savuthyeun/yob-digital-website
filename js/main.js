@@ -1,5 +1,5 @@
-// Merge Google Khmer Fonts rendering into main grid only once
-if (window.location.pathname.includes("fonts")) {
+﻿// Merge Google Khmer Fonts rendering into main grid only once
+if (window.location.pathname.includes("fonts") || window.location.pathname.includes("yobfont")) {
   const googleKhmerFamilies = [
     "Angkor",
     "Battambang",
@@ -93,7 +93,7 @@ if (window.location.pathname.includes("fonts")) {
 // FONTS PAGE — Compare Drawer, Copy CSS, Enlarge Preview, Accessibility
 // ═══════════════════════════════════════════════
 (function () {
-  // Only run on fonts.html
+  // Only run on yobfont.html
   if (!document.body || !document.getElementById("fonts-grid")) return;
 
   // Compare Drawer logic

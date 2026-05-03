@@ -1,0 +1,2546 @@
+﻿<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ហាងអក្សរខ្មែរ — YOB Digital</title>
+    <meta
+      name="description"
+      content="អក្សរខ្មែរ Unicode គុណភាពខ្ពស់ដោយ YOB Digital សម្រាប់ម៉ាក, វេបសាយ និងការបោះពុម្ព។"
+    />
+    <meta property="og:title" content="ហាងអក្សរខ្មែរ — YOB Digital" />
+    <meta
+      property="og:description"
+      content="អក្សរខ្មែរ Unicode គុណភាពខ្ពស់ ចាប់ពី $12 និងមានកំណែឥតគិតថ្លៃ។"
+    />
+    <meta
+      property="og:image"
+      content="https://yobdigital.netlify.app/images/og-cover.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://yobdigital.netlify.app/yobfont.html"
+    />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://yobdigital.netlify.app/yobfont.html" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome async (non-render-blocking) -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      />
+    </noscript>
+
+    <!-- Shared styles from main site -->
+    <link rel="stylesheet" href="css/style.css?v=3" />
+
+    <style>
+      /* ── SAVUTH FONT FACE ── */
+      @font-face { font-family: 'Khmer Savuth';       src: url('font/Savuth%20Font/khmer%20Savuth.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Savuth Pen';         src: url('font/Savuth%20Font/Khmer%20Savuth%20Pen.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Savuth Pen 2';       src: url('font/Savuth%20Font/Khmer%20Savuth%20Pen2.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Savuth Brush';       src: url('font/Savuth%20Font/khmer%20Savuth%20Brush.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Savuth Romeas';      src: url('font/Savuth%20Font/khmer%20Savuth%20Romeas.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Khmer Sharp';        src: url('font/Savuth%20Font/Khmer%20Sharp.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Sem Sarun';          src: url('font/Savuth%20Font/Khmer%20Sem%20Sarun.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Khmer Sexy';         src: url('font/Savuth%20Font/Khmer%20sexy.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'Kompong Chhnang';    src: url('font/Savuth%20Font/kh%20Kompong%20Chhnang.ttf') format('truetype'); font-display: swap; }
+      @font-face { font-family: 'iKhmer Students';    src: url('font/Savuth%20Font/khmer%20ikhmerstudents.ttf') format('truetype'); font-display: swap; }
+
+      /* ═══════════════════════════════════
+       FONTS PAGE — Extra Styles
+    ═══════════════════════════════════ */
+
+      /* ── HERO SEARCH BAR ── */
+      .hero-search-bar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 60px;
+        padding: 7px 7px 7px 22px;
+        max-width: 580px;
+        margin: 32px auto 28px;
+        transition: border-color var(--t), box-shadow var(--t);
+      }
+      .hero-search-bar:focus-within {
+        border-color: rgba(229,44,103,0.5);
+        box-shadow: 0 0 0 5px rgba(229,44,103,0.1);
+      }
+      .hero-search-bar i { color: rgba(255,255,255,0.5); font-size: 14px; flex-shrink: 0; }
+      .hero-search-input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        color: var(--white);
+        font-family: var(--fb);
+        font-size: 15px;
+        outline: none;
+        padding: 8px 0;
+        min-width: 0;
+      }
+      .hero-search-input::placeholder { color: rgba(255,255,255,0.5); }
+      .hero-cat-select {
+        background: linear-gradient(135deg, var(--gold), #ff6b9d);
+        border: none;
+        border-radius: 50px;
+        color: #fff;
+        font-family: var(--fb);
+        font-size: 12px;
+        font-weight: 700;
+        padding: 10px 34px 10px 18px;
+        cursor: pointer;
+        outline: none;
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: linear-gradient(135deg, var(--gold), #ff6b9d),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23fff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat, no-repeat;
+        background-position: 0 0, right 12px center;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .hero-cat-select option { background: #0d1117; color: var(--white); font-weight: 400; }
+      @media (max-width: 600px) {
+        .hero-search-bar { margin: 24px 0 20px; border-radius: 20px; padding: 10px 10px 10px 18px; }
+        .hero-cat-select { font-size: 11px; padding: 9px 28px 9px 14px; }
+      }
+
+      /* Page hero */
+      .fonts-hero {
+        padding: clamp(70px, 8vw, 140px) 0 clamp(40px, 6vw, 80px);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .fonts-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background:
+          radial-gradient(
+            ellipse 70% 60% at 50% 0%,
+            rgba(229, 44, 103, 0.14) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 50% 40% at 20% 80%,
+            rgba(168, 85, 247, 0.07) 0%,
+            transparent 55%
+          );
+      }
+      .fonts-hero > * {
+        position: relative;
+        z-index: 1;
+      }
+      .fonts-hero .page-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(229, 44, 103, 0.08);
+        border: 1px solid rgba(229, 44, 103, 0.2);
+        padding: 6px 18px;
+        border-radius: 50px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+      .fonts-hero h1 {
+        font-family: var(--fh);
+        font-size: clamp(48px, 7vw, 96px);
+        line-height: 1.2;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+      }
+      .fonts-hero h1 em {
+        font-style: normal;
+        background: linear-gradient(135deg, #fff 0%, #ff8ab0 40%, #e52c67 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .fonts-hero p {
+        font-family: var(--fk);
+        font-size: 17px;
+        color: var(--gray);
+        max-width: 560px;
+        margin: 0 auto 36px;
+        line-height: 1.9;
+      }
+      .hero-badges {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .hero-cta-row {
+        margin-top: 24px;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .hero-cta-row .btn-primary,
+      .hero-cta-row .btn-outline {
+        padding: 12px 26px;
+      }
+      .hero-badge-item {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--gray);
+      }
+      .hero-badge-item i {
+        color: var(--gold);
+        font-size: 11px;
+      }
+
+      .filter-empty {
+        display: none;
+        margin: 10px 0 24px;
+        border: 1px dashed rgba(229, 44, 103, 0.35);
+        border-radius: 14px;
+        padding: 14px;
+        font-family: var(--fk);
+        color: var(--gray);
+        background: rgba(229, 44, 103, 0.06);
+      }
+
+      .preview-text {
+        font-family: var(--fk);
+        color: var(--white);
+        text-align: center;
+        line-height: 1.55;
+        transition: color 0.3s ease;
+        position: relative;
+        z-index: 1;
+        animation: fontsPreviewFloat 4.8s ease-in-out infinite;
+      }
+      @keyframes fontsPreviewFloat {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-4px);
+        }
+      }
+
+      @keyframes fontsHeroBadgePulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 rgba(229, 44, 103, 0);
+        }
+        50% {
+          box-shadow: 0 0 0 8px rgba(229, 44, 103, 0.06);
+        }
+      }
+
+      .hero-badge-item {
+        animation: fontsHeroBadgePulse 3.6s ease-in-out infinite;
+      }
+      .hero-badge-item:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+      .hero-badge-item:nth-child(3) {
+        animation-delay: 1s;
+      }
+      .hero-badge-item:nth-child(4) {
+        animation-delay: 1.5s;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .preview-text,
+        .hero-badge-item {
+          animation: none !important;
+        }
+      }
+
+      .font-name {
+        font-family: var(--fh);
+        font-size: 22px;
+        letter-spacing: 1px;
+        color: var(--white);
+      }
+      .font-cat {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--gold);
+        background: rgba(229, 44, 103, 0.1);
+        border: 1px solid rgba(229, 44, 103, 0.2);
+        padding: 3px 9px;
+        border-radius: 20px;
+      }
+      .font-price {
+        font-family: var(--fh);
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--white);
+      }
+      .font-price.free-price {
+        color: #4ade80;
+      }
+      .btn-free {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 22px;
+        border-radius: 50px;
+        background: rgba(74, 222, 128, 0.1);
+        color: #4ade80;
+        font-family: var(--fb);
+        font-size: 13px;
+        font-weight: 700;
+        border: 1px solid rgba(74, 222, 128, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none !important;
+      }
+      .btn-free:hover {
+        background: #4ade80;
+        color: var(--dark);
+        transform: translateY(-2px);
+      }
+
+      .keyboard-guide {
+        padding: clamp(40px, 7vw, 72px) 0;
+      }
+      .kbd-grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .kbd-tabs {
+        display: inline-flex;
+        gap: 8px;
+        margin-bottom: 14px;
+        padding: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .kbd-tab-btn {
+        border: none;
+        border-radius: 999px;
+        padding: 8px 14px;
+        background: transparent;
+        color: var(--gray);
+        font-family: var(--fb);
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .kbd-tab-btn.active {
+        background: rgba(229, 44, 103, 0.18);
+        color: var(--white);
+      }
+      .kbd-panel {
+        display: none;
+      }
+      .kbd-panel.active {
+        display: block;
+      }
+      .kbd-card {
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 18px;
+      }
+      .kbd-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--fb);
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .kbd-head i {
+        color: var(--gold);
+      }
+      .kbd-steps {
+        margin: 0;
+        padding-left: 18px;
+        display: grid;
+        gap: 8px;
+      }
+      .kbd-steps li {
+        font-family: var(--fk);
+        color: var(--gray);
+        line-height: 1.75;
+        font-size: 14px;
+      }
+      .kbd-download {
+        margin-top: 12px;
+      }
+      .kbd-download .btn-outline {
+        display: inline-flex;
+        padding: 9px 14px;
+      }
+      .kbd-checklist {
+        margin-top: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 14px;
+      }
+      .kbd-checklist-title {
+        font-family: var(--fb);
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+      .kbd-checklist-items {
+        display: grid;
+        gap: 7px;
+      }
+      .kbd-check-item {
+        display: flex;
+        gap: 9px;
+        align-items: flex-start;
+        font-family: var(--fk);
+        font-size: 13px;
+        color: var(--gray);
+      }
+      .kbd-check-item input {
+        margin-top: 3px;
+        accent-color: var(--gold);
+      }
+      .kbd-check-progress {
+        margin-top: 8px;
+        font-family: var(--fb);
+        color: var(--gold);
+        font-size: 12px;
+      }
+      .kbd-check-actions {
+        margin-top: 10px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .kbd-check-reset {
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--gray);
+        border-radius: 999px;
+        padding: 7px 12px;
+        font-family: var(--fb);
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .kbd-check-reset:hover {
+        color: var(--white);
+        border-color: rgba(229, 44, 103, 0.4);
+      }
+      .kbd-help {
+        margin-top: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 14px;
+      }
+      .kbd-help-title {
+        font-family: var(--fb);
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+      .kbd-help-list {
+        margin: 0;
+        padding-left: 18px;
+        display: grid;
+        gap: 6px;
+      }
+      .kbd-help-list li {
+        font-family: var(--fk);
+        color: var(--gray);
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      .typing-practice {
+        margin-top: 16px;
+        border: 1px solid rgba(229, 44, 103, 0.26);
+        border-radius: 16px;
+        background: linear-gradient(
+          140deg,
+          rgba(229, 44, 103, 0.12),
+          rgba(255, 255, 255, 0.02)
+        );
+        padding: 16px;
+      }
+      .typing-practice-head {
+        font-family: var(--fb);
+        font-size: 15px;
+        margin-bottom: 10px;
+      }
+      .typing-practice-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .typing-practice-input,
+      .typing-practice-output {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        background: rgba(8, 11, 16, 0.4);
+        color: var(--white);
+        font-family: var(--fk);
+        font-size: 15px;
+        min-height: 92px;
+        padding: 12px;
+      }
+      .typing-practice-output {
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+      .typing-practice-actions {
+        margin-top: 10px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .typing-copy-status {
+        font-family: var(--fk);
+        color: var(--gray);
+        font-size: 12px;
+      }
+
+      .help-center-intro {
+        max-width: 760px;
+        margin: 0 auto 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 12px 14px;
+        font-family: var(--fk);
+        font-size: 14px;
+        line-height: 1.8;
+        color: var(--gray);
+      }
+
+      /* Bundle section */
+      .bundle-section {
+        padding: clamp(40px, 10vw, 80px) 0;
+      }
+      .bundle-card {
+        background: linear-gradient(
+          135deg,
+          rgba(229, 44, 103, 0.1) 0%,
+          rgba(229, 44, 103, 0.03) 60%,
+          transparent 100%
+        );
+        border: 1px solid rgba(229, 44, 103, 0.25);
+        border-radius: 24px;
+        padding: 60px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        backdrop-filter: blur(20px);
+        position: relative;
+        overflow: hidden;
+      }
+      .bundle-card::before {
+        content: "";
+        position: absolute;
+        top: -40%;
+        right: -10%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(229, 44, 103, 0.1) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .bundle-content {
+        position: relative;
+        z-index: 1;
+      }
+      .bundle-tag {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        background: rgba(229, 44, 103, 0.1);
+        border: 1px solid rgba(229, 44, 103, 0.2);
+        padding: 4px 14px;
+        border-radius: 20px;
+        margin-bottom: 18px;
+      }
+      .bundle-content h2 {
+        font-family: var(--fh);
+        font-size: clamp(36px, 4vw, 56px);
+        margin-bottom: 14px;
+        line-height: 1.25;
+      }
+
+      html[lang="km"] .font-name,
+      html[lang="km"] .preview-text,
+      html[lang="km"] .btn-free {
+        letter-spacing: 0;
+      }
+      .bundle-content p {
+        font-family: var(--fk);
+        font-size: 15px;
+        color: var(--gray);
+        line-height: 1.9;
+        margin-bottom: 24px;
+      }
+      .bundle-list {
+        list-style: none;
+        margin-bottom: 32px;
+      }
+      .bundle-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--fk);
+        font-size: 14px;
+        color: var(--white);
+        margin-bottom: 10px;
+      }
+      .bundle-list li i {
+        color: var(--gold);
+        font-size: 12px;
+      }
+      .bundle-pricing {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+      }
+      .bundle-price-box {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 36px 28px;
+        margin-bottom: 16px;
+      }
+      .bundle-was {
+        font-size: 14px;
+        color: var(--gray);
+        text-decoration: line-through;
+        margin-bottom: 6px;
+      }
+      .bundle-now {
+        font-family: var(--fh);
+        font-size: 64px;
+        color: var(--white);
+        line-height: 1;
+      }
+      .bundle-now span {
+        font-size: 28px;
+        color: var(--gold);
+        vertical-align: super;
+      }
+      .bundle-save {
+        display: inline-block;
+        background: rgba(74, 222, 128, 0.15);
+        color: #4ade80;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 4px 14px;
+        border-radius: 20px;
+        border: 1px solid rgba(74, 222, 128, 0.3);
+        margin-bottom: 22px;
+      }
+
+      /* License table */
+      .license-section {
+        padding: clamp(40px, 8vw, 60px) 0 clamp(50px, 10vw, 80px);
+      }
+      .license-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .license-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 20px;
+        padding: 32px 24px;
+        transition: all 0.3s ease;
+      }
+      .license-card:hover {
+        border-color: rgba(229, 44, 103, 0.25);
+        transform: translateY(-4px);
+      }
+      .license-card.popular {
+        border-color: rgba(229, 44, 103, 0.3);
+        background: rgba(229, 44, 103, 0.06);
+      }
+      .license-name {
+        font-family: var(--fh);
+        font-size: 28px;
+        margin-bottom: 6px;
+      }
+      .license-price {
+        font-family: var(--fh);
+        font-size: 40px;
+        color: var(--gold);
+        margin-bottom: 16px;
+      }
+      .license-price small {
+        font-size: 18px;
+        color: var(--gray);
+        font-family: var(--fb);
+      }
+      .license-features {
+        list-style: none;
+      }
+      .license-features li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        font-family: var(--fk);
+        font-size: 13px;
+        color: var(--gray);
+        margin-bottom: 10px;
+        line-height: 1.6;
+      }
+      .license-features li i {
+        color: var(--gold);
+        font-size: 11px;
+        margin-top: 3px;
+        flex-shrink: 0;
+      }
+      .license-features li.no i {
+        color: var(--gray);
+      }
+      .license-features li.no {
+        opacity: 0.5;
+      }
+
+      /* FAQ */
+      .faq-section {
+        padding: clamp(40px, 8vw, 60px) 0 clamp(50px, 10vw, 80px);
+      }
+      .faq-item {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 14px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      .faq-item:hover {
+        border-color: rgba(229, 44, 103, 0.2);
+      }
+      .faq-q {
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-family: var(--fk);
+        font-size: 15px;
+        color: var(--white);
+      }
+      .faq-q i {
+        color: var(--gold);
+        transition: transform 0.3s;
+      }
+      .faq-a {
+        padding: 0 24px 20px;
+        font-family: var(--fk);
+        font-size: 14px;
+        color: var(--gray);
+        line-height: 1.9;
+        display: none;
+      }
+      .faq-item.open .faq-q i {
+        transform: rotate(45deg);
+      }
+      .faq-item.open .faq-a {
+        display: block;
+      }
+
+      /* Sticky selected font CTA */
+      .font-sticky-cta {
+        position: fixed;
+        left: 50%;
+        bottom: 16px;
+        transform: translateX(-50%) translateY(120%);
+        width: min(960px, calc(100% - 24px));
+        z-index: 120;
+        background: rgba(8, 11, 16, 0.94);
+        border: 1px solid rgba(229, 44, 103, 0.32);
+        border-radius: 16px;
+        box-shadow: 0 22px 55px rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(14px);
+        padding: 12px;
+        transition: transform 0.35s ease;
+      }
+      .font-sticky-cta.show {
+        transform: translateX(-50%) translateY(0);
+      }
+      .font-sticky-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .font-sticky-meta {
+        font-family: var(--fb);
+        color: var(--white);
+      }
+      .font-sticky-label {
+        font-size: 12px;
+        color: var(--gray);
+        margin-bottom: 2px;
+      }
+      .font-sticky-name {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.45;
+      }
+      .font-sticky-price {
+        color: var(--gold);
+      }
+      .font-sticky-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .font-sticky-actions .btn-primary,
+      .font-sticky-actions .btn-outline {
+        padding: 10px 18px;
+        font-size: 13px;
+      }
+      .font-sticky-close {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--gray);
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .font-sticky-close:hover {
+        color: var(--white);
+        border-color: rgba(229, 44, 103, 0.5);
+      }
+
+      /* In-page multi-font order box */
+      .font-order-section {
+        padding: 0 0 clamp(36px, 6vw, 64px);
+        display: none;
+      }
+      .font-order-section.show {
+        display: block;
+      }
+      .font-order-box {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(229, 44, 103, 0.22);
+        border-radius: 20px;
+        padding: clamp(18px, 3vw, 26px);
+      }
+      .font-order-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 14px;
+      }
+      .font-order-title {
+        font-family: var(--fb);
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .font-order-total {
+        font-family: var(--fb);
+        font-size: 14px;
+        color: var(--gold);
+        font-weight: 700;
+      }
+      .font-order-list {
+        list-style: none;
+        margin: 0 0 16px;
+        padding: 0;
+        display: grid;
+        gap: 8px;
+      }
+      .font-order-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .font-order-item-name {
+        font-family: var(--fb);
+        font-size: 14px;
+      }
+      .font-order-item-price {
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+      }
+      .font-order-remove {
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--gray);
+        border-radius: 999px;
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      .font-order-remove:hover {
+        color: var(--white);
+        border-color: rgba(229, 44, 103, 0.45);
+      }
+      .font-order-form {
+        display: grid;
+        gap: 10px;
+      }
+      .font-order-grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .font-order-input,
+      .font-order-textarea {
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 12px;
+        color: var(--white);
+        font-family: var(--fb);
+        font-size: 14px;
+        padding: 12px 14px;
+      }
+      .font-order-input::placeholder,
+      .font-order-textarea::placeholder {
+        color: var(--gray);
+      }
+      .font-order-textarea {
+        min-height: 90px;
+        resize: vertical;
+      }
+      .font-order-note {
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gray);
+      }
+      .font-order-msg {
+        display: none;
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-family: var(--fb);
+        font-size: 13px;
+      }
+      .font-order-msg.success {
+        background: rgba(74, 222, 128, 0.12);
+        border: 1px solid rgba(74, 222, 128, 0.35);
+        color: #4ade80;
+      }
+      .font-order-msg.error {
+        background: rgba(239, 68, 68, 0.12);
+        border: 1px solid rgba(239, 68, 68, 0.34);
+        color: #fca5a5;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .bundle-card {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+        .license-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 720px) {
+        .fonts-hero {
+          padding: clamp(60px, 8vw, 120px) 0 clamp(35px, 6vw, 70px);
+        }
+      }
+      @media (max-width: 600px) {
+        .fonts-hero {
+          padding: clamp(50px, 7vw, 100px) 0 clamp(30px, 5vw, 60px);
+        }
+        .bundle-card {
+          padding: 32px 20px;
+        }
+        .font-sticky-actions {
+          width: 100%;
+        }
+        .font-sticky-actions .btn-primary,
+        .font-sticky-actions .btn-outline {
+          flex: 1;
+          justify-content: center;
+        }
+        .font-order-grid {
+          grid-template-columns: 1fr;
+        }
+        .kbd-grid {
+          grid-template-columns: 1fr;
+        }
+        .typing-practice-grid {
+          grid-template-columns: 1fr;
+        }
+        .kbd-tabs {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+      /* ── KEYBOARD SETUP REFERRAL CARD ── */
+      .font-setup-referral {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        background: rgba(229,44,103,0.06);
+        border: 1px solid rgba(229,44,103,0.2);
+        border-radius: var(--radius);
+        padding: 32px 36px;
+      }
+      .fsr-icon {
+        flex-shrink: 0;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(229,44,103,0.12);
+        border-radius: 14px;
+        font-size: 22px;
+        color: var(--gold);
+      }
+      .fsr-body { flex: 1; }
+      .fsr-title {
+        font-family: var(--fb);
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 6px;
+      }
+      .fsr-desc {
+        font-family: var(--fk);
+        font-size: 13px;
+        color: var(--gray);
+        line-height: 1.7;
+        margin-bottom: 12px;
+      }
+      .fsr-steps {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 20px;
+      }
+      .fsr-steps span {
+        font-family: var(--fb);
+        font-size: 12px;
+        color: #4ade80;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .fsr-cta { flex-shrink: 0; white-space: nowrap; }
+      @media (max-width: 768px) {
+        .font-setup-referral { flex-direction: column; align-items: flex-start; padding: 24px; }
+        .fsr-cta { width: 100%; text-align: center; }
+      }
+
+      /* ── GLYPH MODAL ── */
+      .glyph-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.75);
+        backdrop-filter: blur(8px);
+        z-index: 9000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+      .glyph-modal-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .glyph-modal {
+        background: var(--dark2);
+        border: 1px solid rgba(229,44,103,0.3);
+        border-radius: 20px;
+        width: 100%;
+        max-width: 640px;
+        max-height: 88vh;
+        overflow-y: auto;
+        padding: 32px;
+        transform: translateY(16px) scale(0.97);
+        transition: transform 0.25s ease;
+      }
+      .glyph-modal-overlay.open .glyph-modal {
+        transform: translateY(0) scale(1);
+      }
+      .glyph-modal-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 24px;
+      }
+      .glyph-modal-title {
+        font-family: var(--fh);
+        font-size: 22px;
+        color: var(--white);
+      }
+      .glyph-modal-subtitle {
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gray);
+        margin-top: 4px;
+      }
+      .glyph-modal-close {
+        width: 36px; height: 36px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: rgba(255,255,255,0.04);
+        color: var(--gray);
+        cursor: pointer;
+        font-size: 14px;
+        flex-shrink: 0;
+        display: flex; align-items: center; justify-content: center;
+        transition: all var(--t);
+      }
+      .glyph-modal-close:hover { color: var(--white); border-color: rgba(229,44,103,0.4); }
+      .glyph-section-label {
+        font-family: var(--fb);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin: 16px 0 8px;
+        opacity: 0.7;
+      }
+      .glyph-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+      .glyph-char {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 10px;
+        font-size: 22px;
+        color: var(--white);
+        cursor: default;
+        transition: all var(--t);
+        user-select: all;
+      }
+      .glyph-char:hover {
+        background: rgba(229,44,103,0.1);
+        border-color: rgba(229,44,103,0.3);
+      }
+      .glyph-modal-preview {
+        margin-top: 20px;
+        padding: 16px;
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 12px;
+        font-size: 28px;
+        color: var(--white);
+        line-height: 1.7;
+        text-align: center;
+        min-height: 72px;
+      }
+      .btn-glyph {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 13px;
+        border-radius: 50px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: var(--gray);
+        font-family: var(--fb);
+        font-size: 12px;
+        cursor: pointer;
+        transition: all var(--t);
+      }
+      .btn-glyph:hover {
+        border-color: rgba(229,44,103,0.3);
+        color: var(--white);
+      }
+      /* ══ FONT LIST LAYOUT (Google Fonts style) ══ */
+      .fonts-list {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--dark2);
+        margin-bottom: 60px;
+      }
+      .font-row {
+        border-bottom: 1px solid var(--border);
+        transition: background var(--t);
+        position: relative;
+      }
+      .font-row:last-child { border-bottom: none; }
+      .font-row:hover { background: rgba(255,255,255,0.025); }
+      .font-row.row-selected {
+        background: rgba(229,44,103,0.05);
+        border-left: 3px solid var(--gold);
+      }
+      .font-row.featured::before { display: none; }
+      .fr-head {
+        display: flex; align-items: center; gap: 10px;
+        padding: 14px 24px; flex-wrap: wrap;
+      }
+      .fr-name {
+        font-family: var(--fb); font-size: 14px; font-weight: 700;
+        color: var(--white); min-width: 160px;
+      }
+      .fr-badge {
+        font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+        text-transform: uppercase; color: var(--gold);
+        background: rgba(229,44,103,0.08);
+        border: 1px solid rgba(229,44,103,0.18);
+        padding: 2px 9px; border-radius: 20px; white-space: nowrap;
+      }
+      .fr-badge.fr-google { color: #4ade80; background: rgba(74,222,128,0.07); border-color: rgba(74,222,128,0.2); }
+      .fr-meta { font-family: var(--fb); font-size: 11px; color: var(--gray); white-space: nowrap; }
+      .fr-price-wrap { margin-left: auto; }
+      .fr-price { font-family: var(--fb); font-size: 15px; font-weight: 700; color: var(--white); white-space: nowrap; }
+      .fr-price.free-price { color: #4ade80; font-size: 13px; }
+      .fr-btns { display: flex; align-items: center; gap: 6px; }
+      .fr-icon-btn {
+        width: 30px; height: 30px; border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.03);
+        color: var(--gray); cursor: pointer; font-size: 11px;
+        display: flex; align-items: center; justify-content: center;
+        transition: all var(--t); font-family: var(--fb); font-weight: 700;
+      }
+      .fr-icon-btn:hover { color: var(--white); border-color: rgba(229,44,103,0.35); background: rgba(229,44,103,0.07); }
+      .fr-buy-btn {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 7px 16px; border-radius: 50px;
+        background: linear-gradient(135deg, var(--gold), #ff6b9d);
+        color: #fff; font-family: var(--fb); font-size: 12px; font-weight: 700;
+        border: none; cursor: pointer; text-decoration: none;
+        transition: all 0.25s ease; white-space: nowrap;
+      }
+      .fr-buy-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(229,44,103,0.4); }
+      .fr-dl-btn {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 7px 14px; border-radius: 50px;
+        background: rgba(74,222,128,0.1); color: #4ade80;
+        font-family: var(--fb); font-size: 12px; font-weight: 700;
+        border: 1px solid rgba(74,222,128,0.3); cursor: pointer;
+        text-decoration: none; transition: all 0.25s ease; white-space: nowrap;
+      }
+      .fr-dl-btn:hover { background: #4ade80; color: var(--dark); }
+      .fr-preview { padding: 0 24px 22px; }
+      .fr-preview .preview-text {
+        animation: none !important;
+        color: rgba(255,255,255,0.82);
+        line-height: 1.35;
+      }
+      .font-row:hover .fr-preview .preview-text { color: var(--white); }
+      /* ── FONT PLAYGROUND ── */
+      .font-playground {
+        background: rgba(255,255,255,0.025);
+        border: 1px solid var(--border2);
+        border-radius: 20px;
+        padding: 28px 28px 20px;
+        margin-bottom: 20px;
+      }
+      .playground-label {
+        font-family: var(--fb);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin: 0 0 12px;
+      }
+      .playground-main-input {
+        width: 100%;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid rgba(255,255,255,0.1);
+        color: var(--white);
+        font-family: var(--fk);
+        font-size: clamp(22px, 3.5vw, 42px);
+        font-weight: 700;
+        padding: 0 0 14px;
+        outline: none;
+        transition: border-color var(--t);
+        margin-bottom: 20px;
+        display: block;
+      }
+      .playground-main-input::placeholder {
+        color: rgba(255,255,255,0.38);
+        font-weight: 400;
+        font-size: clamp(16px, 2.5vw, 28px);
+      }
+      .playground-main-input:focus { border-bottom-color: var(--gold); }
+      .playground-controls-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .pg-slider-wrap { display: flex; align-items: center; gap: 7px; flex: 0 0 auto; }
+      .pg-label { font-family: var(--fb); font-size: 11px; color: var(--gray); white-space: nowrap; }
+      .pg-range { width: 90px; accent-color: var(--gold); cursor: pointer; }
+      .pg-val { font-family: var(--fb); font-size: 11px; color: var(--gold); min-width: 34px; }
+      .pg-weight-wrap { display: flex; align-items: center; gap: 7px; }
+      .weight-pills { display: flex; gap: 3px; flex-wrap: wrap; }
+      .weight-pill {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px;
+        color: var(--gray);
+        font-family: var(--fb);
+        font-size: 11px;
+        padding: 4px 11px;
+        cursor: pointer;
+        transition: all var(--t);
+        line-height: 1;
+      }
+      .weight-pill:hover { border-color: rgba(229,44,103,0.3); color: var(--white); }
+      .weight-pill.active { background: rgba(229,44,103,0.12); border-color: rgba(229,44,103,0.4); color: var(--gold); }
+      .pg-bg-toggle {
+        width: 34px; height: 34px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.1);
+        background: rgba(255,255,255,0.04);
+        color: var(--gray);
+        cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 13px;
+        transition: all var(--t);
+        flex-shrink: 0;
+        margin-left: auto;
+      }
+      .pg-bg-toggle:hover, .pg-bg-toggle.active { border-color: rgba(229,44,103,0.4); color: var(--white); background: rgba(229,44,103,0.08); }
+      /* ── CSS FALLBACK: hide rows beyond first 5 before JS runs ── */
+      .fonts-list .font-row:nth-child(n+6) { display: none; }
+
+      /* ── SHOW MORE ── */
+      .font-show-more {
+        display: none; text-align: center;
+        padding: 24px 0 4px;
+        border-top: 1px solid var(--border);
+      }
+      .font-show-more.visible { display: block; }
+      .font-show-more-btn {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 50px; color: var(--gray);
+        font-family: var(--fb); font-size: 13px;
+        padding: 11px 32px; cursor: pointer; transition: all var(--t);
+      }
+      .font-show-more-btn:hover { border-color: rgba(229,44,103,0.4); color: var(--white); background: rgba(229,44,103,0.06); }
+      /* Light preview mode */
+      .fonts-list.preview-light .fr-preview { background: #f0f0f5; border-radius: 0 0 8px 8px; }
+      .fonts-list.preview-light .fr-preview .preview-text { color: #111 !important; }
+      /* License tier tags */
+      .fr-lic { display: flex; align-items: center; gap: 4px; }
+      .lic-tag {
+        font-family: var(--fb);
+        font-size: 10px;
+        color: rgba(255,255,255,0.6);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 20px;
+        padding: 2px 7px;
+        white-space: nowrap;
+      }
+      .lic-tag.lic-free { color: #4ade80; border-color: rgba(74,222,128,0.2); background: rgba(74,222,128,0.05); }
+      /* Responsive */
+      @media (max-width: 768px) {
+        .font-playground { padding: 20px 16px 16px; }
+        .pg-slider-wrap { display: none; }
+        .pg-weight-wrap { display: none; }
+        .pg-bg-toggle { margin-left: 0; }
+      }
+      @media (max-width: 600px) {
+        .fr-head { padding: 12px 16px; gap: 8px; }
+        .fr-preview { padding: 0 16px 16px; }
+        .fr-name { min-width: 0; flex: 1; }
+        .fr-meta, .fr-lic { display: none; }
+        .fr-buy-btn, .fr-dl-btn { padding: 6px 12px; font-size: 11px; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div id="nav-placeholder"></div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button class="drawer-close" id="drawerClose"><i class="fas fa-times"></i></button>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">Learn <i class="fas fa-chevron-down"></i></button>
+        <div class="drawer-group-items">
+          <a href="index.html#videos" onclick="closeDrawer()">Tutorial</a>
+          <a href="yob-learning.html" onclick="closeDrawer()">YOB Learning</a>
+          <a href="docs.html" onclick="closeDrawer()">Documentation</a>
+          <a href="case-studies.html" onclick="closeDrawer()">Case Studies</a>
+        </div>
+      </div>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">Products <i class="fas fa-chevron-down"></i></button>
+        <div class="drawer-group-items">
+          <a href="fonts.html" onclick="closeDrawer()">Yob Fonts</a>
+          <a href="resources.html" onclick="closeDrawer()">Free Resources</a>
+          <a href="poster-design.html" onclick="closeDrawer()">Poster Design</a>
+        </div>
+      </div>
+      <a href="about.html" onclick="closeDrawer()">About YOB</a>
+      <a href="index.html#contact" onclick="closeDrawer()" class="d-cta">ទំនាក់ទំនង</a>
+    </div>
+
+    <!-- ══ PAGE HERO ══ -->
+    <section class="fonts-hero">
+      <div class="container">
+        <div class="page-tag">
+          <i class="fas fa-pen-nib"></i> ហាងអក្សរខ្មែរ YOB
+        </div>
+        <h1>អក្សរ <em>ខ្មែរ</em><br />គុណភាពខ្ពស់</h1>
+        <p>
+          Premium Khmer Unicode Fonts ដែលរចនាដោយ YOB Digital — Brand ដែលប្រើ
+          Premium Font = <strong>ទំនុកចិត្តកើន 40%</strong> ពីអតិថិជន!
+          បើមិនទាន់ច្បាស់ថា Font មួយណាសមនឹងអ្នក ស្នើ Digital Check
+          មុនបាន។
+        </p>
+        <!-- Hero Search Bar -->
+        <div class="hero-search-bar">
+          <i class="fas fa-search"></i>
+          <input id="fontHubSearch" class="hero-search-input" type="text" placeholder="ស្វែងរក Font ខ្មែរ..." aria-label="Search fonts" />
+          <select id="fontCatSelect" class="hero-cat-select" aria-label="Filter by category">
+            <option value="all">ទាំងអស់</option>
+            <option value="savuth">សាវុទ្ធិ</option>
+            <!-- <option value="google">Google Free</option> -->
+          </select>
+        </div>
+
+        <div class="hero-badges">
+          <div class="hero-badge-item">
+            <i class="fas fa-check-circle"></i> គាំទ្រ Unicode ពេញលេញ
+          </div>
+          <div class="hero-badge-item">
+            <i class="fas fa-check-circle"></i> ប្រើបាន Web + Print
+          </div>
+          <div class="hero-badge-item">
+            <i class="fas fa-check-circle"></i> មានកំណែឥតគិតថ្លៃ
+          </div>
+          <div class="hero-badge-item">
+            <i class="fas fa-check-circle"></i> អាជ្ញាប័ណ្ណពាណិជ្ជកម្ម
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FONT SHOP ══ -->
+    <section style="padding: 20px 0 80px">
+      <div class="container">
+        <!-- Font Playground -->
+        <div class="font-playground reveal">
+          <p class="playground-label"><i class="fas fa-pen-nib"></i> Try Before You Buy — វាយអក្សររបស់អ្នក ហើយឃើញ Font ប្រែភ្លាម</p>
+          <input
+            id="fontHubPreview"
+            class="playground-main-input"
+            type="text"
+            placeholder="ឧ. YOB Digital, ម៉ាករបស់ខ្ញុំ, ១២៣ ← វាយ ហើយឃើញភ្លាម!"
+            aria-label="Preview text — type your brand name"
+            maxlength="60"
+          />
+          <div class="playground-controls-row">
+            <div class="pg-slider-wrap">
+              <span class="pg-label">ទំហំ</span>
+              <input id="fontHubSize" class="pg-range" type="range" min="70" max="200" value="100" aria-label="Preview size" />
+              <span class="pg-val" id="fontHubSizeLabel">100%</span>
+            </div>
+            <div class="pg-slider-wrap">
+              <span class="pg-label">គម្លាត</span>
+              <input id="fontTracking" class="pg-range" type="range" min="-2" max="15" value="0" step="0.5" aria-label="Letter spacing" />
+              <span class="pg-val" id="fontTrackingLabel">0px</span>
+            </div>
+            <div class="pg-weight-wrap">
+              <span class="pg-label">កម្រាស់</span>
+              <div class="weight-pills">
+                <button class="weight-pill" data-weight="300">Light</button>
+                <button class="weight-pill active" data-weight="400">Regular</button>
+                <button class="weight-pill" data-weight="700">Bold</button>
+                <button class="weight-pill" data-weight="900">Black</button>
+              </div>
+            </div>
+            <button class="pg-bg-toggle" id="previewBgToggle" title="ប្ដូរ Background Preview"><i class="fas fa-circle-half-stroke"></i></button>
+          </div>
+        </div>
+
+        <!-- Font List -->
+        <div class="fonts-list" id="fonts-grid" aria-label="Khmer Fonts List">
+
+          <!-- 1. Khmer Savuth -->
+          <div class="font-row reveal" data-category="display free savuth">
+            <div class="fr-head">
+              <span class="font-name fr-name">Khmer Savuth</span>
+              <span class="font-cat fr-badge">ចំណងជើង</span>
+              <span class="fr-meta">Display · Savuth Collection</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Khmer Savuth', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/khmer%20Savuth.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Khmer Savuth',var(--fk),sans-serif">ខ្មែរ​ស្អាត​ស្រស់</div></div>
+          </div>
+
+          <!-- 2. Savuth Pen -->
+          <div class="font-row reveal" data-category="script free savuth">
+            <div class="fr-head">
+              <span class="font-name fr-name">Savuth Pen</span>
+              <span class="font-cat fr-badge">ហត្ថលិខិត</span>
+              <span class="fr-meta">Script · Pen Style</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Savuth Pen', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/Khmer%20Savuth%20Pen.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Savuth Pen',var(--fk),sans-serif">ហត្ថលេខា​ស្រស់</div></div>
+          </div>
+
+          <!-- 3. Savuth Pen 2 -->
+          <div class="font-row reveal" data-category="script free savuth">
+            <div class="fr-head">
+              <span class="font-name fr-name">Savuth Pen 2</span>
+              <span class="font-cat fr-badge">ហត្ថលិខិត</span>
+              <span class="fr-meta">Script · Pen Style v2</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Savuth Pen 2', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/Khmer%20Savuth%20Pen2.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Savuth Pen 2',var(--fk),sans-serif">ហត្ថលេខា​ប្រណិត</div></div>
+          </div>
+
+          <!-- 4. Savuth Brush -->
+          <div class="font-row reveal" data-category="script free savuth">
+            <div class="fr-head">
+              <span class="font-name fr-name">Savuth Brush</span>
+              <span class="font-cat fr-badge">ហត្ថលិខិត</span>
+              <span class="fr-meta">Script · Brush Style</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Savuth Brush', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/khmer%20Savuth%20Brush.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Savuth Brush',var(--fk),sans-serif">ហស្ថ​លិខិត​ច្នៃ</div></div>
+          </div>
+
+          <!-- 5. Savuth Romeas -->
+          <div class="font-row reveal" data-category="display free savuth">
+            <div class="fr-head">
+              <span class="font-name fr-name">Savuth Romeas</span>
+              <span class="font-cat fr-badge">ចំណងជើង</span>
+              <span class="fr-meta">Display · Romeas Style</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Savuth Romeas', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/khmer%20Savuth%20Romeas.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Savuth Romeas',var(--fk),sans-serif">អក្សរ​ខ្មែរ​ស្វែង</div></div>
+          </div>
+
+          <!-- 6. Khmer Sharp -->
+          <div class="font-row reveal" data-category="display free savuth">
+            <div class="fr-head">
+              <span class="font-name fr-name">Khmer Sharp</span>
+              <span class="font-cat fr-badge">ចំណងជើង</span>
+              <span class="fr-meta">Display · Sharp Style</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Khmer Sharp', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/Khmer%20Sharp.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Khmer Sharp',var(--fk),sans-serif">ស្រួច​ពត​ច្បាស់</div></div>
+          </div>
+
+          <!-- 7. Sem Sarun -->
+          <div class="font-row reveal" data-category="sans free savuth">
+            <div class="fr-head">
+              <span class="font-name fr-name">Sem Sarun</span>
+              <span class="font-cat fr-badge">អានងាយ</span>
+              <span class="fr-meta">Sans · Readable Body</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Sem Sarun', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/Khmer%20Sem%20Sarun.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Sem Sarun',var(--fk),sans-serif">អានស្រួល​យល់ច្បាស់</div></div>
+          </div>
+
+          <!-- 8. Khmer Sexy -->
+          <div class="font-row reveal" data-category="display free savuth">
+            <div class="fr-head">
+              <span class="font-name fr-name">Khmer Sexy</span>
+              <span class="font-cat fr-badge">ចំណងជើង</span>
+              <span class="fr-meta">Display · Decorative</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Khmer Sexy', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/Khmer%20sexy.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Khmer Sexy',var(--fk),sans-serif">ក្បាច់​ស្រស់​ស្អាត</div></div>
+          </div>
+
+          <!-- 9. Kompong Chhnang -->
+          <div class="font-row reveal" data-category="display free savuth">
+            <div class="fr-head">
+              <span class="font-name fr-name">Kompong Chhnang</span>
+              <span class="font-cat fr-badge">ចំណងជើង</span>
+              <span class="fr-meta">Display · Regional Style</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'Kompong Chhnang', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/kh%20Kompong%20Chhnang.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'Kompong Chhnang',var(--fk),sans-serif">កំពង់ឆ្នាំង​ស្អាត</div></div>
+          </div>
+
+          <!-- 10. iKhmer Students -->
+          <div class="font-row reveal" data-category="sans free savuth">
+            <div class="fr-head">
+              <span class="font-name fr-name">iKhmer Students</span>
+              <span class="font-cat fr-badge">អានងាយ</span>
+              <span class="fr-meta">Sans · Education Style</span>
+              <div class="fr-lic"><span class="lic-tag lic-free">Free Font</span></div>
+              <div class="fr-price-wrap"><span class="font-price fr-price free-price">FREE</span></div>
+              <div class="fr-btns">
+                <button class="fr-icon-btn btn-copy-css" data-font-css="font-family: 'iKhmer Students', sans-serif;" title="Copy CSS">CSS</button>
+                <a href="font/Savuth%20Font/khmer%20ikhmerstudents.ttf" download class="fr-dl-btn btn-free"><i class="fas fa-download"></i> ទាញយក</a>
+              </div>
+            </div>
+            <div class="fr-preview"><div class="preview-text" style="font-family:'iKhmer Students',var(--fk),sans-serif">សិស្ស​ខ្មែរ​រៀន</div></div>
+          </div>
+
+        </div>
+        <!-- end fonts-grid -->
+
+        <!-- Show More -->
+        <div class="font-show-more visible" id="fontShowMore">
+          <button class="font-show-more-btn" id="fontShowMoreBtn">
+            <i class="fas fa-chevron-down"></i> មើល Font ទាំងអស់ · នៅសល់ <span id="fontHiddenCount">5</span> ទៀត
+          </button>
+        </div>
+
+
+        <div class="filter-empty" id="fontFilterEmpty" style="display:none">
+          មិនឃើញ Font ស្វែងរក។ សាកល្បងពាក្យផ្សេង ឬលុបចោល keyword។
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ KEYBOARD SETUP REFERRAL ══ -->
+    <section style="padding: 40px 0 60px">
+      <div class="container">
+        <div class="font-setup-referral reveal">
+          <div class="fsr-icon"><i class="fas fa-keyboard"></i></div>
+          <div class="fsr-body">
+            <div class="fsr-title">ត្រូវការ Setup Khmer Keyboard?</div>
+            <p class="fsr-desc">មគ្គុទ្ទេស Windows &amp; macOS, Install Checklist, Typing Practice — ត្រូវបានផ្ទេរទៅ Documentation Hub ដែលសម្បូរបែបជាង។</p>
+            <div class="fsr-steps">
+              <span><i class="fas fa-check-circle"></i> Windows 10/11 Setup</span>
+              <span><i class="fas fa-check-circle"></i> macOS Setup</span>
+              <span><i class="fas fa-check-circle"></i> Typing Practice</span>
+              <span><i class="fas fa-check-circle"></i> Troubleshooting</span>
+            </div>
+          </div>
+          <a href="docs.html#font-setup" class="btn-primary fsr-cta">
+            <i class="fas fa-book-open"></i> មើលមគ្គុទ្ទេសពេញ
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="font-order-section" id="fontOrderSection">
+      <div class="container">
+        <div class="font-order-box reveal">
+          <div class="font-order-head">
+            <div class="font-order-title">បញ្ជាទិញ Font (នៅទំព័រនេះ)</div>
+            <div class="font-order-total" id="fontOrderTotal">
+              បានជ្រើស 0 Font · $0
+            </div>
+          </div>
+
+          <ul class="font-order-list" id="fontOrderList"></ul>
+
+          <form
+            class="font-order-form"
+            id="fontOrderForm"
+            name="font-order"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
+            <input type="hidden" name="form-name" value="font-order" />
+            <input type="hidden" name="bot-field" />
+            <input type="hidden" name="service" value="Font Purchase" />
+            <input
+              type="hidden"
+              name="selected_fonts"
+              id="orderSelectedFonts"
+              value=""
+            />
+            <input
+              type="hidden"
+              name="selected_total"
+              id="orderSelectedTotal"
+              value=""
+            />
+            <input
+              type="hidden"
+              name="selected_count"
+              id="orderSelectedCount"
+              value="0"
+            />
+            <input type="hidden" name="source" value="fonts-page" />
+
+            <div class="font-order-grid">
+              <input
+                class="font-order-input"
+                type="text"
+                name="name"
+                placeholder="ឈ្មោះ​របស់​អ្នក *"
+                required
+              />
+              <input
+                class="font-order-input"
+                type="text"
+                name="phone"
+                placeholder="Telegram / Phone *"
+                required
+              />
+            </div>
+
+            <textarea
+              class="font-order-textarea"
+              name="message"
+              placeholder="បន្ថែមចំណាំ (ជាជម្រើស): style, license, usage..."
+            ></textarea>
+
+            <div class="font-order-msg success" id="fontOrderSuccess">
+              អរគុណ! បញ្ជាទិញ Font របស់អ្នកបានផ្ញើដោយជោគជ័យ ✅
+            </div>
+            <div class="font-order-msg error" id="fontOrderError">
+              មានបញ្ហាក្នុងការផ្ញើ។ សូមសាកម្តងទៀត ឬទាក់ទង Telegram។
+            </div>
+
+            <button
+              type="submit"
+              class="btn-primary"
+              style="display: inline-flex; width: fit-content"
+            >
+              <i class="fas fa-paper-plane"></i> ផ្ញើបញ្ជាទិញ Font ឥឡូវ
+            </button>
+            <div class="font-order-note">
+              បញ្ជាក់: អ្នកអាចជ្រើសច្រើន Font ហើយ submit តែម្តងបាន។
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ BUNDLE ══ -->
+    <section class="bundle-section">
+      <div class="container">
+        <div class="bundle-card reveal">
+          <div class="bundle-content">
+            <div class="bundle-tag">🔥 តម្លៃល្អបំផុត</div>
+            <h2>កញ្ចប់អក្សរ <span class="gradient-text">YOB</span></h2>
+            <p>
+              ទទួលបានអក្សរ Premium ៥ មុខក្នុងតម្លៃពិសេស — សន្សំបាន $40
+              បើប្រៀបធៀបនឹងទិញដាច់ដោយឡែក!
+            </p>
+            <ul class="bundle-list">
+              <li><i class="fas fa-check"></i> YOB Heading Pro ($15)</li>
+              <li><i class="fas fa-check"></i> YOB Modern Serif ($18)</li>
+              <li><i class="fas fa-check"></i> YOB Signature ($20)</li>
+              <li><i class="fas fa-check"></i> YOB Poster Black ($12)</li>
+              <li><i class="fas fa-check"></i> YOB Kbach Retro ($25)</li>
+              <li>
+                <i class="fas fa-check"></i> រួមបញ្ចូលអាជ្ញាប័ណ្ណពាណិជ្ជកម្ម
+              </li>
+              <li><i class="fas fa-check"></i> អាប់ដេតអនាគតឥតគិតថ្លៃ</li>
+            </ul>
+            <a
+              href="index.html?service=Font%20Purchase&font=YOB%20Font%20Bundle&price=50&type=bundle&source=fonts#contact"
+              class="btn-primary"
+              style="display: inline-flex"
+            >
+              <i class="fas fa-shopping-cart"></i> ទិញ Bundle ឥឡូវ
+            </a>
+          </div>
+          <div class="bundle-pricing">
+            <div class="bundle-price-box">
+              <div class="bundle-was">ជំនួស $90.00</div>
+              <div class="bundle-now"><span>$</span>50</div>
+              <div>ក្នុងមួយកញ្ចប់</div>
+            </div>
+            <div class="bundle-save">✅ សន្សំ $40 (បញ្ចុះ 44%)</div>
+            <div
+              style="
+                font-family: var(--fk);
+                font-size: 13px;
+                color: var(--gray);
+              "
+            >
+              ✓ ទាញយកភ្លាម &nbsp; ✓ គ្រប់ format &nbsp; ✓ គាំទ្រ 1 ឆ្នាំ
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ LICENSE ══ -->
+    <section class="license-section" id="license">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">ជម្រើសអាជ្ញាប័ណ្ណ</span>
+          <h2 class="section-title">
+            ជ្រើស <span class="gradient-text">អាជ្ញាប័ណ្ណ</span>
+          </h2>
+        </div>
+        <div class="license-grid">
+          <div class="license-card reveal">
+            <div class="license-name">ផ្ទាល់ខ្លួន</div>
+            <div class="license-price">FREE</div>
+            <ul class="license-features">
+              <li><i class="fas fa-check"></i> Project ផ្ទាល់ខ្លួន</li>
+              <li><i class="fas fa-check"></i> មិនប្រើពាណិជ្ជកម្ម</li>
+              <li><i class="fas fa-check"></i> បណ្ដាញសង្គមផ្ទាល់ខ្លួន</li>
+              <li class="no"><i class="fas fa-times"></i> ប្រើពាណិជ្ជកម្ម</li>
+              <li class="no"><i class="fas fa-times"></i> ការងារអតិថិជន</li>
+              <li class="no"><i class="fas fa-times"></i> រចនាផលិតផល</li>
+            </ul>
+          </div>
+          <div class="license-card popular reveal">
+            <div class="license-name">ពាណិជ្ជកម្ម</div>
+            <div class="license-price">$15–$25 <small>/font</small></div>
+            <ul class="license-features">
+              <li><i class="fas fa-check"></i> Project ពាណិជ្ជកម្ម</li>
+              <li><i class="fas fa-check"></i> ការងារសម្រាប់អតិថិជន</li>
+              <li><i class="fas fa-check"></i> បណ្ដាញសង្គម</li>
+              <li><i class="fas fa-check"></i> ប្រើសម្រាប់ Print & Digital</li>
+              <li><i class="fas fa-check"></i> បង្កប់លើវេបសាយ</li>
+              <li class="no">
+                <i class="fas fa-times"></i> លក់បន្ត / ចែកចាយបន្ត
+              </li>
+            </ul>
+          </div>
+          <div class="license-card reveal">
+            <div class="license-name">កម្រិតពេញ</div>
+            <div class="license-price">$199 <small>/font</small></div>
+            <ul class="license-features">
+              <li><i class="fas fa-check"></i> សិទ្ធិពាណិជ្ជកម្មគ្រប់យ៉ាង</li>
+              <li><i class="fas fa-check"></i> បង្កប់ក្នុង App</li>
+              <li><i class="fas fa-check"></i> បោះពុម្ពបរិមាណធំ</li>
+              <li><i class="fas fa-check"></i> ផ្សាយផ្សព្វផ្សាយ / ទូរទស្សន៍</li>
+              <li><i class="fas fa-check"></i> ផលិតផល SaaS</li>
+              <li><i class="fas fa-check"></i> គាំទ្រអាទិភាព</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ HELP CENTER ══ -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Khmer Font Help Center</span>
+          <h2 class="section-title">
+            មជ្ឈមណ្ឌល <span class="gradient-text">ជំនួយអក្សរខ្មែរ</span>
+          </h2>
+        </div>
+        <div class="help-center-intro reveal">
+          បើអ្នកជួបបញ្ហា install font, keyboard, ឬមិនដឹងប្រើនៅ
+          Word/Figma/Canva/Photoshop យ៉ាងណា, សូមមើលជំហានខាងក្រោម។
+          ទំព័រនេះត្រូវបានរៀបចំឲ្យជាផ្ទះមួយសម្រាប់អ្នកប្រើ Khmer Unicode។
+        </div>
+        <div style="max-width: 720px; margin: 0 auto">
+          <div class="faq-item reveal">
+            <div class="faq-q">
+              តើ Font ជា Unicode ដែរទេ? <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-a">
+              បាទ! YOB Fonts ទាំងអស់ជា Khmer Unicode standard — ប្រើបានក្នុង
+              Word, Photoshop, Illustrator, Figma, web browsers, និង apps
+              ទាំងអស់ដែលគាំទ្រ Unicode។
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-q">
+              ក្រោយទិញ download ដូចម្ដេច? <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-a">
+              ក្រោយ payment confirmed — YOB Digital នឹង reply ជា Telegram ឬ
+              Email ក្នុង ២ ម៉ោង ជាមួយ download link! ប្រសិនបើ urgent ផ្ញើ
+              message ទៅ Telegram @yobdigital ដោយផ្ទាល់។
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-q">
+              Font Free អាចប្រើ Commercial បានទេ? <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-a">
+              Free version = Personal use only (social media personal, school
+              projects, etc.)។ ចង់ប្រើ commercial ត្រូវទិញ Commercial License
+              ក្នុងតម្លៃ $15-$25 ប៉ុណ្ណោះ!
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-q">
+              មាន Trial / Preview version ទេ? <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-a">
+              មាន! ផ្ញើ Telegram @yobdigital ហើយ Babu នឹង send preview file ជូន
+              ដើម្បី test ក្នុង project របស់អ្នក មុន decision ទិញ!
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-q">
+              ប្រើ Font Khmer ក្នុង Microsoft Word ដូចម្តេច?
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-a">
+              បន្ទាប់ពី install font ហើយ បិទ-បើក Word ម្តង, ទៅ Home &gt; Font
+              list រួចជ្រើសឈ្មោះ font Khmer ដែលអ្នកបានដំឡើង។ ប្រសិនបើមើលមិនឃើញ
+              សាក restart Windows ម្តង។
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-q">
+              ប្រើក្នុង Figma និង Canva ត្រូវធ្វើអ្វីខ្លះ?
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-a">
+              Figma Desktop នឹងអាន font ពីម៉ាស៊ីនដោយស្វ័យប្រវត្តិ (restart app
+              ក្រោយ install)។ សម្រាប់ Canva បើ font មិនមានក្នុង library សាធារណៈ
+              សូម upload font នៅ Brand Kit (គម្រោងដែលគាំទ្រ custom fonts)។
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-q">
+              Photoshop/Illustrator អក្សរខ្មែរបែក ឬជាន់គ្នា តើដោះស្រាយដូចម្តេច?
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-a">
+              ត្រូវប្រើ Khmer Unicode font ពិត និងកំណត់ text engine ឲ្យ
+              supporting complex scripts។ បើនៅតែបែក សូម update Adobe app
+              និងពិនិត្យថា keyboard input ជា Khmer Unicode មែនទេ។
+            </div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-q">
+              Custom Font / Bespoke Font service មានទេ?
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-a">
+              មាន! YOB Digital provide custom Khmer font design service សម្រាប់
+              brand identity projects។ Timeline: 4-8 weeks | Price: starting
+              from $500. Contact for quote!
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA ══ -->
+    <section class="prefooter">
+      <div class="container">
+        <div class="prefooter-box reveal">
+          <h2>
+            ត្រូវការ Font <span class="gradient-text">កែតាមតម្រូវការ</span>?
+          </h2>
+          <p>
+            YOB Digital រចនា Font ខ្មែរពិសេសសម្រាប់ម៉ាករបស់អ្នក — ផ្ញើ brief ហើយ
+            Babu នឹងផ្តល់ quote ក្នុង ២ ម៉ោង!
+          </p>
+          <div class="prefooter-actions">
+            <a href="index.html#contact" class="btn-primary"
+              ><i class="fas fa-paper-plane"></i> ស្នើរចនា Font ផ្ទាល់ខ្លួន</
+            >
+            <a
+              href="https://t.me/yobdigital"
+              class="btn-outline"
+              target="_blank"
+              ><i class="fab fa-telegram-plane"></i> Telegram ជាមុន</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ GLYPH MODAL ══ -->
+    <div class="glyph-modal-overlay" id="glyphModalOverlay" role="dialog" aria-modal="true" aria-label="Glyph Viewer">
+      <div class="glyph-modal">
+        <div class="glyph-modal-header">
+          <div>
+            <div class="glyph-modal-title" id="glyphModalFontName">YOB Font</div>
+            <div class="glyph-modal-subtitle">Khmer Character Set — ចុចលើតួអក្សរ ដើម្បីចម្លង</div>
+          </div>
+          <button class="glyph-modal-close" id="glyphModalClose" aria-label="Close"><i class="fas fa-times"></i></button>
+        </div>
+
+        <div class="glyph-section-label">ព្យញ្ជនៈ (Consonants)</div>
+        <div class="glyph-grid" id="glyphConsonants"></div>
+
+        <div class="glyph-section-label">ស្រៈ (Vowels)</div>
+        <div class="glyph-grid" id="glyphVowels"></div>
+
+        <div class="glyph-section-label">លេខខ្មែរ (Khmer Digits)</div>
+        <div class="glyph-grid" id="glyphDigits"></div>
+
+        <div class="glyph-section-label">Preview</div>
+        <div class="glyph-modal-preview" id="glyphPreview">អក្សរ​ខ្មែរ​យប់ ១២៣</div>
+      </div>
+    </div>
+
+    <div class="font-sticky-cta" id="fontStickyCta" aria-live="polite">
+      <div class="font-sticky-inner">
+        <div class="font-sticky-meta">
+          <div class="font-sticky-label">អ្នកបានជ្រើស</div>
+          <div class="font-sticky-name" id="fontStickyName">
+            YOB Heading Pro
+          </div>
+          <div class="font-sticky-price" id="fontStickyPrice">$15.00</div>
+        </div>
+        <div class="font-sticky-actions">
+          <a
+            href="index.html?service=Font%20Purchase&font=YOB%20Heading%20Pro&price=15&type=paid&source=fonts#contact"
+            class="btn-primary"
+            id="fontStickyPrimary"
+            ><i class="fas fa-shopping-cart"></i> បន្តទិញ</a
+          >
+          <a href="#license" class="btn-outline"
+            ><i class="fas fa-shield-alt"></i> មើលអាជ្ញាប័ណ្ណ</a
+          >
+          <button
+            class="font-sticky-close"
+            id="fontStickyClose"
+            aria-label="Close selected font bar"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ MEGA FOOTER ══ -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Float + Back to Top -->
+    <div class="float-contact">
+      <a
+        href="https://t.me/yobdigital"
+        class="fl-btn tg"
+        data-tip="Telegram YOB"
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fab fa-telegram-plane"></i>
+      </a>
+    </div>
+    <button
+      class="back-top"
+      id="backTop"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      aria-label="Back to top"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="js/form-utils.js?v=3" defer></script>
+    <script>
+      const fontCards = document.getElementsByClassName("font-row");
+      const fontHubSearch = document.getElementById("fontHubSearch");
+      const fontHubPreview = document.getElementById("fontHubPreview");
+      const fontHubSize = document.getElementById("fontHubSize");
+      const fontHubSizeLabel = document.getElementById("fontHubSizeLabel");
+      const fontFilterEmpty = document.getElementById("fontFilterEmpty");
+      const stickyBar = document.getElementById("fontStickyCta");
+      const stickyName = document.getElementById("fontStickyName");
+      const stickyPrice = document.getElementById("fontStickyPrice");
+      const stickyPrimary = document.getElementById("fontStickyPrimary");
+      const stickyClose = document.getElementById("fontStickyClose");
+      const orderSection = document.getElementById("fontOrderSection");
+      const orderList = document.getElementById("fontOrderList");
+      const orderTotal = document.getElementById("fontOrderTotal");
+      const orderForm = document.getElementById("fontOrderForm");
+      const orderSuccess = document.getElementById("fontOrderSuccess");
+      const orderError = document.getElementById("fontOrderError");
+      const orderSelectedFonts = document.getElementById("orderSelectedFonts");
+      const orderSelectedTotal = document.getElementById("orderSelectedTotal");
+      const orderSelectedCount = document.getElementById("orderSelectedCount");
+      const selectedFonts = new Map();
+
+      function initPreviewDefaults(scope) {
+        (scope || document).querySelectorAll(".preview-text").forEach((el) => {
+          if (!el.dataset.defaultText) el.dataset.defaultText = el.textContent || "";
+          if (!el.dataset.baseSize) {
+            const parsedSize = parseFloat(window.getComputedStyle(el).fontSize || "0");
+            el.dataset.baseSize = Number.isFinite(parsedSize) ? String(parsedSize) : "24";
+          }
+        });
+      }
+      initPreviewDefaults();
+
+      function getCardSearchText(card) {
+        const parts = [
+          card.dataset.category || "",
+          card.querySelector(".font-name")?.textContent || "",
+          card.querySelector(".fr-meta")?.textContent || "",
+        ];
+        return parts.join(" ").toLowerCase();
+      }
+
+      // Category dropdown + show-more
+      const FONTS_INITIAL_SHOW = 5;
+      const fontCatSelect = document.getElementById("fontCatSelect");
+      const fontShowMore = document.getElementById("fontShowMore");
+      const fontShowMoreBtn = document.getElementById("fontShowMoreBtn");
+      const fontHiddenCount = document.getElementById("fontHiddenCount");
+      let currentCat = "all";
+      let showAllFonts = false;
+
+      function computeCatCounts() {
+        const rows = Array.from(fontCards);
+        if (!fontCatSelect) return;
+        Array.from(fontCatSelect.options).forEach((opt) => {
+          const cat = opt.value;
+          const count = cat === "all"
+            ? rows.length
+            : rows.filter((r) => (r.dataset.category || "").includes(cat)).length;
+          opt.textContent = opt.textContent.replace(/\s*\(\d+\)$/, "") + " (" + count + ")";
+        });
+      }
+
+      function applyFontDisplay() {
+        const keyword = (fontHubSearch?.value || "").trim().toLowerCase();
+        const rows = Array.from(fontCards);
+
+        const filtered = rows.filter((card) => {
+          const cat = card.dataset.category || "";
+          const catMatch = currentCat === "all" || cat.includes(currentCat);
+          const textMatch = !keyword || getCardSearchText(card).includes(keyword);
+          return catMatch && textMatch;
+        });
+
+        const hiddenCount = Math.max(0, filtered.length - FONTS_INITIAL_SHOW);
+
+        rows.forEach((card) => { card.style.display = "none"; });
+        filtered.forEach((card, i) => {
+          card.style.display = (showAllFonts || i < FONTS_INITIAL_SHOW) ? "block" : "none";
+        });
+
+        if (fontShowMore) {
+          if (!showAllFonts && hiddenCount > 0) {
+            fontShowMore.classList.add("visible");
+            if (fontHiddenCount) fontHiddenCount.textContent = hiddenCount;
+          } else {
+            fontShowMore.classList.remove("visible");
+          }
+        }
+
+        if (fontFilterEmpty) {
+          fontFilterEmpty.style.display = filtered.length ? "none" : "block";
+        }
+      }
+
+      fontCatSelect?.addEventListener("change", () => {
+        currentCat = fontCatSelect.value;
+        showAllFonts = false;
+        applyFontDisplay();
+      });
+
+      fontShowMoreBtn?.addEventListener("click", () => {
+        showAllFonts = true;
+        applyFontDisplay();
+      });
+
+      function applyHubPreviewText(value) {
+        const normalized = value.trim();
+        document.querySelectorAll(".preview-text").forEach((el) => {
+          el.textContent = normalized || el.dataset.defaultText || "";
+        });
+      }
+
+      function applyHubPreviewSize(percentValue) {
+        const scale = Number(percentValue) / 100;
+        document.querySelectorAll(".preview-text").forEach((el) => {
+          const baseSize = parseFloat(el.dataset.baseSize || "24");
+          const size = Math.max(14, baseSize * scale);
+          el.style.fontSize = size.toFixed(2) + "px";
+        });
+        if (fontHubSizeLabel) {
+          fontHubSizeLabel.textContent = percentValue + "%";
+        }
+      }
+
+      function parsePrice(rawPrice) {
+        const normalized = (rawPrice || "").toUpperCase();
+        if (!normalized || normalized.includes("FREE")) return 0;
+        const numeric = parseFloat(normalized.replace(/[^0-9.]/g, ""));
+        return Number.isFinite(numeric) ? numeric : 0;
+      }
+
+      function getCardInfo(card) {
+        const name =
+          card.querySelector(".font-name")?.textContent?.trim() || "YOB Font";
+        const priceLabel =
+          card.querySelector(".font-price")?.textContent?.trim() || "";
+        const priceValue = parsePrice(priceLabel);
+        return { name: name, priceLabel: priceLabel, priceValue: priceValue };
+      }
+
+      function renderOrderList() {
+        const items = Array.from(selectedFonts.values());
+        const total = items.reduce((sum, item) => sum + item.priceValue, 0);
+
+        orderList.innerHTML = "";
+        items.forEach((item) => {
+          const li = document.createElement("li");
+          li.className = "font-order-item";
+          li.innerHTML =
+            '<div><div class="font-order-item-name">' +
+            item.name +
+            '</div><div class="font-order-item-price">' +
+            item.priceLabel +
+            "</div></div>" +
+            '<button type="button" class="font-order-remove" data-remove-name="' +
+            item.name +
+            '" aria-label="Remove font"><i class="fas fa-times"></i></button>';
+          orderList.appendChild(li);
+        });
+
+        if (!items.length) {
+          orderSection.classList.remove("show");
+          orderTotal.textContent = "បានជ្រើស 0 Font · $0";
+          orderSelectedFonts.value = "";
+          orderSelectedTotal.value = "0";
+          orderSelectedCount.value = "0";
+          return;
+        }
+
+        orderSection.classList.add("show");
+        orderTotal.textContent =
+          "បានជ្រើស " + items.length + " Font · $" + total.toFixed(2);
+        orderSelectedFonts.value = items
+          .map((item) => item.name + " (" + item.priceLabel + ")")
+          .join(" | ");
+        orderSelectedTotal.value = total.toFixed(2);
+        orderSelectedCount.value = String(items.length);
+      }
+
+      function addCardToOrder(card, shouldScroll) {
+        const info = getCardInfo(card);
+        selectedFonts.set(info.name, info);
+        renderOrderList();
+        if (shouldScroll) {
+          orderSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+
+      function selectFontCard(card) {
+        if (!card) return;
+        if (!card.querySelector(".font-price")) return;
+        Array.from(fontCards).forEach((c) => c.classList.remove("row-selected"));
+        card.classList.add("row-selected");
+
+        const name =
+          card.querySelector(".font-name")?.textContent?.trim() || "YOB Font";
+        const price =
+          card.querySelector(".font-price")?.textContent?.trim() || "";
+        const isFree = !!card.querySelector(".btn-free");
+
+        stickyName.textContent = name;
+        stickyPrice.textContent = price;
+        stickyPrimary.setAttribute("href", "#fontOrderSection");
+        stickyPrimary.innerHTML = isFree
+          ? '<i class="fas fa-download"></i> ទាញយកឥឡូវ'
+          : '<i class="fas fa-shopping-cart"></i> បញ្ចូលក្នុងបញ្ជីទិញ';
+
+        stickyBar.classList.add("show");
+      }
+
+      fontHubSearch?.addEventListener("input", () => {
+        showAllFonts = false;
+        applyFontDisplay();
+      });
+
+      fontHubPreview?.addEventListener("input", () => {
+        applyHubPreviewText(fontHubPreview.value || "");
+      });
+
+      fontHubSize?.addEventListener("input", () => {
+        applyHubPreviewSize(fontHubSize.value);
+      });
+
+      // Tracking (letter-spacing)
+      const fontTracking = document.getElementById("fontTracking");
+      const fontTrackingLabel = document.getElementById("fontTrackingLabel");
+      function applyHubPreviewTracking(value) {
+        document.querySelectorAll(".preview-text").forEach((el) => {
+          el.style.letterSpacing = value + "px";
+        });
+        if (fontTrackingLabel) fontTrackingLabel.textContent = Number(value).toFixed(1) + "px";
+      }
+      fontTracking?.addEventListener("input", () => applyHubPreviewTracking(fontTracking.value));
+
+      // Weight pills
+      const weightPillBtns = document.querySelectorAll(".weight-pill");
+      weightPillBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          weightPillBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          document.querySelectorAll(".preview-text").forEach((el) => {
+            el.style.fontWeight = btn.dataset.weight;
+          });
+        });
+      });
+
+      // Light/Dark preview background toggle
+      const previewBgToggle = document.getElementById("previewBgToggle");
+      const fontsListContainer = document.getElementById("fonts-grid");
+      previewBgToggle?.addEventListener("click", () => {
+        previewBgToggle.classList.toggle("active");
+        fontsListContainer?.classList.toggle("preview-light");
+      });
+
+      // Event delegation
+      const fontsGridEl = document.getElementById("fonts-grid");
+      fontsGridEl?.addEventListener("click", (event) => {
+        if (event.target.closest("a, button")) return;
+        const card = event.target.closest(".font-row");
+        if (card && card.querySelector(".font-price")) selectFontCard(card);
+      });
+
+      stickyPrimary?.addEventListener("click", (event) => {
+        if (stickyPrimary.textContent.includes("ទាញយក")) return;
+        event.preventDefault();
+        const selectedCard = document.querySelector(".font-row.row-selected");
+        if (selectedCard) {
+          addCardToOrder(selectedCard, true);
+        }
+      });
+
+      orderList?.addEventListener("click", (event) => {
+        const removeBtn = event.target.closest("[data-remove-name]");
+        if (!removeBtn) return;
+        const name = removeBtn.getAttribute("data-remove-name");
+        if (!name) return;
+        selectedFonts.delete(name);
+        renderOrderList();
+      });
+
+      orderForm?.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        orderSuccess.style.display = "none";
+        orderError.style.display = "none";
+
+        if (!selectedFonts.size) {
+          orderError.textContent = "សូមជ្រើស Font យ៉ាងហោចណាស់ 1 មុនពេលផ្ញើ។";
+          orderError.style.display = "block";
+          return;
+        }
+
+        try {
+          await window.YOBFormUtils.submitNetlifyForm(orderForm);
+          orderSuccess.style.display = "block";
+          orderForm.reset();
+          selectedFonts.clear();
+          renderOrderList();
+          window.YOBFormUtils.track("form_submit_success", {
+            form: "fonts_order",
+          });
+        } catch (error) {
+          orderError.textContent =
+            "មានបញ្ហាក្នុងការផ្ញើ។ សូមសាកម្តងទៀត ឬទាក់ទង Telegram។";
+          orderError.style.display = "block";
+          window.YOBFormUtils.track("form_submit_error", {
+            form: "fonts_order",
+            reason: "network_or_server",
+          });
+        }
+      });
+
+      stickyClose?.addEventListener("click", () => {
+        stickyBar.classList.remove("show");
+        Array.from(fontCards).forEach((c) => c.classList.remove("row-selected"));
+      });
+
+      computeCatCounts();
+      applyFontDisplay();
+      if (fontHubSize) {
+        applyHubPreviewSize(fontHubSize.value);
+      }
+
+      const fontParam = new URLSearchParams(window.location.search).get("font");
+      if (fontParam) {
+        const normalized = fontParam.toLowerCase();
+        const matched = Array.from(fontCards).find((card) => {
+          const name =
+            card.querySelector(".font-name")?.textContent?.toLowerCase() || "";
+          return name.includes(normalized);
+        });
+        if (matched) {
+          selectFontCard(matched);
+          matched.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+
+      // ── GLYPH MODAL ──
+      const glyphOverlay   = document.getElementById("glyphModalOverlay");
+      const glyphModalClose = document.getElementById("glyphModalClose");
+      const glyphModalFontName = document.getElementById("glyphModalFontName");
+      const glyphPreview   = document.getElementById("glyphPreview");
+      const CONSONANTS = "ក ខ គ ឃ ង ច ឆ ជ ឈ ញ ដ ឋ ឌ ឍ ណ ត ថ ទ ធ ន ប ផ ព ភ ម យ រ ល វ ស ហ ឡ អ".split(" ");
+      const VOWELS     = "ា ិ ី ឹ ឺ ុ ូ ួ ើ ឿ ៀ េ ែ ៃ ោ ៅ ំ ះ ៈ".split(" ");
+      const DIGITS     = "០ ១ ២ ៣ ៤ ៥ ៦ ៧ ៨ ៩".split(" ");
+
+      function buildGlyphGrid(containerId, chars, fontCss) {
+        const el = document.getElementById(containerId);
+        if (!el) return;
+        el.innerHTML = "";
+        chars.forEach(ch => {
+          const span = document.createElement("span");
+          span.className = "glyph-char";
+          span.textContent = ch;
+          span.style.fontFamily = fontCss;
+          span.title = "ចម្លង " + ch;
+          span.addEventListener("click", () => {
+            navigator.clipboard?.writeText(ch).catch(() => {});
+            span.style.background = "rgba(229,44,103,0.25)";
+            setTimeout(() => { span.style.background = ""; }, 500);
+          });
+          el.appendChild(span);
+        });
+      }
+
+      function openGlyphModal(fontName, fontCss) {
+        if (!glyphOverlay) return;
+        glyphModalFontName.textContent = fontName;
+        glyphPreview.style.fontFamily = fontCss;
+        buildGlyphGrid("glyphConsonants", CONSONANTS, fontCss);
+        buildGlyphGrid("glyphVowels",     VOWELS,     fontCss);
+        buildGlyphGrid("glyphDigits",     DIGITS,     fontCss);
+        glyphOverlay.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeGlyphModal() {
+        glyphOverlay?.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      glyphModalClose?.addEventListener("click", closeGlyphModal);
+      glyphOverlay?.addEventListener("click", (e) => {
+        if (e.target === glyphOverlay) closeGlyphModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeGlyphModal();
+      });
+
+      document.querySelectorAll(".btn-open-glyph").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const fontName = btn.dataset.fontName || "YOB Font";
+          const fontCss  = btn.dataset.fontCss  || "var(--fk)";
+          openGlyphModal(fontName, fontCss);
+        });
+      });
+
+      // FAQ accordion
+      document.querySelectorAll(".faq-q").forEach((q) => {
+        q.addEventListener("click", () => {
+          const item = q.parentElement;
+          const wasOpen = item.classList.contains("open");
+          document
+            .querySelectorAll(".faq-item")
+            .forEach((i) => i.classList.remove("open"));
+          if (!wasOpen) item.classList.add("open");
+        });
+      });
+    </script>
+    <script src="js/load-components.js?v=3"></script>
+    <script src="js/main.js?v=3" defer></script>
+  </body>
+</html>

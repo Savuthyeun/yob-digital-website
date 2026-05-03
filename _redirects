@@ -9,7 +9,8 @@
 /index.html / 301!
 /about.html /about 301!
 /grow.html /grow 301!
-/fonts.html /fonts 301!
+/fonts.html /yobfont 301!
+/yobfont.html /yobfont 301!
 /docs.html /docs 301!
 /case-studies.html /case-studies 301!
 /resources.html /resources 301!
@@ -23,7 +24,8 @@
 
 /about /about.html 200
 /grow /grow.html 200
-/fonts /fonts.html 200
+/fonts /yobfont.html 301!
+/yobfont /yobfont.html 200
 /docs /docs.html 200
 /case-studies /case-studies.html 200
 /resources /resources.html 200
