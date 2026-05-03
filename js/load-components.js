@@ -5,29 +5,78 @@
   const NAV_HTML = `
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-logo">យប់<span>.</span>ឌីជីថល</a>
-    <ul class="nav-links">
-      <li><a href="/yob-learning" data-page="yob-learning">ជំនាញឌីជីថល</a></li>
-      <li><a href="/docs" data-page="docs">ឯកសារមេរៀន</a></li>
-      <li><a href="/case-studies" data-page="case-studies">កម្រងស្នាដៃ</a></li>
-      <li class="nav-has-dropdown">
-        <a href="#" class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">តូបឌីជីថល <i class="fas fa-chevron-down"></i></a>
-        <ul class="nav-dropdown">
-          <li><a href="/fonts" data-page="fonts"><i class="fas fa-font"></i> YOB អក្ខរា</a></li>
-          <li><a href="/resources" data-page="resources"><i class="fas fa-toolbox"></i> កាដូឌីជីថល</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/contact" class="nav-cta">សាកសួរ
-          <i class="fas fa-paper-plane" style="margin-left:5px"></i>
-        </a>
-      </li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+
+    <!-- LEFT: Logo + 2 links -->
+    <div class="nav-left">
+      <a href="/" class="nav-logo">យប់<span>.</span>ឌីជីថល</a>
+      <ul class="nav-links">
+        <li><a href="/yob-learning" data-page="yob-learning">ជំនាញឌីជីថល</a></li>
+        <li><a href="/docs" data-page="docs">ឯកសារមេរៀន</a></li>
+      </ul>
+    </div>
+
+    <!-- CENTER: Search pill -->
+    <div class="nav-center">
+      <button class="nav-search-pill" id="navSearchPill" onclick="openNavSearch()" type="button" aria-label="Search">
+        <i class="fas fa-search"></i>
+        <span class="nsp-text">ស្វែងរក lesson, tool...</span>
+        <span class="nsp-kbd">⌘K</span>
+      </button>
+    </div>
+
+    <!-- RIGHT: 3 links + mobile search icon + hamburger -->
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="/case-studies" data-page="case-studies">កម្រងស្នាដៃ</a></li>
+        <li class="nav-has-dropdown">
+          <a href="#" class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">តូបឌីជីថល <i class="fas fa-chevron-down"></i></a>
+          <ul class="nav-dropdown">
+            <li><a href="/yobfont" data-page="fonts"><i class="fas fa-font"></i> YOB អក្ខរា</a></li>
+            <li><a href="/resources" data-page="resources"><i class="fas fa-toolbox"></i> កាដូឌីជីថល</a></li>
+          </ul>
+        </li>
+        <li><a href="/contact" class="nav-cta">សាកសួរ <i class="fas fa-paper-plane" style="margin-left:5px"></i></a></li>
+      </ul>
+      <button class="nav-search-icon-btn" onclick="openNavSearch()" type="button" aria-label="Search">
+        <i class="fas fa-search"></i>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
   </div>
-</nav>`;
+</nav>
+
+<!-- Global Search Modal -->
+<div class="nav-search-modal" id="navSearchModal" role="dialog" aria-modal="true" aria-label="Search">
+  <div class="nsm-backdrop" id="nsmBackdrop"></div>
+  <div class="nsm-panel">
+    <div class="nsm-header">
+      <i class="fas fa-search"></i>
+      <input type="text" id="nsmInput" placeholder="ស្វែងរក lesson, ឧបករណ៍, template..." autocomplete="off" spellcheck="false" />
+      <kbd class="nsm-esc-hint">ESC</kbd>
+    </div>
+    <div class="nsm-filters" id="nsmFilters">
+      <button class="nsm-filter active" data-filter="all">ទាំងអស់</button>
+      <button class="nsm-filter" data-filter="ai"><span class="nsm-fdot" style="background:#e52c67"></span>AI Tools</button>
+      <button class="nsm-filter" data-filter="strategy"><span class="nsm-fdot" style="background:#4f82ff"></span>Strategy</button>
+      <button class="nsm-filter" data-filter="web"><span class="nsm-fdot" style="background:#00f0ff"></span>Web</button>
+      <button class="nsm-filter" data-filter="typography"><span class="nsm-fdot" style="background:#9b6bff"></span>Typography</button>
+      <button class="nsm-filter" data-filter="resource"><span class="nsm-fdot" style="background:#4ade80"></span>Resources</button>
+    </div>
+    <div class="nsm-results" id="nsmResults"></div>
+    <div class="nsm-empty" id="nsmEmpty">
+      <i class="fas fa-search"></i>
+      <p>រកមិនឃើញ — សាកល្បង keyword ផ្សេង</p>
+    </div>
+    <div class="nsm-footer">
+      <span><kbd>↑↓</kbd> navigate</span>
+      <span><kbd>↵</kbd> open</span>
+      <span><kbd>ESC</kbd> close</span>
+    </div>
+  </div>
+</div>`;
 
   const FOOTER_HTML = `
 <footer class="ft">

@@ -684,3 +684,238 @@ reveals.forEach((el) => observer.observe(el));
     });
   }
 })();
+
+// ═══════════════════════════════════════════════
+// GLOBAL NAV SEARCH — Cmd+K
+// ═══════════════════════════════════════════════
+(function () {
+
+  // ── Search index ──
+  const CAT_META = {
+    ai:         { label: 'AI Tools',         color: '#e52c67', bg: 'rgba(229,44,103,0.12)'  },
+    strategy:   { label: 'Strategy',         color: '#4f82ff', bg: 'rgba(79,130,255,0.12)'  },
+    web:        { label: 'Web',              color: '#00f0ff', bg: 'rgba(0,240,255,0.10)'   },
+    typography: { label: 'Typography',       color: '#9b6bff', bg: 'rgba(155,107,255,0.12)' },
+    resource:   { label: 'Resources',        color: '#4ade80', bg: 'rgba(74,222,128,0.10)'  },
+    page:       { label: 'Pages',            color: '#8b949e', bg: 'rgba(139,148,158,0.10)' },
+  };
+
+  const INDEX = [
+    // Pages
+    { title:'ទំព័រដើម',          desc:'YOB Digital — AI & Digital Skills for Cambodia', cat:'page',       icon:'fa-home',           href:'/',             action:null },
+    { title:'Documentation',      desc:'ឯកសារមេរៀន · AI · Strategy · Web · Typography',  cat:'page',       icon:'fa-book',           href:'/docs',         action:null },
+    { title:'YOB Learning',       desc:'ជំនាញឌីជីថល — Courses & Workshops',               cat:'page',       icon:'fa-graduation-cap', href:'/yob-learning', action:null },
+    { title:'Case Studies',       desc:'Project ជោគជ័យ — Real Cambodian Businesses',      cat:'page',       icon:'fa-chart-bar',      href:'/case-studies', action:null },
+    { title:'YOB Fonts',          desc:'Khmer Font Shop — Premium & Free Fonts',            cat:'typography', icon:'fa-font',           href:'/yobfont',      action:null },
+    { title:'Free Resources',     desc:'Templates, Guides, Checklists — Free Download',    cat:'resource',   icon:'fa-gift',           href:'/resources',    action:null },
+    { title:'About YOB',          desc:'អំពី YOB Digital — Mission & Team',                cat:'page',       icon:'fa-info-circle',    href:'/about',        action:null },
+    // AI Lessons
+    { title:'AI Overview',        desc:'Claude vs ChatGPT vs Gemini · Use cases',          cat:'ai',         icon:'fa-robot',          href:'/docs', action:'ai-overview' },
+    { title:'Prompt Engineering', desc:'RTFT Framework · Templates · Advanced',            cat:'ai',         icon:'fa-terminal',       href:'/docs', action:'prompt-engineering' },
+    { title:'AI Content Creation',desc:'Caption · Blog · Video Script · 30-Day',          cat:'ai',         icon:'fa-pen-nib',        href:'/docs', action:'ai-content' },
+    { title:'AI Tools Directory', desc:'Top 20+ AI tools · Free vs Paid · YOB picks',     cat:'ai',         icon:'fa-toolbox',        href:'/docs', action:'ai-tools-list' },
+    { title:'Automation Guide',   desc:'ManyChat · Zapier · DM Auto-reply · Leads',       cat:'ai',         icon:'fa-cogs',           href:'/docs', action:'automation' },
+    { title:'Automation Setup',   desc:'Make.com · Zapier Workflows · Templates',         cat:'ai',         icon:'fa-sliders-h',      href:'/docs', action:'automation-setup' },
+    { title:'AI Workflow Daily',  desc:'Morning → Content → Review · AI Routine',         cat:'ai',         icon:'fa-project-diagram',href:'/docs', action:'ai-workflow' },
+    // Strategy
+    { title:'Strategy Overview',  desc:'Full-funnel framework · 3x ROAS blueprint',       cat:'strategy',   icon:'fa-chess',          href:'/docs', action:'strategy-overview' },
+    { title:'Customer Persona',   desc:'Profile Customer · Content Hit · Ads Cost ទាប',   cat:'strategy',   icon:'fa-user-check',     href:'/docs', action:'customer-persona' },
+    { title:'Content Planning',   desc:'Plan ១ ខែ ក្នុង ២ ម៉ោង — AI-powered',             cat:'strategy',   icon:'fa-calendar-alt',   href:'/docs', action:'content-plan' },
+    { title:'Social Media',       desc:'Facebook · TikTok · Algorithm · Posting Time',    cat:'strategy',   icon:'fa-share-alt',      href:'/docs', action:'social-media' },
+    { title:'Facebook Ads Setup', desc:'Campaign · Ad Set · Creative · $5–10/day',        cat:'strategy',   icon:'fa-ad',             href:'/docs', action:'ads-setup' },
+    { title:'Analytics & Data',   desc:'Meta Insights · GA4 · KPIs · Weekly Reports',    cat:'strategy',   icon:'fa-chart-line',     href:'/docs', action:'analytics' },
+    // Web
+    { title:'Web Overview',       desc:'Website types · Tech stack · When you need one',  cat:'web',        icon:'fa-globe',          href:'/docs', action:'web-overview' },
+    { title:'Landing Page',       desc:'High-converting structure · CTA · Mobile first',  cat:'web',        icon:'fa-file-code',      href:'/docs', action:'landing-page-blueprint' },
+    { title:'HTML Basics',        desc:'Tags · Structure · Semantic HTML · Khmer text',   cat:'web',        icon:'fa-code',           href:'/docs', action:'html-basics' },
+    { title:'GitHub + Netlify',   desc:'Deploy FREE · Version control · Custom domain',   cat:'web',        icon:'fa-server',         href:'/docs', action:'github-netlify' },
+    { title:'LMS Setup',          desc:'Online course · Telegram LMS · Sell knowledge',   cat:'web',        icon:'fa-graduation-cap', href:'/docs', action:'lms-setup' },
+    // Typography
+    { title:'Fonts Overview',     desc:'Khmer typography · Unicode vs legacy · YOB fonts',cat:'typography', icon:'fa-font',           href:'/docs', action:'fonts-overview' },
+    { title:'Install Fonts',      desc:'Windows · Mac · Mobile · App compatibility',      cat:'typography', icon:'fa-download',       href:'/docs', action:'font-install' },
+    { title:'License Guide',      desc:'Personal vs Commercial · SIL OFL · Credits',      cat:'typography', icon:'fa-file-contract',  href:'/docs', action:'font-license' },
+    { title:'Khmer Keyboard Setup',desc:'NiDA layout · Win/Mac/Android/iOS · Practice',  cat:'typography', icon:'fa-keyboard',       href:'/docs', action:'font-setup' },
+    // Resources
+    { title:'FAQ',                desc:'Common Questions & Answers',                       cat:'resource',   icon:'fa-question-circle',href:'/docs', action:'faq' },
+    { title:'Changelog',          desc:'Site updates · New features · Improvements',      cat:'resource',   icon:'fa-list',           href:'/docs', action:'changelog' },
+  ];
+
+  // ── State ──
+  let activeFilter = 'all';
+  let activeIndex  = -1;
+  let filteredItems = [];
+
+  // ── Open / close ──
+  window.openNavSearch = function () {
+    const modal = document.getElementById('navSearchModal');
+    if (!modal) return;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    activeFilter = 'all';
+    activeIndex  = -1;
+    document.querySelectorAll('.nsm-filter').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+    setTimeout(() => {
+      const inp = document.getElementById('nsmInput');
+      if (inp) { inp.value = ''; inp.focus(); }
+      renderResults('');
+    }, 60);
+  };
+
+  function closeSearch() {
+    const modal = document.getElementById('navSearchModal');
+    if (!modal) return;
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ── Filter & render ──
+  function renderResults(query) {
+    const q = query.toLowerCase().trim();
+    let items = INDEX;
+    if (activeFilter !== 'all') items = items.filter(i => i.cat === activeFilter);
+    if (q) {
+      items = items.filter(i =>
+        i.title.toLowerCase().includes(q) ||
+        i.desc.toLowerCase().includes(q) ||
+        i.cat.toLowerCase().includes(q)
+      );
+    } else {
+      items = items.slice(0, 10);
+    }
+    filteredItems = items;
+    activeIndex = -1;
+
+    const container = document.getElementById('nsmResults');
+    const empty     = document.getElementById('nsmEmpty');
+    if (!container) return;
+
+    if (!items.length) {
+      container.innerHTML = '';
+      if (empty) { empty.style.display = 'flex'; }
+      return;
+    }
+    if (empty) empty.style.display = 'none';
+
+    // Group by category
+    const groups = {};
+    items.forEach(item => {
+      if (!groups[item.cat]) groups[item.cat] = [];
+      groups[item.cat].push(item);
+    });
+
+    let html = '';
+    Object.entries(groups).forEach(([cat, catItems]) => {
+      const meta = CAT_META[cat] || { label: cat, color: '#8b949e', bg: 'rgba(139,148,158,0.1)' };
+      html += `<div class="nsm-group-label">${meta.label}</div>`;
+      catItems.forEach((item, i) => {
+        const globalIdx = filteredItems.indexOf(item);
+        const badgeType = item.action ? 'Lesson' : (item.cat === 'page' ? 'Page' : 'Resource');
+        html += `<div class="nsm-item" data-idx="${globalIdx}" onclick="selectResult(${globalIdx})">
+          <div class="nsm-item-icon" style="background:${meta.bg};color:${meta.color}">
+            <i class="fas ${item.icon}"></i>
+          </div>
+          <div class="nsm-item-body">
+            <div class="nsm-item-title">${highlightMatch(item.title, query)}</div>
+            <div class="nsm-item-desc">${item.desc}</div>
+          </div>
+          <span class="nsm-item-badge" style="background:${meta.bg};color:${meta.color}">${badgeType}</span>
+          <i class="fas fa-arrow-right nsm-item-arrow"></i>
+        </div>`;
+      });
+    });
+    container.innerHTML = html;
+  }
+
+  function highlightMatch(text, query) {
+    if (!query || !query.trim()) return text;
+    const re = new RegExp('(' + query.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+    return text.replace(re, '<mark style="background:rgba(229,44,103,0.25);color:inherit;border-radius:2px;padding:0 1px">$1</mark>');
+  }
+
+  window.selectResult = function (idx) {
+    const item = filteredItems[idx];
+    if (!item) return;
+    closeSearch();
+    if (item.action) {
+      // Navigate to docs and load lesson
+      if (window.loadPage && document.getElementById('docsMain')) {
+        loadPage(item.action);
+      } else {
+        sessionStorage.setItem('yob_open_lesson', item.action);
+        window.location.href = item.href;
+      }
+    } else {
+      window.location.href = item.href;
+    }
+  };
+
+  // Auto-open lesson if navigated from search
+  (function () {
+    const lesson = sessionStorage.getItem('yob_open_lesson');
+    if (lesson && window.loadPage) {
+      sessionStorage.removeItem('yob_open_lesson');
+      setTimeout(() => loadPage(lesson), 400);
+    }
+  })();
+
+  // ── Keyboard navigation ──
+  function setActiveItem(idx) {
+    const items = document.querySelectorAll('.nsm-item');
+    items.forEach(el => el.classList.remove('nsm-active'));
+    if (idx >= 0 && idx < items.length) {
+      items[idx].classList.add('nsm-active');
+      items[idx].scrollIntoView({ block: 'nearest' });
+    }
+    activeIndex = idx;
+  }
+
+  document.addEventListener('keydown', function (e) {
+    const modal = document.getElementById('navSearchModal');
+    const isOpen = modal && modal.classList.contains('open');
+
+    // Cmd/Ctrl+K to open
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      isOpen ? closeSearch() : openNavSearch();
+      return;
+    }
+    if (!isOpen) return;
+
+    if (e.key === 'Escape') { closeSearch(); return; }
+
+    const items = document.querySelectorAll('.nsm-item');
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActiveItem(Math.min(activeIndex + 1, items.length - 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActiveItem(Math.max(activeIndex - 1, 0));
+    } else if (e.key === 'Enter' && activeIndex >= 0) {
+      e.preventDefault();
+      selectResult(activeIndex);
+    }
+  });
+
+  // ── Event wiring (runs after DOM ready) ──
+  document.addEventListener('DOMContentLoaded', function () {
+    // Input
+    const inp = document.getElementById('nsmInput');
+    if (inp) inp.addEventListener('input', () => renderResults(inp.value));
+
+    // Filter pills
+    document.querySelectorAll('.nsm-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeFilter = btn.dataset.filter;
+        document.querySelectorAll('.nsm-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const q = document.getElementById('nsmInput');
+        renderResults(q ? q.value : '');
+      });
+    });
+
+    // Backdrop click
+    const backdrop = document.getElementById('nsmBackdrop');
+    if (backdrop) backdrop.addEventListener('click', closeSearch);
+  });
+
+})();
