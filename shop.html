@@ -44,161 +44,106 @@
        Prefix: shp- / sh- / sc-  |  keyframes: ds-*
        ═══════════════════════════════════ */
 
-    /* ── Category Browse Panel ── */
-    .shp-panel {
-      margin-top: 68px;
-      padding: 44px 40px 40px;
-      border-bottom: 1px solid var(--border);
-      background: var(--dark);
-    }
-    .shp-inner {
-      max-width: 1440px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-    }
-    .shp-col-label {
-      font-family: var(--fb);
-      font-size: 11px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--gray);
-      display: block;
-      margin-bottom: 18px;
-    }
-    .shp-link {
-      display: block;
-      font-family: var(--fb);
-      font-size: 18px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.82);
-      text-decoration: none;
-      line-height: 1;
-      margin-bottom: 14px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-      text-align: left;
-      transition: color 0.15s;
-    }
-    .shp-link:last-child { margin-bottom: 0; }
-    .shp-link:hover { color: var(--white); }
-    .shp-link.active { color: var(--gold); }
-
-    /* ── Sticky Tab Bar ── */
-    .sh-tabbar {
+    /* ── Chip Filter Bar ── */
+    .sh-chipbar {
       position: sticky;
       top: 68px;
       z-index: 88;
       background: var(--dark);
       border-bottom: 1px solid var(--border);
+      margin-top: 68px;
     }
-    .sh-tabbar-inner {
-      max-width: 1440px;
+    .sh-chipbar-inner {
+      max-width: var(--max);
       margin: 0 auto;
       padding: 0 40px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      min-height: 50px;
+      gap: 6px;
+      min-height: 56px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
-    .sh-tab-group {
+    .sh-chips {
       display: flex;
       align-items: center;
+      gap: 6px;
       flex-shrink: 0;
     }
-    /* Segmented pill toggle (All / Free) */
-    .sh-seg {
-      display: flex;
-      align-items: center;
-      background: rgba(255,255,255,0.07);
-      border-radius: 6px;
-      padding: 3px;
-      gap: 2px;
-    }
-    .sh-seg-btn {
-      padding: 5px 14px;
-      border-radius: 4px;
-      border: none;
-      background: transparent;
-      color: rgba(255,255,255,0.42);
-      font-family: var(--fb);
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.15s;
-      white-space: nowrap;
-      line-height: 1.4;
-    }
-    .sh-seg-btn.active {
-      background: var(--white);
-      color: var(--dark2);
-      font-weight: 600;
-    }
-    /* Separator between seg and tabs */
-    .sh-sep {
-      width: 1px;
-      height: 16px;
-      background: var(--border2);
-      margin: 0 12px;
-      flex-shrink: 0;
-      align-self: center;
-    }
-    /* Text tabs */
-    .sh-tab {
-      padding: 15px 16px;
-      font-family: var(--fb);
-      font-size: 14px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.38);
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      cursor: pointer;
-      margin-bottom: -1px;
-      transition: color 0.16s, border-color 0.16s;
-      white-space: nowrap;
-    }
-    .sh-tab:hover { color: rgba(255,255,255,0.75); }
-    .sh-tab.active { color: var(--white); font-weight: 600; border-bottom-color: var(--white); }
-    /* Right side */
-    .sh-tabbar-right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-shrink: 0;
-    }
-    .sh-count-badge {
-      font-family: var(--fb);
-      font-size: 13px;
-      color: rgba(255,255,255,0.3);
-    }
-    .sh-count-badge strong { color: var(--white); }
-    /* Filter button — clean text + icon, no box */
-    .sh-filter-btn {
+    .sh-chip {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      background: none;
-      border: none;
+      gap: 6px;
+      padding: 7px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
       color: rgba(255,255,255,0.55);
       font-family: var(--fb);
       font-size: 14px;
       font-weight: 500;
       cursor: pointer;
-      transition: color 0.15s;
-      padding: 0;
+      white-space: nowrap;
+      transition: color 0.14s, border-color 0.14s, background 0.14s;
+      flex-shrink: 0;
     }
-    .sh-filter-btn:hover { color: var(--white); }
-    .sh-filter-btn i { font-size: 14px; }
+    .sh-chip:hover {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.08);
+    }
+    .sh-chip.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+      font-weight: 600;
+    }
+    .sh-chip-sm { padding: 6px 13px; font-size: 13px; }
+    .sh-chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .sh-cb-sep {
+      width: 1px;
+      height: 18px;
+      background: var(--border2);
+      margin: 0 8px;
+      flex-shrink: 0;
+    }
+    .sh-cb-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .sh-sort-sel {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      color: rgba(255,255,255,0.55);
+      font-family: var(--fb);
+      font-size: 13px;
+      padding: 6px 28px 6px 12px;
+      cursor: pointer;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238b949e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 9px center;
+      transition: border-color 0.14s, color 0.14s;
+    }
+    .sh-sort-sel:hover { border-color: rgba(255,255,255,0.22); color: var(--white); }
+    .sh-sort-sel option { background: #161b22; color: var(--white); }
+    .sh-count-badge {
+      font-family: var(--fb);
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+      white-space: nowrap;
+    }
+    .sh-count-badge strong { color: var(--white); }
 
     /* ── Content area ── */
     .sh-content {
-      max-width: 1440px;
+      max-width: var(--max);
       margin: 0 auto;
       padding: 32px 40px 100px;
     }
@@ -426,7 +371,7 @@
     /* ── CTA banner ── */
     .sh-cta {
       padding: 0 40px 100px;
-      max-width: 1440px;
+      max-width: var(--max);
       margin: 0 auto;
     }
     .sh-cta-inner {
@@ -461,6 +406,270 @@
       .sc-wide { grid-column: span 1; }
       .sc-wide .sc-prev { height: 196px; }
       .sh-cta-inner { padding: 40px 24px; }
+    }
+
+    /* ════════════════════════════════
+       REMOVED: filter popover (replaced by chip bar)
+       ════════════════════════════════ */
+    /*
+    .shf-popover {
+      position: fixed;
+      z-index: 999;
+      width: 860px;
+      max-width: calc(100vw - 32px);
+      background: #0d1117;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04);
+      opacity: 0;
+      transform: translateY(-10px) scale(0.97);
+      pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      max-height: calc(100vh - 150px);
+    }
+    .shf-popover.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+    .shf-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 998;
+      display: none;
+    }
+    .shf-backdrop.open { display: block; }
+
+    /* Header */
+    .shf-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      flex-shrink: 0;
+    }
+    .shf-search-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 11px 16px;
+      transition: border-color 0.15s;
+    }
+    .shf-search-wrap:focus-within { border-color: rgba(255,255,255,0.25); }
+    .shf-search-wrap > i { color: var(--gray); font-size: 14px; flex-shrink: 0; }
+    .shf-search-input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      color: var(--white);
+      font-family: var(--fb);
+      font-size: 15px;
+      min-width: 0;
+    }
+    .shf-search-input::placeholder { color: rgba(255,255,255,0.2); }
+    .shf-close-btn {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      color: var(--gray);
+      cursor: pointer;
+      font-size: 14px;
+      flex-shrink: 0;
+      transition: color 0.14s, background 0.14s;
+    }
+    .shf-close-btn:hover { color: var(--white); background: rgba(255,255,255,0.1); }
+
+    /* Main content area — no sidebar, scroll directly */
+    .shf-main {
+      overflow-y: auto;
+      padding: 24px 28px 8px;
+    }
+
+    /* Section */
+    .shf-sec { margin-bottom: 26px; }
+    .shf-sec-title {
+      font-family: var(--fb);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 12px;
+    }
+
+    /* Pills */
+    .shf-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .shf-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 18px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.62);
+      font-family: var(--fb);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.14s;
+      white-space: nowrap;
+    }
+    .shf-pill:hover {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.08);
+    }
+    .shf-pill.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+      font-weight: 600;
+    }
+    .shf-pill-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+    /* Category cards — 2-column grid */
+    .shf-cat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding-bottom: 20px;
+    }
+    .shf-cat-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s;
+      width: 100%;
+    }
+    .shf-cat-card:hover {
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-1px);
+    }
+    .shf-cat-card.active {
+      border-color: rgba(229,44,103,0.5);
+      background: rgba(229,44,103,0.07);
+    }
+    .shf-cat-ico {
+      width: 44px; height: 44px;
+      border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .shf-cat-name {
+      font-family: var(--fb);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+    }
+    .shf-cat-desc {
+      font-family: var(--fb);
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    /* Sort list */
+    .shf-sort-list { display: flex; flex-direction: column; gap: 6px; padding-bottom: 20px; }
+    .shf-sort-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background: none;
+      color: rgba(255,255,255,0.6);
+      font-family: var(--fb);
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      transition: all 0.14s;
+    }
+    .shf-sort-item:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+    .shf-sort-item.active {
+      color: var(--white);
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.1);
+      font-weight: 600;
+    }
+    .shf-sort-check { color: var(--gold); font-size: 14px; opacity: 0; transition: opacity 0.13s; }
+    .shf-sort-item.active .shf-sort-check { opacity: 1; }
+
+    /* Footer */
+    .shf-footer {
+      display: flex;
+      align-items: center;
+      padding: 16px 20px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      flex-shrink: 0;
+      background: rgba(0,0,0,0.18);
+      gap: 14px;
+    }
+    .shf-reset-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.3);
+      font-family: var(--fb);
+      font-size: 14px;
+      cursor: pointer;
+      transition: color 0.14s;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .shf-reset-btn:hover { color: rgba(255,255,255,0.7); }
+    .shf-result-count {
+      font-family: var(--fb);
+      font-size: 14px;
+      color: rgba(255,255,255,0.35);
+      flex: 1;
+      text-align: center;
+    }
+    .shf-result-count strong { color: var(--white); font-size: 15px; }
+    .shf-apply-btn { padding: 11px 26px !important; font-size: 14px !important; flex-shrink: 0; }
+
+    /* Active indicator dot on Filter button */
+    .sh-filter-active-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: none;
+      flex-shrink: 0;
+    }
+    */ /* end removed popover CSS */
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .sh-chipbar-inner, .sh-content, .sh-cta { padding-left: 24px; padding-right: 24px; }
+    }
+    @media (max-width: 640px) {
+      .sh-cb-right { display: none; }
     }
   </style>
 </head>
@@ -503,77 +712,45 @@
   </div>
 
   <!-- ══════════════════════════════════
-       CATEGORY BROWSE PANEL
+       CHIP FILTER BAR
        ══════════════════════════════════ -->
-  <div class="shp-panel">
-    <div class="shp-inner">
+  <div class="sh-chipbar">
+    <div class="sh-chipbar-inner">
 
-      <!-- Col 1: Categories -->
-      <div>
-        <span class="shp-col-label">Categories</span>
-        <button class="shp-link active" data-filter="all">ទាំងអស់</button>
-        <button class="shp-link" data-filter="portfolio">កម្រងស្នាដៃ</button>
-        <button class="shp-link" data-filter="fonts">យប់ អក្ខរា</button>
-        <button class="shp-link" data-filter="resource">កាដូរ ឌីជីថល</button>
-      </div>
-
-      <!-- Col 2: Type -->
-      <div>
-        <span class="shp-col-label">Type</span>
-        <button class="shp-link" data-filter="free">Free</button>
-        <button class="shp-link" data-filter="premium">Premium</button>
-        <button class="shp-link" data-filter="bundle">Bundle</button>
-        <button class="shp-link" data-filter="soon">Coming Soon</button>
-      </div>
-
-      <!-- Col 3: Format -->
-      <div>
-        <span class="shp-col-label">Format</span>
-        <span class="shp-link" style="cursor:default;opacity:0.45">PDF Template</span>
-        <span class="shp-link" style="cursor:default;opacity:0.45">Figma File</span>
-        <span class="shp-link" style="cursor:default;opacity:0.45">Google Sheets</span>
-        <span class="shp-link" style="cursor:default;opacity:0.45">Prompt Pack</span>
-        <span class="shp-link" style="cursor:default;opacity:0.45">Checklist</span>
-      </div>
-
-      <!-- Col 4: Use Case -->
-      <div>
-        <span class="shp-col-label">Use Case</span>
-        <span class="shp-link" style="cursor:default;opacity:0.45">Brand Building</span>
-        <span class="shp-link" style="cursor:default;opacity:0.45">Content Creation</span>
-        <span class="shp-link" style="cursor:default;opacity:0.45">Business Planning</span>
-        <span class="shp-link" style="cursor:default;opacity:0.45">Social Media</span>
-        <span class="shp-link" style="cursor:default;opacity:0.45">SEO &amp; Web</span>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════
-       STICKY TAB BAR
-       ══════════════════════════════════ -->
-  <div class="sh-tabbar">
-    <div class="sh-tabbar-inner">
-      <div class="sh-tab-group">
-        <!-- Segmented toggle: All / Free -->
-        <div class="sh-seg">
-          <button class="sh-seg-btn active" data-seg="all">All</button>
-          <button class="sh-seg-btn" data-seg="free">Free</button>
-        </div>
-        <!-- Separator -->
-        <div class="sh-sep"></div>
-        <!-- Text tabs -->
-        <button class="sh-tab active" data-tab="all">Latest</button>
-        <button class="sh-tab" data-tab="popular">Most popular</button>
-        <button class="sh-tab" data-tab="premium">Top rated</button>
-        <button class="sh-tab" data-tab="bundle">Bundle</button>
-      </div>
-      <div class="sh-tabbar-right">
-        <span class="sh-count-badge">Showing <strong id="shCount">12</strong></span>
-        <button class="sh-filter-btn" id="shFilterBtn">
-          <i class="fas fa-sliders-h"></i> Filter
+      <!-- Category chips -->
+      <div class="sh-chips">
+        <button class="sh-chip active" data-cat="all">ទាំងអស់</button>
+        <button class="sh-chip" data-cat="portfolio">
+          <span class="sh-chip-dot" style="background:#4f82ff"></span>កម្រងស្នាដៃ
+        </button>
+        <button class="sh-chip" data-cat="fonts">
+          <span class="sh-chip-dot" style="background:#9b6bff"></span>យប់ អក្ខរា
+        </button>
+        <button class="sh-chip" data-cat="resource">
+          <span class="sh-chip-dot" style="background:#4ade80"></span>កាដូរ ឌីជីថល
         </button>
       </div>
+
+      <div class="sh-cb-sep"></div>
+
+      <!-- Price chips -->
+      <div class="sh-chips">
+        <button class="sh-chip sh-chip-sm active" data-price="all">All</button>
+        <button class="sh-chip sh-chip-sm" data-price="free">Free</button>
+        <button class="sh-chip sh-chip-sm" data-price="premium">Premium</button>
+      </div>
+
+      <!-- Sort + Count (right) -->
+      <div class="sh-cb-right">
+        <select class="sh-sort-sel" id="shSortSel">
+          <option value="all">Latest</option>
+          <option value="popular">Most popular</option>
+          <option value="premium">Top rated</option>
+          <option value="bundle">Bundle</option>
+        </select>
+        <span class="sh-count-badge">Showing <strong id="shCount">—</strong></span>
+      </div>
+
     </div>
   </div>
 
@@ -609,15 +786,13 @@
   <div id="footer-placeholder"></div>  <script>
   // ── Digital Shop: Dynamic fetch + filter ──
   (function () {
-    var grid     = document.getElementById('shGrid');
-    var countEl  = document.getElementById('shCount');
-    var PLINKS   = document.querySelectorAll('.shp-link[data-filter]');
-    var TABS     = document.querySelectorAll('.sh-tab');
-    var SEGS     = document.querySelectorAll('.sh-seg-btn');
-    var activeCat = 'all';
-    var activeTab = 'all';
+    var grid        = document.getElementById('shGrid');
+    var countEl     = document.getElementById('shCount');
+    var activeCat   = 'all';
+    var activePricef = 'all';
+    var activeTab   = 'all';
 
-    // ── Filter/render (reads current DOM) ──
+    // ── Render ──
     function render() {
       var cards   = Array.from(grid.querySelectorAll('.sh-card'));
       var empty   = document.getElementById('shEmpty');
@@ -625,60 +800,44 @@
       cards.forEach(function (c) {
         var cat   = c.dataset.cat;
         var price = c.dataset.price;
-        var okCat = activeCat === 'all' || activeCat === cat || activeCat === price;
-        var okTab = activeTab === 'all' || activeTab === price || activeTab === 'popular';
-        var show  = okCat && okTab;
-        c.style.display = show ? '' : 'none';
-        if (show) visible++;
+        var okCat   = activeCat    === 'all' || activeCat    === cat || activeCat    === price;
+        var okPrice = activePricef === 'all' || activePricef === price;
+        var okTab   = activeTab    === 'all' || activeTab    === price || activeTab   === 'popular';
+        c.style.display = (okCat && okPrice && okTab) ? '' : 'none';
+        if (okCat && okPrice && okTab) visible++;
       });
       countEl.textContent = visible;
       if (empty) empty.classList.toggle('on', visible === 0);
     }
 
-    // ── Wire static controls ──
-    SEGS.forEach(function (btn) {
+    // ── Category chips ──
+    document.querySelectorAll('.sh-chip[data-cat]').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        SEGS.forEach(function (s) { s.classList.remove('active'); });
+        document.querySelectorAll('.sh-chip[data-cat]').forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        activeCat = btn.dataset.seg === 'free' ? 'free' : 'all';
-        activeTab = 'all';
-        PLINKS.forEach(function (l) { l.classList.remove('active'); });
-        document.querySelector('.shp-link[data-filter="all"]').classList.add('active');
-        TABS.forEach(function (t) { t.classList.remove('active'); });
-        document.querySelector('.sh-tab[data-tab="all"]').classList.add('active');
+        activeCat = btn.dataset.cat;
         render();
       });
     });
 
-    PLINKS.forEach(function (link) {
-      link.addEventListener('click', function () {
-        PLINKS.forEach(function (l) { l.classList.remove('active'); });
-        link.classList.add('active');
-        activeCat = link.dataset.filter;
-        activeTab = 'all';
-        TABS.forEach(function (t) { t.classList.remove('active'); });
-        document.querySelector('.sh-tab[data-tab="all"]').classList.add('active');
-        SEGS.forEach(function (s) { s.classList.remove('active'); });
-        document.querySelector('.sh-seg-btn[data-seg="all"]').classList.add('active');
+    // ── Price chips ──
+    document.querySelectorAll('.sh-chip[data-price]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.sh-chip[data-price]').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        activePricef = btn.dataset.price;
         render();
       });
     });
 
-    TABS.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        TABS.forEach(function (t) { t.classList.remove('active'); });
-        tab.classList.add('active');
-        activeTab = tab.dataset.tab;
-        if (activeTab === 'free' || activeTab === 'premium') {
-          activeCat = 'all';
-          PLINKS.forEach(function (l) { l.classList.remove('active'); });
-          document.querySelector('.shp-link[data-filter="all"]').classList.add('active');
-        }
-        SEGS.forEach(function (s) { s.classList.remove('active'); });
-        document.querySelector('.sh-seg-btn[data-seg="' + (activeTab === 'free' ? 'free' : 'all') + '"]').classList.add('active');
+    // ── Sort select ──
+    var shSortSel = document.getElementById('shSortSel');
+    if (shSortSel) {
+      shSortSel.addEventListener('change', function () {
+        activeTab = shSortSel.value;
         render();
       });
-    });
+    }
 
     // ── HTML escape ──
     function esc(s) {
