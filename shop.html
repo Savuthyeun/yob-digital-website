@@ -1,1189 +1,1821 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="km">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Shop — YOB Digital</title>
-  <meta name="description" content="ហាងឌីជីថល YOB — Fonts, Templates, AI Tools, Resources ឥតគិតថ្លៃ និង Premium សម្រាប់ SME និងអ្នកប្រកបអាជីវកម្ម." />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Shop — YOB Digital</title>
+    <meta
+      name="description"
+      content="ហាងឌីជីថល YOB — Fonts, Templates, AI Tools, Resources ឥតគិតថ្លៃ និង Premium សម្រាប់ SME និងអ្នកប្រកបអាជីវកម្ម."
+    />
 
-  <!-- SEO -->
-  <link rel="canonical" href="https://yobdigital.netlify.app/shop" />
-  <link rel="icon" type="image/png" href="images/favicon.png" />
-  <link rel="apple-touch-icon" href="images/favicon.png" />
+    <!-- SEO -->
+    <link rel="canonical" href="https://yobdigital.netlify.app/shop" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Digital Shop — YOB Digital" />
-  <meta property="og:description" content="ហាងឌីជីថល YOB — Fonts, Templates, AI Tools, Resources ឥតគិតថ្លៃ និង Premium." />
-  <meta property="og:image" content="https://yobdigital.netlify.app/images/og-cover.jpg" />
-  <meta property="og:url" content="https://yobdigital.netlify.app/shop" />
-  <meta property="og:type" content="website" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Digital Shop — YOB Digital" />
+    <meta
+      property="og:description"
+      content="ហាងឌីជីថល YOB — Fonts, Templates, AI Tools, Resources ឥតគិតថ្លៃ និង Premium."
+    />
+    <meta
+      property="og:image"
+      content="https://yobdigital.netlify.app/images/og-cover.jpg"
+    />
+    <meta property="og:url" content="https://yobdigital.netlify.app/shop" />
+    <meta property="og:type" content="website" />
 
-  <!-- DNS Prefetch -->
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Font Awesome (async) -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
+    <!-- Font Awesome (async) -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    /></noscript>
 
-  <!-- GSAP (defer) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <!-- GSAP (defer) -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
 
-  <!-- YOB Shared Styles — ALWAYS LAST -->
-  <link rel="stylesheet" href="css/style.css" />
+    <!-- YOB Shared Styles — ALWAYS LAST -->
+    <link rel="stylesheet" href="css/style.css" />
 
-  <style>
-    /* ═══════════════════════════════════
+    <style>
+      /* ═══════════════════════════════════
        DIGITAL SHOP — page-specific styles
        Prefix: shp- / sh- / sc-  |  keyframes: ds-*
        ═══════════════════════════════════ */
 
-    /* ── Chip Filter Bar ── */
-    .sh-chipbar {
-      position: sticky;
-      top: 68px;
-      z-index: 88;
-      background: var(--dark);
-      border-bottom: 1px solid var(--border);
-      margin-top: 68px;
-    }
-    .sh-chipbar-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      min-height: 56px;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    .sh-chips {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-shrink: 0;
-    }
-    .sh-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 16px;
-      border-radius: 100px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.04);
-      color: rgba(255,255,255,0.55);
-      font-family: var(--fb);
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: color 0.14s, border-color 0.14s, background 0.14s;
-      flex-shrink: 0;
-    }
-    .sh-chip:hover {
-      color: var(--white);
-      border-color: rgba(255,255,255,0.25);
-      background: rgba(255,255,255,0.08);
-    }
-    .sh-chip.active {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: #fff;
-      font-weight: 600;
-    }
-    .sh-chip-sm { padding: 6px 13px; font-size: 13px; }
-    .sh-chip-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-    .sh-cb-sep {
-      width: 1px;
-      height: 18px;
-      background: var(--border2);
-      margin: 0 8px;
-      flex-shrink: 0;
-    }
+      /* ── Chip Filter Bar ── */
+      .sh-chipbar {
+        position: sticky;
+        top: 68px;
+        z-index: 88;
+        background: var(--dark);
+        border-bottom: 1px solid var(--border);
+        margin-top: 68px;
+        /* overflow must be visible so the Type dropdown panel can escape below */
+        overflow: visible;
+      }
+      /* Scroll wrapper — only clips X, never Y (avoids dropdown clip) */
+      .sh-chipbar-scroll {
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+      }
+      .sh-chipbar-inner {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 40px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        min-height: 56px;
+        /* NO overflow here — let dropdown panel escape freely */
+        overflow: visible;
+      }
+      .sh-chips {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
+      }
+      .sh-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 16px;
+        border-radius: 100px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.55);
+        font-family: var(--fb);
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        white-space: nowrap;
+        transition:
+          color 0.14s,
+          border-color 0.14s,
+          background 0.14s;
+        flex-shrink: 0;
+      }
+      .sh-chip:hover {
+        color: var(--white);
+        border-color: rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .sh-chip.active {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: #fff;
+        font-weight: 600;
+      }
+      .sh-chip-sm {
+        padding: 6px 13px;
+        font-size: 13px;
+      }
+      .sh-chip-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .sh-cb-sep {
+        width: 1px;
+        height: 18px;
+        background: var(--border2);
+        margin: 0 8px;
+        flex-shrink: 0;
+      }
 
-    /* ── Type dropdown (Freepik-style) ── */
-    .sh-type-drop {
-      position: relative;
-      flex-shrink: 0;
-    }
-    .sh-drop-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 7px 14px;
-      border-radius: 100px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.04);
-      color: rgba(255,255,255,0.55);
-      font-family: var(--fb);
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: color 0.14s, border-color 0.14s, background 0.14s;
-    }
-    .sh-drop-btn:hover {
-      color: var(--white);
-      border-color: rgba(255,255,255,0.25);
-      background: rgba(255,255,255,0.08);
-    }
-    .sh-drop-btn.has-value {
-      border-color: var(--gold);
-      color: var(--white);
-      background: rgba(229,44,103,0.08);
-    }
-    .sh-drop-ico { font-size: 10px; transition: transform 0.2s; }
-    .sh-type-drop.open .sh-drop-ico { transform: rotate(180deg); }
-    .sh-drop-panel {
-      position: absolute;
-      top: calc(100% + 8px);
-      left: 0;
-      min-width: 185px;
-      background: #0d1117;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 14px;
-      padding: 6px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04);
-      opacity: 0;
-      transform: translateY(-6px) scale(0.97);
-      pointer-events: none;
-      transition: opacity 0.18s ease, transform 0.18s ease;
-      z-index: 200;
-    }
-    .sh-type-drop.open .sh-drop-panel {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      pointer-events: auto;
-    }
-    .sh-drop-item {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      padding: 9px 12px;
-      border-radius: 9px;
-      font-family: var(--fb);
-      font-size: 13px;
-      color: rgba(255,255,255,0.6);
-      cursor: pointer;
-      transition: background 0.12s, color 0.12s;
-      width: 100%;
-      text-align: left;
-      border: none;
-      background: none;
-      white-space: nowrap;
-    }
-    .sh-drop-item:hover { background: rgba(255,255,255,0.06); color: var(--white); }
-    .sh-drop-item.active { color: var(--white); }
-    .sh-drop-check { margin-left: auto; color: var(--gold); font-size: 12px; opacity: 0; transition: opacity 0.12s; }
-    .sh-drop-item.active .sh-drop-check { opacity: 1; }
-    .sh-cb-right {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-left: auto;
-      flex-shrink: 0;
-    }
-    .sh-sort-sel {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      color: rgba(255,255,255,0.55);
-      font-family: var(--fb);
-      font-size: 13px;
-      padding: 6px 28px 6px 12px;
-      cursor: pointer;
-      outline: none;
-      appearance: none;
-      -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238b949e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 9px center;
-      transition: border-color 0.14s, color 0.14s;
-    }
-    .sh-sort-sel:hover { border-color: rgba(255,255,255,0.22); color: var(--white); }
-    .sh-sort-sel option { background: #161b22; color: var(--white); }
-    .sh-count-badge {
-      font-family: var(--fb);
-      font-size: 13px;
-      color: rgba(255,255,255,0.3);
-      white-space: nowrap;
-    }
-    .sh-count-badge strong { color: var(--white); }
+      /* ── Type dropdown (Freepik-style) ── */
+      .sh-type-drop {
+        position: relative;
+        flex-shrink: 0;
+      }
+      .sh-drop-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 14px;
+        border-radius: 100px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.55);
+        font-family: var(--fb);
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        white-space: nowrap;
+        transition:
+          color 0.14s,
+          border-color 0.14s,
+          background 0.14s;
+      }
+      .sh-drop-btn:hover {
+        color: var(--white);
+        border-color: rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .sh-drop-btn.has-value {
+        border-color: var(--gold);
+        color: var(--white);
+        background: rgba(229, 44, 103, 0.08);
+      }
+      .sh-drop-ico {
+        font-size: 10px;
+        transition: transform 0.2s;
+      }
+      .sh-type-drop.open .sh-drop-ico {
+        transform: rotate(180deg);
+      }
+      .sh-drop-panel {
+        position: fixed;
+        /* top/left set by JS via getBoundingClientRect */
+        min-width: 185px;
+        background: #0d1117;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 6px;
+        box-shadow:
+          0 20px 60px rgba(0, 0, 0, 0.7),
+          0 0 0 1px rgba(255, 255, 255, 0.04);
+        opacity: 0;
+        transform: translateY(-6px) scale(0.97);
+        pointer-events: none;
+        transition:
+          opacity 0.18s ease,
+          transform 0.18s ease;
+        z-index: 200;
+      }
+      .sh-type-drop.open .sh-drop-panel {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+      }
+      .sh-drop-item {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 12px;
+        border-radius: 9px;
+        font-family: var(--fb);
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+        transition:
+          background 0.12s,
+          color 0.12s;
+        width: 100%;
+        text-align: left;
+        border: none;
+        background: none;
+        white-space: nowrap;
+      }
+      .sh-drop-item:hover {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--white);
+      }
+      .sh-drop-item.active {
+        color: var(--white);
+      }
+      .sh-drop-check {
+        margin-left: auto;
+        color: var(--gold);
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.12s;
+      }
+      .sh-drop-item.active .sh-drop-check {
+        opacity: 1;
+      }
+      .sh-cb-right {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-left: auto;
+        flex-shrink: 0;
+      }
+      .sh-sort-sel {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.55);
+        font-family: var(--fb);
+        font-size: 13px;
+        padding: 6px 28px 6px 12px;
+        cursor: pointer;
+        outline: none;
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238b949e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 9px center;
+        transition:
+          border-color 0.14s,
+          color 0.14s;
+      }
+      .sh-sort-sel:hover {
+        border-color: rgba(255, 255, 255, 0.22);
+        color: var(--white);
+      }
+      .sh-sort-sel option {
+        background: #161b22;
+        color: var(--white);
+      }
+      .sh-count-badge {
+        font-family: var(--fb);
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.3);
+        white-space: nowrap;
+      }
+      .sh-count-badge strong {
+        color: var(--white);
+      }
 
-    /* ── Content area ── */
-    .sh-content {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 32px 40px 100px;
-    }
+      /* ── Content area ── */
+      .sh-content {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 32px 40px 100px;
+      }
 
-    /* ── Grid ── */
-    .sh-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    .sc-wide { grid-column: span 2; }
+      /* ── Grid ── */
+      .sh-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+      .sc-wide {
+        grid-column: span 2;
+      }
 
-    /* ── Card ── */
-    .sh-card {
-      background: var(--dark2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-      position: relative;
-    }
-    .sh-card:hover {
-      transform: translateY(-4px) scale(1.015);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.45);
-      border-color: var(--border2);
-    }
-    .sh-card.sh-soon {
-      opacity: 0.5;
-      cursor: default;
-      pointer-events: none;
-    }
+      /* ── Card ── */
+      .sh-card {
+        background: var(--dark2);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transition:
+          transform 0.22s ease,
+          box-shadow 0.22s ease,
+          border-color 0.22s ease;
+        position: relative;
+      }
+      .sh-card:hover {
+        transform: translateY(-4px) scale(1.015);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+        border-color: var(--border2);
+      }
+      .sh-card.sh-soon {
+        opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
+      }
 
-    /* ── Preview area ── */
-    .sc-prev {
-      position: relative;
-      width: 100%;
-      height: 196px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .sc-wide .sc-prev { height: 256px; }
+      /* ── Preview area ── */
+      .sc-prev {
+        position: relative;
+        width: 100%;
+        height: 196px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .sc-wide .sc-prev {
+        height: 256px;
+      }
 
-    /* Category gradients */
-    .sc-prev[data-cat="fonts"]    { background: linear-gradient(145deg,#0d0420 0%,#2a0858 50%,#541b9e 100%); }
-    .sc-prev[data-cat="ai"]       { background: linear-gradient(145deg,#180008 0%,#480022 50%,#9e1046 100%); }
-    .sc-prev[data-cat="strategy"] { background: linear-gradient(145deg,#020916 0%,#081e4a 50%,#163a8a 100%); }
-    .sc-prev[data-cat="web"]      { background: linear-gradient(145deg,#001012 0%,#002d3d 50%,#005060 100%); }
-    .sc-prev[data-cat="resource"] { background: linear-gradient(145deg,#021008 0%,#082e16 50%,#135030 100%); }
-    .sc-prev[data-cat="bundle"]   { background: linear-gradient(135deg,#0e0618 0%,#280828 35%,#080e30 70%,#001020 100%); }
+      /* Category gradients */
+      .sc-prev[data-cat="fonts"] {
+        background: linear-gradient(
+          145deg,
+          #0d0420 0%,
+          #2a0858 50%,
+          #541b9e 100%
+        );
+      }
+      .sc-prev[data-cat="ai"] {
+        background: linear-gradient(
+          145deg,
+          #180008 0%,
+          #480022 50%,
+          #9e1046 100%
+        );
+      }
+      .sc-prev[data-cat="strategy"] {
+        background: linear-gradient(
+          145deg,
+          #020916 0%,
+          #081e4a 50%,
+          #163a8a 100%
+        );
+      }
+      .sc-prev[data-cat="web"] {
+        background: linear-gradient(
+          145deg,
+          #001012 0%,
+          #002d3d 50%,
+          #005060 100%
+        );
+      }
+      .sc-prev[data-cat="resource"] {
+        background: linear-gradient(
+          145deg,
+          #021008 0%,
+          #082e16 50%,
+          #135030 100%
+        );
+      }
+      .sc-prev[data-cat="bundle"] {
+        background: linear-gradient(
+          135deg,
+          #0e0618 0%,
+          #280828 35%,
+          #080e30 70%,
+          #001020 100%
+        );
+      }
 
-    .sc-prev::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 110%, rgba(255,255,255,0.05) 0%, transparent 65%);
-      z-index: 1;
-    }
-    .sc-prev::after {
-      content: "";
-      position: absolute;
-      bottom: -28px; right: -28px;
-      width: 90px; height: 90px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.06);
-      z-index: 1;
-    }
-    .sc-prev-body {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-    .sc-prev-ico { font-size: 52px; line-height: 1; display: block; }
-    .sc-wide .sc-prev-ico { font-size: 68px; }
-    .sc-prev-lbl {
-      font-family: var(--fh);
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      opacity: 0.5;
-      color: var(--white);
-      text-transform: uppercase;
-    }
+      .sc-prev::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 50% 110%,
+          rgba(255, 255, 255, 0.05) 0%,
+          transparent 65%
+        );
+        z-index: 1;
+      }
+      .sc-prev::after {
+        content: "";
+        position: absolute;
+        bottom: -28px;
+        right: -28px;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        z-index: 1;
+      }
+      .sc-prev-body {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      .sc-prev-ico {
+        font-size: 52px;
+        line-height: 1;
+        display: block;
+      }
+      .sc-wide .sc-prev-ico {
+        font-size: 68px;
+      }
+      .sc-prev-lbl {
+        font-family: var(--fh);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        opacity: 0.5;
+        color: var(--white);
+        text-transform: uppercase;
+      }
 
-    /* ── Badges ── */
-    .sc-badge {
-      position: absolute;
-      top: 12px; right: 12px;
-      z-index: 3;
-      padding: 4px 11px;
-      border-radius: 50px;
-      font-family: var(--fb);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .sc-badge-free    { background:rgba(74,222,128,0.14);  border:1px solid rgba(74,222,128,0.4);   color:#4ade80; }
-    .sc-badge-premium { background:rgba(229,44,103,0.14);  border:1px solid rgba(229,44,103,0.4);   color:var(--gold); }
-    .sc-badge-soon    { background:rgba(139,148,158,0.12); border:1px solid rgba(139,148,158,0.3);  color:var(--gray); }
-    .sc-badge-new     { background:rgba(79,130,255,0.14);  border:1px solid rgba(79,130,255,0.4);   color:#4f82ff; }
-    .sc-badge-bundle  { background:rgba(232,121,249,0.14); border:1px solid rgba(232,121,249,0.4);  color:#e879f9; }
+      /* ── Badges ── */
+      .sc-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 3;
+        padding: 4px 11px;
+        border-radius: 50px;
+        font-family: var(--fb);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .sc-badge-free {
+        background: rgba(74, 222, 128, 0.14);
+        border: 1px solid rgba(74, 222, 128, 0.4);
+        color: #4ade80;
+      }
+      .sc-badge-premium {
+        background: rgba(229, 44, 103, 0.14);
+        border: 1px solid rgba(229, 44, 103, 0.4);
+        color: var(--gold);
+      }
+      .sc-badge-soon {
+        background: rgba(139, 148, 158, 0.12);
+        border: 1px solid rgba(139, 148, 158, 0.3);
+        color: var(--gray);
+      }
+      .sc-badge-new {
+        background: rgba(79, 130, 255, 0.14);
+        border: 1px solid rgba(79, 130, 255, 0.4);
+        color: #4f82ff;
+      }
+      .sc-badge-bundle {
+        background: rgba(232, 121, 249, 0.14);
+        border: 1px solid rgba(232, 121, 249, 0.4);
+        color: #e879f9;
+      }
 
-    /* ── Card body ── */
-    .sc-body {
-      padding: 16px 18px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      flex: 1;
-    }
-    .sc-row {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 8px;
-    }
-    .sc-name {
-      font-family: var(--fb);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--white);
-      line-height: 1.3;
-      flex: 1;
-      margin: 0;
-    }
-    .sc-price { font-family: var(--fh); font-size: 15px; color: var(--gold); white-space: nowrap; flex-shrink: 0; line-height: 1.3; }
-    .sc-price.p-free { color: #4ade80; }
-    .sc-price.p-soon { color: var(--gray); font-size: 13px; }
-    .sc-desc {
-      font-family: var(--fb);
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.55;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      margin: 0;
-    }
-    .sc-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: auto;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-    }
-    .sc-cat {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-family: var(--fb);
-      font-size: 11px;
-      color: var(--gray);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-    }
-    .sc-cdot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-    .sc-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-family: var(--fb);
-      font-size: 12px;
-      color: var(--gold);
-      text-decoration: none;
-      transition: gap 0.18s;
-    }
-    .sh-card:hover .sc-cta { gap: 8px; }
-    .sc-cta-soon { color: var(--gray); pointer-events: none; }
+      /* ── Card body ── */
+      .sc-body {
+        padding: 16px 18px 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        flex: 1;
+      }
+      .sc-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .sc-name {
+        font-family: var(--fb);
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--white);
+        line-height: 1.3;
+        flex: 1;
+        margin: 0;
+      }
+      .sc-price {
+        font-family: var(--fh);
+        font-size: 15px;
+        color: var(--gold);
+        white-space: nowrap;
+        flex-shrink: 0;
+        line-height: 1.3;
+      }
+      .sc-price.p-free {
+        color: #4ade80;
+      }
+      .sc-price.p-soon {
+        color: var(--gray);
+        font-size: 13px;
+      }
+      .sc-desc {
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+        line-height: 1.55;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin: 0;
+      }
+      .sc-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+        padding-top: 12px;
+        border-top: 1px solid var(--border);
+      }
+      .sc-cat {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-family: var(--fb);
+        font-size: 11px;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+      .sc-cdot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+      .sc-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gold);
+        text-decoration: none;
+        transition: gap 0.18s;
+      }
+      .sh-card:hover .sc-cta {
+        gap: 8px;
+      }
+      .sc-cta-soon {
+        color: var(--gray);
+        pointer-events: none;
+      }
 
-    /* ── Skeleton ── */
-    @keyframes ds-shimmer {
-      0%   { background-position: -700px 0; }
-      100% { background-position:  700px 0; }
-    }
-    .sh-card.ds-skel .sc-prev {
-      background: linear-gradient(90deg, var(--dark3) 25%, rgba(255,255,255,0.04) 50%, var(--dark3) 75%) !important;
-      background-size: 1400px 100% !important;
-      animation: ds-shimmer 1.5s linear infinite;
-    }
-    .sh-card.ds-skel .sc-body { opacity: 0; }
+      /* ── Skeleton ── */
+      @keyframes ds-shimmer {
+        0% {
+          background-position: -700px 0;
+        }
+        100% {
+          background-position: 700px 0;
+        }
+      }
+      .sh-card.ds-skel .sc-prev {
+        background: linear-gradient(
+          90deg,
+          var(--dark3) 25%,
+          rgba(255, 255, 255, 0.04) 50%,
+          var(--dark3) 75%
+        ) !important;
+        background-size: 1400px 100% !important;
+        animation: ds-shimmer 1.5s linear infinite;
+      }
+      .sh-card.ds-skel .sc-body {
+        opacity: 0;
+      }
 
-    /* ── Empty state ── */
-    .sh-empty {
-      display: none;
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 80px 0;
-      color: var(--gray);
-    }
-    .sh-empty.on { display: block; }
-    .sh-empty i { font-size: 36px; opacity: 0.3; margin-bottom: 16px; display: block; }
-    .sh-empty p { font-family: var(--fb); font-size: 15px; }
+      /* ── Empty state ── */
+      .sh-empty {
+        display: none;
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 80px 0;
+        color: var(--gray);
+      }
+      .sh-empty.on {
+        display: block;
+      }
+      .sh-empty i {
+        font-size: 36px;
+        opacity: 0.3;
+        margin-bottom: 16px;
+        display: block;
+      }
+      .sh-empty p {
+        font-family: var(--fb);
+        font-size: 15px;
+      }
 
-    /* ── Case study image preview ── */
-    .sc-prev-img { background: var(--dark3) !important; }
-    .sc-prev-img img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
+      /* ── Case study image preview ── */
+      .sc-prev-img {
+        background: var(--dark3) !important;
+      }
+      .sc-prev-img img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+      }
 
-    /* ── Loading state (before fetch) ── */
-    .sh-card.ds-skel .sc-prev {
-      background: linear-gradient(90deg, var(--dark3) 25%, rgba(255,255,255,0.04) 50%, var(--dark3) 75%) !important;
-      background-size: 1400px 100% !important;
-      animation: ds-shimmer 1.5s linear infinite;
-    }
-    .sh-card.ds-skel .sc-body { visibility: hidden; }
+      /* ── Loading state (before fetch) ── */
+      .sh-card.ds-skel .sc-prev {
+        background: linear-gradient(
+          90deg,
+          var(--dark3) 25%,
+          rgba(255, 255, 255, 0.04) 50%,
+          var(--dark3) 75%
+        ) !important;
+        background-size: 1400px 100% !important;
+        animation: ds-shimmer 1.5s linear infinite;
+      }
+      .sh-card.ds-skel .sc-body {
+        visibility: hidden;
+      }
 
-    /* ── CTA banner ── */
-    .sh-cta {
-      padding: 0 40px 100px;
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-    .sh-cta-inner {
-      background: linear-gradient(135deg, var(--dark2) 0%, rgba(229,44,103,0.06) 100%);
-      border: 1px solid rgba(229,44,103,0.2);
-      border-radius: 24px;
-      padding: 64px 48px;
-      text-align: center;
-    }
-    .sh-cta-inner h2 { font-family: var(--fh); font-size: clamp(28px,3.5vw,44px); color: var(--white); margin: 0 0 12px; line-height: 1.15; }
-    .sh-cta-inner p  { font-family: var(--fb); color: var(--gray); font-size: 16px; margin: 0 0 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+      /* ── CTA banner ── */
+      .sh-cta {
+        padding: 0 40px 100px;
+        max-width: var(--max);
+        margin: 0 auto;
+      }
+      .sh-cta-inner {
+        background: linear-gradient(
+          135deg,
+          var(--dark2) 0%,
+          rgba(229, 44, 103, 0.06) 100%
+        );
+        border: 1px solid rgba(229, 44, 103, 0.2);
+        border-radius: 24px;
+        padding: 64px 48px;
+        text-align: center;
+      }
+      .sh-cta-inner h2 {
+        font-family: var(--fh);
+        font-size: clamp(28px, 3.5vw, 44px);
+        color: var(--white);
+        margin: 0 0 12px;
+        line-height: 1.15;
+      }
+      .sh-cta-inner p {
+        font-family: var(--fb);
+        color: var(--gray);
+        font-size: 16px;
+        margin: 0 0 32px;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-    /* ── Responsive ── */
-    @media (max-width: 1200px) {
-      .sh-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 900px) {
-      .shp-panel, .sh-content, .sh-cta { padding-left: 24px; padding-right: 24px; }
-      .sh-tabbar-inner { padding: 0 24px; }
-      .shp-inner { grid-template-columns: repeat(2, 1fr); gap: 28px 24px; }
-      .sh-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 640px) {
-      .shp-panel { padding-top: 32px; padding-bottom: 32px; }
-      .shp-inner { grid-template-columns: repeat(2, 1fr); }
-      .sh-seg, .sh-sep { display: none; }
-      .sh-tab-group { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-      .sh-tab { padding: 13px 12px; font-size: 13px; }
-      .sh-count-badge { display: none; }
-      .sh-filter-btn { display: none; }
-      .sh-grid { grid-template-columns: 1fr; gap: 16px; }
-      .sc-wide { grid-column: span 1; }
-      .sc-wide .sc-prev { height: 196px; }
-      .sh-cta-inner { padding: 40px 24px; }
-    }
+      /* ── Responsive ── */
+      @media (max-width: 1200px) {
+        .sh-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 900px) {
+        .shp-panel,
+        .sh-content,
+        .sh-cta {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+        .sh-tabbar-inner {
+          padding: 0 24px;
+        }
+        .shp-inner {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 28px 24px;
+        }
+        .sh-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 640px) {
+        .shp-panel {
+          padding-top: 32px;
+          padding-bottom: 32px;
+        }
+        .shp-inner {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .sh-seg,
+        .sh-sep {
+          display: none;
+        }
+        .sh-tab-group {
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .sh-tab {
+          padding: 13px 12px;
+          font-size: 13px;
+        }
+        .sh-count-badge {
+          display: none;
+        }
+        .sh-filter-btn {
+          display: none;
+        }
+        .sh-grid {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .sc-wide {
+          grid-column: span 1;
+        }
+        .sc-wide .sc-prev {
+          height: 196px;
+        }
+        .sh-cta-inner {
+          padding: 40px 24px;
+        }
+      }
 
-    /* ════════════════════════════════
-       REMOVED: filter popover (replaced by chip bar)
-       ════════════════════════════════ */
-    /*
-    .shf-popover {
-      position: fixed;
-      z-index: 999;
-      width: 860px;
-      max-width: calc(100vw - 32px);
-      background: #0d1117;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04);
-      opacity: 0;
-      transform: translateY(-10px) scale(0.97);
-      pointer-events: none;
-      transition: opacity 0.22s ease, transform 0.22s ease;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      max-height: calc(100vh - 150px);
-    }
-    .shf-popover.open {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      pointer-events: auto;
-    }
-    .shf-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 998;
-      display: none;
-    }
-    .shf-backdrop.open { display: block; }
+      /* ── Responsive ── */
+      @media (max-width: 900px) {
+        .sh-chipbar-inner,
+        .sh-chipbar-scroll,
+        .sh-content,
+        .sh-cta {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+      }
+      @media (max-width: 640px) {
+        .sh-cb-right {
+          display: none;
+        }
+      }
 
-    /* Header */
-    .shf-head {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 18px 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      flex-shrink: 0;
-    }
-    .shf-search-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex: 1;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 11px 16px;
-      transition: border-color 0.15s;
-    }
-    .shf-search-wrap:focus-within { border-color: rgba(255,255,255,0.25); }
-    .shf-search-wrap > i { color: var(--gray); font-size: 14px; flex-shrink: 0; }
-    .shf-search-input {
-      flex: 1;
-      background: none;
-      border: none;
-      outline: none;
-      color: var(--white);
-      font-family: var(--fb);
-      font-size: 15px;
-      min-width: 0;
-    }
-    .shf-search-input::placeholder { color: rgba(255,255,255,0.2); }
-    .shf-close-btn {
-      width: 36px; height: 36px;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      color: var(--gray);
-      cursor: pointer;
-      font-size: 14px;
-      flex-shrink: 0;
-      transition: color 0.14s, background 0.14s;
-    }
-    .shf-close-btn:hover { color: var(--white); background: rgba(255,255,255,0.1); }
+      /* ═══════════════════════════════════
+       SHOP HERO + LIVE SEARCH
+       ═══════════════════════════════════ */
+      .sh-hero {
+        padding: calc(68px + 52px) 40px 36px;
+        text-align: center;
+      }
+      .sh-hero-head {
+        margin-bottom: 24px;
+      }
+      .sh-hero-eyebrow {
+        display: inline-block;
+        font-family: var(--fb);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 10px;
+      }
+      .sh-hero-title {
+        font-family: var(--fh);
+        font-size: clamp(30px, 4.5vw, 52px);
+        color: var(--white);
+        margin: 0;
+        line-height: 1.05;
+      }
+      /* Search bar */
+      .sh-search-wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--dark2);
+        border: 1px solid var(--border2);
+        border-radius: 14px;
+        padding: 13px 18px;
+        max-width: 580px;
+        margin: 0 auto 22px;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .sh-search-wrap:focus-within {
+        border-color: rgba(229, 44, 103, 0.45);
+        box-shadow: 0 0 0 3px rgba(229, 44, 103, 0.08);
+      }
+      .sh-si {
+        color: var(--gray);
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+      #shSearch {
+        flex: 1;
+        background: none;
+        border: none;
+        outline: none;
+        color: var(--white);
+        font-family: var(--fb);
+        font-size: 15px;
+        min-width: 0;
+      }
+      #shSearch::placeholder {
+        color: rgba(255, 255, 255, 0.18);
+      }
+      #shSearch::-webkit-search-cancel-button {
+        display: none;
+      }
+      .sh-sc {
+        background: rgba(255, 255, 255, 0.07);
+        border: none;
+        color: var(--gray);
+        cursor: pointer;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.15s,
+          color 0.15s,
+          background 0.15s;
+        flex-shrink: 0;
+      }
+      .sh-sc:hover {
+        color: var(--white);
+        background: rgba(255, 255, 255, 0.12);
+      }
+      .sh-sc.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .sh-sk {
+        font-family: var(--fb);
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        padding: 2px 8px;
+        flex-shrink: 0;
+        line-height: 1.6;
+        transition: opacity 0.15s;
+        user-select: none;
+      }
+      .sh-search-wrap:focus-within .sh-sk {
+        opacity: 0;
+        pointer-events: none;
+      }
+      /* Stats row */
+      .sh-hero-stats {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .sh-stat {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+      }
+      .sh-stat i {
+        color: var(--gold);
+        font-size: 11px;
+      }
+      .sh-stat strong {
+        color: var(--white);
+        font-weight: 600;
+      }
+      .sh-stat-sep {
+        color: rgba(255, 255, 255, 0.12);
+        font-size: 16px;
+      }
+      /* Search result notice */
+      .sh-q-notice {
+        display: none;
+        max-width: var(--max);
+        margin: -4px auto 0;
+        padding: 0 40px 14px;
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+      }
+      .sh-q-notice.on {
+        display: block;
+      }
+      .sh-q-notice strong {
+        color: var(--white);
+      }
+      /* Hero responsive */
+      @media (max-width: 900px) {
+        .sh-hero {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+        .sh-q-notice {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+      }
+      @media (max-width: 640px) {
+        .sh-hero {
+          padding-top: calc(68px + 32px);
+          padding-bottom: 24px;
+        }
+        .sh-hero-title {
+          font-size: 26px;
+        }
+        .sh-search-wrap {
+          border-radius: 12px;
+          padding: 11px 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
 
-    /* Main content area — no sidebar, scroll directly */
-    .shf-main {
-      overflow-y: auto;
-      padding: 24px 28px 8px;
-    }
+    <div id="nav-placeholder"></div>
 
-    /* Section */
-    .shf-sec { margin-bottom: 26px; }
-    .shf-sec-title {
-      font-family: var(--fb);
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: rgba(255,255,255,0.35);
-      margin-bottom: 12px;
-    }
-
-    /* Pills */
-    .shf-pills { display: flex; flex-wrap: wrap; gap: 8px; }
-    .shf-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 9px 18px;
-      border-radius: 100px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.04);
-      color: rgba(255,255,255,0.62);
-      font-family: var(--fb);
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.14s;
-      white-space: nowrap;
-    }
-    .shf-pill:hover {
-      color: var(--white);
-      border-color: rgba(255,255,255,0.3);
-      background: rgba(255,255,255,0.08);
-    }
-    .shf-pill.active {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: #fff;
-      font-weight: 600;
-    }
-    .shf-pill-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-
-    /* Category cards — 2-column grid */
-    .shf-cat-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      padding-bottom: 20px;
-    }
-    .shf-cat-card {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px 16px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.02);
-      cursor: pointer;
-      text-align: left;
-      transition: all 0.15s;
-      width: 100%;
-    }
-    .shf-cat-card:hover {
-      border-color: rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.05);
-      transform: translateY(-1px);
-    }
-    .shf-cat-card.active {
-      border-color: rgba(229,44,103,0.5);
-      background: rgba(229,44,103,0.07);
-    }
-    .shf-cat-ico {
-      width: 44px; height: 44px;
-      border-radius: 11px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
-    .shf-cat-name {
-      font-family: var(--fb);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--white);
-      line-height: 1.3;
-    }
-    .shf-cat-desc {
-      font-family: var(--fb);
-      font-size: 12px;
-      color: rgba(255,255,255,0.4);
-      margin-top: 2px;
-      line-height: 1.4;
-    }
-
-    /* Sort list */
-    .shf-sort-list { display: flex; flex-direction: column; gap: 6px; padding-bottom: 20px; }
-    .shf-sort-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 18px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-      background: none;
-      color: rgba(255,255,255,0.6);
-      font-family: var(--fb);
-      font-size: 15px;
-      font-weight: 500;
-      cursor: pointer;
-      text-align: left;
-      width: 100%;
-      transition: all 0.14s;
-    }
-    .shf-sort-item:hover { color: var(--white); background: rgba(255,255,255,0.05); }
-    .shf-sort-item.active {
-      color: var(--white);
-      background: rgba(255,255,255,0.07);
-      border-color: rgba(255,255,255,0.1);
-      font-weight: 600;
-    }
-    .shf-sort-check { color: var(--gold); font-size: 14px; opacity: 0; transition: opacity 0.13s; }
-    .shf-sort-item.active .shf-sort-check { opacity: 1; }
-
-    /* Footer */
-    .shf-footer {
-      display: flex;
-      align-items: center;
-      padding: 16px 20px;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      flex-shrink: 0;
-      background: rgba(0,0,0,0.18);
-      gap: 14px;
-    }
-    .shf-reset-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: none;
-      border: none;
-      color: rgba(255,255,255,0.3);
-      font-family: var(--fb);
-      font-size: 14px;
-      cursor: pointer;
-      transition: color 0.14s;
-      padding: 0;
-      flex-shrink: 0;
-    }
-    .shf-reset-btn:hover { color: rgba(255,255,255,0.7); }
-    .shf-result-count {
-      font-family: var(--fb);
-      font-size: 14px;
-      color: rgba(255,255,255,0.35);
-      flex: 1;
-      text-align: center;
-    }
-    .shf-result-count strong { color: var(--white); font-size: 15px; }
-    .shf-apply-btn { padding: 11px 26px !important; font-size: 14px !important; flex-shrink: 0; }
-
-    /* Active indicator dot on Filter button */
-    .sh-filter-active-dot {
-      width: 6px; height: 6px;
-      background: var(--gold);
-      border-radius: 50%;
-      display: none;
-      flex-shrink: 0;
-    }
-    */ /* end removed popover CSS */
-
-    /* ── Responsive ── */
-    @media (max-width: 900px) {
-      .sh-chipbar-inner, .sh-content, .sh-cta { padding-left: 24px; padding-right: 24px; }
-    }
-    @media (max-width: 640px) {
-      .sh-cb-right { display: none; }
-    }
-  </style>
-</head>
-<body>
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-
-  <div id="nav-placeholder"></div>
-
-  <!-- Mobile Drawer -->
-  <div class="mobile-drawer" id="mobileDrawer">
-    <button class="drawer-close" id="drawerClose">
-      <i class="fas fa-times"></i>
-    </button>
-    <div class="drawer-group">
-      <button class="drawer-group-toggle">
-        រៀន <i class="fas fa-chevron-down"></i>
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button class="drawer-close" id="drawerClose">
+        <i class="fas fa-times"></i>
       </button>
-      <div class="drawer-group-items">
-        <a href="/yob-learning" onclick="closeDrawer()">ជំនាញឌីជីថល</a>
-        <a href="/docs" onclick="closeDrawer()">ឯកសារមេរៀន</a>
-        <a href="/case-studies" onclick="closeDrawer()">កម្រងស្នាដៃ</a>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">
+          រៀន <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="drawer-group-items">
+          <a href="/yob-learning" onclick="closeDrawer()">ជំនាញឌីជីថល</a>
+          <a href="/docs" onclick="closeDrawer()">ឯកសារមេរៀន</a>
+          <a href="/case-studies" onclick="closeDrawer()">កម្រងស្នាដៃ</a>
+        </div>
       </div>
-    </div>
-    <div class="drawer-group">
-      <button class="drawer-group-toggle">
-        តូបឌីជីថល <i class="fas fa-chevron-down"></i>
-      </button>
-      <div class="drawer-group-items">
-        <a href="/yobfont" onclick="closeDrawer()">YOB អក្ខរា</a>
-        <a href="/resources" onclick="closeDrawer()">កាដូឌីជីថល</a>
-        <a href="/poster-design" onclick="closeDrawer()">Poster Design</a>
-        <a href="/shop" onclick="closeDrawer()">Digital Shop</a>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">
+          តូបឌីជីថល <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="drawer-group-items">
+          <a href="/yobfont" onclick="closeDrawer()">YOB អក្ខរា</a>
+          <a href="/resources" onclick="closeDrawer()">កាដូឌីជីថល</a>
+          <a href="/poster-design" onclick="closeDrawer()">Poster Design</a>
+          <a href="/shop" onclick="closeDrawer()">Digital Shop</a>
+        </div>
       </div>
+      <a href="/about" onclick="closeDrawer()">អំពី YOB</a>
+      <a href="/contact" onclick="closeDrawer()" class="d-cta">សាកសួរ</a>
     </div>
-    <a href="/about" onclick="closeDrawer()">អំពី YOB</a>
-    <a href="/contact" onclick="closeDrawer()" class="d-cta">សាកសួរ</a>
-  </div>
 
-  <!-- ══════════════════════════════════
+    <!-- ══════════════════════════════════
        CHIP FILTER BAR
        ══════════════════════════════════ -->
-  <div class="sh-chipbar">
-    <div class="sh-chipbar-inner">
+    <div class="sh-chipbar">
+      <div class="sh-chipbar-scroll">
+        <div class="sh-chipbar-inner">
+          <!-- Category chips -->
+          <div class="sh-chips">
+            <button class="sh-chip active" data-cat="all">ទាំងអស់</button>
+            <button class="sh-chip" data-cat="portfolio">
+              <span class="sh-chip-dot" style="background: #4f82ff"></span
+              >កម្រងស្នាដៃ
+            </button>
+            <button class="sh-chip" data-cat="fonts">
+              <span class="sh-chip-dot" style="background: #9b6bff"></span>យប់
+              អក្ខរា
+            </button>
+            <button class="sh-chip" data-cat="resource">
+              <span class="sh-chip-dot" style="background: #4ade80"></span>កាដូរ
+              ឌីជីថល
+            </button>
+          </div>
 
-      <!-- Category chips -->
-      <div class="sh-chips">
-        <button class="sh-chip active" data-cat="all">ទាំងអស់</button>
-        <button class="sh-chip" data-cat="portfolio">
-          <span class="sh-chip-dot" style="background:#4f82ff"></span>កម្រងស្នាដៃ
-        </button>
-        <button class="sh-chip" data-cat="fonts">
-          <span class="sh-chip-dot" style="background:#9b6bff"></span>យប់ អក្ខរា
-        </button>
-        <button class="sh-chip" data-cat="resource">
-          <span class="sh-chip-dot" style="background:#4ade80"></span>កាដូរ ឌីជីថល
-        </button>
+          <div class="sh-cb-sep"></div>
+
+          <!-- Type dropdown — shown when specific category selected -->
+          <div class="sh-type-drop" id="shTypeDrop" style="display: none">
+            <button class="sh-drop-btn" id="shTypeBtn">
+              ប្រភេទ <i class="fas fa-chevron-down sh-drop-ico"></i>
+            </button>
+            <div class="sh-drop-panel" id="shTypePanel"></div>
+          </div>
+          <div class="sh-cb-sep" id="shTypeSep" style="display: none"></div>
+
+          <!-- Price chips -->
+          <div class="sh-chips">
+            <button class="sh-chip sh-chip-sm active" data-price="all">
+              All
+            </button>
+            <button class="sh-chip sh-chip-sm" data-price="free">Free</button>
+            <button class="sh-chip sh-chip-sm" data-price="premium">
+              Premium
+            </button>
+          </div>
+
+          <!-- Sort + Count (right) -->
+          <div class="sh-cb-right">
+            <select class="sh-sort-sel" id="shSortSel">
+              <option value="all">Latest</option>
+              <option value="popular">Most popular</option>
+              <option value="premium">Top rated</option>
+              <option value="bundle">Bundle</option>
+            </select>
+            <span class="sh-count-badge"
+              >Showing <strong id="shCount">—</strong></span
+            >
+          </div>
+        </div>
       </div>
-
-      <div class="sh-cb-sep"></div>
-
-      <!-- Type dropdown — shown when specific category selected -->
-      <div class="sh-type-drop" id="shTypeDrop" style="display:none">
-        <button class="sh-drop-btn" id="shTypeBtn">
-          ប្រភេទ <i class="fas fa-chevron-down sh-drop-ico"></i>
-        </button>
-        <div class="sh-drop-panel" id="shTypePanel"></div>
-      </div>
-      <div class="sh-cb-sep" id="shTypeSep" style="display:none"></div>
-
-      <!-- Price chips -->
-      <div class="sh-chips">
-        <button class="sh-chip sh-chip-sm active" data-price="all">All</button>
-        <button class="sh-chip sh-chip-sm" data-price="free">Free</button>
-        <button class="sh-chip sh-chip-sm" data-price="premium">Premium</button>
-      </div>
-
-      <!-- Sort + Count (right) -->
-      <div class="sh-cb-right">
-        <select class="sh-sort-sel" id="shSortSel">
-          <option value="all">Latest</option>
-          <option value="popular">Most popular</option>
-          <option value="premium">Top rated</option>
-          <option value="bundle">Bundle</option>
-        </select>
-        <span class="sh-count-badge">Showing <strong id="shCount">—</strong></span>
-      </div>
-
     </div>
-  </div>
 
-  <!-- ══════════════════════════════════
+    <!-- ══════════════════════════════════
        PRODUCT GRID
        ══════════════════════════════════ -->
-  <div class="sh-content">
-    <div class="sh-grid" id="shGrid">
+    <div class="sh-content">
+      <div class="sh-grid" id="shGrid">
+        <!-- Cards injected dynamically by JS -->
 
-      <!-- Cards injected dynamically by JS -->
-      
-      <div class="sh-empty" id="shEmpty">
-        <i class="fas fa-box-open"></i>
-        <p>រកមិនឃើញ — ជ្រើស category ផ្សេង</p>
+        <div class="sh-empty" id="shEmpty">
+          <i class="fas fa-box-open"></i>
+          <p>រកមិនឃើញ — ជ្រើស category ផ្សេង</p>
+        </div>
       </div>
+      <!-- end sh-grid -->
+    </div>
+    <!-- end sh-content -->
 
-    </div><!-- end sh-grid -->
-  </div><!-- end sh-content -->
+    <div id="footer-placeholder"></div>
+    <script>
+      // ── Digital Shop: Static PRODUCTS array + filter ──
+      (function () {
+        var grid = document.getElementById("shGrid");
+        var countEl = document.getElementById("shCount");
 
-  <div id="footer-placeholder"></div>  <script>
-  // ── Digital Shop: Static PRODUCTS array + filter ──
-  (function () {
-    var grid    = document.getElementById('shGrid');
-    var countEl = document.getElementById('shCount');
+        // ── Filter state ──
+        var state = { cat: "all", type: "all", price: "all", q: "" };
 
-    // ── Filter state ──
-    var state = { cat: 'all', type: 'all', price: 'all' };
+        // ── Cached DOM refs (search) ──
+        var searchEl = document.getElementById("shSearch");
+        var clearBtn = document.getElementById("shSearchClear");
+        var qNoticeEl = document.getElementById("shQNotice");
+        var totalStat = document.getElementById("shTotalStat");
 
-    // ════════════════════════════════════════
-    // PRODUCT DATABASE — edit here to add/remove items
-    // ════════════════════════════════════════
-    var PRODUCTS = [
+        // ════════════════════════════════════════
+        // PRODUCT DATABASE — edit here to add/remove items
+        // ════════════════════════════════════════
+        var PRODUCTS = [
+          // ── FONTS ────────────────────────────────────────────────────
+          {
+            id: "f01",
+            cat: "fonts",
+            type: "display",
+            price: "free",
+            priceText: "FREE",
+            name: "Khmer Savuth",
+            catLabel: "ចំណងជើង",
+            meta: "Display · Savuth Collection",
+            previewText: "ខ្មែរ​ស្អាត​ស្រស់",
+            fontFamily: "'Khmer Savuth',var(--fk),sans-serif",
+            href: "yobfont.html",
+          },
+          {
+            id: "f02",
+            cat: "fonts",
+            type: "script",
+            price: "free",
+            priceText: "FREE",
+            name: "Savuth Pen",
+            catLabel: "ហត្ថលិខិត",
+            meta: "Script · Pen Style",
+            previewText: "ហត្ថលេខា​ស្រស់",
+            fontFamily: "'Savuth Pen',var(--fk),sans-serif",
+            href: "yobfont.html",
+          },
+          {
+            id: "f03",
+            cat: "fonts",
+            type: "script",
+            price: "free",
+            priceText: "FREE",
+            name: "Savuth Pen 2",
+            catLabel: "ហត្ថលិខិត",
+            meta: "Script · Pen Style v2",
+            previewText: "ហត្ថលេខា​ប្រណិត",
+            fontFamily: "'Savuth Pen 2',var(--fk),sans-serif",
+            href: "yobfont.html",
+          },
+          {
+            id: "f04",
+            cat: "fonts",
+            type: "script",
+            price: "free",
+            priceText: "FREE",
+            name: "Savuth Brush",
+            catLabel: "ហត្ថលិខិត",
+            meta: "Script · Brush Style",
+            previewText: "ហស្ថ​លិខិត​ច្នៃ",
+            fontFamily: "'Savuth Brush',var(--fk),sans-serif",
+            href: "yobfont.html",
+          },
+          {
+            id: "f05",
+            cat: "fonts",
+            type: "display",
+            price: "free",
+            priceText: "FREE",
+            name: "Savuth Romeas",
+            catLabel: "ចំណងជើង",
+            meta: "Display · Romeas Style",
+            previewText: "អក្សរ​ខ្មែរ​ស្វែង",
+            fontFamily: "'Savuth Romeas',var(--fk),sans-serif",
+            href: "yobfont.html",
+          },
+          {
+            id: "f06",
+            cat: "fonts",
+            type: "display",
+            price: "free",
+            priceText: "FREE",
+            name: "Khmer Sharp",
+            catLabel: "ចំណងជើង",
+            meta: "Display · Sharp Style",
+            previewText: "ស្រួច​ពត​ច្បាស់",
+            fontFamily: "'Khmer Sharp',var(--fk),sans-serif",
+            href: "yobfont.html",
+          },
+          {
+            id: "f07",
+            cat: "fonts",
+            type: "sans",
+            price: "free",
+            priceText: "FREE",
+            name: "Sem Sarun",
+            catLabel: "អានងាយ",
+            meta: "Sans · Readable Body",
+            previewText: "អានស្រួល​យល់ច្បាស់",
+            fontFamily: "'Sem Sarun',var(--fk),sans-serif",
+            href: "yobfont.html",
+          },
+          {
+            id: "f08",
+            cat: "fonts",
+            type: "display",
+            price: "free",
+            priceText: "FREE",
+            name: "Khmer Sexy",
+            catLabel: "ចំណងជើង",
+            meta: "Display · Decorative",
+            previewText: "ក្បាច់​ស្រស់​ស្អាត",
+            fontFamily: "'Khmer Sexy',var(--fk),sans-serif",
+            href: "yobfont.html",
+          },
+          {
+            id: "f09",
+            cat: "fonts",
+            type: "display",
+            price: "free",
+            priceText: "FREE",
+            name: "Kompong Chhnang",
+            catLabel: "ចំណងជើង",
+            meta: "Display · Regional Style",
+            previewText: "កំពង់ឆ្នាំង​ស្អាត",
+            fontFamily: "'Kompong Chhnang',var(--fk),sans-serif",
+            href: "yobfont.html",
+          },
+          {
+            id: "f10",
+            cat: "fonts",
+            type: "sans",
+            price: "free",
+            priceText: "FREE",
+            name: "iKhmer Students",
+            catLabel: "អានងាយ",
+            meta: "Sans · Education Style",
+            previewText: "សិស្ស​ខ្មែរ​រៀន",
+            fontFamily: "'iKhmer Students',var(--fk),sans-serif",
+            href: "yobfont.html",
+          },
+          {
+            id: "f11",
+            cat: "fonts",
+            type: "bundle",
+            price: "premium",
+            priceText: "$50",
+            name: "YOB Font Bundle",
+            catLabel: "Bundle",
+            meta: "5 Premium Fonts · Commercial License",
+            desc: "YOB Heading Pro + Modern Serif + Signature + Poster Black + Kbach Retro — License + Free Updates",
+            previewText: "YOB ✦",
+            fontFamily: "var(--fh)",
+            href: "yobfont.html",
+          },
 
-      // ── FONTS ────────────────────────────────────────────────────
-      { id:'f01', cat:'fonts', type:'display', price:'free', priceText:'FREE',
-        name:'Khmer Savuth', catLabel:'ចំណងជើង', meta:'Display · Savuth Collection',
-        previewText:'ខ្មែរ​ស្អាត​ស្រស់', fontFamily:"'Khmer Savuth',var(--fk),sans-serif",
-        href:'yobfont.html' },
-      { id:'f02', cat:'fonts', type:'script', price:'free', priceText:'FREE',
-        name:'Savuth Pen', catLabel:'ហត្ថលិខិត', meta:'Script · Pen Style',
-        previewText:'ហត្ថលេខា​ស្រស់', fontFamily:"'Savuth Pen',var(--fk),sans-serif",
-        href:'yobfont.html' },
-      { id:'f03', cat:'fonts', type:'script', price:'free', priceText:'FREE',
-        name:'Savuth Pen 2', catLabel:'ហត្ថលិខិត', meta:'Script · Pen Style v2',
-        previewText:'ហត្ថលេខា​ប្រណិត', fontFamily:"'Savuth Pen 2',var(--fk),sans-serif",
-        href:'yobfont.html' },
-      { id:'f04', cat:'fonts', type:'script', price:'free', priceText:'FREE',
-        name:'Savuth Brush', catLabel:'ហត្ថលិខិត', meta:'Script · Brush Style',
-        previewText:'ហស្ថ​លិខិត​ច្នៃ', fontFamily:"'Savuth Brush',var(--fk),sans-serif",
-        href:'yobfont.html' },
-      { id:'f05', cat:'fonts', type:'display', price:'free', priceText:'FREE',
-        name:'Savuth Romeas', catLabel:'ចំណងជើង', meta:'Display · Romeas Style',
-        previewText:'អក្សរ​ខ្មែរ​ស្វែង', fontFamily:"'Savuth Romeas',var(--fk),sans-serif",
-        href:'yobfont.html' },
-      { id:'f06', cat:'fonts', type:'display', price:'free', priceText:'FREE',
-        name:'Khmer Sharp', catLabel:'ចំណងជើង', meta:'Display · Sharp Style',
-        previewText:'ស្រួច​ពត​ច្បាស់', fontFamily:"'Khmer Sharp',var(--fk),sans-serif",
-        href:'yobfont.html' },
-      { id:'f07', cat:'fonts', type:'sans', price:'free', priceText:'FREE',
-        name:'Sem Sarun', catLabel:'អានងាយ', meta:'Sans · Readable Body',
-        previewText:'អានស្រួល​យល់ច្បាស់', fontFamily:"'Sem Sarun',var(--fk),sans-serif",
-        href:'yobfont.html' },
-      { id:'f08', cat:'fonts', type:'display', price:'free', priceText:'FREE',
-        name:'Khmer Sexy', catLabel:'ចំណងជើង', meta:'Display · Decorative',
-        previewText:'ក្បាច់​ស្រស់​ស្អាត', fontFamily:"'Khmer Sexy',var(--fk),sans-serif",
-        href:'yobfont.html' },
-      { id:'f09', cat:'fonts', type:'display', price:'free', priceText:'FREE',
-        name:'Kompong Chhnang', catLabel:'ចំណងជើង', meta:'Display · Regional Style',
-        previewText:'កំពង់ឆ្នាំង​ស្អាត', fontFamily:"'Kompong Chhnang',var(--fk),sans-serif",
-        href:'yobfont.html' },
-      { id:'f10', cat:'fonts', type:'sans', price:'free', priceText:'FREE',
-        name:'iKhmer Students', catLabel:'អានងាយ', meta:'Sans · Education Style',
-        previewText:'សិស្ស​ខ្មែរ​រៀន', fontFamily:"'iKhmer Students',var(--fk),sans-serif",
-        href:'yobfont.html' },
-      { id:'f11', cat:'fonts', type:'bundle', price:'premium', priceText:'$50',
-        name:'YOB Font Bundle', catLabel:'Bundle', meta:'5 Premium Fonts · Commercial License',
-        desc:'YOB Heading Pro + Modern Serif + Signature + Poster Black + Kbach Retro — License + Free Updates',
-        previewText:'YOB ✦', fontFamily:"var(--fh)",
-        href:'yobfont.html' },
+          // ── RESOURCES ────────────────────────────────────────────────
+          {
+            id: "r01",
+            cat: "resource",
+            type: "ai",
+            price: "free",
+            priceText: "FREE",
+            name: "គម្ពីរ AI Content — ប្រតិទិន ៣០ ថ្ងៃ",
+            desc: "AI Prompts ២០០+ · ប្រតិទិន Content ១ ខែ · Hook Templates — ប្រើ ChatGPT ក្នុង ១០ នាទី",
+            icon: "fas fa-book-open",
+            iconColor: "#c084fc",
+            gradCat: "ai",
+            downloads: "1,200+",
+            href: "resources.html",
+          },
+          {
+            id: "r02",
+            cat: "resource",
+            type: "ai",
+            price: "free",
+            priceText: "FREE",
+            name: "AI Prompts ១០០ សម្រាប់អ្នក",
+            desc: "Content · Ads Copy · Email · Caption · Reply Comment — Prompts ១០០ ជាភាសាខ្មែរ ត្រៀម Copy-Paste",
+            icon: "fas fa-robot",
+            iconColor: "#c084fc",
+            gradCat: "ai",
+            downloads: "850+",
+            href: "resources.html",
+          },
+          {
+            id: "r03",
+            cat: "resource",
+            type: "ai",
+            price: "free",
+            priceText: "FREE",
+            name: "មគ្គុទ្ទេសក៍ ChatGPT ជាភាសាខ្មែរ",
+            desc: "Sign Up → Prompt ដំបូង — Guide ១២ ទំព័រ ជួយចាប់ AI ក្នុង ១ ម៉ោង ដោយមិនចាំបាច់ចេះ English",
+            icon: "fas fa-graduation-cap",
+            iconColor: "#c084fc",
+            gradCat: "ai",
+            downloads: "620+",
+            href: "resources.html",
+          },
+          {
+            id: "r04",
+            cat: "resource",
+            type: "ai",
+            price: "free",
+            priceText: "FREE",
+            name: "ក្បួន Hook — ពី ០ ទៅ Viral ក្នុង ៣ វិនាទី",
+            desc: "Hook ១៥ ប្រភេទ · Video · Text · Photo — ក្នុង Context ខ្មែរ ដែល Algorithm ចូលចិត្ត",
+            icon: "fas fa-bolt",
+            iconColor: "#c084fc",
+            gradCat: "ai",
+            downloads: "540+",
+            href: "resources.html",
+          },
+          {
+            id: "r05",
+            cat: "resource",
+            type: "template",
+            price: "free",
+            priceText: "FREE",
+            name: "ផែនការ Content ៣០ ថ្ងៃ",
+            desc: "Google Sheet ត្រៀមប្រើ — ប្រភេទ Post · Caption Draft · Status ក្នុង ១ ខែ មិនត្រូវគិតច្រើន",
+            icon: "fas fa-calendar-alt",
+            iconColor: "#60a5fa",
+            gradCat: "strategy",
+            downloads: "780+",
+            href: "resources.html",
+          },
+          {
+            id: "r06",
+            cat: "resource",
+            type: "template",
+            price: "free",
+            priceText: "FREE",
+            name: "គំរូ Caption ខ្មែរ ៥០+",
+            desc: "Flash Sale · Product · Testimonial · Event — ៥០+ Caption ជាខ្មែរ ត្រៀម Paste ហើយ Post ភ្លាម",
+            icon: "fas fa-comment-dots",
+            iconColor: "#60a5fa",
+            gradCat: "strategy",
+            downloads: "910+",
+            href: "resources.html",
+          },
+          {
+            id: "r07",
+            cat: "resource",
+            type: "template",
+            price: "free",
+            priceText: "FREE",
+            name: "គំរូសវនកម្មបណ្ដាញសង្គម",
+            desc: "Rate Facebook · Instagram · TikTok · YouTube — Score Card ច្បាស់ ដើម្បី Fix មុន Boost",
+            icon: "fas fa-clipboard-check",
+            iconColor: "#60a5fa",
+            gradCat: "strategy",
+            downloads: "430+",
+            href: "resources.html",
+          },
+          {
+            id: "r08",
+            cat: "resource",
+            type: "marketing",
+            price: "free",
+            priceText: "FREE",
+            name: "Checklist Facebook Ads — មុនចំណាយ ១ ដុល្លារ",
+            desc: "Checklist ២៥ ចំណុច — កាត់ Waste · Improve ROAS · រៀបចំ Campaign ត្រឹមត្រូវ ពី Day 1",
+            icon: "fab fa-facebook-f",
+            iconColor: "#fb7185",
+            gradCat: "ai",
+            downloads: "670+",
+            href: "resources.html",
+          },
+          {
+            id: "r09",
+            cat: "resource",
+            type: "marketing",
+            price: "free",
+            priceText: "FREE",
+            name: "Digital Strategy Canvas — ផែនការ ១ ទំព័រ",
+            desc: "Target · Channel · Budget · KPI · Content Pillar — Framework ១ ទំព័រ ច្បាស់ ក្នុង ១ ម៉ោង",
+            icon: "fas fa-chess",
+            iconColor: "#fb7185",
+            gradCat: "ai",
+            downloads: "390+",
+            href: "resources.html",
+          },
+          {
+            id: "r10",
+            cat: "resource",
+            type: "design",
+            price: "free",
+            priceText: "FREE",
+            name: "Branding Checklist — សហគ្រាសខ្មែរ",
+            desc: "Logo · Color · Font · Tone of Voice — Checklist ៣០ ចំណុច Audit Brand អ្នកថ្ងៃនេះ",
+            icon: "fas fa-palette",
+            iconColor: "#34d399",
+            gradCat: "resource",
+            downloads: "280+",
+            href: "resources.html",
+          },
 
-      // ── RESOURCES ────────────────────────────────────────────────
-      { id:'r01', cat:'resource', type:'ai', price:'free', priceText:'FREE',
-        name:'គម្ពីរ AI Content — ប្រតិទិន ៣០ ថ្ងៃ',
-        desc:'AI Prompts ២០០+ · ប្រតិទិន Content ១ ខែ · Hook Templates — ប្រើ ChatGPT ក្នុង ១០ នាទី',
-        icon:'fas fa-book-open', iconColor:'#c084fc', gradCat:'ai',
-        downloads:'1,200+', href:'resources.html' },
-      { id:'r02', cat:'resource', type:'ai', price:'free', priceText:'FREE',
-        name:'AI Prompts ១០០ សម្រាប់អ្នក',
-        desc:'Content · Ads Copy · Email · Caption · Reply Comment — Prompts ១០០ ជាភាសាខ្មែរ ត្រៀម Copy-Paste',
-        icon:'fas fa-robot', iconColor:'#c084fc', gradCat:'ai',
-        downloads:'850+', href:'resources.html' },
-      { id:'r03', cat:'resource', type:'ai', price:'free', priceText:'FREE',
-        name:'មគ្គុទ្ទេសក៍ ChatGPT ជាភាសាខ្មែរ',
-        desc:'Sign Up → Prompt ដំបូង — Guide ១២ ទំព័រ ជួយចាប់ AI ក្នុង ១ ម៉ោង ដោយមិនចាំបាច់ចេះ English',
-        icon:'fas fa-graduation-cap', iconColor:'#c084fc', gradCat:'ai',
-        downloads:'620+', href:'resources.html' },
-      { id:'r04', cat:'resource', type:'ai', price:'free', priceText:'FREE',
-        name:'ក្បួន Hook — ពី ០ ទៅ Viral ក្នុង ៣ វិនាទី',
-        desc:'Hook ១៥ ប្រភេទ · Video · Text · Photo — ក្នុង Context ខ្មែរ ដែល Algorithm ចូលចិត្ត',
-        icon:'fas fa-bolt', iconColor:'#c084fc', gradCat:'ai',
-        downloads:'540+', href:'resources.html' },
-      { id:'r05', cat:'resource', type:'template', price:'free', priceText:'FREE',
-        name:'ផែនការ Content ៣០ ថ្ងៃ',
-        desc:'Google Sheet ត្រៀមប្រើ — ប្រភេទ Post · Caption Draft · Status ក្នុង ១ ខែ មិនត្រូវគិតច្រើន',
-        icon:'fas fa-calendar-alt', iconColor:'#60a5fa', gradCat:'strategy',
-        downloads:'780+', href:'resources.html' },
-      { id:'r06', cat:'resource', type:'template', price:'free', priceText:'FREE',
-        name:'គំរូ Caption ខ្មែរ ៥០+',
-        desc:'Flash Sale · Product · Testimonial · Event — ៥០+ Caption ជាខ្មែរ ត្រៀម Paste ហើយ Post ភ្លាម',
-        icon:'fas fa-comment-dots', iconColor:'#60a5fa', gradCat:'strategy',
-        downloads:'910+', href:'resources.html' },
-      { id:'r07', cat:'resource', type:'template', price:'free', priceText:'FREE',
-        name:'គំរូសវនកម្មបណ្ដាញសង្គម',
-        desc:'Rate Facebook · Instagram · TikTok · YouTube — Score Card ច្បាស់ ដើម្បី Fix មុន Boost',
-        icon:'fas fa-clipboard-check', iconColor:'#60a5fa', gradCat:'strategy',
-        downloads:'430+', href:'resources.html' },
-      { id:'r08', cat:'resource', type:'marketing', price:'free', priceText:'FREE',
-        name:'Checklist Facebook Ads — មុនចំណាយ ១ ដុល្លារ',
-        desc:'Checklist ២៥ ចំណុច — កាត់ Waste · Improve ROAS · រៀបចំ Campaign ត្រឹមត្រូវ ពី Day 1',
-        icon:'fab fa-facebook-f', iconColor:'#fb7185', gradCat:'ai',
-        downloads:'670+', href:'resources.html' },
-      { id:'r09', cat:'resource', type:'marketing', price:'free', priceText:'FREE',
-        name:'Digital Strategy Canvas — ផែនការ ១ ទំព័រ',
-        desc:'Target · Channel · Budget · KPI · Content Pillar — Framework ១ ទំព័រ ច្បាស់ ក្នុង ១ ម៉ោង',
-        icon:'fas fa-chess', iconColor:'#fb7185', gradCat:'ai',
-        downloads:'390+', href:'resources.html' },
-      { id:'r10', cat:'resource', type:'design', price:'free', priceText:'FREE',
-        name:'Branding Checklist — សហគ្រាសខ្មែរ',
-        desc:'Logo · Color · Font · Tone of Voice — Checklist ៣០ ចំណុច Audit Brand អ្នកថ្ងៃនេះ',
-        icon:'fas fa-palette', iconColor:'#34d399', gradCat:'resource',
-        downloads:'280+', href:'resources.html' },
+          // ── PORTFOLIO ────────────────────────────────────────────────
+          {
+            id: "p01",
+            cat: "portfolio",
+            type: "branding",
+            price: "free",
+            priceText: "Free",
+            name: "Angkor Beverage — Brand Refresh",
+            desc: "Logo · Color System · Social Templates — Khmer FMCG brand targeting Gen Z",
+            icon: "🎨",
+            href: "case-studies.html",
+          },
+          {
+            id: "p02",
+            cat: "portfolio",
+            type: "web",
+            price: "free",
+            priceText: "Free",
+            name: "TechKH — Landing Page",
+            desc: "Conversion-focused landing page · A/B tested · 3x lead uplift vs old site",
+            icon: "💻",
+            href: "case-studies.html",
+          },
+          {
+            id: "p03",
+            cat: "portfolio",
+            type: "strategy",
+            price: "free",
+            priceText: "Free",
+            name: "Phnom Penh SME — Ads Strategy",
+            desc: "Facebook & TikTok ads · ROAS 3.8x · Budget $500/month",
+            icon: "📈",
+            href: "case-studies.html",
+          },
+          {
+            id: "p04",
+            cat: "portfolio",
+            type: "branding",
+            price: "free",
+            priceText: "Free",
+            name: "YOB Digital — Brand Identity",
+            desc: "Full brand system · Pink + Dark theme · Component library · Motion tokens",
+            icon: "✨",
+            href: "case-studies.html",
+          },
+        ];
 
-      // ── PORTFOLIO ────────────────────────────────────────────────
-      { id:'p01', cat:'portfolio', type:'branding', price:'free', priceText:'Free',
-        name:'Angkor Beverage — Brand Refresh',
-        desc:'Logo · Color System · Social Templates — Khmer FMCG brand targeting Gen Z',
-        icon:'🎨', href:'case-studies.html' },
-      { id:'p02', cat:'portfolio', type:'web', price:'free', priceText:'Free',
-        name:'TechKH — Landing Page',
-        desc:'Conversion-focused landing page · A/B tested · 3x lead uplift vs old site',
-        icon:'💻', href:'case-studies.html' },
-      { id:'p03', cat:'portfolio', type:'strategy', price:'free', priceText:'Free',
-        name:'Phnom Penh SME — Ads Strategy',
-        desc:'Facebook & TikTok ads · ROAS 3.8x · Budget $500/month',
-        icon:'📈', href:'case-studies.html' },
-      { id:'p04', cat:'portfolio', type:'branding', price:'free', priceText:'Free',
-        name:'YOB Digital — Brand Identity',
-        desc:'Full brand system · Pink + Dark theme · Component library · Motion tokens',
-        icon:'✨', href:'case-studies.html' }
-    ];
+        // ── Type chips per category ──
+        var TYPE_CHIPS = {
+          fonts: [
+            { type: "display", label: "ចំណងជើង", color: "#9b6bff" },
+            { type: "script", label: "ហត្ថលិខិត", color: "#c084fc" },
+            { type: "sans", label: "អានងាយ", color: "#a78bfa" },
+            { type: "bundle", label: "Bundle", color: "#e879f9" },
+          ],
+          resource: [
+            { type: "ai", label: "AI Tools", color: "#f472b6" },
+            { type: "template", label: "Template", color: "#60a5fa" },
+            { type: "marketing", label: "Marketing", color: "#fb7185" },
+            { type: "design", label: "Design", color: "#34d399" },
+          ],
+          portfolio: [
+            { type: "ai", label: "ឧបករណ៍ AI", color: "#f472b6" },
+            { type: "strategy", label: "យុទ្ធសាស្រ្ត", color: "#f59e0b" },
+            { type: "web", label: "វេបសាយ", color: "#22d3ee" },
+            { type: "fonts", label: "អក្សរខ្មែរ", color: "#9b6bff" },
+            { type: "design", label: "ការរចនា", color: "#4ade80" },
+          ],
+        };
 
-    // ── Type chips per category ──
-    var TYPE_CHIPS = {
-      fonts: [
-        { type:'display',  label:'ចំណងជើង', color:'#9b6bff' },
-        { type:'script',   label:'ហត្ថលិខិត', color:'#c084fc' },
-        { type:'sans',     label:'អានងាយ',    color:'#a78bfa' },
-        { type:'bundle',   label:'Bundle',    color:'#e879f9' }
-      ],
-      resource: [
-        { type:'ai',        label:'AI Tools',  color:'#f472b6' },
-        { type:'template',  label:'Template',  color:'#60a5fa' },
-        { type:'marketing', label:'Marketing', color:'#fb7185' },
-        { type:'design',    label:'Design',    color:'#34d399' }
-      ],
-      portfolio: [
-        { type:'branding',  label:'Branding',  color:'#4f82ff' },
-        { type:'web',       label:'Web / App', color:'#22d3ee' },
-        { type:'strategy',  label:'Strategy',  color:'#f59e0b' }
-      ]
-    };
+        // ── HTML escape ──
+        function esc(s) {
+          return String(s || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+        }
 
-    // ── HTML escape ──
-    function esc(s) {
-      return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-    }
+        // ── Build one card ──
+        function buildCard(p) {
+          var badgeCls =
+            p.price === "free" ? "sc-badge-free" : "sc-badge-premium";
+          var badgeLbl = p.price === "free" ? "Free" : "Premium";
+          var priceCls = p.price === "free" ? "p-free" : "";
+          var prevHtml, catDot, catLabel, ctaHtml;
 
-    // ── Build one card ──
-    function buildCard(p) {
-      var badgeCls = p.price === 'free' ? 'sc-badge-free' : 'sc-badge-premium';
-      var badgeLbl = p.price === 'free' ? 'Free' : 'Premium';
-      var priceCls = p.price === 'free' ? 'p-free' : '';
-      var prevHtml, catDot, catLabel, ctaHtml;
+          if (p.cat === "fonts") {
+            prevHtml =
+              '<div class="sc-prev" data-cat="fonts">' +
+              '<span class="sc-badge ' +
+              badgeCls +
+              '">' +
+              badgeLbl +
+              "</span>" +
+              '<div class="sc-prev-body">' +
+              '<span class="sc-prev-ico" style="font-family:' +
+              esc(p.fontFamily) +
+              ';color:#c084fc;font-size:28px;line-height:1.35">' +
+              esc(p.previewText) +
+              "</span>" +
+              '<span class="sc-prev-lbl">' +
+              esc(p.catLabel) +
+              "</span>" +
+              "</div></div>";
+            catDot = "#9b6bff";
+            catLabel = "យប់ អក្ខរា";
+            ctaHtml =
+              p.price === "free"
+                ? 'ទាញយក <i class="fas fa-download"></i>'
+                : 'Get access <i class="fas fa-arrow-right"></i>';
+          } else if (p.cat === "resource") {
+            prevHtml =
+              '<div class="sc-prev" data-cat="' +
+              esc(p.gradCat) +
+              '">' +
+              '<span class="sc-badge sc-badge-free">Free</span>' +
+              '<div class="sc-prev-body">' +
+              '<span class="sc-prev-ico" style="color:' +
+              esc(p.iconColor) +
+              ';font-size:44px"><i class="' +
+              esc(p.icon) +
+              '"></i></span>' +
+              '<span class="sc-prev-lbl">Digital Resource</span>' +
+              "</div></div>";
+            catDot = "#4ade80";
+            catLabel = "កាដូរ ឌីជីថល";
+            ctaHtml = 'ទាញយក <i class="fas fa-download"></i>';
+          } else {
+            prevHtml =
+              '<div class="sc-prev" data-cat="strategy">' +
+              '<span class="sc-badge" style="background:rgba(79,130,255,0.14);border:1px solid rgba(79,130,255,0.4);color:#4f82ff">Portfolio</span>' +
+              '<div class="sc-prev-body">' +
+              '<span class="sc-prev-ico" style="font-size:52px">' +
+              esc(p.icon) +
+              "</span>" +
+              '<span class="sc-prev-lbl">Case Study</span>' +
+              "</div></div>";
+            catDot = "#4f82ff";
+            catLabel = "កម្រងស្នាដៃ";
+            ctaHtml = 'មើល <i class="fas fa-arrow-right"></i>';
+          }
 
-      if (p.cat === 'fonts') {
-        prevHtml = '<div class="sc-prev" data-cat="fonts">'
-          + '<span class="sc-badge ' + badgeCls + '">' + badgeLbl + '</span>'
-          + '<div class="sc-prev-body">'
-          + '<span class="sc-prev-ico" style="font-family:' + esc(p.fontFamily) + ';color:#c084fc;font-size:28px;line-height:1.35">' + esc(p.previewText) + '</span>'
-          + '<span class="sc-prev-lbl">' + esc(p.catLabel) + '</span>'
-          + '</div></div>';
-        catDot = '#9b6bff'; catLabel = 'យប់ អក្ខរា';
-        ctaHtml = p.price === 'free'
-          ? 'ទាញយក <i class="fas fa-download"></i>'
-          : 'Get access <i class="fas fa-arrow-right"></i>';
-      } else if (p.cat === 'resource') {
-        prevHtml = '<div class="sc-prev" data-cat="' + esc(p.gradCat) + '">'
-          + '<span class="sc-badge sc-badge-free">Free</span>'
-          + '<div class="sc-prev-body">'
-          + '<span class="sc-prev-ico" style="color:' + esc(p.iconColor) + ';font-size:44px"><i class="' + esc(p.icon) + '"></i></span>'
-          + '<span class="sc-prev-lbl">Digital Resource</span>'
-          + '</div></div>';
-        catDot = '#4ade80'; catLabel = 'កាដូរ ឌីជីថល';
-        ctaHtml = 'ទាញយក <i class="fas fa-download"></i>';
-      } else {
-        prevHtml = '<div class="sc-prev" data-cat="strategy">'
-          + '<span class="sc-badge" style="background:rgba(79,130,255,0.14);border:1px solid rgba(79,130,255,0.4);color:#4f82ff">Portfolio</span>'
-          + '<div class="sc-prev-body">'
-          + '<span class="sc-prev-ico" style="font-size:52px">' + esc(p.icon) + '</span>'
-          + '<span class="sc-prev-lbl">Case Study</span>'
-          + '</div></div>';
-        catDot = '#4f82ff'; catLabel = 'កម្រងស្នាដៃ';
-        ctaHtml = 'មើល <i class="fas fa-arrow-right"></i>';
-      }
+          var desc = p.desc || p.meta || "";
+          return (
+            '<div class="sh-card" data-id="' +
+            esc(p.id) +
+            '" data-cat="' +
+            esc(p.cat) +
+            '" data-type="' +
+            esc(p.type) +
+            '" data-price="' +
+            esc(p.price) +
+            '">' +
+            prevHtml +
+            '<div class="sc-body">' +
+            '<div class="sc-row"><h3 class="sc-name">' +
+            esc(p.name) +
+            '</h3><span class="sc-price ' +
+            priceCls +
+            '">' +
+            esc(p.priceText) +
+            "</span></div>" +
+            (desc ? '<p class="sc-desc">' + esc(desc) + "</p>" : "") +
+            '<div class="sc-foot"><span class="sc-cat"><span class="sc-cdot" style="background:' +
+            catDot +
+            '"></span>' +
+            catLabel +
+            "</span>" +
+            '<a href="' +
+            esc(p.href) +
+            '" class="sc-cta">' +
+            ctaHtml +
+            "</a>" +
+            "</div></div></div>"
+          );
+        }
 
-      var desc = p.desc || p.meta || '';
-      return '<div class="sh-card" data-id="' + esc(p.id) + '" data-cat="' + esc(p.cat) + '" data-type="' + esc(p.type) + '" data-price="' + esc(p.price) + '">'
-        + prevHtml
-        + '<div class="sc-body">'
-        + '<div class="sc-row"><h3 class="sc-name">' + esc(p.name) + '</h3><span class="sc-price ' + priceCls + '">' + esc(p.priceText) + '</span></div>'
-        + (desc ? '<p class="sc-desc">' + esc(desc) + '</p>' : '')
-        + '<div class="sc-foot"><span class="sc-cat"><span class="sc-cdot" style="background:' + catDot + '"></span>' + catLabel + '</span>'
-        + '<a href="' + esc(p.href) + '" class="sc-cta">' + ctaHtml + '</a>'
-        + '</div></div></div>';
-    }
+        // ── Type dropdown ──
+        var typeDropEl = document.getElementById("shTypeDrop");
+        var typeBtnEl = document.getElementById("shTypeBtn");
+        var typePanelEl = document.getElementById("shTypePanel");
+        var typeSepEl = document.getElementById("shTypeSep");
 
-    // ── Type dropdown ──
-    var typeDropEl  = document.getElementById('shTypeDrop');
-    var typeBtnEl   = document.getElementById('shTypeBtn');
-    var typePanelEl = document.getElementById('shTypePanel');
-    var typeSepEl   = document.getElementById('shTypeSep');
+        function closeTypeDrop() {
+          typeDropEl.classList.remove("open");
+        }
 
-    function closeTypeDrop() { typeDropEl.classList.remove('open'); }
+        function updateTypeChips() {
+          var chips = TYPE_CHIPS[state.cat];
+          if (!chips) {
+            typeDropEl.style.display = "none";
+            typeSepEl.style.display = "none";
+            state.type = "all";
+            closeTypeDrop();
+            return;
+          }
+          state.type = "all";
+          // Build dropdown items — "All types" first
+          var items = [
+            { type: "all", label: "ប្រភេទទាំងអស់", color: null },
+          ].concat(chips);
+          typePanelEl.innerHTML = items
+            .map(function (c) {
+              var dot = c.color
+                ? '<span class="sh-chip-dot" style="background:' +
+                  esc(c.color) +
+                  '"></span>'
+                : "";
+              var active = c.type === "all" ? " active" : "";
+              return (
+                '<button class="sh-drop-item' +
+                active +
+                '" data-type="' +
+                esc(c.type) +
+                '">' +
+                dot +
+                esc(c.label) +
+                '<i class="fas fa-check sh-drop-check"></i></button>'
+              );
+            })
+            .join("");
+          // Reset button label
+          typeBtnEl.innerHTML =
+            'ប្រភេទ <i class="fas fa-chevron-down sh-drop-ico"></i>';
+          typeBtnEl.classList.remove("has-value");
+          typeDropEl.style.display = "";
+          typeSepEl.style.display = "";
+          // Item click
+          typePanelEl.querySelectorAll(".sh-drop-item").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+              typePanelEl
+                .querySelectorAll(".sh-drop-item")
+                .forEach(function (b) {
+                  b.classList.remove("active");
+                });
+              btn.classList.add("active");
+              state.type = btn.dataset.type;
+              // Update button label
+              var activeChip =
+                TYPE_CHIPS[state.cat] &&
+                TYPE_CHIPS[state.cat].find(function (c) {
+                  return c.type === state.type;
+                });
+              var label = activeChip ? activeChip.label : "ប្រភេទ";
+              typeBtnEl.innerHTML =
+                esc(label) + ' <i class="fas fa-chevron-down sh-drop-ico"></i>';
+              typeBtnEl.classList.toggle("has-value", state.type !== "all");
+              closeTypeDrop();
+              render();
+            });
+          });
+        }
 
-    function updateTypeChips() {
-      var chips = TYPE_CHIPS[state.cat];
-      if (!chips) {
-        typeDropEl.style.display = 'none';
-        typeSepEl.style.display  = 'none';
-        state.type = 'all';
-        closeTypeDrop();
-        return;
-      }
-      state.type = 'all';
-      // Build dropdown items — "All types" first
-      var items = [{ type:'all', label:'ប្រភេទទាំងអស់', color:null }].concat(chips);
-      typePanelEl.innerHTML = items.map(function (c) {
-        var dot = c.color ? '<span class="sh-chip-dot" style="background:' + esc(c.color) + '"></span>' : '';
-        var active = c.type === 'all' ? ' active' : '';
-        return '<button class="sh-drop-item' + active + '" data-type="' + esc(c.type) + '">'
-          + dot + esc(c.label)
-          + '<i class="fas fa-check sh-drop-check"></i></button>';
-      }).join('');
-      // Reset button label
-      typeBtnEl.innerHTML = 'ប្រភេទ <i class="fas fa-chevron-down sh-drop-ico"></i>';
-      typeBtnEl.classList.remove('has-value');
-      typeDropEl.style.display = '';
-      typeSepEl.style.display  = '';
-      // Item click
-      typePanelEl.querySelectorAll('.sh-drop-item').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          typePanelEl.querySelectorAll('.sh-drop-item').forEach(function (b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-          state.type = btn.dataset.type;
-          // Update button label
-          var activeChip = TYPE_CHIPS[state.cat] && TYPE_CHIPS[state.cat].find(function(c){ return c.type === state.type; });
-          var label = activeChip ? activeChip.label : 'ប្រភេទ';
-          typeBtnEl.innerHTML = esc(label) + ' <i class="fas fa-chevron-down sh-drop-ico"></i>';
-          typeBtnEl.classList.toggle('has-value', state.type !== 'all');
-          closeTypeDrop();
-          render();
+        // Position the panel using fixed coords from button rect
+        function positionTypeDrop() {
+          var rect = typeBtnEl.getBoundingClientRect();
+          typePanelEl.style.top = rect.bottom + 8 + "px";
+          typePanelEl.style.left = rect.left + "px";
+        }
+
+        // Toggle dropdown on button click
+        typeBtnEl.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var isOpen = typeDropEl.classList.contains("open");
+          if (!isOpen) positionTypeDrop();
+          typeDropEl.classList.toggle("open");
         });
-      });
-    }
-
-    // Toggle dropdown on button click
-    typeBtnEl.addEventListener('click', function (e) {
-      e.stopPropagation();
-      typeDropEl.classList.toggle('open');
-    });
-    // Close on outside click
-    document.addEventListener('click', function (e) {
-      if (!typeDropEl.contains(e.target)) closeTypeDrop();
-    });
-
-    // ── Render ──
-    function render() {
-      var empty = document.getElementById('shEmpty');
-      var html  = '';
-      var visible = 0;
-      PRODUCTS.forEach(function (p) {
-        var okCat   = state.cat   === 'all' || state.cat   === p.cat;
-        var okType  = state.type  === 'all' || state.type  === p.type;
-        var okPrice = state.price === 'all' || state.price === p.price;
-        if (okCat && okType && okPrice) { html += buildCard(p); visible++; }
-      });
-      Array.from(grid.children).forEach(function (c) {
-        if (c.id !== 'shEmpty') grid.removeChild(c);
-      });
-      if (html) {
-        grid.insertAdjacentHTML('afterbegin', html);
-        Array.from(grid.querySelectorAll('.sh-card')).forEach(function (c, i) {
-          c.style.opacity = '0';
-          c.style.transform = 'translateY(10px)';
-          setTimeout(function () {
-            c.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
-            c.style.opacity = '';
-            c.style.transform = '';
-          }, i * 40);
+        // Reposition on scroll or resize while open
+        window.addEventListener(
+          "scroll",
+          function () {
+            if (typeDropEl.classList.contains("open")) positionTypeDrop();
+          },
+          { passive: true },
+        );
+        window.addEventListener("resize", function () {
+          if (typeDropEl.classList.contains("open")) positionTypeDrop();
         });
-      }
-      countEl.textContent = visible;
-      if (empty) empty.classList.toggle('on', visible === 0);
-    }
+        // Close on outside click
+        document.addEventListener("click", function (e) {
+          if (!typeDropEl.contains(e.target)) closeTypeDrop();
+        });
 
-    // ── Category chips ──
-    document.querySelectorAll('.sh-chip[data-cat]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        document.querySelectorAll('.sh-chip[data-cat]').forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        state.cat  = btn.dataset.cat;
-        state.type = 'all';
-        updateTypeChips();
+        // ── Render ──
+        function render() {
+          var empty = document.getElementById("shEmpty");
+          var html = "";
+          var visible = 0;
+          var qLower = state.q.toLowerCase();
+          PRODUCTS.forEach(function (p) {
+            var okCat = state.cat === "all" || state.cat === p.cat;
+            var okType = state.type === "all" || state.type === p.type;
+            var okPrice = state.price === "all" || state.price === p.price;
+            var okQ =
+              !qLower ||
+              [
+                p.name,
+                p.desc || "",
+                p.meta || "",
+                p.catLabel || "",
+                p.type || "",
+                p.cat || "",
+              ]
+                .join(" ")
+                .toLowerCase()
+                .indexOf(qLower) !== -1;
+            if (okCat && okType && okPrice && okQ) {
+              html += buildCard(p);
+              visible++;
+            }
+          });
+          Array.from(grid.children).forEach(function (c) {
+            if (c.id !== "shEmpty") grid.removeChild(c);
+          });
+          if (html) {
+            grid.insertAdjacentHTML("afterbegin", html);
+            Array.from(grid.querySelectorAll(".sh-card")).forEach(
+              function (c, i) {
+                c.style.opacity = "0";
+                c.style.transform = "translateY(10px)";
+                setTimeout(function () {
+                  c.style.transition =
+                    "opacity 0.25s ease, transform 0.25s ease";
+                  c.style.opacity = "";
+                  c.style.transform = "";
+                }, i * 40);
+              },
+            );
+          }
+          countEl.textContent = visible;
+          if (empty) empty.classList.toggle("on", visible === 0);
+          // Update search result notice
+          if (qNoticeEl) {
+            if (state.q) {
+              qNoticeEl.classList.add("on");
+              qNoticeEl.innerHTML =
+                "លត័ផល <strong>" +
+                visible +
+                "</strong> សម័រឹ “<strong>" +
+                esc(state.q) +
+                "</strong>”";
+            } else {
+              qNoticeEl.classList.remove("on");
+              qNoticeEl.innerHTML = "";
+            }
+          }
+        }
+
+        // ── Category chips ──
+        document.querySelectorAll(".sh-chip[data-cat]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            document
+              .querySelectorAll(".sh-chip[data-cat]")
+              .forEach(function (b) {
+                b.classList.remove("active");
+              });
+            btn.classList.add("active");
+            state.cat = btn.dataset.cat;
+            state.type = "all";
+            updateTypeChips();
+            render();
+          });
+        });
+
+        // ── Price chips ──
+        document
+          .querySelectorAll(".sh-chip[data-price]")
+          .forEach(function (btn) {
+            btn.addEventListener("click", function () {
+              document
+                .querySelectorAll(".sh-chip[data-price]")
+                .forEach(function (b) {
+                  b.classList.remove("active");
+                });
+              btn.classList.add("active");
+              state.price = btn.dataset.price;
+              render();
+            });
+          });
+
+        // ── Sort ──
+        var shSortSel = document.getElementById("shSortSel");
+        if (shSortSel) {
+          shSortSel.addEventListener("change", function () {
+            render();
+          });
+        }
+
+        // ── Search input ──
+        var searchTimer;
+        if (searchEl) {
+          searchEl.addEventListener("input", function () {
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(function () {
+              state.q = searchEl.value.trim();
+              if (clearBtn) clearBtn.classList.toggle("visible", !!state.q);
+              render();
+            }, 100);
+          });
+          // Clear button
+          if (clearBtn) {
+            clearBtn.addEventListener("click", function () {
+              searchEl.value = "";
+              state.q = "";
+              clearBtn.classList.remove("visible");
+              render();
+              searchEl.focus();
+            });
+          }
+        }
+
+        // ── Keyboard: “/” focuses search, Esc blurs ──
+        document.addEventListener("keydown", function (e) {
+          if (
+            e.key === "/" &&
+            document.activeElement !== searchEl &&
+            !["INPUT", "TEXTAREA", "SELECT"].includes(
+              document.activeElement.tagName,
+            )
+          ) {
+            e.preventDefault();
+            if (searchEl) searchEl.focus();
+          }
+          if (e.key === "Escape" && document.activeElement === searchEl) {
+            searchEl.blur();
+          }
+        });
+
+        // ── Init ──
+        // Set total stat count once after PRODUCTS is populated
+        if (totalStat) totalStat.textContent = PRODUCTS.length;
         render();
-      });
-    });
-
-    // ── Price chips ──
-    document.querySelectorAll('.sh-chip[data-price]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        document.querySelectorAll('.sh-chip[data-price]').forEach(function (b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        state.price = btn.dataset.price;
-        render();
-      });
-    });
-
-    // ── Sort ──
-    var shSortSel = document.getElementById('shSortSel');
-    if (shSortSel) {
-      shSortSel.addEventListener('change', function () { render(); });
-    }
-
-    // ── Init ──
-    render();
-  })();
-  </script>
-  <script src="js/load-components.js"></script>
-  <script src="js/main.js" defer></script>
-</body>
+      })();
+    </script>
+    <script src="js/load-components.js"></script>
+    <script src="js/main.js" defer></script>
+  </body>
 </html>
