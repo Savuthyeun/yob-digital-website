@@ -107,6 +107,82 @@
       margin: 0 8px;
       flex-shrink: 0;
     }
+
+    /* ── Type dropdown (Freepik-style) ── */
+    .sh-type-drop {
+      position: relative;
+      flex-shrink: 0;
+    }
+    .sh-drop-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.55);
+      font-family: var(--fb);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.14s, border-color 0.14s, background 0.14s;
+    }
+    .sh-drop-btn:hover {
+      color: var(--white);
+      border-color: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.08);
+    }
+    .sh-drop-btn.has-value {
+      border-color: var(--gold);
+      color: var(--white);
+      background: rgba(229,44,103,0.08);
+    }
+    .sh-drop-ico { font-size: 10px; transition: transform 0.2s; }
+    .sh-type-drop.open .sh-drop-ico { transform: rotate(180deg); }
+    .sh-drop-panel {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 185px;
+      background: #0d1117;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 6px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04);
+      opacity: 0;
+      transform: translateY(-6px) scale(0.97);
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 200;
+    }
+    .sh-type-drop.open .sh-drop-panel {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+    .sh-drop-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 12px;
+      border-radius: 9px;
+      font-family: var(--fb);
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s;
+      width: 100%;
+      text-align: left;
+      border: none;
+      background: none;
+      white-space: nowrap;
+    }
+    .sh-drop-item:hover { background: rgba(255,255,255,0.06); color: var(--white); }
+    .sh-drop-item.active { color: var(--white); }
+    .sh-drop-check { margin-left: auto; color: var(--gold); font-size: 12px; opacity: 0; transition: opacity 0.12s; }
+    .sh-drop-item.active .sh-drop-check { opacity: 1; }
     .sh-cb-right {
       display: flex;
       align-items: center;
@@ -733,6 +809,15 @@
 
       <div class="sh-cb-sep"></div>
 
+      <!-- Type dropdown — shown when specific category selected -->
+      <div class="sh-type-drop" id="shTypeDrop" style="display:none">
+        <button class="sh-drop-btn" id="shTypeBtn">
+          ប្រភេទ <i class="fas fa-chevron-down sh-drop-ico"></i>
+        </button>
+        <div class="sh-drop-panel" id="shTypePanel"></div>
+      </div>
+      <div class="sh-cb-sep" id="shTypeSep" style="display:none"></div>
+
       <!-- Price chips -->
       <div class="sh-chips">
         <button class="sh-chip sh-chip-sm active" data-price="all">All</button>
@@ -770,42 +855,298 @@
     </div><!-- end sh-grid -->
   </div><!-- end sh-content -->
 
-  <!-- ══════════════════════════════════
-       CTA BANNER
-       ══════════════════════════════════ -->
-  <div class="sh-cta">
-    <div class="sh-cta-inner reveal">
-      <h2>មាន Request <span class="gradient-text">Custom?</span></h2>
-      <p>ប្រាប់យើងពីអ្វីដែលអ្នកត្រូវការ — Brand Kit, Font Custom, Template ពិសេសសម្រាប់អ្នក.</p>
-      <a href="/contact" class="btn-primary">
-        <i class="fas fa-paper-plane"></i> ទំនាក់ទំនង
-      </a>
-    </div>
-  </div>
-
   <div id="footer-placeholder"></div>  <script>
-  // ── Digital Shop: Dynamic fetch + filter ──
+  // ── Digital Shop: Static PRODUCTS array + filter ──
   (function () {
-    var grid        = document.getElementById('shGrid');
-    var countEl     = document.getElementById('shCount');
-    var activeCat   = 'all';
-    var activePricef = 'all';
-    var activeTab   = 'all';
+    var grid    = document.getElementById('shGrid');
+    var countEl = document.getElementById('shCount');
+
+    // ── Filter state ──
+    var state = { cat: 'all', type: 'all', price: 'all' };
+
+    // ════════════════════════════════════════
+    // PRODUCT DATABASE — edit here to add/remove items
+    // ════════════════════════════════════════
+    var PRODUCTS = [
+
+      // ── FONTS ────────────────────────────────────────────────────
+      { id:'f01', cat:'fonts', type:'display', price:'free', priceText:'FREE',
+        name:'Khmer Savuth', catLabel:'ចំណងជើង', meta:'Display · Savuth Collection',
+        previewText:'ខ្មែរ​ស្អាត​ស្រស់', fontFamily:"'Khmer Savuth',var(--fk),sans-serif",
+        href:'yobfont.html' },
+      { id:'f02', cat:'fonts', type:'script', price:'free', priceText:'FREE',
+        name:'Savuth Pen', catLabel:'ហត្ថលិខិត', meta:'Script · Pen Style',
+        previewText:'ហត្ថលេខា​ស្រស់', fontFamily:"'Savuth Pen',var(--fk),sans-serif",
+        href:'yobfont.html' },
+      { id:'f03', cat:'fonts', type:'script', price:'free', priceText:'FREE',
+        name:'Savuth Pen 2', catLabel:'ហត្ថលិខិត', meta:'Script · Pen Style v2',
+        previewText:'ហត្ថលេខា​ប្រណិត', fontFamily:"'Savuth Pen 2',var(--fk),sans-serif",
+        href:'yobfont.html' },
+      { id:'f04', cat:'fonts', type:'script', price:'free', priceText:'FREE',
+        name:'Savuth Brush', catLabel:'ហត្ថលិខិត', meta:'Script · Brush Style',
+        previewText:'ហស្ថ​លិខិត​ច្នៃ', fontFamily:"'Savuth Brush',var(--fk),sans-serif",
+        href:'yobfont.html' },
+      { id:'f05', cat:'fonts', type:'display', price:'free', priceText:'FREE',
+        name:'Savuth Romeas', catLabel:'ចំណងជើង', meta:'Display · Romeas Style',
+        previewText:'អក្សរ​ខ្មែរ​ស្វែង', fontFamily:"'Savuth Romeas',var(--fk),sans-serif",
+        href:'yobfont.html' },
+      { id:'f06', cat:'fonts', type:'display', price:'free', priceText:'FREE',
+        name:'Khmer Sharp', catLabel:'ចំណងជើង', meta:'Display · Sharp Style',
+        previewText:'ស្រួច​ពត​ច្បាស់', fontFamily:"'Khmer Sharp',var(--fk),sans-serif",
+        href:'yobfont.html' },
+      { id:'f07', cat:'fonts', type:'sans', price:'free', priceText:'FREE',
+        name:'Sem Sarun', catLabel:'អានងាយ', meta:'Sans · Readable Body',
+        previewText:'អានស្រួល​យល់ច្បាស់', fontFamily:"'Sem Sarun',var(--fk),sans-serif",
+        href:'yobfont.html' },
+      { id:'f08', cat:'fonts', type:'display', price:'free', priceText:'FREE',
+        name:'Khmer Sexy', catLabel:'ចំណងជើង', meta:'Display · Decorative',
+        previewText:'ក្បាច់​ស្រស់​ស្អាត', fontFamily:"'Khmer Sexy',var(--fk),sans-serif",
+        href:'yobfont.html' },
+      { id:'f09', cat:'fonts', type:'display', price:'free', priceText:'FREE',
+        name:'Kompong Chhnang', catLabel:'ចំណងជើង', meta:'Display · Regional Style',
+        previewText:'កំពង់ឆ្នាំង​ស្អាត', fontFamily:"'Kompong Chhnang',var(--fk),sans-serif",
+        href:'yobfont.html' },
+      { id:'f10', cat:'fonts', type:'sans', price:'free', priceText:'FREE',
+        name:'iKhmer Students', catLabel:'អានងាយ', meta:'Sans · Education Style',
+        previewText:'សិស្ស​ខ្មែរ​រៀន', fontFamily:"'iKhmer Students',var(--fk),sans-serif",
+        href:'yobfont.html' },
+      { id:'f11', cat:'fonts', type:'bundle', price:'premium', priceText:'$50',
+        name:'YOB Font Bundle', catLabel:'Bundle', meta:'5 Premium Fonts · Commercial License',
+        desc:'YOB Heading Pro + Modern Serif + Signature + Poster Black + Kbach Retro — License + Free Updates',
+        previewText:'YOB ✦', fontFamily:"var(--fh)",
+        href:'yobfont.html' },
+
+      // ── RESOURCES ────────────────────────────────────────────────
+      { id:'r01', cat:'resource', type:'ai', price:'free', priceText:'FREE',
+        name:'គម្ពីរ AI Content — ប្រតិទិន ៣០ ថ្ងៃ',
+        desc:'AI Prompts ២០០+ · ប្រតិទិន Content ១ ខែ · Hook Templates — ប្រើ ChatGPT ក្នុង ១០ នាទី',
+        icon:'fas fa-book-open', iconColor:'#c084fc', gradCat:'ai',
+        downloads:'1,200+', href:'resources.html' },
+      { id:'r02', cat:'resource', type:'ai', price:'free', priceText:'FREE',
+        name:'AI Prompts ១០០ សម្រាប់អ្នក',
+        desc:'Content · Ads Copy · Email · Caption · Reply Comment — Prompts ១០០ ជាភាសាខ្មែរ ត្រៀម Copy-Paste',
+        icon:'fas fa-robot', iconColor:'#c084fc', gradCat:'ai',
+        downloads:'850+', href:'resources.html' },
+      { id:'r03', cat:'resource', type:'ai', price:'free', priceText:'FREE',
+        name:'មគ្គុទ្ទេសក៍ ChatGPT ជាភាសាខ្មែរ',
+        desc:'Sign Up → Prompt ដំបូង — Guide ១២ ទំព័រ ជួយចាប់ AI ក្នុង ១ ម៉ោង ដោយមិនចាំបាច់ចេះ English',
+        icon:'fas fa-graduation-cap', iconColor:'#c084fc', gradCat:'ai',
+        downloads:'620+', href:'resources.html' },
+      { id:'r04', cat:'resource', type:'ai', price:'free', priceText:'FREE',
+        name:'ក្បួន Hook — ពី ០ ទៅ Viral ក្នុង ៣ វិនាទី',
+        desc:'Hook ១៥ ប្រភេទ · Video · Text · Photo — ក្នុង Context ខ្មែរ ដែល Algorithm ចូលចិត្ត',
+        icon:'fas fa-bolt', iconColor:'#c084fc', gradCat:'ai',
+        downloads:'540+', href:'resources.html' },
+      { id:'r05', cat:'resource', type:'template', price:'free', priceText:'FREE',
+        name:'ផែនការ Content ៣០ ថ្ងៃ',
+        desc:'Google Sheet ត្រៀមប្រើ — ប្រភេទ Post · Caption Draft · Status ក្នុង ១ ខែ មិនត្រូវគិតច្រើន',
+        icon:'fas fa-calendar-alt', iconColor:'#60a5fa', gradCat:'strategy',
+        downloads:'780+', href:'resources.html' },
+      { id:'r06', cat:'resource', type:'template', price:'free', priceText:'FREE',
+        name:'គំរូ Caption ខ្មែរ ៥០+',
+        desc:'Flash Sale · Product · Testimonial · Event — ៥០+ Caption ជាខ្មែរ ត្រៀម Paste ហើយ Post ភ្លាម',
+        icon:'fas fa-comment-dots', iconColor:'#60a5fa', gradCat:'strategy',
+        downloads:'910+', href:'resources.html' },
+      { id:'r07', cat:'resource', type:'template', price:'free', priceText:'FREE',
+        name:'គំរូសវនកម្មបណ្ដាញសង្គម',
+        desc:'Rate Facebook · Instagram · TikTok · YouTube — Score Card ច្បាស់ ដើម្បី Fix មុន Boost',
+        icon:'fas fa-clipboard-check', iconColor:'#60a5fa', gradCat:'strategy',
+        downloads:'430+', href:'resources.html' },
+      { id:'r08', cat:'resource', type:'marketing', price:'free', priceText:'FREE',
+        name:'Checklist Facebook Ads — មុនចំណាយ ១ ដុល្លារ',
+        desc:'Checklist ២៥ ចំណុច — កាត់ Waste · Improve ROAS · រៀបចំ Campaign ត្រឹមត្រូវ ពី Day 1',
+        icon:'fab fa-facebook-f', iconColor:'#fb7185', gradCat:'ai',
+        downloads:'670+', href:'resources.html' },
+      { id:'r09', cat:'resource', type:'marketing', price:'free', priceText:'FREE',
+        name:'Digital Strategy Canvas — ផែនការ ១ ទំព័រ',
+        desc:'Target · Channel · Budget · KPI · Content Pillar — Framework ១ ទំព័រ ច្បាស់ ក្នុង ១ ម៉ោង',
+        icon:'fas fa-chess', iconColor:'#fb7185', gradCat:'ai',
+        downloads:'390+', href:'resources.html' },
+      { id:'r10', cat:'resource', type:'design', price:'free', priceText:'FREE',
+        name:'Branding Checklist — សហគ្រាសខ្មែរ',
+        desc:'Logo · Color · Font · Tone of Voice — Checklist ៣០ ចំណុច Audit Brand អ្នកថ្ងៃនេះ',
+        icon:'fas fa-palette', iconColor:'#34d399', gradCat:'resource',
+        downloads:'280+', href:'resources.html' },
+
+      // ── PORTFOLIO ────────────────────────────────────────────────
+      { id:'p01', cat:'portfolio', type:'branding', price:'free', priceText:'Free',
+        name:'Angkor Beverage — Brand Refresh',
+        desc:'Logo · Color System · Social Templates — Khmer FMCG brand targeting Gen Z',
+        icon:'🎨', href:'case-studies.html' },
+      { id:'p02', cat:'portfolio', type:'web', price:'free', priceText:'Free',
+        name:'TechKH — Landing Page',
+        desc:'Conversion-focused landing page · A/B tested · 3x lead uplift vs old site',
+        icon:'💻', href:'case-studies.html' },
+      { id:'p03', cat:'portfolio', type:'strategy', price:'free', priceText:'Free',
+        name:'Phnom Penh SME — Ads Strategy',
+        desc:'Facebook & TikTok ads · ROAS 3.8x · Budget $500/month',
+        icon:'📈', href:'case-studies.html' },
+      { id:'p04', cat:'portfolio', type:'branding', price:'free', priceText:'Free',
+        name:'YOB Digital — Brand Identity',
+        desc:'Full brand system · Pink + Dark theme · Component library · Motion tokens',
+        icon:'✨', href:'case-studies.html' }
+    ];
+
+    // ── Type chips per category ──
+    var TYPE_CHIPS = {
+      fonts: [
+        { type:'display',  label:'ចំណងជើង', color:'#9b6bff' },
+        { type:'script',   label:'ហត្ថលិខិត', color:'#c084fc' },
+        { type:'sans',     label:'អានងាយ',    color:'#a78bfa' },
+        { type:'bundle',   label:'Bundle',    color:'#e879f9' }
+      ],
+      resource: [
+        { type:'ai',        label:'AI Tools',  color:'#f472b6' },
+        { type:'template',  label:'Template',  color:'#60a5fa' },
+        { type:'marketing', label:'Marketing', color:'#fb7185' },
+        { type:'design',    label:'Design',    color:'#34d399' }
+      ],
+      portfolio: [
+        { type:'branding',  label:'Branding',  color:'#4f82ff' },
+        { type:'web',       label:'Web / App', color:'#22d3ee' },
+        { type:'strategy',  label:'Strategy',  color:'#f59e0b' }
+      ]
+    };
+
+    // ── HTML escape ──
+    function esc(s) {
+      return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // ── Build one card ──
+    function buildCard(p) {
+      var badgeCls = p.price === 'free' ? 'sc-badge-free' : 'sc-badge-premium';
+      var badgeLbl = p.price === 'free' ? 'Free' : 'Premium';
+      var priceCls = p.price === 'free' ? 'p-free' : '';
+      var prevHtml, catDot, catLabel, ctaHtml;
+
+      if (p.cat === 'fonts') {
+        prevHtml = '<div class="sc-prev" data-cat="fonts">'
+          + '<span class="sc-badge ' + badgeCls + '">' + badgeLbl + '</span>'
+          + '<div class="sc-prev-body">'
+          + '<span class="sc-prev-ico" style="font-family:' + esc(p.fontFamily) + ';color:#c084fc;font-size:28px;line-height:1.35">' + esc(p.previewText) + '</span>'
+          + '<span class="sc-prev-lbl">' + esc(p.catLabel) + '</span>'
+          + '</div></div>';
+        catDot = '#9b6bff'; catLabel = 'យប់ អក្ខរា';
+        ctaHtml = p.price === 'free'
+          ? 'ទាញយក <i class="fas fa-download"></i>'
+          : 'Get access <i class="fas fa-arrow-right"></i>';
+      } else if (p.cat === 'resource') {
+        prevHtml = '<div class="sc-prev" data-cat="' + esc(p.gradCat) + '">'
+          + '<span class="sc-badge sc-badge-free">Free</span>'
+          + '<div class="sc-prev-body">'
+          + '<span class="sc-prev-ico" style="color:' + esc(p.iconColor) + ';font-size:44px"><i class="' + esc(p.icon) + '"></i></span>'
+          + '<span class="sc-prev-lbl">Digital Resource</span>'
+          + '</div></div>';
+        catDot = '#4ade80'; catLabel = 'កាដូរ ឌីជីថល';
+        ctaHtml = 'ទាញយក <i class="fas fa-download"></i>';
+      } else {
+        prevHtml = '<div class="sc-prev" data-cat="strategy">'
+          + '<span class="sc-badge" style="background:rgba(79,130,255,0.14);border:1px solid rgba(79,130,255,0.4);color:#4f82ff">Portfolio</span>'
+          + '<div class="sc-prev-body">'
+          + '<span class="sc-prev-ico" style="font-size:52px">' + esc(p.icon) + '</span>'
+          + '<span class="sc-prev-lbl">Case Study</span>'
+          + '</div></div>';
+        catDot = '#4f82ff'; catLabel = 'កម្រងស្នាដៃ';
+        ctaHtml = 'មើល <i class="fas fa-arrow-right"></i>';
+      }
+
+      var desc = p.desc || p.meta || '';
+      return '<div class="sh-card" data-id="' + esc(p.id) + '" data-cat="' + esc(p.cat) + '" data-type="' + esc(p.type) + '" data-price="' + esc(p.price) + '">'
+        + prevHtml
+        + '<div class="sc-body">'
+        + '<div class="sc-row"><h3 class="sc-name">' + esc(p.name) + '</h3><span class="sc-price ' + priceCls + '">' + esc(p.priceText) + '</span></div>'
+        + (desc ? '<p class="sc-desc">' + esc(desc) + '</p>' : '')
+        + '<div class="sc-foot"><span class="sc-cat"><span class="sc-cdot" style="background:' + catDot + '"></span>' + catLabel + '</span>'
+        + '<a href="' + esc(p.href) + '" class="sc-cta">' + ctaHtml + '</a>'
+        + '</div></div></div>';
+    }
+
+    // ── Type dropdown ──
+    var typeDropEl  = document.getElementById('shTypeDrop');
+    var typeBtnEl   = document.getElementById('shTypeBtn');
+    var typePanelEl = document.getElementById('shTypePanel');
+    var typeSepEl   = document.getElementById('shTypeSep');
+
+    function closeTypeDrop() { typeDropEl.classList.remove('open'); }
+
+    function updateTypeChips() {
+      var chips = TYPE_CHIPS[state.cat];
+      if (!chips) {
+        typeDropEl.style.display = 'none';
+        typeSepEl.style.display  = 'none';
+        state.type = 'all';
+        closeTypeDrop();
+        return;
+      }
+      state.type = 'all';
+      // Build dropdown items — "All types" first
+      var items = [{ type:'all', label:'ប្រភេទទាំងអស់', color:null }].concat(chips);
+      typePanelEl.innerHTML = items.map(function (c) {
+        var dot = c.color ? '<span class="sh-chip-dot" style="background:' + esc(c.color) + '"></span>' : '';
+        var active = c.type === 'all' ? ' active' : '';
+        return '<button class="sh-drop-item' + active + '" data-type="' + esc(c.type) + '">'
+          + dot + esc(c.label)
+          + '<i class="fas fa-check sh-drop-check"></i></button>';
+      }).join('');
+      // Reset button label
+      typeBtnEl.innerHTML = 'ប្រភេទ <i class="fas fa-chevron-down sh-drop-ico"></i>';
+      typeBtnEl.classList.remove('has-value');
+      typeDropEl.style.display = '';
+      typeSepEl.style.display  = '';
+      // Item click
+      typePanelEl.querySelectorAll('.sh-drop-item').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          typePanelEl.querySelectorAll('.sh-drop-item').forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          state.type = btn.dataset.type;
+          // Update button label
+          var activeChip = TYPE_CHIPS[state.cat] && TYPE_CHIPS[state.cat].find(function(c){ return c.type === state.type; });
+          var label = activeChip ? activeChip.label : 'ប្រភេទ';
+          typeBtnEl.innerHTML = esc(label) + ' <i class="fas fa-chevron-down sh-drop-ico"></i>';
+          typeBtnEl.classList.toggle('has-value', state.type !== 'all');
+          closeTypeDrop();
+          render();
+        });
+      });
+    }
+
+    // Toggle dropdown on button click
+    typeBtnEl.addEventListener('click', function (e) {
+      e.stopPropagation();
+      typeDropEl.classList.toggle('open');
+    });
+    // Close on outside click
+    document.addEventListener('click', function (e) {
+      if (!typeDropEl.contains(e.target)) closeTypeDrop();
+    });
 
     // ── Render ──
     function render() {
-      var cards   = Array.from(grid.querySelectorAll('.sh-card'));
-      var empty   = document.getElementById('shEmpty');
+      var empty = document.getElementById('shEmpty');
+      var html  = '';
       var visible = 0;
-      cards.forEach(function (c) {
-        var cat   = c.dataset.cat;
-        var price = c.dataset.price;
-        var okCat   = activeCat    === 'all' || activeCat    === cat || activeCat    === price;
-        var okPrice = activePricef === 'all' || activePricef === price;
-        var okTab   = activeTab    === 'all' || activeTab    === price || activeTab   === 'popular';
-        c.style.display = (okCat && okPrice && okTab) ? '' : 'none';
-        if (okCat && okPrice && okTab) visible++;
+      PRODUCTS.forEach(function (p) {
+        var okCat   = state.cat   === 'all' || state.cat   === p.cat;
+        var okType  = state.type  === 'all' || state.type  === p.type;
+        var okPrice = state.price === 'all' || state.price === p.price;
+        if (okCat && okType && okPrice) { html += buildCard(p); visible++; }
       });
+      Array.from(grid.children).forEach(function (c) {
+        if (c.id !== 'shEmpty') grid.removeChild(c);
+      });
+      if (html) {
+        grid.insertAdjacentHTML('afterbegin', html);
+        Array.from(grid.querySelectorAll('.sh-card')).forEach(function (c, i) {
+          c.style.opacity = '0';
+          c.style.transform = 'translateY(10px)';
+          setTimeout(function () {
+            c.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+            c.style.opacity = '';
+            c.style.transform = '';
+          }, i * 40);
+        });
+      }
       countEl.textContent = visible;
       if (empty) empty.classList.toggle('on', visible === 0);
     }
@@ -815,7 +1156,9 @@
       btn.addEventListener('click', function () {
         document.querySelectorAll('.sh-chip[data-cat]').forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        activeCat = btn.dataset.cat;
+        state.cat  = btn.dataset.cat;
+        state.type = 'all';
+        updateTypeChips();
         render();
       });
     });
@@ -825,159 +1168,19 @@
       btn.addEventListener('click', function () {
         document.querySelectorAll('.sh-chip[data-price]').forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        activePricef = btn.dataset.price;
+        state.price = btn.dataset.price;
         render();
       });
     });
 
-    // ── Sort select ──
+    // ── Sort ──
     var shSortSel = document.getElementById('shSortSel');
     if (shSortSel) {
-      shSortSel.addEventListener('change', function () {
-        activeTab = shSortSel.value;
-        render();
-      });
+      shSortSel.addEventListener('change', function () { render(); });
     }
 
-    // ── HTML escape ──
-    function esc(s) {
-      return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-    }
-
-    // ── Card builders ──
-    function buildPortfolioCard(title, catLabel, imgSrc, client) {
-      var prev = imgSrc
-        ? '<div class="sc-prev sc-prev-img"><span class="sc-badge" style="background:rgba(79,130,255,0.14);border:1px solid rgba(79,130,255,0.4);color:#4f82ff;z-index:4;position:absolute;top:12px;right:12px;padding:4px 11px;border-radius:50px;font-family:var(--fb);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase">Portfolio</span><img src="' + esc(imgSrc) + '" alt="' + esc(title) + '" loading="lazy" /></div>'
-        : '<div class="sc-prev" data-cat="strategy"><span class="sc-badge" style="background:rgba(79,130,255,0.14);border:1px solid rgba(79,130,255,0.4);color:#4f82ff;position:absolute;top:12px;right:12px;padding:4px 11px;border-radius:50px;font-family:var(--fb);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;z-index:3">Portfolio</span><div class="sc-prev-body"><span class="sc-prev-ico" style="color:#93c5fd">🎨</span><span class="sc-prev-lbl">Case Study</span></div></div>';
-      return '<div class="sh-card" data-cat="portfolio" data-price="free">'
-        + prev
-        + '<div class="sc-body">'
-        + '<div class="sc-row"><h3 class="sc-name">' + esc(title) + '</h3><span class="sc-price p-free">Free</span></div>'
-        + '<p class="sc-desc">' + esc(client || catLabel) + '</p>'
-        + '<div class="sc-foot"><span class="sc-cat"><span class="sc-cdot" style="background:#4f82ff"></span>កម្រងស្នាដៃ</span>'
-        + '<a href="/case-studies" class="sc-cta">មើល <i class="fas fa-arrow-right"></i></a></div>'
-        + '</div></div>';
-    }
-
-    function buildFontCard(name, badge, meta, isFree, priceText, previewText, fontStyle) {
-      var badgeCls = isFree ? 'sc-badge-free' : 'sc-badge-premium';
-      var badgeLbl = isFree ? 'Free' : 'Premium';
-      var priceCls = isFree ? 'p-free' : '';
-      return '<div class="sh-card" data-cat="fonts" data-price="' + (isFree ? 'free' : 'premium') + '">'
-        + '<div class="sc-prev" data-cat="fonts">'
-        + '<span class="sc-badge ' + badgeCls + '">' + badgeLbl + '</span>'
-        + '<div class="sc-prev-body">'
-        + '<span class="sc-prev-ico" style="' + esc(fontStyle) + ';color:#c084fc;font-size:30px;line-height:1.3">' + esc(previewText) + '</span>'
-        + '<span class="sc-prev-lbl">' + esc(badge) + '</span>'
-        + '</div></div>'
-        + '<div class="sc-body">'
-        + '<div class="sc-row"><h3 class="sc-name">' + esc(name) + '</h3><span class="sc-price ' + priceCls + '">' + esc(priceText) + '</span></div>'
-        + '<p class="sc-desc">' + esc(meta) + '</p>'
-        + '<div class="sc-foot"><span class="sc-cat"><span class="sc-cdot" style="background:#9b6bff"></span>យប់ អក្ខរា</span>'
-        + '<a href="/yobfont" class="sc-cta">' + (isFree ? 'ទាញយក <i class="fas fa-download"></i>' : 'Get access <i class="fas fa-arrow-right"></i>') + '</a></div>'
-        + '</div></div>';
-    }
-
-    var RES_META = {
-      'ai':        { grad: 'ai',       color: '#f472b6' },
-      'template':  { grad: 'strategy', color: '#60a5fa' },
-      'marketing': { grad: 'resource', color: '#86efac' },
-      'design':    { grad: 'fonts',    color: '#c084fc' }
-    };
-
-    function buildResourceCard(title, desc, badge, resCat, iconCls) {
-      var m = RES_META[resCat] || RES_META['ai'];
-      return '<div class="sh-card" data-cat="resource" data-price="free">'
-        + '<div class="sc-prev" data-cat="' + m.grad + '">'
-        + '<span class="sc-badge sc-badge-free">Free</span>'
-        + '<div class="sc-prev-body">'
-        + '<span class="sc-prev-ico" style="color:' + m.color + ';font-size:44px"><i class="' + esc(iconCls) + '"></i></span>'
-        + '<span class="sc-prev-lbl">' + esc(badge) + '</span>'
-        + '</div></div>'
-        + '<div class="sc-body">'
-        + '<div class="sc-row"><h3 class="sc-name">' + esc(title) + '</h3><span class="sc-price p-free">Free</span></div>'
-        + '<p class="sc-desc">' + esc(desc) + '</p>'
-        + '<div class="sc-foot"><span class="sc-cat"><span class="sc-cdot" style="background:#4ade80"></span>កាដូរ ឌីជីថល</span>'
-        + '<a href="/resources" class="sc-cta">ទាញយក <i class="fas fa-download"></i></a></div>'
-        + '</div></div>';
-    }
-
-    // ── Skeletons while fetching ──
-    var skelHtml = '';
-    for (var i = 0; i < 9; i++) {
-      skelHtml += '<div class="sh-card ds-skel"><div class="sc-prev"></div><div class="sc-body"></div></div>';
-    }
-    grid.innerHTML = skelHtml + '<div class="sh-empty" id="shEmpty"><i class="fas fa-box-open"></i><p>រកមិនឃើញ — ជ្រើស category ផ្សេង</p></div>';
-
-    // ── Fetch all 3 sources ──
-    Promise.all([
-      fetch('/case-studies').then(function (r) { return r.text(); }).catch(function () { return ''; }),
-      fetch('/yobfont').then(function (r) { return r.text(); }).catch(function () { return ''; }),
-      fetch('/resources').then(function (r) { return r.text(); }).catch(function () { return ''; })
-    ]).then(function (pages) {
-      var parser = new DOMParser();
-      var cards  = [];
-
-      // Portfolio (case studies)
-      if (pages[0]) {
-        parser.parseFromString(pages[0], 'text/html').querySelectorAll('.cs-card').forEach(function (el) {
-          var title    = (el.querySelector('.cs-title') || {}).textContent || '';
-          var catLabel = (el.querySelector('.cs-cat-label') || {}).textContent || '';
-          var imgEl    = el.querySelector('.cs-thumb img');
-          var imgSrc   = imgEl ? (imgEl.getAttribute('src') || '') : '';
-          var client   = (el.querySelector('.cs-client-name') || {}).textContent || '';
-          if (title.trim()) cards.push(buildPortfolioCard(title.trim(), catLabel.trim(), imgSrc, client.trim()));
-        });
-      }
-
-      // Fonts
-      if (pages[1]) {
-        parser.parseFromString(pages[1], 'text/html').querySelectorAll('.font-row').forEach(function (el) {
-          var name        = (el.querySelector('.fr-name') || {}).textContent || '';
-          var badge       = (el.querySelector('.fr-badge') || {}).textContent || '';
-          var meta        = (el.querySelector('.fr-meta') || {}).textContent || '';
-          var isFree      = !!el.querySelector('.lic-free');
-          var priceEl     = el.querySelector('.fr-price');
-          var priceText   = isFree ? 'Free' : ((priceEl || {}).textContent || 'Premium').trim();
-          var prevEl      = el.querySelector('.preview-text');
-          var previewText = prevEl ? prevEl.textContent.trim() : 'ក ខ គ';
-          var fontStyle   = prevEl ? (prevEl.getAttribute('style') || '') : '';
-          if (name.trim()) cards.push(buildFontCard(name.trim(), badge.trim(), meta.trim(), isFree, priceText, previewText, fontStyle));
-        });
-      }
-
-      // Resources
-      if (pages[2]) {
-        parser.parseFromString(pages[2], 'text/html').querySelectorAll('.res-card').forEach(function (el) {
-          var title   = (el.querySelector('.res-title') || {}).textContent || '';
-          var desc    = (el.querySelector('.res-desc') || {}).textContent || '';
-          var badge   = (el.querySelector('.res-cat-badge') || {}).textContent || '';
-          var resCat  = el.getAttribute('data-cat') || 'ai';
-          var iconEl  = el.querySelector('.res-icon-box i');
-          var iconCls = iconEl ? iconEl.className : 'fas fa-file-alt';
-          if (title.trim()) cards.push(buildResourceCard(title.trim(), desc.trim(), badge.trim(), resCat, iconCls));
-        });
-      }
-
-      // Inject + stagger reveal
-      var emptyDiv = '<div class="sh-empty" id="shEmpty"><i class="fas fa-box-open"></i><p>រកមិនឃើញ — ជ្រើស category ផ្សេង</p></div>';
-      grid.innerHTML = cards.join('') + emptyDiv;
-      countEl.textContent = cards.length;
-
-      Array.from(grid.querySelectorAll('.sh-card')).forEach(function (c, i) {
-        c.style.opacity = '0';
-        c.style.transform = 'translateY(10px)';
-        setTimeout(function () {
-          c.style.transition = 'opacity 0.28s ease, transform 0.28s ease';
-          c.style.opacity = '';
-          c.style.transform = '';
-        }, i * 45);
-      });
-
-      render();
-    }).catch(function () {
-      countEl.textContent = '0';
-    });
+    // ── Init ──
+    render();
   })();
   </script>
   <script src="js/load-components.js"></script>
