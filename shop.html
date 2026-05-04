@@ -404,6 +404,25 @@
     .sh-empty i { font-size: 36px; opacity: 0.3; margin-bottom: 16px; display: block; }
     .sh-empty p { font-family: var(--fb); font-size: 15px; }
 
+    /* ── Case study image preview ── */
+    .sc-prev-img { background: var(--dark3) !important; }
+    .sc-prev-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* ── Loading state (before fetch) ── */
+    .sh-card.ds-skel .sc-prev {
+      background: linear-gradient(90deg, var(--dark3) 25%, rgba(255,255,255,0.04) 50%, var(--dark3) 75%) !important;
+      background-size: 1400px 100% !important;
+      animation: ds-shimmer 1.5s linear infinite;
+    }
+    .sh-card.ds-skel .sc-body { visibility: hidden; }
+
     /* ── CTA banner ── */
     .sh-cta {
       padding: 0 40px 100px;
@@ -564,315 +583,8 @@
   <div class="sh-content">
     <div class="sh-grid" id="shGrid">
 
-      <!-- ① FEATURED — YOB Khmer Font Collection -->
-      <div class="sh-card sc-wide reveal" data-cat="fonts" data-price="premium">
-        <div class="sc-prev" data-cat="fonts">
-          <span class="sc-badge sc-badge-premium">Premium</span>
-          <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#c084fc;font-family:var(--fk)">ក ខ គ</span>
-            <span class="sc-prev-lbl">Khmer Fonts</span>
-          </div>
-        </div>
-        <div class="sc-body">
-          <div class="sc-row">
-            <h3 class="sc-name">YOB Khmer Font Collection</h3>
-            <span class="sc-price">$15</span>
-          </div>
-          <p class="sc-desc">Font Khmer ១០+ styles — Modern, Display, Script. License ពាណិជ្ជកម្ម unlimited projects. Web + Print ready.</p>
-          <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#9b6bff"></span>Fonts</span>
-            <a href="/yobfont" class="sc-cta">មើលទាំងអស់ <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ② AI Prompt Starter Pack -->
-      <div class="sh-card reveal" data-cat="resource" data-price="free">
-        <div class="sc-prev" data-cat="ai">
-          <span class="sc-badge sc-badge-free">Free</span>
-          <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#f472b6">✦</span>
-            <span class="sc-prev-lbl">AI Prompts</span>
-          </div>
-        </div>
-        <div class="sc-body">
-          <div class="sc-row">
-            <h3 class="sc-name">AI Prompt Starter Pack</h3>
-            <span class="sc-price p-free">Free</span>
-          </div>
-          <p class="sc-desc">30+ prompts ជា Khmer + English — ChatGPT, Claude, Gemini. Content, Sales, Strategy ready.</p>
-          <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#e52c67"></span>AI Tools</span>
-            <a href="/resources" class="sc-cta">Download <i class="fas fa-download"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ③ Business Plan Template -->
-      <div class="sh-card reveal" data-cat="resource" data-price="free">
-        <div class="sc-prev" data-cat="strategy">
-          <span class="sc-badge sc-badge-free">Free</span>
-          <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#60a5fa">📋</span>
-            <span class="sc-prev-lbl">Template</span>
-          </div>
-        </div>
-        <div class="sc-body">
-          <div class="sc-row">
-            <h3 class="sc-name">Business Plan (ភាសាខ្មែរ)</h3>
-            <span class="sc-price p-free">Free</span>
-          </div>
-          <p class="sc-desc">Google Docs — Business Plan ១២ pages ជា Khmer ១០០%. ល្អសម្រាប់ Startup + SME.</p>
-          <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#4f82ff"></span>Strategy</span>
-            <a href="/resources" class="sc-cta">Download <i class="fas fa-download"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ④ Social Media Calendar -->
-      <div class="sh-card reveal" data-cat="resource" data-price="free">
-        <div class="sc-prev" data-cat="resource">
-          <span class="sc-badge sc-badge-free">Free</span>
-          <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#86efac">📅</span>
-            <span class="sc-prev-lbl">Calendar</span>
-          </div>
-        </div>
-        <div class="sc-body">
-          <div class="sc-row">
-            <h3 class="sc-name">Social Media Calendar</h3>
-            <span class="sc-price p-free">Free</span>
-          </div>
-          <p class="sc-desc">Google Sheets — plan ១ ខែ content Facebook, TikTok, Instagram ក្នុង ១ file. Plug-and-play.</p>
-          <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#4ade80"></span>Resources</span>
-            <a href="/resources" class="sc-cta">Get it <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ⑤ Website Launch Checklist -->
-      <div class="sh-card reveal" data-cat="resource" data-price="free">
-        <div class="sc-prev" data-cat="web">
-          <span class="sc-badge sc-badge-free">Free</span>
-          <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#67e8f9">✓</span>
-            <span class="sc-prev-lbl">Checklist</span>
-          </div>
-        </div>
-        <div class="sc-body">
-          <div class="sc-row">
-            <h3 class="sc-name">Website Launch Checklist</h3>
-            <span class="sc-price p-free">Free</span>
-          </div>
-          <p class="sc-desc">50-point checklist — SEO, Performance, Mobile, Security. Check ទាំងអស់ មុន launch.</p>
-          <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#00f0ff"></span>Web</span>
-            <a href="/resources" class="sc-cta">Download <i class="fas fa-download"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ⑥ TikTok Script Templates -->
-      <div class="sh-card reveal" data-cat="resource" data-price="free">
-        <div class="sc-prev" data-cat="resource">
-          <span class="sc-badge sc-badge-new">New</span>
-          <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#86efac">🎬</span>
-            <span class="sc-prev-lbl">Scripts</span>
-          </div>
-        </div>
-        <div class="sc-body">
-          <div class="sc-row">
-            <h3 class="sc-name">TikTok Script Templates</h3>
-            <span class="sc-price p-free">Free</span>
-          </div>
-          <p class="sc-desc">១០ script formats — Hook → Story → CTA. Tested ជាមួយ Khmer audience. Copy-paste ready.</p>
-          <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#4ade80"></span>Resources</span>
-            <a href="/resources" class="sc-cta">Get it <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ⑦ AI Content Writing Guide -->
-      <div class="sh-card reveal" data-cat="resource" data-price="free">
-        <div class="sc-prev" data-cat="ai">
-          <span class="sc-badge sc-badge-free">Free</span>
-          <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#f9a8d4">✍️</span>
-            <span class="sc-prev-lbl">AI Writing</span>
-          </div>
-        </div>
-        <div class="sc-body">
-          <div class="sc-row">
-            <h3 class="sc-name">AI Content Writing Guide</h3>
-            <span class="sc-price p-free">Free</span>
-          </div>
-          <p class="sc-desc">របៀបប្រើ AI សរសេរ Caption, Email, Ads ជា Khmer — Sound Human ១០០%.</p>
-          <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#e52c67"></span>AI Tools</span>
-            <a href="/docs" class="sc-cta">Read guide <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ⑧ Brand Identity Workbook -->
-      <div class="sh-card reveal" data-cat="portfolio" data-price="premium">
-        <div class="sc-prev" data-cat="strategy">
-          <span class="sc-badge sc-badge-premium">Premium</span>
-          <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#93c5fd">🎨</span>
-            <span class="sc-prev-lbl">Brand Kit</span>
-          </div>
-        </div>
-        <div class="sc-body">
-          <div class="sc-row">
-            <h3 class="sc-name">Brand Identity Workbook</h3>
-            <span class="sc-price">$25</span>
-          </div>
-          <p class="sc-desc">Figma + PDF — Brand strategy, color system, typography guide ជា Khmer. ១ ហ្វាំង ជំនួស ១ agency.</p>
-          <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#4f82ff"></span>Strategy</span>
-            <a href="/contact" class="sc-cta">Get access <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ⑨ SEO Audit Toolkit -->
-      <div class="sh-card reveal" data-cat="resource" data-price="free">
-        <div class="sc-prev" data-cat="web">
-          <span class="sc-badge sc-badge-free">Free</span>
-          <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#67e8f9">🔍</span>
-            <span class="sc-prev-lbl">SEO Toolkit</span>
-          </div>
-        </div>
-        <div class="sc-body">
-          <div class="sc-row">
-            <h3 class="sc-name">SEO Audit Toolkit (KH)</h3>
-            <span class="sc-price p-free">Free</span>
-          </div>
-          <p class="sc-desc">Google Sheets + checklist — audit website SEO ជំហ៊ានទី១ ស័ក្ដិសម Khmer business.</p>
-          <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#00f0ff"></span>Web</span>
-            <a href="/resources" class="sc-cta">Download <i class="fas fa-download"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ⑩ FEATURED — Complete Digital Starter Bundle -->
-      <div class="sh-card sc-wide reveal" data-cat="bundle" data-price="bundle">
-        <div class="sc-prev" data-cat="bundle">
-          <span class="sc-badge sc-badge-bundle">Bundle</span>
-          <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#e879f9">⚡</span>
-            <span class="sc-prev-lbl">All-in-One</span>
-          </div>
-        </div>
-        <div class="sc-body">
-          <div class="sc-row">
-            <h3 class="sc-name">Complete Digital Starter Pack</h3>
-            <span class="sc-price">$49</span>
-          </div>
-          <p class="sc-desc">Font Pack + Brand Kit + AI Prompts + Templates — ទាំងអស់ ១ bundle, Lifetime updates. Save 60% vs individual.</p>
-          <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#e879f9"></span>Bundle</span>
-            <a href="/contact" class="sc-cta">Get bundle <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ⑪ AI Marketing Workflow Pack -->
-      <div class="sh-card reveal" data-cat="resource" data-price="premium">
-        <div class="sc-prev" data-cat="ai">
-          <span class="sc-badge sc-badge-premium">Premium</span>
-          <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#f472b6">🤖</span>
-            <span class="sc-prev-lbl">AI Workflows</span>
-          </div>
-        </div>
-        <div class="sc-body">
-          <div class="sc-row">
-            <h3 class="sc-name">AI Marketing Workflow Pack</h3>
-            <span class="sc-price">$29</span>
-          </div>
-          <p class="sc-desc">100+ prompts + workflow templates — automate Facebook Ads, Email, Content ជា Khmer.</p>
-          <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#e52c67"></span>AI Tools</span>
-            <a href="/contact" class="sc-cta">Get access <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ⑫ Digital Growth Playbook -->
-      <div class="sh-card reveal" data-cat="portfolio" data-price="premium">
-        <div class="sc-prev" data-cat="strategy">
-          <span class="sc-badge sc-badge-premium">Premium</span>
-          <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#93c5fd">📈</span>
-            <span class="sc-prev-lbl">Playbook</span>
-          </div>
-        </div>
-        <div class="sc-body">
-          <div class="sc-row">
-            <h3 class="sc-name">Digital Growth Playbook</h3>
-            <span class="sc-price">$19</span>
-          </div>
-          <p class="sc-desc">60 pages — Growth strategy, funnel design, conversion tactics ជា Khmer ១០០%. Actionable ទាំងអស់.</p>
-          <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#4f82ff"></span>Strategy</span>
-            <a href="/contact" class="sc-cta">Get access <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <!-- ⑬ COMING SOON — Khmer UI Kit -->
-      <div class="sh-card sh-soon reveal" data-cat="resource" data-price="soon">
-        <div class="sc-prev" data-cat="web" style="filter:grayscale(0.6)">
-          <span class="sc-badge sc-badge-soon">Coming Soon</span>
-          <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#67e8f9;opacity:0.4">🖥️</span>
-            <span class="sc-prev-lbl">UI Kit</span>
-          </div>
-        </div>
-        <div class="sc-body">
-          <div class="sc-row">
-            <h3 class="sc-name">Khmer UI Component Kit</h3>
-            <span class="sc-price p-soon">Soon</span>
-          </div>
-          <p class="sc-desc">Figma components — Buttons, Forms, Cards ត្រៀម Khmer typeface. ចេញ Q3 2026.</p>
-          <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#00f0ff;opacity:0.35"></span>Web</span>
-            <span class="sc-cta sc-cta-soon">Notify me <i class="fas fa-bell"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ⑭ COMING SOON — YOB Display Font Pack -->
-      <div class="sh-card sh-soon reveal" data-cat="fonts" data-price="soon">
-        <div class="sc-prev" data-cat="fonts" style="filter:grayscale(0.6)">
-          <span class="sc-badge sc-badge-soon">Coming Soon</span>
-          <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#c084fc;opacity:0.4;font-family:var(--fk)">ជំ</span>
-            <span class="sc-prev-lbl">Display Font</span>
-          </div>
-        </div>
-        <div class="sc-body">
-          <div class="sc-row">
-            <h3 class="sc-name">YOB Display Font Pack</h3>
-            <span class="sc-price p-soon">Soon</span>
-          </div>
-          <p class="sc-desc">Khmer display font ទំនើប — Hero, Poster, Branding. ១ family, ៦ weights.</p>
-          <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#9b6bff;opacity:0.35"></span>Fonts</span>
-            <span class="sc-cta sc-cta-soon">Notify me <i class="fas fa-bell"></i></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Empty state -->
+      <!-- Cards injected dynamically by JS -->
+      
       <div class="sh-empty" id="shEmpty">
         <i class="fas fa-box-open"></i>
         <p>រកមិនឃើញ — ជ្រើស category ផ្សេង</p>
@@ -894,105 +606,218 @@
     </div>
   </div>
 
-  <div id="footer-placeholder"></div>
-
-  <script>
-  // ── Digital Shop: skeleton + category panel + tab bar filter ──
+  <div id="footer-placeholder"></div>  <script>
+  // ── Digital Shop: Dynamic fetch + filter ──
   (function () {
-    var CARDS   = Array.from(document.querySelectorAll('#shGrid .sh-card:not(.sh-empty)'));
-    var PLINKS  = document.querySelectorAll('.shp-link[data-filter]');
-    var TABS    = document.querySelectorAll('.sh-tab');
-    var SEGS    = document.querySelectorAll('.sh-seg-btn');
-    var countEl = document.getElementById('shCount');
-    var emptyEl = document.getElementById('shEmpty');
-    var activeCat  = 'all';
-    var activeTab  = 'all';
+    var grid     = document.getElementById('shGrid');
+    var countEl  = document.getElementById('shCount');
+    var PLINKS   = document.querySelectorAll('.shp-link[data-filter]');
+    var TABS     = document.querySelectorAll('.sh-tab');
+    var SEGS     = document.querySelectorAll('.sh-seg-btn');
+    var activeCat = 'all';
+    var activeTab = 'all';
 
-    // Skeleton shimmer → staggered reveal
-    CARDS.forEach(function (c) { c.classList.add('ds-skel'); });
-    setTimeout(function () {
-      CARDS.forEach(function (c, i) {
-        setTimeout(function () { c.classList.remove('ds-skel'); }, i * 50);
-      });
-    }, 380);
-
+    // ── Filter/render (reads current DOM) ──
     function render() {
+      var cards   = Array.from(grid.querySelectorAll('.sh-card'));
+      var empty   = document.getElementById('shEmpty');
       var visible = 0;
-      CARDS.forEach(function (c) {
+      cards.forEach(function (c) {
         var cat   = c.dataset.cat;
         var price = c.dataset.price;
-        var showCat = activeCat === 'all'
-          || activeCat === cat
-          || activeCat === price;
-        var showTab = activeTab === 'all'
-          || activeTab === price
-          || (activeTab === 'bundle' && price === 'bundle')
-          || (activeTab === 'free'    && price === 'free')
-          || (activeTab === 'premium' && price === 'premium')
-          || activeTab === 'popular';
-        var show = showCat && showTab;
+        var okCat = activeCat === 'all' || activeCat === cat || activeCat === price;
+        var okTab = activeTab === 'all' || activeTab === price || activeTab === 'popular';
+        var show  = okCat && okTab;
         c.style.display = show ? '' : 'none';
         if (show) visible++;
       });
       countEl.textContent = visible;
-      emptyEl.classList.toggle('on', visible === 0);
+      if (empty) empty.classList.toggle('on', visible === 0);
     }
 
-    // Segmented pill (All / Free)
+    // ── Wire static controls ──
     SEGS.forEach(function (btn) {
       btn.addEventListener('click', function () {
         SEGS.forEach(function (s) { s.classList.remove('active'); });
         btn.classList.add('active');
-        var seg = btn.dataset.seg;
-        if (seg === 'free') {
-          activeCat = 'free';
-          activeTab = 'all';
-          PLINKS.forEach(function (l) { l.classList.remove('active'); });
-          document.querySelector('.shp-link[data-filter="all"]').classList.add('active');
-          TABS.forEach(function (t) { t.classList.remove('active'); });
-          document.querySelector('.sh-tab[data-tab="all"]').classList.add('active');
-        } else {
-          activeCat = 'all';
-          PLINKS.forEach(function (l) { l.classList.remove('active'); });
-          document.querySelector('.shp-link[data-filter="all"]').classList.add('active');
-        }
+        activeCat = btn.dataset.seg === 'free' ? 'free' : 'all';
+        activeTab = 'all';
+        PLINKS.forEach(function (l) { l.classList.remove('active'); });
+        document.querySelector('.shp-link[data-filter="all"]').classList.add('active');
+        TABS.forEach(function (t) { t.classList.remove('active'); });
+        document.querySelector('.sh-tab[data-tab="all"]').classList.add('active');
         render();
       });
     });
 
-    // Category panel links
     PLINKS.forEach(function (link) {
       link.addEventListener('click', function () {
         PLINKS.forEach(function (l) { l.classList.remove('active'); });
         link.classList.add('active');
         activeCat = link.dataset.filter;
-        // Sync tab bar: reset to "all" tab when category changes
-        if (activeCat !== 'free' && activeCat !== 'premium' && activeCat !== 'bundle' && activeCat !== 'soon') {
-          activeTab = 'all';
-          TABS.forEach(function (t) { t.classList.remove('active'); });
-          document.querySelector('.sh-tab[data-tab="all"]').classList.add('active');
-        }
+        activeTab = 'all';
+        TABS.forEach(function (t) { t.classList.remove('active'); });
+        document.querySelector('.sh-tab[data-tab="all"]').classList.add('active');
+        SEGS.forEach(function (s) { s.classList.remove('active'); });
+        document.querySelector('.sh-seg-btn[data-seg="all"]').classList.add('active');
         render();
       });
     });
 
-    // Tab bar
     TABS.forEach(function (tab) {
       tab.addEventListener('click', function () {
         TABS.forEach(function (t) { t.classList.remove('active'); });
         tab.classList.add('active');
         activeTab = tab.dataset.tab;
-        // Sync panel + seg when tab changes
-        if (activeTab === 'free' || activeTab === 'premium' || activeTab === 'bundle') {
+        if (activeTab === 'free' || activeTab === 'premium') {
           activeCat = 'all';
           PLINKS.forEach(function (l) { l.classList.remove('active'); });
           document.querySelector('.shp-link[data-filter="all"]').classList.add('active');
         }
-        // Sync seg: "Free" seg active only when free tab selected
         SEGS.forEach(function (s) { s.classList.remove('active'); });
         document.querySelector('.sh-seg-btn[data-seg="' + (activeTab === 'free' ? 'free' : 'all') + '"]').classList.add('active');
         render();
       });
+    });
+
+    // ── HTML escape ──
+    function esc(s) {
+      return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // ── Card builders ──
+    function buildPortfolioCard(title, catLabel, imgSrc, client) {
+      var prev = imgSrc
+        ? '<div class="sc-prev sc-prev-img"><span class="sc-badge" style="background:rgba(79,130,255,0.14);border:1px solid rgba(79,130,255,0.4);color:#4f82ff;z-index:4;position:absolute;top:12px;right:12px;padding:4px 11px;border-radius:50px;font-family:var(--fb);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase">Portfolio</span><img src="' + esc(imgSrc) + '" alt="' + esc(title) + '" loading="lazy" /></div>'
+        : '<div class="sc-prev" data-cat="strategy"><span class="sc-badge" style="background:rgba(79,130,255,0.14);border:1px solid rgba(79,130,255,0.4);color:#4f82ff;position:absolute;top:12px;right:12px;padding:4px 11px;border-radius:50px;font-family:var(--fb);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;z-index:3">Portfolio</span><div class="sc-prev-body"><span class="sc-prev-ico" style="color:#93c5fd">🎨</span><span class="sc-prev-lbl">Case Study</span></div></div>';
+      return '<div class="sh-card" data-cat="portfolio" data-price="free">'
+        + prev
+        + '<div class="sc-body">'
+        + '<div class="sc-row"><h3 class="sc-name">' + esc(title) + '</h3><span class="sc-price p-free">Free</span></div>'
+        + '<p class="sc-desc">' + esc(client || catLabel) + '</p>'
+        + '<div class="sc-foot"><span class="sc-cat"><span class="sc-cdot" style="background:#4f82ff"></span>កម្រងស្នាដៃ</span>'
+        + '<a href="/case-studies" class="sc-cta">មើល <i class="fas fa-arrow-right"></i></a></div>'
+        + '</div></div>';
+    }
+
+    function buildFontCard(name, badge, meta, isFree, priceText, previewText, fontStyle) {
+      var badgeCls = isFree ? 'sc-badge-free' : 'sc-badge-premium';
+      var badgeLbl = isFree ? 'Free' : 'Premium';
+      var priceCls = isFree ? 'p-free' : '';
+      return '<div class="sh-card" data-cat="fonts" data-price="' + (isFree ? 'free' : 'premium') + '">'
+        + '<div class="sc-prev" data-cat="fonts">'
+        + '<span class="sc-badge ' + badgeCls + '">' + badgeLbl + '</span>'
+        + '<div class="sc-prev-body">'
+        + '<span class="sc-prev-ico" style="' + esc(fontStyle) + ';color:#c084fc;font-size:30px;line-height:1.3">' + esc(previewText) + '</span>'
+        + '<span class="sc-prev-lbl">' + esc(badge) + '</span>'
+        + '</div></div>'
+        + '<div class="sc-body">'
+        + '<div class="sc-row"><h3 class="sc-name">' + esc(name) + '</h3><span class="sc-price ' + priceCls + '">' + esc(priceText) + '</span></div>'
+        + '<p class="sc-desc">' + esc(meta) + '</p>'
+        + '<div class="sc-foot"><span class="sc-cat"><span class="sc-cdot" style="background:#9b6bff"></span>យប់ អក្ខរា</span>'
+        + '<a href="/yobfont" class="sc-cta">' + (isFree ? 'ទាញយក <i class="fas fa-download"></i>' : 'Get access <i class="fas fa-arrow-right"></i>') + '</a></div>'
+        + '</div></div>';
+    }
+
+    var RES_META = {
+      'ai':        { grad: 'ai',       color: '#f472b6' },
+      'template':  { grad: 'strategy', color: '#60a5fa' },
+      'marketing': { grad: 'resource', color: '#86efac' },
+      'design':    { grad: 'fonts',    color: '#c084fc' }
+    };
+
+    function buildResourceCard(title, desc, badge, resCat, iconCls) {
+      var m = RES_META[resCat] || RES_META['ai'];
+      return '<div class="sh-card" data-cat="resource" data-price="free">'
+        + '<div class="sc-prev" data-cat="' + m.grad + '">'
+        + '<span class="sc-badge sc-badge-free">Free</span>'
+        + '<div class="sc-prev-body">'
+        + '<span class="sc-prev-ico" style="color:' + m.color + ';font-size:44px"><i class="' + esc(iconCls) + '"></i></span>'
+        + '<span class="sc-prev-lbl">' + esc(badge) + '</span>'
+        + '</div></div>'
+        + '<div class="sc-body">'
+        + '<div class="sc-row"><h3 class="sc-name">' + esc(title) + '</h3><span class="sc-price p-free">Free</span></div>'
+        + '<p class="sc-desc">' + esc(desc) + '</p>'
+        + '<div class="sc-foot"><span class="sc-cat"><span class="sc-cdot" style="background:#4ade80"></span>កាដូរ ឌីជីថល</span>'
+        + '<a href="/resources" class="sc-cta">ទាញយក <i class="fas fa-download"></i></a></div>'
+        + '</div></div>';
+    }
+
+    // ── Skeletons while fetching ──
+    var skelHtml = '';
+    for (var i = 0; i < 9; i++) {
+      skelHtml += '<div class="sh-card ds-skel"><div class="sc-prev"></div><div class="sc-body"></div></div>';
+    }
+    grid.innerHTML = skelHtml + '<div class="sh-empty" id="shEmpty"><i class="fas fa-box-open"></i><p>រកមិនឃើញ — ជ្រើស category ផ្សេង</p></div>';
+
+    // ── Fetch all 3 sources ──
+    Promise.all([
+      fetch('/case-studies').then(function (r) { return r.text(); }).catch(function () { return ''; }),
+      fetch('/yobfont').then(function (r) { return r.text(); }).catch(function () { return ''; }),
+      fetch('/resources').then(function (r) { return r.text(); }).catch(function () { return ''; })
+    ]).then(function (pages) {
+      var parser = new DOMParser();
+      var cards  = [];
+
+      // Portfolio (case studies)
+      if (pages[0]) {
+        parser.parseFromString(pages[0], 'text/html').querySelectorAll('.cs-card').forEach(function (el) {
+          var title    = (el.querySelector('.cs-title') || {}).textContent || '';
+          var catLabel = (el.querySelector('.cs-cat-label') || {}).textContent || '';
+          var imgEl    = el.querySelector('.cs-thumb img');
+          var imgSrc   = imgEl ? (imgEl.getAttribute('src') || '') : '';
+          var client   = (el.querySelector('.cs-client-name') || {}).textContent || '';
+          if (title.trim()) cards.push(buildPortfolioCard(title.trim(), catLabel.trim(), imgSrc, client.trim()));
+        });
+      }
+
+      // Fonts
+      if (pages[1]) {
+        parser.parseFromString(pages[1], 'text/html').querySelectorAll('.font-row').forEach(function (el) {
+          var name        = (el.querySelector('.fr-name') || {}).textContent || '';
+          var badge       = (el.querySelector('.fr-badge') || {}).textContent || '';
+          var meta        = (el.querySelector('.fr-meta') || {}).textContent || '';
+          var isFree      = !!el.querySelector('.lic-free');
+          var priceEl     = el.querySelector('.fr-price');
+          var priceText   = isFree ? 'Free' : ((priceEl || {}).textContent || 'Premium').trim();
+          var prevEl      = el.querySelector('.preview-text');
+          var previewText = prevEl ? prevEl.textContent.trim() : 'ក ខ គ';
+          var fontStyle   = prevEl ? (prevEl.getAttribute('style') || '') : '';
+          if (name.trim()) cards.push(buildFontCard(name.trim(), badge.trim(), meta.trim(), isFree, priceText, previewText, fontStyle));
+        });
+      }
+
+      // Resources
+      if (pages[2]) {
+        parser.parseFromString(pages[2], 'text/html').querySelectorAll('.res-card').forEach(function (el) {
+          var title   = (el.querySelector('.res-title') || {}).textContent || '';
+          var desc    = (el.querySelector('.res-desc') || {}).textContent || '';
+          var badge   = (el.querySelector('.res-cat-badge') || {}).textContent || '';
+          var resCat  = el.getAttribute('data-cat') || 'ai';
+          var iconEl  = el.querySelector('.res-icon-box i');
+          var iconCls = iconEl ? iconEl.className : 'fas fa-file-alt';
+          if (title.trim()) cards.push(buildResourceCard(title.trim(), desc.trim(), badge.trim(), resCat, iconCls));
+        });
+      }
+
+      // Inject + stagger reveal
+      var emptyDiv = '<div class="sh-empty" id="shEmpty"><i class="fas fa-box-open"></i><p>រកមិនឃើញ — ជ្រើស category ផ្សេង</p></div>';
+      grid.innerHTML = cards.join('') + emptyDiv;
+      countEl.textContent = cards.length;
+
+      Array.from(grid.querySelectorAll('.sh-card')).forEach(function (c, i) {
+        c.style.opacity = '0';
+        c.style.transform = 'translateY(10px)';
+        setTimeout(function () {
+          c.style.transition = 'opacity 0.28s ease, transform 0.28s ease';
+          c.style.opacity = '';
+          c.style.transform = '';
+        }, i * 45);
+      });
+
+      render();
+    }).catch(function () {
+      countEl.textContent = '0';
     });
   })();
   </script>
