@@ -33,6 +33,7 @@
           <ul class="nav-dropdown">
             <li><a href="/yobfont" data-page="fonts"><i class="fas fa-font"></i> YOB អក្ខរា</a></li>
             <li><a href="/resources" data-page="resources"><i class="fas fa-toolbox"></i> កាដូឌីជីថល</a></li>
+            <li><a href="/shop" data-page="shop"><i class="fas fa-store"></i> Digital Shop</a></li>
           </ul>
         </li>
         <li><a href="/contact" class="nav-cta">សាកសួរ <i class="fas fa-paper-plane" style="margin-left:5px"></i></a></li>
