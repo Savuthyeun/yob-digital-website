@@ -41,86 +41,114 @@
   <style>
     /* ═══════════════════════════════════
        DIGITAL SHOP — page-specific styles
-       Prefix: sh- / sc-  |  keyframes: ds-*
+       Prefix: shp- / sh- / sc-  |  keyframes: ds-*
        ═══════════════════════════════════ */
 
-    /* ── Hero ── */
-    .sh-hero {
-      padding: 128px 40px 56px;
+    /* ── Category Browse Panel ── */
+    .shp-panel {
+      margin-top: 68px;
+      padding: 44px 40px 40px;
+      border-bottom: 1px solid var(--border);
+      background: var(--dark);
+    }
+    .shp-inner {
       max-width: 1440px;
       margin: 0 auto;
-    }
-    .sh-hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--gold-glow);
-      border: 1px solid rgba(229,44,103,0.3);
-      border-radius: 50px;
-      padding: 6px 16px;
-      font-family: var(--fb);
-      font-size: 12px;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 24px;
-    }
-    .sh-hero h1 {
-      font-family: var(--fh);
-      font-size: clamp(38px, 5.5vw, 68px);
-      line-height: 1.05;
-      color: var(--white);
-      margin: 0 0 16px;
-    }
-    .sh-hero h1 .accent { color: var(--gold); }
-    .sh-hero-sub {
-      font-family: var(--fb);
-      font-size: clamp(15px, 1.8vw, 18px);
-      color: var(--gray);
-      line-height: 1.6;
-      margin: 0 0 40px;
-      max-width: 520px;
-    }
-    .sh-stats {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 40px;
-      flex-wrap: wrap;
     }
-    .sh-stat-num {
-      font-family: var(--fh);
-      font-size: 30px;
-      color: var(--white);
-      line-height: 1;
-      display: block;
-    }
-    .sh-stat-lbl {
+    .shp-col-label {
       font-family: var(--fb);
-      font-size: 12px;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
       color: var(--gray);
-      margin-top: 3px;
       display: block;
+      margin-bottom: 18px;
     }
+    .shp-link {
+      display: block;
+      font-family: var(--fb);
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      line-height: 1;
+      margin-bottom: 14px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      text-align: left;
+      transition: color 0.15s;
+    }
+    .shp-link:last-child { margin-bottom: 0; }
+    .shp-link:hover { color: var(--white); }
+    .shp-link.active { color: var(--gold); }
 
-    /* ── Browse wrapper ── */
-    .sh-browse {
-      padding: 0 40px 100px;
+    /* ── Sticky Tab Bar ── */
+    .sh-tabbar {
+      position: sticky;
+      top: 68px;
+      z-index: 88;
+      background: var(--dark);
+      border-bottom: 1px solid var(--border);
+    }
+    .sh-tabbar-inner {
       max-width: 1440px;
       margin: 0 auto;
-    }
-
-    /* ── Filter bar ── */
-    .sh-filters {
+      padding: 0 40px;
       display: flex;
-      gap: 8px;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
-    .sh-pill {
+    .sh-tab-group {
+      display: flex;
+      align-items: center;
+    }
+    .sh-tab {
+      padding: 15px 18px;
+      font-family: var(--fb);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      margin-bottom: -1px;
+      transition: color 0.18s, border-color 0.18s;
+      white-space: nowrap;
+    }
+    .sh-tab:hover { color: var(--white); }
+    .sh-tab.active { color: var(--white); border-bottom-color: var(--white); }
+    .sh-tab-divider {
+      width: 1px;
+      height: 16px;
+      background: var(--border2);
+      margin: 0 4px;
+      flex-shrink: 0;
+    }
+    .sh-tabbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sh-count-badge {
+      font-family: var(--fb);
+      font-size: 13px;
+      color: var(--gray);
+    }
+    .sh-count-badge strong { color: var(--white); }
+    .sh-filter-btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
       padding: 8px 16px;
-      border-radius: 50px;
+      border-radius: 8px;
       border: 1px solid var(--border2);
       background: transparent;
       color: var(--gray);
@@ -128,62 +156,15 @@
       font-size: 13px;
       cursor: pointer;
       transition: var(--t);
-      white-space: nowrap;
     }
-    .sh-pill:hover { border-color: rgba(229,44,103,0.4); color: var(--white); }
-    .sh-pill.active {
-      background: var(--gold-glow);
-      border-color: var(--gold);
-      color: var(--white);
-    }
-    .sh-fdot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .sh-pill-count {
-      background: rgba(255,255,255,0.1);
-      border-radius: 50px;
-      padding: 1px 7px;
-      font-size: 11px;
-    }
-    .sh-pill.active .sh-pill-count { background: rgba(229,44,103,0.25); }
+    .sh-filter-btn:hover { border-color: var(--gold); color: var(--white); }
 
-    /* ── Bar: result count + sort ── */
-    .sh-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-      gap: 16px;
+    /* ── Content area ── */
+    .sh-content {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 32px 40px 100px;
     }
-    .sh-bar-count {
-      font-family: var(--fb);
-      font-size: 14px;
-      color: var(--gray);
-    }
-    .sh-bar-count strong { color: var(--white); font-weight: 500; }
-    .sh-sort-wrap {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--fb);
-      font-size: 13px;
-      color: var(--gray);
-    }
-    .sh-sort-wrap select {
-      background: var(--dark2);
-      border: 1px solid var(--border2);
-      border-radius: 8px;
-      color: var(--gray);
-      font-family: var(--fb);
-      font-size: 13px;
-      padding: 6px 12px;
-      cursor: pointer;
-      outline: none;
-    }
-    .sh-sort-wrap select:focus { border-color: var(--gold); }
 
     /* ── Grid ── */
     .sh-grid {
@@ -211,12 +192,12 @@
       border-color: var(--border2);
     }
     .sh-card.sh-soon {
-      opacity: 0.55;
+      opacity: 0.5;
       cursor: default;
       pointer-events: none;
     }
 
-    /* ── Preview ── */
+    /* ── Preview area ── */
     .sc-prev {
       position: relative;
       width: 100%;
@@ -229,7 +210,7 @@
     }
     .sc-wide .sc-prev { height: 256px; }
 
-    /* Category gradient backgrounds */
+    /* Category gradients */
     .sc-prev[data-cat="fonts"]    { background: linear-gradient(145deg,#0d0420 0%,#2a0858 50%,#541b9e 100%); }
     .sc-prev[data-cat="ai"]       { background: linear-gradient(145deg,#180008 0%,#480022 50%,#9e1046 100%); }
     .sc-prev[data-cat="strategy"] { background: linear-gradient(145deg,#020916 0%,#081e4a 50%,#163a8a 100%); }
@@ -237,7 +218,6 @@
     .sc-prev[data-cat="resource"] { background: linear-gradient(145deg,#021008 0%,#082e16 50%,#135030 100%); }
     .sc-prev[data-cat="bundle"]   { background: linear-gradient(135deg,#0e0618 0%,#280828 35%,#080e30 70%,#001020 100%); }
 
-    /* Radial sheen overlay */
     .sc-prev::before {
       content: "";
       position: absolute;
@@ -245,20 +225,15 @@
       background: radial-gradient(ellipse at 50% 110%, rgba(255,255,255,0.05) 0%, transparent 65%);
       z-index: 1;
     }
-    /* Decorative corner ring */
     .sc-prev::after {
       content: "";
       position: absolute;
-      bottom: -28px;
-      right: -28px;
-      width: 90px;
-      height: 90px;
+      bottom: -28px; right: -28px;
+      width: 90px; height: 90px;
       border-radius: 50%;
       border: 1px solid rgba(255,255,255,0.06);
       z-index: 1;
     }
-
-    /* Preview illustration */
     .sc-prev-body {
       position: relative;
       z-index: 2;
@@ -268,11 +243,7 @@
       align-items: center;
       gap: 8px;
     }
-    .sc-prev-ico {
-      font-size: 52px;
-      line-height: 1;
-      display: block;
-    }
+    .sc-prev-ico { font-size: 52px; line-height: 1; display: block; }
     .sc-wide .sc-prev-ico { font-size: 68px; }
     .sc-prev-lbl {
       font-family: var(--fh);
@@ -283,11 +254,10 @@
       text-transform: uppercase;
     }
 
-    /* ── Badge (top-right on preview) ── */
+    /* ── Badges ── */
     .sc-badge {
       position: absolute;
-      top: 12px;
-      right: 12px;
+      top: 12px; right: 12px;
       z-index: 3;
       padding: 4px 11px;
       border-radius: 50px;
@@ -297,13 +267,13 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
-    .sc-badge-free     { background:rgba(74,222,128,0.14); border:1px solid rgba(74,222,128,0.4); color:#4ade80; }
-    .sc-badge-premium  { background:rgba(229,44,103,0.14); border:1px solid rgba(229,44,103,0.4); color:var(--gold); }
-    .sc-badge-soon     { background:rgba(139,148,158,0.12); border:1px solid rgba(139,148,158,0.3); color:var(--gray); }
-    .sc-badge-new      { background:rgba(79,130,255,0.14); border:1px solid rgba(79,130,255,0.4); color:#4f82ff; }
-    .sc-badge-bundle   { background:rgba(232,121,249,0.14); border:1px solid rgba(232,121,249,0.4); color:#e879f9; }
+    .sc-badge-free    { background:rgba(74,222,128,0.14);  border:1px solid rgba(74,222,128,0.4);   color:#4ade80; }
+    .sc-badge-premium { background:rgba(229,44,103,0.14);  border:1px solid rgba(229,44,103,0.4);   color:var(--gold); }
+    .sc-badge-soon    { background:rgba(139,148,158,0.12); border:1px solid rgba(139,148,158,0.3);  color:var(--gray); }
+    .sc-badge-new     { background:rgba(79,130,255,0.14);  border:1px solid rgba(79,130,255,0.4);   color:#4f82ff; }
+    .sc-badge-bundle  { background:rgba(232,121,249,0.14); border:1px solid rgba(232,121,249,0.4);  color:#e879f9; }
 
-    /* ── Card meta ── */
+    /* ── Card body ── */
     .sc-body {
       padding: 16px 18px 18px;
       display: flex;
@@ -326,14 +296,7 @@
       flex: 1;
       margin: 0;
     }
-    .sc-price {
-      font-family: var(--fh);
-      font-size: 15px;
-      color: var(--gold);
-      white-space: nowrap;
-      flex-shrink: 0;
-      line-height: 1.3;
-    }
+    .sc-price { font-family: var(--fh); font-size: 15px; color: var(--gold); white-space: nowrap; flex-shrink: 0; line-height: 1.3; }
     .sc-price.p-free { color: #4ade80; }
     .sc-price.p-soon { color: var(--gray); font-size: 13px; }
     .sc-desc {
@@ -343,6 +306,7 @@
       line-height: 1.55;
       display: -webkit-box;
       -webkit-line-clamp: 2;
+      line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
       margin: 0;
@@ -365,12 +329,7 @@
       text-transform: uppercase;
       letter-spacing: 0.07em;
     }
-    .sc-cdot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
+    .sc-cdot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
     .sc-cta {
       display: inline-flex;
       align-items: center;
@@ -384,19 +343,15 @@
     .sh-card:hover .sc-cta { gap: 8px; }
     .sc-cta-soon { color: var(--gray); pointer-events: none; }
 
-    /* ── Skeleton loader ── */
+    /* ── Skeleton ── */
     @keyframes ds-shimmer {
-      0%   { background-position: -600px 0; }
-      100% { background-position:  600px 0; }
+      0%   { background-position: -700px 0; }
+      100% { background-position:  700px 0; }
     }
     .sh-card.ds-skel .sc-prev {
-      background: linear-gradient(90deg,
-        var(--dark3) 25%,
-        rgba(255,255,255,0.04) 50%,
-        var(--dark3) 75%
-      ) !important;
-      background-size: 1200px 100% !important;
-      animation: ds-shimmer 1.6s linear infinite;
+      background: linear-gradient(90deg, var(--dark3) 25%, rgba(255,255,255,0.04) 50%, var(--dark3) 75%) !important;
+      background-size: 1400px 100% !important;
+      animation: ds-shimmer 1.5s linear infinite;
     }
     .sh-card.ds-skel .sc-body { opacity: 0; }
 
@@ -409,7 +364,7 @@
       color: var(--gray);
     }
     .sh-empty.on { display: block; }
-    .sh-empty i { font-size: 36px; opacity: 0.35; margin-bottom: 16px; display: block; }
+    .sh-empty i { font-size: 36px; opacity: 0.3; margin-bottom: 16px; display: block; }
     .sh-empty p { font-family: var(--fb); font-size: 15px; }
 
     /* ── CTA banner ── */
@@ -425,36 +380,27 @@
       padding: 64px 48px;
       text-align: center;
     }
-    .sh-cta-inner h2 {
-      font-family: var(--fh);
-      font-size: clamp(28px, 3.5vw, 44px);
-      color: var(--white);
-      margin: 0 0 12px;
-      line-height: 1.15;
-    }
-    .sh-cta-inner p {
-      font-family: var(--fb);
-      color: var(--gray);
-      font-size: 16px;
-      margin: 0 0 32px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+    .sh-cta-inner h2 { font-family: var(--fh); font-size: clamp(28px,3.5vw,44px); color: var(--white); margin: 0 0 12px; line-height: 1.15; }
+    .sh-cta-inner p  { font-family: var(--fb); color: var(--gray); font-size: 16px; margin: 0 0 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
 
     /* ── Responsive ── */
     @media (max-width: 1200px) {
       .sh-grid { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 900px) {
-      .sh-hero, .sh-browse, .sh-cta { padding-left: 24px; padding-right: 24px; }
+      .shp-panel, .sh-content, .sh-cta { padding-left: 24px; padding-right: 24px; }
+      .sh-tabbar-inner { padding: 0 24px; }
+      .shp-inner { grid-template-columns: repeat(2, 1fr); gap: 28px 24px; }
       .sh-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 600px) {
-      .sh-hero { padding-top: 96px; padding-bottom: 40px; }
-      .sh-stats { gap: 24px; }
+    @media (max-width: 640px) {
+      .shp-panel { padding-top: 32px; padding-bottom: 32px; }
+      .shp-inner { grid-template-columns: repeat(2, 1fr); }
+      .sh-tab-group { overflow-x: auto; }
+      .sh-tab { padding: 13px 14px; font-size: 13px; }
+      .sh-filter-btn { display: none; }
       .sh-grid { grid-template-columns: 1fr; gap: 16px; }
-      .sc-wide  { grid-column: span 1; }
+      .sc-wide { grid-column: span 1; }
       .sc-wide .sc-prev { height: 196px; }
       .sh-cta-inner { padding: 40px 24px; }
     }
@@ -499,82 +445,83 @@
   </div>
 
   <!-- ══════════════════════════════════
-       HERO
+       CATEGORY BROWSE PANEL
        ══════════════════════════════════ -->
-  <div class="sh-hero">
-    <div class="sh-hero-eyebrow">
-      <i class="fas fa-store"></i> YOB Digital Shop
+  <div class="shp-panel">
+    <div class="shp-inner">
+
+      <!-- Col 1: Categories -->
+      <div>
+        <span class="shp-col-label">Categories</span>
+        <button class="shp-link active" data-filter="all">ទាំងអស់</button>
+        <button class="shp-link" data-filter="fonts">Fonts</button>
+        <button class="shp-link" data-filter="ai">AI Tools</button>
+        <button class="shp-link" data-filter="strategy">Strategy</button>
+        <button class="shp-link" data-filter="web">Web</button>
+        <button class="shp-link" data-filter="resource">Resources</button>
+      </div>
+
+      <!-- Col 2: Type -->
+      <div>
+        <span class="shp-col-label">Type</span>
+        <button class="shp-link" data-filter="free">Free</button>
+        <button class="shp-link" data-filter="premium">Premium</button>
+        <button class="shp-link" data-filter="bundle">Bundle</button>
+        <button class="shp-link" data-filter="soon">Coming Soon</button>
+      </div>
+
+      <!-- Col 3: Format -->
+      <div>
+        <span class="shp-col-label">Format</span>
+        <span class="shp-link" style="cursor:default;opacity:0.45">PDF Template</span>
+        <span class="shp-link" style="cursor:default;opacity:0.45">Figma File</span>
+        <span class="shp-link" style="cursor:default;opacity:0.45">Google Sheets</span>
+        <span class="shp-link" style="cursor:default;opacity:0.45">Prompt Pack</span>
+        <span class="shp-link" style="cursor:default;opacity:0.45">Checklist</span>
+      </div>
+
+      <!-- Col 4: Use Case -->
+      <div>
+        <span class="shp-col-label">Use Case</span>
+        <span class="shp-link" style="cursor:default;opacity:0.45">Brand Building</span>
+        <span class="shp-link" style="cursor:default;opacity:0.45">Content Creation</span>
+        <span class="shp-link" style="cursor:default;opacity:0.45">Business Planning</span>
+        <span class="shp-link" style="cursor:default;opacity:0.45">Social Media</span>
+        <span class="shp-link" style="cursor:default;opacity:0.45">SEO &amp; Web</span>
+      </div>
+
     </div>
-    <h1>ទិញ ទាញ<br><span class="accent">ប្រើប្រាស់</span> ភ្លាមៗ</h1>
-    <p class="sh-hero-sub">Fonts, Templates, AI Prompts, Resources — ឥតគិតថ្លៃ និង Premium. ជ្រើសរើស ទាញ ហើយ អនុវត្ត ភ្លាម.</p>
-    <div class="sh-stats">
-      <div>
-        <span class="sh-stat-num">12+</span>
-        <span class="sh-stat-lbl">Products</span>
+  </div>
+
+  <!-- ══════════════════════════════════
+       STICKY TAB BAR
+       ══════════════════════════════════ -->
+  <div class="sh-tabbar">
+    <div class="sh-tabbar-inner">
+      <div class="sh-tab-group">
+        <button class="sh-tab active" data-tab="all">Latest</button>
+        <button class="sh-tab" data-tab="popular">Most Popular</button>
+        <div class="sh-tab-divider"></div>
+        <button class="sh-tab" data-tab="free">Free</button>
+        <button class="sh-tab" data-tab="premium">Premium</button>
+        <button class="sh-tab" data-tab="bundle">Bundle</button>
       </div>
-      <div>
-        <span class="sh-stat-num">8</span>
-        <span class="sh-stat-lbl">Free items</span>
-      </div>
-      <div>
-        <span class="sh-stat-num">500+</span>
-        <span class="sh-stat-lbl">Downloads</span>
+      <div class="sh-tabbar-right">
+        <span class="sh-count-badge">Showing <strong id="shCount">12</strong> products</span>
+        <button class="sh-filter-btn" id="shFilterBtn">
+          <i class="fas fa-sliders-h"></i> Filter
+        </button>
       </div>
     </div>
   </div>
 
   <!-- ══════════════════════════════════
-       BROWSE
+       PRODUCT GRID
        ══════════════════════════════════ -->
-  <div class="sh-browse">
-
-    <!-- Filter pills -->
-    <div class="sh-filters" id="shFilters">
-      <button class="sh-pill active" data-filter="all">
-        ទាំងអស់ <span class="sh-pill-count" id="cntAll">12</span>
-      </button>
-      <button class="sh-pill" data-filter="fonts">
-        <span class="sh-fdot" style="background:#9b6bff"></span>Fonts
-        <span class="sh-pill-count">2</span>
-      </button>
-      <button class="sh-pill" data-filter="ai">
-        <span class="sh-fdot" style="background:#e52c67"></span>AI Tools
-        <span class="sh-pill-count">3</span>
-      </button>
-      <button class="sh-pill" data-filter="strategy">
-        <span class="sh-fdot" style="background:#4f82ff"></span>Strategy
-        <span class="sh-pill-count">3</span>
-      </button>
-      <button class="sh-pill" data-filter="web">
-        <span class="sh-fdot" style="background:#00f0ff"></span>Web
-        <span class="sh-pill-count">2</span>
-      </button>
-      <button class="sh-pill" data-filter="resource">
-        <span class="sh-fdot" style="background:#4ade80"></span>Resources
-        <span class="sh-pill-count">2</span>
-      </button>
-      <button class="sh-pill" data-filter="free">
-        <i class="fas fa-gift" style="font-size:11px"></i>Free only
-      </button>
-    </div>
-
-    <!-- Result count + sort -->
-    <div class="sh-bar">
-      <div class="sh-bar-count">Showing <strong id="shCount">12</strong> products</div>
-      <div class="sh-sort-wrap">
-        Sort:
-        <select id="shSort" aria-label="Sort products">
-          <option value="default">Featured</option>
-          <option value="free-first">Free first</option>
-          <option value="paid-first">Paid first</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- ── Grid ── -->
+  <div class="sh-content">
     <div class="sh-grid" id="shGrid">
 
-      <!-- ①  FEATURED — YOB Khmer Font Collection -->
+      <!-- ① FEATURED — YOB Khmer Font Collection -->
       <div class="sh-card sc-wide reveal" data-cat="fonts" data-price="premium">
         <div class="sc-prev" data-cat="fonts">
           <span class="sc-badge sc-badge-premium">Premium</span>
@@ -596,7 +543,7 @@
         </div>
       </div>
 
-      <!-- ②  AI Prompt Starter Pack -->
+      <!-- ② AI Prompt Starter Pack -->
       <div class="sh-card reveal" data-cat="ai" data-price="free">
         <div class="sc-prev" data-cat="ai">
           <span class="sc-badge sc-badge-free">Free</span>
@@ -618,7 +565,7 @@
         </div>
       </div>
 
-      <!-- ③  Business Plan Template -->
+      <!-- ③ Business Plan Template -->
       <div class="sh-card reveal" data-cat="strategy" data-price="free">
         <div class="sc-prev" data-cat="strategy">
           <span class="sc-badge sc-badge-free">Free</span>
@@ -640,7 +587,7 @@
         </div>
       </div>
 
-      <!-- ④  Social Media Calendar -->
+      <!-- ④ Social Media Calendar -->
       <div class="sh-card reveal" data-cat="resource" data-price="free">
         <div class="sc-prev" data-cat="resource">
           <span class="sc-badge sc-badge-free">Free</span>
@@ -662,7 +609,7 @@
         </div>
       </div>
 
-      <!-- ⑤  Website Launch Checklist -->
+      <!-- ⑤ Website Launch Checklist -->
       <div class="sh-card reveal" data-cat="web" data-price="free">
         <div class="sc-prev" data-cat="web">
           <span class="sc-badge sc-badge-free">Free</span>
@@ -684,7 +631,7 @@
         </div>
       </div>
 
-      <!-- ⑥  TikTok Script Templates -->
+      <!-- ⑥ TikTok Script Templates -->
       <div class="sh-card reveal" data-cat="resource" data-price="free">
         <div class="sc-prev" data-cat="resource">
           <span class="sc-badge sc-badge-new">New</span>
@@ -706,7 +653,7 @@
         </div>
       </div>
 
-      <!-- ⑦  AI Content Writing Guide -->
+      <!-- ⑦ AI Content Writing Guide -->
       <div class="sh-card reveal" data-cat="ai" data-price="free">
         <div class="sc-prev" data-cat="ai">
           <span class="sc-badge sc-badge-free">Free</span>
@@ -728,7 +675,7 @@
         </div>
       </div>
 
-      <!-- ⑧  Brand Identity Workbook -->
+      <!-- ⑧ Brand Identity Workbook -->
       <div class="sh-card reveal" data-cat="strategy" data-price="premium">
         <div class="sc-prev" data-cat="strategy">
           <span class="sc-badge sc-badge-premium">Premium</span>
@@ -742,7 +689,7 @@
             <h3 class="sc-name">Brand Identity Workbook</h3>
             <span class="sc-price">$25</span>
           </div>
-          <p class="sc-desc">Figma + PDF — Brand strategy, color system, typography guide ជា Khmer. ១ ហ្វាំងជំនួស ១ agency.</p>
+          <p class="sc-desc">Figma + PDF — Brand strategy, color system, typography guide ជា Khmer. ១ ហ្វាំង ជំនួស ១ agency.</p>
           <div class="sc-foot">
             <span class="sc-cat"><span class="sc-cdot" style="background:#4f82ff"></span>Strategy</span>
             <a href="/contact" class="sc-cta">Get access <i class="fas fa-arrow-right"></i></a>
@@ -750,7 +697,7 @@
         </div>
       </div>
 
-      <!-- ⑨  SEO Audit Toolkit -->
+      <!-- ⑨ SEO Audit Toolkit -->
       <div class="sh-card reveal" data-cat="web" data-price="free">
         <div class="sc-prev" data-cat="web">
           <span class="sc-badge sc-badge-free">Free</span>
@@ -772,8 +719,8 @@
         </div>
       </div>
 
-      <!-- ⑩  FEATURED — Complete Digital Starter Bundle -->
-      <div class="sh-card sc-wide reveal" data-cat="bundle" data-price="premium">
+      <!-- ⑩ FEATURED — Complete Digital Starter Bundle -->
+      <div class="sh-card sc-wide reveal" data-cat="bundle" data-price="bundle">
         <div class="sc-prev" data-cat="bundle">
           <span class="sc-badge sc-badge-bundle">Bundle</span>
           <div class="sc-prev-body">
@@ -794,7 +741,7 @@
         </div>
       </div>
 
-      <!-- ⑪  AI Marketing Workflow Pack -->
+      <!-- ⑪ AI Marketing Workflow Pack -->
       <div class="sh-card reveal" data-cat="ai" data-price="premium">
         <div class="sc-prev" data-cat="ai">
           <span class="sc-badge sc-badge-premium">Premium</span>
@@ -816,7 +763,7 @@
         </div>
       </div>
 
-      <!-- ⑫  Digital Growth Playbook -->
+      <!-- ⑫ Digital Growth Playbook -->
       <div class="sh-card reveal" data-cat="strategy" data-price="premium">
         <div class="sc-prev" data-cat="strategy">
           <span class="sc-badge sc-badge-premium">Premium</span>
@@ -838,12 +785,12 @@
         </div>
       </div>
 
-      <!-- ⑬  COMING SOON — Khmer UI Kit -->
+      <!-- ⑬ COMING SOON — Khmer UI Kit -->
       <div class="sh-card sh-soon reveal" data-cat="web" data-price="soon">
         <div class="sc-prev" data-cat="web" style="filter:grayscale(0.6)">
           <span class="sc-badge sc-badge-soon">Coming Soon</span>
           <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#67e8f9;opacity:0.45">🖥️</span>
+            <span class="sc-prev-ico" style="color:#67e8f9;opacity:0.4">🖥️</span>
             <span class="sc-prev-lbl">UI Kit</span>
           </div>
         </div>
@@ -854,18 +801,18 @@
           </div>
           <p class="sc-desc">Figma components — Buttons, Forms, Cards ត្រៀម Khmer typeface. ចេញ Q3 2026.</p>
           <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#00f0ff;opacity:0.4"></span>Web</span>
+            <span class="sc-cat"><span class="sc-cdot" style="background:#00f0ff;opacity:0.35"></span>Web</span>
             <span class="sc-cta sc-cta-soon">Notify me <i class="fas fa-bell"></i></span>
           </div>
         </div>
       </div>
 
-      <!-- ⑭  COMING SOON — YOB Display Font Pack -->
+      <!-- ⑭ COMING SOON — YOB Display Font Pack -->
       <div class="sh-card sh-soon reveal" data-cat="fonts" data-price="soon">
         <div class="sc-prev" data-cat="fonts" style="filter:grayscale(0.6)">
           <span class="sc-badge sc-badge-soon">Coming Soon</span>
           <div class="sc-prev-body">
-            <span class="sc-prev-ico" style="color:#c084fc;opacity:0.45;font-family:var(--fk)">ជំ</span>
+            <span class="sc-prev-ico" style="color:#c084fc;opacity:0.4;font-family:var(--fk)">ជំ</span>
             <span class="sc-prev-lbl">Display Font</span>
           </div>
         </div>
@@ -876,7 +823,7 @@
           </div>
           <p class="sc-desc">Khmer display font ទំនើប — Hero, Poster, Branding. ១ family, ៦ weights.</p>
           <div class="sc-foot">
-            <span class="sc-cat"><span class="sc-cdot" style="background:#9b6bff;opacity:0.4"></span>Fonts</span>
+            <span class="sc-cat"><span class="sc-cdot" style="background:#9b6bff;opacity:0.35"></span>Fonts</span>
             <span class="sc-cta sc-cta-soon">Notify me <i class="fas fa-bell"></i></span>
           </div>
         </div>
@@ -889,7 +836,7 @@
       </div>
 
     </div><!-- end sh-grid -->
-  </div><!-- end sh-browse -->
+  </div><!-- end sh-content -->
 
   <!-- ══════════════════════════════════
        CTA BANNER
@@ -907,29 +854,39 @@
   <div id="footer-placeholder"></div>
 
   <script>
-  // ── Digital Shop: skeleton → filter → sort ──
+  // ── Digital Shop: skeleton + category panel + tab bar filter ──
   (function () {
-    var CARDS = Array.from(document.querySelectorAll('#shGrid .sh-card:not(.sh-empty)'));
-    var PILLS = document.querySelectorAll('.sh-pill');
+    var CARDS   = Array.from(document.querySelectorAll('#shGrid .sh-card:not(.sh-empty)'));
+    var PLINKS  = document.querySelectorAll('.shp-link[data-filter]');
+    var TABS    = document.querySelectorAll('.sh-tab');
     var countEl = document.getElementById('shCount');
     var emptyEl = document.getElementById('shEmpty');
+    var activeCat  = 'all';
+    var activeTab  = 'all';
 
-    // Skeleton shimmer on load, then reveal staggered
+    // Skeleton shimmer → staggered reveal
     CARDS.forEach(function (c) { c.classList.add('ds-skel'); });
     setTimeout(function () {
       CARDS.forEach(function (c, i) {
-        setTimeout(function () { c.classList.remove('ds-skel'); }, i * 55);
+        setTimeout(function () { c.classList.remove('ds-skel'); }, i * 50);
       });
-    }, 350);
+    }, 380);
 
-    function applyFilter(filter) {
+    function render() {
       var visible = 0;
       CARDS.forEach(function (c) {
         var cat   = c.dataset.cat;
         var price = c.dataset.price;
-        var show  = filter === 'all'
-          || filter === cat
-          || (filter === 'free' && price === 'free');
+        var showCat = activeCat === 'all'
+          || activeCat === cat
+          || activeCat === price;
+        var showTab = activeTab === 'all'
+          || activeTab === price
+          || (activeTab === 'bundle' && price === 'bundle')
+          || (activeTab === 'free'    && price === 'free')
+          || (activeTab === 'premium' && price === 'premium')
+          || activeTab === 'popular';
+        var show = showCat && showTab;
         c.style.display = show ? '' : 'none';
         if (show) visible++;
       });
@@ -937,26 +894,36 @@
       emptyEl.classList.toggle('on', visible === 0);
     }
 
-    PILLS.forEach(function (pill) {
-      pill.addEventListener('click', function () {
-        PILLS.forEach(function (p) { p.classList.remove('active'); });
-        pill.classList.add('active');
-        applyFilter(pill.dataset.filter);
+    // Category panel links
+    PLINKS.forEach(function (link) {
+      link.addEventListener('click', function () {
+        PLINKS.forEach(function (l) { l.classList.remove('active'); });
+        link.classList.add('active');
+        activeCat = link.dataset.filter;
+        // Sync tab bar: reset to "all" tab when category changes
+        if (activeCat !== 'free' && activeCat !== 'premium' && activeCat !== 'bundle' && activeCat !== 'soon') {
+          activeTab = 'all';
+          TABS.forEach(function (t) { t.classList.remove('active'); });
+          document.querySelector('.sh-tab[data-tab="all"]').classList.add('active');
+        }
+        render();
       });
     });
 
-    // Sort
-    document.getElementById('shSort').addEventListener('change', function () {
-      var val = this.value;
-      var grid = document.getElementById('shGrid');
-      var vis = CARDS.filter(function (c) { return c.style.display !== 'none'; });
-      vis.sort(function (a, b) {
-        var ap = a.dataset.price, bp = b.dataset.price;
-        if (val === 'free-first') return (ap === 'free' ? -1 : 1) - (bp === 'free' ? -1 : 1);
-        if (val === 'paid-first') return (ap === 'premium' ? -1 : 1) - (bp === 'premium' ? -1 : 1);
-        return 0;
+    // Tab bar
+    TABS.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        TABS.forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        activeTab = tab.dataset.tab;
+        // Sync panel: deactivate category filter when tab changes
+        if (activeTab === 'free' || activeTab === 'premium' || activeTab === 'bundle') {
+          activeCat = 'all';
+          PLINKS.forEach(function (l) { l.classList.remove('active'); });
+          document.querySelector('.shp-link[data-filter="all"]').classList.add('active');
+        }
+        render();
       });
-      vis.forEach(function (c) { grid.appendChild(c); });
     });
   })();
   </script>
