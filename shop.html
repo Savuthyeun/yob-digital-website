@@ -104,60 +104,97 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
+      min-height: 50px;
     }
     .sh-tab-group {
       display: flex;
       align-items: center;
+      flex-shrink: 0;
     }
+    /* Segmented pill toggle (All / Free) */
+    .sh-seg {
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.07);
+      border-radius: 6px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .sh-seg-btn {
+      padding: 5px 14px;
+      border-radius: 4px;
+      border: none;
+      background: transparent;
+      color: rgba(255,255,255,0.42);
+      font-family: var(--fb);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+      white-space: nowrap;
+      line-height: 1.4;
+    }
+    .sh-seg-btn.active {
+      background: var(--white);
+      color: var(--dark2);
+      font-weight: 600;
+    }
+    /* Separator between seg and tabs */
+    .sh-sep {
+      width: 1px;
+      height: 16px;
+      background: var(--border2);
+      margin: 0 12px;
+      flex-shrink: 0;
+      align-self: center;
+    }
+    /* Text tabs */
     .sh-tab {
-      padding: 15px 18px;
+      padding: 15px 16px;
       font-family: var(--fb);
       font-size: 14px;
       font-weight: 500;
-      color: var(--gray);
+      color: rgba(255,255,255,0.38);
       background: none;
       border: none;
       border-bottom: 2px solid transparent;
       cursor: pointer;
       margin-bottom: -1px;
-      transition: color 0.18s, border-color 0.18s;
+      transition: color 0.16s, border-color 0.16s;
       white-space: nowrap;
     }
-    .sh-tab:hover { color: var(--white); }
-    .sh-tab.active { color: var(--white); border-bottom-color: var(--white); }
-    .sh-tab-divider {
-      width: 1px;
-      height: 16px;
-      background: var(--border2);
-      margin: 0 4px;
-      flex-shrink: 0;
-    }
+    .sh-tab:hover { color: rgba(255,255,255,0.75); }
+    .sh-tab.active { color: var(--white); font-weight: 600; border-bottom-color: var(--white); }
+    /* Right side */
     .sh-tabbar-right {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 20px;
+      flex-shrink: 0;
     }
     .sh-count-badge {
       font-family: var(--fb);
       font-size: 13px;
-      color: var(--gray);
+      color: rgba(255,255,255,0.3);
     }
     .sh-count-badge strong { color: var(--white); }
+    /* Filter button — clean text + icon, no box */
     .sh-filter-btn {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      padding: 8px 16px;
-      border-radius: 8px;
-      border: 1px solid var(--border2);
-      background: transparent;
-      color: var(--gray);
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.55);
       font-family: var(--fb);
-      font-size: 13px;
+      font-size: 14px;
+      font-weight: 500;
       cursor: pointer;
-      transition: var(--t);
+      transition: color 0.15s;
+      padding: 0;
     }
-    .sh-filter-btn:hover { border-color: var(--gold); color: var(--white); }
+    .sh-filter-btn:hover { color: var(--white); }
+    .sh-filter-btn i { font-size: 14px; }
 
     /* ── Content area ── */
     .sh-content {
@@ -396,8 +433,10 @@
     @media (max-width: 640px) {
       .shp-panel { padding-top: 32px; padding-bottom: 32px; }
       .shp-inner { grid-template-columns: repeat(2, 1fr); }
-      .sh-tab-group { overflow-x: auto; }
-      .sh-tab { padding: 13px 14px; font-size: 13px; }
+      .sh-seg, .sh-sep { display: none; }
+      .sh-tab-group { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .sh-tab { padding: 13px 12px; font-size: 13px; }
+      .sh-count-badge { display: none; }
       .sh-filter-btn { display: none; }
       .sh-grid { grid-template-columns: 1fr; gap: 16px; }
       .sc-wide { grid-column: span 1; }
@@ -499,15 +538,21 @@
   <div class="sh-tabbar">
     <div class="sh-tabbar-inner">
       <div class="sh-tab-group">
+        <!-- Segmented toggle: All / Free -->
+        <div class="sh-seg">
+          <button class="sh-seg-btn active" data-seg="all">All</button>
+          <button class="sh-seg-btn" data-seg="free">Free</button>
+        </div>
+        <!-- Separator -->
+        <div class="sh-sep"></div>
+        <!-- Text tabs -->
         <button class="sh-tab active" data-tab="all">Latest</button>
-        <button class="sh-tab" data-tab="popular">Most Popular</button>
-        <div class="sh-tab-divider"></div>
-        <button class="sh-tab" data-tab="free">Free</button>
-        <button class="sh-tab" data-tab="premium">Premium</button>
+        <button class="sh-tab" data-tab="popular">Most popular</button>
+        <button class="sh-tab" data-tab="premium">Top rated</button>
         <button class="sh-tab" data-tab="bundle">Bundle</button>
       </div>
       <div class="sh-tabbar-right">
-        <span class="sh-count-badge">Showing <strong id="shCount">12</strong> products</span>
+        <span class="sh-count-badge">Showing <strong id="shCount">12</strong></span>
         <button class="sh-filter-btn" id="shFilterBtn">
           <i class="fas fa-sliders-h"></i> Filter
         </button>
@@ -859,6 +904,7 @@
     var CARDS   = Array.from(document.querySelectorAll('#shGrid .sh-card:not(.sh-empty)'));
     var PLINKS  = document.querySelectorAll('.shp-link[data-filter]');
     var TABS    = document.querySelectorAll('.sh-tab');
+    var SEGS    = document.querySelectorAll('.sh-seg-btn');
     var countEl = document.getElementById('shCount');
     var emptyEl = document.getElementById('shEmpty');
     var activeCat  = 'all';
@@ -894,6 +940,28 @@
       emptyEl.classList.toggle('on', visible === 0);
     }
 
+    // Segmented pill (All / Free)
+    SEGS.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        SEGS.forEach(function (s) { s.classList.remove('active'); });
+        btn.classList.add('active');
+        var seg = btn.dataset.seg;
+        if (seg === 'free') {
+          activeCat = 'free';
+          activeTab = 'all';
+          PLINKS.forEach(function (l) { l.classList.remove('active'); });
+          document.querySelector('.shp-link[data-filter="all"]').classList.add('active');
+          TABS.forEach(function (t) { t.classList.remove('active'); });
+          document.querySelector('.sh-tab[data-tab="all"]').classList.add('active');
+        } else {
+          activeCat = 'all';
+          PLINKS.forEach(function (l) { l.classList.remove('active'); });
+          document.querySelector('.shp-link[data-filter="all"]').classList.add('active');
+        }
+        render();
+      });
+    });
+
     // Category panel links
     PLINKS.forEach(function (link) {
       link.addEventListener('click', function () {
@@ -916,12 +984,15 @@
         TABS.forEach(function (t) { t.classList.remove('active'); });
         tab.classList.add('active');
         activeTab = tab.dataset.tab;
-        // Sync panel: deactivate category filter when tab changes
+        // Sync panel + seg when tab changes
         if (activeTab === 'free' || activeTab === 'premium' || activeTab === 'bundle') {
           activeCat = 'all';
           PLINKS.forEach(function (l) { l.classList.remove('active'); });
           document.querySelector('.shp-link[data-filter="all"]').classList.add('active');
         }
+        // Sync seg: "Free" seg active only when free tab selected
+        SEGS.forEach(function (s) { s.classList.remove('active'); });
+        document.querySelector('.sh-seg-btn[data-seg="' + (activeTab === 'free' ? 'free' : 'all') + '"]').classList.add('active');
         render();
       });
     });
