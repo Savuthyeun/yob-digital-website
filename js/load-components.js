@@ -6,12 +6,9 @@
 <nav>
   <div class="nav-inner">
 
-    <!-- LEFT: Logo + 2 links -->
+    <!-- LEFT: Logo only -->
     <div class="nav-left">
       <a href="/" class="nav-logo">យប់<span>.</span>ឌីជីថល</a>
-      <ul class="nav-links">
-        <li><a href="/learn" data-page="learn">YOB Learn</a></li>
-      </ul>
     </div>
 
     <!-- CENTER: Search pill -->
@@ -26,6 +23,7 @@
     <!-- RIGHT: links + mobile search icon + hamburger -->
     <div class="nav-right">
       <ul class="nav-links">
+        <li><a href="/learn" data-page="learn">YOB Learn</a></li>
         <li><a href="/shop" data-page="shop">តូបឌីជីថល</a></li>
         <li><a href="/contact" class="nav-cta">សាកសួរ <i class="fas fa-paper-plane" style="margin-left:5px"></i></a></li>
       </ul>

@@ -6,7 +6,7 @@
     <title>YOB Learn — AI & Digital Skills for Cambodia</title>
     <meta
       name="description"
-      content="រៀន AI Tools, Digital Marketing, Web, Typography ជាភាសាខ្មែរ — 62 items FREE"
+      content="រៀន AI Tools, Digital Marketing, Web, Typography ជាភាសាខ្មែរ — Courses & Lessons FREE"
     />
 
     <link rel="canonical" href="https://yobdigital.netlify.app/learn.html" />
@@ -19,7 +19,7 @@
     />
     <meta
       property="og:description"
-      content="រៀន AI Tools, Digital Marketing, Web, Typography ជាភាសាខ្មែរ — 62 items FREE"
+      content="រៀន AI Tools, Digital Marketing, Web, Typography ជាភាសាខ្មែរ — Courses & Lessons FREE"
     />
     <meta
       property="og:image"
@@ -1254,7 +1254,7 @@
         </button>
         <div class="drawer-group-items">
           <a href="/shop" onclick="closeDrawer()">ហាងឌីជីថល</a>
-          <a href="/poster-design" onclick="closeDrawer()">Poster Design</a>
+          <a href="/portfolio" onclick="closeDrawer()">Portfolio</a>
         </div>
       </div>
       <a href="/about" onclick="closeDrawer()">អំពី YOB</a>
@@ -1368,7 +1368,7 @@
                 />
               </div>
               <div class="lp-toolbar-side">
-                <span class="lp-count" id="lpCount">Showing 62 of 62</span>
+                <span class="lp-count" id="lpCount">Loading...</span>
                 <div class="lp-view-toggle" aria-label="View toggle">
                   <button
                     class="lp-view-btn is-active"
@@ -1441,60 +1441,6 @@
                       <span
                         class="lp-chk-count"
                         data-count-for="type:lesson"
-                      ></span>
-                    </label>
-                    <label class="lp-chk">
-                      <span class="lp-chk-left">
-                        <span class="lp-chk-mark"
-                          ><i class="fas fa-check"></i
-                        ></span>
-                        <input
-                          class="lp-chk-input"
-                          type="checkbox"
-                          name="type"
-                          value="resource"
-                        />
-                        <span class="lp-chk-name">Resource</span>
-                      </span>
-                      <span
-                        class="lp-chk-count"
-                        data-count-for="type:resource"
-                      ></span>
-                    </label>
-                    <label class="lp-chk">
-                      <span class="lp-chk-left">
-                        <span class="lp-chk-mark"
-                          ><i class="fas fa-check"></i
-                        ></span>
-                        <input
-                          class="lp-chk-input"
-                          type="checkbox"
-                          name="type"
-                          value="font"
-                        />
-                        <span class="lp-chk-name">Font</span>
-                      </span>
-                      <span
-                        class="lp-chk-count"
-                        data-count-for="type:font"
-                      ></span>
-                    </label>
-                    <label class="lp-chk">
-                      <span class="lp-chk-left">
-                        <span class="lp-chk-mark"
-                          ><i class="fas fa-check"></i
-                        ></span>
-                        <input
-                          class="lp-chk-input"
-                          type="checkbox"
-                          name="type"
-                          value="portfolio"
-                        />
-                        <span class="lp-chk-name">Case study</span>
-                      </span>
-                      <span
-                        class="lp-chk-count"
-                        data-count-for="type:portfolio"
                       ></span>
                     </label>
                   </div>
@@ -1718,7 +1664,7 @@
     <script>
       (function () {
         "use strict";
-        var ALL_TYPES = ["course", "lesson", "resource", "font", "portfolio"];
+        var ALL_TYPES = ["course", "lesson"];
         var ALL_CATS = ["ai", "marketing", "web", "typography"];
         var ALL_PRICES = ["free", "premium", "soon"];
 
@@ -1735,7 +1681,7 @@
             price: "free",
             formats: ["video"],
             meta: "5 មេរៀន · 2h",
-            href: "lessons/ai-overview.html",
+            href: "#", // ytUrl: ""
           },
           {
             id: "c02",
@@ -1749,7 +1695,7 @@
             price: "free",
             formats: ["video"],
             meta: "8 មេរៀន · 3h",
-            href: "lessons/prompt-engineering.html",
+            href: "#", // ytUrl: ""
           },
           {
             id: "c03",
@@ -1791,7 +1737,7 @@
             price: "free",
             formats: ["video"],
             meta: "6 មេរៀន · 2.5h",
-            href: "contact.html",
+            href: "#", // ytUrl: ""
           },
           {
             id: "c06",
@@ -2199,397 +2145,12 @@
             meta: "3 នាទី",
             href: "lessons/changelog.html",
           },
-          {
-            id: "r01",
-            type: "resource",
-            icon: "📖",
-            titleKh: "គម្ពីរ AI Content — ប្រតិទិន ៣០ ថ្ងៃ",
-            descKh:
-              "AI Prompts ២០០+ · ប្រតិទិន Content ១ ខែ · Hook Templates — ប្រើ ChatGPT ក្នុង ១០ នាទី",
-            cat: "ai",
-            level: "beginner",
-            price: "free",
-            formats: ["pdf", "template"],
-            meta: "1,200+ Downloads",
-            modalTitle: "គម្ពីរ AI Content — ប្រតិទិន ៣០ ថ្ងៃ",
-          },
-          {
-            id: "r02",
-            type: "resource",
-            icon: "🤖",
-            titleKh: "AI Prompts ១០០ សម្រាប់អ្នក",
-            descKh:
-              "Content · Ads Copy · Email · Caption · Reply Comment — Prompts ១០០ ជាភាសាខ្មែរ",
-            cat: "ai",
-            level: "beginner",
-            price: "free",
-            formats: ["pdf"],
-            meta: "850+ Downloads",
-            modalTitle: "AI Prompts ១០០ សម្រាប់អ្នក",
-          },
-          {
-            id: "r03",
-            type: "resource",
-            icon: "🎓",
-            titleKh: "មគ្គុទ្ទេសក៍ ChatGPT ជាភាសាខ្មែរ",
-            descKh:
-              "Sign Up → Prompt ដំបូង — Guide ១២ ទំព័រ ជួយចាប់ AI ក្នុង ១ ម៉ោង",
-            cat: "ai",
-            level: "beginner",
-            price: "free",
-            formats: ["pdf"],
-            meta: "620+ Downloads",
-            modalTitle: "មគ្គុទ្ទេសក៍ ChatGPT ជាភាសាខ្មែរ",
-          },
-          {
-            id: "r04",
-            type: "resource",
-            icon: "⚡",
-            titleKh: "ក្បួន Hook — ពី ០ ទៅ Viral",
-            descKh:
-              "Hook ១៥ ប្រភេទ · Video · Text · Photo — ក្នុង Context ខ្មែរ ដែល Algorithm ចូលចិត្ត",
-            cat: "ai",
-            level: "intermediate",
-            price: "free",
-            formats: ["template"],
-            meta: "540+ Downloads",
-            modalTitle: "ក្បួន Hook — ពី ០ ទៅ Viral",
-          },
-          {
-            id: "r05",
-            type: "resource",
-            icon: "📅",
-            titleKh: "គំរូផែនការ Content ៣០ ថ្ងៃ",
-            descKh:
-              "Google Sheet ត្រៀមប្រើ — ប្រភេទ Post · Caption Draft · Status ក្នុង ១ ខែ",
-            cat: "marketing",
-            level: "beginner",
-            price: "free",
-            formats: ["template"],
-            meta: "780+ Downloads",
-            modalTitle: "គំរូផែនការ Content ៣០ ថ្ងៃ",
-          },
-          {
-            id: "r06",
-            type: "resource",
-            icon: "💬",
-            titleKh: "គំរូ Caption ខ្មែរ ៥០+",
-            descKh:
-              "Flash Sale · Product · Testimonial · Event — ៥០+ Caption ជាខ្មែរ ត្រៀម Paste",
-            cat: "marketing",
-            level: "beginner",
-            price: "free",
-            formats: ["template"],
-            meta: "910+ Downloads",
-            modalTitle: "គំរូ Caption ខ្មែរ ៥០+",
-          },
-          {
-            id: "r07",
-            type: "resource",
-            icon: "📋",
-            titleKh: "គំរូសវនកម្មបណ្ដាញសង្គម",
-            descKh:
-              "Rate Facebook · Instagram · TikTok · YouTube — Score Card ច្បាស់",
-            cat: "marketing",
-            level: "intermediate",
-            price: "free",
-            formats: ["template"],
-            meta: "430+ Downloads",
-            modalTitle: "គំរូសវនកម្មបណ្ដាញសង្គម",
-          },
-          {
-            id: "r08",
-            type: "resource",
-            icon: "📢",
-            titleKh: "Checklist Facebook Ads",
-            descKh:
-              "Checklist ២៥ ចំណុច — កាត់ Waste · Improve ROAS · Campaign ត្រឹមត្រូវ ពី Day 1",
-            cat: "marketing",
-            level: "intermediate",
-            price: "free",
-            formats: ["pdf"],
-            meta: "670+ Downloads",
-            modalTitle: "Checklist Facebook Ads",
-          },
-          {
-            id: "r09",
-            type: "resource",
-            icon: "♟️",
-            titleKh: "Digital Strategy Canvas — ១ ទំព័រ",
-            descKh:
-              "Target · Channel · Budget · KPI · Content Pillar — Framework ១ ទំព័រ ច្បាស់",
-            cat: "marketing",
-            level: "intermediate",
-            price: "free",
-            formats: ["template"],
-            meta: "390+ Downloads",
-            modalTitle: "Digital Strategy Canvas",
-          },
-          {
-            id: "r10",
-            type: "resource",
-            icon: "🎨",
-            titleKh: "Branding Checklist — SME ខ្មែរ",
-            descKh:
-              "Logo · Color · Font · Tone of Voice — Checklist ៣០ ចំណុច Audit Brand",
-            cat: "marketing",
-            level: "beginner",
-            price: "free",
-            formats: ["pdf"],
-            meta: "280+ Downloads",
-            modalTitle: "Branding Checklist — SME ខ្មែរ",
-          },
-          {
-            id: "f01",
-            type: "font",
-            icon: "🔤",
-            titleKh: "Khmer Savuth",
-            descKh: "Display · ចំណងជើងស្រស់ · ភាពស្ងប់ · ស្ថាបត្យកម្មខ្មែរ",
-            cat: "typography",
-            level: "beginner",
-            price: "free",
-            formats: ["download"],
-            meta: ".ttf · Display",
-            downloadFile: "font/Savuth Font/khmer Savuth.ttf",
-          },
-          {
-            id: "f02",
-            type: "font",
-            icon: "✒️",
-            titleKh: "Savuth Pen",
-            descKh: "Script · ហត្ថលិខិតស្រស់ · ការ៉ែ · ជាមួយ Ligature",
-            cat: "typography",
-            level: "beginner",
-            price: "free",
-            formats: ["download"],
-            meta: ".ttf · Script",
-            downloadFile: "font/Savuth Font/Khmer Savuth Pen.ttf",
-          },
-          {
-            id: "f03",
-            type: "font",
-            icon: "✒️",
-            titleKh: "Savuth Pen 2",
-            descKh: "Script · ហត្ថលេខាប្រណិត · ស្ទីល Modern Calligraphy",
-            cat: "typography",
-            level: "beginner",
-            price: "free",
-            formats: ["download"],
-            meta: ".ttf · Script",
-            downloadFile: "font/Savuth Font/Khmer Savuth Pen2.ttf",
-          },
-          {
-            id: "f04",
-            type: "font",
-            icon: "🖌️",
-            titleKh: "Savuth Brush",
-            descKh: "Script · ហស្ថលិខិតច្នៃ · Brush Stroke texture",
-            cat: "typography",
-            level: "beginner",
-            price: "free",
-            formats: ["download"],
-            meta: ".ttf · Script",
-            downloadFile: "font/Savuth Font/khmer Savuth Brush.ttf",
-          },
-          {
-            id: "f05",
-            type: "font",
-            icon: "🔤",
-            titleKh: "Savuth Romeas",
-            descKh: "Display · អក្សរខ្មែរស្វែង · Bold statement headline",
-            cat: "typography",
-            level: "beginner",
-            price: "free",
-            formats: ["download"],
-            meta: ".ttf · Display",
-            downloadFile: "font/Savuth Font/khmer Savuth Romeas.ttf",
-          },
-          {
-            id: "f06",
-            type: "font",
-            icon: "🔷",
-            titleKh: "Khmer Sharp",
-            descKh: "Display · ស្រួចពតច្បាស់ · Modern geometric Khmer",
-            cat: "typography",
-            level: "beginner",
-            price: "free",
-            formats: ["download"],
-            meta: ".ttf · Display",
-            downloadFile: "font/Savuth Font/Khmer Sharp.ttf",
-          },
-          {
-            id: "f07",
-            type: "font",
-            icon: "📖",
-            titleKh: "Sem Sarun",
-            descKh: "Sans-serif · អានស្រួលយល់ច្បាស់ · Body text optimal",
-            cat: "typography",
-            level: "beginner",
-            price: "free",
-            formats: ["download"],
-            meta: ".ttf · Sans",
-            downloadFile: "font/Savuth Font/Khmer Sem Sarun.ttf",
-          },
-          {
-            id: "f08",
-            type: "font",
-            icon: "💎",
-            titleKh: "Khmer Sexy",
-            descKh: "Display · ក្បាច់ស្រស់ស្អាត · Fashion & luxury brand use",
-            cat: "typography",
-            level: "beginner",
-            price: "free",
-            formats: ["download"],
-            meta: ".ttf · Display",
-            downloadFile: "font/Savuth Font/Khmer sexy.ttf",
-          },
-          {
-            id: "f09",
-            type: "font",
-            icon: "🏛️",
-            titleKh: "Kompong Chhnang",
-            descKh: "Display · Heritage style Khmer · Local identity",
-            cat: "typography",
-            level: "beginner",
-            price: "free",
-            formats: ["download"],
-            meta: ".ttf · Display",
-            downloadFile: "font/Savuth Font/kh Kompong Chhnang.ttf",
-          },
-          {
-            id: "f10",
-            type: "font",
-            icon: "📚",
-            titleKh: "iKhmer Students",
-            descKh: "Sans-serif · Clear legible for education · Print friendly",
-            cat: "typography",
-            level: "beginner",
-            price: "free",
-            formats: ["download"],
-            meta: ".ttf · Sans",
-            downloadFile: "font/Savuth Font/khmer ikhmerstudents.ttf",
-          },
-          {
-            id: "f11",
-            type: "font",
-            icon: "✨",
-            titleKh: "YOB Font Bundle — 10 Fonts",
-            descKh:
-              "Package ពេញ 10 Fonts + Commercial License + Future updates + Priority support",
-            cat: "typography",
-            level: "beginner",
-            price: "premium",
-            formats: ["download"],
-            meta: "10 Fonts · $50",
-            href: "shop.html",
-          },
-          {
-            id: "p01",
-            type: "portfolio",
-            icon: "📈",
-            titleKh: "ពី Boost Post ទៅ 3.8x ROAS",
-            descKh:
-              "DC Fashion · Phnom Penh — Facebook Ads optimization · Budget មិនបង្កើន ប៉ុន្តែ ROAS 3.8x",
-            cat: "marketing",
-            level: "advanced",
-            price: "free",
-            formats: ["article"],
-            meta: "Case Study",
-            href: "contact.html",
-          },
-          {
-            id: "p02",
-            type: "portfolio",
-            icon: "🤖",
-            titleKh: "AI ជំនួស Marketing Agency",
-            descKh:
-              "Sokha Café · Siem Reap — AI Content System ជំនួស Agency ហ្វូលៗ · Cut cost 60%",
-            cat: "ai",
-            level: "advanced",
-            price: "free",
-            formats: ["article"],
-            meta: "Case Study",
-            href: "contact.html",
-          },
-          {
-            id: "p03",
-            type: "portfolio",
-            icon: "💻",
-            titleKh: "Website + AI → 15 Leads/ថ្ងៃ",
-            descKh:
-              "CR Academy · Phnom Penh — Landing page + AI lead system · 15 leads/day consistently",
-            cat: "web",
-            level: "advanced",
-            price: "free",
-            formats: ["article"],
-            meta: "Case Study",
-            href: "contact.html",
-          },
-          {
-            id: "p04",
-            type: "portfolio",
-            icon: "⚡",
-            titleKh: "AI Training → 10+ ម៉ោង/សប្ដាហ៍",
-            descKh:
-              "Piseth · FMCG Manager — AI tools workshop · Save 10+ hours every week",
-            cat: "ai",
-            level: "intermediate",
-            price: "free",
-            formats: ["article"],
-            meta: "Case Study",
-            href: "contact.html",
-          },
-          {
-            id: "p05",
-            type: "portfolio",
-            icon: "🔤",
-            titleKh: "Font Upgrade → 40% Brand Trust",
-            descKh:
-              "Local Startup · Kampong Cham — Khmer font system redesign · 40% brand trust uplift",
-            cat: "typography",
-            level: "intermediate",
-            price: "free",
-            formats: ["article"],
-            meta: "Case Study",
-            href: "contact.html",
-          },
-          {
-            id: "p06",
-            type: "portfolio",
-            icon: "🛒",
-            titleKh: "Offline → Online · 200% Sales",
-            descKh:
-              "Handcraft Store · Battambang — Full digital strategy · Offline to online · 200% sales growth",
-            cat: "marketing",
-            level: "advanced",
-            price: "free",
-            formats: ["article"],
-            meta: "Case Study",
-            href: "contact.html",
-          },
-          {
-            id: "p07",
-            type: "portfolio",
-            icon: "🎨",
-            titleKh: "Brand Poster Series — E Express",
-            descKh:
-              "E Express · Phnom Penh — ១ Brand ១ Story ១ Design · Full poster campaign ៨ Poster",
-            cat: "marketing",
-            level: "advanced",
-            price: "free",
-            formats: ["article"],
-            meta: "Case Study",
-            href: "poster-design.html",
-          },
         ];
 
         var TOTAL_COUNT = ITEMS.length;
         var TYPE_LABELS = {
           course: "Course",
           lesson: "Lesson",
-          resource: "Resource",
-          font: "Font",
-          portfolio: "Case study",
         };
         var CAT_LABELS = {
           ai: "AI Tools",
@@ -2609,20 +2170,11 @@
           typography: "#f0b76f",
         };
         var SHORTCUTS = [
-          { id: "all", label: "All items" },
-          {
-            id: "learn",
-            label: "Courses + Lessons",
-            types: ["course", "lesson"],
-          },
-          {
-            id: "downloads",
-            label: "Free downloads",
-            types: ["resource", "font"],
-            prices: ["free"],
-          },
-          { id: "fonts", label: "Fonts", types: ["font"] },
-          { id: "proof", label: "Case studies", types: ["portfolio"] },
+          { id: "all",     label: "ទាំងអស់" },
+          { id: "courses", label: "Courses", types: ["course"] },
+          { id: "lessons", label: "Lessons", types: ["lesson"] },
+          { id: "ai",      label: "AI",      cats: ["ai"] },
+          { id: "free",    label: "Free",    prices: ["free"] },
         ];
         var S = {
           q: "",
@@ -2632,7 +2184,7 @@
           view: "grid",
           shortcut: "all",
         };
-        var FEATURED_IDS = ["c01", "d02", "r01", "f01", "p01", "d16"];
+        var FEATURED_IDS = ["c01", "c02", "d01", "d02", "d08", "d16"];
 
         function arrayEquals(a, b) {
           if (a.length !== b.length) return false;
@@ -2883,27 +2435,12 @@
           return pills.join("");
         }
         function buildFeaturedCard(item) {
-          var href = item.price === "soon" ? "#" : item.href || "#";
-          var attrs =
-            item.type === "font" && item.downloadFile
-              ? ' href="' + esc(item.downloadFile) + '" download'
-              : ' href="' + esc(href) + '"';
-          if (item.type === "resource") {
-            return (
-              '<button type="button" class="lp-featured-card" data-open-modal="1" data-title="' +
-              esc(item.modalTitle || item.titleKh) +
-              '" data-icon="' +
-              esc(item.icon) +
-              '"><span class="lp-featured-icon">' +
-              item.icon +
-              '</span><span class="lp-featured-name">' +
-              esc(item.titleKh) +
-              "</span></button>"
-            );
-          }
+          var href = (item.price === "soon" || !item.href || item.href === "#") ? "#" : item.href;
+          var extra = (item.type === "course" && href !== "#") ? ' target="_blank" rel="noopener"' : "";
           return (
-            '<a class="lp-featured-card"' +
-            attrs +
+            '<a class="lp-featured-card" href="' +
+            esc(href) +
+            '"' + extra +
             '><span class="lp-featured-icon">' +
             item.icon +
             '</span><span class="lp-featured-name">' +
@@ -2934,30 +2471,19 @@
           featuredEl.innerHTML = featuredItems.map(buildFeaturedCard).join("");
         }
         function actionMarkup(item) {
-          if (item.price === "soon") {
+          if (item.price === "soon" || !item.href || item.href === "#") {
             return '<span class="lp-cta lp-cta-soon">Coming soon</span>';
           }
-          if (item.type === "resource") {
-            return (
-              '<button type="button" class="lp-cta-btn lp-cta-primary" data-open-modal="1" data-title="' +
-              esc(item.modalTitle || item.titleKh) +
-              '" data-icon="' +
-              esc(item.icon) +
-              '">Download <i class="fas fa-arrow-right"></i></button>'
-            );
-          }
-          if (item.type === "font" && item.downloadFile) {
+          if (item.type === "course") {
             return (
               '<a class="lp-cta lp-cta-primary" href="' +
-              esc(item.downloadFile) +
-              '" download>Download <i class="fas fa-download"></i></a>'
+              esc(item.href) +
+              '" target="_blank" rel="noopener">Watch <i class="fab fa-youtube"></i></a>'
             );
           }
           return (
-            '<a class="lp-cta' +
-            (item.type === "course" ? " lp-cta-primary" : "") +
-            '" href="' +
-            esc(item.href || "#") +
+            '<a class="lp-cta" href="' +
+            esc(item.href) +
             '">Open <i class="fas fa-arrow-right"></i></a>'
           );
         }
