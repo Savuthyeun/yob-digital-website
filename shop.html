@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="km">
   <head>
     <meta charset="UTF-8" />
@@ -955,6 +955,182 @@
           padding: 11px 14px;
         }
       }
+
+      /* ══════════════════════════════════
+         DOWNLOAD MODAL (moved from resources.html)
+         ══════════════════════════════════ */
+      .dl-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(16px);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .dl-modal.open {
+        display: flex;
+      }
+      .dl-modal-box {
+        background: var(--dark2);
+        border: 1px solid rgba(229, 44, 103, 0.3);
+        border-radius: 24px;
+        padding: 48px 40px;
+        max-width: 480px;
+        width: 100%;
+        position: relative;
+        box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+      }
+      .dl-modal-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #e52c67, transparent);
+        border-radius: 24px 24px 0 0;
+      }
+      .dl-modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--border);
+        color: var(--gray);
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        transition: all 0.2s;
+      }
+      .dl-modal-close:hover {
+        color: var(--white);
+        border-color: var(--gold);
+      }
+      .dl-modal-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+        background: rgba(229, 44, 103, 0.1);
+        border: 1px solid rgba(229, 44, 103, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+      .dl-modal-title {
+        font-family: var(--fh);
+        font-size: 28px;
+        color: var(--white);
+        line-height: 1.1;
+        margin-bottom: 8px;
+      }
+      .dl-modal-sub {
+        font-family: var(--fk);
+        font-size: 14px;
+        color: var(--gray);
+        margin-bottom: 28px;
+        line-height: 1.6;
+      }
+      .dl-form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .dl-input {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 13px 16px;
+        font-family: var(--fk);
+        font-size: 14px;
+        color: var(--white);
+        outline: none;
+        width: 100%;
+        transition: border-color 0.2s;
+      }
+      .dl-input::placeholder {
+        color: var(--gray);
+      }
+      .dl-input:focus {
+        border-color: rgba(229, 44, 103, 0.5);
+      }
+      .dl-submit {
+        background: linear-gradient(90deg, #e52c67, #ff4d85);
+        border: none;
+        border-radius: 12px;
+        padding: 15px;
+        font-family: var(--fk);
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+      .dl-submit:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+      .dl-privacy {
+        text-align: center;
+        font-family: var(--fk);
+        font-size: 13px;
+        color: var(--gray);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+      .dl-privacy i {
+        color: var(--gold);
+        font-size: 11px;
+      }
+      .dl-status {
+        display: none;
+        margin-top: 4px;
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-family: var(--fk);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      .dl-status.success {
+        color: #79d3a6;
+        background: rgba(16, 185, 129, 0.12);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+      }
+      .dl-status.error {
+        color: #ff9f9f;
+        background: rgba(239, 68, 68, 0.12);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+      }
+      @media (max-width: 540px) {
+        .dl-modal-box {
+          padding: 32px 24px;
+        }
+        .dl-input {
+          font-size: 16px;
+        }
+        .dl-submit {
+          font-size: 16px;
+          min-height: 50px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -975,8 +1151,7 @@
           រៀន <i class="fas fa-chevron-down"></i>
         </button>
         <div class="drawer-group-items">
-          <a href="/yob-learning" onclick="closeDrawer()">ជំនាញឌីជីថល</a>
-          <a href="/docs" onclick="closeDrawer()">ឯកសារមេរៀន</a>
+          <a href="/learn" onclick="closeDrawer()">YOB Learn Hub</a>
           <a href="/case-studies" onclick="closeDrawer()">កម្រងស្នាដៃ</a>
         </div>
       </div>
@@ -985,10 +1160,8 @@
           តូបឌីជីថល <i class="fas fa-chevron-down"></i>
         </button>
         <div class="drawer-group-items">
-          <a href="/yobfont" onclick="closeDrawer()">YOB អក្ខរា</a>
-          <a href="/resources" onclick="closeDrawer()">កាដូឌីជីថល</a>
+          <a href="/shop" onclick="closeDrawer()">ហាងឌីជីថល</a>
           <a href="/poster-design" onclick="closeDrawer()">Poster Design</a>
-          <a href="/shop" onclick="closeDrawer()">Digital Shop</a>
         </div>
       </div>
       <a href="/about" onclick="closeDrawer()">អំពី YOB</a>
@@ -1104,7 +1277,7 @@
             meta: "Display · Savuth Collection",
             previewText: "ខ្មែរ​ស្អាត​ស្រស់",
             fontFamily: "'Khmer Savuth',var(--fk),sans-serif",
-            href: "yobfont.html",
+            downloadFile: "font/Savuth Font/khmer Savuth.ttf",
           },
           {
             id: "f02",
@@ -1117,7 +1290,7 @@
             meta: "Script · Pen Style",
             previewText: "ហត្ថលេខា​ស្រស់",
             fontFamily: "'Savuth Pen',var(--fk),sans-serif",
-            href: "yobfont.html",
+            downloadFile: "font/Savuth Font/Khmer Savuth Pen.ttf",
           },
           {
             id: "f03",
@@ -1130,7 +1303,7 @@
             meta: "Script · Pen Style v2",
             previewText: "ហត្ថលេខា​ប្រណិត",
             fontFamily: "'Savuth Pen 2',var(--fk),sans-serif",
-            href: "yobfont.html",
+            downloadFile: "font/Savuth Font/Khmer Savuth Pen2.ttf",
           },
           {
             id: "f04",
@@ -1143,7 +1316,7 @@
             meta: "Script · Brush Style",
             previewText: "ហស្ថ​លិខិត​ច្នៃ",
             fontFamily: "'Savuth Brush',var(--fk),sans-serif",
-            href: "yobfont.html",
+            downloadFile: "font/Savuth Font/khmer Savuth Brush.ttf",
           },
           {
             id: "f05",
@@ -1156,7 +1329,7 @@
             meta: "Display · Romeas Style",
             previewText: "អក្សរ​ខ្មែរ​ស្វែង",
             fontFamily: "'Savuth Romeas',var(--fk),sans-serif",
-            href: "yobfont.html",
+            downloadFile: "font/Savuth Font/khmer Savuth Romeas.ttf",
           },
           {
             id: "f06",
@@ -1169,7 +1342,7 @@
             meta: "Display · Sharp Style",
             previewText: "ស្រួច​ពត​ច្បាស់",
             fontFamily: "'Khmer Sharp',var(--fk),sans-serif",
-            href: "yobfont.html",
+            downloadFile: "font/Savuth Font/Khmer Sharp.ttf",
           },
           {
             id: "f07",
@@ -1182,7 +1355,7 @@
             meta: "Sans · Readable Body",
             previewText: "អានស្រួល​យល់ច្បាស់",
             fontFamily: "'Sem Sarun',var(--fk),sans-serif",
-            href: "yobfont.html",
+            downloadFile: "font/Savuth Font/Khmer Sem Sarun.ttf",
           },
           {
             id: "f08",
@@ -1195,7 +1368,7 @@
             meta: "Display · Decorative",
             previewText: "ក្បាច់​ស្រស់​ស្អាត",
             fontFamily: "'Khmer Sexy',var(--fk),sans-serif",
-            href: "yobfont.html",
+            downloadFile: "font/Savuth Font/Khmer sexy.ttf",
           },
           {
             id: "f09",
@@ -1208,7 +1381,7 @@
             meta: "Display · Regional Style",
             previewText: "កំពង់ឆ្នាំង​ស្អាត",
             fontFamily: "'Kompong Chhnang',var(--fk),sans-serif",
-            href: "yobfont.html",
+            downloadFile: "font/Savuth Font/kh Kompong Chhnang.ttf",
           },
           {
             id: "f10",
@@ -1221,7 +1394,7 @@
             meta: "Sans · Education Style",
             previewText: "សិស្ស​ខ្មែរ​រៀន",
             fontFamily: "'iKhmer Students',var(--fk),sans-serif",
-            href: "yobfont.html",
+            downloadFile: "font/Savuth Font/khmer ikhmerstudents.ttf",
           },
           {
             id: "f11",
@@ -1235,7 +1408,7 @@
             desc: "YOB Heading Pro + Modern Serif + Signature + Poster Black + Kbach Retro — License + Free Updates",
             previewText: "YOB ✦",
             fontFamily: "var(--fh)",
-            href: "yobfont.html",
+            href: "contact.html",
           },
 
           // ── RESOURCES ────────────────────────────────────────────────
@@ -1245,13 +1418,14 @@
             type: "ai",
             price: "free",
             priceText: "FREE",
-            name: "គម្ពីរ AI Content — ប្រតិទិន ៣០ ថ្ងៃ",
+            name: "គម្ពីរ AI Content — ប្រតិទិន ៣០ ថ្ងៃ និង Prompt ត្រៀមប្រើ",
             desc: "AI Prompts ២០០+ · ប្រតិទិន Content ១ ខែ · Hook Templates — ប្រើ ChatGPT ក្នុង ១០ នាទី",
             icon: "fas fa-book-open",
             iconColor: "#c084fc",
             gradCat: "ai",
             downloads: "1,200+",
-            href: "resources.html",
+            modalTitle: "គម្ពីរ AI Content",
+            modalIcon: "fas fa-book-open",
           },
           {
             id: "r02",
@@ -1265,7 +1439,8 @@
             iconColor: "#c084fc",
             gradCat: "ai",
             downloads: "850+",
-            href: "resources.html",
+            modalTitle: "កញ្ចប់ AI Prompts 100",
+            modalIcon: "fas fa-robot",
           },
           {
             id: "r03",
@@ -1273,13 +1448,14 @@
             type: "ai",
             price: "free",
             priceText: "FREE",
-            name: "មគ្គុទ្ទេសក៍ ChatGPT ជាភាសាខ្មែរ",
+            name: "មគ្គុទ្ទេសក៍ចាប់ផ្តើម ChatGPT ជាភាសាខ្មែរ",
             desc: "Sign Up → Prompt ដំបូង — Guide ១២ ទំព័រ ជួយចាប់ AI ក្នុង ១ ម៉ោង ដោយមិនចាំបាច់ចេះ English",
             icon: "fas fa-graduation-cap",
             iconColor: "#c084fc",
             gradCat: "ai",
             downloads: "620+",
-            href: "resources.html",
+            modalTitle: "មគ្គុទ្ទេសក៍ចាប់ផ្តើម ChatGPT",
+            modalIcon: "fas fa-graduation-cap",
           },
           {
             id: "r04",
@@ -1293,7 +1469,8 @@
             iconColor: "#c084fc",
             gradCat: "ai",
             downloads: "540+",
-            href: "resources.html",
+            modalTitle: "ក្បួន Hook PDF",
+            modalIcon: "fas fa-bolt",
           },
           {
             id: "r05",
@@ -1301,13 +1478,14 @@
             type: "template",
             price: "free",
             priceText: "FREE",
-            name: "ផែនការ Content ៣០ ថ្ងៃ",
+            name: "គំរូផែនការ Content ៣០ ថ្ងៃ",
             desc: "Google Sheet ត្រៀមប្រើ — ប្រភេទ Post · Caption Draft · Status ក្នុង ១ ខែ មិនត្រូវគិតច្រើន",
             icon: "fas fa-calendar-alt",
             iconColor: "#60a5fa",
             gradCat: "strategy",
             downloads: "780+",
-            href: "resources.html",
+            modalTitle: "ផែនការ Content 30 ថ្ងៃ",
+            modalIcon: "fas fa-calendar-alt",
           },
           {
             id: "r06",
@@ -1321,7 +1499,8 @@
             iconColor: "#60a5fa",
             gradCat: "strategy",
             downloads: "910+",
-            href: "resources.html",
+            modalTitle: "គំរូ Caption ខ្មែរ 50+",
+            modalIcon: "fas fa-comment-dots",
           },
           {
             id: "r07",
@@ -1335,7 +1514,8 @@
             iconColor: "#60a5fa",
             gradCat: "strategy",
             downloads: "430+",
-            href: "resources.html",
+            modalTitle: "គំរូសវនកម្មបណ្ដាញសង្គម",
+            modalIcon: "fas fa-clipboard-check",
           },
           {
             id: "r08",
@@ -1349,7 +1529,8 @@
             iconColor: "#fb7185",
             gradCat: "ai",
             downloads: "670+",
-            href: "resources.html",
+            modalTitle: "Checklist Facebook Ads",
+            modalIcon: "fab fa-facebook-f",
           },
           {
             id: "r09",
@@ -1363,7 +1544,8 @@
             iconColor: "#fb7185",
             gradCat: "ai",
             downloads: "390+",
-            href: "resources.html",
+            modalTitle: "Digital Strategy Canvas",
+            modalIcon: "fas fa-chess",
           },
           {
             id: "r10",
@@ -1377,53 +1559,87 @@
             iconColor: "#34d399",
             gradCat: "resource",
             downloads: "280+",
-            href: "resources.html",
+            modalTitle: "Branding Checklist",
+            modalIcon: "fas fa-palette",
           },
 
           // ── PORTFOLIO ────────────────────────────────────────────────
           {
             id: "p01",
             cat: "portfolio",
-            type: "branding",
+            type: "strategy",
             price: "free",
             priceText: "Free",
-            name: "Angkor Beverage — Brand Refresh",
-            desc: "Logo · Color System · Social Templates — Khmer FMCG brand targeting Gen Z",
-            icon: "🎨",
-            href: "case-studies.html",
+            name: "ពី Boost Post ទៅ 3.8x ROAS ក្នុង ២ ខែ",
+            desc: "DC Fashion · Phnom Penh — Facebook Ads · ROAS 3.8x · Budget optimized",
+            icon: "📈",
+            href: "contact.html",
           },
           {
             id: "p02",
             cat: "portfolio",
-            type: "web",
+            type: "ai",
             price: "free",
             priceText: "Free",
-            name: "TechKH — Landing Page",
-            desc: "Conversion-focused landing page · A/B tested · 3x lead uplift vs old site",
-            icon: "💻",
-            href: "case-studies.html",
+            name: "AI Content System ជំនួស Marketing Agency",
+            desc: "Sokha Café · Siem Reap — AI replaces full agency workflow · Cut cost 60%",
+            icon: "🤖",
+            href: "contact.html",
           },
           {
             id: "p03",
             cat: "portfolio",
-            type: "strategy",
+            type: "web",
             price: "free",
             priceText: "Free",
-            name: "Phnom Penh SME — Ads Strategy",
-            desc: "Facebook & TikTok ads · ROAS 3.8x · Budget $500/month",
-            icon: "📈",
-            href: "case-studies.html",
+            name: "វេបសាយ + AI Workflow → 15 Leads/ថ្ងៃ",
+            desc: "CR Academy · Phnom Penh — Landing page + AI lead system · 15 leads/day",
+            icon: "💻",
+            href: "contact.html",
           },
           {
             id: "p04",
             cat: "portfolio",
-            type: "branding",
+            type: "ai",
             price: "free",
             priceText: "Free",
-            name: "YOB Digital — Brand Identity",
-            desc: "Full brand system · Pink + Dark theme · Component library · Motion tokens",
-            icon: "✨",
-            href: "case-studies.html",
+            name: "AI Essentials → សន្សំ 10+ ម៉ោងប្រចាំសប្ដាហ៍",
+            desc: "Piseth · FMCG Manager — AI tools training · Save 10+ hours/week",
+            icon: "⚡",
+            href: "contact.html",
+          },
+          {
+            id: "p05",
+            cat: "portfolio",
+            type: "fonts",
+            price: "free",
+            priceText: "Free",
+            name: "Khmer Font Upgrade → 40% More Brand Trust",
+            desc: "Local Startup · Kampong Cham — Khmer font system · 40% brand trust uplift",
+            icon: "🔤",
+            href: "contact.html",
+          },
+          {
+            id: "p06",
+            cat: "portfolio",
+            type: "strategy",
+            price: "free",
+            priceText: "Free",
+            name: "ពី Offline ទៅ Online → កំណើនលក់ 200%",
+            desc: "Handcraft Store · Battambang — Digital strategy · 200% sales growth",
+            icon: "🛒",
+            href: "contact.html",
+          },
+          {
+            id: "p07",
+            cat: "portfolio",
+            type: "design",
+            price: "free",
+            priceText: "Free",
+            name: "Brand Poster Series — E Express",
+            desc: "E Express · Phnom Penh — ១ Brand ១ Story ១ Design · Poster series full campaign",
+            icon: "🎨",
+            href: "poster-design.html",
           },
         ];
 
@@ -1442,11 +1658,11 @@
             { type: "design", label: "Design", color: "#34d399" },
           ],
           portfolio: [
+            { type: "strategy", label: "យុទ្ធសាស្ត្រ", color: "#f59e0b" },
             { type: "ai", label: "ឧបករណ៍ AI", color: "#f472b6" },
-            { type: "strategy", label: "យុទ្ធសាស្រ្ត", color: "#f59e0b" },
             { type: "web", label: "វេបសាយ", color: "#22d3ee" },
             { type: "fonts", label: "អក្សរខ្មែរ", color: "#9b6bff" },
-            { type: "design", label: "ការរចនា", color: "#4ade80" },
+            { type: "design", label: "Poster Design", color: "#4ade80" },
           ],
         };
 
@@ -1507,7 +1723,12 @@
               "</div></div>";
             catDot = "#4ade80";
             catLabel = "កាដូរ ឌីជីថល";
-            ctaHtml = 'ទាញយក <i class="fas fa-download"></i>';
+            ctaHtml =
+              '<button class="sc-cta" style="background:none;border:none;cursor:pointer;padding:0" onclick="openModal(\'' +
+              esc(p.modalTitle || p.name) +
+              "','" +
+              esc(p.modalIcon || p.icon) +
+              '\')">ទាញយក <i class="fas fa-download"></i></button>';
           } else {
             prevHtml =
               '<div class="sc-prev" data-cat="strategy">' +
@@ -1549,11 +1770,19 @@
             '"></span>' +
             catLabel +
             "</span>" +
-            '<a href="' +
-            esc(p.href) +
-            '" class="sc-cta">' +
-            ctaHtml +
-            "</a>" +
+            (p.cat === "resource"
+              ? ctaHtml
+              : p.cat === "fonts" && p.downloadFile
+                ? '<a href="' +
+                  esc(p.downloadFile) +
+                  '" download class="sc-cta">' +
+                  ctaHtml +
+                  "</a>"
+                : '<a href="' +
+                  esc(p.href) +
+                  '" class="sc-cta">' +
+                  ctaHtml +
+                  "</a>") +
             "</div></div></div>"
           );
         }
@@ -1815,6 +2044,135 @@
         render();
       })();
     </script>
+
+    <!-- ══ DOWNLOAD MODAL ══ -->
+    <div class="dl-modal" id="dlModal">
+      <div class="dl-modal-box">
+        <button class="dl-modal-close" onclick="closeModal()">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="dl-modal-icon">
+          <i id="modalIcon" class="fas fa-book-open"></i>
+        </div>
+        <div class="dl-modal-title" id="modalTitle"></div>
+        <div class="dl-modal-sub">
+          បំពេញ Form ខាងក្រោម —
+          <strong>ក្រុម YOB នឹង DM file ទៅ Telegram</strong> របស់អ្នក
+          ក្នុងរយៈពេល ២–៥ នាទី។ ប្រាកដថា Telegram search
+          <strong>@yobdigital</strong> ហើយ allow message មុន ។
+        </div>
+        <form
+          class="dl-form"
+          name="resource-download"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onsubmit="handleDownload(event)"
+        >
+          <input type="hidden" name="form-name" value="resource-download" />
+          <input type="hidden" name="bot-field" />
+          <input type="hidden" name="resource" id="dlResourceName" value="" />
+          <input
+            type="text"
+            name="name"
+            class="dl-input"
+            placeholder="ឈ្មោះ​របស់​អ្នក *"
+            autocomplete="name"
+            required
+          />
+          <input
+            type="text"
+            name="telegram"
+            class="dl-input"
+            placeholder="លេខ Telegram (ឧ. 012 345 678) *"
+            autocomplete="tel"
+            required
+          />
+          <input
+            type="text"
+            name="business_type"
+            class="dl-input"
+            placeholder="ប្រភេទ/ឧស្សាហកម្ម (ជាជម្រើស)"
+          />
+          <button type="submit" class="dl-submit">
+            <i class="fas fa-download"></i> ទាញយកឥឡូវ (ឥតគិតថ្លៃ)
+          </button>
+          <div class="dl-status success" id="dlStatusSuccess">
+            បានទទួលការស្នើររួចរាល់។ សូមពិនិត្យ Telegram ក្នុងរយៈពេល ២–៥ នាទី។
+          </div>
+          <div class="dl-status error" id="dlStatusError">
+            មានបញ្ហាបច្ចេកទេសក្នុងការបញ្ជូន។ សូមសាកម្តងទៀត ឬទាក់ទង Telegram
+            ដោយផ្ទាល់។
+          </div>
+          <span class="dl-privacy"
+            ><i class="fas fa-lock"></i>
+            ព័ត៌មាន​របស់​អ្នក​ត្រូវ​បាន​រក្សា​ទុក​ជា​សម្ងាត់</span
+          >
+        </form>
+      </div>
+    </div>
+
+    <script src="js/form-utils.js"></script>
+    <script>
+      // ── Download Modal Logic ──
+      function openModal(title, icon) {
+        document.getElementById("modalTitle").textContent = title;
+        document.getElementById("modalIcon").className = icon;
+        document.getElementById("dlResourceName").value = title;
+        document.getElementById("dlModal").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeModal() {
+        document.getElementById("dlModal").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      async function handleDownload(e) {
+        e.preventDefault();
+        var form = e.target;
+        var submitBtn = form.querySelector(".dl-submit");
+        var originalBtn = submitBtn ? submitBtn.innerHTML : "";
+        var successMsg = document.getElementById("dlStatusSuccess");
+        var errorMsg = document.getElementById("dlStatusError");
+        successMsg.style.display = "none";
+        errorMsg.style.display = "none";
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> កំពុងបញ្ជូន...';
+        }
+        try {
+          await window.YOBFormUtils.submitNetlifyForm(form);
+          window.YOBFormUtils.track("form_submit_success", {
+            form: "resources_download",
+            resource:
+              document.getElementById("dlResourceName").value || "unknown",
+          });
+          successMsg.style.display = "block";
+          setTimeout(function () {
+            closeModal();
+            form.reset();
+            successMsg.style.display = "none";
+          }, 1200);
+        } catch (err) {
+          window.YOBFormUtils.track("form_submit_error", {
+            form: "resources_download",
+            reason: "network_or_server",
+          });
+          errorMsg.style.display = "block";
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtn;
+          }
+        }
+      }
+      document
+        .getElementById("dlModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) closeModal();
+        });
+    </script>
+
     <script src="js/load-components.js"></script>
     <script src="js/main.js" defer></script>
   </body>

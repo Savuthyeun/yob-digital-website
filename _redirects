@@ -8,11 +8,11 @@
 
 /index.html / 301!
 /about.html /about 301!
-/yobfont.html /yobfont 301!
-/docs.html /docs 301!
-/case-studies.html /case-studies 301!
-/resources.html /resources 301!
-/yob-learning.html /yob-learning 301!
+/yobfont.html /shop 301!
+/docs.html /learn 301!
+/case-studies.html /learn 301!
+/resources.html /shop 301!
+/yob-learning.html /learn 301!
 /contact.html /contact 301!
 /privacy.html /privacy 301!
 /terms.html /terms 301!
@@ -21,13 +21,14 @@
 # ── 2. Serve clean URLs from .html files (200 rewrites) ──
 
 /about /about.html 200
-/fonts /yobfont.html 301!
-/yobfont /yobfont.html 200
-/docs /docs.html 200
-/case-studies /case-studies.html 200
-/resources /resources.html 200
-/yob-learning /yob-learning.html 200
+/fonts /shop 301!
+/yobfont /shop 301!
+/docs /learn 301!
+/case-studies /learn 301!
+/resources /shop 301!
+/yob-learning /learn 301!
 /contact /contact.html 200
 /privacy /privacy.html 200
 /terms /terms.html 200
+/learn /learn.html 200
 /sitemap /sitemap.html 200

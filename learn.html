@@ -1,0 +1,3217 @@
+<!doctype html>
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOB Learn — AI & Digital Skills for Cambodia</title>
+    <meta
+      name="description"
+      content="រៀន AI Tools, Digital Marketing, Web, Typography ជាភាសាខ្មែរ — 62 items FREE"
+    />
+
+    <link rel="canonical" href="https://yobdigital.netlify.app/learn.html" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+
+    <meta
+      property="og:title"
+      content="YOB Learn — AI & Digital Skills for Cambodia"
+    />
+    <meta
+      property="og:description"
+      content="រៀន AI Tools, Digital Marketing, Web, Typography ជាភាសាខ្មែរ — 62 items FREE"
+    />
+    <meta
+      property="og:image"
+      content="https://yobdigital.netlify.app/images/og-cover.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://yobdigital.netlify.app/learn.html"
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    /></noscript>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      .blob {
+        display: none !important;
+      }
+
+      .lp-outer {
+        padding-top: 68px;
+        min-height: 100vh;
+      }
+
+      .lp-hero {
+        padding: 52px 0 26px;
+        border-bottom: 1px solid var(--border);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02) 0%,
+          transparent 100%
+        );
+      }
+
+      .lp-hero-inner {
+        max-width: 980px;
+      }
+
+      .lp-hero-icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 14px;
+        border: 1px solid var(--border2);
+        background: rgba(255, 255, 255, 0.03);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: var(--white);
+        margin-bottom: 20px;
+      }
+
+      .lp-hero-eyebrow {
+        margin: 0 0 10px;
+        font-family: var(--fb);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      .lp-hero-title {
+        max-width: 720px;
+        margin: 0;
+        font-family: var(--fb);
+        font-size: clamp(34px, 5vw, 62px);
+        line-height: 1.04;
+        font-weight: 700;
+        color: var(--white);
+        letter-spacing: -0.03em;
+      }
+
+      .lp-hero-title span {
+        color: rgba(255, 255, 255, 0.42);
+      }
+
+      .lp-hero-sub {
+        max-width: 680px;
+        margin: 16px 0 0;
+        font-family: var(--fb);
+        font-size: 15px;
+        line-height: 1.7;
+        color: var(--gray);
+      }
+
+      .lp-hero-meta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+      }
+
+      .lp-hero-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 12px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.02);
+        font-family: var(--fb);
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .lp-shell {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 26px 24px 80px;
+      }
+
+      .lp-main {
+        min-width: 0;
+        position: relative;
+        z-index: 2;
+      }
+
+      .lp-controls {
+        position: relative;
+        z-index: 25;
+        margin-bottom: 16px;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.015);
+      }
+
+      .lp-filterbar {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 10px;
+        margin-bottom: 0;
+        position: relative;
+        z-index: 24;
+      }
+
+      .lp-dd {
+        position: relative;
+        flex: 0 0 auto;
+      }
+
+      .lp-dd-toggle {
+        min-height: 40px;
+        min-width: 172px;
+        padding: 0 13px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.82);
+        font-family: var(--fb);
+        font-size: 12px;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        justify-content: space-between;
+        transition:
+          border-color var(--t),
+          background var(--t),
+          transform var(--t);
+      }
+
+      .lp-dd-toggle:hover {
+        border-color: rgba(255, 255, 255, 0.26);
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .lp-dd.lp-dd-open .lp-dd-toggle {
+        border-color: rgba(229, 44, 103, 0.5);
+        background: rgba(229, 44, 103, 0.14);
+      }
+
+      .lp-dd.is-active .lp-dd-toggle {
+        border-color: rgba(229, 44, 103, 0.5);
+        background: rgba(229, 44, 103, 0.14);
+      }
+
+      .lp-dd-head {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .lp-dd-head i {
+        color: rgba(255, 255, 255, 0.62);
+        font-size: 11px;
+      }
+
+      .lp-dd-toggle i {
+        font-size: 10px;
+        color: var(--gray);
+      }
+
+      .lp-dd.lp-dd-open .lp-dd-toggle .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+
+      .lp-dd-label {
+        color: rgba(255, 255, 255, 0.75);
+      }
+
+      .lp-dd-value {
+        color: var(--white);
+        font-weight: 600;
+      }
+
+      .lp-dd-menu {
+        position: absolute;
+        left: 0;
+        top: calc(100% + 10px);
+        min-width: 270px;
+        max-width: min(340px, calc(100vw - 32px));
+        max-height: 320px;
+        overflow: auto;
+        z-index: 80;
+        padding: 10px;
+        border-radius: 14px;
+        border: 1px solid var(--border2);
+        background: rgba(13, 17, 23, 0.98);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 20px 32px rgba(0, 0, 0, 0.45);
+        display: none;
+      }
+
+      .lp-dd.lp-dd-open .lp-dd-menu {
+        display: block;
+      }
+
+      .lp-dd.lp-dd-right .lp-dd-menu {
+        left: auto;
+        right: 0;
+      }
+
+      .lp-filter-options {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .lp-chk {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 8px 10px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition:
+          background var(--t),
+          border-color var(--t),
+          color var(--t);
+        border: 1px solid transparent;
+      }
+
+      .lp-chk:hover {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.06);
+      }
+
+      .lp-chk.is-active {
+        background: rgba(229, 44, 103, 0.12);
+        border-color: rgba(229, 44, 103, 0.36);
+      }
+
+      .lp-chk.is-active .lp-chk-name {
+        color: var(--white);
+        font-weight: 700;
+      }
+
+      .lp-chk.is-disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
+      .lp-chk-left {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .lp-chk-input {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .lp-chk-mark {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        background: rgba(255, 255, 255, 0.03);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 9px;
+        flex-shrink: 0;
+      }
+
+      .lp-chk.is-active .lp-chk-mark {
+        border-color: rgba(229, 44, 103, 0.7);
+        background: rgba(229, 44, 103, 0.7);
+      }
+
+      .lp-chk-name {
+        font-family: var(--fb);
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .lp-chk-count {
+        font-family: var(--fb);
+        font-size: 11px;
+        color: var(--gray);
+      }
+
+      .lp-chk-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .lp-clear-btn {
+        width: 100%;
+        margin-top: 20px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid var(--border2);
+        background: transparent;
+        color: var(--white);
+        font-family: var(--fb);
+        font-size: 12px;
+        cursor: pointer;
+        transition:
+          border-color var(--t),
+          background var(--t);
+      }
+
+      .lp-clear-btn:hover {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.22);
+      }
+
+      .lp-clear-inline {
+        width: auto;
+        margin-top: 0;
+        margin-left: auto;
+        min-height: 40px;
+        border-radius: 999px;
+        padding: 0 14px;
+        border: 1px solid transparent;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.65);
+        white-space: nowrap;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .lp-clear-inline:hover {
+        color: var(--white);
+        border-color: rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .lp-shortcuts,
+      .lp-featured {
+        display: none;
+      }
+
+      .lp-toolbar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+      }
+
+      .lp-results-head {
+        position: relative;
+        z-index: 1;
+      }
+
+      .lp-search {
+        position: relative;
+        flex: 1 1 460px;
+        max-width: 760px;
+      }
+
+      .lp-search i {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.38);
+        font-size: 13px;
+        pointer-events: none;
+      }
+
+      .lp-search input {
+        width: 100%;
+        height: 46px;
+        padding: 0 18px 0 42px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--white);
+        font-family: var(--fb);
+        font-size: 14px;
+        box-sizing: border-box;
+        outline: none;
+        transition:
+          border-color var(--t),
+          background var(--t);
+      }
+
+      .lp-search input:focus {
+        border-color: rgba(229, 44, 103, 0.6);
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      .lp-search input::placeholder {
+        color: rgba(255, 255, 255, 0.42);
+      }
+
+      .lp-toolbar-side {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: auto;
+      }
+
+      .lp-count {
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gray);
+        white-space: nowrap;
+      }
+
+      .lp-view-toggle {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .lp-view-btn {
+        min-width: 38px;
+        height: 34px;
+        border: none;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.45);
+        border-radius: 8px;
+        cursor: pointer;
+        transition:
+          background var(--t),
+          color var(--t);
+      }
+
+      .lp-view-btn.is-active {
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--white);
+      }
+
+      .lp-shortcuts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .lp-featured {
+        margin-bottom: 22px;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.015);
+      }
+
+      .lp-featured-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+
+      .lp-featured-title {
+        margin: 0;
+        font-family: var(--fb);
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .lp-featured-note {
+        margin: 0;
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gray);
+      }
+
+      .lp-featured-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .lp-featured-card {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.02);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        transition:
+          border-color var(--t),
+          background var(--t),
+          transform 0.18s ease;
+      }
+
+      .lp-featured-card:hover {
+        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.05);
+        transform: translateY(-1px);
+      }
+
+      button.lp-featured-card {
+        width: 100%;
+        text-align: left;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .lp-featured-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.06);
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+
+      .lp-featured-name {
+        font-family: var(--fb);
+        font-size: 12px;
+        line-height: 1.45;
+        color: rgba(255, 255, 255, 0.86);
+        display: -webkit-box;
+        display: box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .lp-shortcut {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.02);
+        color: rgba(255, 255, 255, 0.75);
+        font-family: var(--fb);
+        font-size: 12px;
+        cursor: pointer;
+        transition:
+          border-color var(--t),
+          background var(--t),
+          color var(--t);
+      }
+
+      .lp-shortcut:hover,
+      .lp-shortcut.is-active {
+        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--white);
+      }
+
+      .lp-shortcut-count {
+        padding: 2px 7px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        font-size: 10px;
+        color: var(--gray);
+      }
+
+      .lp-results-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .lp-results-copy h2 {
+        margin: 0;
+        font-family: var(--fb);
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .lp-results-copy p {
+        margin: 6px 0 0;
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+      }
+
+      .lp-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        min-height: 34px;
+        justify-content: flex-end;
+      }
+
+      .lp-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(229, 44, 103, 0.28);
+        background: rgba(229, 44, 103, 0.08);
+        color: rgba(255, 255, 255, 0.88);
+        font-family: var(--fb);
+        font-size: 11px;
+      }
+
+      .lp-pill button {
+        border: none;
+        background: transparent;
+        color: inherit;
+        font-size: 13px;
+        line-height: 1;
+        cursor: pointer;
+        opacity: 0.75;
+      }
+
+      .lp-pill button:hover {
+        opacity: 1;
+      }
+
+      .lp-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .lp-grid.lp-view-list {
+        grid-template-columns: 1fr;
+      }
+
+      .lp-card {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        min-height: 278px;
+        padding: 18px;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.035) 0%,
+          rgba(255, 255, 255, 0.02) 100%
+        );
+        transition:
+          transform 0.22s ease,
+          border-color 0.22s ease,
+          background 0.22s ease;
+      }
+
+      .lp-card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(255, 255, 255, 0.18);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.045) 0%,
+          rgba(255, 255, 255, 0.02) 100%
+        );
+      }
+
+      .lp-grid.lp-view-list .lp-card {
+        min-height: 0;
+        display: grid;
+        grid-template-columns: 88px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .lp-card-visual {
+        width: 72px;
+        height: 72px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.035);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+      }
+
+      .lp-grid.lp-view-list .lp-card-visual {
+        width: 72px;
+        height: 72px;
+      }
+
+      .lp-card-body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .lp-card-top {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .lp-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        font-family: var(--fb);
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .lp-badge-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .lp-card-title {
+        margin: 0;
+        font-family: var(--fb);
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 1.25;
+        color: var(--white);
+        display: -webkit-box;
+        display: box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .lp-card-desc {
+        margin: 0;
+        font-family: var(--fb);
+        font-size: 13px;
+        line-height: 1.68;
+        color: var(--gray);
+        display: -webkit-box;
+        display: box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .lp-grid.lp-view-list .lp-card-desc {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+      }
+
+      .lp-card-meta {
+        font-family: var(--fb);
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.44);
+      }
+
+      .lp-card-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .lp-grid.lp-view-list .lp-card-foot {
+        border-top: none;
+        padding-top: 0;
+        margin-top: 0;
+      }
+
+      .lp-card-signals {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .lp-signal {
+        padding: 5px 8px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        font-family: var(--fb);
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .lp-signal-price-free {
+        color: #87d8a8;
+      }
+
+      .lp-signal-price-premium {
+        color: #f4c27d;
+      }
+
+      .lp-signal-price-soon {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .lp-cta,
+      .lp-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: center;
+        min-height: 40px;
+        padding: 0 14px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--white);
+        font-family: var(--fb);
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition:
+          background var(--t),
+          border-color var(--t),
+          transform 0.18s ease;
+        white-space: nowrap;
+      }
+
+      .lp-cta:hover,
+      .lp-cta-btn:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-1px);
+      }
+
+      .lp-cta-primary {
+        background: rgba(229, 44, 103, 0.14);
+        border-color: rgba(229, 44, 103, 0.3);
+      }
+
+      .lp-cta-primary:hover {
+        background: rgba(229, 44, 103, 0.2);
+      }
+
+      .lp-cta-soon,
+      .lp-cta-btn.lp-cta-soon {
+        color: var(--gray);
+        pointer-events: none;
+        cursor: default;
+      }
+
+      .lp-empty {
+        padding: 80px 24px;
+        border: 1px dashed rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
+        text-align: center;
+        color: var(--gray);
+      }
+
+      .lp-empty i {
+        display: block;
+        margin-bottom: 12px;
+        font-size: 34px;
+        opacity: 0.3;
+      }
+
+      .lp-empty p {
+        margin: 0 0 14px;
+        font-family: var(--fb);
+        font-size: 14px;
+      }
+
+      .lp-empty button {
+        padding: 10px 16px;
+        border: 1px solid var(--border2);
+        border-radius: 12px;
+        background: transparent;
+        color: var(--white);
+        font-family: var(--fb);
+        cursor: pointer;
+      }
+
+      .lp-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 9000;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(6px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s;
+      }
+      .lp-modal.lp-modal-open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .lp-modal-box {
+        background: var(--dark2);
+        border: 1px solid var(--border2);
+        border-radius: 20px;
+        width: 100%;
+        max-width: 440px;
+        padding: 32px;
+        transform: translateY(16px);
+        transition: transform 0.3s var(--smooth);
+        position: relative;
+      }
+      .lp-modal.lp-modal-open .lp-modal-box {
+        transform: translateY(0);
+      }
+      .lp-modal-close {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        background: rgba(255, 255, 255, 0.06);
+        border: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        color: var(--gray);
+        cursor: pointer;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background var(--t);
+      }
+      .lp-modal-close:hover {
+        background: rgba(255, 255, 255, 0.12);
+        color: var(--white);
+      }
+      .lp-modal-icon {
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 8px;
+      }
+      .lp-modal-title {
+        font-family: var(--fb);
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--white);
+        text-align: center;
+        margin: 0 0 4px;
+      }
+      .lp-modal-sub {
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+        text-align: center;
+        margin: 0 0 22px;
+      }
+      .lp-modal form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .lp-modal label {
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gray);
+        margin-bottom: 4px;
+        display: block;
+      }
+      .lp-modal input,
+      .lp-modal select {
+        width: 100%;
+        padding: 11px 14px;
+        background: var(--dark3);
+        border: 1px solid var(--border2);
+        border-radius: 10px;
+        color: var(--white);
+        font-family: var(--fb);
+        font-size: 14px;
+        outline: none;
+        transition: border-color var(--t);
+        box-sizing: border-box;
+      }
+      .lp-modal input:focus,
+      .lp-modal select:focus {
+        border-color: var(--gold);
+      }
+      .lp-modal select option {
+        background: var(--dark2);
+      }
+      .lp-modal-submit {
+        width: 100%;
+        padding: 13px;
+        background: var(--gold);
+        border: none;
+        border-radius: 12px;
+        color: #fff;
+        font-family: var(--fb);
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: opacity var(--t);
+      }
+      .lp-modal-submit:hover {
+        opacity: 0.88;
+      }
+      .lp-modal-submit:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+      .lp-modal-success {
+        text-align: center;
+        padding: 20px 0 8px;
+      }
+      .lp-modal-success i {
+        font-size: 42px;
+        color: #4ade80;
+        display: block;
+        margin-bottom: 12px;
+      }
+      .lp-modal-success p {
+        font-family: var(--fb);
+        font-size: 14px;
+        color: var(--white);
+        margin: 0 0 6px;
+      }
+      .lp-modal-success small {
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gray);
+      }
+
+      @media (max-width: 1100px) {
+        .lp-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .lp-featured-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 900px) {
+        .lp-shell {
+          padding: 24px 16px 86px;
+        }
+
+        .lp-filterbar {
+          flex-wrap: wrap;
+        }
+
+        .lp-results-head {
+          flex-direction: column;
+        }
+
+        .lp-pills {
+          justify-content: flex-start;
+        }
+
+        .lp-dd-toggle {
+          min-width: 160px;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .lp-hero {
+          padding: 34px 0 20px;
+        }
+
+        .lp-controls {
+          padding: 10px;
+          border-radius: 14px;
+        }
+
+        .lp-toolbar {
+          align-items: stretch;
+        }
+
+        .lp-toolbar-side {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .lp-filterbar {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 8px;
+          overflow: visible;
+        }
+
+        .lp-dd {
+          width: 100%;
+        }
+
+        .lp-dd-toggle {
+          width: 100%;
+          min-width: 0;
+          justify-content: space-between;
+        }
+
+        .lp-dd-menu {
+          position: static;
+          margin-top: 8px;
+          min-width: 0;
+          max-width: none;
+          box-shadow: none;
+        }
+
+        .lp-clear-inline {
+          grid-column: 1 / -1;
+          width: 100%;
+          margin-left: 0;
+          border-radius: 12px;
+          border-color: var(--border2);
+          color: var(--white);
+        }
+
+        .lp-grid,
+        .lp-grid.lp-view-list {
+          grid-template-columns: 1fr;
+        }
+
+        .lp-featured-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .lp-grid.lp-view-list .lp-card {
+          grid-template-columns: 1fr;
+        }
+
+        .lp-card {
+          min-height: 0;
+        }
+
+        .lp-card-foot {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div id="nav-placeholder"></div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button class="drawer-close" id="drawerClose">
+        <i class="fas fa-times"></i>
+      </button>
+      <a href="/learn" onclick="closeDrawer()">YOB Learn Hub</a>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">
+          តូបឌីជីថល <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="drawer-group-items">
+          <a href="/shop" onclick="closeDrawer()">ហាងឌីជីថល</a>
+          <a href="/poster-design" onclick="closeDrawer()">Poster Design</a>
+        </div>
+      </div>
+      <a href="/about" onclick="closeDrawer()">អំពី YOB</a>
+      <a href="/contact" onclick="closeDrawer()" class="d-cta">សាកសួរ</a>
+    </div>
+
+    <!-- Download Modal -->
+    <div class="lp-modal" id="lpDlModal">
+      <div class="lp-modal-box">
+        <button class="lp-modal-close" onclick="closeDlModal()">
+          <i class="fas fa-times"></i>
+        </button>
+        <div id="lpDlFormWrap">
+          <div class="lp-modal-icon" id="lpDlIcon">📄</div>
+          <h3 class="lp-modal-title" id="lpDlTitle">ទាញយកឯកសារ</h3>
+          <p class="lp-modal-sub">
+            បំពេញព័ត៌មានខាងក្រោម ដើម្បីទទួលបាន Free Resource
+          </p>
+          <form
+            id="lpDlForm"
+            name="learn-download"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            novalidate
+          >
+            <input type="hidden" name="form-name" value="learn-download" />
+            <input type="hidden" name="resource" id="lpDlResource" />
+            <input type="hidden" name="bot-field" />
+            <div>
+              <label for="lpDlName">ឈ្មោះ / Name</label>
+              <input
+                type="text"
+                id="lpDlName"
+                name="name"
+                placeholder="ឧ. Dara Chan"
+                required
+                autocomplete="name"
+              />
+            </div>
+            <div>
+              <label for="lpDlTelegram">Telegram / Facebook</label>
+              <input
+                type="text"
+                id="lpDlTelegram"
+                name="telegram"
+                placeholder="@username ឬ link"
+                required
+              />
+            </div>
+            <div>
+              <label for="lpDlBiz">ប្រភេទអាជីវកម្ម</label>
+              <select id="lpDlBiz" name="business_type">
+                <option value="">-- ជ្រើសរើស --</option>
+                <option value="sme">SME / អាជីវកម្មតូច</option>
+                <option value="freelancer">Freelancer</option>
+                <option value="student">Student</option>
+                <option value="marketer">Marketer / Agency</option>
+                <option value="other">ផ្សេងទៀត</option>
+              </select>
+            </div>
+            <button type="submit" class="lp-modal-submit" id="lpDlSubmit">
+              <i class="fas fa-download"></i> ទទួលឯកសារ FREE
+            </button>
+          </form>
+        </div>
+        <div class="lp-modal-success" id="lpDlSuccess" style="display: none">
+          <i class="fas fa-check-circle"></i>
+          <p>សូមអរគុណ! 🎉</p>
+          <small>YOB នឹង DM ត្រលប់មក Telegram/Facebook របស់អ្នក</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="lp-outer">
+      <section class="lp-hero">
+        <div class="container lp-hero-inner reveal">
+          <div class="lp-hero-icon"><i class="fas fa-book-open"></i></div>
+          <p class="lp-hero-eyebrow">YOB Learn</p>
+          <h1 class="lp-hero-title">
+            Get inspired by what <span>you can learn with YOB</span>
+          </h1>
+          <p class="lp-hero-sub">
+            មេរៀន, course, free resources, Khmer fonts និង case studies
+            នៅក្នុងកន្លែងតែមួយ។ រចនាឲ្យស្វែងរកងាយ អានងាយ និងចូលចំណុចបានលឿន។
+          </p>
+          <div class="lp-hero-meta">
+            <span class="lp-hero-chip"
+              ><i class="fas fa-layer-group"></i> 62 learning items</span
+            >
+            <span class="lp-hero-chip"
+              ><i class="fas fa-language"></i> Khmer-first content</span
+            >
+            <span class="lp-hero-chip"
+              ><i class="fas fa-bolt"></i> Direct download & quick access</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <div class="lp-shell">
+        <main class="lp-main">
+          <div class="lp-controls reveal">
+            <div class="lp-toolbar">
+              <div class="lp-search">
+                <i class="fas fa-search"></i>
+                <input
+                  type="text"
+                  id="lpSearch"
+                  placeholder="Search lesson, prompt, template, font..."
+                  autocomplete="off"
+                />
+              </div>
+              <div class="lp-toolbar-side">
+                <span class="lp-count" id="lpCount">Showing 62 of 62</span>
+                <div class="lp-view-toggle" aria-label="View toggle">
+                  <button
+                    class="lp-view-btn is-active"
+                    type="button"
+                    data-view="grid"
+                    aria-label="Grid view"
+                  >
+                    <i class="fas fa-grip"></i>
+                  </button>
+                  <button
+                    class="lp-view-btn"
+                    type="button"
+                    data-view="list"
+                    aria-label="List view"
+                  >
+                    <i class="fas fa-list"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="lp-filterbar" id="lpFilterBar">
+              <div class="lp-dd" data-dd data-group="type">
+                <button
+                  class="lp-dd-toggle"
+                  type="button"
+                  data-dd-toggle
+                  aria-expanded="false"
+                >
+                  <span class="lp-dd-head"
+                    ><i class="far fa-folder"></i
+                    ><span class="lp-dd-label">Type</span></span
+                  >
+                  <span class="lp-dd-value" id="lpTypeValue">All</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="lp-dd-menu">
+                  <div class="lp-filter-options">
+                    <label class="lp-chk">
+                      <span class="lp-chk-left">
+                        <span class="lp-chk-mark"
+                          ><i class="fas fa-check"></i
+                        ></span>
+                        <input
+                          class="lp-chk-input"
+                          type="checkbox"
+                          name="type"
+                          value="course"
+                        />
+                        <span class="lp-chk-name">Course</span>
+                      </span>
+                      <span
+                        class="lp-chk-count"
+                        data-count-for="type:course"
+                      ></span>
+                    </label>
+                    <label class="lp-chk">
+                      <span class="lp-chk-left">
+                        <span class="lp-chk-mark"
+                          ><i class="fas fa-check"></i
+                        ></span>
+                        <input
+                          class="lp-chk-input"
+                          type="checkbox"
+                          name="type"
+                          value="lesson"
+                        />
+                        <span class="lp-chk-name">Lesson</span>
+                      </span>
+                      <span
+                        class="lp-chk-count"
+                        data-count-for="type:lesson"
+                      ></span>
+                    </label>
+                    <label class="lp-chk">
+                      <span class="lp-chk-left">
+                        <span class="lp-chk-mark"
+                          ><i class="fas fa-check"></i
+                        ></span>
+                        <input
+                          class="lp-chk-input"
+                          type="checkbox"
+                          name="type"
+                          value="resource"
+                        />
+                        <span class="lp-chk-name">Resource</span>
+                      </span>
+                      <span
+                        class="lp-chk-count"
+                        data-count-for="type:resource"
+                      ></span>
+                    </label>
+                    <label class="lp-chk">
+                      <span class="lp-chk-left">
+                        <span class="lp-chk-mark"
+                          ><i class="fas fa-check"></i
+                        ></span>
+                        <input
+                          class="lp-chk-input"
+                          type="checkbox"
+                          name="type"
+                          value="font"
+                        />
+                        <span class="lp-chk-name">Font</span>
+                      </span>
+                      <span
+                        class="lp-chk-count"
+                        data-count-for="type:font"
+                      ></span>
+                    </label>
+                    <label class="lp-chk">
+                      <span class="lp-chk-left">
+                        <span class="lp-chk-mark"
+                          ><i class="fas fa-check"></i
+                        ></span>
+                        <input
+                          class="lp-chk-input"
+                          type="checkbox"
+                          name="type"
+                          value="portfolio"
+                        />
+                        <span class="lp-chk-name">Case study</span>
+                      </span>
+                      <span
+                        class="lp-chk-count"
+                        data-count-for="type:portfolio"
+                      ></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="lp-dd" data-dd data-group="cat">
+                <button
+                  class="lp-dd-toggle"
+                  type="button"
+                  data-dd-toggle
+                  aria-expanded="false"
+                >
+                  <span class="lp-dd-head"
+                    ><i class="far fa-clone"></i
+                    ><span class="lp-dd-label">Category</span></span
+                  >
+                  <span class="lp-dd-value" id="lpCatValue">All</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="lp-dd-menu">
+                  <div class="lp-filter-options">
+                    <label class="lp-chk">
+                      <span class="lp-chk-left">
+                        <span class="lp-chk-mark"
+                          ><i class="fas fa-check"></i
+                        ></span>
+                        <input
+                          class="lp-chk-input"
+                          type="checkbox"
+                          name="cat"
+                          value="ai"
+                        />
+                        <span
+                          class="lp-chk-dot"
+                          style="background: #bfa8ff"
+                        ></span>
+                        <span class="lp-chk-name">AI Tools</span>
+                      </span>
+                      <span class="lp-chk-count" data-count-for="cat:ai"></span>
+                    </label>
+                    <label class="lp-chk">
+                      <span class="lp-chk-left">
+                        <span class="lp-chk-mark"
+                          ><i class="fas fa-check"></i
+                        ></span>
+                        <input
+                          class="lp-chk-input"
+                          type="checkbox"
+                          name="cat"
+                          value="marketing"
+                        />
+                        <span
+                          class="lp-chk-dot"
+                          style="background: #86baff"
+                        ></span>
+                        <span class="lp-chk-name">Marketing</span>
+                      </span>
+                      <span
+                        class="lp-chk-count"
+                        data-count-for="cat:marketing"
+                      ></span>
+                    </label>
+                    <label class="lp-chk">
+                      <span class="lp-chk-left">
+                        <span class="lp-chk-mark"
+                          ><i class="fas fa-check"></i
+                        ></span>
+                        <input
+                          class="lp-chk-input"
+                          type="checkbox"
+                          name="cat"
+                          value="web"
+                        />
+                        <span
+                          class="lp-chk-dot"
+                          style="background: #79d4b4"
+                        ></span>
+                        <span class="lp-chk-name">Web</span>
+                      </span>
+                      <span
+                        class="lp-chk-count"
+                        data-count-for="cat:web"
+                      ></span>
+                    </label>
+                    <label class="lp-chk">
+                      <span class="lp-chk-left">
+                        <span class="lp-chk-mark"
+                          ><i class="fas fa-check"></i
+                        ></span>
+                        <input
+                          class="lp-chk-input"
+                          type="checkbox"
+                          name="cat"
+                          value="typography"
+                        />
+                        <span
+                          class="lp-chk-dot"
+                          style="background: #f0b76f"
+                        ></span>
+                        <span class="lp-chk-name">Typography</span>
+                      </span>
+                      <span
+                        class="lp-chk-count"
+                        data-count-for="cat:typography"
+                      ></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="lp-dd lp-dd-right" data-dd data-group="price">
+                <button
+                  class="lp-dd-toggle"
+                  type="button"
+                  data-dd-toggle
+                  aria-expanded="false"
+                >
+                  <span class="lp-dd-head"
+                    ><i class="far fa-credit-card"></i
+                    ><span class="lp-dd-label">Access</span></span
+                  >
+                  <span class="lp-dd-value" id="lpPriceValue">All</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="lp-dd-menu">
+                  <div class="lp-filter-options">
+                    <label class="lp-chk">
+                      <span class="lp-chk-left">
+                        <span class="lp-chk-mark"
+                          ><i class="fas fa-check"></i
+                        ></span>
+                        <input
+                          class="lp-chk-input"
+                          type="checkbox"
+                          name="price"
+                          value="free"
+                        />
+                        <span class="lp-chk-name">Free</span>
+                      </span>
+                      <span
+                        class="lp-chk-count"
+                        data-count-for="price:free"
+                      ></span>
+                    </label>
+                    <label class="lp-chk">
+                      <span class="lp-chk-left">
+                        <span class="lp-chk-mark"
+                          ><i class="fas fa-check"></i
+                        ></span>
+                        <input
+                          class="lp-chk-input"
+                          type="checkbox"
+                          name="price"
+                          value="premium"
+                        />
+                        <span class="lp-chk-name">Premium</span>
+                      </span>
+                      <span
+                        class="lp-chk-count"
+                        data-count-for="price:premium"
+                      ></span>
+                    </label>
+                    <label class="lp-chk">
+                      <span class="lp-chk-left">
+                        <span class="lp-chk-mark"
+                          ><i class="fas fa-check"></i
+                        ></span>
+                        <input
+                          class="lp-chk-input"
+                          type="checkbox"
+                          name="price"
+                          value="soon"
+                        />
+                        <span class="lp-chk-name">Coming soon</span>
+                      </span>
+                      <span
+                        class="lp-chk-count"
+                        data-count-for="price:soon"
+                      ></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="lp-clear-btn lp-clear-inline"
+                onclick="lpClearAll()"
+              >
+                <i class="fas fa-rotate-left"></i> Clear all
+              </button>
+            </div>
+          </div>
+
+          <div class="lp-results-head reveal">
+            <div class="lp-results-copy">
+              <h2>Browse the library</h2>
+              <p>
+                ប្រើ Search មុនសិន បន្ទាប់មកជ្រើស filter chip ដើម្បីបង្រួម
+                លទ្ធផលឲ្យបានលឿន និងច្បាស់។
+              </p>
+            </div>
+            <div class="lp-pills" id="lpPills"></div>
+          </div>
+
+          <div class="lp-grid" id="lpGrid"></div>
+          <div class="lp-empty" id="lpEmpty" style="display: none">
+            <i class="fas fa-search"></i>
+            <p>
+              រកមិនឃើញលទ្ធផលតាម filter នេះទេ។ សាក reset filter ឬប្ដូរ keyword
+              ថ្មី។
+            </p>
+            <button onclick="lpClearAll()">Reset Filters</button>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+      (function () {
+        "use strict";
+        var ALL_TYPES = ["course", "lesson", "resource", "font", "portfolio"];
+        var ALL_CATS = ["ai", "marketing", "web", "typography"];
+        var ALL_PRICES = ["free", "premium", "soon"];
+
+        var ITEMS = [
+          {
+            id: "c01",
+            type: "course",
+            icon: "🤖",
+            titleKh: "Claude AI Beginner Guide",
+            descKh:
+              "ចាប់ផ្ដើមប្រើ Claude AI ពី zero — prompts, workflow, productivity boost",
+            cat: "ai",
+            level: "beginner",
+            price: "free",
+            formats: ["video"],
+            meta: "5 មេរៀន · 2h",
+            href: "lessons/ai-overview.html",
+          },
+          {
+            id: "c02",
+            type: "course",
+            icon: "⚡",
+            titleKh: "Prompt Engineering Pro",
+            descKh:
+              "Role, Context, Chain of Thought, Few-Shot — Prompt ល្អ = Output ល្អ",
+            cat: "ai",
+            level: "intermediate",
+            price: "free",
+            formats: ["video"],
+            meta: "8 មេរៀន · 3h",
+            href: "lessons/prompt-engineering.html",
+          },
+          {
+            id: "c03",
+            type: "course",
+            icon: "✍️",
+            titleKh: "AI Content Creation",
+            descKh:
+              "Caption, Blog, Email, Script ដោយ AI — Workflow + Templates ជាភាសាខ្មែរ",
+            cat: "ai",
+            level: "intermediate",
+            price: "soon",
+            formats: ["video"],
+            meta: "10 មេរៀន · 4h",
+            href: "#",
+          },
+          {
+            id: "c04",
+            type: "course",
+            icon: "🎯",
+            titleKh: "AI Marketing Strategy",
+            descKh:
+              "ប្រើ AI ធ្វើ Audience Research, Campaign Planning, A/B Testing",
+            cat: "ai",
+            level: "advanced",
+            price: "soon",
+            formats: ["video"],
+            meta: "12 មេរៀន · 5h",
+            href: "#",
+          },
+          {
+            id: "c05",
+            type: "course",
+            icon: "📱",
+            titleKh: "Social Media Growth",
+            descKh:
+              "Algorithm, Posting Time, Content Mix — grow Facebook & TikTok ក្នុង 30 ថ្ងៃ",
+            cat: "marketing",
+            level: "beginner",
+            price: "free",
+            formats: ["video"],
+            meta: "6 មេរៀន · 2.5h",
+            href: "contact.html",
+          },
+          {
+            id: "c06",
+            type: "course",
+            icon: "📢",
+            titleKh: "Facebook Ads Mastery",
+            descKh:
+              "Campaign Setup, Targeting, Retargeting, ROAS Optimization ពិតប្រាកដ",
+            cat: "marketing",
+            level: "intermediate",
+            price: "soon",
+            formats: ["video"],
+            meta: "10 មេរៀន · 4h",
+            href: "#",
+          },
+          {
+            id: "c07",
+            type: "course",
+            icon: "📅",
+            titleKh: "Content Strategy 30 Days",
+            descKh:
+              "ប្លង់ Content ១ ខែ, Hook Formulas, Editorial Calendar template",
+            cat: "marketing",
+            level: "intermediate",
+            price: "soon",
+            formats: ["template", "video"],
+            meta: "8 មេរៀន · 3h",
+            href: "#",
+          },
+          {
+            id: "c08",
+            type: "course",
+            icon: "🤝",
+            titleKh: "ManyChat Automation",
+            descKh:
+              "Bot ឆ្លើយ Auto, Lead Gen, Messenger Flow, Instagram DM Automation",
+            cat: "marketing",
+            level: "intermediate",
+            price: "soon",
+            formats: ["video"],
+            meta: "6 មេរៀន · 2.5h",
+            href: "#",
+          },
+          {
+            id: "c09",
+            type: "course",
+            icon: "🌐",
+            titleKh: "HTML & CSS Basics",
+            descKh:
+              "Structure, Styling, Responsive Design — មូលដ្ឋានគ្រឹះ Web Development",
+            cat: "web",
+            level: "beginner",
+            price: "free",
+            formats: ["article", "code"],
+            meta: "7 មេរៀន · 3h",
+            href: "lessons/html-basics.html",
+          },
+          {
+            id: "c10",
+            type: "course",
+            icon: "🚀",
+            titleKh: "GitHub + Netlify Deploy",
+            descKh:
+              "Push code → Deploy Live ក្នុង 30 នាទី · Custom domain · Free hosting",
+            cat: "web",
+            level: "beginner",
+            price: "free",
+            formats: ["article"],
+            meta: "4 មេរៀន · 1.5h",
+            href: "lessons/github-netlify.html",
+          },
+          {
+            id: "d01",
+            type: "lesson",
+            icon: "🤖",
+            titleKh: "AI Overview — ម្ដើម AI",
+            descKh:
+              "AI ជាអ្វី? ប្រើក្នុងអាជីវកម្ម, ChatGPT vs Claude, ចំណុចខ្លាំង AI",
+            cat: "ai",
+            level: "beginner",
+            price: "free",
+            formats: ["article"],
+            meta: "10 នាទី",
+            href: "lessons/ai-overview.html",
+          },
+          {
+            id: "d02",
+            type: "lesson",
+            icon: "⚡",
+            titleKh: "Prompt Engineering",
+            descKh:
+              "Role, Context, Chain of Thought, Few-Shot — Prompt ល្អ = Output ល្អ",
+            cat: "ai",
+            level: "intermediate",
+            price: "free",
+            formats: ["article"],
+            meta: "15 នាទី",
+            href: "lessons/prompt-engineering.html",
+          },
+          {
+            id: "d03",
+            type: "lesson",
+            icon: "✍️",
+            titleKh: "AI Content Creation",
+            descKh:
+              "Caption, Blog, Email, Script ដោយ AI — Workflow + Templates",
+            cat: "ai",
+            level: "intermediate",
+            price: "free",
+            formats: ["article"],
+            meta: "12 នាទី",
+            href: "lessons/ai-content.html",
+          },
+          {
+            id: "d04",
+            type: "lesson",
+            icon: "🛠️",
+            titleKh: "AI Tools List 2025",
+            descKh:
+              "Top AI Tools: Claude, ChatGPT, Midjourney, Canva AI, Gamma, Notion AI",
+            cat: "ai",
+            level: "beginner",
+            price: "free",
+            formats: ["article"],
+            meta: "8 នាទី",
+            href: "lessons/ai-tools-list.html",
+          },
+          {
+            id: "d05",
+            type: "lesson",
+            icon: "🔄",
+            titleKh: "Automation Overview",
+            descKh:
+              "Zapier, Make.com, ManyChat — automate repetitive tasks ក្នុងអាជីវកម្ម",
+            cat: "ai",
+            level: "intermediate",
+            price: "free",
+            formats: ["article"],
+            meta: "10 នាទី",
+            href: "lessons/automation.html",
+          },
+          {
+            id: "d06",
+            type: "lesson",
+            icon: "⚙️",
+            titleKh: "Automation Setup",
+            descKh:
+              "Setup Zapier/Make workflow ជាជំហានៗ · Connect apps · Test automation",
+            cat: "ai",
+            level: "intermediate",
+            price: "free",
+            formats: ["article"],
+            meta: "15 នាទី",
+            href: "lessons/automation-setup.html",
+          },
+          {
+            id: "d07",
+            type: "lesson",
+            icon: "🧠",
+            titleKh: "AI Workflow Advanced",
+            descKh:
+              "Multi-step AI Pipeline, Chained Prompts, Custom GPT, API Integration",
+            cat: "ai",
+            level: "advanced",
+            price: "free",
+            formats: ["article"],
+            meta: "20 នាទី",
+            href: "lessons/ai-workflow.html",
+          },
+          {
+            id: "d08",
+            type: "lesson",
+            icon: "📊",
+            titleKh: "Digital Strategy Overview",
+            descKh:
+              "Digital Marketing Funnel, Channel Selection, KPI Setting — ចាប់ផ្ដើម",
+            cat: "marketing",
+            level: "beginner",
+            price: "free",
+            formats: ["article"],
+            meta: "10 នាទី",
+            href: "lessons/strategy-overview.html",
+          },
+          {
+            id: "d09",
+            type: "lesson",
+            icon: "👤",
+            titleKh: "Customer Persona",
+            descKh:
+              "Define ICP, Pain Points, Buying Behavior — Persona template ខ្មែរ",
+            cat: "marketing",
+            level: "beginner",
+            price: "free",
+            formats: ["article"],
+            meta: "12 នាទី",
+            href: "lessons/customer-persona.html",
+          },
+          {
+            id: "d10",
+            type: "lesson",
+            icon: "📱",
+            titleKh: "Social Media Strategy",
+            descKh:
+              "Platform Choice, Content Pillars, Posting Frequency, Algorithm Tips",
+            cat: "marketing",
+            level: "beginner",
+            price: "free",
+            formats: ["article"],
+            meta: "12 នាទី",
+            href: "lessons/social-media.html",
+          },
+          {
+            id: "d11",
+            type: "lesson",
+            icon: "📅",
+            titleKh: "Content Plan 30 Days",
+            descKh:
+              "30-day editorial calendar template + Hook formulas + Caption structure",
+            cat: "marketing",
+            level: "intermediate",
+            price: "free",
+            formats: ["template"],
+            meta: "Template",
+            href: "lessons/content-plan.html",
+          },
+          {
+            id: "d12",
+            type: "lesson",
+            icon: "📢",
+            titleKh: "Facebook Ads Setup",
+            descKh:
+              "Business Manager, Campaign Structure, Targeting, Budget, Pixel Setup",
+            cat: "marketing",
+            level: "intermediate",
+            price: "free",
+            formats: ["article"],
+            meta: "18 នាទី",
+            href: "lessons/ads-setup.html",
+          },
+          {
+            id: "d13",
+            type: "lesson",
+            icon: "📈",
+            titleKh: "Analytics & Reporting",
+            descKh:
+              "Insights, Reach, ROAS, CTR — ការវិភាគ Data ដើម្បីធ្វើ Decision",
+            cat: "marketing",
+            level: "intermediate",
+            price: "free",
+            formats: ["article"],
+            meta: "15 នាទី",
+            href: "lessons/analytics.html",
+          },
+          {
+            id: "d14",
+            type: "lesson",
+            icon: "🌐",
+            titleKh: "Web Overview",
+            descKh:
+              "Domain, Hosting, CMS, Static Sites — ជ្រើសរើស Solution សម្រាប់ SME",
+            cat: "web",
+            level: "beginner",
+            price: "free",
+            formats: ["article"],
+            meta: "8 នាទី",
+            href: "lessons/web-overview.html",
+          },
+          {
+            id: "d15",
+            type: "lesson",
+            icon: "🎯",
+            titleKh: "Landing Page Blueprint",
+            descKh:
+              "Hero → Problem → Solution → Proof → CTA — Template convert ខ្ពស់",
+            cat: "web",
+            level: "intermediate",
+            price: "free",
+            formats: ["template"],
+            meta: "Template",
+            href: "lessons/landing-page-blueprint.html",
+          },
+          {
+            id: "d16",
+            type: "lesson",
+            icon: "💻",
+            titleKh: "HTML & CSS Basics",
+            descKh:
+              "Tags, Selectors, Box Model, Flexbox — ចាប់ផ្ដើម code website",
+            cat: "web",
+            level: "beginner",
+            price: "free",
+            formats: ["article", "code"],
+            meta: "20 នាទី",
+            href: "lessons/html-basics.html",
+          },
+          {
+            id: "d17",
+            type: "lesson",
+            icon: "🚀",
+            titleKh: "GitHub + Netlify Deploy",
+            descKh:
+              "Git commit → Push → Auto deploy · Free SSL · Custom domain",
+            cat: "web",
+            level: "beginner",
+            price: "free",
+            formats: ["article"],
+            meta: "15 នាទី",
+            href: "lessons/github-netlify.html",
+          },
+          {
+            id: "d18",
+            type: "lesson",
+            icon: "🏫",
+            titleKh: "LMS Setup Guide",
+            descKh:
+              "Build Online Course Platform · Lesson structure · Student management",
+            cat: "web",
+            level: "advanced",
+            price: "free",
+            formats: ["article"],
+            meta: "25 នាទី",
+            href: "lessons/lms-setup.html",
+          },
+          {
+            id: "d19",
+            type: "lesson",
+            icon: "🔤",
+            titleKh: "Khmer Fonts Overview",
+            descKh:
+              "Khmer Unicode, Font Types, Brand Typography — ជ្រើសរើស Font ត្រឹមត្រូវ",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["article"],
+            meta: "8 នាទី",
+            href: "lessons/fonts-overview.html",
+          },
+          {
+            id: "d20",
+            type: "lesson",
+            icon: "⬇️",
+            titleKh: "Font Install Guide",
+            descKh:
+              "Install Khmer Font ក្នុង Windows, Mac, Figma, Canva, Photoshop",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["article"],
+            meta: "10 នាទី",
+            href: "lessons/font-install.html",
+          },
+          {
+            id: "d21",
+            type: "lesson",
+            icon: "📜",
+            titleKh: "Font License Guide",
+            descKh:
+              "Personal vs Commercial License — ការប្រើ Font ត្រឹមត្រូវ ស្របច្បាប់",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["article"],
+            meta: "8 នាទី",
+            href: "lessons/font-license.html",
+          },
+          {
+            id: "d22",
+            type: "lesson",
+            icon: "⌨️",
+            titleKh: "Khmer Keyboard Setup",
+            descKh:
+              "NiDA Layout, Khmer Unicode Input Method — Setup ត្រឹមត្រូវ",
+            cat: "typography",
+            level: "intermediate",
+            price: "free",
+            formats: ["article"],
+            meta: "12 នាទី",
+            href: "lessons/font-setup.html",
+          },
+          {
+            id: "d23",
+            type: "lesson",
+            icon: "❓",
+            titleKh: "FAQ — សំណួរញឹកញាប់",
+            descKh:
+              "ចម្លើយសំណួរញឹកញាប់ — Fonts, AI, Courses, Download, License",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["article"],
+            meta: "5 នាទី",
+            href: "lessons/faq.html",
+          },
+          {
+            id: "d24",
+            type: "lesson",
+            icon: "📋",
+            titleKh: "Changelog — Updates",
+            descKh:
+              "Version history, new content, bug fixes — YOB Digital platform updates",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["article"],
+            meta: "3 នាទី",
+            href: "lessons/changelog.html",
+          },
+          {
+            id: "r01",
+            type: "resource",
+            icon: "📖",
+            titleKh: "គម្ពីរ AI Content — ប្រតិទិន ៣០ ថ្ងៃ",
+            descKh:
+              "AI Prompts ២០០+ · ប្រតិទិន Content ១ ខែ · Hook Templates — ប្រើ ChatGPT ក្នុង ១០ នាទី",
+            cat: "ai",
+            level: "beginner",
+            price: "free",
+            formats: ["pdf", "template"],
+            meta: "1,200+ Downloads",
+            modalTitle: "គម្ពីរ AI Content — ប្រតិទិន ៣០ ថ្ងៃ",
+          },
+          {
+            id: "r02",
+            type: "resource",
+            icon: "🤖",
+            titleKh: "AI Prompts ១០០ សម្រាប់អ្នក",
+            descKh:
+              "Content · Ads Copy · Email · Caption · Reply Comment — Prompts ១០០ ជាភាសាខ្មែរ",
+            cat: "ai",
+            level: "beginner",
+            price: "free",
+            formats: ["pdf"],
+            meta: "850+ Downloads",
+            modalTitle: "AI Prompts ១០០ សម្រាប់អ្នក",
+          },
+          {
+            id: "r03",
+            type: "resource",
+            icon: "🎓",
+            titleKh: "មគ្គុទ្ទេសក៍ ChatGPT ជាភាសាខ្មែរ",
+            descKh:
+              "Sign Up → Prompt ដំបូង — Guide ១២ ទំព័រ ជួយចាប់ AI ក្នុង ១ ម៉ោង",
+            cat: "ai",
+            level: "beginner",
+            price: "free",
+            formats: ["pdf"],
+            meta: "620+ Downloads",
+            modalTitle: "មគ្គុទ្ទេសក៍ ChatGPT ជាភាសាខ្មែរ",
+          },
+          {
+            id: "r04",
+            type: "resource",
+            icon: "⚡",
+            titleKh: "ក្បួន Hook — ពី ០ ទៅ Viral",
+            descKh:
+              "Hook ១៥ ប្រភេទ · Video · Text · Photo — ក្នុង Context ខ្មែរ ដែល Algorithm ចូលចិត្ត",
+            cat: "ai",
+            level: "intermediate",
+            price: "free",
+            formats: ["template"],
+            meta: "540+ Downloads",
+            modalTitle: "ក្បួន Hook — ពី ០ ទៅ Viral",
+          },
+          {
+            id: "r05",
+            type: "resource",
+            icon: "📅",
+            titleKh: "គំរូផែនការ Content ៣០ ថ្ងៃ",
+            descKh:
+              "Google Sheet ត្រៀមប្រើ — ប្រភេទ Post · Caption Draft · Status ក្នុង ១ ខែ",
+            cat: "marketing",
+            level: "beginner",
+            price: "free",
+            formats: ["template"],
+            meta: "780+ Downloads",
+            modalTitle: "គំរូផែនការ Content ៣០ ថ្ងៃ",
+          },
+          {
+            id: "r06",
+            type: "resource",
+            icon: "💬",
+            titleKh: "គំរូ Caption ខ្មែរ ៥០+",
+            descKh:
+              "Flash Sale · Product · Testimonial · Event — ៥០+ Caption ជាខ្មែរ ត្រៀម Paste",
+            cat: "marketing",
+            level: "beginner",
+            price: "free",
+            formats: ["template"],
+            meta: "910+ Downloads",
+            modalTitle: "គំរូ Caption ខ្មែរ ៥០+",
+          },
+          {
+            id: "r07",
+            type: "resource",
+            icon: "📋",
+            titleKh: "គំរូសវនកម្មបណ្ដាញសង្គម",
+            descKh:
+              "Rate Facebook · Instagram · TikTok · YouTube — Score Card ច្បាស់",
+            cat: "marketing",
+            level: "intermediate",
+            price: "free",
+            formats: ["template"],
+            meta: "430+ Downloads",
+            modalTitle: "គំរូសវនកម្មបណ្ដាញសង្គម",
+          },
+          {
+            id: "r08",
+            type: "resource",
+            icon: "📢",
+            titleKh: "Checklist Facebook Ads",
+            descKh:
+              "Checklist ២៥ ចំណុច — កាត់ Waste · Improve ROAS · Campaign ត្រឹមត្រូវ ពី Day 1",
+            cat: "marketing",
+            level: "intermediate",
+            price: "free",
+            formats: ["pdf"],
+            meta: "670+ Downloads",
+            modalTitle: "Checklist Facebook Ads",
+          },
+          {
+            id: "r09",
+            type: "resource",
+            icon: "♟️",
+            titleKh: "Digital Strategy Canvas — ១ ទំព័រ",
+            descKh:
+              "Target · Channel · Budget · KPI · Content Pillar — Framework ១ ទំព័រ ច្បាស់",
+            cat: "marketing",
+            level: "intermediate",
+            price: "free",
+            formats: ["template"],
+            meta: "390+ Downloads",
+            modalTitle: "Digital Strategy Canvas",
+          },
+          {
+            id: "r10",
+            type: "resource",
+            icon: "🎨",
+            titleKh: "Branding Checklist — SME ខ្មែរ",
+            descKh:
+              "Logo · Color · Font · Tone of Voice — Checklist ៣០ ចំណុច Audit Brand",
+            cat: "marketing",
+            level: "beginner",
+            price: "free",
+            formats: ["pdf"],
+            meta: "280+ Downloads",
+            modalTitle: "Branding Checklist — SME ខ្មែរ",
+          },
+          {
+            id: "f01",
+            type: "font",
+            icon: "🔤",
+            titleKh: "Khmer Savuth",
+            descKh: "Display · ចំណងជើងស្រស់ · ភាពស្ងប់ · ស្ថាបត្យកម្មខ្មែរ",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["download"],
+            meta: ".ttf · Display",
+            downloadFile: "font/Savuth Font/khmer Savuth.ttf",
+          },
+          {
+            id: "f02",
+            type: "font",
+            icon: "✒️",
+            titleKh: "Savuth Pen",
+            descKh: "Script · ហត្ថលិខិតស្រស់ · ការ៉ែ · ជាមួយ Ligature",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["download"],
+            meta: ".ttf · Script",
+            downloadFile: "font/Savuth Font/Khmer Savuth Pen.ttf",
+          },
+          {
+            id: "f03",
+            type: "font",
+            icon: "✒️",
+            titleKh: "Savuth Pen 2",
+            descKh: "Script · ហត្ថលេខាប្រណិត · ស្ទីល Modern Calligraphy",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["download"],
+            meta: ".ttf · Script",
+            downloadFile: "font/Savuth Font/Khmer Savuth Pen2.ttf",
+          },
+          {
+            id: "f04",
+            type: "font",
+            icon: "🖌️",
+            titleKh: "Savuth Brush",
+            descKh: "Script · ហស្ថលិខិតច្នៃ · Brush Stroke texture",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["download"],
+            meta: ".ttf · Script",
+            downloadFile: "font/Savuth Font/khmer Savuth Brush.ttf",
+          },
+          {
+            id: "f05",
+            type: "font",
+            icon: "🔤",
+            titleKh: "Savuth Romeas",
+            descKh: "Display · អក្សរខ្មែរស្វែង · Bold statement headline",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["download"],
+            meta: ".ttf · Display",
+            downloadFile: "font/Savuth Font/khmer Savuth Romeas.ttf",
+          },
+          {
+            id: "f06",
+            type: "font",
+            icon: "🔷",
+            titleKh: "Khmer Sharp",
+            descKh: "Display · ស្រួចពតច្បាស់ · Modern geometric Khmer",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["download"],
+            meta: ".ttf · Display",
+            downloadFile: "font/Savuth Font/Khmer Sharp.ttf",
+          },
+          {
+            id: "f07",
+            type: "font",
+            icon: "📖",
+            titleKh: "Sem Sarun",
+            descKh: "Sans-serif · អានស្រួលយល់ច្បាស់ · Body text optimal",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["download"],
+            meta: ".ttf · Sans",
+            downloadFile: "font/Savuth Font/Khmer Sem Sarun.ttf",
+          },
+          {
+            id: "f08",
+            type: "font",
+            icon: "💎",
+            titleKh: "Khmer Sexy",
+            descKh: "Display · ក្បាច់ស្រស់ស្អាត · Fashion & luxury brand use",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["download"],
+            meta: ".ttf · Display",
+            downloadFile: "font/Savuth Font/Khmer sexy.ttf",
+          },
+          {
+            id: "f09",
+            type: "font",
+            icon: "🏛️",
+            titleKh: "Kompong Chhnang",
+            descKh: "Display · Heritage style Khmer · Local identity",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["download"],
+            meta: ".ttf · Display",
+            downloadFile: "font/Savuth Font/kh Kompong Chhnang.ttf",
+          },
+          {
+            id: "f10",
+            type: "font",
+            icon: "📚",
+            titleKh: "iKhmer Students",
+            descKh: "Sans-serif · Clear legible for education · Print friendly",
+            cat: "typography",
+            level: "beginner",
+            price: "free",
+            formats: ["download"],
+            meta: ".ttf · Sans",
+            downloadFile: "font/Savuth Font/khmer ikhmerstudents.ttf",
+          },
+          {
+            id: "f11",
+            type: "font",
+            icon: "✨",
+            titleKh: "YOB Font Bundle — 10 Fonts",
+            descKh:
+              "Package ពេញ 10 Fonts + Commercial License + Future updates + Priority support",
+            cat: "typography",
+            level: "beginner",
+            price: "premium",
+            formats: ["download"],
+            meta: "10 Fonts · $50",
+            href: "shop.html",
+          },
+          {
+            id: "p01",
+            type: "portfolio",
+            icon: "📈",
+            titleKh: "ពី Boost Post ទៅ 3.8x ROAS",
+            descKh:
+              "DC Fashion · Phnom Penh — Facebook Ads optimization · Budget មិនបង្កើន ប៉ុន្តែ ROAS 3.8x",
+            cat: "marketing",
+            level: "advanced",
+            price: "free",
+            formats: ["article"],
+            meta: "Case Study",
+            href: "contact.html",
+          },
+          {
+            id: "p02",
+            type: "portfolio",
+            icon: "🤖",
+            titleKh: "AI ជំនួស Marketing Agency",
+            descKh:
+              "Sokha Café · Siem Reap — AI Content System ជំនួស Agency ហ្វូលៗ · Cut cost 60%",
+            cat: "ai",
+            level: "advanced",
+            price: "free",
+            formats: ["article"],
+            meta: "Case Study",
+            href: "contact.html",
+          },
+          {
+            id: "p03",
+            type: "portfolio",
+            icon: "💻",
+            titleKh: "Website + AI → 15 Leads/ថ្ងៃ",
+            descKh:
+              "CR Academy · Phnom Penh — Landing page + AI lead system · 15 leads/day consistently",
+            cat: "web",
+            level: "advanced",
+            price: "free",
+            formats: ["article"],
+            meta: "Case Study",
+            href: "contact.html",
+          },
+          {
+            id: "p04",
+            type: "portfolio",
+            icon: "⚡",
+            titleKh: "AI Training → 10+ ម៉ោង/សប្ដាហ៍",
+            descKh:
+              "Piseth · FMCG Manager — AI tools workshop · Save 10+ hours every week",
+            cat: "ai",
+            level: "intermediate",
+            price: "free",
+            formats: ["article"],
+            meta: "Case Study",
+            href: "contact.html",
+          },
+          {
+            id: "p05",
+            type: "portfolio",
+            icon: "🔤",
+            titleKh: "Font Upgrade → 40% Brand Trust",
+            descKh:
+              "Local Startup · Kampong Cham — Khmer font system redesign · 40% brand trust uplift",
+            cat: "typography",
+            level: "intermediate",
+            price: "free",
+            formats: ["article"],
+            meta: "Case Study",
+            href: "contact.html",
+          },
+          {
+            id: "p06",
+            type: "portfolio",
+            icon: "🛒",
+            titleKh: "Offline → Online · 200% Sales",
+            descKh:
+              "Handcraft Store · Battambang — Full digital strategy · Offline to online · 200% sales growth",
+            cat: "marketing",
+            level: "advanced",
+            price: "free",
+            formats: ["article"],
+            meta: "Case Study",
+            href: "contact.html",
+          },
+          {
+            id: "p07",
+            type: "portfolio",
+            icon: "🎨",
+            titleKh: "Brand Poster Series — E Express",
+            descKh:
+              "E Express · Phnom Penh — ១ Brand ១ Story ១ Design · Full poster campaign ៨ Poster",
+            cat: "marketing",
+            level: "advanced",
+            price: "free",
+            formats: ["article"],
+            meta: "Case Study",
+            href: "poster-design.html",
+          },
+        ];
+
+        var TOTAL_COUNT = ITEMS.length;
+        var TYPE_LABELS = {
+          course: "Course",
+          lesson: "Lesson",
+          resource: "Resource",
+          font: "Font",
+          portfolio: "Case study",
+        };
+        var CAT_LABELS = {
+          ai: "AI Tools",
+          marketing: "Marketing",
+          web: "Web",
+          typography: "Typography",
+        };
+        var PRICE_LABELS = {
+          free: "Free",
+          premium: "Premium",
+          soon: "Coming soon",
+        };
+        var CAT_DOTS = {
+          ai: "#bfa8ff",
+          marketing: "#86baff",
+          web: "#79d4b4",
+          typography: "#f0b76f",
+        };
+        var SHORTCUTS = [
+          { id: "all", label: "All items" },
+          {
+            id: "learn",
+            label: "Courses + Lessons",
+            types: ["course", "lesson"],
+          },
+          {
+            id: "downloads",
+            label: "Free downloads",
+            types: ["resource", "font"],
+            prices: ["free"],
+          },
+          { id: "fonts", label: "Fonts", types: ["font"] },
+          { id: "proof", label: "Case studies", types: ["portfolio"] },
+        ];
+        var S = {
+          q: "",
+          types: [],
+          cats: [],
+          prices: [],
+          view: "grid",
+          shortcut: "all",
+        };
+        var FEATURED_IDS = ["c01", "d02", "r01", "f01", "p01", "d16"];
+
+        function arrayEquals(a, b) {
+          if (a.length !== b.length) return false;
+          var sa = a.slice().sort().join("|");
+          var sb = b.slice().sort().join("|");
+          return sa === sb;
+        }
+        function inferShortcut() {
+          var match = SHORTCUTS.find(function (sc) {
+            var types = (sc.types || []).slice();
+            var cats = (sc.cats || []).slice();
+            var prices = (sc.prices || []).slice();
+            return (
+              arrayEquals(S.types, types) &&
+              arrayEquals(S.cats, cats) &&
+              arrayEquals(S.prices, prices)
+            );
+          });
+          S.shortcut = match ? match.id : "custom";
+        }
+        function applyShortcut(id) {
+          var sc =
+            SHORTCUTS.find(function (entry) {
+              return entry.id === id;
+            }) || SHORTCUTS[0];
+          S.types = (sc.types || []).slice();
+          S.cats = (sc.cats || []).slice();
+          S.prices = (sc.prices || []).slice();
+          S.shortcut = sc.id;
+          syncControls();
+          writeParams();
+          render();
+        }
+        function readParams() {
+          var p = new URLSearchParams(window.location.search);
+          function parseList(key, allowed) {
+            if (!p.has(key)) return [];
+            return p
+              .get(key)
+              .split(",")
+              .filter(function (value) {
+                return allowed.indexOf(value) !== -1;
+              });
+          }
+          if (p.has("q")) S.q = p.get("q");
+          if (p.has("view") && ["grid", "list"].indexOf(p.get("view")) !== -1)
+            S.view = p.get("view");
+          S.types = parseList("type", ALL_TYPES);
+          S.cats = parseList("cat", ALL_CATS);
+          S.prices = parseList("price", ALL_PRICES);
+          inferShortcut();
+          syncControls();
+        }
+        function writeParams() {
+          var p = new URLSearchParams();
+          if (S.q) p.set("q", S.q);
+          if (S.types.length) p.set("type", S.types.join(","));
+          if (S.cats.length) p.set("cat", S.cats.join(","));
+          if (S.prices.length) p.set("price", S.prices.join(","));
+          if (S.view !== "grid") p.set("view", S.view);
+          var qs = p.toString();
+          history.replaceState(null, "", qs ? "?" + qs : location.pathname);
+        }
+        function syncControls() {
+          document.getElementById("lpSearch").value = S.q;
+          document.querySelectorAll(".lp-chk-input").forEach(function (cb) {
+            var groupMap = { type: S.types, cat: S.cats, price: S.prices };
+            cb.checked = groupMap[cb.name].indexOf(cb.value) !== -1;
+            var row = cb.closest(".lp-chk");
+            if (row) {
+              row.classList.toggle("is-active", cb.checked);
+            }
+          });
+          document.querySelectorAll(".lp-view-btn").forEach(function (btn) {
+            btn.classList.toggle(
+              "is-active",
+              btn.getAttribute("data-view") === S.view,
+            );
+          });
+          document
+            .querySelectorAll(".lp-dd[data-group]")
+            .forEach(function (dd) {
+              var key = dd.getAttribute("data-group");
+              var map = { type: S.types, cat: S.cats, price: S.prices };
+              var selected = map[key] || [];
+              dd.classList.toggle("is-active", selected.length > 0);
+            });
+          updateDropdownLabels();
+          updateFilterAvailability();
+        }
+        function groupValueText(selected, total, allLabel) {
+          if (!selected.length) return allLabel;
+          if (selected.length === total) return allLabel;
+          if (selected.length === 1) return "1 selected";
+          return selected.length + " selected";
+        }
+        function updateDropdownLabels() {
+          document.getElementById("lpTypeValue").textContent = groupValueText(
+            S.types,
+            ALL_TYPES.length,
+            "All",
+          );
+          document.getElementById("lpCatValue").textContent = groupValueText(
+            S.cats,
+            ALL_CATS.length,
+            "All",
+          );
+          document.getElementById("lpPriceValue").textContent = groupValueText(
+            S.prices,
+            ALL_PRICES.length,
+            "All",
+          );
+        }
+        function matchesSearch(item) {
+          var q = S.q.toLowerCase().trim();
+          if (!q) return true;
+          var hay = [
+            item.titleKh,
+            item.descKh || "",
+            item.meta || "",
+            TYPE_LABELS[item.type] || "",
+            CAT_LABELS[item.cat] || "",
+          ]
+            .join(" ")
+            .toLowerCase();
+          return hay.indexOf(q) !== -1;
+        }
+        function optionCount(group, value) {
+          return ITEMS.filter(function (item) {
+            if (!matchesSearch(item)) return false;
+            if (group === "type") {
+              if (item.type !== value) return false;
+              if (S.cats.length && S.cats.indexOf(item.cat) === -1)
+                return false;
+              if (S.prices.length && S.prices.indexOf(item.price) === -1)
+                return false;
+            }
+            if (group === "cat") {
+              if (item.cat !== value) return false;
+              if (S.types.length && S.types.indexOf(item.type) === -1)
+                return false;
+              if (S.prices.length && S.prices.indexOf(item.price) === -1)
+                return false;
+            }
+            if (group === "price") {
+              if (item.price !== value) return false;
+              if (S.types.length && S.types.indexOf(item.type) === -1)
+                return false;
+              if (S.cats.length && S.cats.indexOf(item.cat) === -1)
+                return false;
+            }
+            return true;
+          }).length;
+        }
+        function updateFilterAvailability() {
+          document.querySelectorAll(".lp-chk-input").forEach(function (cb) {
+            var key = cb.name + ":" + cb.value;
+            var countEl = document.querySelector(
+              '[data-count-for="' + key + '"]',
+            );
+            var count = optionCount(cb.name, cb.value);
+            var row = cb.closest(".lp-chk");
+            if (countEl) countEl.textContent = count;
+            if (!cb.checked && count === 0) {
+              cb.disabled = true;
+              if (row) row.classList.add("is-disabled");
+            } else {
+              cb.disabled = false;
+              if (row) row.classList.remove("is-disabled");
+            }
+          });
+        }
+        function getFiltered() {
+          return ITEMS.filter(function (item) {
+            if (S.types.length && S.types.indexOf(item.type) === -1)
+              return false;
+            if (S.cats.length && S.cats.indexOf(item.cat) === -1) return false;
+            if (S.prices.length && S.prices.indexOf(item.price) === -1)
+              return false;
+            if (!matchesSearch(item)) return false;
+            return true;
+          });
+        }
+        function esc(s) {
+          return String(s)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+        }
+        function shortcutCount(shortcut) {
+          var types = shortcut.types || ALL_TYPES;
+          var cats = shortcut.cats || ALL_CATS;
+          var prices = shortcut.prices || ALL_PRICES;
+          return ITEMS.filter(function (item) {
+            return (
+              types.indexOf(item.type) !== -1 &&
+              cats.indexOf(item.cat) !== -1 &&
+              prices.indexOf(item.price) !== -1
+            );
+          }).length;
+        }
+        function buildShortcuts() {
+          return SHORTCUTS.map(function (shortcut) {
+            var active = S.shortcut === shortcut.id;
+            return (
+              '<button type="button" class="lp-shortcut' +
+              (active ? " is-active" : "") +
+              '" data-shortcut="' +
+              shortcut.id +
+              '">' +
+              "<span>" +
+              esc(shortcut.label) +
+              "</span>" +
+              '<span class="lp-shortcut-count">' +
+              shortcutCount(shortcut) +
+              "</span>" +
+              "</button>"
+            );
+          }).join("");
+        }
+        function buildPills() {
+          var pills = [];
+          function pill(label, group, value) {
+            return (
+              '<span class="lp-pill">' +
+              esc(label) +
+              '<button type="button" data-remove-group="' +
+              group +
+              '" data-remove-value="' +
+              esc(value) +
+              '">×</button></span>'
+            );
+          }
+          if (S.q) pills.push(pill("Search: " + S.q, "q", ""));
+          if (S.types.length)
+            S.types.forEach(function (value) {
+              pills.push(pill(TYPE_LABELS[value] || value, "type", value));
+            });
+          if (S.cats.length)
+            S.cats.forEach(function (value) {
+              pills.push(pill(CAT_LABELS[value] || value, "cat", value));
+            });
+          if (S.prices.length)
+            S.prices.forEach(function (value) {
+              pills.push(pill(PRICE_LABELS[value] || value, "price", value));
+            });
+          return pills.join("");
+        }
+        function buildFeaturedCard(item) {
+          var href = item.price === "soon" ? "#" : item.href || "#";
+          var attrs =
+            item.type === "font" && item.downloadFile
+              ? ' href="' + esc(item.downloadFile) + '" download'
+              : ' href="' + esc(href) + '"';
+          if (item.type === "resource") {
+            return (
+              '<button type="button" class="lp-featured-card" data-open-modal="1" data-title="' +
+              esc(item.modalTitle || item.titleKh) +
+              '" data-icon="' +
+              esc(item.icon) +
+              '"><span class="lp-featured-icon">' +
+              item.icon +
+              '</span><span class="lp-featured-name">' +
+              esc(item.titleKh) +
+              "</span></button>"
+            );
+          }
+          return (
+            '<a class="lp-featured-card"' +
+            attrs +
+            '><span class="lp-featured-icon">' +
+            item.icon +
+            '</span><span class="lp-featured-name">' +
+            esc(item.titleKh) +
+            "</span></a>"
+          );
+        }
+        function renderFeatured(filtered) {
+          var hasFilter =
+            S.q || S.types.length || S.cats.length || S.prices.length;
+          var featuredEl = document.getElementById("lpFeaturedGrid");
+          var titleEl = document.getElementById("lpFeaturedTitle");
+          var noteEl = document.getElementById("lpFeaturedNote");
+          var featuredItems;
+          if (hasFilter) {
+            featuredItems = filtered.slice(0, 6);
+            titleEl.textContent = "Top Matches";
+            noteEl.textContent = "លទ្ធផលស្រប filter របស់អ្នក";
+          } else {
+            featuredItems = FEATURED_IDS.map(function (id) {
+              return ITEMS.find(function (item) {
+                return item.id === id;
+              });
+            }).filter(Boolean);
+            titleEl.textContent = "Featured to Start";
+            noteEl.textContent = "Quick picks សម្រាប់ចាប់ផ្តើមឥឡូវនេះ";
+          }
+          featuredEl.innerHTML = featuredItems.map(buildFeaturedCard).join("");
+        }
+        function actionMarkup(item) {
+          if (item.price === "soon") {
+            return '<span class="lp-cta lp-cta-soon">Coming soon</span>';
+          }
+          if (item.type === "resource") {
+            return (
+              '<button type="button" class="lp-cta-btn lp-cta-primary" data-open-modal="1" data-title="' +
+              esc(item.modalTitle || item.titleKh) +
+              '" data-icon="' +
+              esc(item.icon) +
+              '">Download <i class="fas fa-arrow-right"></i></button>'
+            );
+          }
+          if (item.type === "font" && item.downloadFile) {
+            return (
+              '<a class="lp-cta lp-cta-primary" href="' +
+              esc(item.downloadFile) +
+              '" download>Download <i class="fas fa-download"></i></a>'
+            );
+          }
+          return (
+            '<a class="lp-cta' +
+            (item.type === "course" ? " lp-cta-primary" : "") +
+            '" href="' +
+            esc(item.href || "#") +
+            '">Open <i class="fas fa-arrow-right"></i></a>'
+          );
+        }
+        function buildCard(item) {
+          return (
+            '<article class="lp-card reveal">' +
+            '<div class="lp-card-visual">' +
+            item.icon +
+            "</div>" +
+            '<div class="lp-card-body">' +
+            '<div class="lp-card-top">' +
+            '<span class="lp-badge">' +
+            esc(TYPE_LABELS[item.type] || item.type) +
+            "</span>" +
+            '<span class="lp-badge"><span class="lp-badge-dot" style="background:' +
+            esc(CAT_DOTS[item.cat] || "#fff") +
+            '"></span>' +
+            esc(CAT_LABELS[item.cat] || item.cat) +
+            "</span>" +
+            "</div>" +
+            '<h3 class="lp-card-title">' +
+            esc(item.titleKh) +
+            "</h3>" +
+            '<p class="lp-card-desc">' +
+            esc(item.descKh || "") +
+            "</p>" +
+            '<div class="lp-card-meta">' +
+            esc(item.meta || "") +
+            "</div>" +
+            '<div class="lp-card-foot">' +
+            '<div class="lp-card-signals">' +
+            '<span class="lp-signal">' +
+            esc(CAT_LABELS[item.cat] || item.cat) +
+            "</span>" +
+            '<span class="lp-signal lp-signal-price-' +
+            esc(item.price) +
+            '">' +
+            esc(PRICE_LABELS[item.price] || item.price) +
+            "</span>" +
+            "</div>" +
+            actionMarkup(item) +
+            "</div>" +
+            "</div>" +
+            "</article>"
+          );
+        }
+        function render() {
+          var filtered = getFiltered();
+          var grid = document.getElementById("lpGrid");
+          var emptyEl = document.getElementById("lpEmpty");
+          var shortcutsEl = document.getElementById("lpShortcuts");
+          var hasFeatured = !!document.getElementById("lpFeaturedGrid");
+          document.getElementById("lpCount").textContent =
+            "Showing " + filtered.length + " of " + TOTAL_COUNT;
+          if (shortcutsEl) {
+            shortcutsEl.innerHTML = buildShortcuts();
+          }
+          document.getElementById("lpPills").innerHTML = buildPills();
+          if (hasFeatured) {
+            renderFeatured(filtered);
+          }
+          grid.classList.toggle("lp-view-list", S.view === "list");
+          if (!filtered.length) {
+            grid.innerHTML = "";
+            emptyEl.style.display = "block";
+            return;
+          }
+          emptyEl.style.display = "none";
+          grid.innerHTML = filtered.map(buildCard).join("");
+          if (window._revealObserver) {
+            grid.querySelectorAll(".reveal").forEach(function (el) {
+              window._revealObserver.observe(el);
+            });
+          }
+        }
+        function removeFromArray(array, value) {
+          var idx = array.indexOf(value);
+          if (idx !== -1) array.splice(idx, 1);
+        }
+        window.clearLPFilter = function (group, value) {
+          if (group === "q") {
+            S.q = "";
+          } else if (group === "type") {
+            removeFromArray(S.types, value);
+          } else if (group === "cat") {
+            removeFromArray(S.cats, value);
+          } else if (group === "price") {
+            removeFromArray(S.prices, value);
+          }
+          inferShortcut();
+          syncControls();
+          writeParams();
+          render();
+        };
+        window.lpClearAll = function () {
+          S.q = "";
+          S.types = [];
+          S.cats = [];
+          S.prices = [];
+          S.view = "grid";
+          S.shortcut = "all";
+          syncControls();
+          writeParams();
+          render();
+        };
+        document.querySelectorAll(".lp-chk-input").forEach(function (cb) {
+          cb.addEventListener("change", function () {
+            var map = { type: S.types, cat: S.cats, price: S.prices };
+            var arr = map[this.name];
+            if (!arr) return;
+            if (this.checked) {
+              if (arr.indexOf(this.value) === -1) arr.push(this.value);
+            } else {
+              removeFromArray(arr, this.value);
+            }
+            inferShortcut();
+            syncControls();
+            writeParams();
+            render();
+          });
+        });
+        var searchTimer;
+        document
+          .getElementById("lpSearch")
+          .addEventListener("input", function () {
+            var value = this.value;
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(function () {
+              S.q = value.trim();
+              writeParams();
+              render();
+            }, 180);
+          });
+        var shortcutsRoot = document.getElementById("lpShortcuts");
+        if (shortcutsRoot) {
+          shortcutsRoot.addEventListener("click", function (event) {
+            var button = event.target.closest("[data-shortcut]");
+            if (!button) return;
+            applyShortcut(button.getAttribute("data-shortcut"));
+          });
+        }
+        document
+          .getElementById("lpPills")
+          .addEventListener("click", function (event) {
+            var button = event.target.closest("[data-remove-group]");
+            if (!button) return;
+            window.clearLPFilter(
+              button.getAttribute("data-remove-group"),
+              button.getAttribute("data-remove-value"),
+            );
+          });
+        document.querySelectorAll(".lp-view-btn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            S.view = this.getAttribute("data-view");
+            syncControls();
+            writeParams();
+            render();
+          });
+        });
+        document
+          .getElementById("lpGrid")
+          .addEventListener("click", function (event) {
+            var button = event.target.closest("[data-open-modal]");
+            if (!button) return;
+            openDlModal(
+              button.getAttribute("data-title"),
+              button.getAttribute("data-icon"),
+            );
+          });
+        function closeAllDropdowns() {
+          document.querySelectorAll(".lp-dd.lp-dd-open").forEach(function (el) {
+            el.classList.remove("lp-dd-open");
+            var btn = el.querySelector("[data-dd-toggle]");
+            if (btn) btn.setAttribute("aria-expanded", "false");
+          });
+        }
+        document
+          .getElementById("lpFilterBar")
+          .addEventListener("click", function (event) {
+            var toggle = event.target.closest("[data-dd-toggle]");
+            if (!toggle) return;
+            var wrapper = toggle.closest(".lp-dd");
+            var isOpen = wrapper.classList.contains("lp-dd-open");
+            closeAllDropdowns();
+            if (!isOpen) {
+              wrapper.classList.add("lp-dd-open");
+              toggle.setAttribute("aria-expanded", "true");
+            }
+          });
+        document.addEventListener("click", function (event) {
+          if (!event.target.closest("#lpFilterBar")) {
+            closeAllDropdowns();
+          }
+        });
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") {
+            closeAllDropdowns();
+          }
+        });
+        var dlModal = document.getElementById("lpDlModal");
+        window.openDlModal = function (title, icon) {
+          document.getElementById("lpDlTitle").textContent = title;
+          document.getElementById("lpDlIcon").textContent = icon;
+          document.getElementById("lpDlResource").value = title;
+          document.getElementById("lpDlFormWrap").style.display = "";
+          document.getElementById("lpDlSuccess").style.display = "none";
+          document.getElementById("lpDlName").value = "";
+          document.getElementById("lpDlTelegram").value = "";
+          document.getElementById("lpDlBiz").value = "";
+          dlModal.classList.add("lp-modal-open");
+          document.body.style.overflow = "hidden";
+        };
+        window.closeDlModal = function () {
+          dlModal.classList.remove("lp-modal-open");
+          document.body.style.overflow = "";
+        };
+        dlModal.addEventListener("click", function (e) {
+          if (e.target === this) closeDlModal();
+        });
+        document
+          .getElementById("lpDlForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            var btn = document.getElementById("lpDlSubmit");
+            var n = document.getElementById("lpDlName").value.trim(),
+              t = document.getElementById("lpDlTelegram").value.trim();
+            if (!n || !t) {
+              alert("សូមបំពេញ ឈ្មោះ និង Telegram");
+              return;
+            }
+            btn.disabled = true;
+            btn.innerHTML =
+              '<i class="fas fa-spinner fa-spin"></i> កំពុងផ្ញើ...';
+            fetch("/", {
+              method: "POST",
+              headers: { "Content-Type": "application/x-www-form-urlencoded" },
+              body: new URLSearchParams(new FormData(this)).toString(),
+            })
+              .then(function () {
+                document.getElementById("lpDlFormWrap").style.display = "none";
+                document.getElementById("lpDlSuccess").style.display = "";
+              })
+              .catch(function () {
+                btn.disabled = false;
+                btn.innerHTML =
+                  '<i class="fas fa-download"></i> ទទួលឯកសារ FREE';
+                alert("មានបញ្ហា — សូម DM YOB នៅ Telegram @yobdigital");
+              });
+          });
+        readParams();
+        render();
+      })();
+    </script>
+    <script src="js/load-components.js"></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
