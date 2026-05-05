@@ -727,6 +727,9 @@
         padding: 18px;
         border: 1px solid var(--border);
         border-radius: 20px;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
         background: linear-gradient(
           180deg,
           rgba(255, 255, 255, 0.035) 0%,
@@ -1331,26 +1334,14 @@
     <div class="lp-outer">
       <section class="lp-hero">
         <div class="container lp-hero-inner reveal">
-          <div class="lp-hero-icon"><i class="fas fa-book-open"></i></div>
           <p class="lp-hero-eyebrow">YOB Learn</p>
           <h1 class="lp-hero-title">
-            Get inspired by what <span>you can learn with YOB</span>
+            រៀន Digital Skills <span>ជាភាសាខ្មែរ</span>
           </h1>
           <p class="lp-hero-sub">
-            មេរៀន, course, free resources, Khmer fonts និង case studies
-            នៅក្នុងកន្លែងតែមួយ។ រចនាឲ្យស្វែងរកងាយ អានងាយ និងចូលចំណុចបានលឿន។
+            Courses, Lessons, Design Tools — ជ្រើសរើសតាម Category
+            ហើយចាប់ផ្ដើមរៀនបានភ្លាម។
           </p>
-          <div class="lp-hero-meta">
-            <span class="lp-hero-chip"
-              ><i class="fas fa-layer-group"></i> 62 learning items</span
-            >
-            <span class="lp-hero-chip"
-              ><i class="fas fa-language"></i> Khmer-first content</span
-            >
-            <span class="lp-hero-chip"
-              ><i class="fas fa-bolt"></i> Direct download & quick access</span
-            >
-          </div>
         </div>
       </section>
 
@@ -1548,6 +1539,28 @@
                         data-count-for="cat:typography"
                       ></span>
                     </label>
+                    <label class="lp-chk">
+                      <span class="lp-chk-left">
+                        <span class="lp-chk-mark"
+                          ><i class="fas fa-check"></i
+                        ></span>
+                        <input
+                          class="lp-chk-input"
+                          type="checkbox"
+                          name="cat"
+                          value="design"
+                        />
+                        <span
+                          class="lp-chk-dot"
+                          style="background: #f9a8d4"
+                        ></span>
+                        <span class="lp-chk-name">Design</span>
+                      </span>
+                      <span
+                        class="lp-chk-count"
+                        data-count-for="cat:design"
+                      ></span>
+                    </label>
                   </div>
                 </div>
               </div>
@@ -1665,7 +1678,7 @@
       (function () {
         "use strict";
         var ALL_TYPES = ["course", "lesson"];
-        var ALL_CATS = ["ai", "marketing", "web", "typography"];
+        var ALL_CATS = ["ai", "marketing", "web", "typography", "design"];
         var ALL_PRICES = ["free", "premium", "soon"];
 
         var ITEMS = [
@@ -1808,6 +1821,32 @@
             formats: ["article"],
             meta: "4 មេរៀន · 1.5h",
             href: "lessons/github-netlify.html",
+          },
+          {
+            id: "c11",
+            type: "course",
+            icon: "🎨",
+            titleKh: "Adobe Photoshop CC for Beginners",
+            descKh: "រៀន Photoshop ពី zero — Tools, Layers, Selection, Export ជាភាសាខ្មែរ",
+            cat: "design",
+            level: "beginner",
+            price: "free",
+            formats: ["video"],
+            meta: "10 មេរៀន · 1.5h",
+            href: "https://youtube.com/playlist?list=PLXRcGLx_-U_e5zP5FyPftCYkxmwpvjImg",
+          },
+          {
+            id: "c12",
+            type: "course",
+            icon: "✏️",
+            titleKh: "Adobe Illustrator for Beginners",
+            descKh: "រៀន Illustrator ពី zero — Shapes, Paths, Typography, Vector Export ជាភាសាខ្មែរ",
+            cat: "design",
+            level: "beginner",
+            price: "free",
+            formats: ["video"],
+            meta: "39 មេរៀន · 2h",
+            href: "https://youtube.com/playlist?list=PLXRcGLx_-U_eR8far3cMH0TfDd55Fj_Fw",
           },
           {
             id: "d01",
@@ -2157,6 +2196,7 @@
           marketing: "Marketing",
           web: "Web",
           typography: "Typography",
+          design: "Design",
         };
         var PRICE_LABELS = {
           free: "Free",
@@ -2168,6 +2208,7 @@
           marketing: "#86baff",
           web: "#79d4b4",
           typography: "#f0b76f",
+          design: "#f9a8d4",
         };
         var SHORTCUTS = [
           { id: "all",     label: "ទាំងអស់" },
@@ -2488,8 +2529,15 @@
           );
         }
         function buildCard(item) {
+          var isSoon = item.price === "soon" || !item.href || item.href === "#";
+          var isExternal = item.type === "course" && !isSoon;
+          var tag = isSoon ? "article" : "a";
+          var tagAttrs = isSoon
+            ? ' class="lp-card reveal"'
+            : ' class="lp-card reveal" href="' + esc(item.href) + '"' +
+              (isExternal ? ' target="_blank" rel="noopener"' : "");
           return (
-            '<article class="lp-card reveal">' +
+            "<" + tag + tagAttrs + ">" +
             '<div class="lp-card-visual">' +
             item.icon +
             "</div>" +
@@ -2527,7 +2575,7 @@
             actionMarkup(item) +
             "</div>" +
             "</div>" +
-            "</article>"
+            "</" + tag + ">"
           );
         }
         function render() {
