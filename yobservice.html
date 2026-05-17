@@ -1,0 +1,1013 @@
+<html lang="km">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>សេវាកម្ម — YOB Digital</title>
+    <meta
+      name="description"
+      content="Digital Marketing, Web Design & Development, Event Management, Graphic Design — YOB Digital ជំនាញ Digital ក្នុង ១ ទីកន្លែង"
+    />
+
+    <!-- SEO -->
+    <link
+      rel="canonical"
+      href="https://yobdigital.netlify.app/yobservice.html"
+    />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="សេវាកម្ម — YOB Digital" />
+    <meta
+      property="og:description"
+      content="Digital Marketing, Web Design, Events & Graphic Design — YOB Digital ជំនាញ Digital ក្នុង ១ ទីកន្លែង"
+    />
+    <meta
+      property="og:image"
+      content="https://yobdigital.netlify.app/images/og-cover.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://yobdigital.netlify.app/yobservice.html"
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <!-- Fonts: Inter (display numbers) + existing YOB stack -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Kantumruy+Pro:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome async -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    /></noscript>
+
+    <!-- GSAP defer -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
+
+    <!-- YOB Shared Styles — ALWAYS LAST -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Page-specific styles -->
+    <style>
+      /* ── Page tokens ── */
+      :root {
+        --fi: "Inter", sans-serif;
+        --s01: #4fa3ff;
+        --s02: #00d4c8;
+        --s03: #f5a623;
+        --s04: #9b6bff;
+        --sv-ease: 0.52s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* ── Page wrapper ── */
+      .svc-page {
+        padding-top: 0;
+      }
+
+      /* ══ HERO — Full Viewport ══ */
+      .svc-hero {
+        min-height: 100vh;
+        min-height: 100svh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 0 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .svc-hero::before {
+        content: "SERVICES";
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--fh);
+        font-size: clamp(100px, 18vw, 200px);
+        color: rgba(255, 255, 255, 0.025);
+        pointer-events: none;
+        user-select: none;
+        white-space: nowrap;
+        letter-spacing: -4px;
+      }
+      .svc-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--fi);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 3.5px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+      .svc-eyebrow::before,
+      .svc-eyebrow::after {
+        content: "";
+        width: 28px;
+        height: 1px;
+        background: var(--gold);
+      }
+      .svc-hero-title {
+        font-family: var(--fh);
+        font-size: clamp(56px, 9vw, 108px);
+        line-height: 0.92;
+        letter-spacing: -1px;
+        color: var(--white);
+        margin-bottom: 18px;
+      }
+      .svc-hero-sub {
+        font-family: var(--fb);
+        font-size: 16px;
+        color: var(--gray);
+        max-width: 420px;
+        margin: 0 auto 52px;
+        line-height: 1.7;
+      }
+      .svc-stats {
+        display: inline-flex;
+        align-items: center;
+        gap: 0;
+        border: 1px solid var(--border2);
+        border-radius: 16px;
+        overflow: hidden;
+        backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .svc-stat {
+        padding: 18px 32px;
+        text-align: center;
+        border-right: 1px solid var(--border2);
+      }
+      .svc-stat:last-child {
+        border-right: none;
+      }
+      .svc-stat-num {
+        font-family: var(--fi);
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--white);
+        line-height: 1;
+      }
+      .svc-stat-lbl {
+        font-family: var(--fb);
+        font-size: 11px;
+        color: var(--gray);
+        margin-top: 4px;
+        letter-spacing: 0.3px;
+      }
+
+      /* ── Hero CTA buttons ── */
+      .svc-hero-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 52px;
+        flex-wrap: wrap;
+      }
+
+      /* ── Scroll indicator ── */
+      .svc-scroll-hint {
+        position: absolute;
+        bottom: 36px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        color: rgba(255, 255, 255, 0.22);
+        font-family: var(--fb);
+        font-size: 9px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        animation: svc-hint 2.2s ease-in-out infinite;
+        text-decoration: none;
+      }
+      .svc-scroll-hint i {
+        font-size: 11px;
+      }
+      @keyframes svc-hint {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+          opacity: 0.22;
+        }
+        50% {
+          transform: translateX(-50%) translateY(7px);
+          opacity: 0.5;
+        }
+      }
+
+      /* ══ SERVICE LIST ══ */
+      .svc-list-section {
+        padding: 0 0 100px;
+      }
+      .svc-list {
+        max-width: 860px;
+        margin: 0 auto;
+      }
+
+      .svc-item {
+        border-top: 1px solid var(--border);
+        position: relative;
+      }
+      .svc-item:last-child {
+        border-bottom: 1px solid var(--border);
+      }
+
+      /* animated color line on top */
+      .svc-item::after {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          var(--sc, var(--gold)),
+          transparent 70%
+        );
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform var(--sv-ease);
+      }
+      .svc-item:hover::after,
+      .svc-item.open::after {
+        transform: scaleX(1);
+      }
+
+      /* ── Header row ── */
+      .svc-header {
+        display: grid;
+        grid-template-columns: 72px 1fr 48px;
+        align-items: start;
+        gap: 20px;
+        padding: 36px 0 32px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .svc-num-col {
+        padding-top: 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .svc-num {
+        font-family: var(--fi);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        color: var(--sc, var(--gold));
+        line-height: 1;
+      }
+      .svc-pip {
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: var(--sc, var(--gold));
+        opacity: 0.4;
+        transition:
+          opacity 0.3s,
+          width 0.3s;
+      }
+      .svc-item:hover .svc-pip,
+      .svc-item.open .svc-pip {
+        opacity: 1;
+        width: 32px;
+      }
+
+      .svc-body {
+        min-width: 0;
+      }
+      .svc-name {
+        font-family: var(--fh);
+        font-size: clamp(28px, 4.5vw, 46px);
+        line-height: 1;
+        letter-spacing: 0.5px;
+        color: var(--white);
+        margin-bottom: 12px;
+        transition: color 0.25s;
+      }
+      .svc-item:hover .svc-name,
+      .svc-item.open .svc-name {
+        color: var(--sc, var(--gold));
+      }
+
+      .svc-short {
+        font-family: var(--fb);
+        font-size: 14px;
+        color: var(--gray);
+        line-height: 1.65;
+        margin-bottom: 14px;
+      }
+      .svc-chips {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .svc-chip {
+        font-family: var(--fi);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 20px;
+        border: 1px solid var(--border2);
+        color: var(--gray);
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .svc-item:hover .svc-chip,
+      .svc-item.open .svc-chip {
+        border-color: var(--sc, var(--gold));
+        color: var(--sc, var(--gold));
+      }
+
+      .svc-toggle-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid var(--border2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 4px;
+        color: var(--gray);
+        transition:
+          border-color 0.2s,
+          background 0.2s,
+          color 0.2s;
+      }
+      .svc-toggle-btn svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .svc-item.open .svc-toggle-btn {
+        border-color: var(--sc, var(--gold));
+        background: rgba(229, 44, 103, 0.08);
+        color: var(--sc, var(--gold));
+      }
+      .svc-item.open .svc-toggle-btn svg {
+        transform: rotate(45deg);
+      }
+
+      /* ── Expand panel ── */
+      .svc-expand {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--sv-ease);
+      }
+      .svc-expand-inner {
+        padding: 4px 0 44px;
+      }
+
+      .svc-sub-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+      .svc-sub-card {
+        background: var(--dark3);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 20px 18px;
+        transition:
+          border-color 0.2s,
+          background 0.2s,
+          transform 0.2s;
+      }
+      .svc-sub-card:hover {
+        border-color: var(--sc, var(--gold));
+        background: var(--dark2);
+        transform: translateY(-2px);
+      }
+      .svc-sub-icon {
+        font-size: 22px;
+        display: block;
+        margin-bottom: 10px;
+      }
+      .svc-sub-name {
+        font-family: var(--fb);
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 5px;
+      }
+      .svc-sub-desc {
+        font-family: var(--fb);
+        font-size: 12px;
+        color: var(--gray);
+        line-height: 1.7;
+      }
+
+      .svc-action-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      /* ══ CTA SECTION ══ */
+      .svc-cta {
+        padding: 88px 0;
+        text-align: center;
+        border-top: 1px solid var(--border);
+        background: linear-gradient(
+          180deg,
+          transparent,
+          rgba(229, 44, 103, 0.04) 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+      .svc-cta::before {
+        content: "START";
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--fh);
+        font-size: clamp(80px, 16vw, 160px);
+        color: rgba(229, 44, 103, 0.04);
+        pointer-events: none;
+        letter-spacing: -4px;
+        white-space: nowrap;
+      }
+      .svc-cta-title {
+        font-family: var(--fh);
+        font-size: clamp(36px, 5.5vw, 64px);
+        color: var(--white);
+        margin-bottom: 14px;
+      }
+      .svc-cta-sub {
+        font-family: var(--fb);
+        font-size: 16px;
+        color: var(--gray);
+        margin-bottom: 36px;
+      }
+
+      /* ══ RESPONSIVE ══ */
+      @media (max-width: 720px) {
+        .svc-header {
+          grid-template-columns: 52px 1fr 40px;
+          gap: 14px;
+          padding: 28px 0 24px;
+        }
+        .svc-num-col {
+          padding-top: 4px;
+        }
+        .svc-stats {
+          flex-direction: column;
+          display: flex;
+        }
+        .svc-stat {
+          border-right: none;
+          border-bottom: 1px solid var(--border2);
+        }
+        .svc-stat:last-child {
+          border-bottom: none;
+        }
+        .svc-sub-grid {
+          grid-template-columns: 1fr;
+        }
+        .svc-toggle-btn {
+          width: 36px;
+          height: 36px;
+        }
+      }
+      @media (max-width: 480px) {
+        .svc-hero {
+          padding: 80px 0 60px;
+        }
+        .svc-hero-actions {
+          gap: 10px;
+        }
+        .svc-scroll-hint {
+          bottom: 24px;
+        }
+        .svc-stats {
+          width: 100%;
+        }
+        .svc-stat {
+          padding: 14px 20px;
+        }
+        .svc-list-section {
+          padding: 0 0 72px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Custom Cursor — MUST be first -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Background Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <!-- Nav injected by load-components.js -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <button class="drawer-close" id="drawerClose">
+        <i class="fas fa-times"></i>
+      </button>
+      <a href="/yobservice" onclick="closeDrawer()">សេវាកម្ម</a>
+      <a href="/yobacademy" onclick="closeDrawer()">សាលារៀន</a>
+      <div class="drawer-group">
+        <button class="drawer-group-toggle">
+          តូបឌីជីថល <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="drawer-group-items">
+          <a href="/shop" onclick="closeDrawer()">ហាងឌីជីថល</a>
+          <a href="/portfolio" onclick="closeDrawer()">Portfolio</a>
+        </div>
+      </div>
+      <a href="/about" onclick="closeDrawer()">អំពី YOB</a>
+      <a href="/contact" onclick="closeDrawer()" class="d-cta">សាកសួរ</a>
+    </div>
+
+    <!-- ══ PAGE ══ -->
+    <div class="svc-page">
+      <!-- ── HERO ── -->
+      <section class="svc-hero">
+        <div class="container">
+          <p class="svc-eyebrow reveal">WHAT WE DO</p>
+
+          <h1 class="svc-hero-title reveal">
+            អ្វីដែលយើង<span class="gradient-text">ផ្តល់ជូន</span>
+          </h1>
+
+          <p class="svc-hero-sub reveal">
+            ជំនាញ Digital ក្នុង ១ ទីកន្លែង<br />Marketing · Design · Tech ·
+            Events
+          </p>
+
+          <div class="svc-hero-actions reveal">
+            <a href="#services" class="btn-primary"
+              ><i class="fas fa-bolt"></i> មើល​សេវាកម្ម</a
+            >
+          </div>
+
+          <div class="yob-search-wrap reveal" id="svcSearchWrap">
+            <i class="fas fa-search yob-si"></i>
+            <input type="search" class="yob-search-input" id="svcSearch"
+              placeholder="ស្វែងរក Marketing, Design, Events, Web…" autocomplete="off" />
+            <button class="yob-sc" id="svcSearchClear" aria-label="Clear">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <p class="yob-search-hint">ចុច <kbd>/</kbd> ដើម្បីស្វែងរក · <kbd>Esc</kbd> ដើម្បីបោះបង់</p>
+
+        </div>
+
+        <a href="#services" class="svc-scroll-hint" aria-label="Scroll down">
+          <span>scroll</span>
+          <i class="fas fa-chevron-down"></i>
+        </a>
+      </section>
+
+      <!-- ── SERVICES LIST ── -->
+      <section class="svc-list-section" id="services">
+        <div class="container">
+          <div class="svc-list">
+            <!-- ─ 01 DIGITAL MARKETING ─ -->
+            <div class="svc-item reveal" style="--sc: var(--s01)">
+              <div class="svc-header" onclick="toggleSvc(this)">
+                <div class="svc-num-col">
+                  <span class="svc-num">01</span>
+                  <span class="svc-pip"></span>
+                </div>
+                <div class="svc-body">
+                  <div class="svc-name">DIGITAL MARKETING</div>
+                  <p class="svc-short">
+                    Facebook Ads, Content Strategy, Social Media Management —
+                    ជំរុញ Sales ដោយ Data
+                  </p>
+                  <div class="svc-chips">
+                    <span class="svc-chip">Facebook Ads</span>
+                    <span class="svc-chip">Content</span>
+                    <span class="svc-chip">SEO</span>
+                  </div>
+                </div>
+                <div class="svc-toggle-btn" aria-label="Toggle">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="svc-expand">
+                <div class="svc-expand-inner">
+                  <div class="svc-sub-grid">
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">🎯</span>
+                      <div class="svc-sub-name">Facebook &amp; Meta Ads</div>
+                      <div class="svc-sub-desc">
+                        Lead Gen, Traffic, Conversion — Campaign setup, A/B
+                        test, Budget optimization ដើម្បី ROAS ខ្ពស់
+                      </div>
+                    </div>
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">📝</span>
+                      <div class="svc-sub-name">Content Strategy</div>
+                      <div class="svc-sub-desc">
+                        Post calendar, Khmer copywriting, Caption, Hashtag —
+                        Content plan ជា ១ ខែ
+                      </div>
+                    </div>
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">📱</span>
+                      <div class="svc-sub-name">Social Media Management</div>
+                      <div class="svc-sub-desc">
+                        Daily publishing, Stories, Reels, Community engagement —
+                        ២៤/៧ page management
+                      </div>
+                    </div>
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">📊</span>
+                      <div class="svc-sub-name">Analytics &amp; Reporting</div>
+                      <div class="svc-sub-desc">
+                        Monthly performance report, ROI tracking, Data-driven
+                        recommendations
+                      </div>
+                    </div>
+                  </div>
+                  <div class="svc-action-row">
+                    <a
+                      href="/contact"
+                      class="btn-primary"
+                      onclick="event.stopPropagation()"
+                    >
+                      <i class="fas fa-paper-plane"></i> ពិគ្រោះ Free
+                    </a>
+                    <a
+                      href="/portfolio"
+                      class="btn-outline"
+                      onclick="event.stopPropagation()"
+                    >
+                      មើល Portfolio
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ─ 02 WEB DESIGN ─ -->
+            <div class="svc-item reveal" style="--sc: var(--s02)">
+              <div class="svc-header" onclick="toggleSvc(this)">
+                <div class="svc-num-col">
+                  <span class="svc-num">02</span>
+                  <span class="svc-pip"></span>
+                </div>
+                <div class="svc-body">
+                  <div class="svc-name">WEB DESIGN &amp; DEVELOPMENT</div>
+                  <p class="svc-short">
+                    Website ស្អាត + លឿន + Mobile Ready — HTML/CSS/JS ឬ Figma
+                    Design
+                  </p>
+                  <div class="svc-chips">
+                    <span class="svc-chip">HTML/CSS/JS</span>
+                    <span class="svc-chip">Figma</span>
+                    <span class="svc-chip">Mobile</span>
+                  </div>
+                </div>
+                <div class="svc-toggle-btn" aria-label="Toggle">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="svc-expand">
+                <div class="svc-expand-inner">
+                  <div class="svc-sub-grid">
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">🖥️</span>
+                      <div class="svc-sub-name">Landing Page</div>
+                      <div class="svc-sub-desc">
+                        Single-page, Conversion-focused, Fast load — ល្អសម្រាប់
+                        Ads, Launch, Campaign
+                      </div>
+                    </div>
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">🌐</span>
+                      <div class="svc-sub-name">Full Website</div>
+                      <div class="svc-sub-desc">
+                        Multi-page, SEO-ready, CMS — Business, Portfolio,
+                        eCommerce store
+                      </div>
+                    </div>
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">🎨</span>
+                      <div class="svc-sub-name">Figma UI/UX Design</div>
+                      <div class="svc-sub-desc">
+                        Wireframe → Prototype → Design System — Handoff-ready
+                        files
+                      </div>
+                    </div>
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">⚡</span>
+                      <div class="svc-sub-name">Performance &amp; SEO</div>
+                      <div class="svc-sub-desc">
+                        Core Web Vitals, Mobile-first, Accessibility — PageSpeed
+                        90+ guaranteed
+                      </div>
+                    </div>
+                  </div>
+                  <div class="svc-action-row">
+                    <a
+                      href="/contact"
+                      class="btn-primary"
+                      onclick="event.stopPropagation()"
+                    >
+                      <i class="fas fa-paper-plane"></i> ស្នើ Quote
+                    </a>
+                    <a
+                      href="/portfolio"
+                      class="btn-outline"
+                      onclick="event.stopPropagation()"
+                    >
+                      មើល Portfolio
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ─ 03 EVENTS ─ -->
+            <div class="svc-item reveal" style="--sc: var(--s03)">
+              <div class="svc-header" onclick="toggleSvc(this)">
+                <div class="svc-num-col">
+                  <span class="svc-num">03</span>
+                  <span class="svc-pip"></span>
+                </div>
+                <div class="svc-body">
+                  <div class="svc-name">EVENT MANAGEMENT</div>
+                  <p class="svc-short">
+                    Online, Offline, Hybrid Events — Production, Coverage,
+                    Report
+                  </p>
+                  <div class="svc-chips">
+                    <span class="svc-chip">Online</span>
+                    <span class="svc-chip">Offline</span>
+                    <span class="svc-chip">Hybrid</span>
+                  </div>
+                </div>
+                <div class="svc-toggle-btn" aria-label="Toggle">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="svc-expand">
+                <div class="svc-expand-inner">
+                  <div class="svc-sub-grid">
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">📋</span>
+                      <div class="svc-sub-name">Pre-Production</div>
+                      <div class="svc-sub-desc">
+                        Event planning, Timeline, Budget, Venue scouting,
+                        Registration system setup
+                      </div>
+                    </div>
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">🎬</span>
+                      <div class="svc-sub-name">Live Production</div>
+                      <div class="svc-sub-desc">
+                        Stage, Sound, Lighting, Livestream — Online &amp; Hybrid
+                        ready streaming
+                      </div>
+                    </div>
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">📸</span>
+                      <div class="svc-sub-name">Event Coverage</div>
+                      <div class="svc-sub-desc">
+                        Photography, Videography, Social Media live posting,
+                        Highlight reel
+                      </div>
+                    </div>
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">📊</span>
+                      <div class="svc-sub-name">Post-Event Report</div>
+                      <div class="svc-sub-desc">
+                        Attendance data, Engagement analytics, Full event report
+                        &amp; recap video
+                      </div>
+                    </div>
+                  </div>
+                  <div class="svc-action-row">
+                    <a
+                      href="/contact"
+                      class="btn-primary"
+                      onclick="event.stopPropagation()"
+                    >
+                      <i class="fas fa-paper-plane"></i> ពិភាក្សា Event
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ─ 04 GRAPHIC DESIGN ─ -->
+            <div class="svc-item reveal" style="--sc: var(--s04)">
+              <div class="svc-header" onclick="toggleSvc(this)">
+                <div class="svc-num-col">
+                  <span class="svc-num">04</span>
+                  <span class="svc-pip"></span>
+                </div>
+                <div class="svc-body">
+                  <div class="svc-name">GRAPHIC DESIGN</div>
+                  <p class="svc-short">
+                    Brand Identity, Poster, Social Asset, Booklet — Adobe Suite
+                    + Canva
+                  </p>
+                  <div class="svc-chips">
+                    <span class="svc-chip">Brand</span>
+                    <span class="svc-chip">Print</span>
+                    <span class="svc-chip">Digital</span>
+                  </div>
+                </div>
+                <div class="svc-toggle-btn" aria-label="Toggle">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="svc-expand">
+                <div class="svc-expand-inner">
+                  <div class="svc-sub-grid">
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">🏷️</span>
+                      <div class="svc-sub-name">Brand Identity</div>
+                      <div class="svc-sub-desc">
+                        Logo, Color System, Typography, Brand Guidelines —
+                        ពេញលេញ ១ Package
+                      </div>
+                    </div>
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">🖨️</span>
+                      <div class="svc-sub-name">Print Design</div>
+                      <div class="svc-sub-desc">
+                        Poster, Banner, Booklet, Business Card, Flyer —
+                        Print-ready files
+                      </div>
+                    </div>
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">📱</span>
+                      <div class="svc-sub-name">Social Media Assets</div>
+                      <div class="svc-sub-desc">
+                        Post templates, Thumbnail, Story, Infographic — Editable
+                        Canva &amp; Figma files
+                      </div>
+                    </div>
+                    <div class="svc-sub-card">
+                      <span class="svc-sub-icon">📦</span>
+                      <div class="svc-sub-name">Packaging Design</div>
+                      <div class="svc-sub-desc">
+                        Product box, Label, Sticker, Mockup presentation —
+                        Professional quality
+                      </div>
+                    </div>
+                  </div>
+                  <div class="svc-action-row">
+                    <a
+                      href="/contact"
+                      class="btn-primary"
+                      onclick="event.stopPropagation()"
+                    >
+                      <i class="fas fa-paper-plane"></i> ចាប់ផ្ដើម Project
+                    </a>
+                    <a
+                      href="/portfolio"
+                      class="btn-outline"
+                      onclick="event.stopPropagation()"
+                    >
+                      មើល Portfolio
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /svc-list -->
+          <p class="yob-no-results" id="svcNoResults">រកមិនឃើញ — សូមព្យាយាមថ្មី 🔍</p>
+        </div>
+      </section>
+
+    </div>
+    <!-- /svc-page -->
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+      // ── Service Search ──
+      (function () {
+        var inp  = document.getElementById("svcSearch");
+        var wrap = document.getElementById("svcSearchWrap");
+        var clr  = document.getElementById("svcSearchClear");
+        var none = document.getElementById("svcNoResults");
+
+        function filterSvc(q) {
+          var items = document.querySelectorAll(".svc-item");
+          var lower = q.toLowerCase().trim();
+          var count = 0;
+          items.forEach(function (item) {
+            if (!lower) { item.style.display = ""; count++; return; }
+            var name  = (item.querySelector(".svc-name")  || {}).textContent || "";
+            var short = (item.querySelector(".svc-short") || {}).textContent || "";
+            var match = name.toLowerCase().includes(lower) || short.toLowerCase().includes(lower);
+            item.style.display = match ? "" : "none";
+            if (match) count++;
+          });
+          if (none) none.style.display = (lower && count === 0) ? "block" : "none";
+          if (lower) {
+            var sec = document.getElementById("services");
+            if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+
+        if (inp) {
+          inp.addEventListener("input", function () {
+            wrap.classList.toggle("has-value", inp.value.length > 0);
+            filterSvc(inp.value);
+          });
+        }
+        if (clr) {
+          clr.addEventListener("click", function () {
+            inp.value = "";
+            wrap.classList.remove("has-value");
+            filterSvc("");
+            inp.focus();
+          });
+        }
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "/" && document.activeElement !== inp && document.activeElement.tagName !== "INPUT") {
+            e.preventDefault(); inp && inp.focus();
+          }
+          if (e.key === "Escape" && document.activeElement === inp) inp.blur();
+        });
+      })();
+
+      function toggleSvc(header) {
+        const item = header.closest(".svc-item");
+        const expand = item.querySelector(".svc-expand");
+        const isOpen = item.classList.contains("open");
+
+        /* close all open items */
+        document.querySelectorAll(".svc-item.open").forEach((el) => {
+          el.classList.remove("open");
+          el.querySelector(".svc-expand").style.maxHeight = "0";
+        });
+
+        /* open the clicked item if it was closed */
+        if (!isOpen) {
+          item.classList.add("open");
+          expand.style.maxHeight = expand.scrollHeight + "px";
+          setTimeout(() => {
+            item.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }, 80);
+        }
+      }
+    </script>
+    <script src="js/load-components.js"></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

@@ -138,9 +138,9 @@
             ]
           },
           "sameAs": [
-            "https://facebook.com/yobdigital",
+            "https://web.facebook.com/yobdigitals",
             "https://youtube.com/@yobdigital",
-            "https://linkedin.com/in/yobdigital",
+            "https://www.linkedin.com/company/yobdigital/",
             "https://t.me/yobdigital"
           ]
         },
@@ -168,8 +168,8 @@
             "addressCountry": "KH"
           },
           "sameAs": [
-            "https://facebook.com/yobdigital",
-            "https://linkedin.com/in/yobdigital",
+            "https://web.facebook.com/yobdigitals",
+            "https://www.linkedin.com/company/yobdigital/",
             "https://youtube.com/@yobdigital",
             "https://t.me/yobdigital"
           ]
@@ -458,8 +458,14 @@
 
       /* ── HERO / CASE FILE ── */
       .tva-hero {
-        padding: clamp(50px, 8vw, 80px) 0 clamp(40px, 8vw, 60px);
+        min-height: 100vh;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 100px 0 clamp(40px, 8vw, 60px);
         border-bottom: 1px solid var(--tva-border);
+        position: relative;
       }
       .tva-case-stamp {
         display: inline-block;
@@ -1342,14 +1348,8 @@
       <button class="drawer-close" id="drawerClose">
         <i class="fas fa-times"></i>
       </button>
-      <div class="drawer-group">
-        <button class="drawer-group-toggle">
-          រៀន <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="drawer-group-items">
-          <a href="/learn" onclick="closeDrawer()">YOB Learn Hub</a>
-        </div>
-      </div>
+      <a href="/yobservice" onclick="closeDrawer()">សេវាកម្ម</a>
+      <a href="/yobacademy" onclick="closeDrawer()">សាលារៀន</a>
       <div class="drawer-group">
         <button class="drawer-group-toggle">
           តូបឌីជីថល <i class="fas fa-chevron-down"></i>
@@ -1489,6 +1489,7 @@
               <span class="tva-stat-lbl">KHMER</span>
             </div>
           </div>
+          <a href="#founder" class="scroll-hint">scroll <i class="fas fa-chevron-down"></i></a>
         </section>
 
         <hr class="tva-rule" />

@@ -326,15 +326,26 @@
         flex-direction: column;
         cursor: pointer;
         transition:
-          transform 0.22s ease,
-          box-shadow 0.22s ease,
-          border-color 0.22s ease;
+          box-shadow 0.25s ease,
+          border-color 0.25s ease;
         position: relative;
       }
+      .sh-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+        background: var(--gold);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 4;
+        border-radius: 12px 12px 0 0;
+      }
+      .sh-card:hover::before { transform: scaleX(1); }
       .sh-card:hover {
-        transform: translateY(-4px) scale(1.015);
-        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
-        border-color: var(--border2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        border-color: rgba(229, 44, 103, 0.22);
       }
       .sh-card.sh-soon {
         opacity: 0.5;
@@ -357,55 +368,9 @@
         height: 256px;
       }
 
-      /* Category gradients */
-      .sc-prev[data-cat="fonts"] {
-        background: linear-gradient(
-          145deg,
-          #0d0420 0%,
-          #2a0858 50%,
-          #541b9e 100%
-        );
-      }
-      .sc-prev[data-cat="ai"] {
-        background: linear-gradient(
-          145deg,
-          #180008 0%,
-          #480022 50%,
-          #9e1046 100%
-        );
-      }
-      .sc-prev[data-cat="strategy"] {
-        background: linear-gradient(
-          145deg,
-          #020916 0%,
-          #081e4a 50%,
-          #163a8a 100%
-        );
-      }
-      .sc-prev[data-cat="web"] {
-        background: linear-gradient(
-          145deg,
-          #001012 0%,
-          #002d3d 50%,
-          #005060 100%
-        );
-      }
-      .sc-prev[data-cat="resource"] {
-        background: linear-gradient(
-          145deg,
-          #021008 0%,
-          #082e16 50%,
-          #135030 100%
-        );
-      }
-      .sc-prev[data-cat="bundle"] {
-        background: linear-gradient(
-          135deg,
-          #0e0618 0%,
-          #280828 35%,
-          #080e30 70%,
-          #001020 100%
-        );
+      /* Unified preview — one dark base for all categories */
+      .sc-prev[data-cat] {
+        background: var(--dark3);
       }
 
       .sc-prev::before {
@@ -413,8 +378,8 @@
         position: absolute;
         inset: 0;
         background: radial-gradient(
-          ellipse at 50% 110%,
-          rgba(255, 255, 255, 0.05) 0%,
+          ellipse at 50% 100%,
+          rgba(229, 44, 103, 0.08) 0%,
           transparent 65%
         );
         z-index: 1;
@@ -443,6 +408,7 @@
         font-size: 52px;
         line-height: 1;
         display: block;
+        color: rgba(255, 255, 255, 0.82) !important;
       }
       .sc-wide .sc-prev-ico {
         font-size: 68px;
@@ -780,28 +746,96 @@
        SHOP HERO + LIVE SEARCH
        ═══════════════════════════════════ */
       .sh-hero {
-        padding: calc(68px + 52px) 40px 36px;
+        min-height: 100vh;
+        min-height: 100svh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 24px 80px;
         text-align: center;
+        position: relative;
+        overflow: hidden;
       }
-      .sh-hero-head {
-        margin-bottom: 24px;
+      .sh-hero::before {
+        content: "STORE";
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--fh);
+        font-size: clamp(100px, 18vw, 200px);
+        color: rgba(255,255,255,0.025);
+        pointer-events: none;
+        user-select: none;
+        white-space: nowrap;
+        letter-spacing: -4px;
       }
       .sh-hero-eyebrow {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
         font-family: var(--fb);
         font-size: 11px;
         font-weight: 700;
-        letter-spacing: 0.2em;
+        letter-spacing: 3.5px;
         text-transform: uppercase;
         color: var(--gold);
-        margin-bottom: 10px;
+        margin-bottom: 20px;
+      }
+      .sh-hero-eyebrow::before,
+      .sh-hero-eyebrow::after {
+        content: "";
+        width: 28px;
+        height: 1px;
+        background: var(--gold);
       }
       .sh-hero-title {
         font-family: var(--fh);
-        font-size: clamp(30px, 4.5vw, 52px);
+        font-size: clamp(56px, 9vw, 108px);
         color: var(--white);
-        margin: 0;
-        line-height: 1.05;
+        margin: 0 0 18px;
+        line-height: 0.92;
+        letter-spacing: -1px;
+      }
+      .sh-hero-sub {
+        font-family: var(--fb);
+        font-size: 16px;
+        color: var(--gray);
+        line-height: 1.7;
+        max-width: 420px;
+        margin: 0 auto 52px;
+      }
+      .sh-hero-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 52px;
+        flex-wrap: wrap;
+      }
+      .sh-scroll-hint {
+        position: absolute;
+        bottom: 36px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        color: rgba(255,255,255,0.22);
+        font-family: var(--fb);
+        font-size: 9px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        animation: sh-hint 2.2s ease-in-out infinite;
+        text-decoration: none;
+      }
+      .sh-scroll-hint i { font-size: 11px; }
+      @keyframes sh-hint {
+        0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.22; }
+        50%       { transform: translateX(-50%) translateY(6px); opacity: 0.5; }
       }
       /* Search bar */
       .sh-search-wrap {
@@ -812,7 +846,7 @@
         border: 1px solid var(--border2);
         border-radius: 14px;
         padding: 13px 18px;
-        max-width: 580px;
+        max-width: 560px;
         margin: 0 auto 22px;
         transition:
           border-color 0.2s,
@@ -948,7 +982,7 @@
           padding-bottom: 24px;
         }
         .sh-hero-title {
-          font-size: 26px;
+          font-size: clamp(48px, 14vw, 72px);
         }
         .sh-search-wrap {
           border-radius: 12px;
@@ -1146,14 +1180,8 @@
       <button class="drawer-close" id="drawerClose">
         <i class="fas fa-times"></i>
       </button>
-      <div class="drawer-group">
-        <button class="drawer-group-toggle">
-          រៀន <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="drawer-group-items">
-          <a href="/learn" onclick="closeDrawer()">YOB Learn Hub</a>
-        </div>
-      </div>
+      <a href="/yobservice" onclick="closeDrawer()">សេវាកម្ម</a>
+      <a href="/yobacademy" onclick="closeDrawer()">សាលារៀន</a>
       <div class="drawer-group">
         <button class="drawer-group-toggle">
           តូបឌីជីថល <i class="fas fa-chevron-down"></i>
@@ -1168,18 +1196,46 @@
     </div>
 
     <!-- ══════════════════════════════════
+       HERO
+       ══════════════════════════════════ -->
+    <div class="sh-hero" id="hero">
+      <p class="sh-hero-eyebrow">YOB Digital Store</p>
+      <h1 class="sh-hero-title">
+        តូប<span class="gradient-text">ឌីជីថល</span>
+      </h1>
+      <p class="sh-hero-sub">
+        Fonts · Templates · AI Tools · Resources<br />
+        ឥតគិតថ្លៃ និង Premium សម្រាប់ SME កម្ពុជា
+      </p>
+      <div class="sh-hero-actions">
+        <a href="#products" class="btn-primary"><i class="fas fa-bolt"></i> មើលផលិតផល</a>
+      </div>
+
+      <div class="sh-search-wrap yob-search-wrap" id="shSearchWrap">
+        <i class="fas fa-search sh-si yob-si"></i>
+        <input type="search" id="shSearch" class="sh-search yob-search-input"
+          placeholder="ស្វែងរក Fonts, Templates, AI Tools…" autocomplete="off" />
+        <button class="sh-sc yob-sc" id="shSearchClear" aria-label="Clear">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <p class="yob-search-hint">ចុច <kbd>/</kbd> ដើម្បីស្វែងរក · <kbd>Esc</kbd> ដើម្បីបោះបង់</p>
+
+      <a href="#products" class="sh-scroll-hint">scroll <i class="fas fa-chevron-down"></i></a>
+    </div>
+
+    <!-- Search result notice -->
+    <p class="sh-q-notice" id="shQNotice">ទំព័រលទ្ធផលសម្រាប់ <strong></strong></p>
+
+    <!-- ══════════════════════════════════
        CHIP FILTER BAR
        ══════════════════════════════════ -->
-    <div class="sh-chipbar">
+    <div class="sh-chipbar" id="products">
       <div class="sh-chipbar-scroll">
         <div class="sh-chipbar-inner">
           <!-- Category chips -->
           <div class="sh-chips">
             <button class="sh-chip active" data-cat="all">ទាំងអស់</button>
-            <button class="sh-chip" data-cat="portfolio">
-              <span class="sh-chip-dot" style="background: #4f82ff"></span
-              >កម្រងស្នាដៃ
-            </button>
             <button class="sh-chip" data-cat="fonts">
               <span class="sh-chip-dot" style="background: #9b6bff"></span>យប់
               អក្ខរា
@@ -1562,84 +1618,6 @@
             modalIcon: "fas fa-palette",
           },
 
-          // ── PORTFOLIO ────────────────────────────────────────────────
-          {
-            id: "p01",
-            cat: "portfolio",
-            type: "strategy",
-            price: "free",
-            priceText: "Free",
-            name: "ពី Boost Post ទៅ 3.8x ROAS ក្នុង ២ ខែ",
-            desc: "DC Fashion · Phnom Penh — Facebook Ads · ROAS 3.8x · Budget optimized",
-            icon: "📈",
-            href: "contact.html",
-          },
-          {
-            id: "p02",
-            cat: "portfolio",
-            type: "ai",
-            price: "free",
-            priceText: "Free",
-            name: "AI Content System ជំនួស Marketing Agency",
-            desc: "Sokha Café · Siem Reap — AI replaces full agency workflow · Cut cost 60%",
-            icon: "🤖",
-            href: "contact.html",
-          },
-          {
-            id: "p03",
-            cat: "portfolio",
-            type: "web",
-            price: "free",
-            priceText: "Free",
-            name: "វេបសាយ + AI Workflow → 15 Leads/ថ្ងៃ",
-            desc: "CR Academy · Phnom Penh — Landing page + AI lead system · 15 leads/day",
-            icon: "💻",
-            href: "contact.html",
-          },
-          {
-            id: "p04",
-            cat: "portfolio",
-            type: "ai",
-            price: "free",
-            priceText: "Free",
-            name: "AI Essentials → សន្សំ 10+ ម៉ោងប្រចាំសប្ដាហ៍",
-            desc: "Piseth · FMCG Manager — AI tools training · Save 10+ hours/week",
-            icon: "⚡",
-            href: "contact.html",
-          },
-          {
-            id: "p05",
-            cat: "portfolio",
-            type: "fonts",
-            price: "free",
-            priceText: "Free",
-            name: "Khmer Font Upgrade → 40% More Brand Trust",
-            desc: "Local Startup · Kampong Cham — Khmer font system · 40% brand trust uplift",
-            icon: "🔤",
-            href: "contact.html",
-          },
-          {
-            id: "p06",
-            cat: "portfolio",
-            type: "strategy",
-            price: "free",
-            priceText: "Free",
-            name: "ពី Offline ទៅ Online → កំណើនលក់ 200%",
-            desc: "Handcraft Store · Battambang — Digital strategy · 200% sales growth",
-            icon: "🛒",
-            href: "contact.html",
-          },
-          {
-            id: "p07",
-            cat: "portfolio",
-            type: "design",
-            price: "free",
-            priceText: "Free",
-            name: "Brand Poster Series — E Express",
-            desc: "E Express · Phnom Penh — ១ Brand ១ Story ១ Design · Poster series full campaign",
-            icon: "🎨",
-            href: "portfolio.html",
-          },
         ];
 
         // ── Type chips per category ──
@@ -1655,13 +1633,6 @@
             { type: "template", label: "Template", color: "#60a5fa" },
             { type: "marketing", label: "Marketing", color: "#fb7185" },
             { type: "design", label: "Design", color: "#34d399" },
-          ],
-          portfolio: [
-            { type: "strategy", label: "យុទ្ធសាស្ត្រ", color: "#f59e0b" },
-            { type: "ai", label: "ឧបករណ៍ AI", color: "#f472b6" },
-            { type: "web", label: "វេបសាយ", color: "#22d3ee" },
-            { type: "fonts", label: "អក្សរខ្មែរ", color: "#9b6bff" },
-            { type: "design", label: "Poster Design", color: "#4ade80" },
           ],
         };
 
@@ -1693,14 +1664,14 @@
               '<div class="sc-prev-body">' +
               '<span class="sc-prev-ico" style="font-family:' +
               esc(p.fontFamily) +
-              ';color:#c084fc;font-size:28px;line-height:1.35">' +
+              ';font-size:28px;line-height:1.35">' +
               esc(p.previewText) +
               "</span>" +
               '<span class="sc-prev-lbl">' +
               esc(p.catLabel) +
               "</span>" +
               "</div></div>";
-            catDot = "#9b6bff";
+            catDot = "#8b949e";
             catLabel = "យប់ អក្ខរា";
             ctaHtml =
               p.price === "free"
@@ -1720,7 +1691,7 @@
               '"></i></span>' +
               '<span class="sc-prev-lbl">Digital Resource</span>' +
               "</div></div>";
-            catDot = "#4ade80";
+            catDot = "#8b949e";
             catLabel = "កាដូរ ឌីជីថល";
             ctaHtml =
               '<button class="sc-cta" style="background:none;border:none;cursor:pointer;padding:0" onclick="openModal(\'' +
@@ -1728,19 +1699,6 @@
               "','" +
               esc(p.modalIcon || p.icon) +
               '\')">ទាញយក <i class="fas fa-download"></i></button>';
-          } else {
-            prevHtml =
-              '<div class="sc-prev" data-cat="strategy">' +
-              '<span class="sc-badge" style="background:rgba(79,130,255,0.14);border:1px solid rgba(79,130,255,0.4);color:#4f82ff">Portfolio</span>' +
-              '<div class="sc-prev-body">' +
-              '<span class="sc-prev-ico" style="font-size:52px">' +
-              esc(p.icon) +
-              "</span>" +
-              '<span class="sc-prev-lbl">Case Study</span>' +
-              "</div></div>";
-            catDot = "#4f82ff";
-            catLabel = "កម្រងស្នាដៃ";
-            ctaHtml = 'មើល <i class="fas fa-arrow-right"></i>';
           }
 
           var desc = p.desc || p.meta || "";

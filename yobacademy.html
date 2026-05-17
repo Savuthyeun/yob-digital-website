@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>សាលារៀន — YOB Digital</title>
+  <meta name="description" content="រៀន AI, Design, Marketing, Web Development ជាភាសាខ្មែរ — ឥតគិតថ្លៃ និង Premium courses" />
+
+  <!-- SEO -->
+  <link rel="canonical" href="https://yobdigital.netlify.app/yobacademy.html" />
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="apple-touch-icon" href="images/favicon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="សាលារៀន — YOB Digital" />
+  <meta property="og:description" content="រៀន AI, Design, Marketing, Web Development ជាភាសាខ្មែរ — ឥតគិតថ្លៃ" />
+  <meta property="og:image" content="https://yobdigital.netlify.app/images/og-cover.jpg" />
+  <meta property="og:url" content="https://yobdigital.netlify.app/yobacademy.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- DNS Prefetch -->
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Kantumruy+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome async -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /></noscript>
+
+  <!-- GSAP defer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+
+  <!-- YOB Shared Styles — ALWAYS LAST -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Page-specific styles -->
+  <style>
+    /* ── Hide blobs — light page ── */
+    .blob-1, .blob-2 { display: none !important; }
+
+    /* ── Education page tokens ── */
+    :root {
+      --blue:       #1a73e8;
+      --blue-bg:    #e8f0fe;
+      --green:      #1e8e3e;
+      --green-bg:   #e6f4ea;
+      --red:        #d93025;
+      --red-bg:     #fce8e6;
+      --yellow:     #f29900;
+      --yellow-bg:  #fef7e0;
+      --t1:         #202124;
+      --t2:         #5f6368;
+      --t3:         #80868b;
+      --esurf:      #ffffff;
+      --ebg:        #f0f4f9;
+      --eborder:    #dadce0;
+      --ehover:     #f1f3f4;
+      --edu-nav-h:  64px;
+      --efont:      'Kantumruy Pro', 'DM Sans', sans-serif;
+    }
+
+    /* ── Night mode ── */
+    body.night {
+      --blue:      #4fa3ff;
+      --blue-bg:   rgba(26,115,232,0.15);
+      --green:     #4caf84;
+      --green-bg:  rgba(76,175,132,0.12);
+      --red:       #ff6b6b;
+      --red-bg:    rgba(255,107,107,0.1);
+      --yellow:    #ffc947;
+      --yellow-bg: rgba(255,201,71,0.1);
+      --t1:        #e6edf3;
+      --t2:        #8b949e;
+      --t3:        #484f58;
+      --esurf:     #161b22;
+      --ebg:       #0d1117;
+      --eborder:   rgba(255,255,255,0.08);
+      --ehover:    rgba(255,255,255,0.05);
+    }
+
+    /* smooth theme transition */
+    *, *::before, *::after { transition: background-color .3s ease, border-color .3s ease, color .2s ease; }
+    button, a, input { transition: background-color .15s, border-color .15s, color .15s, box-shadow .15s !important; }
+
+    /* override YOB dark body */
+    body { background: var(--ebg) !important; }
+
+/* ── Main content area ── */
+    .edu-main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: calc(var(--edu-nav-h) + 32px) 40px 80px;
+    }
+
+    /* ── Section title ── */
+    .edu-section-title {
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      font-family: var(--efont); font-size: 11px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--t3); margin-bottom: 24px; text-align: center;
+    }
+    .edu-section-title::before, .edu-section-title::after {
+      content: ''; flex: 1; max-width: 72px; height: 1px; background: var(--eborder);
+    }
+
+    /* ── Recommended 3-col grid — Option C: Full Clickable Big Card ── */
+    .recommended-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 20px; margin-bottom: 52px;
+    }
+    .rec-card {
+      background: var(--esurf); border: 1.5px solid var(--eborder);
+      border-radius: 18px; padding: 32px 24px 22px;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      text-decoration: none; color: inherit; cursor: pointer;
+      transition: transform .25s cubic-bezier(.4,0,.2,1), box-shadow .25s, border-color .25s;
+    }
+    .rec-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 1px var(--gold), 0 12px 40px rgba(229,44,103,.18);
+    }
+    .rc-icon-box {
+      width: 72px; height: 72px; border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 34px; margin-bottom: 18px;
+      transition: transform .25s cubic-bezier(.4,0,.2,1);
+    }
+    .rec-card:hover .rc-icon-box { transform: scale(1.1); }
+    .rc-title { font-size: 15px; font-weight: 600; color: var(--t1); line-height: 1.55; margin-bottom: 10px; font-family: var(--efont); }
+    .rc-desc  { font-size: 13px; color: var(--t2); line-height: 1.65; margin-bottom: 14px; font-family: var(--efont); flex: 1; }
+    .rc-meta  { font-size: 12px; font-weight: 600; color: var(--t3); letter-spacing: .3px; margin-bottom: 18px; font-family: var(--efont); }
+    .rc-divider { width: 100%; height: 1px; background: var(--eborder); margin-bottom: 16px; }
+    .rc-footer { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .rc-btn {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-family: var(--efont); font-size: 13px; font-weight: 700;
+      color: var(--gold); letter-spacing: .2px;
+    }
+
+    /* ── Search bar ── */
+    .codelab-search-wrap { display: flex; justify-content: center; margin-bottom: 14px; }
+    .codelab-search {
+      display: flex; align-items: center;
+      width: 100%; max-width: 520px;
+      background: var(--esurf); border: 1px solid var(--eborder);
+      border-radius: 24px; padding: 0 16px 0 14px; height: 44px; gap: 10px;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .codelab-search:focus-within { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(26,115,232,.1); }
+    .codelab-search svg { width: 18px; height: 18px; fill: var(--t3); flex-shrink: 0; }
+    .codelab-search input { flex: 1; border: none; background: none; outline: none; font-family: var(--efont); font-size: 14px; color: var(--t1); }
+    .codelab-search input::placeholder { color: var(--t3); }
+
+    /* ── Filter row ── */
+    .edu-filter-row { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+    .edu-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--esurf); border: 1px solid var(--eborder);
+      border-radius: 999px; padding: 6px 14px;
+      font-size: 13px; font-weight: 500; color: var(--t2);
+      cursor: pointer; white-space: nowrap; font-family: var(--efont);
+      transition: border-color .15s, background .15s;
+    }
+    .edu-chip:hover { border-color: #bdc1c6; background: var(--ehover); }
+    .edu-chip.active { border-color: var(--blue); background: var(--blue-bg); color: var(--blue); }
+    .edu-chip svg { width: 14px; height: 14px; fill: currentColor; }
+    .edu-dd { position: relative; }
+    .edu-dd-menu {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      background: var(--esurf); border: 1px solid var(--eborder);
+      border-radius: 8px; padding: 6px 0; min-width: 180px;
+      box-shadow: 0 4px 16px rgba(32,33,36,.15); z-index: 100;
+    }
+    .edu-dd.open .edu-dd-menu { display: block; }
+    .edu-dd-item {
+      padding: 9px 16px; font-size: 13.5px; color: var(--t2);
+      cursor: pointer; display: flex; align-items: center; gap: 10px;
+      font-family: var(--efont); transition: background .1s;
+    }
+    .edu-dd-item:hover { background: var(--ehover); color: var(--t1); }
+    .edu-dd-item.selected { color: var(--blue); font-weight: 600; }
+    .edu-dd-item.selected::before { content: '✓'; font-size: 12px; }
+
+    /* ── Card tags (used in rec-cards + course rows) ── */
+    .card-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+    .card-tag {
+      font-size: 10px; font-weight: 600; padding: 2px 9px;
+      border-radius: 999px; text-transform: uppercase; letter-spacing: .3px;
+      cursor: default; transition: transform .15s ease;
+    }
+    .card-tag:hover { transform: scale(1.05); }
+    .tag-free    { background: var(--green-bg);  color: var(--green); }
+    .tag-premium { background: var(--yellow-bg); color: var(--yellow); }
+    .tag-soon    { background: var(--ehover); color: var(--t3); border: 1px solid var(--eborder); }
+    .tag-ai      { background: var(--blue-bg);   color: var(--blue); }
+    .tag-design  { background: #fce8e6; color: #c5221f; }
+    .tag-web     { background: #e6f4ea; color: var(--green); }
+
+    /* ── Course accordion list ── */
+    .course-list {
+      border: 1px solid var(--eborder); border-radius: 16px;
+      overflow: hidden; background: var(--esurf);
+    }
+
+    .cl-item {
+      border-bottom: 1px solid var(--eborder);
+      position: relative;
+      transition: opacity 0.3s ease-out;
+    }
+    .cl-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--gold);
+      border-radius: 0 2px 2px 0;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cl-item:hover::before,
+    .cl-item.open::before { transform: scaleY(1); }
+    .cl-item:last-child { border-bottom: none; }
+
+    /* dim non-active rows when one is open */
+    .course-list.has-open .cl-item:not(.open) { opacity: 0.45; }
+
+    /* ── Clickable header row ── */
+    .cl-header {
+      display: grid;
+      grid-template-columns: 44px 1fr auto;
+      align-items: center; gap: 14px;
+      padding: 16px 20px; cursor: pointer;
+      transition: background-color 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .cl-item:not(.open) .cl-header:hover {
+      background: var(--ehover);
+    }
+    .cl-item.open .cl-header { background: var(--ehover); }
+
+    /* icon */
+    .cl-icon-wrap {
+      width: 44px; height: 44px; border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .cl-icon-wrap img { width: 28px; height: 28px; object-fit: contain; }
+
+    /* title + chips */
+    .cl-meta { min-width: 0; }
+    .cl-title {
+      font-family: var(--efont); font-size: 14px; font-weight: 600;
+      color: var(--t1); line-height: 1.4; margin-bottom: 6px;
+      transition: color 0.25s ease;
+    }
+    .cl-item.open .cl-title { color: var(--blue); }
+    .cl-chips { display: flex; gap: 5px; flex-wrap: wrap; }
+    .cl-chip {
+      font-size: 10px; font-weight: 600; padding: 2px 9px;
+      border-radius: 999px; text-transform: uppercase; letter-spacing: .3px;
+      cursor: default; transition: transform .15s ease;
+    }
+    .cl-chip:hover { transform: scale(1.06); }
+
+    /* right: duration + chevron */
+    .cl-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .cl-dur {
+      font-family: var(--efont); font-size: 11px; font-weight: 600;
+      color: var(--t3); white-space: nowrap;
+    }
+    .cl-chev {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 1px solid var(--eborder);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--t2);
+      transition: border-color .25s, background .25s, color .25s;
+    }
+    .cl-chev svg {
+      width: 18px; height: 18px; fill: currentColor;
+      transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cl-item.open .cl-chev {
+      border-color: var(--blue); background: var(--blue-bg); color: var(--blue);
+    }
+    .cl-item.open .cl-chev svg { transform: rotate(180deg); }
+
+    /* ── CSS Grid accordion (buttery smooth) ── */
+    .cl-body {
+      display: grid; grid-template-rows: 0fr;
+      transition: grid-template-rows 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .cl-body-inner { overflow: hidden; }
+    .cl-item.open .cl-body { grid-template-rows: 1fr; }
+
+    /* ── Staggered reveal ── */
+    .cl-reveal {
+      padding: 4px 20px 22px 78px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .cl-desc {
+      font-family: var(--efont); font-size: 13px; color: var(--t2);
+      line-height: 1.75; margin: 0;
+      opacity: 0; transform: translateY(8px);
+      transition: opacity 0.28s ease-out, transform 0.28s ease-out;
+    }
+    .cl-item.open .cl-desc { opacity: 1; transform: translateY(0); transition-delay: 0.18s; }
+
+    .cl-cta-wrap {
+      opacity: 0; transform: translateY(6px);
+      transition: opacity 0.24s ease-out, transform 0.24s ease-out;
+    }
+    .cl-item.open .cl-cta-wrap { opacity: 1; transform: translateY(0); transition-delay: 0.25s; }
+
+    .cl-cta {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: var(--efont); font-size: 13px; font-weight: 600;
+      color: var(--blue); padding: 7px 18px; border-radius: 999px;
+      border: 1.5px solid var(--blue-bg); background: var(--blue-bg);
+      text-decoration: none; cursor: pointer;
+      transition: background .18s, border-color .18s, color .18s, transform .18s !important;
+    }
+    .cl-cta:hover { background: var(--blue); border-color: var(--blue); color: #fff; transform: translateY(-1px); }
+    .cl-cta.disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
+
+    /* icon badge colors */
+    .ib-ai     { background: #e8f0fe; }
+    .ib-design { background: #fce8e6; }
+    .ib-video  { background: #fef7e0; }
+    .ib-web    { background: #e6f4ea; }
+    .ib-biz    { background: #f3e8fd; }
+    .ib-data   { background: #e0f2f1; }
+    .ib-market { background: #fce8e6; }
+    .ib-ecom   { background: #fff3e0; }
+    .ib-code   { background: #f1f3f4; }
+
+    /* ── Night mode overrides ── */
+    body.night .tag-free    { background: rgba(76,175,132,0.15);  color: #4caf84; }
+    body.night .tag-premium { background: rgba(255,201,71,0.12);  color: #ffc947; }
+    body.night .tag-soon    { background: rgba(255,255,255,0.05); color: #484f58; }
+    body.night .tag-ai      { background: rgba(79,163,255,0.12);  color: #4fa3ff; }
+    body.night .tag-web     { background: rgba(76,175,132,0.12);  color: #4caf84; }
+    body.night .edu-chip.active { border-color: #e52c67; background: rgba(229,44,103,0.12); color: #e52c67; }
+    body.night .edu-dd-item.selected { color: #e52c67; }
+    body.night .codelab-search:focus-within { border-color: #e52c67; box-shadow: 0 0 0 3px rgba(229,44,103,0.15); }
+    body.night .rec-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 1px rgba(229,44,103,.5), 0 12px 40px rgba(229,44,103,.2);
+    }
+    /* ── Night mode: course accordion ── */
+    body.night .course-list { background: var(--esurf); }
+    body.night .cl-cta:hover { color: #0d1117; }
+    body.night .ib-ai     { background: rgba(26,115,232,0.15); }
+    body.night .ib-design,
+    body.night .ib-market { background: rgba(217,48,37,0.12); }
+    body.night .ib-web    { background: rgba(30,142,62,0.12); }
+    body.night .ib-biz    { background: rgba(155,107,255,0.12); }
+    body.night .ib-data   { background: rgba(0,150,136,0.12); }
+    body.night .ib-ecom,
+    body.night .ib-video  { background: rgba(242,153,0,0.12); }
+    body.night .ib-code   { background: rgba(255,255,255,0.06); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .edu-main { padding: calc(var(--edu-nav-h) + 16px) 16px 64px; }
+      .recommended-grid { grid-template-columns: 1fr; gap: 14px; }
+      .rec-card { padding: 24px 20px 18px; }
+      .rc-icon-box { width: 60px; height: 60px; font-size: 28px; margin-bottom: 14px; }
+    }
+    @media (max-width: 720px) {
+      .cl-header { grid-template-columns: 40px 1fr auto; gap: 12px; padding: 14px 16px; }
+      .cl-icon-wrap { width: 40px; height: 40px; border-radius: 10px; }
+      .cl-reveal { padding: 4px 16px 18px 68px; }
+      .cl-dur { display: none; }
+    }
+    @media (max-width: 480px) {
+      .cl-header { grid-template-columns: 36px 1fr auto; gap: 10px; padding: 12px 14px; }
+      .cl-reveal { padding: 4px 14px 16px; }
+      .recommended-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Academy Hero ── */
+    .ac-hero {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ac-hero::before {
+      content: "ACADEMY";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--fh);
+      font-size: clamp(100px, 18vw, 200px);
+      color: rgba(255,255,255,0.025);
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+      letter-spacing: -4px;
+    }
+    .ac-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--fb);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .ac-hero-eyebrow::before,
+    .ac-hero-eyebrow::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .ac-hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 52px;
+      flex-wrap: wrap;
+    }
+    .ac-scroll-hint {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.22);
+      font-family: var(--fb);
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      animation: ac-hint 2.2s ease-in-out infinite;
+      text-decoration: none;
+    }
+    .ac-scroll-hint i { font-size: 11px; }
+    @keyframes ac-hint {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.22; }
+      50%       { transform: translateX(-50%) translateY(6px); opacity: 0.5; }
+    }
+    .ac-hero-title {
+      font-family: var(--fh);
+      font-size: clamp(56px, 9vw, 108px);
+      color: var(--white);
+      line-height: 0.92;
+      letter-spacing: -1px;
+      margin: 0 0 18px;
+    }
+    .ac-hero-title .ac-accent {
+      color: var(--white);
+    }
+    .ac-hero-sub {
+      font-family: var(--fb);
+      font-size: clamp(15px, 1.6vw, 17px);
+      color: var(--gray);
+      max-width: 480px;
+      line-height: 1.8;
+      margin: 0 auto 32px;
+    }
+    .ac-hero-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .ac-pill {
+      font-family: var(--fb);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.65);
+      background: rgba(255,255,255,0.05);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .ac-pill:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+  </style>
+</head>
+<body class="night">
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- Background Blobs (hidden via CSS) -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <!-- YOB Shared Nav -->
+  <div id="nav-placeholder"></div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="drawerClose">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="/yobservice" onclick="closeDrawer()">សេវាកម្ម</a>
+    <a href="yobacademy.html" onclick="closeDrawer()">សាលារៀន</a>
+    <div class="drawer-group">
+      <button class="drawer-group-toggle">
+        តូបឌីជីថល <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="drawer-group-items">
+        <a href="/shop" onclick="closeDrawer()">ហាងឌីជីថល</a>
+        <a href="/portfolio" onclick="closeDrawer()">Portfolio</a>
+      </div>
+    </div>
+    <a href="/about" onclick="closeDrawer()">អំពី YOB</a>
+    <a href="/contact" onclick="closeDrawer()" class="d-cta">សាកសួរ</a>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <div class="ac-hero" id="ac-hero">
+    <span class="ac-hero-eyebrow">YOB Digital Academy</span>
+    <h1 class="ac-hero-title">
+      រៀន<span class="ac-accent">ឌីជីថល</span><br />ជាភាសាខ្មែរ
+    </h1>
+    <p class="ac-hero-sub">
+      AI · Design · Marketing · Web Development<br />
+      ចាប់ផ្ដើមពី Zero — ជ្រើសមេរៀន ខ្ញុំដែលសម
+    </p>
+    <div class="ac-hero-actions">
+      <a href="#courses" class="btn-primary"><i class="fas fa-bolt"></i> ចូលរៀនឥឡូវ</a>
+    </div>
+    <div class="ac-hero-pills">
+      <span class="ac-pill">🤖 AI</span>
+      <span class="ac-pill">🎨 Design</span>
+      <span class="ac-pill">📈 Marketing</span>
+      <span class="ac-pill">💻 Web</span>
+      <span class="ac-pill">📦 ឥតគិតថ្លៃ &amp; Premium</span>
+    </div>
+    <a href="#courses" class="ac-scroll-hint">scroll <i class="fas fa-chevron-down"></i></a>
+  </div>
+
+  <!-- ═══ MAIN ═══ -->
+  <main class="edu-main" id="courses">
+
+    <!-- ── RECOMMENDED ── -->
+    <div class="edu-section-title">សូមណែនាំមេរៀនពេញនិយម</div>
+
+    <div class="recommended-grid">
+
+      <a class="rec-card" href="#">
+        <div class="rc-icon-box ib-ai">🤖</div>
+        <div class="rc-title">AI Content Creation ជាមួយ ChatGPT & Claude</div>
+        <div class="rc-desc">រៀនបង្កើតមាតិកា ១០ ដង លឿន ជាងមុន ដោយប្រើ AI ដើម្បី Post, Caption, Script, Story ជាភាសាខ្មែរ</div>
+        <div class="rc-meta">⏱ ប្រហែល ៤៥ នាទី</div>
+        <div class="rc-divider"></div>
+        <div class="rc-footer">
+          <span class="card-tag tag-free">ឥតគិតថ្លៃ</span>
+          <span class="rc-btn">ចាប់ផ្ដើម &#8594;</span>
+        </div>
+      </a>
+
+      <a class="rec-card" href="#">
+        <div class="rc-icon-box ib-market">📣</div>
+        <div class="rc-title">ManyChat Auto-Reply សម្រាប់ Facebook Page ខ្មែរ</div>
+        <div class="rc-desc">ដំឡើង bot ឆ្លើយ customer ២៤/៧ ដោយស្វ័យប្រវត្តិ — keyword trigger, flow, និង auto message</div>
+        <div class="rc-meta">⏱ ប្រហែល ៣០ នាទី</div>
+        <div class="rc-divider"></div>
+        <div class="rc-footer">
+          <span class="card-tag tag-free">ឥតគិតថ្លៃ</span>
+          <span class="rc-btn">ចាប់ផ្ដើម &#8594;</span>
+        </div>
+      </a>
+
+      <a class="rec-card" href="#">
+        <div class="rc-icon-box ib-ecom">🛒</div>
+        <div class="rc-title">បង្កើតហាងអនឡាញក្នុង ៣០ ថ្ងៃ ជាមួយ AI &amp; No-Code</div>
+        <div class="rc-desc">ប្រើ AI & No-Code tools ដើម្បីបើកហាង online ផ្ទាល់ខ្លួន ដោយមិនចាំបាច់ code ទាល់តែសោះ</div>
+        <div class="rc-meta">⏱ ប្រហែល ៦០ នាទី</div>
+        <div class="rc-divider"></div>
+        <div class="rc-footer">
+          <span class="card-tag tag-free">ឥតគិតថ្លៃ</span>
+          <span class="rc-btn">ចាប់ផ្ដើម &#8594;</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- ── SEARCH & FILTER SECTION ── -->
+    <div class="codelab-section">
+
+      <div class="edu-section-title">ស្វែងរកមេរៀន</div>
+
+      <div class="codelab-search-wrap">
+        <div class="codelab-search">
+          <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input type="text" id="courseSearch" placeholder="ស្វែងរកមេរៀនទាំងអស់..." oninput="filterCourses()">
+        </div>
+      </div>
+
+      <div class="edu-filter-row">
+
+        <!-- Topic -->
+        <div class="edu-dd" id="dd-topic">
+          <div class="edu-chip" onclick="toggleEduDd('dd-topic')">
+            ប្រធានបទ
+            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="edu-dd-menu">
+            <div class="edu-dd-item" onclick="selectEduFilter('topic','all',this)">ទាំងអស់</div>
+            <div class="edu-dd-item" onclick="selectEduFilter('topic','ai',this)">🤖 AI &amp; Automation</div>
+            <div class="edu-dd-item" onclick="selectEduFilter('topic','design',this)">🎨 Design</div>
+            <div class="edu-dd-item" onclick="selectEduFilter('topic','marketing',this)">📣 Digital Marketing</div>
+            <div class="edu-dd-item" onclick="selectEduFilter('topic','ecom',this)">🛒 eCommerce</div>
+            <div class="edu-dd-item" onclick="selectEduFilter('topic','web',this)">🌐 Web Development</div>
+            <div class="edu-dd-item" onclick="selectEduFilter('topic','data',this)">📊 Data &amp; Analytics</div>
+            <div class="edu-dd-item" onclick="selectEduFilter('topic','biz',this)">💼 Business</div>
+          </div>
+        </div>
+
+        <!-- Format -->
+        <div class="edu-dd" id="dd-format">
+          <div class="edu-chip" onclick="toggleEduDd('dd-format')">
+            ទម្រង់
+            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="edu-dd-menu">
+            <div class="edu-dd-item" onclick="selectEduFilter('format','all',this)">ទាំងអស់</div>
+            <div class="edu-dd-item" onclick="selectEduFilter('format','video',this)">🎬 វីដេអូ</div>
+            <div class="edu-dd-item" onclick="selectEduFilter('format','article',this)">📝 អត្ថបទ</div>
+          </div>
+        </div>
+
+        <!-- Access -->
+        <div class="edu-dd" id="dd-access">
+          <div class="edu-chip" onclick="toggleEduDd('dd-access')">
+            ការចូលប្រើ
+            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </div>
+          <div class="edu-dd-menu">
+            <div class="edu-dd-item" onclick="selectEduFilter('access','all',this)">ទាំងអស់</div>
+            <div class="edu-dd-item" onclick="selectEduFilter('access','free',this)">🟢 ឥតគិតថ្លៃ</div>
+            <div class="edu-dd-item" onclick="selectEduFilter('access','premium',this)">⭐ Premium</div>
+            <div class="edu-dd-item" onclick="selectEduFilter('access','soon',this)">🔒 Coming Soon</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Course accordion list ── -->
+      <div class="course-list" id="courseGrid">
+
+        <!-- 1 -->
+        <div class="cl-item" data-topic="ai design" data-format="video" data-access="free">
+          <div class="cl-header" onclick="toggleCourse(this)">
+            <div class="cl-icon-wrap ib-ai">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" width="28" height="28" loading="lazy" alt="ChatGPT">
+            </div>
+            <div class="cl-meta">
+              <div class="cl-title">Prompt Engineering: RTFT Framework ជាភាសាខ្មែរ</div>
+              <div class="cl-chips">
+                <span class="cl-chip tag-free">ឥតគិតថ្លៃ</span>
+                <span class="cl-chip tag-ai">AI</span>
+              </div>
+            </div>
+            <div class="cl-right">
+              <span class="cl-dur">⏱ ៣០ នាទី</span>
+              <span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></span>
+            </div>
+          </div>
+          <div class="cl-body"><div class="cl-body-inner"><div class="cl-reveal">
+            <p class="cl-desc">រៀនសរសេរ prompt ដោយប្រើក្របខណ្ឌ Role, Task, Format, Tone — ដើម្បីទទួលបានលទ្ធផលល្អពី AI ក្នុងរៀបរយ និងច្បាស់លាស់ ជាភាសាខ្មែរ។</p>
+            <div class="cl-cta-wrap"><a href="#" class="cl-cta">ចាប់ផ្ដើម →</a></div>
+          </div></div></div>
+        </div>
+
+        <!-- 2 -->
+        <div class="cl-item" data-topic="ai design" data-format="video" data-access="free">
+          <div class="cl-header" onclick="toggleCourse(this)">
+            <div class="cl-icon-wrap" style="background:#7d2ae8;">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Canva_Logo.svg" width="28" height="28" loading="lazy" style="object-fit:contain;padding:4px;filter:brightness(10);" alt="Canva">
+            </div>
+            <div class="cl-meta">
+              <div class="cl-title">Canva AI: ដីហ្សាញ Social Media Content ក្នុងពេលតែ ១ ម៉ោង</div>
+              <div class="cl-chips">
+                <span class="cl-chip tag-free">ឥតគិតថ្លៃ</span>
+                <span class="cl-chip tag-ai">AI</span>
+              </div>
+            </div>
+            <div class="cl-right">
+              <span class="cl-dur">⏱ ៦០ នាទី</span>
+              <span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></span>
+            </div>
+          </div>
+          <div class="cl-body"><div class="cl-body-inner"><div class="cl-reveal">
+            <p class="cl-desc">រៀនប្រើ Magic Write, Text to Image, និង Brand Kit ក្នុង Canva AI ដើម្បីបង្កើត post, story, thumbnail — ដោយមិនចាំបាច់មានបទពិសោធន៍ design ទាល់តែសោះ។</p>
+            <div class="cl-cta-wrap"><a href="#" class="cl-cta">ចាប់ផ្ដើម →</a></div>
+          </div></div></div>
+        </div>
+
+        <!-- 3 -->
+        <div class="cl-item" data-topic="marketing" data-format="video" data-access="free">
+          <div class="cl-header" onclick="toggleCourse(this)">
+            <div class="cl-icon-wrap ib-market">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" width="28" height="28" loading="lazy" alt="Facebook">
+            </div>
+            <div class="cl-meta">
+              <div class="cl-title">ManyChat Auto-Reply Setup សម្រាប់ Facebook Page</div>
+              <div class="cl-chips">
+                <span class="cl-chip tag-free">ឥតគិតថ្លៃ</span>
+              </div>
+            </div>
+            <div class="cl-right">
+              <span class="cl-dur">⏱ ៤៥ នាទី</span>
+              <span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></span>
+            </div>
+          </div>
+          <div class="cl-body"><div class="cl-body-inner"><div class="cl-reveal">
+            <p class="cl-desc">ដំឡើង auto-reply, keyword trigger, និង flow ឆ្លើយតបស្វ័យប្រវត្តិ — ឲ្យ Page ឆ្លើយ customer ២៤/៧ ដោយមិនចាំបាច់អង្គុយជាប់ phone។</p>
+            <div class="cl-cta-wrap"><a href="#" class="cl-cta">ចាប់ផ្ដើម →</a></div>
+          </div></div></div>
+        </div>
+
+        <!-- 4 Coming Soon -->
+        <div class="cl-item" data-topic="design" data-format="article" data-access="soon">
+          <div class="cl-header" onclick="toggleCourse(this)">
+            <div class="cl-icon-wrap ib-design" style="font-size:20px;font-weight:800;font-family:serif;color:#c5221f;">Aa</div>
+            <div class="cl-meta">
+              <div class="cl-title">Typography &amp; Brand Identity កម្រិតខ្ពស់សម្រាប់ Creator ខ្មែរ</div>
+              <div class="cl-chips">
+                <span class="cl-chip tag-premium">Premium</span>
+                <span class="cl-chip tag-soon">Coming Soon</span>
+              </div>
+            </div>
+            <div class="cl-right">
+              <span class="cl-dur">ខែ ០៧</span>
+              <span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></span>
+            </div>
+          </div>
+          <div class="cl-body"><div class="cl-body-inner"><div class="cl-reveal">
+            <p class="cl-desc">ស្ថាបត្យកម្ម Typography & Brand System — Logo, Color, Font pairing, Brand Guide ពេញលេញ។ Content នៅក្នុងការរៀបចំ — នឹងចេញ ២០២៥ ខែ ០៧។</p>
+            <div class="cl-cta-wrap"><span class="cl-cta disabled">🔒 មិនទាន់បើក</span></div>
+          </div></div></div>
+        </div>
+
+        <!-- 5 -->
+        <div class="cl-item" data-topic="web" data-format="video" data-access="free">
+          <div class="cl-header" onclick="toggleCourse(this)">
+            <div class="cl-icon-wrap ib-web">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Webflow-Logo.svg" width="32" height="20" loading="lazy" style="object-fit:contain;" alt="Webflow">
+            </div>
+            <div class="cl-meta">
+              <div class="cl-title">បង្កើតគេហទំព័រអាជីវកម្ម ដោយប្រើ No-Code Tools</div>
+              <div class="cl-chips">
+                <span class="cl-chip tag-free">ឥតគិតថ្លៃ</span>
+                <span class="cl-chip tag-web">Website</span>
+              </div>
+            </div>
+            <div class="cl-right">
+              <span class="cl-dur">⏱ ៩០ នាទី</span>
+              <span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></span>
+            </div>
+          </div>
+          <div class="cl-body"><div class="cl-body-inner"><div class="cl-reveal">
+            <p class="cl-desc">ប្រើ Webflow ឬ Netlify drag-and-drop builder ដើម្បីធ្វើ website ស្អាត professional — ដោយមិនចាំបាច់សរសេរ code សូម្បីតែបន្ទាត់តែមួយ។</p>
+            <div class="cl-cta-wrap"><a href="#" class="cl-cta">ចាប់ផ្ដើម →</a></div>
+          </div></div></div>
+        </div>
+
+        <!-- 6 -->
+        <div class="cl-item" data-topic="ecom ai" data-format="video" data-access="premium">
+          <div class="cl-header" onclick="toggleCourse(this)">
+            <div class="cl-icon-wrap ib-ai">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" width="28" height="28" loading="lazy" alt="ChatGPT">
+            </div>
+            <div class="cl-meta">
+              <div class="cl-title">AI-Driven eCommerce: ប្រើ AI សរសេរ Product Description &amp; Ads</div>
+              <div class="cl-chips">
+                <span class="cl-chip tag-premium">Premium</span>
+                <span class="cl-chip tag-ai">AI</span>
+              </div>
+            </div>
+            <div class="cl-right">
+              <span class="cl-dur">⏱ ២ ម៉ោង</span>
+              <span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></span>
+            </div>
+          </div>
+          <div class="cl-body"><div class="cl-body-inner"><div class="cl-reveal">
+            <p class="cl-desc">រៀនប្រើ ChatGPT & Claude AI ដើម្បីសរសេរ product description ទាក់ទាញ, headline ads ខ្លាំង — ក្នុងពេលត្រឹមតែ ២ នាទី ក្នុង ១ product។</p>
+            <div class="cl-cta-wrap"><a href="#" class="cl-cta">ចាប់ផ្ដើម →</a></div>
+          </div></div></div>
+        </div>
+
+        <!-- 7 -->
+        <div class="cl-item" data-topic="data" data-format="video" data-access="free">
+          <div class="cl-header" onclick="toggleCourse(this)">
+            <div class="cl-icon-wrap ib-data">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/GAnalytics.svg" width="28" height="28" loading="lazy" alt="Google Analytics">
+            </div>
+            <div class="cl-meta">
+              <div class="cl-title">Google Analytics 4: អានទិន្នន័យ &amp; សម្រេចចិត្ត</div>
+              <div class="cl-chips">
+                <span class="cl-chip tag-free">ឥតគិតថ្លៃ</span>
+              </div>
+            </div>
+            <div class="cl-right">
+              <span class="cl-dur">⏱ ៧៥ នាទី</span>
+              <span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></span>
+            </div>
+          </div>
+          <div class="cl-body"><div class="cl-body-inner"><div class="cl-reveal">
+            <p class="cl-desc">រៀនអាន dashboard, events, conversion, retention — ដើម្បីយល់ behavior user នៅ website ហើយធ្វើ decision ដោយ Data ជំនួស Feeling។</p>
+            <div class="cl-cta-wrap"><a href="#" class="cl-cta">ចាប់ផ្ដើម →</a></div>
+          </div></div></div>
+        </div>
+
+        <!-- 8 -->
+        <div class="cl-item" data-topic="marketing" data-format="video" data-access="free">
+          <div class="cl-header" onclick="toggleCourse(this)">
+            <div class="cl-icon-wrap ib-market">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Meta_Platforms_Inc._logo.svg" width="32" height="20" loading="lazy" style="object-fit:contain;" alt="Meta">
+            </div>
+            <div class="cl-meta">
+              <div class="cl-title">Meta Ads Strategy ជាមួយ AI: ចំណាយតិច ចំណូលច្រើន</div>
+              <div class="cl-chips">
+                <span class="cl-chip tag-free">ឥតគិតថ្លៃ</span>
+              </div>
+            </div>
+            <div class="cl-right">
+              <span class="cl-dur">Live · ២០ ឧសភា</span>
+              <span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></span>
+            </div>
+          </div>
+          <div class="cl-body"><div class="cl-body-inner"><div class="cl-reveal">
+            <p class="cl-desc">រៀន setup campaign, target audience ត្រឹមត្រូវ, A/B test creative ជាមួយ AI tool — បន្ថយ cost per result និងបង្កើន ROAS ។</p>
+            <div class="cl-cta-wrap"><a href="#" class="cl-cta">ចុះឈ្មោះ →</a></div>
+          </div></div></div>
+        </div>
+
+        <!-- 9 -->
+        <div class="cl-item" data-topic="biz" data-format="video" data-access="premium">
+          <div class="cl-header" onclick="toggleCourse(this)">
+            <div class="cl-icon-wrap ib-biz" style="font-size:10px;font-weight:700;color:#fff;background:#1a73e8;letter-spacing:.3px;">EGD</div>
+            <div class="cl-meta">
+              <div class="cl-title">Startup Growth Playbook: EGD Program &amp; Techo Startup Center</div>
+              <div class="cl-chips">
+                <span class="cl-chip tag-premium">Premium</span>
+              </div>
+            </div>
+            <div class="cl-right">
+              <span class="cl-dur">⏱ ២.៥ ម៉ោង</span>
+              <span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></span>
+            </div>
+          </div>
+          <div class="cl-body"><div class="cl-body-inner"><div class="cl-reveal">
+            <p class="cl-desc">ណែនាំជំហានចុះឈ្មោះ, ទទួលការគ្រប់គ្រង digital, និងភ្ជាប់ជាមួយ DSP partners ក្នុង Enterprises Go Digital ecosystem — ជាមួយ roadmap ១២ ខែ ត្រៀមប្រើបាន។</p>
+            <div class="cl-cta-wrap"><a href="#" class="cl-cta">ចាប់ផ្ដើម →</a></div>
+          </div></div></div>
+        </div>
+
+        <!-- 10 Coming Soon -->
+        <div class="cl-item" data-topic="design ai" data-format="video" data-access="soon">
+          <div class="cl-header" onclick="toggleCourse(this)">
+            <div class="cl-icon-wrap ib-biz" style="font-size:18px;font-weight:900;color:#6200ea;font-family:serif;background:#f3e8fd;">Tg</div>
+            <div class="cl-meta">
+              <div class="cl-title">AI Typographic Design: បង្កើត Font &amp; Layout តាមស្ទីល</div>
+              <div class="cl-chips">
+                <span class="cl-chip tag-premium">Premium</span>
+                <span class="cl-chip tag-soon">Coming Soon</span>
+              </div>
+            </div>
+            <div class="cl-right">
+              <span class="cl-dur">ខែ ០៨</span>
+              <span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></span>
+            </div>
+          </div>
+          <div class="cl-body"><div class="cl-body-inner"><div class="cl-reveal">
+            <p class="cl-desc">រៀនប្រើ AI ដើម្បីបង្កើត font, layout composition, typographic hierarchy — ជា course ដំបូងបង្អស់ក្នុង Cambodia ។ នឹងចេញ ២០២៥ ខែ ០៨។</p>
+            <div class="cl-cta-wrap"><span class="cl-cta disabled">🔒 មិនទាន់បើក</span></div>
+          </div></div></div>
+        </div>
+
+        <!-- 11 -->
+        <div class="cl-item" data-topic="marketing ai" data-format="video" data-access="free">
+          <div class="cl-header" onclick="toggleCourse(this)">
+            <div class="cl-icon-wrap ib-video">
+              <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" width="32" height="20" loading="lazy" style="object-fit:contain;" alt="TikTok">
+            </div>
+            <div class="cl-meta">
+              <div class="cl-title">CapCut AI Video Editing: ធ្វើ Short Video ចេញក្នុង ១០ នាទី</div>
+              <div class="cl-chips">
+                <span class="cl-chip tag-free">ឥតគិតថ្លៃ</span>
+                <span class="cl-chip tag-ai">AI</span>
+              </div>
+            </div>
+            <div class="cl-right">
+              <span class="cl-dur">⏱ ៥០ នាទី</span>
+              <span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></span>
+            </div>
+          </div>
+          <div class="cl-body"><div class="cl-body-inner"><div class="cl-reveal">
+            <p class="cl-desc">Auto caption, AI background, beat sync, template TikTok/Reels — រៀនបង្កើត short video professional ដោយប្រើ CapCut AI លើ mobile phone ធម្មតា។</p>
+            <div class="cl-cta-wrap"><a href="#" class="cl-cta">ចាប់ផ្ដើម →</a></div>
+          </div></div></div>
+        </div>
+
+        <!-- 12 -->
+        <div class="cl-item" data-topic="web" data-format="article" data-access="free">
+          <div class="cl-header" onclick="toggleCourse(this)">
+            <div class="cl-icon-wrap ib-web" style="font-size:20px;">♿</div>
+            <div class="cl-meta">
+              <div class="cl-title">Website Accessibility: ការប្រើប្រាស់ Platform Digital ដោយងាយ</div>
+              <div class="cl-chips">
+                <span class="cl-chip tag-free">ឥតគិតថ្លៃ</span>
+                <span class="cl-chip tag-web">Website</span>
+              </div>
+            </div>
+            <div class="cl-right">
+              <span class="cl-dur">⏱ ២០ នាទី</span>
+              <span class="cl-chev"><svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></span>
+            </div>
+          </div>
+          <div class="cl-body"><div class="cl-body-inner"><div class="cl-reveal">
+            <p class="cl-desc">រៀន WCAG guidelines, keyboard navigation, screen reader, color contrast — ដើម្បីធ្វើ website ដែលគ្រប់គ្នាអាចប្រើបាន ។</p>
+            <div class="cl-cta-wrap"><a href="#" class="cl-cta">ចាប់ផ្ដើម →</a></div>
+          </div></div></div>
+        </div>
+
+      </div>
+      <!-- end course grid -->
+
+      <div id="noResults" style="display:none;text-align:center;padding:48px 24px;color:var(--t3);">
+        <div style="font-size:40px;margin-bottom:12px;">🔍</div>
+        <div style="font-size:16px;font-weight:500;color:var(--t2);margin-bottom:6px;">រកមិនឃើញ</div>
+        <div style="font-size:13px;">សូមសាកល្បងពាក្យស្វែងរក ឬ filter ផ្សេង</div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // ── ACCORDION ──
+    function toggleCourse(header) {
+      const item   = header.closest('.cl-item');
+      const list   = item.closest('.course-list');
+      const isOpen = item.classList.contains('open');
+
+      /* close all */
+      document.querySelectorAll('.cl-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.cl-body').style.removeProperty('grid-template-rows');
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        list.classList.add('has-open');
+        setTimeout(() => item.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 60);
+      } else {
+        list.classList.remove('has-open');
+      }
+    }
+
+    // ── FILTER DROPDOWNS ──
+    function toggleEduDd(id) {
+      const el = document.getElementById(id);
+      const isOpen = el.classList.contains('open');
+      document.querySelectorAll('.edu-dd').forEach(d => d.classList.remove('open'));
+      if (!isOpen) el.classList.add('open');
+    }
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.edu-dd') && !e.target.closest('.cl-header')) {
+        document.querySelectorAll('.edu-dd').forEach(d => d.classList.remove('open'));
+      }
+    });
+
+    // ── FILTER STATE ──
+    const eduFilters = { topic: 'all', format: 'all', access: 'all' };
+    const eduLabels = {
+      topic:  { all:'ប្រធានបទ', ai:'🤖 AI', design:'🎨 Design', marketing:'📣 Marketing', ecom:'🛒 eCommerce', web:'🌐 Web', data:'📊 Data', biz:'💼 Business' },
+      format: { all:'ទម្រង់', video:'🎬 វីដេអូ', article:'📝 អត្ថបទ' },
+      access: { all:'ការចូលប្រើ', free:'🟢 ឥតគិតថ្លៃ', premium:'⭐ Premium', soon:'🔒 Coming Soon' }
+    };
+
+    function selectEduFilter(key, val, el) {
+      eduFilters[key] = val;
+      const dd   = el.closest('.edu-dd');
+      const chip = dd.querySelector('.edu-chip');
+      chip.childNodes[0].textContent = (eduLabels[key][val] || val) + ' ';
+      chip.classList.toggle('active', val !== 'all');
+      dd.querySelectorAll('.edu-dd-item').forEach(i => i.classList.remove('selected'));
+      el.classList.add('selected');
+      dd.classList.remove('open');
+      filterCourses();
+    }
+
+    function filterCourses() {
+      const q     = document.getElementById('courseSearch').value.toLowerCase().trim();
+      const items = document.querySelectorAll('#courseGrid .cl-item');
+      const list  = document.getElementById('courseGrid');
+      let visible = 0;
+
+      items.forEach(item => {
+        const topic  = item.dataset.topic  || '';
+        const format = item.dataset.format || '';
+        const access = item.dataset.access || '';
+        const text   = item.innerText.toLowerCase();
+        const show   =
+          (!q || text.includes(q)) &&
+          (eduFilters.topic  === 'all' || topic.includes(eduFilters.topic)) &&
+          (eduFilters.format === 'all' || format.includes(eduFilters.format)) &&
+          (eduFilters.access === 'all' || access.includes(eduFilters.access));
+
+        item.style.display = show ? '' : 'none';
+        if (!show && item.classList.contains('open')) {
+          item.classList.remove('open');
+          list.classList.remove('has-open');
+        }
+        if (show) visible++;
+      });
+
+      document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+    }
+  </script>
+  <script src="js/load-components.js"></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

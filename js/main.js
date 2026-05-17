@@ -1,5 +1,8 @@
 ﻿// Merge Google Khmer Fonts rendering into main grid only once
-if (window.location.pathname.includes("fonts") || window.location.pathname.includes("yobfont")) {
+if (
+  window.location.pathname.includes("fonts") ||
+  window.location.pathname.includes("yobfont")
+) {
   const googleKhmerFamilies = [
     "Angkor",
     "Battambang",
@@ -209,6 +212,202 @@ if (window.location.pathname.includes("fonts") || window.location.pathname.inclu
     });
   }
 })();
+
+// ═══════════════════════════════════════════════
+// HOMEPAGE — Sticky Horizontal Reel (Recent Works / Store / Academy)
+// ═══════════════════════════════════════════════
+(function () {
+  const reduceMotionQuery = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  );
+  if (reduceMotionQuery.matches) return;
+
+  const DESKTOP_MIN = 901;
+  const STICKY_OFFSET = 120;
+  const EXTRA_RUNWAY = 48;
+  const REEL_SCROLL_DISTANCE = 560;
+  const LERP_FACTOR = 0.085;
+  const ACTIVE_THRESHOLD = 0.74;
+  const LIFT_MAX = 10;
+  const SCALE_BASE = 0.972;
+  const SCALE_BOOST = 0.045;
+
+  const sections = [
+    document.getElementById("recent-works"),
+    document.getElementById("store-latest"),
+    document.getElementById("featured-courses"),
+  ].filter(Boolean);
+
+  if (!sections.length) return;
+
+  const reels = [];
+  let ticking = false;
+  let isEnabled = false;
+
+  function clamp(v, min, max) {
+    return Math.min(max, Math.max(min, v));
+  }
+
+  function ensureProgress(section) {
+    let progress = section.querySelector(".reel-progress");
+    let fill = section.querySelector(".reel-progress-fill");
+    if (!progress) {
+      progress = document.createElement("div");
+      progress.className = "reel-progress";
+      progress.setAttribute("aria-hidden", "true");
+      progress.innerHTML = '<span class="reel-progress-fill"></span>';
+      section.appendChild(progress);
+    }
+    fill = progress.querySelector(".reel-progress-fill");
+    return { progress, fill };
+  }
+
+  function clearInlineState() {
+    sections.forEach((section) => {
+      section.style.removeProperty("min-height");
+      section.style.removeProperty("--reel-progress");
+      section.querySelectorAll(".nom-card").forEach((card) => {
+        card.style.removeProperty("transform");
+        card.style.removeProperty("opacity");
+        card.classList.remove("reel-active");
+      });
+      const fill = section.querySelector(".reel-progress-fill");
+      if (fill) fill.style.transform = "scaleX(0)";
+    });
+  }
+
+  function shouldEnable() {
+    return window.innerWidth >= DESKTOP_MIN && !reduceMotionQuery.matches;
+  }
+
+  function measure() {
+    reels.length = 0;
+
+    isEnabled = shouldEnable();
+    document.body.classList.toggle("reel-enhanced", isEnabled);
+    if (!isEnabled) {
+      clearInlineState();
+      return;
+    }
+
+    sections.forEach((section) => {
+      const track = section.querySelector(".nom-track");
+      if (!track) return;
+
+      const cards = Array.from(track.querySelectorAll(".nom-card"));
+
+      const maxScrollX = Math.max(0, track.scrollWidth - track.clientWidth);
+      if (maxScrollX < 24) return;
+
+      const sectionHeight = window.innerHeight + maxScrollX + EXTRA_RUNWAY;
+      section.style.minHeight = `${Math.round(sectionHeight)}px`;
+
+      const { fill } = ensureProgress(section);
+
+      reels.push({
+        section,
+        track,
+        cards,
+        fill,
+        maxScrollX,
+        reelDistance: REEL_SCROLL_DISTANCE,
+        currentX: track.scrollLeft || 0,
+        targetX: track.scrollLeft || 0,
+      });
+    });
+
+    if (!reels.length) {
+      document.body.classList.remove("reel-enhanced");
+      clearInlineState();
+    }
+  }
+
+  function update() {
+    if (!isEnabled) return;
+
+    let shouldContinue = false;
+
+    reels.forEach((reel) => {
+      const { section, track, cards, fill, maxScrollX, reelDistance } = reel;
+      const rect = section.getBoundingClientRect();
+      const sectionTop = window.scrollY + rect.top;
+      const rawProgress = window.scrollY - sectionTop + STICKY_OFFSET;
+      const sectionProgress = clamp(rawProgress / reelDistance, 0, 1);
+      reel.targetX = sectionProgress * maxScrollX;
+
+      // Lerp easing for smoother cinematic glide.
+      reel.currentX += (reel.targetX - reel.currentX) * LERP_FACTOR;
+      if (Math.abs(reel.targetX - reel.currentX) < 0.35) {
+        reel.currentX = reel.targetX;
+      } else {
+        shouldContinue = true;
+      }
+
+      track.scrollLeft = reel.currentX;
+
+      const progress = maxScrollX > 0 ? reel.currentX / maxScrollX : 0;
+      section.style.setProperty("--reel-progress", progress.toFixed(4));
+      if (fill) {
+        fill.style.transform = `scaleX(${progress.toFixed(4)})`;
+      }
+
+      // Depth emphasis: nearest card to viewport center becomes primary.
+      const trackRect = track.getBoundingClientRect();
+      const centerX = trackRect.left + trackRect.width * 0.5;
+      const isStoreSection = section.id === "store-latest";
+      cards.forEach((card) => {
+        const cRect = card.getBoundingClientRect();
+        const cardCenter = cRect.left + cRect.width * 0.5;
+        const dist = Math.abs(cardCenter - centerX);
+        const proximity = clamp(1 - dist / (trackRect.width * 0.72), 0, 1);
+        const scale = isStoreSection
+          ? 0.985 + proximity * 0.015
+          : SCALE_BASE + proximity * SCALE_BOOST;
+        const lift = isStoreSection ? proximity * 6 : proximity * LIFT_MAX;
+        card.style.transform = `translateY(${-lift.toFixed(2)}px) scale(${scale.toFixed(3)})`;
+        card.style.opacity = String(0.78 + proximity * 0.22);
+        if (proximity > ACTIVE_THRESHOLD) {
+          card.classList.add("reel-active");
+        } else {
+          card.classList.remove("reel-active");
+        }
+      });
+    });
+
+    return shouldContinue;
+  }
+
+  function requestTick() {
+    if (!isEnabled) return;
+    if (ticking) return;
+    ticking = true;
+
+    const step = () => {
+      const keepRunning = update();
+      if (keepRunning && isEnabled) {
+        requestAnimationFrame(step);
+        return;
+      }
+      ticking = false;
+    };
+
+    requestAnimationFrame(step);
+  }
+
+  window.addEventListener("scroll", requestTick, { passive: true });
+  window.addEventListener("resize", () => {
+    measure();
+    requestTick();
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    measure();
+    requestTick();
+  });
+
+  measure();
+  requestTick();
+})();
 /* ═══════════════════════════════════════
    YOB Digital — Main JavaScript
    Author: Yeun Savuth (Babu)
@@ -220,6 +419,19 @@ const hamburger = document.getElementById("hamburger");
 const mobileDrawer = document.getElementById("mobileDrawer");
 const drawerClose = document.getElementById("drawerClose");
 let lastFocusedBeforeDrawer = null;
+
+function resetLegacyDrawerState() {
+  if (!mobileDrawer) return;
+  if (window.innerWidth > 900) {
+    mobileDrawer.classList.remove("open");
+    mobileDrawer.setAttribute("aria-hidden", "true");
+    if (hamburger) {
+      hamburger.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
+    }
+    document.body.style.overflow = "";
+  }
+}
 
 function openDrawer() {
   lastFocusedBeforeDrawer = document.activeElement;
@@ -262,6 +474,10 @@ if (hamburger && mobileDrawer && drawerClose) {
     }
   });
 }
+
+window.addEventListener("resize", resetLegacyDrawerState, { passive: true });
+window.addEventListener("pageshow", resetLegacyDrawerState);
+document.addEventListener("DOMContentLoaded", resetLegacyDrawerState);
 
 // ✅ Mobile Drawer Accordion
 document.querySelectorAll(".drawer-group-toggle").forEach((btn) => {
@@ -335,6 +551,19 @@ if (
       cursorOutline.style.backgroundColor = "transparent";
     });
   });
+
+  // Hide custom cursor on navbar area (use native cursor there).
+  const navForCursor = document.querySelector("nav");
+  if (navForCursor) {
+    navForCursor.addEventListener("mouseenter", () => {
+      cursorDot.style.opacity = "0";
+      cursorOutline.style.opacity = "0";
+    });
+    navForCursor.addEventListener("mouseleave", () => {
+      cursorDot.style.opacity = "1";
+      cursorOutline.style.opacity = "1";
+    });
+  }
 }
 
 // --- Scroll Reveal Animation ---
@@ -350,6 +579,7 @@ const observer = new IntersectionObserver(
   { threshold: 0.1 },
 );
 reveals.forEach((el) => observer.observe(el));
+window._revealObserver = observer;
 
 // ═══════════════════════════════════════════════
 // CONSTELLATION — YOB Digital Hero
@@ -595,51 +825,6 @@ reveals.forEach((el) => observer.observe(el));
 })();
 
 // ═══════════════════════════════════════════════
-// COUNTER ANIMATION — Hero Stats
-// ═══════════════════════════════════════════════
-(function () {
-  const statsBlock = document.getElementById("heroStats");
-  if (!statsBlock) return;
-
-  function toKhmerNum(n) {
-    return String(n).replace(/[0-9]/g, (d) => "០១២៣៤៥៦៧៨៩"[d]);
-  }
-
-  function animateCount(el, target, duration) {
-    const start = performance.now();
-    function step(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      el.textContent = toKhmerNum(Math.round(eased * target));
-      if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = toKhmerNum(target);
-    }
-    requestAnimationFrame(step);
-  }
-
-  let animated = false;
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting && !animated) {
-          animated = true;
-          statsBlock
-            .querySelectorAll(".stat-num[data-target]")
-            .forEach((num) => {
-              const target = parseInt(num.dataset.target, 10);
-              const countEl = num.querySelector(".count-num");
-              if (countEl) animateCount(countEl, target, 1800);
-            });
-        }
-      });
-    },
-    { threshold: 0.4 },
-  );
-  observer.observe(statsBlock);
-})();
-
-// ═══════════════════════════════════════════════
 // SERVICE CHIP SELECTOR — Contact Form
 // ═══════════════════════════════════════════════
 (function () {
@@ -689,95 +874,377 @@ reveals.forEach((el) => observer.observe(el));
 // GLOBAL NAV SEARCH — Cmd+K
 // ═══════════════════════════════════════════════
 (function () {
-
   // ── Search index ──
   const CAT_META = {
-    ai:         { label: 'AI Tools',         color: '#e52c67', bg: 'rgba(229,44,103,0.12)'  },
-    strategy:   { label: 'Strategy',         color: '#4f82ff', bg: 'rgba(79,130,255,0.12)'  },
-    web:        { label: 'Web',              color: '#00f0ff', bg: 'rgba(0,240,255,0.10)'   },
-    typography: { label: 'Typography',       color: '#9b6bff', bg: 'rgba(155,107,255,0.12)' },
-    resource:   { label: 'Resources',        color: '#4ade80', bg: 'rgba(74,222,128,0.10)'  },
-    page:       { label: 'Pages',            color: '#8b949e', bg: 'rgba(139,148,158,0.10)' },
+    ai: { label: "AI Tools", color: "#e52c67", bg: "rgba(229,44,103,0.12)" },
+    strategy: {
+      label: "Strategy",
+      color: "#4f82ff",
+      bg: "rgba(79,130,255,0.12)",
+    },
+    web: { label: "Web", color: "#00f0ff", bg: "rgba(0,240,255,0.10)" },
+    typography: {
+      label: "Typography",
+      color: "#9b6bff",
+      bg: "rgba(155,107,255,0.12)",
+    },
+    resource: {
+      label: "Resources",
+      color: "#4ade80",
+      bg: "rgba(74,222,128,0.10)",
+    },
+    page: { label: "Pages", color: "#8b949e", bg: "rgba(139,148,158,0.10)" },
   };
 
   const INDEX = [
     // Pages
-    { title:'ទំព័រដើម',          desc:'YOB Digital — AI & Digital Skills for Cambodia', cat:'page',       icon:'fa-home',           href:'/',             action:null },
-    { title:'Documentation',      desc:'ឯកសារមេរៀន · AI · Strategy · Web · Typography',  cat:'page',       icon:'fa-book',           href:'/docs',         action:null },
-    { title:'YOB Learning',       desc:'ជំនាញឌីជីថល — Courses & Workshops',               cat:'page',       icon:'fa-graduation-cap', href:'/yob-learning', action:null },
-    { title:'Case Studies',       desc:'Project ជោគជ័យ — Real Cambodian Businesses',      cat:'page',       icon:'fa-chart-bar',      href:'/case-studies', action:null },
-    { title:'YOB Fonts',          desc:'Khmer Font Shop — Premium & Free Fonts',            cat:'typography', icon:'fa-font',           href:'/yobfont',      action:null },
-    { title:'Free Resources',     desc:'Templates, Guides, Checklists — Free Download',    cat:'resource',   icon:'fa-gift',           href:'/resources',    action:null },
-    { title:'About YOB',          desc:'អំពី YOB Digital — Mission & Team',                cat:'page',       icon:'fa-info-circle',    href:'/about',        action:null },
+    {
+      title: "ទំព័រដើម",
+      desc: "YOB Digital — AI & Digital Skills for Cambodia",
+      cat: "page",
+      icon: "fa-home",
+      href: "/",
+      action: null,
+    },
+    {
+      title: "Documentation",
+      desc: "ឯកសារមេរៀន · AI · Strategy · Web · Typography",
+      cat: "page",
+      icon: "fa-book",
+      href: "/docs",
+      action: null,
+    },
+    {
+      title: "YOB Learning",
+      desc: "ជំនាញឌីជីថល — Courses & Workshops",
+      cat: "page",
+      icon: "fa-graduation-cap",
+      href: "/yob-learning",
+      action: null,
+    },
+    {
+      title: "Case Studies",
+      desc: "Project ជោគជ័យ — Real Cambodian Businesses",
+      cat: "page",
+      icon: "fa-chart-bar",
+      href: "/case-studies",
+      action: null,
+    },
+    {
+      title: "YOB Fonts",
+      desc: "Khmer Font Shop — Premium & Free Fonts",
+      cat: "typography",
+      icon: "fa-font",
+      href: "/yobfont",
+      action: null,
+    },
+    {
+      title: "Free Resources",
+      desc: "Templates, Guides, Checklists — Free Download",
+      cat: "resource",
+      icon: "fa-gift",
+      href: "/resources",
+      action: null,
+    },
+    {
+      title: "About YOB",
+      desc: "អំពី YOB Digital — Mission & Team",
+      cat: "page",
+      icon: "fa-info-circle",
+      href: "/about",
+      action: null,
+    },
     // AI Lessons
-    { title:'AI Overview',        desc:'Claude vs ChatGPT vs Gemini · Use cases',          cat:'ai',         icon:'fa-robot',          href:'/docs', action:'ai-overview' },
-    { title:'Prompt Engineering', desc:'RTFT Framework · Templates · Advanced',            cat:'ai',         icon:'fa-terminal',       href:'/docs', action:'prompt-engineering' },
-    { title:'AI Content Creation',desc:'Caption · Blog · Video Script · 30-Day',          cat:'ai',         icon:'fa-pen-nib',        href:'/docs', action:'ai-content' },
-    { title:'AI Tools Directory', desc:'Top 20+ AI tools · Free vs Paid · YOB picks',     cat:'ai',         icon:'fa-toolbox',        href:'/docs', action:'ai-tools-list' },
-    { title:'Automation Guide',   desc:'ManyChat · Zapier · DM Auto-reply · Leads',       cat:'ai',         icon:'fa-cogs',           href:'/docs', action:'automation' },
-    { title:'Automation Setup',   desc:'Make.com · Zapier Workflows · Templates',         cat:'ai',         icon:'fa-sliders-h',      href:'/docs', action:'automation-setup' },
-    { title:'AI Workflow Daily',  desc:'Morning → Content → Review · AI Routine',         cat:'ai',         icon:'fa-project-diagram',href:'/docs', action:'ai-workflow' },
+    {
+      title: "AI Overview",
+      desc: "Claude vs ChatGPT vs Gemini · Use cases",
+      cat: "ai",
+      icon: "fa-robot",
+      href: "/docs",
+      action: "ai-overview",
+    },
+    {
+      title: "Prompt Engineering",
+      desc: "RTFT Framework · Templates · Advanced",
+      cat: "ai",
+      icon: "fa-terminal",
+      href: "/docs",
+      action: "prompt-engineering",
+    },
+    {
+      title: "AI Content Creation",
+      desc: "Caption · Blog · Video Script · 30-Day",
+      cat: "ai",
+      icon: "fa-pen-nib",
+      href: "/docs",
+      action: "ai-content",
+    },
+    {
+      title: "AI Tools Directory",
+      desc: "Top 20+ AI tools · Free vs Paid · YOB picks",
+      cat: "ai",
+      icon: "fa-toolbox",
+      href: "/docs",
+      action: "ai-tools-list",
+    },
+    {
+      title: "Automation Guide",
+      desc: "ManyChat · Zapier · DM Auto-reply · Leads",
+      cat: "ai",
+      icon: "fa-cogs",
+      href: "/docs",
+      action: "automation",
+    },
+    {
+      title: "Automation Setup",
+      desc: "Make.com · Zapier Workflows · Templates",
+      cat: "ai",
+      icon: "fa-sliders-h",
+      href: "/docs",
+      action: "automation-setup",
+    },
+    {
+      title: "AI Workflow Daily",
+      desc: "Morning → Content → Review · AI Routine",
+      cat: "ai",
+      icon: "fa-project-diagram",
+      href: "/docs",
+      action: "ai-workflow",
+    },
     // Strategy
-    { title:'Strategy Overview',  desc:'Full-funnel framework · 3x ROAS blueprint',       cat:'strategy',   icon:'fa-chess',          href:'/docs', action:'strategy-overview' },
-    { title:'Customer Persona',   desc:'Profile Customer · Content Hit · Ads Cost ទាប',   cat:'strategy',   icon:'fa-user-check',     href:'/docs', action:'customer-persona' },
-    { title:'Content Planning',   desc:'Plan ១ ខែ ក្នុង ២ ម៉ោង — AI-powered',             cat:'strategy',   icon:'fa-calendar-alt',   href:'/docs', action:'content-plan' },
-    { title:'Social Media',       desc:'Facebook · TikTok · Algorithm · Posting Time',    cat:'strategy',   icon:'fa-share-alt',      href:'/docs', action:'social-media' },
-    { title:'Facebook Ads Setup', desc:'Campaign · Ad Set · Creative · $5–10/day',        cat:'strategy',   icon:'fa-ad',             href:'/docs', action:'ads-setup' },
-    { title:'Analytics & Data',   desc:'Meta Insights · GA4 · KPIs · Weekly Reports',    cat:'strategy',   icon:'fa-chart-line',     href:'/docs', action:'analytics' },
+    {
+      title: "Strategy Overview",
+      desc: "Full-funnel framework · 3x ROAS blueprint",
+      cat: "strategy",
+      icon: "fa-chess",
+      href: "/docs",
+      action: "strategy-overview",
+    },
+    {
+      title: "Customer Persona",
+      desc: "Profile Customer · Content Hit · Ads Cost ទាប",
+      cat: "strategy",
+      icon: "fa-user-check",
+      href: "/docs",
+      action: "customer-persona",
+    },
+    {
+      title: "Content Planning",
+      desc: "Plan ១ ខែ ក្នុង ២ ម៉ោង — AI-powered",
+      cat: "strategy",
+      icon: "fa-calendar-alt",
+      href: "/docs",
+      action: "content-plan",
+    },
+    {
+      title: "Social Media",
+      desc: "Facebook · TikTok · Algorithm · Posting Time",
+      cat: "strategy",
+      icon: "fa-share-alt",
+      href: "/docs",
+      action: "social-media",
+    },
+    {
+      title: "Facebook Ads Setup",
+      desc: "Campaign · Ad Set · Creative · $5–10/day",
+      cat: "strategy",
+      icon: "fa-ad",
+      href: "/docs",
+      action: "ads-setup",
+    },
+    {
+      title: "Analytics & Data",
+      desc: "Meta Insights · GA4 · KPIs · Weekly Reports",
+      cat: "strategy",
+      icon: "fa-chart-line",
+      href: "/docs",
+      action: "analytics",
+    },
     // Web
-    { title:'Web Overview',       desc:'Website types · Tech stack · When you need one',  cat:'web',        icon:'fa-globe',          href:'/docs', action:'web-overview' },
-    { title:'Landing Page',       desc:'High-converting structure · CTA · Mobile first',  cat:'web',        icon:'fa-file-code',      href:'/docs', action:'landing-page-blueprint' },
-    { title:'HTML Basics',        desc:'Tags · Structure · Semantic HTML · Khmer text',   cat:'web',        icon:'fa-code',           href:'/docs', action:'html-basics' },
-    { title:'GitHub + Netlify',   desc:'Deploy FREE · Version control · Custom domain',   cat:'web',        icon:'fa-server',         href:'/docs', action:'github-netlify' },
-    { title:'LMS Setup',          desc:'Online course · Telegram LMS · Sell knowledge',   cat:'web',        icon:'fa-graduation-cap', href:'/docs', action:'lms-setup' },
+    {
+      title: "Web Overview",
+      desc: "Website types · Tech stack · When you need one",
+      cat: "web",
+      icon: "fa-globe",
+      href: "/docs",
+      action: "web-overview",
+    },
+    {
+      title: "Landing Page",
+      desc: "High-converting structure · CTA · Mobile first",
+      cat: "web",
+      icon: "fa-file-code",
+      href: "/docs",
+      action: "landing-page-blueprint",
+    },
+    {
+      title: "HTML Basics",
+      desc: "Tags · Structure · Semantic HTML · Khmer text",
+      cat: "web",
+      icon: "fa-code",
+      href: "/docs",
+      action: "html-basics",
+    },
+    {
+      title: "GitHub + Netlify",
+      desc: "Deploy FREE · Version control · Custom domain",
+      cat: "web",
+      icon: "fa-server",
+      href: "/docs",
+      action: "github-netlify",
+    },
+    {
+      title: "LMS Setup",
+      desc: "Online course · Telegram LMS · Sell knowledge",
+      cat: "web",
+      icon: "fa-graduation-cap",
+      href: "/docs",
+      action: "lms-setup",
+    },
     // Typography
-    { title:'Fonts Overview',     desc:'Khmer typography · Unicode vs legacy · YOB fonts',cat:'typography', icon:'fa-font',           href:'/docs', action:'fonts-overview' },
-    { title:'Install Fonts',      desc:'Windows · Mac · Mobile · App compatibility',      cat:'typography', icon:'fa-download',       href:'/docs', action:'font-install' },
-    { title:'License Guide',      desc:'Personal vs Commercial · SIL OFL · Credits',      cat:'typography', icon:'fa-file-contract',  href:'/docs', action:'font-license' },
-    { title:'Khmer Keyboard Setup',desc:'NiDA layout · Win/Mac/Android/iOS · Practice',  cat:'typography', icon:'fa-keyboard',       href:'/docs', action:'font-setup' },
+    {
+      title: "Fonts Overview",
+      desc: "Khmer typography · Unicode vs legacy · YOB fonts",
+      cat: "typography",
+      icon: "fa-font",
+      href: "/docs",
+      action: "fonts-overview",
+    },
+    {
+      title: "Install Fonts",
+      desc: "Windows · Mac · Mobile · App compatibility",
+      cat: "typography",
+      icon: "fa-download",
+      href: "/docs",
+      action: "font-install",
+    },
+    {
+      title: "License Guide",
+      desc: "Personal vs Commercial · SIL OFL · Credits",
+      cat: "typography",
+      icon: "fa-file-contract",
+      href: "/docs",
+      action: "font-license",
+    },
+    {
+      title: "Khmer Keyboard Setup",
+      desc: "NiDA layout · Win/Mac/Android/iOS · Practice",
+      cat: "typography",
+      icon: "fa-keyboard",
+      href: "/docs",
+      action: "font-setup",
+    },
     // Resources
-    { title:'FAQ',                desc:'Common Questions & Answers',                       cat:'resource',   icon:'fa-question-circle',href:'/docs', action:'faq' },
-    { title:'Changelog',          desc:'Site updates · New features · Improvements',      cat:'resource',   icon:'fa-list',           href:'/docs', action:'changelog' },
+    {
+      title: "FAQ",
+      desc: "Common Questions & Answers",
+      cat: "resource",
+      icon: "fa-question-circle",
+      href: "/docs",
+      action: "faq",
+    },
+    {
+      title: "Changelog",
+      desc: "Site updates · New features · Improvements",
+      cat: "resource",
+      icon: "fa-list",
+      href: "/docs",
+      action: "changelog",
+    },
   ];
 
   // ── State ──
-  let activeFilter = 'all';
-  let activeIndex  = -1;
+  let activeFilter = "all";
+  let activeIndex = -1;
   let filteredItems = [];
+
+  // Resolve legacy search routes to current site pages.
+  const SEARCH_ROUTE_MAP = {
+    "/": "index.html",
+    "/docs": "lessons/getting-started.html",
+    "/yob-learning": "yobacademy.html",
+    "/case-studies": "portfolio.html",
+    "/yobfont": "shop.html",
+    "/resources": "shop.html",
+    "/about": "about.html",
+    "/contact": "contact.html",
+    "/shop": "shop.html",
+    "/yobservice": "yobservice.html",
+    "/yobacademy": "yobacademy.html",
+  };
+
+  function resolveSearchHref(item) {
+    if (item.action) return `lessons/${item.action}.html`;
+    if (!item.href) return "index.html";
+
+    const href = item.href.trim();
+    if (SEARCH_ROUTE_MAP[href]) return SEARCH_ROUTE_MAP[href];
+    if (/^https?:\/\//i.test(href) || href.startsWith("#")) return href;
+
+    if (href.startsWith("/")) {
+      const slug = href.replace(/^\/+/, "");
+      return slug ? `${slug}.html` : "index.html";
+    }
+    return href;
+  }
+
+  // ── Search modal state reset (bfcache / navigation restore guard) ──
+  function resetSearchModalState() {
+    const modal = document.getElementById("navSearchModal");
+    if (!modal) return;
+    modal.classList.remove("open");
+    modal.style.display = "";
+    document.body.style.overflow = "";
+  }
 
   // ── Open / close ──
   window.openNavSearch = function () {
-    const modal = document.getElementById('navSearchModal');
+    const modal = document.getElementById("navSearchModal");
     if (!modal) return;
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    activeFilter = 'all';
-    activeIndex  = -1;
-    document.querySelectorAll('.nsm-filter').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+    modal.style.display = "flex";
+    requestAnimationFrame(function () {
+      modal.classList.add("open");
+    });
+    document.body.style.overflow = "hidden";
+    activeFilter = "all";
+    activeIndex = -1;
+    document
+      .querySelectorAll(".nsm-filter")
+      .forEach((b) => b.classList.toggle("active", b.dataset.filter === "all"));
     setTimeout(() => {
-      const inp = document.getElementById('nsmInput');
-      if (inp) { inp.value = ''; inp.focus(); }
-      renderResults('');
+      const inp = document.getElementById("nsmInput");
+      if (inp) {
+        inp.value = "";
+        inp.focus();
+      }
+      renderResults("");
     }, 60);
   };
 
   function closeSearch() {
-    const modal = document.getElementById('navSearchModal');
+    const modal = document.getElementById("navSearchModal");
     if (!modal) return;
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+    setTimeout(function () {
+      if (!modal.classList.contains("open")) {
+        modal.style.display = "";
+      }
+    }, 220);
   }
 
   // ── Filter & render ──
   function renderResults(query) {
     const q = query.toLowerCase().trim();
     let items = INDEX;
-    if (activeFilter !== 'all') items = items.filter(i => i.cat === activeFilter);
+    if (activeFilter !== "all")
+      items = items.filter((i) => i.cat === activeFilter);
     if (q) {
-      items = items.filter(i =>
-        i.title.toLowerCase().includes(q) ||
-        i.desc.toLowerCase().includes(q) ||
-        i.cat.toLowerCase().includes(q)
+      items = items.filter(
+        (i) =>
+          i.title.toLowerCase().includes(q) ||
+          i.desc.toLowerCase().includes(q) ||
+          i.cat.toLowerCase().includes(q),
       );
     } else {
       items = items.slice(0, 10);
@@ -785,31 +1252,41 @@ reveals.forEach((el) => observer.observe(el));
     filteredItems = items;
     activeIndex = -1;
 
-    const container = document.getElementById('nsmResults');
-    const empty     = document.getElementById('nsmEmpty');
+    const container = document.getElementById("nsmResults");
+    const empty = document.getElementById("nsmEmpty");
     if (!container) return;
 
     if (!items.length) {
-      container.innerHTML = '';
-      if (empty) { empty.style.display = 'flex'; }
+      container.innerHTML = "";
+      if (empty) {
+        empty.style.display = "flex";
+      }
       return;
     }
-    if (empty) empty.style.display = 'none';
+    if (empty) empty.style.display = "none";
 
     // Group by category
     const groups = {};
-    items.forEach(item => {
+    items.forEach((item) => {
       if (!groups[item.cat]) groups[item.cat] = [];
       groups[item.cat].push(item);
     });
 
-    let html = '';
+    let html = "";
     Object.entries(groups).forEach(([cat, catItems]) => {
-      const meta = CAT_META[cat] || { label: cat, color: '#8b949e', bg: 'rgba(139,148,158,0.1)' };
+      const meta = CAT_META[cat] || {
+        label: cat,
+        color: "#8b949e",
+        bg: "rgba(139,148,158,0.1)",
+      };
       html += `<div class="nsm-group-label">${meta.label}</div>`;
       catItems.forEach((item, i) => {
         const globalIdx = filteredItems.indexOf(item);
-        const badgeType = item.action ? 'Lesson' : (item.cat === 'page' ? 'Page' : 'Resource');
+        const badgeType = item.action
+          ? "Lesson"
+          : item.cat === "page"
+            ? "Page"
+            : "Resource";
         html += `<div class="nsm-item" data-idx="${globalIdx}" onclick="selectResult(${globalIdx})">
           <div class="nsm-item-icon" style="background:${meta.bg};color:${meta.color}">
             <i class="fas ${item.icon}"></i>
@@ -828,94 +1305,115 @@ reveals.forEach((el) => observer.observe(el));
 
   function highlightMatch(text, query) {
     if (!query || !query.trim()) return text;
-    const re = new RegExp('(' + query.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
-    return text.replace(re, '<mark style="background:rgba(229,44,103,0.25);color:inherit;border-radius:2px;padding:0 1px">$1</mark>');
+    const re = new RegExp(
+      "(" + query.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")",
+      "gi",
+    );
+    return text.replace(
+      re,
+      '<mark style="background:rgba(229,44,103,0.25);color:inherit;border-radius:2px;padding:0 1px">$1</mark>',
+    );
   }
 
   window.selectResult = function (idx) {
     const item = filteredItems[idx];
     if (!item) return;
     closeSearch();
+
     if (item.action) {
-      // Navigate to docs and load lesson
-      if (window.loadPage && document.getElementById('docsMain')) {
+      if (window.loadPage && document.getElementById("docsMain")) {
         loadPage(item.action);
       } else {
-        sessionStorage.setItem('yob_open_lesson', item.action);
-        window.location.href = item.href;
+        window.location.href = resolveSearchHref(item);
       }
     } else {
-      window.location.href = item.href;
+      window.location.href = resolveSearchHref(item);
     }
   };
 
   // Auto-open lesson if navigated from search
   (function () {
-    const lesson = sessionStorage.getItem('yob_open_lesson');
+    const lesson = sessionStorage.getItem("yob_open_lesson");
     if (lesson && window.loadPage) {
-      sessionStorage.removeItem('yob_open_lesson');
+      sessionStorage.removeItem("yob_open_lesson");
       setTimeout(() => loadPage(lesson), 400);
     }
   })();
 
   // ── Keyboard navigation ──
   function setActiveItem(idx) {
-    const items = document.querySelectorAll('.nsm-item');
-    items.forEach(el => el.classList.remove('nsm-active'));
+    const items = document.querySelectorAll(".nsm-item");
+    items.forEach((el) => el.classList.remove("nsm-active"));
     if (idx >= 0 && idx < items.length) {
-      items[idx].classList.add('nsm-active');
-      items[idx].scrollIntoView({ block: 'nearest' });
+      items[idx].classList.add("nsm-active");
+      items[idx].scrollIntoView({ block: "nearest" });
     }
     activeIndex = idx;
   }
 
-  document.addEventListener('keydown', function (e) {
-    const modal = document.getElementById('navSearchModal');
-    const isOpen = modal && modal.classList.contains('open');
+  document.addEventListener("keydown", function (e) {
+    const modal = document.getElementById("navSearchModal");
+    const isOpen = modal && modal.classList.contains("open");
 
     // Cmd/Ctrl+K to open
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    if ((e.metaKey || e.ctrlKey) && e.key === "k") {
       e.preventDefault();
       isOpen ? closeSearch() : openNavSearch();
       return;
     }
     if (!isOpen) return;
 
-    if (e.key === 'Escape') { closeSearch(); return; }
+    if (e.key === "Escape") {
+      closeSearch();
+      return;
+    }
 
-    const items = document.querySelectorAll('.nsm-item');
-    if (e.key === 'ArrowDown') {
+    const items = document.querySelectorAll(".nsm-item");
+    if (e.key === "ArrowDown") {
       e.preventDefault();
       setActiveItem(Math.min(activeIndex + 1, items.length - 1));
-    } else if (e.key === 'ArrowUp') {
+    } else if (e.key === "ArrowUp") {
       e.preventDefault();
       setActiveItem(Math.max(activeIndex - 1, 0));
-    } else if (e.key === 'Enter' && activeIndex >= 0) {
+    } else if (e.key === "Enter" && activeIndex >= 0) {
       e.preventDefault();
       selectResult(activeIndex);
     }
   });
 
+  // Delegated click: nav is injected dynamically, so bind at document level.
+  document.addEventListener("click", function (e) {
+    const btn = e.target.closest("#navSearchBtn");
+    if (!btn) return;
+    e.preventDefault();
+    openNavSearch();
+  });
+
   // ── Event wiring (runs after DOM ready) ──
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    resetSearchModalState();
+
     // Input
-    const inp = document.getElementById('nsmInput');
-    if (inp) inp.addEventListener('input', () => renderResults(inp.value));
+    const inp = document.getElementById("nsmInput");
+    if (inp) inp.addEventListener("input", () => renderResults(inp.value));
 
     // Filter pills
-    document.querySelectorAll('.nsm-filter').forEach(btn => {
-      btn.addEventListener('click', () => {
+    document.querySelectorAll(".nsm-filter").forEach((btn) => {
+      btn.addEventListener("click", () => {
         activeFilter = btn.dataset.filter;
-        document.querySelectorAll('.nsm-filter').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const q = document.getElementById('nsmInput');
-        renderResults(q ? q.value : '');
+        document
+          .querySelectorAll(".nsm-filter")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        const q = document.getElementById("nsmInput");
+        renderResults(q ? q.value : "");
       });
     });
 
     // Backdrop click
-    const backdrop = document.getElementById('nsmBackdrop');
-    if (backdrop) backdrop.addEventListener('click', closeSearch);
+    const backdrop = document.getElementById("nsmBackdrop");
+    if (backdrop) backdrop.addEventListener("click", closeSearch);
   });
 
+  window.addEventListener("pageshow", resetSearchModalState);
 })();

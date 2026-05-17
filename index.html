@@ -61,9 +61,18 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       />
     </noscript>
+
+    <!-- GSAP + ScrollTrigger (defer — non-blocking) -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+      defer
     ></script>
 
-    <link rel="stylesheet" href="css/style.css?v=2" />
+    <link rel="stylesheet" href="css/style.css?v=3" />
     <style>
       :root {
         --yt-red: #ff0000;
@@ -75,10 +84,58 @@
         --green-free: #4ade80;
       }
 
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
+      /* ── LOADING SCREEN ── */
+      .yob-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: #080b10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: yl-overlay-fade 2.4s cubic-bezier(0.4, 0, 0.6, 1) forwards;
+        pointer-events: none;
+      }
+      @keyframes yl-overlay-fade {
+        0%, 55% { opacity: 1; pointer-events: auto; }
+        100%    { opacity: 0; }
+      }
+      .yl-moon {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 38% 35%,
+          #ffffff 0%,
+          rgba(255,255,255,0.88) 18%,
+          rgba(229,44,103,0.85) 46%,
+          rgba(229,44,103,0.35) 70%,
+          transparent 100%
+        );
+        box-shadow:
+          0 0 60px rgba(229,44,103,0.55),
+          0 0 140px rgba(229,44,103,0.25),
+          0 0 280px rgba(229,44,103,0.1);
+        animation: yl-moon-expand 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      @keyframes yl-moon-expand {
+        0%   { transform: scale(0.08); opacity: 0; }
+        14%  { opacity: 1; }
+        52%  { transform: scale(1);  opacity: 1; }
+        100% { transform: scale(14); opacity: 0; }
+      }
+
       /* Homepage hero layout — gap & column constraints */
       .hero-container {
-        gap: clamp(48px, 6vw, 96px) !important;
+        gap: 56px !important;
         align-items: center !important;
+        justify-content: center !important;
+        max-width: 1100px !important;
       }
       .hero-content {
         flex: 0 1 520px;
@@ -86,86 +143,199 @@
       }
 
       /* Homepage hero typography tuning */
-      .hero-badge {
-        font-family: var(--fb) !important;
-        font-size: 13px !important;
-        padding: 9px 18px !important;
-      }
       .hero-headline {
-        font-size: clamp(36px, 5.4vw, 68px) !important;
-        line-height: 1.32 !important;
+        font-size: clamp(34px, 4.5vw, 64px) !important;
+        line-height: 1.4 !important;
         letter-spacing: 0 !important;
+        margin-bottom: 20px !important;
       }
       .hero-sub {
         font-family: var(--fb) !important;
-        font-size: clamp(16px, 1.7vw, 19px) !important;
-        line-height: 1.85 !important;
-        max-width: 480px !important;
-      }
-      .stat-num {
-        font-size: clamp(32px, 3vw, 40px) !important;
-      }
-      .stat-lbl {
-        font-family: var(--fb) !important;
-        font-size: 14px !important;
+        font-size: clamp(15px, 1.6vw, 19px) !important;
+        line-height: 1.9 !important;
+        max-width: 520px !important;
+        color: var(--gray) !important;
       }
 
+      /* Moon size override for homepage hero */
+      #hero .singularity-wrapper {
+        --moon-size: 420px;
+        width: 420px !important;
+        height: 420px !important;
+      }
       /* ══ SCROLL PROGRESS BAR ══ */
       #yob-progress {
         position: fixed;
-        top: 0; left: 0;
+        top: 0;
+        left: 0;
         width: 0%;
-        height: 3px;
-        background: linear-gradient(90deg, var(--gold), #9b6bff, #00f0ff);
+        height: 2px;
+        background: var(--gold);
         z-index: 9999;
         pointer-events: none;
-        box-shadow: 0 0 12px rgba(229,44,103,0.55), 0 0 28px rgba(229,44,103,0.22);
         transition: width 0.08s linear;
       }
 
-      /* ── HERO SECONDARY CTA — text-link style, clearly subordinate ── */
+      /* ── Orbit Text CTA ── */
+      .mot-link {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 600px;
+        height: 600px;
+        transform: translate(-50%, -50%);
+        display: block;
+        text-decoration: none;
+        animation: mot-spin 18s linear infinite;
+        pointer-events: auto;
+        cursor: pointer;
+      }
+      .mot-svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+      }
+      .mot-text {
+        fill: rgba(255, 255, 255, 0.45);
+        font-family: var(--fk);
+        font-size: 13px;
+        letter-spacing: 2.5px;
+        transition: fill 0.3s ease;
+      }
+      .mot-link:hover {
+        animation-play-state: paused;
+      }
+      .mot-link:hover .mot-text {
+        fill: var(--gold);
+      }
+      @keyframes mot-spin {
+        from { transform: translate(-50%, -50%) rotate(0deg); }
+        to   { transform: translate(-50%, -50%) rotate(360deg); }
+      }
+      @media (max-width: 900px) {
+        .mot-link { display: none; }
+      }
+
+      /* ── HERO EYEBROW BADGE ── */
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px 6px 10px;
+        border-radius: 50px;
+        border: 1px solid rgba(229, 44, 103, 0.35);
+        background: rgba(229, 44, 103, 0.08);
+        margin-bottom: 20px;
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gold);
+        letter-spacing: 0.3px;
+      }
+      .hero-eyebrow-dot {
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+        animation: eyebrow-pulse 2s ease-in-out infinite;
+        flex-shrink: 0;
+      }
+      @keyframes eyebrow-pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50%       { opacity: 0.4; transform: scale(0.7); }
+      }
+
+      /* ── HERO SECONDARY CTA — animated underline ── */
       .hero-secondary-cta {
         display: inline-flex;
         align-items: center;
-        gap: 7px;
+        gap: 8px;
         font-family: var(--fb);
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 600;
-        color: var(--gray);
+        color: var(--white);
         text-decoration: none;
-        padding: 12px 4px;
-        transition: color var(--t), gap var(--t);
+        padding: 4px 0 6px;
+        position: relative;
+      }
+      .hero-secondary-cta::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1.5px;
+        background: var(--gold);
+        transform: scaleX(0);
+        transform-origin: left center;
+        border-radius: 999px;
+        transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .hero-secondary-cta:hover::after {
+        transform: scaleX(1);
       }
       .hero-secondary-cta i {
         font-size: 11px;
+        color: var(--gold);
         transition: transform var(--t);
       }
-      .hero-secondary-cta:hover {
-        color: var(--white);
-        gap: 11px;
-      }
       .hero-secondary-cta:hover i {
-        transform: translateX(3px);
+        transform: translateX(5px);
       }
 
-      /* ══ HERO ENTRANCE STAGGER (works with existing .reveal system) ══ */
-      .hero-badge.visible     { transition-delay: 0s !important; }
-      .hero-headline.visible  { transition-delay: 0.12s !important; }
-      .hero-sub.visible       { transition-delay: 0.22s !important; }
-      .hero-actions.visible   { transition-delay: 0.32s !important; }
-      .hero-stats.visible     { transition-delay: 0.42s !important; }
+      /* ══ HERO ENTRANCE STAGGER ══ */
+      .hero-badge.visible {
+        transition-delay: 0s !important;
+      }
+      .hero-headline.visible {
+        transition-delay: 0.12s !important;
+      }
+      .hero-sub.visible {
+        transition-delay: 0.22s !important;
+      }
+      .hero-actions.visible {
+        transition-delay: 0.32s !important;
+      }
+      .hero-stats.visible {
+        transition-delay: 0.42s !important;
+      }
+
+      /* Keep homepage hero painted even if reveal state or moon phase JS is delayed */
+      #hero .hero-badge,
+      #hero .hero-headline,
+      #hero .hero-sub,
+      #hero .hero-actions,
+      #hero .hero-moon-side,
+      #hero .singularity-wrapper,
+      #hero .moon-body {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none;
+      }
 
       /* ══ SECTION HEADER CHILDREN STAGGER ══
          Parent .section-header.reveal fades in; children slide up inside it.
          Using transform-only (no opacity conflict with parent fade). */
-      .section-header.reveal .section-tag   { transform: translateY(10px); transition: transform 0.55s cubic-bezier(0.16,1,0.3,1) 0.18s; }
-      .section-header.reveal .section-title { transform: translateY(20px); transition: transform 0.7s  cubic-bezier(0.16,1,0.3,1) 0.32s; }
+      .section-header.reveal .section-tag {
+        transform: translateY(10px);
+        transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.18s;
+      }
+      .section-header.reveal .section-title {
+        transform: translateY(20px);
+        transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.32s;
+      }
       .section-header.visible .section-tag,
-      .section-header.visible .section-title { transform: none; }
+      .section-header.visible .section-title {
+        transform: none;
+      }
 
       /* ══ COUNTER ══ */
-      .count-num { display: inline; }
+      .count-num {
+        display: inline;
+      }
       @media (max-width: 768px) {
+        .hero-container {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
         .hero-headline {
           font-size: clamp(30px, 8vw, 40px) !important;
           line-height: 1.28 !important;
@@ -204,13 +374,13 @@
         background: var(--yt-red-bg);
       }
       .res-pi-purple {
-        background: linear-gradient(135deg, #1a0a2e, #3d1060);
+        background: #0d0a18;
       }
       .res-pi-blue {
-        background: linear-gradient(135deg, #0a1a2e, #103d60);
+        background: #080b14;
       }
       .res-pi-pink {
-        background: linear-gradient(135deg, #1a0a10, #60103d);
+        background: #100810;
       }
 
       /* ── YEVA z-index: keep YEVA inside moon stacking context ── */
@@ -708,10 +878,18 @@
         margin-bottom: 16px;
         animation: fadeInUp-cf 0.35s ease;
       }
-      .cf-captcha-wrap.visible { display: block; }
+      .cf-captcha-wrap.visible {
+        display: block;
+      }
       @keyframes fadeInUp-cf {
-        from { opacity: 0; transform: translateY(8px); }
-        to   { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       /* Textarea label small hint */
@@ -742,8 +920,14 @@
         animation: successPop 0.5s cubic-bezier(0.16, 1, 0.3, 1);
       }
       @keyframes successPop {
-        0%   { opacity: 0; transform: scale(0.88); }
-        100% { opacity: 1; transform: scale(1); }
+        0% {
+          opacity: 0;
+          transform: scale(0.88);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
       }
       .cf-success-icon {
         font-size: 52px;
@@ -763,7 +947,9 @@
         color: var(--gray);
         margin-bottom: 20px;
       }
-      .cf-success-sub strong { color: var(--white); }
+      .cf-success-sub strong {
+        color: var(--white);
+      }
       .cf-success-tg {
         display: inline-flex;
         align-items: center;
@@ -810,14 +996,37 @@
       }
 
       /* ── SAVUTH FONTS — loaded for typography teaser panels ── */
-      @font-face { font-family: 'Khmer Savuth'; src: url('font/Savuth%20Font/khmer%20Savuth.ttf') format('truetype'); font-display: swap; }
-      @font-face { font-family: 'Sem Sarun';    src: url('font/Savuth%20Font/Khmer%20Sem%20Sarun.ttf') format('truetype'); font-display: swap; }
-      @font-face { font-family: 'Savuth Brush'; src: url('font/Savuth%20Font/khmer%20Savuth%20Brush.ttf') format('truetype'); font-display: swap; }
+      @font-face {
+        font-family: "Khmer Savuth";
+        src: url("font/Savuth%20Font/khmer%20Savuth.ttf") format("truetype");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Sem Sarun";
+        src: url("font/Savuth%20Font/Khmer%20Sem%20Sarun.ttf")
+          format("truetype");
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Savuth Brush";
+        src: url("font/Savuth%20Font/khmer%20Savuth%20Brush.ttf")
+          format("truetype");
+        font-display: swap;
+      }
 
       /* Panel specimen font overrides */
-      .sp-panel--1 .sp-text { font-family: 'Khmer Savuth', var(--fk), sans-serif; text-transform: none; letter-spacing: 0; }
-      .sp-panel--2 .sp-text { font-family: 'Sem Sarun',    var(--fk), sans-serif; }
-      .sp-panel--3 .sp-text { font-family: 'Savuth Brush', var(--fk), sans-serif; font-style: normal; }
+      .sp-panel--1 .sp-text {
+        font-family: "Khmer Savuth", var(--fk), sans-serif;
+        text-transform: none;
+        letter-spacing: 0;
+      }
+      .sp-panel--2 .sp-text {
+        font-family: "Sem Sarun", var(--fk), sans-serif;
+      }
+      .sp-panel--3 .sp-text {
+        font-family: "Savuth Brush", var(--fk), sans-serif;
+        font-style: normal;
+      }
 
       /* ══════════════════════════════════════════════════
          BLACK HOLE — Interstellar Singularity v2
@@ -1794,16 +2003,6 @@
             );
       }
 
-      /* Layer 3 — Fixed star canvas */
-      #home-star-canvas {
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        pointer-events: none;
-        width: 100%;
-        height: 100%;
-      }
-
       /* ── Hide blobs — replaced by cosmic nebula ── */
       .blob {
         display: none !important;
@@ -2022,11 +2221,757 @@
           padding: 12px 14px;
         }
       }
+
+      /* ════════════════════════════════════════════════════
+         HOMEPAGE SECTIONS #2–#5 — Unified Design System
+         Dark · Editorial · Moon Night concept
+         One card language · One hover pattern · One accent
+      ════════════════════════════════════════════════════ */
+
+      /* ── Shared: section rhythm ── */
+      .nom-section,
+      .store-section,
+      .academy-section {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      #contact {
+        background: var(--dark2) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+      }
+
+      /* Contact quick-facts */
+      .contact-facts {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: 32px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .contact-fact {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .contact-fact-icon {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        font-size: 15px;
+        color: var(--gold);
+      }
+      .contact-fact div {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .contact-fact strong {
+        font-family: var(--fb);
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--white);
+      }
+      .contact-fact span {
+        font-family: var(--fb);
+        font-size: 13px;
+        color: var(--gray);
+      }
+      /* Headline color fix (no gradient-text) */
+      .contact-headline span {
+        color: var(--gold);
+      }
+
+      /* ── Shared: section header line ── */
+      .nom-header,
+      .rw-header,
+      .ac-feat-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      }
+
+      /* ── Shared: "view all" link ── */
+      .sec-link {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--fb);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gray);
+        text-decoration: none;
+        padding-bottom: 2px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        transition:
+          color var(--t),
+          gap var(--t),
+          border-color var(--t);
+        white-space: nowrap;
+      }
+      .sec-link:hover {
+        color: var(--white);
+        gap: 14px;
+        border-color: var(--gold);
+      }
+      .sec-link i {
+        font-size: 11px;
+      }
+
+      /* ─────────────────────────────
+         #2 — RECENT WORKS
+      ───────────────────────────────*/
+      .nom-section {
+        padding: 96px 0 100px;
+        background: var(--dark);
+        overflow: hidden;
+      }
+      .nom-header {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 5%;
+        flex-direction: row;
+        align-items: flex-end;
+        text-align: left;
+      }
+      .nom-header-left {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Header alignment variants */
+      .nom-header--center {
+        justify-content: center;
+        text-align: center;
+      }
+      .nom-header--right {
+        justify-content: flex-end;
+        text-align: right;
+      }
+      .nom-eyebrow {
+        display: block;
+        font-family: var(--fb);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 10px;
+      }
+      .nom-title {
+        font-family: var(--fh);
+        font-size: clamp(48px, 7vw, 96px);
+        color: var(--white);
+        margin: 0;
+        line-height: 0.95;
+        letter-spacing: -2px;
+      }
+
+      /* Horizontal scroll track */
+      .nom-track {
+        display: flex;
+        gap: 0;
+        padding: 48px 5% 0;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        cursor: grab;
+      }
+      .nom-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Card */
+      .nom-card {
+        flex-shrink: 0;
+        width: clamp(300px, 30vw, 420px);
+        height: clamp(420px, 46vw, 540px);
+        border-radius: 0;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        scroll-snap-align: start;
+        background: var(--dark2);
+        border-right: 1px solid rgba(255, 255, 255, 0.07);
+        transition: background var(--t);
+      }
+      .nom-card:first-child {
+        border-left: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .nom-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: var(--gold);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 5;
+      }
+      .nom-card:hover::before {
+        transform: scaleX(1);
+      }
+      .nom-card:hover {
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      /* Image */
+      .nom-bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition:
+          transform var(--smooth),
+          filter 0.4s;
+        filter: brightness(0.65);
+      }
+      .nom-card:hover .nom-bg {
+        transform: scale(1.04);
+        filter: brightness(0.45);
+      }
+
+      /* Placeholder — unified dark gradient base */
+      .nom-bg-placeholder {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: linear-gradient(
+          145deg,
+          #0d1117 0%,
+          #080b10 60%,
+          #050709 100%
+        );
+      }
+      /* Section accent glow (top-right corner) */
+      .nom-section .nom-bg-placeholder::after,
+      .store-section .nom-bg-placeholder::after,
+      .academy-section .nom-bg-placeholder::after {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        pointer-events: none;
+        transition: opacity 0.5s;
+        opacity: 0.55;
+      }
+      .nom-section .nom-bg-placeholder::after {
+        background: radial-gradient(
+          circle,
+          rgba(229, 44, 103, 0.18) 0%,
+          transparent 70%
+        );
+      }
+      .store-section .nom-bg-placeholder::after {
+        background: radial-gradient(
+          circle,
+          rgba(229, 44, 103, 0.22) 0%,
+          transparent 70%
+        );
+      }
+      .academy-section .nom-bg-placeholder::after {
+        background: radial-gradient(
+          circle,
+          rgba(100, 120, 255, 0.22) 0%,
+          transparent 70%
+        );
+      }
+      .nom-card:hover .nom-bg-placeholder::after {
+        opacity: 1;
+      }
+
+      /* Unified large number watermark */
+      .nom-card-num-bg {
+        font-family: var(--fh);
+        font-size: clamp(130px, 18vw, 200px);
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.035);
+        letter-spacing: -8px;
+        line-height: 1;
+        user-select: none;
+        transition:
+          color 0.5s var(--smooth),
+          transform 0.6s var(--smooth);
+        position: relative;
+        z-index: 1;
+      }
+      .nom-card:hover .nom-card-num-bg {
+        color: rgba(229, 44, 103, 0.07);
+        transform: scale(1.06) translateY(-6px);
+      }
+      .academy-section .nom-card:hover .nom-card-num-bg {
+        color: rgba(100, 120, 255, 0.09);
+      }
+
+      /* Top row */
+      .nom-top {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        z-index: 2;
+      }
+      .nom-num {
+        font-family: var(--fh);
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        color: rgba(255, 255, 255, 0.4);
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(8px);
+        padding: 5px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .nom-tag {
+        font-family: var(--fb);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        color: var(--gray);
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .nom-tag.done {
+        color: var(--gold);
+        border-color: rgba(229, 44, 103, 0.3);
+        background: rgba(229, 44, 103, 0.08);
+      }
+
+      /* Bottom overlay — always visible */
+      .nom-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 80px 24px 28px;
+        background: linear-gradient(
+          to top,
+          rgba(4, 5, 8, 0.98) 0%,
+          rgba(4, 5, 8, 0.72) 50%,
+          transparent 100%
+        );
+        z-index: 2;
+      }
+      .nom-cats {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 8px;
+        flex-wrap: wrap;
+      }
+      .nom-cat {
+        font-family: var(--fb);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--gray);
+      }
+      .nom-cat + .nom-cat::before {
+        content: "·";
+        margin-right: 6px;
+        color: rgba(255, 255, 255, 0.2);
+      }
+      .nom-name {
+        font-family: var(--fb);
+        font-size: clamp(17px, 2vw, 22px);
+        font-weight: 700;
+        color: var(--white);
+        margin: 0 0 10px;
+        line-height: 1.2;
+      }
+      .nom-desc {
+        font-family: var(--fb);
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.48);
+        line-height: 1.6;
+        margin: 0 0 16px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      /* ── Unified in-card CTA ── */
+      .nom-arrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--fb);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: rgba(255, 255, 255, 0.5);
+        transition:
+          color var(--t),
+          gap var(--t);
+      }
+      .nom-arrow i {
+        font-size: 11px;
+        color: var(--gold);
+      }
+      .nom-card:hover .nom-arrow {
+        color: var(--white);
+        gap: 14px;
+      }
+
+      /* CTA strip */
+      .nom-cta-wrap {
+        display: flex;
+        align-items: center;
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 36px 5% 0;
+      }
+      .nom-cta-line {
+        flex: 1;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.07);
+      }
+      .nom-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 28px;
+        margin: 0 20px;
+        font-family: var(--fb);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gray);
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition:
+          color var(--t),
+          border-color var(--t),
+          gap var(--t);
+      }
+      .nom-cta:hover {
+        color: var(--white);
+        border-color: var(--gold);
+        gap: 14px;
+      }
+      .nom-cta i {
+        font-size: 11px;
+      }
+
+      /* ─────────────────────────────
+         #3 — STORE  /  #4 — ACADEMY
+         Both reuse nom-section DNA
+      ───────────────────────────────*/
+      .store-section {
+        padding: 96px 0 100px;
+        background: var(--dark2);
+        overflow: hidden;
+      }
+      .academy-section {
+        padding: 96px 0 100px;
+        background: var(--dark);
+        overflow: hidden;
+      }
+
+      /* Tag variants */
+      .nom-tag.price {
+        color: var(--white);
+        border-color: rgba(255, 255, 255, 0.18);
+        background: rgba(0, 0, 0, 0.55);
+      }
+      .nom-tag.hot {
+        color: #ff8040;
+        border-color: rgba(255, 128, 64, 0.4);
+        background: rgba(20, 8, 0, 0.7);
+      }
+
+      /* ── Full-screen sections ── */
+      html {
+        scroll-behavior: smooth;
+      }
+      .nom-section,
+      .store-section,
+      .academy-section {
+        min-height: 100vh;
+      }
+      #contact {
+        min-height: 80vh;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 900px) {
+        .nom-header {
+          padding: 0 24px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 14px;
+        }
+        .nom-header--center,
+        .nom-header--right {
+          justify-content: flex-start;
+          text-align: left;
+        }
+        .nom-track {
+          padding: 36px 24px 0;
+        }
+        .nom-card {
+          width: clamp(260px, 72vw, 340px);
+          height: 400px;
+        }
+        .nom-cta-wrap {
+          padding: 28px 24px 0;
+        }
+        .nom-title {
+          font-size: clamp(40px, 8vw, 72px);
+        }
+      }
+      @media (max-width: 600px) {
+        .nom-section,
+        .store-section,
+        .academy-section {
+          padding: 72px 0 72px;
+        }
+        .nom-header {
+          padding: 0 20px;
+        }
+        .nom-track {
+          padding: 28px 20px 0;
+        }
+        .nom-card {
+          width: 82vw;
+          height: 360px;
+        }
+        .nom-cta-wrap {
+          padding: 24px 20px 0;
+        }
+        .nom-title {
+          font-size: clamp(36px, 10vw, 56px);
+          letter-spacing: -1px;
+        }
+      }
+
+      /* ── Hubtown-style: Minimal Dark Navigation ── */
+      nav {
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        transition:
+          background 0.45s ease,
+          backdrop-filter 0.45s ease !important;
+      }
+      nav.nav-scrolled {
+        background: rgba(8, 11, 16, 0.92) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+      }
+
+      /* ── Chapter Nav (left fixed sidebar) ── */
+      .chapter-nav {
+        position: fixed;
+        left: 28px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 200;
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.45s ease;
+      }
+      .chapter-nav.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .cn-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        opacity: 0.35;
+        transition: opacity 0.35s ease;
+        text-decoration: none;
+      }
+      .cn-item:hover {
+        opacity: 0.7;
+      }
+      .cn-item.active {
+        opacity: 1;
+      }
+      .cn-dot {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--white);
+        flex-shrink: 0;
+        transition:
+          background 0.35s ease,
+          transform 0.35s ease,
+          width 0.35s ease;
+      }
+      .cn-item.active .cn-dot {
+        background: var(--gold);
+        transform: scale(1.6);
+      }
+      .cn-label {
+        font-family: var(--fk);
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        color: var(--white);
+        white-space: nowrap;
+      }
+      @media (max-width: 1024px) {
+        .chapter-nav {
+          display: none;
+        }
+      }
+
+      /* ── Site Bottom Bar (Hubtown-style) ── */
+      .site-bottom-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 28px;
+        background: rgba(8, 11, 16, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .sbb-url {
+        font-family: var(--fh);
+        font-size: 9px;
+        letter-spacing: 2.5px;
+        color: rgba(255, 255, 255, 0.35);
+        text-transform: uppercase;
+      }
+      .sbb-socials {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+      .sbb-socials a {
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 11px;
+        transition: color 0.3s ease;
+        text-decoration: none;
+      }
+      .sbb-socials a:hover {
+        color: var(--white);
+      }
+      @media (max-width: 600px) {
+        .site-bottom-bar {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
     <!-- Scroll Progress Bar -->
     <div id="yob-progress" aria-hidden="true"></div>
+
+    <!-- Chapter Nav — left fixed sidebar (Hubtown-style) -->
+    <div
+      class="chapter-nav"
+      id="chapterNav"
+      role="navigation"
+      aria-label="Page sections"
+    >
+      <a class="cn-item active" data-target="hero" href="#hero">
+        <span class="cn-dot"></span>
+        <span class="cn-label">សួស្ដី</span>
+      </a>
+      <a class="cn-item" data-target="recent-works" href="#recent-works">
+        <span class="cn-dot"></span>
+        <span class="cn-label">ស្នាដៃ</span>
+      </a>
+      <a class="cn-item" data-target="store-latest" href="#store-latest">
+        <span class="cn-dot"></span>
+        <span class="cn-label">តូប</span>
+      </a>
+      <a
+        class="cn-item"
+        data-target="featured-courses"
+        href="#featured-courses"
+      >
+        <span class="cn-dot"></span>
+        <span class="cn-label">មេរៀន</span>
+      </a>
+      <a class="cn-item" data-target="contact" href="#contact">
+        <span class="cn-dot"></span>
+        <span class="cn-label">សួរបាន</span>
+      </a>
+    </div>
+
+    <!-- Site Bottom Bar — Hubtown-style -->
+    <div class="site-bottom-bar" aria-hidden="true">
+      <span class="sbb-url">YOBDIGITAL.COM</span>
+      <div class="sbb-socials">
+        <a
+          href="https://web.facebook.com/yobdigitals"
+          target="_blank"
+          rel="noopener"
+          aria-label="Facebook"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <a
+          href="https://t.me/yobdigital"
+          target="_blank"
+          rel="noopener"
+          aria-label="Telegram"
+          ><i class="fab fa-telegram-plane"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/company/yobdigital/"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+        <a
+          href="https://youtube.com/@yobdigital"
+          target="_blank"
+          rel="noopener"
+          aria-label="YouTube"
+          ><i class="fab fa-youtube"></i
+        ></a>
+      </div>
+    </div>
+    <!-- Loading Screen -->
+    <div class="yob-loader" id="yobLoader">
+      <div class="yl-moon"></div>
+    </div>
+
     <!-- Custom Cursor Elements -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
@@ -2034,36 +2979,7 @@
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
 
-    <!-- Universe star canvas — fixed behind all sections -->
-    <canvas id="home-star-canvas"></canvas>
-
     <div id="nav-placeholder"></div>
-
-    <!-- Mobile Drawer -->
-    <div class="mobile-drawer" id="mobileDrawer">
-      <button class="drawer-close" id="drawerClose">
-        <i class="fas fa-times"></i>
-      </button>
-      <div class="drawer-group">
-        <button class="drawer-group-toggle">
-          រៀន <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="drawer-group-items">
-          <a href="/learn" onclick="closeDrawer()">YOB Learn Hub</a>
-        </div>
-      </div>
-      <div class="drawer-group">
-        <button class="drawer-group-toggle">
-          តូបឌីជីថល <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="drawer-group-items">
-          <a href="/shop" onclick="closeDrawer()">ហាងឌីជីថល</a>
-          <a href="/portfolio" onclick="closeDrawer()">Portfolio</a>
-        </div>
-      </div>
-      <a href="/about" onclick="closeDrawer()">អំពី YOB</a>
-      <a href="/contact" onclick="closeDrawer()" class="d-cta">សាកសួរ</a>
-    </div>
 
     <!-- ══ HERO ══ -->
     <section id="hero">
@@ -2071,58 +2987,31 @@
 
       <!-- Scroll Indicator -->
       <div class="scroll-indicator">
-        <div class="si-mouse"><div class="si-dot"></div></div>
-        <span class="si-label">Scroll</span>
+        <span class="si-chev"></span>
+        <span class="si-chev"></span>
+        <span class="si-chev"></span>
       </div>
 
       <div class="container hero-container">
         <!-- Left Side: Text Content -->
         <div class="hero-content">
-          <div class="hero-badge reveal">
-            <span><i class="fas fa-bolt"></i></span> Khmer-first Growth Partner
+          <div class="hero-eyebrow reveal">
+            <span class="hero-eyebrow-dot"></span>
+            ✦ Agency ឌីជីថល នៅកម្ពុជា
           </div>
 
           <h1 class="hero-headline reveal">
             <span class="gradient-text"
-              >ឈប់ច្របូកច្របល់<br /> ចាប់ផ្តើមលក់ដាច់</span
+              >អ្នកជំនាញផ្នែកបច្ចេកវិទ្យាឌីជីថល</span
             >
           </h1>
 
           <p class="hero-sub reveal">
-            YOB ជួយអ្នកបង្កើនការលក់ក្នុង ៣០-៩០ ថ្ងៃ
-            ដោយប្រើ <br /> AI + Marketing + Systems
-            ដែលដំណើរការបានពិតប្រាកដ។
+            ជួយអ្នកបង្កើតគេហទំព័រ ម៉ាកយីហោ និងការផ្សព្វផ្សាយ<br />
+            ដែលនាំឱ្យអ្នកទទួលបានអតិថិជនច្រើនពិតប្រាកដ។
           </p>
 
-          <div class="hero-actions reveal">
-            <a href="#contact" class="btn-primary"
-              ><i class="fas fa-comments"></i> ពិគ្រោះឥតគិតថ្លៃឥឡូវ</a
-            >
-            <a href="#ecosystem" class="hero-secondary-cta"
-              ><i class="fas fa-chevron-right"></i> មើលសេវាកម្ម</a
-            >
-          </div>
 
-          <div class="hero-stats reveal" id="heroStats">
-            <div class="stat-item">
-              <div class="stat-num" data-target="500" data-suffix="+">
-                <span class="count-num">៥០០</span><span class="gold">+</span>
-              </div>
-              <div class="stat-lbl">នាក់ កំពុងរៀនជាមួយ YOB</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-num" data-target="10" data-suffix="+">
-                <span class="count-num">១០</span><span class="gold">+</span>
-              </div>
-              <div class="stat-lbl">មេរៀនឌីជីថល ភាសាខ្មែរ</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-num" data-target="100" data-suffix="%">
-                <span class="count-num">១០០</span><span class="gold">%</span>
-              </div>
-              <div class="stat-lbl">ខ្លឹមសារជាភាសាខ្មែរ</div>
-            </div>
-          </div>
         </div>
 
         <!-- Right Side: YOB Moon Visual -->
@@ -2206,43 +3095,20 @@
               </div>
             </div>
 
-            <!-- ── Orbit Cards ── -->
-            <div class="orbit-arm oa-1">
-              <div class="hero-float-card">
-                <span class="fc-icon">⚡</span>
-                <div>
-                  <div class="fc-value">10x</div>
-                  <div class="fc-label">Productivity</div>
-                </div>
-              </div>
-            </div>
-            <div class="orbit-arm oa-2">
-              <div class="hero-float-card">
-                <span class="fc-icon">📈</span>
-                <div>
-                  <div class="fc-value">3.8x</div>
-                  <div class="fc-label">ROAS</div>
-                </div>
-              </div>
-            </div>
-            <div class="orbit-arm oa-3">
-              <div class="hero-float-card">
-                <span class="fc-icon">👥</span>
-                <div>
-                  <div class="fc-value">500+</div>
-                  <div class="fc-label">SMEs</div>
-                </div>
-              </div>
-            </div>
-            <div class="orbit-arm oa-4">
-              <div class="hero-float-card">
-                <span class="fc-icon">🇰🇭</span>
-                <div>
-                  <div class="fc-value">100%</div>
-                  <div class="fc-label">Khmer</div>
-                </div>
-              </div>
-            </div>
+            <!-- ── Orbit Text CTA ── -->
+            <a href="yobservice.html" class="mot-link" aria-label="មើលសេវាកម្ម">
+              <svg class="mot-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <path id="mot-path"
+                    d="M300,300 m-265,0 a265,265 0 1,1 530,0 a265,265 0 1,1 -530,0"/>
+                </defs>
+                <text class="mot-text">
+                  <textPath href="#mot-path">
+                    · មើលសេវាកម្ម · YOB Digital · មើលសេវាកម្ម · YOB Digital · មើលសេវាកម្ម · YOB Digital ·
+                  </textPath>
+                </text>
+              </svg>
+            </a>
           </div>
         </div>
       </div>
@@ -2250,1124 +3116,455 @@
 
     <!-- ══ MARQUEE ══ (hidden) -->
 
-    <!-- ══ WHAT IS YOB DIGITAL ══ -->
-    <section class="what-is-yob-section">
-      <div class="container">
-        <!-- Header -->
-        <div class="wiy-header reveal">
-          <span class="section-tag">យប់​មាន​តម្លៃដូចពន្លឺ</span>
-          <h2 class="section-title">
-            <span class="gradient-text">តើយប់ឌីជីថលគឺជាអ្វី?</span>
+    <!-- ══ RECENT WORKS — Horizontal Scroll ══ -->
+    <section class="nom-section" id="recent-works">
+      <div class="nom-header reveal">
+        <div>
+          <span class="nom-eyebrow">ស្នាដៃថ្មីៗ — Recent Works</span>
+          <h2 class="nom-title">
+            ការងារដែលបាន<span class="gradient-text">បញ្ចប់</span>
           </h2>
-          <p class="wiy-lead reveal">
-            យើងមិនមែនជាក្រុមផ្ដល់យោបល់ទូទៅទេ។ YOB Digital ជា
-            <strong>ដៃគូអនុវត្តការងារឌីជីថល</strong>
-            ដែលជួយអ្នក ដោះស្រាយបញ្ហាលក់មិនឡើង ខ្វះមាតិកា និងខាតថវិកា
-            Ads ដោយប្រើ AI + Strategy + System ជាក់ស្ដែង។
-          </p>
         </div>
+      </div>
 
-        <!-- Problem bar -->
-        <div class="wiy-problem reveal">
-          <div class="wiy-problem-inner">
-            <span class="wiy-problem-label">
-              បញ្ហាដែល អ្នក​ជួបរៀងរាល់ថ្ងៃ❗</span
-            >
-            <div class="wiy-problems-row">
-              <span class="wiy-prob-item">
-                <i class="fas fa-circle"></i> បង្ហោះ Content ជាប្រចាំ ប៉ុន្តែ
-                Leads មិនកើន
-              </span>
-              <span class="wiy-prob-item">
-                <i class="fas fa-circle"></i> ខាតថវិកា Ads តែ ROAS មិនច្បាស់
-              </span>
-              <span class="wiy-prob-item">
-                <i class="fas fa-circle"></i> ការងារច្រើនត្រូវធ្វើ Manual
-                ស្ទើរតែទាំងអស់
-              </span>
-              <span class="wiy-prob-item">
-                <i class="fas fa-circle"></i> ខ្វះ Strategy ច្បាស់លាស់សម្រាប់ 90
-                ថ្ងៃក្រោយ
-              </span>
-              <span class="wiy-prob-item">
-                <i class="fas fa-circle"></i> ចង់ប្រើ AI ប៉ុន្តែមិនដឹងចាប់ពីណា
-              </span>
+      <div class="nom-track" id="nomTrack">
+        <!-- Work 01 — E-Express Cambodia -->
+        <div class="nom-card" onclick="window.location = 'portfolio.html'">
+          <img
+            class="nom-bg"
+            src="images/case-studies/e-express/poster-01.jpg"
+            alt="E-Express Cambodia"
+            loading="lazy"
+          />
+          <div class="nom-top">
+            <span class="nom-num">01</span>
+            <span class="nom-tag done">✓ បានបញ្ចប់</span>
+          </div>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">Branding</span>
+              <span class="nom-cat">Social Media</span>
             </div>
+            <p class="nom-name">E-Express Cambodia</p>
+            <p class="nom-desc">
+              រចនា Visual Identity, Poster Series និង Social Media Content
+              សម្រាប់ក្រុមហ៊ុន Logistics។
+            </p>
+            <span class="nom-arrow"
+              >មើលស្នាដៃ <i class="fas fa-arrow-right"></i
+            ></span>
           </div>
         </div>
 
-        <!-- 3 Pillars -->
-        <div class="wiy-pillars">
-          <a
-            href="contact.html"
-            class="wiy-pillar reveal"
-            aria-label="ទៅកាន់ Contact: វិភាគបញ្ហា"
-          >
-            <span class="wiy-pillar-num">០១</span>
-            <div class="wiy-pillar-icon icon-ai">
-              <i class="fas fa-robot"></i>
+        <!-- Work 02 — YOB Digital Website -->
+        <div class="nom-card" onclick="window.location = 'portfolio.html'">
+          <div class="nom-bg-placeholder">
+            <span class="nom-card-num-bg">02</span>
+          </div>
+          <div class="nom-top">
+            <span class="nom-num">02</span>
+            <span class="nom-tag done">✓ បានបញ្ចប់</span>
+          </div>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">Web Design</span>
+              <span class="nom-cat">AI Strategy</span>
             </div>
-            <span class="wiy-flow-label">01 វិភាគ · Diagnose</span>
-            <h3 class="wiy-pillar-title">យល់បញ្ហារបស់អ្នកឲ្យច្បាស់</h3>
-            <p class="wiy-pillar-desc">
-              មុនចាប់ផ្តើម យើងជួយស្កេន bottleneck សំខាន់ៗរបស់អ្នក៖ កន្លែងដែល
-              Leads ជាប់គាំង, កន្លែងដែល Ads ខាតលុយ, និងកន្លែងដែលការងារ Manual
-              ចំណាយពេលច្រើនពេក។
+            <p class="nom-name">YOB Digital Website</p>
+            <p class="nom-desc">
+              រចនា និងបង្កើត Website ពេញលេញ ជាមួយ AI-assisted content strategy
+              និង SEO setup។
             </p>
-            <span class="wiy-pillar-result">
-              <i class="fas fa-arrow-up"></i> Problem Map ច្បាស់ក្នុង 7-14 ថ្ងៃ
-            </span>
-            <span class="wiy-link-cue" aria-hidden="true">
-              មើលផែនការ <i class="fas fa-arrow-right"></i>
-            </span>
-          </a>
-
-          <a
-            href="contact.html"
-            class="wiy-pillar reveal"
-            aria-label="ទៅកាន់ Contact: សាងសង់ប្រព័ន្ធ"
-          >
-            <span class="wiy-pillar-num">០២</span>
-            <div class="wiy-pillar-icon icon-web">
-              <i class="fas fa-globe"></i>
-            </div>
-            <span class="wiy-flow-label">02 សាងសង់ · Build</span>
-            <h3 class="wiy-pillar-title">សាងសង់ប្រព័ន្ធដែលដំណើរការបានពិតប្រាកដ</h3>
-            <p class="wiy-pillar-desc">
-              បន្ទាប់ពីដឹងបញ្ហា យើងរៀបចំ AI Workflow, Content Funnel និង
-              Website/System ឲ្យភ្ជាប់គ្នា ដើម្បីឲ្យការលក់ និងប្រតិបត្តិការ
-              ដំណើរការល្អជាងមុនជាប្រព័ន្ធ។
-            </p>
-            <span class="wiy-pillar-result">
-              <i class="fas fa-arrow-up"></i> System ស្រេចអាចដំណើរការ 24/7
-            </span>
-            <span class="wiy-link-cue" aria-hidden="true">
-              មើលផែនការ <i class="fas fa-arrow-right"></i>
-            </span>
-          </a>
-
-          <a
-            href="contact.html"
-            class="wiy-pillar reveal"
-            aria-label="ទៅកាន់ Contact: កែលម្អលទ្ធផល"
-          >
-            <span class="wiy-pillar-num">០៣</span>
-            <div class="wiy-pillar-icon icon-brand">
-              <i class="fas fa-bolt"></i>
-            </div>
-            <span class="wiy-flow-label">03 កែលម្អ · Optimize</span>
-            <h3 class="wiy-pillar-title">វាស់លទ្ធផល និងលូតលាស់បន្ត</h3>
-            <p class="wiy-pillar-desc">
-              យើងមិនឈប់ត្រឹមធ្វើអោយរួចទេ។ យើងតាមដាន KPI (Leads, ROAS,
-              Conversion, Productivity) រួច optimize ជាបន្តបន្ទាប់
-              ដើម្បីឲ្យអ្នកឃើញលទ្ធផលពិត។
-            </p>
-            <span class="wiy-pillar-result">
-              <i class="fas fa-arrow-up"></i> Growth ដែលវាស់វែងបានច្បាស់
-            </span>
-            <span class="wiy-link-cue" aria-hidden="true">
-              មើលផែនការ <i class="fas fa-arrow-right"></i>
-            </span>
-          </a>
+            <span class="nom-arrow"
+              >មើលស្នាដៃ <i class="fas fa-arrow-right"></i
+            ></span>
+          </div>
         </div>
 
-        <!-- CTA strip -->
-        <div class="wiy-cta-strip reveal">
-          <p class="wiy-cta-text">
-            <strong>YOB Digital</strong>
-            ជួយអ្នករៀបចំផែនការលូតលាស់ឌីជីថលពីដំណាក់កាល Free រហូតដល់ Revenue
-            ជាមួយក្រុមការងារដែលដំណើរការបានពិតប្រាកដ។
-          </p>
-          <a href="#contact" class="btn-primary">
-            <i class="fas fa-comments"></i> ទទួលបានការពិគ្រោះឥតគិតថ្លៃ
-          </a>
+        <!-- Work 03 — Digital Marketing -->
+        <div class="nom-card" onclick="window.location = 'portfolio.html'">
+          <div class="nom-bg-placeholder">
+            <span class="nom-card-num-bg">03</span>
+          </div>
+          <div class="nom-top">
+            <span class="nom-num">03</span>
+            <span class="nom-tag done">✓ បានបញ្ចប់</span>
+          </div>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">Content</span>
+              <span class="nom-cat">Marketing</span>
+            </div>
+            <p class="nom-name">Digital Marketing Campaign</p>
+            <p class="nom-desc">
+              គ្រប់គ្រង Ads + Content Strategy + AI Automation សម្រាប់ SME
+              ជាច្រើន ក្នុង Cambodia។
+            </p>
+            <span class="nom-arrow"
+              >មើលស្នាដៃ <i class="fas fa-arrow-right"></i
+            ></span>
+          </div>
         </div>
+
+        <!-- Work 04 — Khmer Font Design -->
+        <div class="nom-card" onclick="window.location = 'portfolio.html'">
+          <div class="nom-bg-placeholder">
+            <span class="nom-card-num-bg">04</span>
+          </div>
+          <div class="nom-top">
+            <span class="nom-num">04</span>
+            <span class="nom-tag done">✓ បានបញ្ចប់</span>
+          </div>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">Typography</span>
+              <span class="nom-cat">Product Design</span>
+            </div>
+            <p class="nom-name">Khmer Font Collection</p>
+            <p class="nom-desc">
+              រចនា Typeface ខ្មែរ ២ ប្រភេទ — Display & Script ជាមួយ OpenType
+              features ពេញលេញ។
+            </p>
+            <span class="nom-arrow"
+              >មើលស្នាដៃ <i class="fas fa-arrow-right"></i
+            ></span>
+          </div>
+        </div>
+
+        <!-- Work 05 — AI Workshop -->
+        <div class="nom-card" onclick="window.location = 'portfolio.html'">
+          <div class="nom-bg-placeholder">
+            <span class="nom-card-num-bg">05</span>
+          </div>
+          <div class="nom-top">
+            <span class="nom-num">05</span>
+            <span class="nom-tag done">✓ បានបញ្ចប់</span>
+          </div>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">AI Training</span>
+              <span class="nom-cat">Workshop</span>
+            </div>
+            <p class="nom-name">AI Workshop — SME Cambodia</p>
+            <p class="nom-desc">
+              បង្ហាត់ AI Tools ដល់ SME ៥០+ នាក់ — ChatGPT, Claude, Canva AI
+              ជាភាសាខ្មែរ ១០០%។
+            </p>
+            <span class="nom-arrow"
+              >មើលស្នាដៃ <i class="fas fa-arrow-right"></i
+            ></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Creative CTA -->
+      <div class="nom-cta-wrap reveal">
+        <div class="nom-cta-line"></div>
+        <a href="portfolio.html" class="nom-cta">
+          <span>មើលការងារទាំងអស់</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <div class="nom-cta-line right"></div>
       </div>
     </section>
 
-    <!-- ══ YOB ECOSYSTEM ══ -->
-    <section id="ecosystem" class="section-dark-alt">
-      <div class="container">
-        <div
-          class="section-header reveal"
-          style="text-align: center; margin-bottom: 48px"
-        >
-          <span class="section-tag"
-            ><i class="fas fa-circle-nodes"></i> YOB Ecosystem ·
-            សេវាកម្មភ្ជាប់គ្នា</span
-          >
-          <h2 class="section-title">
-            <span class="gradient-text">ស្នូល យប់ឌីជីថល</span>
+    <!-- ══ STORE LATEST ══ -->
+    <section class="nom-section store-section" id="store-latest">
+      <div class="nom-header nom-header--center reveal">
+        <div>
+          <span class="nom-eyebrow">YOB Store — Updated ថ្មីៗ</span>
+          <h2 class="nom-title">
+            ផលិតផល<span class="gradient-text">ចុងក្រោយ</span>
           </h2>
-          <span class="section-bg-num">ស្នូល</span>
-          <p class="section-sub">
-            យប់ឌីជីថល មិនមែនជាសេវាកម្មរាយប៉ាយទេ។ យើងភ្ជាប់ AI, វេបសាយ, មេរៀន
-            និងប្រព័ន្ធទីផ្សារ ដើម្បីឱ្យអ្នកយល់ថាត្រូវចាប់ផ្ដើមពីណា
-            ហើយបន្តទៅជំហានណាបន្ទាប់ឱ្យបានច្បាស់។
-          </p>
         </div>
+      </div>
 
-        <!-- ── BLACK HOLE VISUAL ── -->
-        <div class="bh-wrap reveal">
-          <canvas class="bh-canvas" id="bhCanvas"></canvas>
-
-          <!-- Accretion disks -->
-          <div class="bh-disk bh-disk-1"></div>
-          <div class="bh-disk bh-disk-2"></div>
-          <div class="bh-disk bh-disk-3"></div>
-
-          <!-- Photon ring -->
-          <div class="bh-photon-ring"></div>
-
-          <!-- Event horizon -->
-          <div class="bh-void">
-            <div class="bh-void-logo">យប់</div>
-            <div class="bh-void-sub">
-              <i class="fas fa-circle-nodes"></i> ឌីជីថល
+      <div class="nom-track" id="storeTrack">
+        <!-- Product 01 — YOB Font Bundle -->
+        <div class="nom-card" onclick="window.location = 'shop.html'">
+          <div class="nom-bg-placeholder">
+            <span class="nom-card-num-bg">01</span>
+          </div>
+          <div class="nom-top">
+            <span class="nom-num">01</span>
+            <span class="nom-tag price">$50</span>
+          </div>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">Fonts</span>
+              <span class="nom-cat">Premium</span>
             </div>
-          </div>
-
-          <!-- Energy beams (SVG) -->
-          <svg
-            class="bh-beams"
-            viewBox="0 0 680 680"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <line class="bh-beam" x1="340" y1="340" x2="340" y2="100" />
-            <line class="bh-beam" x1="340" y1="340" x2="580" y2="340" />
-            <line class="bh-beam" x1="340" y1="340" x2="340" y2="580" />
-            <line class="bh-beam" x1="340" y1="340" x2="100" y2="340" />
-          </svg>
-
-          <!-- Orbital nodes -->
-          <div class="bh-node bh-n-top">
-            <div class="bh-node-icon"><i class="fas fa-book-open"></i></div>
-            <div class="bh-node-name">សាលារៀន</div>
-            <div class="bh-node-desc">ចំណេះដឹង · ឯកសារមេរៀន · កម្រងស្នាដៃ</div>
-            <a href="/learn" class="bh-node-btn"
-              ><i class="fas fa-arrow-right"></i> រុករក</a
-            >
-          </div>
-          <div class="bh-node bh-n-right">
-            <div class="bh-node-icon"><i class="fas fa-rocket"></i></div>
-            <div class="bh-node-name">ដើម្បីអ្នក</div>
-            <div class="bh-node-desc">រៀបផ្លូវដើរ · យល់ពីវិធី · ចំគោលដៅ</div>
-            <a href="/contact" class="bh-node-btn"
-              ><i class="fas fa-arrow-right"></i> រុករក</a
-            >
-          </div>
-          <div class="bh-node bh-n-bottom">
-            <div class="bh-node-icon"><i class="fas fa-bag-shopping"></i></div>
-            <div class="bh-node-name">តូបឌីជីថល</div>
-            <div class="bh-node-desc">យប់ អក្ខរា · គំរូ · កាដូឌីជីថល</div>
-            <a href="/shop" class="bh-node-btn"
-              ><i class="fas fa-arrow-right"></i> រុករក</a
-            >
-          </div>
-          <div class="bh-node bh-n-left">
-            <div class="bh-node-icon"><i class="fas fa-headset"></i></div>
-            <div class="bh-node-name">សាកសួរ</div>
-            <div class="bh-node-desc">
-              ប្រឹក្សារាល់យប់ · ផ្ញើសារមកយប់ · សហគមន៍យប់
-            </div>
-            <a href="/contact" class="bh-node-btn"
-              ><i class="fas fa-arrow-right"></i> រុករក</a
-            >
+            <p class="nom-name">YOB Font Bundle</p>
+            <p class="nom-desc">
+              Bundle ពុម្ពអក្សរ Khmer Premium ២ ប្រភេទ — Display + Script ជាមួយ
+              OpenType features ពេញលេញ។
+            </p>
+            <span class="nom-arrow"
+              >ទទួលបានឥឡូវ <i class="fas fa-arrow-right"></i
+            ></span>
           </div>
         </div>
 
-        <div
-          class="section-header reveal"
-          style="margin-top: 60px; margin-bottom: 34px"
-        >
-          <span class="section-tag">សេវាកម្មសំខាន់ៗ</span>
-          <h2 class="section-title">
-            ជ្រើស
-            <span class="gradient-text">សេវាកម្ម</span> ដែលសមនឹងអ្នក
+        <!-- Product 02 — Khmer Savuth -->
+        <div class="nom-card" onclick="window.location = 'shop.html'">
+          <div class="nom-bg-placeholder">
+            <span class="nom-card-num-bg">02</span>
+          </div>
+          <div class="nom-top">
+            <span class="nom-num">02</span>
+            <span class="nom-tag done">ប្រើបាន</span>
+          </div>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">Fonts</span>
+              <span class="nom-cat">Display</span>
+            </div>
+            <p class="nom-name">Khmer Savuth</p>
+            <p class="nom-desc">
+              ពុម្ពអក្សរ Display ខ្មែរ ស្អាត — ល្អប្រើ Banner, Poster, Branding
+              ជាមួយ Style ទំនើប។
+            </p>
+            <span class="nom-arrow"
+              >Download ឥឡូវ <i class="fas fa-arrow-right"></i
+            ></span>
+          </div>
+        </div>
+
+        <!-- Product 03 — Savuth Brush -->
+        <div class="nom-card" onclick="window.location = 'shop.html'">
+          <div class="nom-bg-placeholder">
+            <span class="nom-card-num-bg">03</span>
+          </div>
+          <div class="nom-top">
+            <span class="nom-num">03</span>
+            <span class="nom-tag done">ប្រើបាន</span>
+          </div>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">Fonts</span>
+              <span class="nom-cat">Script</span>
+            </div>
+            <p class="nom-name">Savuth Brush</p>
+            <p class="nom-desc">
+              ពុម្ពអក្សរ Script ស្ទីលដៃ — ស្រស់ស្អាត Creative Design, Logo,
+              Product Label។
+            </p>
+            <span class="nom-arrow"
+              >Download ឥឡូវ <i class="fas fa-arrow-right"></i
+            ></span>
+          </div>
+        </div>
+
+        <!-- Product 04 — AI Content Calendar -->
+        <div class="nom-card" onclick="window.location = 'shop.html'">
+          <div class="nom-bg-placeholder">
+            <span class="nom-card-num-bg">04</span>
+          </div>
+          <div class="nom-top">
+            <span class="nom-num">04</span>
+            <span class="nom-tag done">ប្រើបាន</span>
+          </div>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">Resource</span>
+              <span class="nom-cat">Template</span>
+            </div>
+            <p class="nom-name">AI Content Calendar ៣០ ថ្ងៃ</p>
+            <p class="nom-desc">
+              Template Content Plan ១ ខែ ជាមួយ AI Prompt ១ ចំណែក — ល្អសម្រាប់
+              SME ខ្មែរ។
+            </p>
+            <span class="nom-arrow"
+              >ទទួលបានឥឡូវ <i class="fas fa-arrow-right"></i
+            ></span>
+          </div>
+        </div>
+
+        <!-- Product 05 — AI Prompts 100 -->
+        <div class="nom-card" onclick="window.location = 'shop.html'">
+          <div class="nom-bg-placeholder">
+            <span class="nom-card-num-bg">05</span>
+          </div>
+          <div class="nom-top">
+            <span class="nom-num">05</span>
+            <span class="nom-tag done">ប្រើបាន</span>
+          </div>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">Resource</span>
+              <span class="nom-cat">Prompt Pack</span>
+            </div>
+            <p class="nom-name">AI Prompts ១០០ សម្រាប់អ្នក</p>
+            <p class="nom-desc">
+              Prompt ១០០ ខ្នាន ជាភាសាខ្មែរ + English — ជ្រើស, Copy, Paste, Done
+              ភ្លាមៗ។
+            </p>
+            <span class="nom-arrow"
+              >ទទួលបានឥឡូវ <i class="fas fa-arrow-right"></i
+            ></span>
+          </div>
+        </div>
+
+        <!-- Product 06 — ChatGPT Guide KH -->
+        <div class="nom-card" onclick="window.location = 'shop.html'">
+          <div class="nom-bg-placeholder">
+            <span class="nom-card-num-bg">06</span>
+          </div>
+          <div class="nom-top">
+            <span class="nom-num">06</span>
+            <span class="nom-tag done">ប្រើបាន</span>
+          </div>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">Resource</span>
+              <span class="nom-cat">PDF Guide</span>
+            </div>
+            <p class="nom-name">មគ្គុទ្ទេសក៍ ChatGPT ខ្មែរ</p>
+            <p class="nom-desc">
+              PDF Guide ១០០% ភាសាខ្មែរ — ចូល, ប្រើ, Master ChatGPT ក្នុង ១ ម៉ោង
+              ដោយមិនចាំបាច់ Technical Background។
+            </p>
+            <span class="nom-arrow"
+              >ទទួលបានឥឡូវ <i class="fas fa-arrow-right"></i
+            ></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA strip -->
+      <div class="nom-cta-wrap reveal">
+        <div class="nom-cta-line"></div>
+        <a href="shop.html" class="nom-cta">
+          <span>ចូល YOB Store</span>
+          <i class="fas fa-store"></i>
+        </a>
+        <div class="nom-cta-line right"></div>
+      </div>
+    </section>
+
+    <!-- ══ ACADEMY FEATURED COURSES ══ -->
+    <section class="nom-section academy-section" id="featured-courses">
+      <div class="nom-header nom-header--right reveal">
+        <div>
+          <span class="nom-eyebrow">YOB Academy — ជ្រើសរើស</span>
+          <h2 class="nom-title">
+            មេរៀន<span class="gradient-text">ពេញនិយម</span>
           </h2>
-          <div class="eco-command-line" id="ecoCommandLine">
-            <i class="fas fa-microchip"></i>
-            <span id="ecoCommandText"
-              >ជ្រើសសេវាកម្មដែលសមស្រប · រួចទទួលផែនការច្បាស់ពី YOB</span
-            >
-          </div>
-          <p class="section-sub">
-            ចាប់ផ្តើមពីសេវាកម្មត្រឹមត្រូវមុនគេ ដើម្បីកាត់បន្ថយការសាកល្បងខាតពេល
-            និងឈានទៅរកលទ្ធផលលក់បានលឿន។ បើមិនទាន់ច្បាស់ សាក Digital Check ជាមុន។
-          </p>
-        </div>
-
-        <div class="eco-services-grid reveal">
-          <article
-            class="eco-service-card active-module"
-            id="svc-ai"
-            data-command="MOD-01 · AI STRATEGY · CORE ENGINE ONLINE"
-            data-default-command="true"
-          >
-            <div class="eco-service-head">
-              <span class="eco-service-icon icon-ai"
-                ><i class="fas fa-brain"></i
-              ></span>
-              <span class="eco-service-price">ចាប់ពី $149</span>
-            </div>
-            <h3 class="eco-service-title">AI Strategy</h3>
-            <div class="eco-service-status">
-              <span class="eco-status-chip"
-                ><i class="fas fa-circle"></i> Live Module</span
-              >
-              <span class="eco-module-id">MOD-01</span>
-            </div>
-            <p class="eco-service-desc">
-              រៀបចំផែនការប្រើ AI សម្រាប់ Sales, Content និង Operation
-              ឲ្យសមនឹងអ្នក។
-            </p>
-            <div class="eco-tech-list">
-              <span class="eco-tech-tag">Prompt Ops</span>
-              <span class="eco-tech-tag">Workflow AI</span>
-              <span class="eco-tech-tag">Sales SOP</span>
-            </div>
-            <span class="eco-outcome"
-              >លទ្ធផលរំពឹង: <strong>Lead Quality +35%</strong> ក្នុង 30-60
-              ថ្ងៃ</span
-            >
-            <span class="eco-core-link"
-              ><i class="fas fa-link"></i> Connected to Core Engine</span
-            >
-            <a href="#contact" class="eco-service-cta"
-              ><i class="fas fa-comments"></i> ទទួលបានការពិគ្រោះឥតគិតថ្លៃ</a
-            >
-          </article>
-
-          <article
-            class="eco-service-card"
-            id="svc-marketing"
-            data-command="MOD-02 · DIGITAL MARKETING · TRACKING HUB LIVE"
-          >
-            <div class="eco-service-head">
-              <span class="eco-service-icon icon-marketing"
-                ><i class="fas fa-bullseye"></i
-              ></span>
-              <span class="eco-service-price">ចាប់ពី $199</span>
-            </div>
-            <h3 class="eco-service-title">Digital Marketing</h3>
-            <div class="eco-service-status">
-              <span class="eco-status-chip"
-                ><i class="fas fa-circle"></i> Live Module</span
-              >
-              <span class="eco-module-id">MOD-02</span>
-            </div>
-            <p class="eco-service-desc">
-              កែលម្អ Content + Ads + Funnel ដើម្បីបង្កើន Leads និង ROAS
-              ដោយវាស់វែងបានច្បាស់។
-            </p>
-            <div class="eco-tech-list">
-              <span class="eco-tech-tag">Funnel OS</span>
-              <span class="eco-tech-tag">Ad Analytics</span>
-              <span class="eco-tech-tag">Content Engine</span>
-            </div>
-            <span class="eco-outcome"
-              >លទ្ធផលរំពឹង: <strong>ROAS 2.5x-3.8x</strong> បន្ទាប់ពី
-              optimize</span
-            >
-            <span class="eco-core-link"
-              ><i class="fas fa-link"></i> Synced with Tracking Hub</span
-            >
-            <a href="#contact" class="eco-service-cta"
-              ><i class="fas fa-comments"></i> ទទួលបានការពិគ្រោះឥតគិតថ្លៃ</a
-            >
-          </article>
-
-          <article
-            class="eco-service-card"
-            id="svc-web"
-            data-command="MOD-03 · WEBSITE & SYSTEMS · AUTOMATION READY"
-          >
-            <div class="eco-service-head">
-              <span class="eco-service-icon icon-web"
-                ><i class="fas fa-network-wired"></i
-              ></span>
-              <span class="eco-service-price">ចាប់ពី $399</span>
-            </div>
-            <h3 class="eco-service-title">Website & Systems</h3>
-            <div class="eco-service-status">
-              <span class="eco-status-chip"
-                ><i class="fas fa-circle"></i> Automation Ready</span
-              >
-              <span class="eco-module-id">MOD-03</span>
-            </div>
-            <p class="eco-service-desc">
-              បង្កើតវេបសាយ និងប្រព័ន្ធស្វ័យប្រវត្តិដើម្បីទទួល leads 24/7
-              និងកាត់បន្ថយការងារ Manual។
-            </p>
-            <div class="eco-tech-list">
-              <span class="eco-tech-tag">CRM Sync</span>
-              <span class="eco-tech-tag">Lead Capture</span>
-              <span class="eco-tech-tag">Auto Follow-up</span>
-            </div>
-            <span class="eco-outcome"
-              >លទ្ធផលរំពឹង: <strong>-50% Manual Work</strong> + ទទួល Leads
-              24/7</span
-            >
-            <span class="eco-core-link"
-              ><i class="fas fa-link"></i> Connected to Ops Layer</span
-            >
-            <a href="#contact" class="eco-service-cta"
-              ><i class="fas fa-comments"></i> ទទួលបានការពិគ្រោះឥតគិតថ្លៃ</a
-            >
-          </article>
-
-          <article
-            class="eco-service-card"
-            id="svc-brand"
-            data-command="MOD-04 · BRANDING & FONTS · BRAND MEMORY LINKED"
-          >
-            <div class="eco-service-head">
-              <span class="eco-service-icon icon-brand"
-                ><i class="fas fa-pen-ruler"></i
-              ></span>
-              <span class="eco-service-price">ចាប់ពី $59</span>
-            </div>
-            <h3 class="eco-service-title">Branding & Khmer Fonts</h3>
-            <div class="eco-service-status">
-              <span class="eco-status-chip"
-                ><i class="fas fa-circle"></i> Core Link</span
-              >
-              <span class="eco-module-id">MOD-04</span>
-            </div>
-            <p class="eco-service-desc">
-              កសាងអត្តសញ្ញាណ Brand និងជ្រើស Khmer Font ឲ្យសមសម្រាប់អ្នក ឬ
-              campaign របស់អ្នក។
-            </p>
-            <div class="eco-tech-list">
-              <span class="eco-tech-tag">Brand System</span>
-              <span class="eco-tech-tag">KH Typography</span>
-              <span class="eco-tech-tag">Visual Consistency</span>
-            </div>
-            <span class="eco-outcome"
-              >លទ្ធផលរំពឹង: <strong>+Trust & Recall</strong> លើគ្រប់
-              Channel</span
-            >
-            <span class="eco-core-link"
-              ><i class="fas fa-link"></i> Linked to Brand Memory</span
-            >
-            <a href="#contact" class="eco-service-cta"
-              ><i class="fas fa-comments"></i> ទទួលបានការពិគ្រោះឥតគិតថ្លៃ</a
-            >
-          </article>
         </div>
       </div>
-    </section>
 
-    <!-- ══ TYPOGRAPHY TEASER ══ -->
-    <section id="typography">
-      <div class="container">
-        <div
-          class="section-header reveal"
-          style="text-align: center; margin-bottom: 20px"
-        >
-          <span class="section-tag"
-            ><i class="fas fa-pen-nib"></i> KHMER FONT SHOP</span
-          >
-          <h2 class="section-title">
-            យប់
-            <span class="gradient-text">អក្ខរា</span>
-            សិល្បៈនៃពុម្ពអក្សរខ្មែរទំនើប
-          </h2>
-          <p
-            style="
-              color: var(--gray);
-              font-family: var(--fk);
-              margin-top: 15px;
-              font-size: 16px;
-              max-width: 640px;
-              margin-inline: auto;
-            "
-          >
-            ផ្តល់នូវភាពប្លែកគេ និងភាពថ្លៃថ្នូរដល់គ្រប់ស្នាដៃរចនា។ យើងផ្ដល់ជូននូវ
-            Khmer Premium Fonts ដែលត្រូវបានសម្រិតសម្រាំងយ៉ាងផ្ចិតផ្ចង់ ដើម្បីឱ្យ
-            Brand របស់អ្នកលេចធ្លោជាងគេ។
-          </p>
-        </div>
-
-        <!-- Stellar Specimen Panels -->
-        <div class="stellar-panels reveal">
-          <!-- Panel 1 — Khmer Savuth · Display · Warm Pink/Orange -->
-          <a href="font/Savuth Font/khmer Savuth.ttf" download class="sp-panel sp-panel--1">
-            <div class="sp-nebula"></div>
-            <div class="sp-left">
-              <span class="sp-class">កម្រិត Premium <small>DISPLAY</small></span>
-              <h3 class="sp-name">Khmer Savuth</h3>
-              <p class="sp-desc">សម្រាប់ប្រើក្នុង Heading, Logo, Poster</p>
-              <div class="sp-meta">
-                <span class="sp-price free">Free</span>
-                <span class="sp-badge">POPULAR</span>
-              </div>
-              <span class="sp-cta"
-                ><i class="fas fa-download"></i> ទាញយកឥតគិតថ្លៃ →</span
-              >
-            </div>
-            <div class="sp-specimen">
-              <span class="sp-text heavy">សិល្បៈឌីជីថល</span>
-            </div>
-          </a>
-
-          <!-- Panel 2 — Sem Sarun · Sans · Cool Blue -->
-          <a href="font/Savuth Font/Khmer Sem Sarun.ttf" download class="sp-panel sp-panel--2">
-            <div class="sp-nebula"></div>
-            <div class="sp-left">
-              <span class="sp-class">កម្រិតធម្មតា <small>BODY SANS</small></span>
-              <h3 class="sp-name">Sem Sarun</h3>
-              <p class="sp-desc">សម្រាប់អានងាយស្រួលក្នុង Website, App</p>
-              <div class="sp-meta">
-                <span class="sp-price free">Free</span>
-                <span class="sp-badge outline">CLEAN</span>
-              </div>
-              <span class="sp-cta"
-                ><i class="fas fa-download"></i> ទាញយកឥតគិតថ្លៃ →</span
-              >
-            </div>
-            <div class="sp-specimen">
-              <span class="sp-text sans">អានងាយស្រួលយល់</span>
-            </div>
-          </a>
-
-          <!-- Panel 3 — Savuth Brush · Script · Deep Violet -->
-          <a href="font/Savuth Font/khmer Savuth Brush.ttf" download class="sp-panel sp-panel--3">
-            <div class="sp-nebula"></div>
-            <div class="sp-left">
-              <span class="sp-class">កម្រិត Creative <small>BRUSH SCRIPT</small></span>
-              <h3 class="sp-name">Savuth Brush</h3>
-              <p class="sp-desc">សម្រាប់ Brand, Card, ហត្ថលិខិតស្អាត</p>
-              <div class="sp-meta">
-                <span class="sp-price free">Free</span>
-                <span class="sp-badge">CREATIVE</span>
-              </div>
-              <span class="sp-cta"
-                ><i class="fas fa-download"></i> ទាញយកឥតគិតថ្លៃ →</span
-              >
-            </div>
-            <div class="sp-specimen">
-              <span class="sp-text italic">ហត្ថលេខាប្រណិត</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="reveal" style="text-align: center; margin-top: 36px">
-          <a href="/shop" class="btn-primary">
-            <i class="fas fa-font"></i> មើល Font ទាំងអស់ (8+) →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ CASE STUDIES — Editorial Layout ══ -->
-    <section id="portfolio">
-      <div class="container">
-        <!-- Header row -->
-        <div class="cs-header reveal">
-          <div>
-            <span class="section-tag">Proven Results</span>
-            <h2 class="section-title" style="margin-bottom: 0">
-              កម្រង <span class="gradient-text">ស្នាដៃ</span>
-            </h2>
+      <div class="nom-track" id="academyTrack">
+        <!-- Course 01 — AI Content Creation -->
+        <div class="nom-card" onclick="window.location = 'yobacademy.html'">
+          <div class="nom-bg-placeholder">
+            <span class="nom-card-num-bg">01</span>
           </div>
-          <p class="cs-header-sub">
-            មិនមែននិយាយទ្រឹស្តីទេ។ នេះជាលទ្ធផលពិតពីអតិថិជនពិត៖ Reach កើន, Leads
-            កើន, និងការងារ Manual ថយចុះ ដោយប្រើ AI + Digital System ក្នុង
-            Context កម្ពុជា។
-          </p>
-        </div>
-
-        <!-- ── Featured card (horizontal split) ── -->
-        <div class="cs-featured reveal">
-          <div class="cs-feat-img cs-feat-img--giz">
-            <div class="cs-img-visual">
-              <div class="cs-img-icon"><i class="fas fa-users"></i></div>
-              <div class="cs-img-label">GIZ × ASEAN</div>
-              <div class="cs-img-sub">Event Promotion · 500+ Participants</div>
-            </div>
-            <span class="cs-feat-badge">
-              <i class="fas fa-star"></i> Featured
-            </span>
+          <div class="nom-top">
+            <span class="nom-num">01</span>
+            <span class="nom-tag done">ប្រើបាន</span>
           </div>
-          <div class="cs-feat-body">
-            <div class="cs-tags">
-              <span class="cs-tag">Event Promotion</span>
-              <span class="cs-tag">Content Strategy</span>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">AI & Automation</span>
+              <span class="nom-cat">Beginner</span>
             </div>
-            <h3 class="cs-feat-title">
-              CHAMPION<br /><span class="gradient-text">GIZ ASEAN</span>
-            </h3>
-            <p class="cs-feat-desc">
-              យុទ្ធសាស្ត្រ Content ពេញលេញសម្រាប់ Program
-              ផ្ដល់អំណាចដល់យុវជននិងសហគ្រិន — ពី Social Media រហូតដល់ Live Event
-              ដ៏ជោគជ័យ។
+            <p class="nom-name">AI Content Creation ជាមួយ ChatGPT & Claude</p>
+            <p class="nom-desc">
+              រៀនបង្កើត Content ជាមួយ AI ក្នុង ៤៥ នាទី — ភ្លាមៗ ប្រើបានជាក់ស្ដែង
+              ១០០%។
             </p>
-            <!-- Result metrics -->
-            <div class="cs-metrics">
-              <div class="cs-metric">
-                <strong>+320%</strong>
-                <span>Social Reach</span>
-              </div>
-              <div class="cs-metric">
-                <strong>500+</strong>
-                <span>Participants</span>
-              </div>
-              <div class="cs-metric">
-                <strong>3×</strong>
-                <span>Engagement</span>
-              </div>
-            </div>
-            <a href="/shop" class="cs-feat-cta">
-              អានលម្អិត <i class="fas fa-arrow-right"></i>
-            </a>
+            <span class="nom-arrow"
+              >ចូលរៀន <i class="fas fa-arrow-right"></i
+            ></span>
           </div>
         </div>
 
-        <!-- ── 2-column grid: card + teaser ── -->
-        <div class="cs-grid">
-          <!-- Card 2 -->
-          <div class="cs-card reveal">
-            <div class="cs-card-img cs-card-img--ai">
-              <div class="cs-img-visual">
-                <div class="cs-img-icon"><i class="fas fa-robot"></i></div>
-                <div class="cs-img-label">AI × អ្នករៀន</div>
-                <div class="cs-img-sub">Automation · Local Business</div>
-              </div>
-              <div class="cs-card-overlay">
-                <div class="cs-overlay-metric">
-                  <strong>80%</strong>
-                  <span>Less Manual Work</span>
-                </div>
-              </div>
-              <span class="cs-card-cat">AI Tools</span>
-            </div>
-            <div class="cs-card-body">
-              <div class="cs-tags" style="margin-bottom: 10px">
-                <span class="cs-tag">Automation</span>
-                <span class="cs-tag">AI Training</span>
-              </div>
-              <h4 class="cs-card-title">Local Business Transformation</h4>
-              <p class="cs-card-desc">
-                ជួយហាងកាហ្វេ និងហាងរាយក្នុងស្រុក ដោះបំបាត់ការងារដៃ
-                ហើយ​បង្រៀនប្រើ AI បង្កើត Content លក់ជារៀងរាល់ថ្ងៃ។
-              </p>
-              <a href="/shop" class="cs-read-link">
-                Read Case Study <i class="fas fa-arrow-right"></i>
-              </a>
-            </div>
+        <!-- Course 02 — ManyChat -->
+        <div class="nom-card" onclick="window.location = 'yobacademy.html'">
+          <div class="nom-bg-placeholder">
+            <span class="nom-card-num-bg">02</span>
           </div>
-
-          <!-- Teaser / CTA card -->
-          <div class="cs-teaser reveal">
-            <div class="cs-teaser-glow"></div>
-            <div class="cs-teaser-inner">
-              <div class="cs-teaser-count">10+</div>
-              <h4 class="cs-teaser-title">Projects<br />Documented</h4>
-              <p class="cs-teaser-desc">
-                AI Strategy · Social Media Growth ·<br />
-                Brand Launches · Digital Campaigns ·<br />
-                Workshop Series · Daily Automation
-              </p>
-              <a href="/shop" class="cs-teaser-btn">
-                View All Case Studies
-                <i class="fas fa-long-arrow-alt-right"></i>
-              </a>
+          <div class="nom-top">
+            <span class="nom-num">02</span>
+            <span class="nom-tag done">ប្រើបាន</span>
+          </div>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">Marketing</span>
+              <span class="nom-cat">Beginner</span>
             </div>
+            <p class="nom-name">
+              ManyChat Auto-Reply សម្រាប់ Facebook Page ខ្មែរ
+            </p>
+            <p class="nom-desc">
+              Setup ManyChat ក្នុង ៣០ នាទី — Reply Customer Auto ២៤/៧ ដោយគ្មាន
+              Code។
+            </p>
+            <span class="nom-arrow"
+              >ចូលរៀន <i class="fas fa-arrow-right"></i
+            ></span>
           </div>
         </div>
-        <!-- /cs-grid -->
-      </div>
-    </section>
 
-    <!-- ══ TESTIMONIALS ══ -->
-    <section id="testimonials" class="section-dark-alt">
-      <div class="container">
-        <div class="testi-split reveal">
-          <!-- Left: heading + highlight stat -->
-          <div class="testi-left">
-            <span class="section-tag">Client Stories</span>
-            <h2 class="section-title" style="margin-top: 16px">
-              ការផ្ដល់<br /><span class="gradient-text">កម្លាំងចិត្ត</span>
-            </h2>
-            <blockquote class="testi-featured-quote">
-              <p>"បន្ទាប់ពីចូលរួម Workshop AI ជាមួយ YOB Digital<br />
-              ខ្ញុំអាចបង្កើត Content ជារៀងរាល់ថ្ងៃ<br />
-              ដោយប្រើ AI ជំនួស — Engagement លើ Facebook Page<br />
-              កើន <strong>៣ ដង!</strong>"</p>
-              <cite>— សុខ ដានី, ម្ចាស់ហាងកាហ្វេ &nbsp;⭐⭐⭐⭐⭐</cite>
-            </blockquote>
-            <div class="testi-stat-row">
-              <div class="testi-stat">
-                <span class="testi-stat-num">98%</span>
-                <span class="testi-stat-lbl">Client Satisfaction</span>
-              </div>
-              <div class="testi-stat">
-                <span class="testi-stat-num">3x</span>
-                <span class="testi-stat-lbl">Avg. ROAS Growth</span>
-              </div>
-            </div>
+        <!-- Course 03 — Online Store -->
+        <div class="nom-card" onclick="window.location = 'yobacademy.html'">
+          <div class="nom-bg-placeholder">
+            <span class="nom-card-num-bg">03</span>
           </div>
-
-          <!-- Right: stacked quote cards -->
-          <div class="testi-right">
-            <div class="testi-card reveal">
-              <div class="testi-qmark">"</div>
-              <p class="testi-quote">
-                បន្ទាប់ពីចូលរួម Workshop AI ជាមួយ YOB Digital ខ្ញុំអាចបង្កើត
-                Content ជារៀងរាល់ថ្ងៃ ដោយប្រើ AI ជំនួស ហើយ Engagement លើ
-                Facebook Page កើន <strong>៣ ដង!</strong>
-              </p>
-              <div class="testi-footer">
-                <div class="testi-author">
-                  <div class="testi-avatar">SD</div>
-                  <div>
-                    <div class="testi-name">សុខ ដានី</div>
-                    <div class="testi-role">ម្ចាស់ហាងកាហ្វេ · ភ្នំពេញ</div>
-                  </div>
-                </div>
-                <div class="testi-stars">★★★★★</div>
-              </div>
+          <div class="nom-top">
+            <span class="nom-num">03</span>
+            <span class="nom-tag done">ប្រើបាន</span>
+          </div>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">E-Commerce</span>
+              <span class="nom-cat">Beginner</span>
             </div>
+            <p class="nom-name">បង្កើតហាងអនឡាញក្នុង ៣០ ថ្ងៃ</p>
+            <p class="nom-desc">
+              AI + No-Code ២ Tools ចំណាយពេល ១ ខែ — បង្កើតហាង Online + Customer
+              ២០+ ដំបូង។
+            </p>
+            <span class="nom-arrow"
+              >ចូលរៀន <i class="fas fa-arrow-right"></i
+            ></span>
+          </div>
+        </div>
 
-            <div class="testi-card testi-card-alt reveal">
-              <div class="testi-qmark">"</div>
-              <p class="testi-quote">
-                YOB Digital មិនតែបង្រៀន Tool — ពួកគេពន្យល់ Strategy ច្បាស់លាស់
-                ហើយ Support ជានិច្ច។ Revenue Business ខ្ញុំ​ ឡើង
-                <strong>40% ក្នុង 2 ខែ!</strong>
-              </p>
-              <div class="testi-footer">
-                <div class="testi-author">
-                  <div class="testi-avatar">CR</div>
-                  <div>
-                    <div class="testi-name">ច័ន្ទ រចនា</div>
-                    <div class="testi-role">Online Business Owner · សៀមរាប</div>
-                  </div>
-                </div>
-                <div class="testi-stars">★★★★★</div>
-              </div>
+        <!-- Course 04 — Prompt Engineering -->
+        <div class="nom-card" onclick="window.location = 'yobacademy.html'">
+          <div class="nom-bg-placeholder">
+            <span class="nom-card-num-bg">04</span>
+          </div>
+          <div class="nom-top">
+            <span class="nom-num">04</span>
+            <span class="nom-tag hot">HOT 🔥</span>
+          </div>
+          <div class="nom-overlay">
+            <div class="nom-cats">
+              <span class="nom-cat">AI · Prompt</span>
+              <span class="nom-cat">Beginner</span>
             </div>
-
-            <div class="testi-card reveal">
-              <div class="testi-qmark">"</div>
-              <p class="testi-quote">
-                ខ្ញុំ​ចាប់ Digital Marketing ក្នុង 3 ខែ ហើយ Manage Facebook Ads
-                ខ្លួនឯងបាន។ ROI ឥឡូវ <strong>3x ពី Budget ដដែល</strong> — Highly
-                Recommend!
-              </p>
-              <div class="testi-footer">
-                <div class="testi-author">
-                  <div class="testi-avatar">HP</div>
-                  <div>
-                    <div class="testi-name">លី ហ៊ុនពេជ្រ</div>
-                    <div class="testi-role">Freelance Marketer · ភ្នំពេញ</div>
-                  </div>
-                </div>
-                <div class="testi-stars">★★★★★</div>
-              </div>
-            </div>
+            <p class="nom-name">Prompt Engineering: RTFT Framework</p>
+            <p class="nom-desc">
+              Framework ១ (RTFT) ធ្វើអោយ AI Output ប្រែជា ១០x Better — Master
+              ក្នុង ៣០ នាទី។
+            </p>
+            <span class="nom-arrow"
+              >ចូលរៀន <i class="fas fa-arrow-right"></i
+            ></span>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- ══ PRICING / PACKAGES ══ -->
-    <section id="pricing" style="display: none">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-tag">Transparent Pricing</span>
-          <h2 class="section-title">
-            CHOOSE YOUR <span class="gradient-text">PLAN</span>
-          </h2>
-          <span class="section-bg-num">PLAN</span>
-        </div>
-        <div class="pricing-grid">
-          <div class="pricing-card reveal">
-            <div class="pricing-badge">Starter</div>
-            <div class="pricing-price">
-              $<span>99</span><small>/month</small>
-            </div>
-            <p class="pricing-tagline">សម្រាប់អ្នកចាប់ផ្ដើម Digital</p>
-            <ul class="pricing-features">
-              <li>
-                <i class="fas fa-check"></i> Social Media Setup (1 platform)
-              </li>
-              <li><i class="fas fa-check"></i> 8 Posts/Month</li>
-              <li><i class="fas fa-check"></i> Basic AI Content Plan</li>
-              <li><i class="fas fa-check"></i> Monthly Report</li>
-              <li class="disabled">
-                <i class="fas fa-times"></i> Ads Management
-              </li>
-              <li class="disabled">
-                <i class="fas fa-times"></i> 1-on-1 Coaching
-              </li>
-            </ul>
-            <a href="#contact" class="btn-outline">ស្នើ Quote</a>
-          </div>
-          <div class="pricing-card pricing-popular reveal">
-            <div class="pricing-hot-tag">Most Popular</div>
-            <div class="pricing-badge">Growth</div>
-            <div class="pricing-price">
-              $<span>249</span><small>/month</small>
-            </div>
-            <p class="pricing-tagline">សម្រាប់ អ្នករៀន ចង់ Scale Fast</p>
-            <ul class="pricing-features">
-              <li><i class="fas fa-check"></i> Multi-Platform (3 platforms)</li>
-              <li><i class="fas fa-check"></i> 20 Posts + Stories/Month</li>
-              <li><i class="fas fa-check"></i> AI Content + Copywriting</li>
-              <li><i class="fas fa-check"></i> Facebook &amp; TikTok Ads</li>
-              <li><i class="fas fa-check"></i> Weekly Report + Analytics</li>
-              <li><i class="fas fa-check"></i> 2x Monthly Strategy Call</li>
-            </ul>
-            <a href="#contact" class="btn-primary">កក់ពិគ្រោះ</a>
-          </div>
-          <div class="pricing-card reveal">
-            <div class="pricing-badge">Pro</div>
-            <div class="pricing-price">
-              $<span>499</span><small>/month</small>
-            </div>
-            <p class="pricing-tagline">Full-service Digital Partner</p>
-            <ul class="pricing-features">
-              <li><i class="fas fa-check"></i> All Platforms Managed</li>
-              <li><i class="fas fa-check"></i> Unlimited Content Creation</li>
-              <li><i class="fas fa-check"></i> Full Ads Management</li>
-              <li><i class="fas fa-check"></i> SEO + Google Ads</li>
-              <li><i class="fas fa-check"></i> Daily Monitoring + Reports</li>
-              <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
-            </ul>
-            <a href="#contact" class="btn-outline">ស្នើ Proposal</a>
-          </div>
-        </div>
-        <p class="pricing-note reveal">
-          * តម្លៃអាចប្ដូរបាន ស្របតាមតម្រូវការ —
-          <a href="#contact">សាកសួរ</a> សម្រាប់ Custom Package
-        </p>
-      </div>
-    </section>
-
-    <!-- ══ VIDEO MASTERCLASS (YOUTUBE SECTION) ══ -->
-    <section id="videos">
-      <div class="container">
-        <div
-          class="section-header reveal"
-          style="
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            flex-wrap: wrap;
-            gap: 20px;
-          "
-        >
-          <div>
-            <span class="section-tag"
-              ><i class="fab fa-youtube yt-icon"></i> Free Masterclass</span
-            >
-            <h2 class="section-title">
-              យប់ <span class="gradient-text">សម្រាប់ការចំណេះដឹង</span>
-            </h2>
-            <p
-              style="
-                color: var(--gray);
-                font-family: var(--fk);
-                margin-top: 15px;
-                font-size: 16px;
-                max-width: 500px;
-              "
-            >
-              រៀនពី Digital Marketing សម្រាប់វាយលុកទីផ្សារ, របៀបប្រើប្រាស់ AI
-              ដើម្បីបញ្ជាឱ្យធ្វើការជំនួស, គន្លឹះឆ្នៃប្រឌិត ...
-              តាមរយៈវីដេអូបង្រៀនឥតគិតថ្លៃ។
-            </p>
-          </div>
-          <!-- ដាក់ Link ឆានែល YouTube ពិតរបស់ Oppa នៅទីនេះ -->
-          <a
-            href="https://youtube.com/@yobdigital"
-            target="_blank"
-            class="btn-outline btn-yt"
-          >
-            <i class="fab fa-youtube yt-icon"></i> Subscribe លើ YouTube
-          </a>
-        </div>
-
-        <div class="video-grid reveal">
-          <!-- Video 1 -->
-          <a
-            href="https://www.youtube.com/watch?v=WZhRKNMt8p0"
-            target="_blank"
-            class="video-card"
-          >
-            <div class="video-thumb">
-              <!-- ដូររូបភាព Cover YouTube ទីនេះ -->
-              <img
-                src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=75&w=1200&auto=format&fit=crop"
-                alt="YouTube Thumbnail"
-                loading="lazy"
-                decoding="async"
-                srcset="
-                  https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=75&w=640&auto=format&fit=crop   640w,
-                  https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=75&w=1200&auto=format&fit=crop 1200w
-                "
-                sizes="(max-width: 640px) 100vw, 90vw"
-              />
-              <i class="fas fa-play-circle play-btn-overlay"></i>
-              <span class="video-duration">12:45</span>
-            </div>
-            <div class="video-info">
-              <h3 class="video-title">
-                របៀបប្រើប្រាស់ AI សរសេរ Content លក់ដាច់ ១០ ដង
-              </h3>
-              <div class="video-meta">
-                <span><i class="fas fa-eye"></i> 1.2K Views</span>
-                <span><i class="fas fa-clock"></i> 2 weeks ago</span>
-              </div>
-              <div class="video-tags">
-                <span class="v-badge">AI TOOLS</span>
-                <span class="v-badge">MARKETING</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Video 2 -->
-          <a
-            href="https://www.youtube.com/watch?v=4CUQRAj6wGA"
-            target="_blank"
-            class="video-card"
-          >
-            <div class="video-thumb">
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=1200&auto=format&fit=crop"
-                alt="YouTube Thumbnail"
-                loading="lazy"
-                decoding="async"
-                srcset="
-                  https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=640&auto=format&fit=crop   640w,
-                  https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=1200&auto=format&fit=crop 1200w
-                "
-                sizes="(max-width: 640px) 100vw, 90vw"
-              />
-              <i class="fas fa-play-circle play-btn-overlay"></i>
-              <span class="video-duration">08:20</span>
-            </div>
-            <div class="video-info">
-              <h3 class="video-title">
-                គន្លឹះរៀបចំ Website សម្រាប់everyone
-              </h3>
-              <div class="video-meta">
-                <span><i class="fas fa-eye"></i> 850 Views</span>
-                <span><i class="fas fa-clock"></i> 1 month ago</span>
-              </div>
-              <div class="video-tags">
-                <span class="v-badge">WEB DESIGN</span>
-                <span class="v-badge">BUSINESS</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Video 3 -->
-          <a
-            href="https://www.youtube.com/watch?v=h2kyBly32JY"
-            target="_blank"
-            class="video-card"
-          >
-            <div class="video-thumb">
-              <img
-                src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=75&w=1200&auto=format&fit=crop"
-                alt="YouTube Thumbnail"
-                loading="lazy"
-                decoding="async"
-                srcset="
-                  https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=75&w=640&auto=format&fit=crop   640w,
-                  https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=75&w=1200&auto=format&fit=crop 1200w
-                "
-                sizes="(max-width: 640px) 100vw, 90vw"
-              />
-              <i class="fas fa-play-circle play-btn-overlay"></i>
-              <span class="video-duration">15:10</span>
-            </div>
-            <div class="video-info">
-              <h3 class="video-title">
-                អាថ៌កំបាំងទាញចំណាប់អារម្មណ៍ភ្ញៀវ ៣ វិនាទីដំបូង
-              </h3>
-              <div class="video-meta">
-                <span><i class="fas fa-eye"></i> 2.5K Views</span>
-                <span><i class="fas fa-clock"></i> 2 months ago</span>
-              </div>
-              <div class="video-tags">
-                <span class="v-badge">CONTENT</span>
-                <span class="v-badge">TIKTOK</span>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ FREE RESOURCES (LEAD MAGNET) ══ -->
-    <section id="resources">
-      <div class="container">
-        <div
-          class="section-header reveal"
-          style="
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            flex-wrap: wrap;
-            gap: 20px;
-          "
-        >
-          <div>
-            <span class="section-tag">Free Knowledge</span>
-            <h2 class="section-title">
-              កាដូ <span class="gradient-text">ឌីជីថល</span>
-            </h2>
-            <span class="section-bg-num">FREE</span>
-          </div>
-          <a href="/shop" class="btn-outline" style="flex-shrink: 0">
-            មើល Toolkit ទាំងអស់ (10+) <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
-
-        <!-- Featured lead-magnet -->
-        <div class="resource-box reveal">
-          <div class="resource-visual">
-            <div class="mockup-book">
-              <span class="mockup-tag">★ Featured</span>
-              <h4>THE AI<br />CONTENT<br />BIBLE</h4>
-              <p>30-Day Calendar & 200+ Prompts</p>
-              <i class="fas fa-book-open mockup-icon"></i>
-            </div>
-          </div>
-          <div class="resource-content">
-            <h3>AI Content Bible — Toolkit #1 សម្រាប់បង្កើន Reach និង Leads</h3>
-            <p>
-              សម្រាប់អ្នកដែលចង់មាន Content Plan ច្បាស់លាស់: Calendar
-              30 ថ្ងៃ + Prompt 200+ + Hook Formula សមនឹងទីផ្សារខ្មែរ (១,២០០+
-              Downloads)។
-            </p>
-            <ul class="checklist">
-              <li>
-                <i class="fas fa-check-circle"></i> AI Prompts ២០០+
-                ជា​ភាសា​ខ្មែរ-អង់គ្លេស
-              </li>
-              <li>
-                <i class="fas fa-check-circle"></i> Content Calendar ៣០ ថ្ងៃ
-                ត្រៀមប្រើ
-              </li>
-              <li>
-                <i class="fas fa-check-circle"></i> Hook Secrets ១៥ ប្រភេទ
-              </li>
-            </ul>
-            <form
-              class="lead-form"
-              name="lead-magnet"
-              method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-            >
-              <input type="hidden" name="form-name" value="lead-magnet" />
-              <input type="hidden" name="bot-field" />
-              <div class="lead-form-row">
-                <input
-                  type="text"
-                  name="name"
-                  class="lead-input"
-                  placeholder="ឈ្មោះ​របស់​អ្នក"
-                  autocomplete="name"
-                  required
-                />
-                <input
-                  type="text"
-                  name="telegram"
-                  class="lead-input"
-                  placeholder="លេខ Telegram"
-                  autocomplete="tel"
-                  required
-                />
-              </div>
-              <button type="submit" class="lead-btn">
-                <i class="fas fa-download"></i> ទាញយក​ឥឡូវ (100% Free)
-              </button>
-              <div
-                id="lead-success"
-                class="form-message success"
-                style="display: none"
-              >
-                <i class="fas fa-check-circle"></i>
-                បានទទួលសំណើររួចរាល់។ ឯកសារនឹងផ្ញើទៅ Telegram ក្នុងរយៈពេល ២–៥
-                នាទី។
-              </div>
-              <div
-                id="lead-error"
-                class="form-message error"
-                style="display: none"
-              >
-                <i class="fas fa-exclamation-triangle"></i>
-                មានបញ្ហាបច្ចេកទេស។ សូមសាកម្តងទៀត ឬទាក់ទង Telegram ដោយផ្ទាល់។
-              </div>
-              <span
-                style="
-                  font-size: 12px;
-                  color: var(--gray);
-                  font-family: var(--fk);
-                  text-align: center;
-                  margin-top: 5px;
-                "
-              >
-                <i class="fas fa-lock" style="font-size: 11px"></i>
-                ព័ត៌មាន​ត្រូវ​បាន​រក្សា​ទុក​ជា​សម្ងាត់
-              </span>
-            </form>
-          </div>
-        </div>
-
-        <!-- 3 more preview cards -->
-        <div class="res-preview-grid reveal">
-          <a href="/shop" class="res-preview-card">
-            <div class="res-preview-icon res-pi-purple">
-              <i class="fas fa-robot"></i>
-            </div>
-            <div class="res-preview-body">
-              <span class="res-cat-badge badge-ai">AI Tools</span>
-              <div class="res-preview-title">
-                100 AI Prompts for Khmer Business
-              </div>
-              <div class="res-preview-dl">
-                <i class="fas fa-download"></i> 850+ Downloads
-              </div>
-            </div>
-          </a>
-          <a href="/shop" class="res-preview-card">
-            <div class="res-preview-icon res-pi-blue">
-              <i class="fas fa-comment-dots"></i>
-            </div>
-            <div class="res-preview-body">
-              <span class="res-cat-badge badge-template">Template</span>
-              <div class="res-preview-title">Khmer Caption Templates ៥០+</div>
-              <div class="res-preview-dl">
-                <i class="fas fa-download"></i> 910+ Downloads
-              </div>
-            </div>
-          </a>
-          <a href="/shop" class="res-preview-card">
-            <div class="res-preview-icon res-pi-pink">
-              <i class="fab fa-facebook-f"></i>
-            </div>
-            <div class="res-preview-body">
-              <span class="res-cat-badge badge-marketing">Marketing</span>
-              <div class="res-preview-title">Facebook Ads Checklist</div>
-              <div class="res-preview-dl">
-                <i class="fas fa-download"></i> 670+ Downloads
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <div style="text-align: center; margin-top: 40px" class="reveal">
-          <a href="/shop" class="btn-primary">
-            <i class="fas fa-gift"></i> មើល Free Resources ទាំងអស់ 10+ items →
-          </a>
-        </div>
+      <!-- CTA strip -->
+      <div class="nom-cta-wrap reveal">
+        <div class="nom-cta-line"></div>
+        <a href="yobacademy.html" class="nom-cta">
+          <span>មើលមេរៀនទាំងអស់</span>
+          <i class="fas fa-graduation-cap"></i>
+        </a>
+        <div class="nom-cta-line right"></div>
       </div>
     </section>
 
@@ -3377,72 +3574,47 @@
         <div class="contact-grid">
           <!-- LEFT — Info + Channels -->
           <div class="contact-left reveal">
-            <span class="section-tag">ពិគ្រោះយោបល់ឥតគិតថ្លៃ</span>
+            <span class="nom-eyebrow">ទំនាក់ទំនង — Get In Touch</span>
             <h2 class="contact-headline">
               ត្រៀមចិត្ត<br />
-              <span class="gradient-text">ផ្លាស់ប្ដូរ?</span>
+              <span>ផ្លាស់ប្ដូរ?</span>
             </h2>
-            <p class="contact-sub">
-              ប្រាប់បញ្ហារបស់អ្នកមកកាន់ក្រុម YOB Digital។
-              យើងនឹងផ្ដល់ទិសដៅច្បាស់ក្នុង 2-4 ម៉ោង
-              និងផែនការចាប់ផ្ដើមដែលអនុវត្តបានភ្លាម។
-              ប្រសិនបើអ្នកមិនទាន់ដឹងថាគួរចាប់ផ្ដើមពីសេវាកម្មណា សូមស្នើ Digital
-              Check មុន។
-            </p>
+
+            <!-- Quick facts -->
+            <div class="contact-facts">
+              <div class="contact-fact">
+                <span class="contact-fact-icon"
+                  ><i class="fas fa-bolt"></i
+                ></span>
+                <div>
+                  <strong>Reply ក្នុង 2–4 ម៉ោង</strong>
+                  <span>ច័ន្ទ — អាទិត្យ · Online ជានិច្ច</span>
+                </div>
+              </div>
+              <div class="contact-fact">
+                <span class="contact-fact-icon"
+                  ><i class="fas fa-comment-dots"></i
+                ></span>
+                <div>
+                  <strong>ពិគ្រោះឥតគិតថ្លៃ</strong>
+                  <span>No commitment · No hidden fees</span>
+                </div>
+              </div>
+              <div class="contact-fact">
+                <span class="contact-fact-icon">🇰🇭</span>
+                <div>
+                  <strong>ភាសាខ្មែរ 100%</strong>
+                  <span>ប្រាស្រ័យជាភាសាខ្មែរពេញលេញ</span>
+                </div>
+              </div>
+            </div>
 
             <!-- Online status -->
             <div class="contact-status">
               <span class="contact-status-dot"></span>
-              ក្រុមការងារ YOBកំពុង Online * Reply ក្នុង 2-4 ម៉ោង
+              Online ឥឡូវ · Reply ក្នុង 2-4 ម៉ោង
             </div>
 
-            <!-- Quick channels -->
-            <div class="contact-channels">
-              <a
-                href="https://t.me/yobdigital"
-                class="contact-channel tg"
-                target="_blank"
-                rel="noopener"
-              >
-                <div class="cc-icon"><i class="fab fa-telegram-plane"></i></div>
-                <div class="cc-text">
-                  <strong>Telegram</strong>
-                  <span>Chat ផ្ទាល់ · ច​ន្ទ–​អាទិ​ត្យ</span>
-                </div>
-                <i class="fas fa-arrow-right cc-arrow"></i>
-              </a>
-              <a
-                href="https://facebook.com/yobdigital"
-                class="contact-channel fb"
-                target="_blank"
-                rel="noopener"
-              >
-                <div class="cc-icon">
-                  <i class="fab fa-facebook-messenger"></i>
-                </div>
-                <div class="cc-text">
-                  <strong>Facebook</strong>
-                  <span>Messenger · YOB Digital</span>
-                </div>
-                <i class="fas fa-arrow-right cc-arrow"></i>
-              </a>
-            </div>
-
-            <!-- Trust row -->
-            <div class="contact-trust">
-              <div class="ct-item">
-                <i class="fas fa-check-circle"></i> ពិគ្រោះយោបល់ឥតគិតថ្លៃ
-              </div>
-              <div class="ct-item">
-                <i class="fas fa-check-circle"></i> No Hidden Fees
-              </div>
-              <div class="ct-item">
-                <i class="fas fa-check-circle"></i> ជា​ភាសា​ខ្មែរ ១០០%
-              </div>
-              <div class="ct-item">
-                <i class="fas fa-check-circle"></i> Reply ជា​ញឹក​ញ​យ
-              </div>
-            </div>
           </div>
 
           <!-- RIGHT — Form Card -->
@@ -3492,12 +3664,12 @@
 
               <form
                 class="cf-form"
-                name="contact"
+                name="contact-home"
                 method="POST"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
               >
-                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="form-name" value="contact-home" />
                 <input
                   type="hidden"
                   name="service"
@@ -3537,8 +3709,15 @@
                 >
                   <div class="cf-success-icon">✅</div>
                   <div class="cf-success-title">សាររបស់អ្នកបានផ្ញើ!</div>
-                  <div class="cf-success-sub">ក្រុមការងារ YOB នឹងទាក់ទងអ្នកក្នុង <strong>២-៤ ម៉ោង</strong></div>
-                  <a href="https://t.me/yobdigital" target="_blank" rel="noopener" class="cf-success-tg">
+                  <div class="cf-success-sub">
+                    ក្រុមការងារ YOB នឹងទាក់ទងអ្នកក្នុង <strong>២-៤ ម៉ោង</strong>
+                  </div>
+                  <a
+                    href="https://t.me/yobdigital"
+                    target="_blank"
+                    rel="noopener"
+                    class="cf-success-tg"
+                  >
                     <i class="fab fa-telegram-plane"></i> Chat ផ្ទាល់ Telegram
                   </a>
                 </div>
@@ -3584,7 +3763,9 @@
                   <label class="cf-label"
                     >តើអ្នកជួបបញ្ហាអ្វី? <small>(សរសេរខ្លីៗក៏បាន)</small></label
                   >
-                  <p class="cf-field-hint">ឧ. ខ្ញុំចង់បង្កើនលក់តាម Facebook ប៉ុន្តែ Ads ខាត...</p>
+                  <p class="cf-field-hint">
+                    ឧ. ខ្ញុំចង់បង្កើនលក់តាម Facebook ប៉ុន្តែ Ads ខាត...
+                  </p>
                 </div>
 
                 <div class="cf-captcha-wrap" id="cfCaptchaWrap">
@@ -3608,15 +3789,33 @@
     <!-- Page-specific inline <script> blocks go BEFORE load-components, never after -->
     <script src="js/form-utils.js?v=2" defer></script>
     <script>
+      (function () {
+        function resetHomeViewportPosition() {
+          window.scrollTo(0, 0);
+          document.documentElement.scrollLeft = 0;
+          document.documentElement.scrollTop = 0;
+          document.body.scrollLeft = 0;
+          document.body.scrollTop = 0;
+        }
+
+        window.addEventListener("load", resetHomeViewportPosition);
+        window.addEventListener("pageshow", resetHomeViewportPosition);
+      })();
+    </script>
+    <script>
       document.addEventListener("DOMContentLoaded", function () {
         // Show reCAPTCHA only when user engages with the message textarea
         const msgTextarea = document.getElementById("contactMessage");
         const captchaWrap = document.getElementById("cfCaptchaWrap");
         if (msgTextarea && captchaWrap) {
-          msgTextarea.addEventListener("focus", function showCaptcha() {
-            captchaWrap.classList.add("visible");
-            msgTextarea.removeEventListener("focus", showCaptcha);
-          }, { once: true });
+          msgTextarea.addEventListener(
+            "focus",
+            function showCaptcha() {
+              captchaWrap.classList.add("visible");
+              msgTextarea.removeEventListener("focus", showCaptcha);
+            },
+            { once: true },
+          );
         }
 
         const contactForm = document.querySelector(".cf-form");
@@ -3977,18 +4176,6 @@
       });
     </script>
 
-    <!-- Float Contact Buttons -->
-    <div class="float-contact">
-      <a
-        href="https://t.me/yobdigital"
-        class="fl-btn tg"
-        data-tip="Telegram YOB"
-        target="_blank"
-        rel="noopener"
-        ><i class="fab fa-telegram-plane"></i
-      ></a>
-    </div>
-
     <!-- Back to Top -->
     <button
       class="back-top"
@@ -4209,133 +4396,6 @@
       })();
     </script>
 
-    <!-- Universe Star Canvas — fixed behind all sections -->
-    <script>
-      (function () {
-        var canvas = document.getElementById("home-star-canvas");
-        if (!canvas) return;
-        if (window.innerWidth < 768) return;
-        var ctx = canvas.getContext("2d");
-        var W, H;
-        var stars = [];
-        var NUM = 380;
-
-        function resize() {
-          W = canvas.width = window.innerWidth;
-          H = canvas.height = window.innerHeight;
-        }
-        resize();
-        window.addEventListener("resize", resize);
-
-        function mkStar() {
-          var depth = 0.2 + Math.random() * 0.8; /* closer = bigger depth */
-          return {
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-            r: 0.2 + depth * 1.2,
-            base: 0.06 + depth * 0.4,
-            speed: 0.3 + Math.random() * 0.8,
-            phase: Math.random() * Math.PI * 2,
-            depth: depth,
-            hue: Math.random() < 0.72 ? 0 : Math.random() < 0.5 ? 330 : 265,
-          };
-        }
-
-        for (var i = 0; i < NUM; i++) stars.push(mkStar());
-
-        /* ── Warp state ── */
-        var scrollVel  = 0;
-        var warpTarget = 0;
-        var warpLevel  = 0;
-        var lastY = window.scrollY;
-        var warpDir = 1; /* +1 = down, -1 = up */
-
-        window.addEventListener("scroll", function () {
-          var cy = window.scrollY;
-          var dv = cy - lastY;
-          lastY = cy;
-          scrollVel = Math.abs(dv);
-          warpDir   = dv >= 0 ? 1 : -1;
-        }, { passive: true });
-
-        var t = 0;
-        function tick() {
-          if (document.hidden) { requestAnimationFrame(tick); return; }
-
-          /* Lerp warp level */
-          warpTarget = Math.min(scrollVel / 22, 1);
-          warpLevel += (warpTarget - warpLevel) * 0.12;
-          scrollVel *= 0.82; /* decay */
-
-          ctx.clearRect(0, 0, W, H);
-
-          /* Warp overlay: blue-white vignette from center at high warp */
-          if (warpLevel > 0.04) {
-            var vig = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.max(W,H)*0.7);
-            vig.addColorStop(0,   'rgba(130,160,255,' + (warpLevel * 0.18) + ')');
-            vig.addColorStop(0.5, 'rgba(80,100,220,'  + (warpLevel * 0.08) + ')');
-            vig.addColorStop(1,   'rgba(0,0,0,0)');
-            ctx.fillStyle = vig;
-            ctx.fillRect(0, 0, W, H);
-          }
-
-          t += 0.012;
-          var cx = W / 2, cy2 = H / 2;
-
-          for (var i = 0; i < stars.length; i++) {
-            var s = stars[i];
-            var twinkle = s.base * (0.45 + 0.55 * Math.sin(t * s.speed + s.phase));
-            var alpha = twinkle + warpLevel * s.depth * 0.55;
-            ctx.globalAlpha = Math.min(alpha, 0.95);
-
-            if (warpLevel > 0.05) {
-              /* ── WARP STREAK ── */
-              /* direction from vanishing point (center) outward */
-              var dx = s.x - cx;
-              var dy = s.y - cy2;
-              var len = Math.sqrt(dx * dx + dy * dy) || 1;
-              var nx = dx / len, ny = dy / len;
-
-              /* Streak length: deeper stars = longer streak, farther from center = longer */
-              var streakLen = warpLevel * s.depth * (28 + len * 0.22);
-              /* Scroll direction biases the streak slightly vertical */
-              var bx = nx + warpDir * 0 * 0.3;
-              var by = ny + warpDir * 0.35;
-              var blen = Math.sqrt(bx*bx + by*by) || 1;
-              bx /= blen; by /= blen;
-
-              var x1 = s.x, y1 = s.y;
-              var x2 = s.x + bx * streakLen, y2 = s.y + by * streakLen;
-
-              var grad = ctx.createLinearGradient(x1, y1, x2, y2);
-              var col = s.hue === 0 ? '255,255,255' :
-                        s.hue === 330 ? '255,160,200' : '180,150,255';
-              grad.addColorStop(0, 'rgba(' + col + ',' + Math.min(alpha * 1.4, 1) + ')');
-              grad.addColorStop(1, 'rgba(' + col + ',0)');
-
-              ctx.strokeStyle = grad;
-              ctx.lineWidth = s.r * (0.6 + warpLevel * 1.4);
-              ctx.beginPath();
-              ctx.moveTo(x1, y1);
-              ctx.lineTo(x2, y2);
-              ctx.stroke();
-            } else {
-              /* ── NORMAL DOT ── */
-              if (s.hue === 0)         ctx.fillStyle = "#ffffff";
-              else if (s.hue === 330)  ctx.fillStyle = "hsl(330,70%,80%)";
-              else                     ctx.fillStyle = "hsl(265,60%,80%)";
-              ctx.beginPath();
-              ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-              ctx.fill();
-            }
-          }
-          ctx.globalAlpha = 1;
-          requestAnimationFrame(tick);
-        }
-        tick();
-      })();
-    </script>
-
     <!-- Black Hole Canvas Particles -->
     <script>
       (function () {
@@ -4383,9 +4443,12 @@
         for (var i = 0; i < NUM; i++) particles.push(mkParticle(true));
 
         var bhVisible = false;
-        new IntersectionObserver(function (e) {
-          bhVisible = e[0].isIntersecting;
-        }, { threshold: 0.05 }).observe(canvas);
+        new IntersectionObserver(
+          function (e) {
+            bhVisible = e[0].isIntersecting;
+          },
+          { threshold: 0.05 },
+        ).observe(canvas);
 
         function tick() {
           if (document.hidden || !bhVisible) {
@@ -4423,59 +4486,291 @@
       })();
     </script>
     <script>
-    /* ═════════════════════════════════════════════════════════
+      /* ═════════════════════════════════════════════════════════
        HOMEPAGE SCROLL EFFECTS
        1. Scroll Progress Bar
        2. Word Reveal on Section Titles
        3. Counter Animation on Stats
     ═════════════════════════════════════════════════════════ */
-    (function () {
-
-      /* ─ 1. SCROLL PROGRESS BAR ─ */
-      var prog = document.getElementById('yob-progress');
-      function updateProg() {
-        var total = document.documentElement.scrollHeight - window.innerHeight;
-        prog.style.width = (total > 0 ? (window.scrollY / total) * 100 : 0) + '%';
-      }
-      window.addEventListener('scroll', updateProg, { passive: true });
-      updateProg();
-
-      /* ─ 2. COUNTER ANIMATION (Khmer numerals) ─ */
-      var KH = ['០','១','២','៣','៤','៥','៦','៧','៨','៩'];
-      function toKhmer(n) {
-        return String(n).split('').map(function(d){ return KH[+d] !== undefined ? KH[+d] : d; }).join('');
-      }
-      function animCount(el) {
-        var target = parseInt(el.dataset.target, 10);
-        if (!target) return;
-        var countEl = el.querySelector('.count-num');
-        if (!countEl) return;
-        var original = countEl.textContent;
-        var dur = 1600;
-        var startT = performance.now();
-        function tick(now) {
-          var p = Math.min((now - startT) / dur, 1);
-          var ease = 1 - Math.pow(1 - p, 3);
-          countEl.textContent = toKhmer(Math.round(ease * target));
-          if (p < 1) requestAnimationFrame(tick);
-          else countEl.textContent = original;
+      (function () {
+        /* ─ 1. SCROLL PROGRESS BAR ─ */
+        var prog = document.getElementById("yob-progress");
+        function updateProg() {
+          var total =
+            document.documentElement.scrollHeight - window.innerHeight;
+          prog.style.width =
+            (total > 0 ? (window.scrollY / total) * 100 : 0) + "%";
         }
-        requestAnimationFrame(tick);
-      }
-      var cntObs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            e.target.querySelectorAll('[data-target]').forEach(animCount);
-            cntObs.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.5 });
-      var statsEl = document.getElementById('heroStats');
-      if (statsEl) cntObs.observe(statsEl);
+        window.addEventListener("scroll", updateProg, { passive: true });
+        updateProg();
 
-    })();
+        /* ─ 2. COUNTER ANIMATION (Khmer numerals) ─ */
+        var KH = ["០", "១", "២", "៣", "៤", "៥", "៦", "៧", "៨", "៩"];
+        function toKhmer(n) {
+          return String(n)
+            .split("")
+            .map(function (d) {
+              return KH[+d] !== undefined ? KH[+d] : d;
+            })
+            .join("");
+        }
+        function animCount(el) {
+          var target = parseInt(el.dataset.target, 10);
+          if (!target) return;
+          var countEl = el.querySelector(".count-num");
+          if (!countEl) return;
+          var original = countEl.textContent;
+          var dur = 1600;
+          var startT = performance.now();
+          function tick(now) {
+            var p = Math.min((now - startT) / dur, 1);
+            var ease = 1 - Math.pow(1 - p, 3);
+            countEl.textContent = toKhmer(Math.round(ease * target));
+            if (p < 1) requestAnimationFrame(tick);
+            else countEl.textContent = original;
+          }
+          requestAnimationFrame(tick);
+        }
+        var cntObs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.querySelectorAll("[data-target]").forEach(animCount);
+                cntObs.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.5 },
+        );
+        var statsEl = document.getElementById("heroStats");
+        if (statsEl) cntObs.observe(statsEl);
+      })();
     </script>
-    <script src="js/load-components.js?v=2"></script>
-    <script src="js/main.js?v=2" defer></script>
+    <!-- Smooth drag-scroll — all .nom-track -->
+    <script>
+      (function () {
+        document.querySelectorAll(".nom-track").forEach(function (track) {
+          var isDown = false;
+          var startX = 0;
+          var scrollL = 0;
+          var velX = 0;
+          var lastX = 0;
+          var lastTime = 0;
+          var hasDragged = false;
+          var rafId = null;
+
+          function stopMomentum() {
+            if (rafId) {
+              cancelAnimationFrame(rafId);
+              rafId = null;
+            }
+          }
+
+          function applyMomentum() {
+            velX *= 0.9;
+            track.scrollLeft -= velX;
+            if (Math.abs(velX) > 0.8) {
+              rafId = requestAnimationFrame(applyMomentum);
+            } else {
+              rafId = null;
+            }
+          }
+
+          track.addEventListener("mousedown", function (e) {
+            stopMomentum();
+            isDown = true;
+            hasDragged = false;
+            startX = e.pageX;
+            scrollL = track.scrollLeft;
+            velX = 0;
+            lastX = e.pageX;
+            lastTime = Date.now();
+            track.style.cursor = "grabbing";
+            track.style.userSelect = "none";
+            e.preventDefault();
+          });
+
+          window.addEventListener("mousemove", function (e) {
+            if (!isDown) return;
+            var dx = e.pageX - startX;
+            if (Math.abs(dx) > 4) hasDragged = true;
+            track.scrollLeft = scrollL - dx;
+
+            var now = Date.now();
+            var dt = now - lastTime;
+            if (dt > 0) velX = ((e.pageX - lastX) / dt) * 12;
+            lastX = e.pageX;
+            lastTime = now;
+          });
+
+          window.addEventListener("mouseup", function () {
+            if (!isDown) return;
+            isDown = false;
+            track.style.cursor = "grab";
+            track.style.userSelect = "";
+            if (Math.abs(velX) > 1.5) {
+              rafId = requestAnimationFrame(applyMomentum);
+            }
+          });
+
+          track.addEventListener(
+            "click",
+            function (e) {
+              if (hasDragged) {
+                e.stopPropagation();
+                e.preventDefault();
+              }
+            },
+            true,
+          );
+        });
+      })();
+    </script>
+    <!-- ── GSAP ScrollTrigger animations ── -->
+    <script>
+      // Nav transparent → dark on scroll (native, no dependency)
+      (function () {
+        var nav = document.querySelector("nav");
+        if (!nav) return;
+        window.addEventListener(
+          "scroll",
+          function () {
+            nav.classList.toggle("nav-scrolled", window.scrollY > 60);
+          },
+          { passive: true },
+        );
+      })();
+
+      window.addEventListener("load", function () {
+        if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined")
+          return;
+        gsap.registerPlugin(ScrollTrigger);
+
+        // ── Cards: stagger fly-in from right as each track scrolls into view
+        document.querySelectorAll(".nom-track").forEach(function (track) {
+          var cards = track.querySelectorAll(".nom-card");
+          gsap.fromTo(
+            cards,
+            { opacity: 0, x: 60 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.75,
+              stagger: 0.1,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: track,
+                start: "top 82%",
+                toggleActions: "play none none none",
+              },
+            },
+          );
+        });
+
+        // ── CTA links: letter-spacing reveal
+        document
+          .querySelectorAll(".nom-cta-wrap .nom-cta")
+          .forEach(function (cta) {
+            gsap.fromTo(
+              cta,
+              { opacity: 0, letterSpacing: "0.2em" },
+              {
+                opacity: 1,
+                letterSpacing: "0.08em",
+                duration: 0.6,
+                ease: "power2.out",
+                scrollTrigger: {
+                  trigger: cta,
+                  start: "top 92%",
+                  toggleActions: "play none none none",
+                },
+              },
+            );
+          });
+      });
+    </script>
+    <!-- Chapter Nav: scroll-spy -->
+    <script>
+      (function () {
+        var items = document.querySelectorAll(".cn-item[data-target]");
+        var sectionIds = [
+          "hero",
+          "recent-works",
+          "store-latest",
+          "featured-courses",
+          "contact",
+        ];
+
+        function getActive() {
+          var mid = window.scrollY + window.innerHeight * 0.45;
+          for (var i = sectionIds.length - 1; i >= 0; i--) {
+            var el = document.getElementById(sectionIds[i]);
+            if (el && el.offsetTop <= mid) return sectionIds[i];
+          }
+          return sectionIds[0];
+        }
+
+        function update() {
+          var active = getActive();
+          items.forEach(function (item) {
+            item.classList.toggle("active", item.dataset.target === active);
+          });
+        }
+
+        items.forEach(function (item) {
+          item.addEventListener("click", function (e) {
+            e.preventDefault();
+            var el = document.getElementById(item.dataset.target);
+            if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        });
+
+        window.addEventListener("scroll", update, { passive: true });
+        update();
+      })();
+    </script>
+    <script>
+      // ── Chapter Nav: hide on hero, show + active state after ──
+      (function () {
+        const nav   = document.getElementById("chapterNav");
+        const hero  = document.getElementById("hero");
+        const items = document.querySelectorAll(".cn-item[data-target]");
+        if (!nav || !hero) return;
+
+        // Show nav only when hero is no longer visible
+        const heroObs = new IntersectionObserver(
+          ([e]) => nav.classList.toggle("visible", !e.isIntersecting),
+          { threshold: 0.1 }
+        );
+        heroObs.observe(hero);
+
+        // Active dot: highlight whichever section is most in view
+        const sections = Array.from(items).map(a =>
+          document.getElementById(a.dataset.target)
+        ).filter(Boolean);
+
+        const sectionObs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(e => {
+              if (e.isIntersecting) {
+                items.forEach(a => a.classList.toggle(
+                  "active", a.dataset.target === e.target.id
+                ));
+              }
+            });
+          },
+          { threshold: 0.4 }
+        );
+        sections.forEach(s => sectionObs.observe(s));
+      })();
+    </script>
+    <script>
+      setTimeout(function () {
+        var l = document.getElementById("yobLoader");
+        if (l) l.remove();
+      }, 2500);
+    </script>
+    <script src="js/load-components.js?v=3"></script>
+    <script src="js/main.js?v=3" defer></script>
   </body>
 </html>

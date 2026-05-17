@@ -1,252 +1,149 @@
-﻿// ═══════════════════════════════════════════════
+// ═══════════════════════════════════════════════
 // COMPONENT LOADER — Nav & Footer (inline, no fetch)
 // ═══════════════════════════════════════════════
 (function () {
+
+  // ── NAV ──────────────────────────────────────
   const NAV_HTML = `
 <nav>
   <div class="nav-inner">
 
-    <!-- LEFT: Logo only -->
     <div class="nav-left">
-      <a href="/" class="nav-logo">យប់<span>.</span>ឌីជីថល</a>
+      <button class="nav-menu-btn" id="navBurger" type="button"
+              aria-label="Toggle menu" aria-expanded="false">
+        <span class="nmb-lines"><span></span><span></span></span>
+        ទំព័រ
+      </button>
     </div>
 
-    <!-- CENTER: Search pill -->
     <div class="nav-center">
-      <button class="nav-search-pill" id="navSearchPill" onclick="openNavSearch()" type="button" aria-label="Search">
-        <i class="fas fa-search"></i>
-        <span class="nsp-text">ស្វែងរក lesson, tool...</span>
-        <span class="nsp-kbd">⌘K</span>
-      </button>
+      <a href="index.html" class="nav-logo">យប់<span>.</span>ឌីជីថល</a>
     </div>
 
-    <!-- RIGHT: links + mobile search icon + hamburger -->
     <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="/learn" data-page="learn">YOB Learn</a></li>
-        <li><a href="/shop" data-page="shop">តូបឌីជីថល</a></li>
-        <li><a href="/contact" class="nav-cta">សាកសួរ <i class="fas fa-paper-plane" style="margin-left:5px"></i></a></li>
-      </ul>
-      <button class="nav-search-icon-btn" onclick="openNavSearch()" type="button" aria-label="Search">
-        <i class="fas fa-search"></i>
-      </button>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="contact.html" class="nav-chat-link">
+        សាកសួរបាន <i class="fas fa-arrow-right"></i>
+      </a>
     </div>
 
   </div>
-</nav>
+</nav>`;
 
-<!-- Global Search Modal -->
-<div class="nav-search-modal" id="navSearchModal" role="dialog" aria-modal="true" aria-label="Search">
-  <div class="nsm-backdrop" id="nsmBackdrop"></div>
-  <div class="nsm-panel">
-    <div class="nsm-header">
-      <i class="fas fa-search"></i>
-      <input type="text" id="nsmInput" placeholder="ស្វែងរក lesson, ឧបករណ៍, template..." autocomplete="off" spellcheck="false" />
-      <kbd class="nsm-esc-hint">ESC</kbd>
-    </div>
-    <div class="nsm-filters" id="nsmFilters">
-      <button class="nsm-filter active" data-filter="all">ទាំងអស់</button>
-      <button class="nsm-filter" data-filter="ai"><span class="nsm-fdot" style="background:#e52c67"></span>AI Tools</button>
-      <button class="nsm-filter" data-filter="strategy"><span class="nsm-fdot" style="background:#4f82ff"></span>Strategy</button>
-      <button class="nsm-filter" data-filter="web"><span class="nsm-fdot" style="background:#00f0ff"></span>Web</button>
-      <button class="nsm-filter" data-filter="typography"><span class="nsm-fdot" style="background:#9b6bff"></span>Typography</button>
-      <button class="nsm-filter" data-filter="resource"><span class="nsm-fdot" style="background:#4ade80"></span>Resources</button>
-    </div>
-    <div class="nsm-results" id="nsmResults"></div>
-    <div class="nsm-empty" id="nsmEmpty">
-      <i class="fas fa-search"></i>
-      <p>រកមិនឃើញ — សាកល្បង keyword ផ្សេង</p>
-    </div>
-    <div class="nsm-footer">
-      <span><kbd>↑↓</kbd> navigate</span>
-      <span><kbd>↵</kbd> open</span>
-      <span><kbd>ESC</kbd> close</span>
-    </div>
+  // ── FULLSCREEN OVERLAY ────────────────────────
+  const OVERLAY_HTML = `
+<div class="nav-overlay" id="navOverlay">
+  <div class="nol-top">
+    <button class="nol-close" id="navOverlayClose">
+      <i class="fas fa-times"></i> បិទ
+    </button>
+    <a href="index.html" class="nav-logo">យប់<span>.</span>ឌីជីថល</a>
+    <a href="contact.html" class="nav-chat-link nol-chat">
+      សាកសួរបាន <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <div class="nol-nav">
+    <a href="index.html"      class="nol-link" data-page="index">ទំព័រដើម</a>
+    <a href="yobservice.html"  class="nol-link" data-page="yobservice">សេវាកម្ម</a>
+    <a href="yobacademy.html"  class="nol-link" data-page="yobacademy">សាលារៀន</a>
+    <a href="shop.html"        class="nol-link" data-page="shop">តូបឌីជីថល</a>
+    <a href="about.html"       class="nol-link" data-page="about">អំពី YOB</a>
+  </div>
+
+  <div class="nol-bottom">
+    <span class="nol-contact-label">ទំនាក់ទំនង</span>
+    <a href="mailto:yobdigital.assistant@gmail.com" class="nol-contact-link">yobdigital.assistant@gmail.com</a>
   </div>
 </div>`;
 
+  // ── FOOTER ───────────────────────────────────
   const FOOTER_HTML = `
 <footer class="ft">
-  <div class="ft-fall-wrap" id="ftFallWrap" aria-hidden="true"></div>
   <div class="ft-inner">
-    <div class="ft-left">
-      <a href="/" class="ft-logo">យប់<span>.</span>ឌីជីថល</a>
-      <p class="ft-tagline">"យប់ មានតម្លៃ ដូចពន្លឺ"</p>
-      <p class="ft-copy">© 2026 YOB Digital</p>
+    <a href="index.html" class="ft-logo-big">យប់<span>.</span>ឌីជីថល</a>
+    <p class="ft-tagline">"យប់ មានតម្លៃ ដូចពន្លឺ"</p>
+    <div class="ft-socials">
+      <a href="https://web.facebook.com/yobdigitals" class="ft-soc" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://t.me/yobdigital" class="ft-soc" target="_blank" rel="noopener" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+      <a href="https://www.linkedin.com/company/yobdigital/" class="ft-soc" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://youtube.com/@yobdigital" class="ft-soc" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
     </div>
-    <div class="ft-links">
-      <a href="/sitemap">ផែនទីរុករក</a>
-      <a href="/contact">បណ្ដាញទំនាក់ទំនង</a>
-      <a href="/about">សារបានកម្មករឌីជីថល</a>
+    <div class="ft-bottom">
+      <span class="ft-made">Made with <i class="fas fa-heart"></i></span>
+      <span class="ft-sep">·</span>
+      <span class="ft-copy">© 2026 YOB Digital</span>
+      <span class="ft-sep">·</span>
+      <a href="privacy.html"  class="ft-legal">Privacy</a>
+      <span class="ft-sep">·</span>
+      <a href="terms.html"    class="ft-legal">Terms</a>
+      <span class="ft-sep">·</span>
+      <a href="about.html"    class="ft-legal">About</a>
+      <span class="ft-sep">·</span>
+      <a href="contact.html"  class="ft-legal">Contact</a>
+      <span class="ft-sep">·</span>
+      <a href="sitemap.html"  class="ft-legal">Sitemap</a>
+      <span class="ft-sep">·</span>
+      <a href="portfolio.html" class="ft-legal">Portfolio</a>
     </div>
   </div>
 </footer>`;
 
-  // Inject Nav
+  // ── INJECT ───────────────────────────────────
   const navEl = document.getElementById("nav-placeholder");
   if (navEl) navEl.outerHTML = NAV_HTML;
 
-  // Inject Footer
   const footerEl = document.getElementById("footer-placeholder");
   if (footerEl) footerEl.outerHTML = FOOTER_HTML;
 
-  // Set active nav link
-  const page =
-    location.pathname.split("/").pop().replace(".html", "") || "index";
-  document.querySelectorAll(".nav-links a[data-page]").forEach((a) => {
-    if (a.dataset.page === page) a.classList.add("active");
+  // Inject overlay into body (after nav)
+  document.body.insertAdjacentHTML("afterbegin", OVERLAY_HTML);
+
+  // ── ACTIVE STATE ─────────────────────────────
+  const seg = location.pathname.split("/").pop().replace(/\.html$/i, "") || "index";
+  document.querySelectorAll(".nol-link[data-page]").forEach((a) => {
+    if (a.dataset.page === seg) a.classList.add("active");
   });
 
-  // Hamburger menu
-  const hamburger = document.getElementById("hamburger");
-  const navLinks = document.querySelector(".nav-links");
-  const mobileDrawer = document.getElementById("mobileDrawer");
-  if (hamburger && navLinks) {
-    hamburger.setAttribute("aria-expanded", "false");
-    // Fallback only: when a page has no shared mobile drawer.
-    if (!mobileDrawer) {
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("open");
-        navLinks.classList.toggle("open");
-        hamburger.setAttribute(
-          "aria-expanded",
-          hamburger.classList.contains("open") ? "true" : "false",
-        );
-      });
-    }
+  // ── OVERLAY OPEN / CLOSE ─────────────────────
+  const burger      = document.getElementById("navBurger");
+  const overlay     = document.getElementById("navOverlay");
+  const overlayClose = document.getElementById("navOverlayClose");
+
+  function openOverlay() {
+    overlay.classList.add("open");
+    if (burger) { burger.classList.add("open"); burger.setAttribute("aria-expanded", "true"); }
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+  }
+  function closeOverlay() {
+    overlay.classList.remove("open");
+    if (burger) { burger.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); }
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
   }
 
-  // Mobile dropdown
-  document.querySelectorAll(".dropdown-trigger").forEach((trigger) => {
-    trigger.addEventListener("click", (e) => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        const parent = trigger.closest(".nav-has-dropdown");
-        const isOpen = parent.classList.toggle("open");
-        trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      }
-    });
-  });
-
-  // ── Footer Falling Text (Matter.js physics) ──
-  (function () {
-    var wrap = document.getElementById("ftFallWrap");
-    if (!wrap) return;
-
-    function loadMatter(cb) {
-      if (window.Matter) {
-        cb();
-        return;
-      }
-      var s = document.createElement("script");
-      s.src =
-        "https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js";
-      s.onload = cb;
-      document.head.appendChild(s);
-    }
-
-    function boot() {
-      var M = Matter;
-      var W = wrap.offsetWidth || 1200;
-      var H = wrap.offsetHeight || 160;
-
-      var WORDS = [
-        { text: "យប់", color: "rgba(255,255,255,0.55)" },
-        { text: "មានតម្លៃ", color: "#e52c67" },
-        { text: "ដូចពន្លឺ", color: "rgba(255,255,255,0.55)" },
-      ];
-
-      // Create + measure DOM words
-      var items = WORDS.map(function (w) {
-        var el = document.createElement("span");
-        el.className = "ft-fall-word";
-        el.textContent = w.text;
-        el.style.color = w.color;
-        el.style.visibility = "hidden";
-        el.style.left = "0px";
-        el.style.top = "0px";
-        wrap.appendChild(el);
-        return { el: el };
-      });
-
-      var sizes = items.map(function (item) {
-        return {
-          w: Math.max(item.el.offsetWidth, 40) + 18,
-          h: Math.max(item.el.offsetHeight, 28) + 10,
-        };
-      });
-
-      items.forEach(function (item) {
-        item.el.style.visibility = "visible";
-      });
-
-      // Physics engine
-      var engine = M.Engine.create({ gravity: { y: 1.1 } });
-
-      var bods = items.map(function (item, i) {
-        var x = (W / (items.length + 1)) * (i + 1);
-        var y = -sizes[i].h - i * 55;
-        var b = M.Bodies.rectangle(x, y, sizes[i].w, sizes[i].h, {
-          restitution: 0.5,
-          frictionAir: 0.018,
-          friction: 0.3,
-        });
-        M.Body.setVelocity(b, { x: (Math.random() - 0.5) * 4, y: 0 });
-        M.Body.setAngularVelocity(b, (Math.random() - 0.5) * 0.08);
-        return { b: b, el: item.el, hw: sizes[i].w / 2, hh: sizes[i].h / 2 };
-      });
-
-      var floor = M.Bodies.rectangle(W / 2, H + 30, W + 200, 60, {
-        isStatic: true,
-      });
-      var wL = M.Bodies.rectangle(-30, H / 2, 60, H * 3, { isStatic: true });
-      var wR = M.Bodies.rectangle(W + 30, H / 2, 60, H * 3, { isStatic: true });
-
-      M.Composite.add(
-        engine.world,
-        bods
-          .map(function (d) {
-            return d.b;
-          })
-          .concat([floor, wL, wR]),
-      );
-
-      // Mouse drag
-      var mouse = M.Mouse.create(wrap);
-      var mc = M.MouseConstraint.create(engine, {
-        mouse: mouse,
-        constraint: { stiffness: 0.2, render: { visible: false } },
-      });
-      M.Composite.add(engine.world, mc);
-      mouse.element.removeEventListener("mousewheel", mouse.mousewheel);
-      mouse.element.removeEventListener("DOMMouseScroll", mouse.mousewheel);
-
-      // Render loop
-      function tick() {
-        M.Engine.update(engine, 1000 / 60);
-        bods.forEach(function (d) {
-          d.el.style.left = d.b.position.x - d.hw + "px";
-          d.el.style.top = d.b.position.y - d.hh + "px";
-          d.el.style.transform = "rotate(" + d.b.angle + "rad)";
-        });
-        requestAnimationFrame(tick);
-      }
-      tick();
-    }
-
-    // Lazy-load Matter.js on scroll into view
-    var obs = new IntersectionObserver(
-      function (entries) {
-        if (entries[0].isIntersecting) {
-          obs.disconnect();
-          loadMatter(boot);
-        }
-      },
-      { threshold: 0.05 },
+  if (burger) {
+    burger.addEventListener("click", () =>
+      overlay && overlay.classList.contains("open") ? closeOverlay() : openOverlay()
     );
-    obs.observe(wrap);
-  })();
+  }
+
+  // Event delegation — handles clicks on icon children inside buttons/links
+  if (overlay) {
+    overlay.addEventListener("click", (e) => {
+      if (e.target.closest(".nol-close")) closeOverlay();
+      if (e.target.closest(".nol-link")) closeOverlay();
+    });
+  }
+
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeOverlay(); });
+
+  // ── NAV SCROLL ───────────────────────────────
+  const nav = document.querySelector("nav");
+  if (nav) {
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("nav-scrolled", window.scrollY > 60);
+    }, { passive: true });
+  }
+
 })();
